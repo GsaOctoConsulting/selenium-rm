@@ -1,3 +1,4 @@
+TEST
 # Serenity Cucumber Starter project
 
 [![CircleCI](https://circleci.com/gh/serenity-bdd/serenity-cucumber-starter.svg?style=svg)](https://circleci.com/gh/serenity-bdd/serenity-cucumber-starter)
