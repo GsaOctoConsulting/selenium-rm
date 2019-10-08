@@ -6,13 +6,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.SystemAccountDirectoryPageLocator;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 
+/**
+ * this class refers to the System account Directory
+ * page listing all the system account and their status
+ * visible to the user
+ *
+ */
 public class SystemAccountDirectoryPage {
 	private static WebDriver driver;
 	private static Logger logger = LoggerFactory.getLogger(SystemAccountDirectoryPage.class);
@@ -20,14 +29,6 @@ public class SystemAccountDirectoryPage {
 	private SystemAccountDirectoryPage() {
 	}
 
-	// *****************************************************************************
-	// the following methods describe actions that can be taken immediately on
-	// loading of this Page
-	// *****************************************************************************
-
-	// *****************************************************************************
-	// driver getter and setter
-	// *****************************************************************************
 	public static WebDriver getDriver() {
 		return SystemAccountDirectoryPage.driver;
 	}
@@ -39,9 +40,18 @@ public class SystemAccountDirectoryPage {
 	public static void clickNewButton() {
 		driver.findElement(SystemAccountDirectoryPageLocator.NEW_BUTTON).click();
 		NewSystemAccountPage.setDriver(driver);
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 	}
 
+	/**
+	 * this method confirms the presence of an account when looked up using the given parameters
+	 * @param accountname 
+	 * @param status eg. pending review, pending approval, etc
+	 * @param org the name of the org
+	 * @param domain the name of the domain
+	 * @param action defines what to do if the account was found, eg GO Into details
+	 * @return
+	 */
 	public static boolean accountFound(String accountname, String status, String org, String domain, String action) {
 		boolean found = false;
 		List<WebElement> allAccounts = driver.findElements(By.tagName("system-listing"));
@@ -51,12 +61,12 @@ public class SystemAccountDirectoryPage {
 			boolean accountNameMatched = uiAccountName.toLowerCase().trim().equals(accountname.toLowerCase().trim());
 			logger.info("The status of account#" + i + " is --" + uiAccountName + "  & The accountNameMatched ---"
 					+ accountNameMatched);
-			CommonMethods.delay(2);
+			LaunchBrowserUtil.delay(2);
 			String uiStatus = allAccounts.get(i).findElement(By.className("text-center")).getText();
 			boolean statusMatched = uiStatus.toLowerCase().trim().equals(status.toLowerCase().trim());
 			logger.info(
 					"The status of account#" + i + " is --" + uiStatus + "  & The statusMatched ---" + statusMatched);
-			CommonMethods.delay(1);
+			LaunchBrowserUtil.delay(1);
 			StringBuilder uiOrgName = new StringBuilder(
 					allAccounts.get(i).findElement(By.tagName("sam-label-wrapper")).getText().toLowerCase().trim());
 			boolean orgNameMatched = (uiOrgName).toString().contains(org.toLowerCase().trim());
@@ -68,17 +78,16 @@ public class SystemAccountDirectoryPage {
 			if (statusMatched == true && accountNameMatched == true && orgNameMatched == true) {
 				found = true;
 				if (action.equals(Constants.DELETE)) {
-					CommonMethods.delay(1);
+					LaunchBrowserUtil.delay(1);
 					WebElement actions = allAccounts.get(i).findElement(By.className("usa-button"));
 					actions.click();
-					CommonMethods.delay(2);
+					LaunchBrowserUtil.delay(2);
 					allAccounts.get(i).findElement(By.className("fa-times")).click();
 				} else if (action.equals(Constants.GO_TO_REQUEST_DETAILS)) {
-					CommonMethods.delay(1);
-					logger.info(
-							"The current code has been hit*********************************************************************");
+					LaunchBrowserUtil.delay(1);
+					logger.info("***************GO_TO_REQUEST_DETAILS option picked***************");
 					allAccounts.get(i).findElement(By.tagName("a")).click();
-					SystemAccountRequestPage.setDriver(driver);
+					SystemAccountRequestDetailsPage.setDriver(driver);
 					break;
 				}
 
@@ -99,51 +108,70 @@ public class SystemAccountDirectoryPage {
 	}
 
 	public static void clickPendingApprovalFilter() {
-		driver.findElement(By.id("filter-pending-approval")).click();
-		CommonMethods.delay(2);
+		// driver.findElement(By.id("filter-pending-approval")).click();
+		// option 3
+		WebElement element = driver.findElement(By.id("filter-pending-approval"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).click().build().perform();
+		// CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 	}
 
 	public static void clickSortDescedingByTimestampButton() {
 		driver.findElement(By.className("fa-sort-amount-asc")).click();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(4);
 
 	}
 
 	public static void clickRejectedFilter() {
 		driver.findElement(By.id("filter-rejected")).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 	}
 
 	public static void clickDraftFilter() {
 		driver.findElement(By.id("filter-draft")).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 	}
 
 	public static void clickPendingReviewFilter() {
-		driver.findElement(By.id("filter-pending-review")).click();
-		CommonMethods.delay(2);
+		// driver.findElement(By.id("filter-pending-review")).click();
 
+		// option 2
+		/*
+		 * WebDriverWait wait2 = new WebDriverWait(driver, 10);
+		 * wait2.until(ExpectedConditions.elementToBeClickable(By.id(
+		 * "filter-pending-review"))).click();
+		 */
+
+		// option 3
+		WebElement element = driver.findElement(By.id("filter-pending-review"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).click().build().perform();
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickDeactivatedFilter() {
 		driver.findElement(By.id("filter-deactivated")).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 	}
 
 	public static void clickPublishedFilter() {
 		driver.findElement(By.id("filter-published")).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 	}
 
 	public static void searchByKeyword(String keyword) {
 		driver.findElement(By.id("search-keyword")).clear();
 		driver.findElement(By.id("search-keyword")).sendKeys(keyword);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(3);
+	}
+	public static boolean isFilterSelected(By filterlocator) {
+		return driver.findElement(filterlocator).isSelected();
 	}
 
 }

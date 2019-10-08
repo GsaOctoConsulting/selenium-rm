@@ -45,14 +45,14 @@ Description:  The purpose of this feature is to test user search capability
     And _4 user navigates to user directory page and searches for assistance admin
     Then _4 user should be able to view access for assistance admin
     
-   @5 
+   @5 @G1
     Scenario: verify user directory search for feduser filter
     Given _5 user logs in workspace as role administrator
     And _5 user navigates to user directory page 
     When _5 user selects fed user filter
     Then _5 user should only see accounts with federal user id 
     
-     @6 # currently failing due to the bug IAE-19751
+     @6 @G1 # test for bug IAE-19751
     Scenario: verify user directory search for feduser filter
     Given _6uds user logs in workspace as role administrator
     And _6uds user navigates to user directory page 
@@ -60,12 +60,22 @@ Description:  The purpose of this feature is to test user search capability
     When _6uds user unselects feduser filter and selects nonfed filter
     Then _6uds user should only see accounts with nonfederal user id 
     
-    @7
+    @7 @G1
      Scenario: user directory search box should give expected list of users
     Given _7uds user logs in workspace as assistanceuser 
     And _7uds user navigates to user directory page 
     When _7uds user searches user using four characters
     Then _7uds user should only see accounts containing the four characters 
+    
+    @8 @G1
+    Scenario: user directory org search filter should return expected results
+    Given _8uds user logs into workspace as role administrator
+    And _8uds user navigates to user directory page
+    And _8uds user searches for a user with noroles in the user search box
+    And _8uds enters gsa in org search box
+    When _8uds selects the filter for org where users have roles
+    Then _8uds no search results message should be displayed
+    
     
     
    

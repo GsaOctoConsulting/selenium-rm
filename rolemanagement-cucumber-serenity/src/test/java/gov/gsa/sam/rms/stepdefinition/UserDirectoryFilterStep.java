@@ -9,11 +9,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class UserDirectoryFilterStep {
@@ -29,7 +28,7 @@ public class UserDirectoryFilterStep {
 	@And("^_1 user navigates to user directory page$")
 	public void _1_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_1 user checks filter should be able to clears them$")
@@ -63,7 +62,7 @@ public class UserDirectoryFilterStep {
 	@And("^_2 user navigates to user directory page$")
 	public void _2_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_2 user checks filter should be able to clears them$")
@@ -93,13 +92,14 @@ public class UserDirectoryFilterStep {
 	@Given("^_3 given user logs in as role administrator$")
 	public void _3_given_user_logs_in_as_roleadministrator() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_3 user navigates to user directory page$")
 	public void _3_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_3 user checks filter should be able to clears them$")
@@ -131,7 +131,7 @@ public class UserDirectoryFilterStep {
 	}
 
 	private void afterScenario() {
-		CommonMethods.delay(6);
+		LaunchBrowserUtil.delay(6);
 		LaunchBrowserUtil.closeBrowsers();
 		logger.info("*************************END OF SCENARIO****************************************************");
 	}

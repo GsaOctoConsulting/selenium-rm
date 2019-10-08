@@ -2,12 +2,11 @@ package gov.gsa.sam.rms.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.jboss.aerogear.security.otp.Totp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,9 +17,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import org.jboss.aerogear.security.otp.Totp;
+import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
+/**
+ * This class is the primary utility class for browser actions and other custom
+ * methods that are applicable across all pages. <br>
+ * <br>
+ * The driver instance in created in this class and the reference is passed to
+ * other pages. eg. WorkspacePage.setDriver(LaunchBrowserUtil.getDriver()) <br>
+ * <br>
+ * Other actions performed by this class includes opering the browser, scrolling
+ * up and down, accessing email, etc. See method documentation for detail
+ * 
+ * 
+ * 
+ * @author Raiaan
+ *
+ */
 public class LaunchBrowserUtil {
 
 	public static WebDriver driver;
@@ -32,6 +46,12 @@ public class LaunchBrowserUtil {
 
 	}
 
+	/**
+	 * This method instantiates the driver instance and can be passed around from
+	 * page to page.
+	 * 
+	 * @return
+	 */
 	public static WebDriver openThisBrowser() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("incognito");
@@ -46,16 +66,15 @@ public class LaunchBrowserUtil {
 																		// extension
 																		// from:'
 																		// dialog
-		ChromeDriverManager.getInstance().setup();
+		String chromedriverpath = System.getProperty("user.dir") + "\\chromedriver.exe";
+		logger.info("The full path of the chromedriver is - " + chromedriverpath);
+		// System.setProperty("webdriver.gecko.driver", chromedriverpath);
+		System.setProperty("webdriver.chrome.driver", chromedriverpath);
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		return driver;
-
 	}
 
-	/**
-	 * 
-	 */
 	public static void closeThisBrowser() {
 		driver.close();
 	}
@@ -64,16 +83,15 @@ public class LaunchBrowserUtil {
 		driver.quit();
 	}
 
-	public static void scrolldown() throws Exception {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("scroll(0,30000000)", "");
-		CommonMethods.delay(1);
-	}
-
+	/**
+	 * This method scroll down to the bottom of the page
+	 * 
+	 * @throws Exception
+	 */
 	public static void scrollAllTheWayDown() throws Exception {
 		// ((JavascriptExecutor) driver).executeScript("scroll(0,800)", "");
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		CommonMethods.delay(4);
+		delay(4);
 	}
 
 	public static void closeThisBrowserTab() {
@@ -84,31 +102,11 @@ public class LaunchBrowserUtil {
 		driver.quit();
 	}
 
-	public static void dismissFeedbackIcon() {
-		driver.findElement(Locators.dismissFeedback).click();
-	}
-
-	public static void clickSignOutMainMenuButton() {
-		driver.findElement(Locators.signOutSamMenuButton).click();
-	}
-
-	public static void clickSignOutToSamButton() {
-		driver.findElement(Locators.signOutSamButton).click();
-	}
-
 	public static void enterUrl(String url) {
 		driver.navigate().to(url);
 		driver.navigate().refresh();
 		driver.navigate().refresh();
-		CommonMethods.delay(5);
-	}
-
-	public static void waitMethod() throws InterruptedException {
-		Thread.sleep(1800);
-	}
-
-	public static void longWaitMethod() throws InterruptedException {
-		Thread.sleep(2000);
+		delay(5);
 	}
 
 	public static void waitExplicitMethod(WebDriver driver, By element) throws Exception {
@@ -126,150 +124,33 @@ public class LaunchBrowserUtil {
 		js.executeScript("scroll(0,-800)", "");
 	}
 
-	public static void re_enterTheUrl() {
-		driver.findElement(Locators.tab).sendKeys(Keys.CONTROL, Keys.TAB);
-	}
-
-	// sign in
-	public static void clickSignIn() throws Exception {
-		driver.findElement(Locators.SignIn).click();
-		Thread.sleep(1200);
-	}
-
-	public static void loginToSam_Gov(String myemail, String mypass) throws Exception {
-		// Set Email in text box.
-		driver.findElement(Locators.email).sendKeys(myemail);
-		Thread.sleep(1400);
-		// Set Password in text box.
-		driver.findElement(Locators.Password1).sendKeys(mypass);
-		Thread.sleep(1400);
-		// click on dismiss feedback alert message
-		// driver.findElement(dismissFeedback).click();
-		// Thread.sleep(1400);
-		// Click Login button
-		driver.findElement(Locators.signInButton).click();
-		Thread.sleep(1400);
-	}
-
-	// Click on Next button
-	public static void clickForgotButton() throws Exception {
-		driver.findElement(Locators.Forgot).click();
-		Thread.sleep(1400);
-	}
-
-	// Click on Next button
-	public static void clickSignIn2Button() throws Exception {
-		driver.findElement(Locators.SignIn2).click();
-		Thread.sleep(1400);
-	}
-
-	// open another browser
-	public static void loginToPersonalMailBox(String myemail, String mypass, String otp) throws InterruptedException {
-		((JavascriptExecutor) driver).executeScript("window.open('https://outlook.live.com/owa/', '_blank');");
-		Set<String> tab_handles = driver.getWindowHandles();
-		int number_of_tabs = tab_handles.size();
-		int new_tab_index = number_of_tabs - 1;
-		driver.switchTo().window(tab_handles.toArray()[new_tab_index].toString());
-		driver.findElement(Locators.SignInLook).click();
-		// Set Email in text box.
-		WebElement elt = driver.findElement(Locators.userMail);
-		Actions builder = new Actions(driver);
-		Actions seriesOfActions = builder.moveToElement(elt).click().sendKeys(elt, myemail);
-		seriesOfActions.perform();
-		Thread.sleep(1400);
-		// click on next button in gmail
-		driver.findElement(Locators.nextButton).click();
-		// Set Password in text box.
-		WebElement eltpass = driver.findElement(Locators.passMail);
-		Actions builders = new Actions(driver);
-		Actions serieOfActions = builders.moveToElement(eltpass).click().sendKeys(eltpass, mypass);
-		serieOfActions.perform();
-		Thread.sleep(2000);
-		driver.findElement(Locators.nextButton).click();
-		Thread.sleep(2000);
-		driver.findElements(By.xpath("//*[@class='_lvv_B noMargin ms-font-m o365button']")).get(0).click();
-		Constants.pass = driver.findElement(By.xpath("//*[@id='Item.MessageUniqueBody']")).getText().substring(30, 38);
-		System.out.println(Constants.pass);
-		System.out.println("The pascode is printed above");
-		driver.switchTo().window(tab_handles.toArray()[0].toString());
-		Thread.sleep(2000);
-		driver.findElement(Locators.pinBox).sendKeys(Constants.pass);
-		// Thread.sleep(3000);
-		driver.findElement(Locators.samSubmitButton2).click();
-	}
-
-	// log into GSA and capture otp from email & come back to homepage
-	public static void captureOTPfromGsaEmail(String myemail) throws Exception {
-		CommonMethods.delay(8);
-		// ((JavascriptExecutor)
-		// driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
-
-		CommonMethods.delay(2);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(myemail);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-
-		CommonMethods.delay(10);
-		// List<WebElement> lastMail =
-		// driver.findElements(By.xpath("//*[@id=\":2k\"]/div/div/div"));// want
-		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
-		// know
-		logger.info("The size of email list is - " + lastMail.size()); // how
-		// this
-		// was
-		// captured
-		lastMail.get(0).click();
-		CommonMethods.delay(1);
-		Constants.OTP = driver.findElement(Locators.iaeOtp).getText().substring(30, 38);
-
-		logger.info("The captured OTP is- " + Constants.OTP);
-
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
-	}
-
-	public static void captureOTPfromGsaEmailNonFed(String gmailNonfed) throws InterruptedException {
-		CommonMethods.delay(8);
-		LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		CommonMethods.delay(2);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(gmailNonfed);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-		CommonMethods.delay(1);
-		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(Constants.PASSWORD_NEW);
-		CommonMethods.delay(2);
-		driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content/span")).click();
-
-		CommonMethods.delay(10);
-		// List<WebElement> lastMail =
-		// driver.findElements(By.xpath("//*[@id=\":2k\"]/div/div/div"));// want
-		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
-		// know
-		logger.info("The size of email list is - " + lastMail.size()); // how
-		// this
-		// was
-		// captured
-		lastMail.get(0).click();
-		CommonMethods.delay(1);
-		Constants.OTP = driver.findElement(Locators.iaeOtp).getText().substring(30, 38);
-
-		logger.info("The captured OTP is- " + Constants.OTP);
-
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
-	}
-
+	/**
+	 * use this method to clear all cookies from the browser
+	 * 
+	 * @throws InterruptedException
+	 */
 	public static void clearCookies() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		Thread.sleep(5000);
 
 	}
 
+	public static void goToOctoTestEmailInbox() {
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		delay(2);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(Constants.GMAIL_USERNAME);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(4);
+	}
+
 	public static String captureTitleFromLastEmail(int emailNo) {
-		CommonMethods.delay(15);
+		delay(15);
 		List<WebElement> lastMail = driver.findElements(By.className("zA"));
 		logger.info("The size of email list is - " + lastMail.size());
 		String emailtitle = lastMail.get(emailNo).getText();
@@ -289,7 +170,7 @@ public class LaunchBrowserUtil {
 		logger.info("..................................................................................");
 		logger.info("The email message is-- " + emailbody);
 		logger.info("..................................................................................");
-		CommonMethods.delay(5);
+		delay(5);
 
 		// driver.findElement(By.className("ar9")).click();
 		// driver.findElement(By.xpath("//div[@aria-label='Delete']")).click();
@@ -307,17 +188,8 @@ public class LaunchBrowserUtil {
 
 		String toandFrom = driver.findElement(By.className("gE")).getText();
 		logger.info("The to and from text is---------" + toandFrom);
-		CommonMethods.delay(2);
+		delay(2);
 		return toandFrom;
-	}
-
-	public static void clickMainMenu() {
-		driver.findElement(Locators.menu).click();
-	}
-
-	public static void clickWorkspace() {
-		List<WebElement> wicon = driver.findElements(Locators.workspaceIcon);
-		wicon.get(7).click();
 	}
 
 	public static WebDriver getDriver() {
@@ -340,8 +212,7 @@ public class LaunchBrowserUtil {
 				.getAttribute("href");
 		String message = "captured system account id is--- " + systemAccountId;
 		// logger.info("captured system account id is--- " + systemAccountId);
-		logger.info(": {}", message); // SLF4J, Log4j
-
+		logger.info(": {}", message); //
 		return systemAccountId;
 	}
 
@@ -353,146 +224,161 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void switchTabs(int i) {
-		CommonMethods.delay(1);
+		delay(1);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		logger.info("The size of the tab array is ---- " + tab_handles.size());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - i));
-		CommonMethods.delay(2);
+		delay(2);
 	}
 
 	public static void navigateBack() {
-		CommonMethods.delay(1);
+		delay(1);
 		driver.navigate().back();
-		CommonMethods.delay(1);
+		delay(1);
 	}
 
+	/**
+	 * this method is used internally to generate otp from secretkey
+	 * 
+	 * @param accountId the email id of the account
+	 * @param secretkey the secret key captured at signup
+	 * @return
+	 */
 	public static String getOtp(String accountId, String secretkey) {
 		Totp totp = new Totp(secretkey);
 		return totp.now();
 	}
 
 	public static ArrayList<String> captureSignUpLinkFromGmail() throws InterruptedException {
-		CommonMethods.delay(15);
-		LaunchBrowserUtil.clearCookies();
+		delay(15);
+		// LaunchBrowserUtil.clearCookies();
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
-		CommonMethods.delay(5);
-
+		driver.navigate().refresh();
+		delay(5);
 		// ((JavascriptExecutor)
 		// driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		CommonMethods.delay(3);
-		driver.navigate().refresh();
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("shah.raiaan@gsa.gov");
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-		CommonMethods.delay(8);
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(Constants.GMAIL_USERNAME);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		LaunchBrowserUtil.delay(10);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		// driver.findElement(By.linkText("octotestaccount1@gsa.gov
+		// (delegated)")).click();
+		/*
+		 * WebElement list = driver.findElement(By.cssSelector("img[alt='Profile']"));
+		 * 
+		 * logger.info("---------------------------------- the now list size is- "+list.
+		 * getText()); list.click();
+		 */
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(3);
 		List<WebElement> lastMail = driver.findElements(By.className("zA"));
-		logger.info("The size of email list is - " + lastMail.size()); // how
-		lastMail.get(0).click();
-		CommonMethods.delay(1);
-
-		CommonMethods.delay(6);
-		driver.findElement(By.linkText("Confirm email address")).click();
-		CommonMethods.delay(4);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		return tab_handles;
-	}
-
-	public static ArrayList<String> captureSignUpLinkFromGmailNonFed(String email) throws InterruptedException {
-		CommonMethods.delay(8);
-		LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		CommonMethods.delay(2);
-		driver.navigate().refresh();
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-
-		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("BlackColor1!");
-		driver.findElement(By.id("passwordNext")).click();
-		CommonMethods.delay(3);
-		List<WebElement> lastMail = driver.findElements(By.className("zA"));
-		logger.info("The size of email list is - " + lastMail.size()); // how
-		lastMail.get(0).click();
-		CommonMethods.delay(1);
-
-		CommonMethods.delay(6);
-		driver.findElement(By.linkText("Confirm email address")).click();
-		CommonMethods.delay(4);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		return tab_handles;
-	}
-
-	public static String getPhoneOtpFromEmail(String myemail) throws InterruptedException {
-		CommonMethods.delay(20);
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		CommonMethods.delay(2);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		// driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-
-		CommonMethods.delay(10);
-		// List<WebElement> lastMail =
-		// driver.findElements(By.xpath("//*[@id=\":2k\"]/div/div/div"));// want
-		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
-		// know
 		logger.info("The size of email list is - " + lastMail.size());
 		lastMail.get(0).click();
-		CommonMethods.delay(1);
-		String phoneotp = driver.findElement(By.className("a3s")).getText();
-		/*
-		 * String phoneotp =
-		 * driver.findElement(By.xpath("//table[contains(@class, 'content-table')]"))
-		 * .getText();
-		 */
-		logger.info("The captured OTP is- " + phoneotp);
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
-		return phoneotp;
-	}
-
-	public static void goToMailInbox(String username, String password,String usertype) {
-		CommonMethods.delay(8);
-		// ((JavascriptExecutor)
-		// driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
-		CommonMethods.delay(2);
+		delay(6);
+		driver.findElement(By.linkText("Confirm email address")).click();
+		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		return tab_handles;
+	}
+
+	public static ArrayList<String> captureSignUpLinkFromNonFedEmail(String email) throws InterruptedException {
+		delay(8);
+		LaunchBrowserUtil.clearCookies();
+		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		delay(2);
+		driver.navigate().refresh();
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.id("login")).sendKeys(email);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[3]/input")).click();
+		delay(3);
+		// List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		// logger.info("The size of email list is - " + lastMail.size()); // how
+		// lastMail.get(0).click();
+		// delay(1);
+
+		delay(6);
+		/*
+		 * driver.findElement(By.id( "mailmillieu")) .click();
+		 */
+		// driver.findElement(by) startsWith
+		/*
+		 * driver.findElement(By.xpath(
+		 * "By.xpath(\"//a[contains(@href, 'https://idp.int.identitysandbox.gov/sign_up/email/confirm?')]\"));"
+		 * )) .click();
+		 */
+
+		// (By.className("float-center")).click();
+		/*
+		 * WebElement element = driver.findElement(By.xpath(
+		 * "//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"
+		 * )); Actions actions = new Actions(driver);
+		 * actions.moveToElement(element).click().perform();
+		 */
+		driver.manage().window().maximize();
+		driver.switchTo().frame("ifmail");
+		driver.findElement(By.xpath(
+				"//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"))
+				.click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		return tab_handles;
+	}
+
+	public static void goToFedMailInbox(String username, String password) {
+		delay(3);
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		delay(2);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(2);
+		// if (nooffetch == 1) {
 		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(username);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-		
-		if (usertype.equals(Constants.USER_NONFED)) {
-			driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(password);
-			CommonMethods.delay(3);
-			driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/content/span")).click();
-			CommonMethods.delay(3);
-		}
-		CommonMethods.delay(5);
+		delay(1);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(2);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(2);
 	}
 
 	public static String getOtpFromEmailForApiKey(String email, String userpass, int nooffetch)
 			throws InterruptedException {
-		CommonMethods.delay(8);
-		// ((JavascriptExecutor)
-		// driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		// LaunchBrowserUtil.clearCookies();
+		delay(8);
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
-
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(3);
+		if (nooffetch == 1) {
+			driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
+			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		}
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		delay(15);
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		int cookielist = driver.manage().getCookies().size();
 		logger.info("the number of cookies are - " + cookielist);
 
-		if (nooffetch == 1) {
-			driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
-			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-		}
-
-		CommonMethods.delay(10);
-		// List<WebElement> lastMail =
-		// driver.findElements(By.xpath("//*[@id=\":2k\"]/div/div/div"));// want
+		delay(10);
 		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
 		// know
 		logger.info("The size of email list is - " + lastMail.size()); // how
@@ -500,90 +386,292 @@ public class LaunchBrowserUtil {
 		// was
 		// captured
 		lastMail.get(0).click();
-		CommonMethods.delay(1);
-		Constants.OTP = driver.findElement(Locators.iaeOtp).getText().substring(26, 33);
-		;
-
+		delay(1);
+		Constants.OTP = driver.findElement(By.className("a3s")).getText().substring(26, 33);
 		logger.info("The captured OTP is- " + Constants.OTP);
 		driver.navigate().back();
 		return Constants.OTP;
 	}
-	/*
-	 * public static void takeScreenshot() throws Exception { WebDriver
-	 * augmentedDriver = new Augmenter().augment(getDriver()); File screenshot =
-	 * ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
-	 * FileUtils.copyFile(screenshot, new File("screenshots/" +
-	 * System.currentTimeMillis() + ".png")); }
-	 */
 
 	public static String getOtpFromEmailForApiKeyNonFed(String email, String userpass, int nooffetch) {
-		CommonMethods.delay(8);
-		// ((JavascriptExecutor)
-		// driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
-		// LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
-
-		CommonMethods.delay(2);
+		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		int cookielist = driver.manage().getCookies().size();
-		logger.info("the number of cookies are - " + cookielist);
-
-		if (nooffetch == 1) {
-			driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
-			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/content/span")).click();
-			driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(userpass);
-			CommonMethods.delay(3);
-			driver.findElement(By.id("passwordNext")).click();
-			CommonMethods.delay(3);
-		}
-
-		CommonMethods.delay(10);
-		// List<WebElement> lastMail =
-		// driver.findElements(By.xpath("//*[@id=\":2k\"]/div/div/div"));// want
-		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
-		// know
-		logger.info("The size of email list is - " + lastMail.size()); // how
-		// this
-		// was
-		// captured
-		lastMail.get(0).click();
-		CommonMethods.delay(1);
-		Constants.OTP = driver.findElement(Locators.iaeOtp).getText().substring(26, 33);
-		;
-
-		logger.info("The captured OTP is- " + Constants.OTP);
-		driver.navigate().back();
-		return Constants.OTP;
+		driver.findElement(By.id("login")).sendKeys(email);
+		delay(3);
+		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[3]/input")).click();
+		delay(3);
+		driver.manage().window().maximize();
+		driver.switchTo().frame("ifmail");
+		delay(2);
+		String phoneotp = driver.findElement(By.tagName("h3")).getText();
+		logger.info("The captured phone otp is-------- " + phoneotp);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		delay(2);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
+		/*
+		 * int cookielist = driver.manage().getCookies().size();
+		 * logger.info("the number of cookies are - " + cookielist); if (nooffetch == 1)
+		 * { driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
+		 * driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click()
+		 * ;
+		 * driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input"))
+		 * .sendKeys(userpass); delay(3);
+		 * driver.findElement(By.id("passwordNext")).click(); delay(3); }
+		 */
+		return phoneotp;
 	}
 
 	public static String getPhoneOtpFromEmailDuringSignUp(String gmailUsername) {
-
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		LaunchBrowserUtil.delay(5);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
-		driver.navigate().back();
-		CommonMethods.delay(25);
-		// List<WebElement> lastMail =
-		// driver.findElements(By.xpath("//*[@id=\":2k\"]/div/div/div"));// want
-		/*
-		 * driver.findElement(By.xpath("//*[@id=\"aso_search_form_anchor\"]/div/input"))
-		 * .sendKeys("(404) 948-6201");
-		 * driver.findElement(By.xpath("//*[@id=\"aso_search_form_anchor\"]/div/input"))
-		 * .sendKeys(Keys.ENTER);
-		 */
-		CommonMethods.delay(5);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(3);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(4);
 		List<WebElement> lastMail = driver.findElements(By.className("zA"));
 		logger.info("The size of email list is - " + lastMail.size());
 		lastMail.get(0).click();
-		CommonMethods.delay(1);
+		delay(3);
 		String phoneotp = driver.findElement(By.className("a3s")).getText();
-		/*
-		 * String phoneotp =
-		 * driver.findElement(By.xpath("//table[contains(@class, 'content-table')]"))
-		 * .getText();
-		 */
 		logger.info("The captured OTP is- " + phoneotp);
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		delay(2);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 3));
 		return phoneotp;
+	}
+
+	public static void recoverThroughForgotPasswordForFed(String userid, String secretkey, String newpassword)
+			throws InterruptedException {
+		T1WorkspacePage.clickSignInButton();
+		T1WorkspacePage.clickAcceptOnBanner();
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		delay(1);
+		driver.findElement(By.id("password_reset_email_form_email")).sendKeys(userid);
+		delay(1);
+		driver.findElement(By.xpath("//*[@id=\"new_password_reset_email_form\"]/input[3]")).click();
+		delay(1);
+		// driver.findElement(By.xpath("//*[@id=\"new_password_reset_email_form\"]/input[5]")).click();
+
+		// ----------get reset password link-------------------
+		// LaunchBrowserUtil.clearCookies();
+		delay(12);
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		LaunchBrowserUtil.delay(3);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(3);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(9);
+		List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();
+		delay(5);
+		driver.findElement(By.linkText("Reset your password")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+
+		// ---------------set new password------
+		delay(2);
+		driver.findElement(By.id("reset_password_form_password")).sendKeys(newpassword);
+		driver.findElement(By.xpath("//*[@id=\"new_reset_password_form\"]/input[4]")).click();
+		delay(5);
+	}
+
+	public static void recoverThroughForgotPasswordForNonFed(String userid, String secretkey, String newpassword)
+			throws InterruptedException {
+		T1WorkspacePage.clickSignInButton();
+		T1WorkspacePage.clickAcceptOnBanner();
+		driver.findElement(By.linkText("Forgot your password?")).click();
+		delay(1);
+		driver.findElement(By.id("password_reset_email_form_email")).sendKeys(userid);
+		delay(1);
+		driver.findElement(By.xpath("//*[@id=\"new_password_reset_email_form\"]/input[3]")).click();
+		delay(1);
+		// driver.findElement(By.xpath("//*[@id=\"new_password_reset_email_form\"]/input[5]")).click();
+
+		// ----------get reset password link-------------------
+		LaunchBrowserUtil.clearCookies();
+		delay(5);
+		delay(12);
+		// ((JavascriptExecutor)
+		// driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
+		delay(2);
+		driver.navigate().refresh();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+
+		/*
+		 * driver.navigate().refresh(); tab_handles = new
+		 * ArrayList<String>(driver.getWindowHandles());
+		 * driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		 * driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(
+		 * "shah.raiaan@gsa.gov");
+		 * driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click()
+		 * ;
+		 */
+		List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		logger.info("The size of email list is - " + lastMail.size()); // how
+		lastMail.get(0).click();
+		delay(1);
+
+		delay(6);
+		driver.findElement(By.linkText("Reset your password")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+
+		// ---------------set new password------
+		delay(2);
+		driver.findElement(By.id("reset_password_form_password")).sendKeys(newpassword);
+		driver.findElement(By.xpath("//*[@id=\"new_reset_password_form\"]/input[4]")).click();
+	}
+
+	public static String getOtpForSystemAccountFromEmail(String email) throws InterruptedException {
+		delay(4);
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(Constants.GMAIL_USERNAME);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		LaunchBrowserUtil.delay(10);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(3);
+		List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();
+		/*delay(2);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		delay(2);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		delay(4);
+		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
+		delay(4);
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();*/
+		delay(2);
+		Constants.OTP = driver.findElement(By.className("a3s")).getText().substring(27, 35);
+		logger.info("The captured OTP is- " + Constants.OTP);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 3));
+		return Constants.OTP;
+	}
+
+	public static String getOtpForSystemAccountFromEmailNonFed(String email, String userpass) {
+		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		LaunchBrowserUtil.delay(3);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.id("login")).sendKeys(email);
+		delay(3);
+		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[3]/input")).click();
+		delay(3);
+		driver.manage().window().maximize();
+		driver.switchTo().frame("ifmail");
+		delay(4);
+		Constants.OTP = driver.findElement(By.tagName("h3")).getText();
+		logger.info("The captured OTP is- " + Constants.OTP);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
+		return Constants.OTP;
+	}
+	/**
+	 * Custom Method for delay entered in seconds
+	 * 
+	 * @param seconds the desired amount of delay in seconds
+	 */
+	public static void delay(int seconds) {
+		try {
+			TimeUnit.SECONDS.sleep(seconds);
+		} catch (InterruptedException ex) {
+		}
+	}
+
+	public static void clickSideNavToGoToPage(String pageName, WebDriver driver) {
+		List<WebElement> pageList = driver.findElements(AccountDetailsPageLocator.SIDE_NAV);
+		logger.info("The size of the side-nav list is----" + pageList.size());
+		for (int i = 0; i < pageList.size(); i++) {
+			if (pageName.equals(pageList.get(i).getText())) {
+
+				pageList.get(i).click();
+			}
+		}
+
+	}
+
+	public static String getPhoneOtpFromEmailDuringSignUpNonFed(String gmailNonfed) {
+		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		LaunchBrowserUtil.delay(3);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.id("login")).sendKeys(gmailNonfed);
+		delay(7);
+		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[4]/input")).click();
+		delay(3);
+		driver.manage().window().maximize();
+		driver.switchTo().frame("ifmail");
+		delay(2);
+		String phoneotp = driver
+				.findElement(By.xpath("//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/table[2]/tbody/tr[1]/td"))
+				.getText().substring(0, 7);
+		logger.info("The captured phone otp is-------- " + phoneotp);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		delay(2);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
+		return phoneotp;
+	}
+
+	public static void goToNonFedFedMailInbox(String nonfedemail) {
+		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		LaunchBrowserUtil.delay(3);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.id("login")).sendKeys(nonfedemail);
+		delay(3);
+		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[3]/input")).click();
+		delay(4);
+		driver.findElement(By.xpath("//*[@id=\"butmail\"]/tbody/tr/td[10]/a")).click();
+		delay(5);
+		// List<WebElement> emailist =driver.findElements(By.className("m2"));
+		// logger.info("The emaillist size is-- "+emailist.size());
+		driver.manage().window().maximize();
+		driver.switchTo().frame("ifmail");
+		delay(2);
+
+	}
+
+	public static String captureEmailContentNonfed() {
+		delay(3);
+		String emailcontent = driver.findElement(By.id("mailmillieu")).getText();
+		logger.info("-------------------------below is the email content--------------------------------------");
+		logger.info(emailcontent);
+		logger.info("---------------------------------------------------------------------------------------");
+		return emailcontent;
 	}
 }

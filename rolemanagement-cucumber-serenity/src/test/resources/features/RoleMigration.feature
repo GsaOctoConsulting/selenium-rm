@@ -18,8 +18,7 @@
 #Sample Feature Definition Template
 @RoleMigration 
 Feature: Role Migration functionality 
-	Description:  The purpose of this feature is to test role migration
-capabilities
+	Description:  The purpose of this feature is to test role migration capabilities
 
 @1 #1 on confluence doc
 Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role 
@@ -39,8 +38,7 @@ Scenario: user should not able to claim a legacy profile more than once
 	Then _2rm_ user should see user already migrated error 
 	
 @3 #4, 5 &6 on confluence doc
-Scenario:
-System should throw error if one or the other data fields has incorrect data 
+Scenario: System should throw error if one or the other data fields has incorrect data 
 	Given _3rm_ user signs in 
 	And _3rm_ user nagivates to role migration page 
 	When _3rm_ user enters incorrect legacy username only 
@@ -51,8 +49,7 @@ System should throw error if one or the other data fields has incorrect data
 	Then _3rm_ user should see appropriate error response 
 	
 @4 #7 on confluence doc
-Scenario:
-when user is given a role then system should not assign the same role twice 
+Scenario: when user is given a role then system should not assign the same role twice 
 	Given _4rm_ new user signs up 
 	And _4rm_spaad logs in and assigns assistance listing admin to the new user 
 	And _4rm_ user logs back in and navigates to role migration page 
@@ -64,7 +61,6 @@ when user is given a role then system should not assign the same role twice
 Scenario: nonfederal user should not be able to migrate roles
 	Given _5rm_ nonfed user signs in
 	Then _5rm_ nonfed user should not see migrate roles link in workspace
-	And _5rm_ nonfed user should also not see role migration tab in profile page 
 	
 @6 #9 on confluence doc
 Scenario: when user is given a role in addition to what they already have then system should not assign the same role twice
@@ -93,9 +89,21 @@ Scenario: User should be presented an error message for maximum password use att
 	When _8rm_ user enters incorrect password three times
 	Then _8rm user should get proper error message
 	
+@9 # migration for fbo domain
+Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role with fbo domain to CO role
+	Given _9rm_ user is registered in login dot gov 
+	And _9rm_ user signs in 
+	And _9rm_ user nagivates to role migrration page 
+	When _9rm_ user enters proper legacy domain name and password 
+	Then _9rm_ user should have their corresponding role migrated 	
 	
-	
-	
+@10 # migration for fbo domain
+Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role with fbo domain to CS role
+	Given _10rm_ user is registered in login dot gov 
+	And _10rm_ user signs in 
+	And _10rm_ user nagivates to role migrration page 
+	When _10rm_ user enters proper legacy domain name and password 
+	Then _10rm_ user should have their corresponding role migrated 		
 	
 	
 	

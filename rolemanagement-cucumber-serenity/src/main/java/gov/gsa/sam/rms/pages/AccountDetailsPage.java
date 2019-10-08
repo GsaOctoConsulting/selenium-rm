@@ -1,6 +1,5 @@
 package gov.gsa.sam.rms.pages;
 
-
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,9 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
-
+/**
+ * This class corresponds to the AccountDetails Page where user's signup and org
+ * info are found
+ */
 public class AccountDetailsPage {
 	private static WebDriver driver;
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(AccountDetailsPage.class);
@@ -20,42 +22,50 @@ public class AccountDetailsPage {
 	private AccountDetailsPage() {
 	}
 
-	// *****************************************************************************
-	// the following methods describe actions that can be taken immediately on
-	// loading of this Page
-	// *****************************************************************************
+	public static WebDriver getDriver() {
+		return AccountDetailsPage.driver;
+	}
+
+	public static void setDriver(WebDriver driver) {
+		AccountDetailsPage.driver = driver;
+	}
+
 	public static void goToMyWorkspacePage() {
 		clickMenuDropdown();
 		driver.findElement(AccountDetailsPageLocator.WORKSPACE).click();
-		MyWorkspacePage.setDriver(AccountDetailsPage.getDriver());
-		CommonMethods.delay(2);
+		T1WorkspacePage.setDriver(AccountDetailsPage.getDriver());
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickMenuDropdown() {
 		driver.findElement(AccountDetailsPageLocator.MENU_DROPDOWN).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
-	public static void goToPageOnSideNav(String pageName) {
-		CommonMethods.clickSideNavToGoToPage(pageName, driver);
-		CommonMethods.delay(3);
+	/**
+	 * @param sidenavoption eg. Roles, RoleMigration, etc
+	 */
+	public static void goToPageOnSideNav(String sidenavoption) {
+		LaunchBrowserUtil.clickSideNavToGoToPage(sidenavoption, driver);
+		MyRolesPage.setDriver(driver);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	public static void clickDeactivateAccount() {
 		driver.findElement(AccountDetailsPageLocator.BUTTON_DEACTIVATE).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(AccountDetailsPageLocator.POPUP_YES_DEACTIVATE).click();
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 		driver.findElement(AccountDetailsPageLocator.POPUP_YES_DEACTIVATE2).click();
 	}
-	// *****************************************************************************
-	// the following methods describe actions that are only available after some
-	// previous actions were taken on this SAME page.
-	// *****************************************************************************
 
-	// *****************************************************************************
-	// driver getter and setter & private methods
-	// *****************************************************************************
+	/**
+	 * this methods tests whether account info key is found and if found returns the
+	 * value eg Department:
+	 * 
+	 * @param key
+	 * @return the value of the key if found, empty otherwise
+	 */
 	public static String accountInfo(String key) {
 		List<WebElement> allKey = driver.findElements(AccountDetailsPageLocator.DEPARTMENT);
 		if (key.equalsIgnoreCase("Department:")) {
@@ -69,34 +79,30 @@ public class AccountDetailsPage {
 		return "Key Not Found";
 	}
 
-	public static WebDriver getDriver() {
-		return AccountDetailsPage.driver;
-	}
-
-	public static void setDriver(WebDriver driver) {
-		AccountDetailsPage.driver = driver;
-	}
-
-	public static void clickShowAPIKeyCheckbox() {
-		driver.findElement(By.id("usa-api-toggle")).click();
+	public static void clickEyeIconToGenerateAPIKey() {
+		driver.findElement(By.className("fa-eye")).click();
+		LaunchBrowserUtil.delay(1);
 
 	}
 
 	public static void enterOtp(String otp) {
-		driver.findElement(By.id("api-pin")).clear();
-		driver.findElement(By.id("api-pin")).sendKeys(otp);
-		CommonMethods.delay(1);
+		driver.findElement(By.id("password-input")).clear();
+		driver.findElement(By.id("password-input")).sendKeys(otp);
+		LaunchBrowserUtil.delay(1);
 
 	}
 
-	public static void clickContinueButton() {
-		driver.findElement(By.xpath("//*[@id=\"api-key-grid\"]/div/div[2]/sam-button/button")).click();
+	public static void clickSubmitButton() {
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/section/ng-component/sam-modal-basic/div/div/div[2]/div/button[2]"))
+				.click();
 
 	}
 
 	public static void clickSendNewCodeLink() {
 		driver.findElement(By.linkText("Send new code")).click();
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 	}
 
 	public static boolean elementFound(By locator) {
@@ -115,14 +121,25 @@ public class AccountDetailsPage {
 	}
 
 	public static void clickRequestApiKeyButton() {
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.xpath("//*[@id=\"api-key-grid\"]/div/sam-button/button")).click();
-		CommonMethods.delay(5);
+		LaunchBrowserUtil.delay(5);
 
 	}
 
 	public static void clickContinueOnSessionExtension() {
-		driver.findElement(By.xpath("/html/body/app/sam-modal/div[2]/div/div[2]/div/sam-button[2]/button")).click();	
+		driver.findElement(By.xpath("/html/body/app/sam-modal/div[2]/div/div[2]/div/sam-button[2]/button")).click();
+	}
+
+	public static String getWrongApiErrorMessage() {
+		return driver.findElement(AccountDetailsPageLocator.API_KEY_ERROR_MESSAGE).getText();
+
+	}
+
+	public static void closeAPIKeyModal() {
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("password-modalClose")).click();
+		LaunchBrowserUtil.delay(1);
 	}
 
 }

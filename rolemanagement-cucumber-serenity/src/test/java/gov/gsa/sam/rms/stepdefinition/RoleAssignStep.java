@@ -7,13 +7,18 @@ import junit.framework.Assert;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.FeedsRequestPage;
+import gov.gsa.sam.rms.pages.MyRolesPage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-
-import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.ConstantsAccounts;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class RoleAssignStep {
@@ -22,16 +27,16 @@ public class RoleAssignStep {
 	@Given("^_1 user logs in with dra role$")
 	public void _1_user_logs_in_as_dra() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ra@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
 	}
-	
+
 	@And("^_1 user navigates to userdirectory and looks up a no role user$")
 	public void _1_user_navigates_to_userdirectory_and_looks_up_a_no_role_user() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		String noRoleUser = "shah.raiaan+noRoles@gsa.gov";
-		RMWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
-		UserDirectoryPage.clickAssignRole(noRoleUser);
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
 	}
 
 	@Then("^_1 user gives assistance user role in assistance listing$")
@@ -41,70 +46,128 @@ public class RoleAssignStep {
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_1 the user logs back in they should see the assigned role$")
+	public void _1_the_user_logs_back_in_they_should_see_the_assigned_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_1 the user should also see the role history updated with correct name format$")
+	public void _1_the_user_should_also_see_the_role_history_updated_with_correct_name_format() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		
+		String latesthistorydescription = MyRolesPage.getLatestRoleHistory();
+		String descriptionwordarray[]= latesthistorydescription.split(" ");
+		String requestername = descriptionwordarray[0]+descriptionwordarray[1];
+		logger.info("The name of the requester is -- "+requestername);
+		Assert.assertTrue(FeedsRequestPage.isStringOnlyAlphabetAndSpace(requestername));
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Then("^_1 the dra should be able to remove the role for the user$")
+	public void _1_the_dra_should_be_able_to_remove_the_role_for_the_user() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+		
 		// ---------delete the newly granted role-----------
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		afterScenario();
+	}
+
+	@Given("^_2 user logs in as dra$")
+	public void _2_user_logs_in_as_dra() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_2 user navigates to Assign Role Page$")
+	public void _2_user_navigates_to_assign_role_page() throws Throwable {
+
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String noRoleUser = "shah.raiaan+noRoles@gsa.gov";
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+		UserDirectoryPage.clickAssignRole(noRoleUser);
+
+	}
+
+	@Then("^_2 organziation box should show as empty$")
+	public void _2_organziation_box_should_show_as_empty() throws Throwable {
+		Assert.assertEquals(AssignRolePage.getCurrentTextInOrgPicker().trim(), "");
+	}
+
+	@Given("^_3 user logs in with ra role$")
+	public void _3_user_logs_in_with_ra_role() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_3 user navigates to userdirectory and looks up a non-fed no role user$")
+	public void _3_user_navigates_to_userdirectory_and_looks_up_a_nonfed_no_role_user() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String noRoleUser = "raiaan.shah+41@gmail.com";
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+		UserDirectoryPage.clickAssignRole(noRoleUser);
+	}
+
+	@Then("^_3 user gives data entry role in contract opportunities$")
+	public void _3_user_gives_data_entry_role_in_contract_opportunities() throws Throwable {
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, "DELETE");
 		Assert.assertEquals(userAlreadyHasRole, true);
 		afterScenario();
 	}
 
-	 @Given("^_2 user logs in as dra$")
-	    public void _2_user_logs_in_as_dra() throws Throwable {
-		 SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+deptAdminSelenium@gsa.gov", Constants.USERPASS);
-	    }
- @And("^_2 user navigates to Assign Role Page$")
-	    public void _2_user_navigates_to_assign_role_page() throws Throwable {
-	 
-	 LaunchBrowserUtil.scrollAllTheWayDown();
-		String noRoleUser = "shah.raiaan+noRoles@gsa.gov";
-		RMWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
-		UserDirectoryPage.clickAssignRole(noRoleUser);
-	       
-	    }
-	    @Then("^_2 organziation box should show as empty$")
-	    public void _2_organziation_box_should_show_as_empty() throws Throwable {
-	    	Assert.assertEquals(AssignRolePage.getCurrentTextInOrgPicker().trim(), "");
-	    }
+	@Given("^_4 user logs in with ra role$")
+	public void _4_user_logs_in_with_ra_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
 
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    @Given("^_3 user logs in with ra role$")
-		public void _3_user_logs_in_with_ra_role() throws Throwable {
-			beforeScenario();
-			SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ra@gsa.gov", Constants.USERPASS);
-		}
-		
-		@And("^_3 user navigates to userdirectory and looks up a non-fed no role user$")
-		public void _3_user_navigates_to_userdirectory_and_looks_up_a_nonfed_no_role_user() throws Throwable {
-			LaunchBrowserUtil.scrollAllTheWayDown();
-			String noRoleUser = "raiaan.shah+41@gmail.com";
-			RMWidgetUtility.clickUserDirectoryLink();
-			UserDirectoryPage.searchUserInUserPicker(noRoleUser);
-			UserDirectoryPage.clickAssignRole(noRoleUser);
-		}
+	@And("^_4 user navigates to userdirectory and looks up a fed user$")
+	public void _4_user_navigates_to_userdirectory_and_looks_up_a_fed_user() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+	}
 
-		@Then("^_3 user gives data entry role in contract opportunities$")
-		public void _3_user_gives_data_entry_role_in_contract_opportunities() throws Throwable {
-			AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
-			AssignRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
-			AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
-			AssignRolePage.writeComment("test");
-			AssignRolePage.clickDone();
-			// ---------delete the newly granted role-----------
-			boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-					Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, "DELETE");
-			Assert.assertEquals(userAlreadyHasRole, true);
-			afterScenario();
-		}
-	   
+	@When("^_4 ra tries to assign role they should not see subtier admin instead of agency admin$")
+	public void _4_ra_tries_to_assign_role_they_should_not_see_subtier_admin_instead_of_agency_admin()
+			throws Throwable {
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
+
+		boolean agencyAdminRoleFound = AssignRolePage.selectRoleIfFound(Constants.ROLE_AGENCY_ADMIN);
+		Assert.assertEquals(false, agencyAdminRoleFound);
+
+		boolean subtierAdminRoleFound = AssignRolePage.selectRoleIfFound(Constants.ROLE_SUBTIER_ADMIN);
+		Assert.assertEquals(true, subtierAdminRoleFound);
+	}
+
 	// private methods are below this line
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");

@@ -14,7 +14,7 @@ import gov.gsa.sam.rms.pages.RoleDefinitionPage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 
 public class RoleDefinitionStep {
 	private static Logger logger = LoggerFactory.getLogger(BulkUpdateStep.class);
@@ -29,7 +29,7 @@ public class RoleDefinitionStep {
 	@And("^_1 user navigates to role definition page through widget$")
 	public void _1_user_navigates_to_role_definition_page_through_widget() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickRoleDefinitionsLink();
+		UserDirectoryWidgetUtility.clickRoleDefinitionsLink();
 	}
 
 	@Then("^_1 user shoudl see proper links and buttons$")

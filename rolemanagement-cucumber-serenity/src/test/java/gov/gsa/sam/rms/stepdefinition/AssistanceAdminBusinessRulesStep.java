@@ -10,8 +10,7 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
@@ -19,10 +18,11 @@ import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.BulkUpdatePage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.MyWorkspacePage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 public class AssistanceAdminBusinessRulesStep {
 	private static Logger logger = LoggerFactory.getLogger(AssistanceAdminBusinessRulesStep.class);
@@ -37,21 +37,21 @@ public class AssistanceAdminBusinessRulesStep {
 	@Then("^_1aa user should see not see role definitions link$")
 	public void _1aa_user_should_see_not_see_role_definitions_link() throws Throwable {
 		// role definition link check
-		boolean roleDefinitionLinkFound = RMWidgetUtility.linkFound("Role Definitions");
+		boolean roleDefinitionLinkFound = UserDirectoryWidgetUtility.linkFound("Role Definitions");
 		Assert.assertEquals(roleDefinitionLinkFound, false);
 	}
 
 	@And("^_1aa user should see bulk update link$")
 	public void _1aa_user_should_see_bulk_update_link() throws Throwable {
 		// bulk update link check
-		boolean bulkUpdateLinkFound = RMWidgetUtility.linkFound("Bulk Update");
+		boolean bulkUpdateLinkFound = UserDirectoryWidgetUtility.linkFound("Bulk Update");
 		Assert.assertEquals(bulkUpdateLinkFound, true);
 	}
 
 	@And("^_1aa user should see pending request link$")
 	public void _1aa_user_should_see_pending_request_link() throws Throwable {
 		// pending request link check
-		boolean pendingRequestLinkFound = RMWidgetUtility.linkFound("Pending Role Requests");
+		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
 		Assert.assertEquals(pendingRequestLinkFound, true);
 	}
 
@@ -63,7 +63,7 @@ public class AssistanceAdminBusinessRulesStep {
 
 	@And("^_2aa user navigates to my profile page$")
 	public void _2aa_user_navigates_to_my_profile_page() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 	}
@@ -89,7 +89,7 @@ public class AssistanceAdminBusinessRulesStep {
 	@And("^_3aa user navigates to user directory page$")
 	public void _3aa_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_3aa user directory links should be clickable$")
@@ -125,7 +125,7 @@ public class AssistanceAdminBusinessRulesStep {
 	@And("^_4aa user navigates to user directory page$")
 	public void _4aa_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_4aa user searches for hhs in org picker$")

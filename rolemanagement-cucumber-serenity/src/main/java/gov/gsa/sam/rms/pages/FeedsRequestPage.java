@@ -3,36 +3,43 @@ package gov.gsa.sam.rms.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 
+/**
+ * this page is where all the requests visible to the user is listed
+ */
 public class FeedsRequestPage {
 	private static WebDriver driver;
-
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(FeedsRequestPage.class);
 
 	private FeedsRequestPage() {
 	}
 
-	// *****************************************************************************
-	// the following methods describe actions that can be taken immediately on
-	// loading of this Page
-	// *****************************************************************************
+	public static WebDriver getDriver() {
+		return driver;
+	}
+
+	public static void setDriver(WebDriver driver) {
+		FeedsRequestPage.driver = driver;
+	}
+
 	public static List<WebElement> getFeedsList() {
-		return driver.findElements(FeedsRequestPageLocator.FEED_ITEM);
+		List<WebElement> feedslist = driver.findElements(FeedsRequestPageLocator.FEED_ITEM);
+		logger.info("The size fo the user list is--" + feedslist.size());
+		return feedslist;
 
 	}
 
 	public static void clickRoleRequestFilter() {
 		driver.findElement(FeedsRequestPageLocator.ROLEREQUEST_FILTER).click();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 
 	}
 
@@ -44,28 +51,28 @@ public class FeedsRequestPage {
 
 	public static void clickApprovedFilter() {
 		driver.findElement(FeedsRequestPageLocator.APPROVED_FILTER).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 	}
 
 	public static void clickRejectedFilter() {
 		driver.findElement(FeedsRequestPageLocator.REJECTED_FILTER).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickCanceledFilter() {
 		driver.findElement(FeedsRequestPageLocator.CANCELED_FILTER).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickPendingFilter() {
 		driver.findElement(FeedsRequestPageLocator.PENDING_FILTER).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickSubmitALFilter() {
 		driver.findElement(FeedsRequestPageLocator.SUBMIT_AL_FILTER).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickClearFilters() {
@@ -74,63 +81,40 @@ public class FeedsRequestPage {
 
 	public static void clickCompletedFilter() {
 		driver.findElement(FeedsRequestPageLocator.COMPLETED_FILTER).click();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickSentOnSideBar() {
 		driver.findElement(FeedsRequestPageLocator.SENT_ONSIDENAV).click();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	public static void clickReceivedOnSideNav() {
 		driver.findElement(FeedsRequestPageLocator.RECEIVED_ONSIDENAV).click();
-		CommonMethods.delay(4);
-	}
-
-	public static void clickToSortBy(String visibleTextOption) {
-		WebElement sortSelectOptions = driver.findElement(FeedsRequestPageLocator.SORT_SELECT);
-		Select sortOptions = new Select(sortSelectOptions);
-		sortOptions.selectByVisibleText(visibleTextOption);
-		CommonMethods.delay(2);
-	}
-
-	public static void searchRequest(String searchterm) {
-		WebElement searchBar = driver.findElement(FeedsRequestPageLocator.SEARCH_REQUEST_BAR);
-		searchBar.sendKeys(searchterm);
-		searchBar.sendKeys(Keys.ENTER);
-		CommonMethods.delay(1);
-
-	}
-
-	// *****************************************************************************
-	// the following methods describe actions that are only available after some
-	// previous actions were taken on this SAME page.
-	// *****************************************************************************
-	public static void searchRequestor(String requestoremail) {
-		driver.findElement(FeedsRequestPageLocator.SEARCH_REQUESTOR_AREA).sendKeys(requestoremail);
-		CommonMethods.delay(2);
-		driver.findElement(FeedsRequestPageLocator.FIRST_REQUESTOR_OR_APPROVER).click();
-		CommonMethods.delay(1);
-	}
-
-	public static void searchApprover(String approveremail) {
-		driver.findElement(FeedsRequestPageLocator.SEARCH_APPROVER_AREA).sendKeys(approveremail);
-		CommonMethods.delay(2);
-		driver.findElement(FeedsRequestPageLocator.FIRST_REQUESTOR_OR_APPROVER).click();
-		CommonMethods.delay(1);
-
+		LaunchBrowserUtil.delay(4);
 	}
 
 	public static void goToWorkspacePage() {
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(FeedsRequestPageLocator.WORKSPACEPAGE_BREADCRUMB_LINK).click();
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 
 	}
 
-	// *****************************************************************************
-	// driver getter and setter & private methods
-	// *****************************************************************************
+	/**
+	 * this methods confirms whether a request is present in the request list when
+	 * all the parameters are provided
+	 * 
+	 * @param fullName  the name of the user (requester)
+	 * @param org       the org name e.g General Services Administration
+	 * @param role      the role name, e.g Assistance User
+	 * @param timestamp the timestamp of the request (important as this helps to
+	 *                  make the search parameter unique)
+	 * @param status    status of the request
+	 * @param action    the action to be taken on the request, eg REJECTROLE,
+	 *                  NOACTION, see implementation
+	 * @return true if the request is found, false otherwise
+	 */
 	public static boolean requestFound(String fullName, String org, String role, String timestamp, String status,
 			String action) {
 		boolean requestFound = false;
@@ -145,14 +129,13 @@ public class FeedsRequestPage {
 				logger.info(eachFeedDetails);
 				logger.info("This role will be rejected");
 				requestFound = true;
-				CommonMethods.delay(2);
+				LaunchBrowserUtil.delay(2);
 
 				feedList.get(i).click();
-				RoleRequestApprovalPage.setDriver(FeedsRequestPage.getDriver());
-				CommonMethods.delay(2);
+				LaunchBrowserUtil.delay(2);
 				driver.findElement(By.id("Additional Information")).sendKeys("Request is rejected");
-				CommonMethods.delay(1);
-				RoleRequestApprovalPage.clickRejectButton();
+				LaunchBrowserUtil.delay(1);
+				FeedsRequestPage.clickRejectButton();
 				break;
 
 			} else if (eachFeedDetails.contains(fullName.toLowerCase()) && eachFeedDetails.contains(org.toLowerCase())
@@ -166,6 +149,21 @@ public class FeedsRequestPage {
 		return requestFound;
 	}
 
+	public static void clickRejectButton() {
+		logger.info(driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[2]/div[3]/div[2]/div/sam-button[1]/button"))
+				.getText());
+		driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[2]/div[3]/div[2]/div/sam-button[1]/button"))
+				.click();
+		LaunchBrowserUtil.delay(3);
+	}
+
+	/**
+	 * this method returns the timestamp of the topmost request on the feeds page
+	 * 
+	 * @return the timestamp as a string
+	 */
 	public static String getLastRequestRequestTimestamp() {
 		List<WebElement> feedList = getFeedsList();
 		String timestamp = feedList.get(0).findElement(By.className("msg-feed-date")).getText();
@@ -173,12 +171,47 @@ public class FeedsRequestPage {
 		return timestamp;
 	}
 
-	public static WebDriver getDriver() {
-		return driver;
+	public static int getTotalNoOfPages() {
+		String resultMessage = driver.findElement(FeedsRequestPageLocator.TOTAL_NO_OFRECORDS).getText();
+		logger.info("Total number of records found is - "+resultMessage);
+		String[] bits = resultMessage.trim().split(" ");
+		int recordNo = Integer.parseInt(bits[bits.length - 3]);
+		logger.info("The number of records found are - " + recordNo);
+		int totalNoPages = noOfPageExpected(recordNo);
+		logger.info("The number of pages found are - " + totalNoPages);
+		return totalNoPages;
 	}
 
-	public static void setDriver(WebDriver driver) {
-		FeedsRequestPage.driver = driver;
+	private static int noOfPageExpected(int totalNoOfRecords) {
+		if (totalNoOfRecords <= 10) {
+			return 0;
+		} else if (totalNoOfRecords % 10 == 0) {
+			return ((totalNoOfRecords / 10));
+		} else {
+			return ((totalNoOfRecords / 10) + 1);
+		}
+	}
+
+	public static boolean isStringOnlyAlphabetAndSpace(String requestername) {
+		return ((requestername != null) && (!requestername.equals(""))
+				&& (requestername.matches("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")));
+	}
+	public static List<WebElement> getPagination() {
+		List<WebElement> pagination = driver.findElements(FeedsRequestPageLocator.PAGINATION);
+		logger.info("The size of the pagination is -" + pagination.size());
+		return pagination;
+	}
+	public static void clickPageNo(int pageno, int pageLimit) {
+		List<WebElement> pagelist = getPagination();
+
+		for (int i = 0; i < pageLimit && pagelist.size() > 1; i++) {
+			if (Integer.parseInt(pagelist.get(i).getText()) == pageno) {
+				logger.info("Text from the pagebutton - " + pagelist.get(i).getText());
+				pagelist.get(i).click();
+				LaunchBrowserUtil.delay(3);
+				break;
+			}
+		}
 	}
 
 }

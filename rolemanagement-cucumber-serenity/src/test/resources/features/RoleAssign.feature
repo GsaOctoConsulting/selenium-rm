@@ -21,11 +21,14 @@ Feature: Top-down role assign functionality
 Description:  The purpose of this feature is to test top-down
 role assign capability admin users
 
-  @1 @DRA
+  @1 @DRA @IntegrationTest @G1
   Scenario: top down role assignment for dra should function correctly
    Given _1 user logs in with dra role
    And _1 user navigates to userdirectory and looks up a no role user
    And _1 user gives assistance user role in assistance listing
+   When _1 the user logs back in they should see the assigned role
+   And _1 the user should also see the role history updated with correct name format
+   Then _1 the dra should be able to remove the role for the user
    
  @2 @DRA
  Scenario: organization on assign role page should not be prepopulated
@@ -38,4 +41,12 @@ role assign capability admin users
  Given _3 user logs in with ra role
    And _3 user navigates to userdirectory and looks up a non-fed no role user
    And _3 user gives data entry role in contract opportunities
+   
+ @4 @IntegrationTest @G1
+ Scenario: agency admin is now known as subtier admin for fh
+ Given _4 user logs in with ra role
+   And _4 user navigates to userdirectory and looks up a fed user
+   When _4 ra tries to assign role they should not see subtier admin instead of agency admin  
+   
+   
  

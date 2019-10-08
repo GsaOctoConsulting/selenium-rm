@@ -87,6 +87,27 @@ And _6 role admin looks up dra user through user directory
 And _6 role admin tries to assign omb admin to this user
 Then _6 correct error message should appear
 
+@7 @G1
+Scenario: dra should not be able to request roles
+Given _7 dra logs into workspace
+And _7 dra navigates to profile page
+Then _7 dra should not see the role request button
+When _7 dra tries to hit the role request page directly through url 
+Then _7 dra should not be able to access the role request page
+
+@8 @G1
+Scenario: dra should not be able to view any links related to role migration
+Given _8 dra logs into workspace
+Then _8 dra should not see migrate roles link
+When _8 dra navigates to profile page
+Then _8 they should not see the role migration banner 
+When _8 dra tries to hit the role migration page directly through url
+Then _8 dra they should not be able to access the role request page
+
+
+
+
+
 
 
 

@@ -80,16 +80,14 @@ Scenario: role request comment update
 	Then  _7 role admin should see both the original and the updated comments 
 	
 @8 @SmokeTest @IntegrationTest 
-Scenario: 
-	empty org role domain and comment box should should show error messages 
+Scenario: empty org role domain and comment box should should show error messages 
 	Given _8 assistance user logs into workspace 
 	And _8 the user navigates to request roles page 
 	When _8 the user clicks submit button without entering information 
 	Then _8 the user should see all the error messages showing up 
 	
 @9 @IntegrationTest @G1 
-Scenario:
-both RA and assistance user should see feeds updated during rejection of a request 
+Scenario: both RA and assistance user should see feeds updated during rejection of a request 
 	Given _9 assistance user logs into workspace 
 	And _9 the user navigates to my roles page to request contracting officer role 
 	And _9 role admin looks up the request in feeds through pending role request link 
@@ -97,14 +95,19 @@ both RA and assistance user should see feeds updated during rejection of a reque
 	Then _9 role admin should see the request status change in the feeds 
 	
 @10 @IntegrationTest @G1 
-Scenario:
-both RA and assistance user should see feeds updated during approval of a request 
+Scenario: both RA and assistance user should see feeds updated during approval of a request 
 	Given _10 assistance user logs into workspace 
 	And _10 the user navigates to my roles page to request contracting officer role 
 	And _10 role admin looks up the request in feeds through pending role request link 
 	And _10 role admin looks up users profile page to see pending request link and approves the request 
 	Then _10 role admin should see the request status change in the feeds 
-	
+
+@11 @IntegrationTest @G1 
+Scenario: all role request in feeds should show requester name as firstname and lastname without comma 
+	Given _11 spaad logs into workspace 
+	And _11 the user navigates to feeds page 
+	When _11 spaad goes through the feeds requests 
+	Then _11 should see requester name appearing as expected without any comma  
 	
 	
 	

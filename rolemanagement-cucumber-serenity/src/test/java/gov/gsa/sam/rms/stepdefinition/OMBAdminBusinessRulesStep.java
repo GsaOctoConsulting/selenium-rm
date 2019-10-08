@@ -10,8 +10,7 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
@@ -19,10 +18,11 @@ import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.BulkUpdatePage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.MyWorkspacePage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 public class OMBAdminBusinessRulesStep {
 	private static Logger logger = LoggerFactory.getLogger(OMBAdminBusinessRulesStep.class);
@@ -37,28 +37,28 @@ public class OMBAdminBusinessRulesStep {
 	@Then("^user should see all user link$")
 	public void user_should_see_all_user_link() throws Throwable {
 		// all user link check
-		boolean alluserfilterFound = MyWorkspacePage.elementFound(MyWorkspacePageLocator.ALL_USER_FSDFILTER);
+		boolean alluserfilterFound = T1WorkspacePage.elementFound(MyWorkspacePageLocator.ALL_USER_FSDFILTER);
 		Assert.assertEquals(alluserfilterFound, false);
 	}
 
 	@And("^user should see role definition link$")
 	public void user_should_see_role_definition_link() throws Throwable {
 		// role definition link check
-		boolean roleDefinitionLinkFound = RMWidgetUtility.linkFound("Role Definitions");
+		boolean roleDefinitionLinkFound = UserDirectoryWidgetUtility.linkFound("Role Definitions");
 		Assert.assertEquals(roleDefinitionLinkFound, false);
 	}
 
 	@And("^user should see bulk update link$")
 	public void user_should_see_bulk_update_link() throws Throwable {
 		// bulk update link check
-		boolean bulkUpdateLinkFound = RMWidgetUtility.linkFound("Bulk Update");
+		boolean bulkUpdateLinkFound = UserDirectoryWidgetUtility.linkFound("Bulk Update");
 		Assert.assertEquals(bulkUpdateLinkFound, true);
 	}
 
 	@And("^user should see pending request link$")
 	public void user_should_see_pending_request_link() throws Throwable {
 		// pending request link check
-		boolean pendingRequestLinkFound = RMWidgetUtility.linkFound("Pending Role Requests");
+		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
 		Assert.assertEquals(pendingRequestLinkFound, true);
 	}
 
@@ -70,7 +70,7 @@ public class OMBAdminBusinessRulesStep {
 
 	@And("^_2_user navigates to my profile page$")
 	public void _2_user_navigates_to_my_profile_page() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 	}
@@ -93,7 +93,7 @@ public class OMBAdminBusinessRulesStep {
 	@And("^_3omb user navigates to user directory page$")
 	public void _3omb_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_3omb user directory links should be clickable$")
@@ -129,7 +129,7 @@ public class OMBAdminBusinessRulesStep {
 	@And("^_4omb user navigates to user directory page$")
 	public void _4omb_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_4omb user searches for hhs in org picker$")
@@ -149,7 +149,7 @@ public class OMBAdminBusinessRulesStep {
 	@And("^_5omb user navigates to user directory page$")
 	public void _5omb_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_5omb user should be able to clear filters$")
@@ -176,13 +176,13 @@ public class OMBAdminBusinessRulesStep {
 
 	@Given("^_6omb user logs in as omb admin$")
 	public void _6omb_user_logs_in_as_omb_admin() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ombAdminEop@gsa.gov", Constants.USERPASS);
+		//SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ombAdminEop@gsa.gov", Constants.USERPASS);
 	}
 
 	@And("^_6omb user navigates to bulk update page$")
 	public void _6omb_user_navigates_to_bulk_update_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickBulkUpdateLink();
+		UserDirectoryWidgetUtility.clickBulkUpdateLink();
 	}
 
 	@Then("^_6omb user should see org and roles across departments$")
@@ -198,14 +198,14 @@ public class OMBAdminBusinessRulesStep {
 
 	@Given("^_7omb user logs in as omb admin$")
 	public void _7omb_user_logs_in_as_omb_admin() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ombAdminEop@gsa.gov", Constants.USERPASS);
+		//SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ombAdminEop@gsa.gov", Constants.USERPASS);
 	}
 
 	@And("^_7omb user tries to assign a role to a user through user directory$")
 	public void _7omb_user_tries_to_assign_a_role_to_a_user_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		String noRoleUser = "shah.raiaan+noRolesEop@gsa.gov";
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
 		UserDirectoryPage.clickAssignRole(noRoleUser);
 		Assert.assertEquals(AssignRolePage.getCurrentTextInOrgPicker().trim(), "");

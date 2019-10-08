@@ -7,23 +7,19 @@ public class MyWorkspacePageLocator {// contains locators for MyWorkspacePgOnly
 	public static final String title = "beta.SAM.gov | Workspace";
 
 	// the following locators are available without user action
-	public static final By USER_SEARCH_BAR = By.id("search-users");
+	public static final By USER_SEARCH_BAR = By.id("fsd-user-search");
 	public static final By USER_SEARCH_FOR_RA = By.id("fsd-user-search");
 
 	// the following locators are avaialble after some user action
 	public static final By AUTOCOMPLETE_RESULTS = By.id("sam-autocomplete-results-kv");
 
-	public static final By ROLE_DEFINITION_LINK = By.id(
-			"role-definition-link");
+	public static final By ROLE_DEFINITION_LINK = By.id("role-definition-link");
 
-	public static final By BULK_UPDATELINK = By.id(
-			"bulk-update-link");
+	public static final By BULK_UPDATELINK = By.id("bulk-update-link");
 
-	public static final By PENDING_REQUEST = By.id(
-			"pending-role-request-link");
+	public static final By PENDING_REQUEST = By.id("pending-role-request-link");
 
-	public static final By USERDIRECTORY_LINK = By.id(
-			"user-dir-link");
+	public static final By USERDIRECTORY_LINK = By.id("user-dir-link");
 
 	public static final By WIDGET = By.tagName("rm-widget");
 

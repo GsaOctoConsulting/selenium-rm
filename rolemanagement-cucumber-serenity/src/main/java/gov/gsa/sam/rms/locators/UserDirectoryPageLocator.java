@@ -76,6 +76,8 @@ public class UserDirectoryPageLocator {
 	public static final By SEARCH_ORGPICKER = By.linkText("\r\n" + "        Advanced\r\n" + "        ");
 	public static final By ORG_PICKER = By.id("search-org-pickerpicker");
 	public static final By ID = By.className("description");
+	public static final By ORG_PICKER_FILTER_WHERE_USERS_HAVE_ROLES = By.id("orgTypeOrganizations-where-users-have-roles");
+	public static final By NO_RESULTS_MESSAGE = By.xpath("//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/p");
 
 	private UserDirectoryPageLocator() {
 

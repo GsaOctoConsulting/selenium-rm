@@ -25,5 +25,9 @@ public class FeedsRequestPageLocator {
 	public static final By RECEIVED_ONSIDENAV = By.linkText("Received");
 	public static final By SORT_SELECT = By.id("sort-select");
 	public static final By WORKSPACEPAGE_BREADCRUMB_LINK = By.linkText("Workspace");
+	public static final By TOTAL_NO_OFRECORDS = By.className("pull-left");
+	public static final By REQUESTER_NAME = By.tagName("b");
+	public static final By PAGINATION = By.className("page-button");
+	public static final By MESSAGE_FEED_DESCRIPTION = By.className("msg-feed-description");
 	
 }

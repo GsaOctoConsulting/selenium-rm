@@ -22,6 +22,6 @@ Feature: Role and Role History functionality
 and role history
 
 @1 @RegressionTest @DRA 
-Scenario: verify my roles page for Links Data And Role history 
+Scenario: verify my roles page for Links Data And Role hist
 	Given _1 user logs in workspace with dra role 
 	Then _1 user navigates to My Roles page to see their current role 

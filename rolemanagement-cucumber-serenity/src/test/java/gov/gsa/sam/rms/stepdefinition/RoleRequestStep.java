@@ -1,29 +1,32 @@
 package gov.gsa.sam.rms.stepdefinition;
 
+import java.util.List;
+
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.RequestRolePageLocator;
+import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.MyWorkspacePage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class RoleRequestStep {
@@ -42,7 +45,7 @@ public class RoleRequestStep {
 
 	@And("^_1 user requests assistance user role in assistance listing$")
 	public void user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -60,26 +63,27 @@ public class RoleRequestStep {
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickSentOnSideBar();
 		FeedsRequestPage.clickSentOnSideBar();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 		String timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.closeBrowsers();
 		// --------------------login as assistance admin------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
 				ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);
-		MyWorkspacePage.goToFeedsPage();
+		// LaunchBrowserUtil.scrollToMiddle();
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickPendingFilter();
 		LaunchBrowserUtil.scrollUp();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
-		CommonMethods.delay(6);
+		LaunchBrowserUtil.delay(6);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
@@ -92,7 +96,7 @@ public class RoleRequestStep {
 
 	@And("^_2 user navigates to request role page$")
 	public void user_navigates_to_request_role_page() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -104,11 +108,11 @@ public class RoleRequestStep {
 	@Then("^_2 organization text box suggestions should only show GSA orgs$")
 	public void organization_text_box_suggestions_should_only_show_gsa_orgs() throws Throwable {
 
-		boolean correctOrgShown = RequestRolePage.validateOrgSuggestionContainsGivenWord("human", "Dept: GSA");
+		boolean correctOrgShown = RequestRolePage.validateOrgSuggestionContainsGivenWord("human", "47");
 		Assert.assertEquals(correctOrgShown, true);
 		afterScenario();
 
-		CommonMethods.delay(7);
+		LaunchBrowserUtil.delay(7);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
@@ -121,7 +125,7 @@ public class RoleRequestStep {
 
 	@And("^_3 user requests assistance user role in assistance listing$")
 	public void _3_user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -132,14 +136,14 @@ public class RoleRequestStep {
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test comments");
 		RequestRolePage.clickSubmit();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickSentOnSideBar();
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);
-		CommonMethods.delay(5);
+		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
@@ -150,11 +154,11 @@ public class RoleRequestStep {
 
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-		MyWorkspacePage.goToFeedsPage();
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickPendingFilter();
 		LaunchBrowserUtil.scrollUp();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
@@ -166,10 +170,10 @@ public class RoleRequestStep {
 		FeedsRequestPage.goToWorkspacePage();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("test");
@@ -178,16 +182,16 @@ public class RoleRequestStep {
 
 	@Then("^_3 the pending request should appear as complete in the feeds$")
 	public void _3_the_pending_request_should_appear_as_complete_in_the_feeds() throws Throwable {
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		AssignRolePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickCompletedFilter();
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 
 		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);
-		CommonMethods.delay(5);
+		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
@@ -199,7 +203,7 @@ public class RoleRequestStep {
 
 	@Then("^_3 the requester see the request updated as complete in feeds$")
 	public void _3_the_requester_see_the_request_updated_as_complete_in_feeds() throws Throwable {
-		MyWorkspacePage.goToFeedsPage();
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickSentOnSideBar();
 		FeedsRequestPage.clickCompletedFilter();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
@@ -211,45 +215,46 @@ public class RoleRequestStep {
 	public void _3_the_requester_see_the_updated_role_in_my_roles_page() throws Throwable {
 		LaunchBrowserUtil.scrollUp();
 		FeedsRequestPage.goToWorkspacePage();
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		boolean roleFound = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(true, roleFound);
-		CommonMethods.delay(5);
+		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 		// --------------------------delete the role---------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		// check whether user already has the role
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		// delete the role for the user
-		userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+		userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
-		CommonMethods.delay(8);
+		LaunchBrowserUtil.delay(8);
 		afterScenario();
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_4 no role user logs into workspace$")
 	public void _4_no_role_user_logs_into_workspace() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_4 user requests assistance user role in assistance listing$")
 	public void _4_user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -265,14 +270,16 @@ public class RoleRequestStep {
 
 	@When("^_4 dra logs into common workspace$")
 	public void _4_dra_logs_into_common_workspace() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+deptAdminSelenium@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+
 	}
 
 	@Then("^_4 they should be able to approve role for the requester$")
 	public void _4_they_should_be_able_to_approve_role_for_the_requester() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
 		UserDirectoryPage.clickViewAccess(noRoleUser);
 		MyRolesPage.click1PendingRequest();
@@ -290,12 +297,13 @@ public class RoleRequestStep {
 
 	@Given("^_5 no role user logs into workspace$")
 	public void _5_no_role_user_logs_into_workspace() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_5 user requests assitance user role in assistance listing$")
 	public void _5_user_requests_assitance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -317,8 +325,10 @@ public class RoleRequestStep {
 
 	@Then("^_5 dra logs in and verfies the feeds for the request$")
 	public void _5_dra_logs_in_and_verfies_the_feeds_for_the_request() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+deptAdminSelenium@gsa.gov", Constants.USERPASS);
-		MyWorkspacePage.goToFeedsPage();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickRoleRequestFilter();
 		boolean requestFound = FeedsRequestPage.requestFound("SHAH noroless2 RAIAAN", Constants.ORG_GSA,
@@ -328,7 +338,7 @@ public class RoleRequestStep {
 
 		// -----assert with 'role request' filter---------
 		MyRolesPage.setDriver(FeedsRequestPage.getDriver());
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickRoleRequestFilter();
 		requestFound = FeedsRequestPage.requestFound("SHAH noroless2 RAIAAN", Constants.ORG_GSA,
@@ -347,7 +357,7 @@ public class RoleRequestStep {
 
 	@And("^_6 the user navigates to my roles page to request contracting officer role$")
 	public void _6_the_user_navigates_to_my_roles_page_to_request_contracting_officer_role() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -363,23 +373,23 @@ public class RoleRequestStep {
 
 	@When("^_6 user updates the comment of the from the pending request link$")
 	public void _6_user_updates_the_comment_of_the_from_the_pending_request_link() throws Throwable {
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
 		updatedComments = "Comments updated";
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 		RoleRequestPendingPage.updateComment(updatedComments);
 	}
 
 	@Then("^_6 the user should see the updated comment$")
 	public void _6_the_user_should_see_the_updated_comment() throws Throwable {
-		boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist("", updatedComments);
+		boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist(updatedComments);
 		Assert.assertEquals(true, updatedCommentsFound);
 	}
 
 	@And("^_6 the user should be able to delete the request$")
 	public void _6_the_user_should_be_able_to_delete_the_request() throws Throwable {
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		RoleRequestPendingPage.clickDeleteButton();
 		RoleRequestPendingPage.confirmDeleteOnPopup();
 	}
@@ -393,7 +403,8 @@ public class RoleRequestStep {
 
 	@And("^_7 the user navigates to my roles page to request contracting officer role$")
 	public void _7_the_user_navigates_to_my_roles_page_to_request_contracting_officer_role() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		Assert.assertTrue(false);// intentionally failing until bug is fixed
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -412,14 +423,15 @@ public class RoleRequestStep {
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
 
-		boolean commentsFound = RoleRequestPendingPage.commentsExist("", comments);
+		boolean commentsFound = RoleRequestPendingPage.commentsExist(comments);
+
 		Assert.assertEquals(true, commentsFound);
 		updatedComments = "Comments updated";
 
 		RoleRequestPendingPage.updateComment(updatedComments);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
-		boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist("", updatedComments);
+		boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist(updatedComments);
 		Assert.assertEquals(true, updatedCommentsFound);
 
 	}
@@ -440,15 +452,15 @@ public class RoleRequestStep {
 	@Then("^_7 role admin should see both the original and the updated comments$")
 	public void _7_role_admin_should_see_both_the_original_and_the_updated_comments() throws Throwable {
 
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_USER_2);
-		RolesDirectoryViewAccessPage.setDriver(RoleRequestPendingPage.getDriver());
-		CommonMethods.delay(2);
+		UserDirectoryViewAccessPage.setDriver(RoleRequestPendingPage.getDriver());
+		LaunchBrowserUtil.delay(2);
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
 
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 
 		/*
 		 * boolean originalCommentsFound = RoleRequestPendingPage.commentsExist("",
@@ -457,7 +469,7 @@ public class RoleRequestStep {
 		 * boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist("",
 		 * updatedComments); Assert.assertEquals(true, updatedCommentsFound);
 		 */
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 		RoleRequestPendingPage.enterAdditionalInformation("rejecting this");
 		RoleRequestPendingPage.clickRejectButton();
 	}
@@ -465,12 +477,13 @@ public class RoleRequestStep {
 	@Given("^_8 assistance user logs into workspace$")
 	public void _8_assistance_user_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+assistanceuserv2@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_8 the user navigates to request roles page$")
 	public void _8_the_user_navigates_to_request_roles_page() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -497,7 +510,7 @@ public class RoleRequestStep {
 		Assert.assertEquals(true, roleErrorFound);
 		boolean domainErrorFound = RequestRolePage.elementFound(RequestRolePageLocator.ERRORMESSAGE_DOMAIN);
 		Assert.assertEquals(true, domainErrorFound);
-		boolean commentErrorFound = RequestRolePage.elementFound(RequestRolePageLocator.ERRORMESSAGE_COMMENT);
+		boolean commentErrorFound = RequestRolePage.elementFound(RequestRolePageLocator.ERRORMESSAGE_ADDITIONALDETAILS);
 		Assert.assertEquals(true, commentErrorFound);
 	}
 
@@ -511,7 +524,7 @@ public class RoleRequestStep {
 	@And("^_9 the user navigates to my roles page to request contracting officer role$")
 	public void _9_the_user_navigates_to_my_roles_page_to_request_contracting_officer_role() throws Throwable {
 
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -523,16 +536,16 @@ public class RoleRequestStep {
 		comments = "test";
 		RequestRolePage.writeComment(comments);
 		RequestRolePage.clickSubmit();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickSentOnSideBar();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.closeBrowsers();
 
 	}
@@ -542,16 +555,16 @@ public class RoleRequestStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 
-		MyWorkspacePage.goToFeedsPage();
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickPendingFilter();
 		LaunchBrowserUtil.scrollUp();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
-		CommonMethods.delay(6);
+		LaunchBrowserUtil.delay(6);
 
 	}
 
@@ -561,7 +574,7 @@ public class RoleRequestStep {
 		FeedsRequestPage.goToWorkspacePage();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_USER_2);
 		MyRolesPage.click1PendingRequest();
@@ -569,12 +582,12 @@ public class RoleRequestStep {
 		MyRolesPage.writeAdditionalInformation("rejecting this request");
 		RoleRequestPendingPage.clickRejectButton();
 
-		CommonMethods.delay(17);
+		LaunchBrowserUtil.delay(17);
 	}
 
 	@Then("^_9 role admin should see the request status change in the feeds$")
 	public void _9_role_admin_should_see_the_request_status_change_in_the_feeds() throws Throwable {
-		CommonMethods.delay(45);
+		LaunchBrowserUtil.delay(45);
 	}
 
 	@Given("^_10 assistance user logs into workspace$")
@@ -586,7 +599,7 @@ public class RoleRequestStep {
 
 	@And("^_10 the user navigates to my roles page to request contracting officer role$")
 	public void _10_the_user_navigates_to_my_roles_page_to_request_contracting_officer_role() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -598,7 +611,7 @@ public class RoleRequestStep {
 		comments = "test";
 		RequestRolePage.writeComment(comments);
 		RequestRolePage.clickSubmit();
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 
 	}
 
@@ -612,7 +625,7 @@ public class RoleRequestStep {
 		 * EMAIL_ROLEREQUEST_MESSAGE_FOR_SUPERVISOR), true);
 		 */
 
-		CommonMethods.delay(14);
+		LaunchBrowserUtil.delay(14);
 
 	}
 
@@ -621,16 +634,16 @@ public class RoleRequestStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 
-		MyWorkspacePage.goToFeedsPage();
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickPendingFilter();
 		LaunchBrowserUtil.scrollUp();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
-		CommonMethods.delay(6);
+		LaunchBrowserUtil.delay(6);
 	}
 
 	@And("^_10 role admin looks up users profile page to see pending request link and approves the request$")
@@ -639,7 +652,7 @@ public class RoleRequestStep {
 		FeedsRequestPage.goToWorkspacePage();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_USER_2);
 		MyRolesPage.click1PendingRequest();
@@ -657,6 +670,55 @@ public class RoleRequestStep {
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_11 spaad logs into workspace$")
+	public void _11_spaad_logs_into_workspace() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_11 the user navigates to feeds page$")
+	public void _11_the_user_navigates_to_feeds_page() throws Throwable {
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickReceivedOnSideNav();
+	}
+
+	@When("^_11 spaad goes through the feeds requests$")
+	public void _11_spaad_goes_through_the_feeds_requests() throws Throwable {
+		int totalNoOfPages = FeedsRequestPage.getTotalNoOfPages();
+		int currentPage = 1;
+
+		do {// search page 1 regardless of whether other pages exist
+
+			List<WebElement> feedsList = FeedsRequestPage.getFeedsList();
+			
+
+			for (int i = 0; i < feedsList.size(); i++) {
+				/*WebElement description = feedsList.get(i).findElement(FeedsRequestPageLocator.REQUESTER_NAME);
+				String requestername = description.getText();*/
+				WebElement descriptionelement = feedsList.get(i).findElement(FeedsRequestPageLocator.MESSAGE_FEED_DESCRIPTION);
+				String description = descriptionelement.getText();
+				String descriptionwordarray[]= description.split(" ");
+				String requestername = descriptionwordarray[0]+descriptionwordarray[1];
+				logger.info("The name of the requester is -- "+requestername);
+				Assert.assertTrue(FeedsRequestPage.isStringOnlyAlphabetAndSpace(requestername));
+			}
+			// click to next page and increment page counter
+			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
+				currentPage++;
+				FeedsRequestPage.clickPageNo(currentPage, totalNoOfPages);
+			}
+
+		} while (currentPage < totalNoOfPages);
+		
+		
+		
+	}
+
+	@Then("^_11 should see requester name appearing as expected without any comma$")
+	public void _11_should_see_requester_name_appearing_as_expected_without_any_comma() throws Throwable {
+
 	}
 
 	// private methods are below this line

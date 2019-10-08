@@ -9,15 +9,20 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
+import gov.gsa.sam.rms.locators.MyRolesPageLocator;
 import gov.gsa.sam.rms.locators.RolesDirectoryViewAccessLocator;
+import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
-import gov.gsa.sam.rms.pages.RoleHistoryDetailsPage;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.ForBiddenPage;
+import gov.gsa.sam.rms.pages.MyRolesPage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
+
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
-import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.ConstantsAccounts;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class DraBusinessRulesStep {
@@ -30,13 +35,14 @@ public class DraBusinessRulesStep {
 	@Given("^_1 role admin logs into workspace$")
 	public void _1_role_admin_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ra@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_1 role admin looks up a no role user through user directory$")
 	public void _1_role_admin_looks_up_a_no_role_user_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(noRoleuser);
 		UserDirectoryPage.clickAssignRole(noRoleuser);
@@ -60,7 +66,7 @@ public class DraBusinessRulesStep {
 
 	@When("^_1 role admin tries to assign dra to user at other department$")
 	public void _1_role_admin_tries_to_assign_dra_to_user_at_other_department() throws Throwable {
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		AssignRolePage.clickCancelButtonWhenAlertIsOn();
 		UserDirectoryPage.searchUserInUserPicker(noRoleuser);
@@ -82,13 +88,14 @@ public class DraBusinessRulesStep {
 	@Given("^_2 role admin logs into workspace$")
 	public void _2_role_admin_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ra@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_2 role admin looks up a no role user through user directory$")
 	public void _2_role_admin_looks_up_a_no_role_user_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(noRoleuser);
 		UserDirectoryPage.clickAssignRole(noRoleuser);
@@ -106,32 +113,32 @@ public class DraBusinessRulesStep {
 
 	@Then("^_2 the newly given role should show up under roles tab$")
 	public void _2_the_newly_given_role_should_show_up_under_roles_tab() throws Throwable {
-		boolean roleFound = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
 				Constants.NOACTION);
 		Assert.assertEquals(true, roleFound);
 		// --------------------------
-		boolean roleHistoryFound = RolesDirectoryViewAccessPage.latestRoleHistoryFound("SHAH M RAIAAN",
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("SHAH M RAIAAN",
 				Constants.ASSIGNED, Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.ORG_GSA,
 				Constants.GO_INTO_ROLE_ASSIGNED);
 		Assert.assertEquals(true, roleHistoryFound);
-		RoleHistoryDetailsPage.clickHereLink();
-		//--------delete the role-------------------
-		RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
-				Constants.DELETE);
+		
+		// --------delete the role-------------------
+		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN, Constants.DELETE);
 	}
 
 	@Given("^_3 role admin logs into workspace$")
 	public void _3_role_admin_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ra@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_3 role admin looks up dra user through user directory$")
 	public void _3_role_admin_looks_up_dra_user_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(draUser);
 		UserDirectoryPage.clickAssignRole(draUser);
@@ -154,7 +161,8 @@ public class DraBusinessRulesStep {
 
 	@When("^_3 role admin tries to assign system account admin to dra$")
 	public void _3_role_admin_tries_to_assign_system_account_admin_to_dra() throws Throwable {
-		AssignRolePage.clickCancelButtonWhenAlertIsOn();;
+		AssignRolePage.clickCancelButtonWhenAlertIsOn();
+		;
 		UserDirectoryPage.searchUserInUserPicker(draUser);
 		UserDirectoryPage.clickAssignRole(draUser);
 		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
@@ -166,12 +174,12 @@ public class DraBusinessRulesStep {
 
 	@Then("^_3 the role assignment should show up under roles tab$")
 	public void _3_the_role_assignment_should_show_up_under_roles_tab() throws Throwable {
-		boolean draRoleFound = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean draRoleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
 				Constants.NOACTION);
 		Assert.assertEquals(true, draRoleFound);
 
-		boolean systemAccountAdminRoleFound = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean systemAccountAdminRoleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_SYSTEM_ACCOUNT_ADMIN, Constants.DOMAIN_ADMIN, Constants.DELETE);
 		Assert.assertEquals(true, systemAccountAdminRoleFound);
 
@@ -180,13 +188,14 @@ public class DraBusinessRulesStep {
 	@Given("^_4 dra logs into workspace$")
 	public void _4_dra_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage(draUser, Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_4 dra looks up a user with contracting officer role through user directory$")
 	public void _4_dra_looks_up_a_user_with_contracting_officer_role_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(coUser);
 		UserDirectoryPage.clickViewAccess(coUser);
@@ -196,7 +205,7 @@ public class DraBusinessRulesStep {
 	public void _4_dra_edits_the_role_to_contracting_specialist() throws Throwable {
 		// check whether user already has the role
 
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, "EDIT");
 		Assert.assertEquals(userAlreadyHasRole, true);
 		// edit the role
@@ -207,16 +216,16 @@ public class DraBusinessRulesStep {
 		AssignRolePage.clickDone();
 
 		// check to ensure the changed role has gone through
-		userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, "NO ACTION");
 		Assert.assertEquals(userAlreadyHasRole, true);
 
 		// --------------------------
-		boolean roleHistoryFound = RolesDirectoryViewAccessPage.latestRoleHistoryFound(
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound(
 				"SHAH departmentroleadmin RAIAAN", Constants.UPDATED, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
 				Constants.ORG_GSA, Constants.GO_INTO_ROLE_UPDATED);
 		Assert.assertEquals(true, roleHistoryFound);
-		RoleHistoryDetailsPage.clickHereLink();
+		
 	}
 
 	@Then("^_4 the edited role should show up on the roles pages$")
@@ -224,7 +233,7 @@ public class DraBusinessRulesStep {
 		// ------------------edit the role back---------------
 
 		// change the role back
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, "EDIT");
 		Assert.assertEquals(userAlreadyHasRole, true);
 
@@ -232,42 +241,43 @@ public class DraBusinessRulesStep {
 		LaunchBrowserUtil.scrollToMiddle();
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
 		AssignRolePage.writeComment("reverting back");
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		AssignRolePage.clickDone();
 	}
 
 	@Given("^_5 dra logs into workspace$")
 	public void _5_dra_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage(draUser, Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_5 dra looks up a user who is ra through user directory$")
 	public void _5_dra_looks_up_a_user_who_is_ra_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(raUser);
 		UserDirectoryPage.clickViewAccessOnly(raUser);
 	}
 
 	@Then("^_5 in the roles tab there should be no assign role button$")
 	public void _5_in_the_roles_tab_there_should_be_no_assign_role_button() throws Throwable {
-		boolean assignRoleButtonFound = RolesDirectoryViewAccessPage
+		boolean assignRoleButtonFound = UserDirectoryViewAccessPage
 				.elementFound(RolesDirectoryViewAccessLocator.ASSIGN_ROLE_BUTTON);
 		Assert.assertEquals(false, assignRoleButtonFound);
 	}
 
 	@When("^_5 dra looks a dra through the user directory$")
 	public void _5_dra_looks_a_dra_through_the_user_directory() throws Throwable {
-	RolesDirectoryViewAccessPage.goToUserDirectoryPage();
-	UserDirectoryPage.searchUserInUserPicker(draUser);
-	UserDirectoryPage.clickViewAccessOnly(draUser);
-	
+		UserDirectoryViewAccessPage.goToUserDirectoryPage();
+		UserDirectoryPage.searchUserInUserPicker(draUser);
+		UserDirectoryPage.clickViewAccessOnly(draUser);
+
 	}
 
 	@Then("^_5 there should also be no assign button$")
 	public void _5_there_should_also_be_no_assign_button() throws Throwable {
-		boolean assignRoleButtonFound = RolesDirectoryViewAccessPage
+		boolean assignRoleButtonFound = UserDirectoryViewAccessPage
 				.elementFound(RolesDirectoryViewAccessLocator.ASSIGN_ROLE_BUTTON);
 		Assert.assertEquals(false, assignRoleButtonFound);
 	}
@@ -275,13 +285,14 @@ public class DraBusinessRulesStep {
 	@Given("^_6 role admin logs into workspace$")
 	public void _6_role_admin_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ra@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_6 role admin looks up dra user through user directory$")
 	public void _6_role_admin_looks_up_dra_user_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(draUser);
 		UserDirectoryPage.clickAssignRole(draUser);
@@ -298,9 +309,90 @@ public class DraBusinessRulesStep {
 
 	@Then("^_6 correct error message should appear$")
 	public void _6_correct_error_message_should_appear() throws Throwable {
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 		boolean errorAlertFound = AssignRolePage.elementFound(AssignRolePageLocator.ERROR_ALERT);
 		Assert.assertEquals(true, errorAlertFound);
+	}
+
+	@Given("^_7 dra logs into workspace$")
+	public void _7_dra_logs_into_workspace() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_7 dra navigates to profile page$")
+	public void _7_dra_navigates_to_profile_page() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		boolean draRoleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
+				Constants.NOACTION);
+		Assert.assertEquals(true, draRoleFound);
+		LaunchBrowserUtil.delay(1);
+
+	}
+
+	@Then("^_7 dra should not see the role request button$")
+	public void _7_dra_should_not_see_the_role_request_button() throws Throwable {
+		boolean requstrolebuttonFound = MyRolesPage.elementFound(MyRolesPageLocator.REQUESTROLE_BUTTON);
+		Assert.assertEquals(false, requstrolebuttonFound);
+	}
+
+	@When("^_7 dra tries to hit the role request page directly through url$")
+	public void _7_dra_tries_to_hit_the_role_request_page_directly_through_url() throws Throwable {
+		LaunchBrowserUtil.enterUrl("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/profile/request-role");
+		ForBiddenPage.setDriver(MyRolesPage.getDriver());
+		LaunchBrowserUtil.delay(2);
+
+	}
+
+	@Then("^_7 dra should not be able to access the role request page$")
+	public void _7_dra_should_not_be_able_to_access_the_role_request_page() throws Throwable {
+		String message = ForBiddenPage.getPrimaryContentMessage();
+		Assert.assertEquals("You do not have sufficient privileges to view the requested page.", message);
+	}
+
+	@Given("^_8 dra logs into workspace$")
+	public void _8_dra_logs_into_workspace() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@Then("^_8 dra should not see migrate roles link$")
+	public void _8_dra_should_not_see_migrate_roles_link() throws Throwable {
+		boolean migrateRolesFound=T1WorkspacePage.profileLinksFound("Migrate Roles");
+		//Assert.assertEquals(false, migrateRolesFound);
+	}
+
+	@When("^_8 dra navigates to profile page$")
+	public void _8_dra_navigates_to_profile_page() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		boolean draRoleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
+				Constants.NOACTION);
+		//Assert.assertEquals(true, draRoleFound);
+	}
+
+	@Then("^_8 they should not see the role migration banner$")
+	public void _8_they_should_not_see_the_role_migration_banner() throws Throwable {
+		boolean bannerFound = MyRolesPage.elementFound(MyRolesPageLocator.BEGINNOW_LINK);
+		Assert.assertEquals(false, bannerFound);
+	}
+
+	@When("^_8 dra tries to hit the role migration page directly through url$")
+	public void _8_dra_tries_to_hit_the_role_migration_page_directly_through_url() throws Throwable {
+		LaunchBrowserUtil.enterUrl("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/profile/migrations");
+		ForBiddenPage.setDriver(MyRolesPage.getDriver());
+		LaunchBrowserUtil.delay(2);
+	}
+
+	@Then("^_8 dra they should not be able to access the role request page$")
+	public void _8_dra_they_should_not_be_able_to_access_the_role_request_page() throws Throwable {
+		String message = ForBiddenPage.getPrimaryContentMessage();
+		Assert.assertEquals("You do not have sufficient privileges to view the requested page.", message);
 	}
 
 	// private methods are below this line

@@ -8,13 +8,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import gov.gsa.sam.rms.locators.RolesDirectoryViewAccessLocator;
 import gov.gsa.sam.rms.pages.AssignRolePage;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import org.junit.Assert;
 
@@ -33,11 +32,11 @@ public class RoleEditStep {
 	public void _1_user_looks_up_assistance_user_account_in_userdirectory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_USER_2);
 		// check whether user already has the role
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
@@ -53,36 +52,36 @@ public class RoleEditStep {
 		// ------------------edit the role back to previous state---------------
 
 		// change the role back
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
 				Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY, Constants.ROLE_ASSISTANCE_USER,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		// confirming the change has gone through
-		boolean roleRestored = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(true, roleRestored);
 		afterScenario();
-		CommonMethods.delay(5);
+		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_2 user logs in workspace as dra$")
 	public void _2_user_logs_in_workspace_as_dra() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+deptAdminSelenium@gsa.gov", Constants.USERPASS);
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_2 dra looks up contracting officer in contract data$")
 	public void _2_dra_looks_up_contracting_officer_in_contract_data() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		String searchUser = "shah.raiaan+coSelenium@gsa.gov";
 		UserDirectoryPage.searchUserInUserPicker(searchUser);
 		UserDirectoryPage.clickViewAccess(searchUser);
 		// check whether user already has the role
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, "EDIT");
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
@@ -96,26 +95,26 @@ public class RoleEditStep {
 		AssignRolePage.clickDone();
 
 		// check to ensure page is back on RolesDirectoryViewAccessPage
-		boolean assignButtonFound = RolesDirectoryViewAccessPage
+		boolean assignButtonFound = UserDirectoryViewAccessPage
 				.elementFound(RolesDirectoryViewAccessLocator.ASSIGN_ROLE_BUTTON);
 		Assert.assertEquals(assignButtonFound, true);
 
 		// check to ensure the changed role has gone through
-		boolean roleHasChanged = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean roleHasChanged = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, "NO ACTION");
 		Assert.assertEquals(roleHasChanged, true);
 
 		// ------------------edit the role back---------------
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 		// change the role back
-		RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR,
+		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR,
 				Constants.DOMAIN_CONTRACT_DATA, "EDIT");
 
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		LaunchBrowserUtil.scrollToMiddle();
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
 		AssignRolePage.writeComment("reverting back");
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		AssignRolePage.clickDone();
 
 	}
@@ -123,7 +122,7 @@ public class RoleEditStep {
 	@Then("^_2 dra sees the role change showing up in my profile page$")
 	public void _2_dra_sees_the_role_change_showing_up_in_my_profile_page() throws Throwable {
 		// check to ensure the changed role has gone through
-		boolean previousRoleRestored = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean previousRoleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, "NO ACTION");
 		Assert.assertEquals(previousRoleRestored, true);
 		afterScenario();

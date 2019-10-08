@@ -12,9 +12,13 @@ import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.BulkUpdatePageLocator;
 import gov.gsa.sam.rms.locators.BulkUpdateSelectionPageLocator;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 
+/**
+ * This class refers to the page page seen when some users have been selected
+ * from bulk update page
+ */
 public class BulkUpdateSelectionPage {
 	private static WebDriver driver;
 	private static Logger logger = LoggerFactory.getLogger(BulkUpdateSelectionPage.class);
@@ -22,29 +26,16 @@ public class BulkUpdateSelectionPage {
 	private BulkUpdateSelectionPage() {
 	}
 
-	// *****************************************************************************
-	// the following methods describe actions that can be taken immediately on
-	// loading of this Page
-	// *****************************************************************************
-
-	public static String get2ndHeaderTitle() {
-		return driver.findElement(BulkUpdateSelectionPageLocator.SECONDHEADER).getText();
-	}
-
-	// *****************************************************************************
-	// the following methods describe actions that are only available after some
-	// previous actions were taken on this SAME page..eg. clickNavSignIn()
-	// *****************************************************************************
-
-	// *****************************************************************************
-	// driver getter and setter
-	// *****************************************************************************
 	public static WebDriver getDriver() {
 		return BulkUpdateSelectionPage.driver;
 	}
 
 	public static void setDriver(WebDriver driver) {
 		BulkUpdateSelectionPage.driver = driver;
+	}
+
+	public static String get2ndHeaderTitle() {
+		return driver.findElement(BulkUpdateSelectionPageLocator.SECONDHEADER).getText();
 	}
 
 	public static boolean elementFound(By locator) {

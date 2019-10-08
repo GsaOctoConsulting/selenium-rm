@@ -11,16 +11,15 @@ import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.MyWorkspacePage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class EmailStep {
@@ -36,33 +35,30 @@ public class EmailStep {
 
 	@And("^_1 user requests assitance user role in assistance listing$")
 	public void _1_user_requests_assitance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
-		RequestRolePage.writeSupervisorEmail(Constants.GMAIL_NONFED);
+		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
 		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
 		RequestRolePage.clickSubmit();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	@Then("^_1 user should receive an email with the proper message$")
 	public void _1_user_should_receive_an_email_with_the_proper_message() throws Throwable {
-		if (Constants.ACTIVE_ENV_URL.equals(Constants.LOGINGOV_HOME_PAGE)) {
-			LaunchBrowserUtil.goToMailInbox("shah.raiaan@gsa.gov", "password", Constants.USER_FED);
-		} else {
-			LaunchBrowserUtil.switchTabs(1);
-			LaunchBrowserUtil.navigateBack();
-		}
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+
+		LaunchBrowserUtil.switchTabs(3);
 
 		// asserting email subject
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
@@ -75,7 +71,7 @@ public class EmailStep {
 		// asserting the email body
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ACTION_SUBMITTED));
-		Assert.assertEquals(true,emailBody.contains(Constants.ORG_GSA));
+		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
 		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 
@@ -84,40 +80,26 @@ public class EmailStep {
 		MyRolesPage.clickPendingLink();
 		RoleRequestPendingPage.clickDeleteButton();
 		RoleRequestPendingPage.confirmDeleteOnPopup();
-		CommonMethods.delay(6);
+		LaunchBrowserUtil.delay(6);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Then("^_1 supervisor should also receive an email message$")
 	public void _1_supervisor_should_also_receive_an_email_message() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 
-		if (Constants.ACTIVE_ENV_URL.equals(Constants.LOGINGOV_HOME_PAGE)) {
-			LaunchBrowserUtil.goToMailInbox("raiaan.shah@gmail.com", Constants.USERPASS_NONFED, Constants.USER_NONFED);
-		} else {
-			LaunchBrowserUtil.switchTabs(1);
-			LaunchBrowserUtil.navigateBack();
-		}
-
-		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(1);
-		String emailBody = LaunchBrowserUtil.captureEmailMessage(1);
-		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
-
-		// asserting the email subject line
-		Assert.assertEquals( true,emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_PENDING));
-		Assert.assertEquals(true,emailSubject.contains(Constants.ROLE_ASSISTANCE_USER));
-
-		// asserting email to and from address
-		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
+		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
 
 		// asserting the email body
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA));
-		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
-		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
+		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
+		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
+		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_2 a no role user logs in$")
@@ -129,7 +111,7 @@ public class EmailStep {
 
 	@And("^_2 user requests assistance user role in assistance listing$")
 	public void _2_user_requests_assitance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -140,7 +122,7 @@ public class EmailStep {
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
 		RequestRolePage.clickSubmit();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	@When("^_2 assistance admin approves the request$")
@@ -148,7 +130,7 @@ public class EmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
 				ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
 		MyRolesPage.click1PendingRequest();
@@ -161,16 +143,14 @@ public class EmailStep {
 
 	@Then("^_2 assistance admin should receive email message$")
 	public void _2_assistance_admin_should_receive_email_message() throws Throwable {
-		if (Constants.ACTIVE_ENV_URL.equals(Constants.LOGINGOV_HOME_PAGE)) {
-			LaunchBrowserUtil.goToMailInbox("shah.raiaan@gsa.gov", "password", Constants.USER_FED);
-		} else {
-			LaunchBrowserUtil.switchTabs(1);
-			LaunchBrowserUtil.navigateBack();
-		}
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
+					
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		
+		LaunchBrowserUtil.navigateBack();
+		//LaunchBrowserUtil.switchTabs(3);
+
 		// asserting the email subject line
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_ASSIGNED));
@@ -183,21 +163,21 @@ public class EmailStep {
 
 		// asserting the email body
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA));
+		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
 		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 	}
 
 	@Then("^_2 the requester should also receive an email message$")
 	public void _2_the_requester_should_also_receive_an_email_message() throws Throwable {
-		LaunchBrowserUtil.navigateBack();
+		//LaunchBrowserUtil.navigateBack();
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_APPROVED));
+		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_ASSIGNED));
 
 		// asserting email to and from address
 		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
@@ -205,7 +185,7 @@ public class EmailStep {
 
 		// asserting the email body
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA));
+		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
 		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 
@@ -213,33 +193,34 @@ public class EmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(2);
 		// check whether user already has the role
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
-		Assert.assertEquals(true,userAlreadyHasRole);
+		Assert.assertEquals(true, userAlreadyHasRole);
 
 		// delete the role for the user
-		userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+		userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		afterScenario();
+		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_3 assistance admin logs into workspace$")
 	public void _3_assistance_admin_logs_into_workspace() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
+				ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_3 assistance admin looks up a no role user through the user directory$")
 	public void _3_assistance_admin_looks_up_a_no_role_user_through_the_user_directory() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
 	}
@@ -256,12 +237,13 @@ public class EmailStep {
 
 	@Then("^_3 assistance admin should receive proper email message$")
 	public void _3_assistance_admin_should_receive_proper_email_message() throws Throwable {
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
+		
 		String emailTitle = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_ACTION_ASSIGNED), true);
@@ -271,7 +253,7 @@ public class EmailStep {
 
 		// asserting the email body
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_REQUESTOR_NAME), true);
-		Assert.assertEquals(emailBody.contains(Constants.ORG_GSA), true);
+		Assert.assertEquals(emailBody.contains(Constants.ORG_GSA.toUpperCase()), true);
 		Assert.assertEquals(emailBody.contains(Constants.ROLE_ASSISTANCE_USER), true);
 		Assert.assertEquals(emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING), true);
 
@@ -280,7 +262,7 @@ public class EmailStep {
 	@And("^_3 assistance admin removes the role$")
 	public void _3_assistance_admin_removes_the_role() throws Throwable {
 		// ----------------remove the role-----------------------------------
-		MyRolesPage.setDriver(MyWorkspacePage.getDriver());
+		MyRolesPage.setDriver(T1WorkspacePage.getDriver());
 		MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING,
 				Constants.DELETE);
 	}
@@ -288,11 +270,11 @@ public class EmailStep {
 	@Then("^_3 assistance admin should receive role remove email$")
 	public void _3_assistance_admin_should_receive_role_remove_email() throws Throwable {
 		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
 		String emailTitle = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_ACTION_REMOVED), true);
@@ -302,7 +284,7 @@ public class EmailStep {
 		// asserting the email body
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_REQUESTOR_NAME), true);
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_ACTION_REMOVED), true);
-		Assert.assertEquals(emailBody.toLowerCase().contains(Constants.ORG_GSA.toLowerCase()), true);
+		Assert.assertEquals(emailBody.contains(Constants.ORG_GSA.toUpperCase()), true);
 		Assert.assertEquals(emailBody.contains(Constants.ROLE_ASSISTANCE_USER), true);
 
 	}
@@ -315,16 +297,12 @@ public class EmailStep {
 
 	@Then("^_3 the user should have received a role assign email$")
 	public void _3_the_user_should_have_received_a_role_assign_email() throws Throwable {
-		if (Constants.ACTIVE_ENV_URL.equals(Constants.LOGINGOV_HOME_PAGE)) {
-			LaunchBrowserUtil.goToMailInbox("shah.raiaan@gsa.gov", "password", Constants.USER_FED);
-		} else {
-			LaunchBrowserUtil.switchTabs(1);
-			LaunchBrowserUtil.navigateBack();
-		}
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		String emailTitle = LaunchBrowserUtil.captureTitleFromLastEmail(4);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(4);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_ACTION_ASSIGNED), true);
@@ -335,7 +313,7 @@ public class EmailStep {
 		// asserting the email body
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_REQUESTOR_NAME), true);
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_ACTION_ASSIGNED), true);
-		Assert.assertEquals(emailBody.contains(Constants.ORG_GSA), true);
+		Assert.assertEquals(emailBody.contains(Constants.ORG_GSA.toUpperCase()), true);
 		Assert.assertEquals(emailBody.contains(Constants.ROLE_ASSISTANCE_USER), true);
 		Assert.assertEquals(emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING), true);
 
@@ -344,11 +322,11 @@ public class EmailStep {
 	@And("^_3 the user should have received a role removed email$")
 	public void _3_the_user_should_have_received_a_role_removed_email() throws Throwable {
 		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
 		String emailTitle = LaunchBrowserUtil.captureTitleFromLastEmail(2);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(2);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting email to and from address
 		Assert.assertEquals(emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN), true);
 		// asserting the email subject line
@@ -358,9 +336,10 @@ public class EmailStep {
 		// asserting the email body
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_REQUESTOR_NAME), true);
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_ACTION_REMOVED), true);
-		Assert.assertEquals(emailBody.toLowerCase().contains(Constants.ORG_GSA.toLowerCase()), true);
+		Assert.assertEquals(emailBody.contains(Constants.ORG_GSA.toUpperCase()), true);
 		Assert.assertEquals(emailBody.contains(Constants.ROLE_ASSISTANCE_USER), true);
-
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 	// ---------------------------------------------
 
@@ -373,7 +352,7 @@ public class EmailStep {
 
 	@And("^_4 admin looks up assistance user account in user directory$")
 	public void _4_admin_looks_up_assistance_user_account_in_user_directory() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_USER_2);
 	}
@@ -381,7 +360,7 @@ public class EmailStep {
 	@And("^_4 admin changes the users org to office of acquisition policy$")
 	public void _4_admin_changes_the_users_org_to_office_of_acquisition_policy() throws Throwable {
 		// check whether user already has the role
-		boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 		// --------------------------------------------------
@@ -394,12 +373,14 @@ public class EmailStep {
 
 	@Then("^_4 assistance admin should receive proper email message$")
 	public void _4_assistance_admin_should_receive_proper_email_message() throws Throwable {
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
+		
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		String emailTitle = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+		
+		
 
 		// asserting the email subject line
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
@@ -419,12 +400,11 @@ public class EmailStep {
 
 	@Then("^_4 the assistance user should also receive proper email message$")
 	public void _4_the_assistance_user_should_also_receive_proper_email_message() throws Throwable {
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
+		
 		String emailTitle = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailTitle.contains(Constants.EMAIL_ACTION_UPDATED), true);
@@ -435,8 +415,10 @@ public class EmailStep {
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_ACTION_UPDATED), true);
 		Assert.assertEquals(emailBody.contains(Constants.ROLE_ASSISTANCE_USER), true);
 		// -------------------------change the role back------------------------
-		RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY,
+		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 
 	}
 
@@ -450,7 +432,7 @@ public class EmailStep {
 
 	@And("^_5email_user requests assitance user role in assistance listing$")
 	public void _5_user_requests_assitance_user_role_in_assistance_listing() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -461,7 +443,7 @@ public class EmailStep {
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
 		RequestRolePage.clickSubmit();
-		CommonMethods.delay(2);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	@When("^_5 assistance admin rejects the request$")
@@ -469,7 +451,7 @@ public class EmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
 		MyRolesPage.click1PendingRequest();
@@ -480,12 +462,12 @@ public class EmailStep {
 
 	@Then("^_5 supervisor should receive email message$")
 	public void _5_supervisor_should_receive_email_message() throws Throwable {
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_ACTION_REJECTED), true);
@@ -502,13 +484,13 @@ public class EmailStep {
 
 	@Then("^_5 the requester should also receive an email message$")
 	public void _5_the_requester_should_also_receive_an_email_message() throws Throwable {
-		SignInUtility.signIntoCommonWorkspacePage(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS);
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(2);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(2);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_ACTION_REJECTED), true);
@@ -520,6 +502,8 @@ public class EmailStep {
 		Assert.assertEquals(emailBody.contains(Constants.EMAIL_REQUESTOR_NAME), true);
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_ACTION_REJECTED), true);
 		Assert.assertEquals(emailBody.contains(Constants.ROLE_ASSISTANCE_USER), true);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	// private methods are below this line

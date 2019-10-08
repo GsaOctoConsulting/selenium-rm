@@ -12,13 +12,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class UserDirectorySearchStep {
@@ -34,7 +33,7 @@ public class UserDirectorySearchStep {
 	@Then("^_1uds user navigates to userdirectory page and finds all user to be clickable$")
 	public void _1_user_navigates_to_userdirectory_page_and_finds_all_user_to_be_clickable() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
 		int currentPage = 1;
@@ -67,23 +66,16 @@ public class UserDirectorySearchStep {
 	@Then("^_2 user navigates to user directory org picker and see only his own org$")
 	public void _2_user_navigates_to_user_directory_org_picker_and_see_only_his_own_org() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
-		Assert.assertEquals(true, UserDirectoryPage.orgPickerAllOrgsContainsThisSearchTermAndOrgName("human","Dept: GSA"));
-		
-		
-		
-		
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		Assert.assertEquals(true,
+				UserDirectoryPage.orgPickerAllOrgsContainsThisSearchTermAndOrgName("human", "Dept: GSA"));
+
 		/*
-		String firstSuggestedOrg = UserDirectoryPage.getFirstOrgFound();
-		String expectedOrg = "Health and Human Services, Department of";// should
-																		// not
-																		// get
-																		// this
-																		// because
-																		// different
-																		// dept
-		Assert.assertNotEquals(firstSuggestedOrg, expectedOrg);
-		afterScenario();*/
+		 * String firstSuggestedOrg = UserDirectoryPage.getFirstOrgFound(); String
+		 * expectedOrg = "Health and Human Services, Department of";// should // not //
+		 * get // this // because // different // dept
+		 * Assert.assertNotEquals(firstSuggestedOrg, expectedOrg); afterScenario();
+		 */
 	}
 
 	@Given("^_3 user logs in workspace with assistance userrole$")
@@ -95,14 +87,14 @@ public class UserDirectorySearchStep {
 
 	@And("^_3 user navigates to user directory page and searches for assistance admin$")
 	public void _3_user_navigates_to_user_directory_page_and_searches_for_assistance_admin() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2 + " ");
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2 + " ");//fails due to a bug
 	}
 
 	@Then("^_3 user should be able to view access for assistance admin$")
 	public void _3_user_should_be_able_to_view_access_for_assistance_admin() throws Throwable {
 		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2);
-		boolean roleFound = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_ADMIN,
+		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_ADMIN,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(true, roleFound);
 		afterScenario();
@@ -117,7 +109,7 @@ public class UserDirectorySearchStep {
 
 	@And("^_4 user navigates to user directory page and searches for assistance admin$")
 	public void _4_user_navigates_to_user_directory_page_and_searches_for_assistance_admin() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2);
 
 	}
@@ -126,7 +118,7 @@ public class UserDirectorySearchStep {
 	public void _4_user_should_be_able_to_view_access_for_assistance_admin() throws Throwable {
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2);
 
-		boolean roleFound = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_ADMIN,
+		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_ADMIN,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(true, roleFound);
 		afterScenario();
@@ -141,13 +133,13 @@ public class UserDirectorySearchStep {
 
 	@And("^_5 user navigates to user directory page$")
 	public void _5_user_navigates_to_user_directory_page() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@When("^_5 user selects fed user filter$")
 	public void _5_user_selects_fed_user_filter() throws Throwable {
 		UserDirectoryPage.clickFedFilter();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_5 user should only see accounts with federal user id$")
@@ -162,9 +154,16 @@ public class UserDirectorySearchStep {
 
 			for (int i = 0; i < userList.size(); i++) {
 				WebElement id = userList.get(i).findElement(UserDirectoryPageLocator.ID);
-				System.out.println(id.getText());
-				boolean fedIdFound = id.getText().contains("@gsa");
-				Assert.assertTrue(fedIdFound);
+				String userid = id.getText();
+				System.out.println(userid);
+				
+				String userinfo = userList.get(i).findElement(UserDirectoryPageLocator.USER_INFO).getText();
+				System.out.println(userinfo);
+				
+				if (userid.contains("@gmail")&&!userinfo.contains(Constants.ORG_GSA)) {
+					Assert.assertFalse(true);
+				}
+			
 			}
 			// click to next page and increment page counter
 			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
@@ -183,13 +182,13 @@ public class UserDirectorySearchStep {
 
 	@And("^_6uds user navigates to user directory page$")
 	public void _6uds_user_navigates_to_user_directory_page() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@And("^_6uds user selects fed user filter and goes to page ten$")
 	public void _6uds_user_selects_fed_user_filter_and_goes_to_page_ten() throws Throwable {
 		UserDirectoryPage.clickFedFilter();
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 		UserDirectoryPage.clickPageNo(8, 12);
 	}
 
@@ -204,7 +203,7 @@ public class UserDirectorySearchStep {
 	public void _6uds_user_should_only_see_accounts_with_nonfederal_user_id() throws Throwable {
 		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
 		int currentlyselectedPage = UserDirectoryPage.getCurrentSelectedPage();
-		Assert.assertEquals(1, currentlyselectedPage);
+		Assert.assertEquals(0, currentlyselectedPage);
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
@@ -235,18 +234,53 @@ public class UserDirectorySearchStep {
 
 	@And("^_7uds user navigates to user directory page$")
 	public void _7uds_user_navigates_to_user_directory_page() throws Throwable {
-		RMWidgetUtility.clickUserDirectoryLink();
-		
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+
 	}
 
 	@When("^_7uds user searches user using four characters$")
 	public void _7uds_user_searches_user_using_four_characters() throws Throwable {
-		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("slkdkjf");
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah");
 		Assert.assertEquals(true, searchtermfound);
 	}
 
 	@Then("^_7uds user should only see accounts containing the four characters$")
 	public void _7uds_user_should_only_see_accounts_containing_the_four_characters() throws Throwable {
+
+	}
+
+	@Given("^_8uds user logs into workspace as role administrator$")
+	public void _8uds_user_logs_into_workspace_as_role_administrator() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_8uds user navigates to user directory page$")
+	public void _8uds_user_navigates_to_user_directory_page() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+
+	}
+
+	@And("^_8uds user searches for a user with noroles in the user search box$")
+	public void _8uds_user_searches_for_a_user_with_noroles_in_the_user_search_box() throws Throwable {
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+	}
+
+	@And("^_8uds enters gsa in org search box$")
+	public void _8uds_enters_gsa_in_org_search_box() throws Throwable {
+		UserDirectoryPage.selectOrgInOrgPicker(Constants.ORG_GSA);
+	}
+
+	@When("^_8uds selects the filter for org where users have roles$")
+	public void _8uds_selects_the_filter_for_org_where_users_have_roles() throws Throwable {
+		UserDirectoryPage.clickOrgTypeWhereUsersHaveRoles();
+	}
+
+	@Then("^_8uds no search results message should be displayed$")
+	public void _8uds_no_search_results_message_should_be_displayed() throws Throwable {
+		String noresultsMessageFoundText = UserDirectoryPage.getNoResultsmessageFound();
+		Assert.assertEquals("No results found for selected criteria", noresultsMessageFoundText);
 
 	}
 

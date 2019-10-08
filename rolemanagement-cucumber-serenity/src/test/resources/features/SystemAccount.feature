@@ -63,8 +63,7 @@ Scenario: gsa security approver should be able to reject request
 	Then _4 user should be able to see the account and reject the account 
 	
 @5 @GsaSecurityApprover 
-Scenario: 
-	account creator shoiuld be able to add comments that would also be visible to security approver 
+Scenario: account creator shoiuld be able to add comments that would also be visible to security approver 
 	Given _5 user logs in as system account manager 
 	And _5 user navigates to system account directory page 
 	And _5 user enters all the system information 
@@ -77,8 +76,7 @@ Scenario:
 	Then _5 user should be able to see the new account and view the comments posted 
 	
 @6 @SystemAccountAdmin 
-Scenario: 
-	comments for system accounts should only be available after system info has been correctly filled out 
+Scenario: comments for system accounts should only be available after system info has been correctly filled out 
 	Given _6 user logs in as system account admin 
 	And _6 _user navigates to system account directory page 
 	When _6 user clicks on review tab then comment text box should not be available 
@@ -95,8 +93,7 @@ Scenario: entering empty comments will throw an error message
 	Then _7 error message should pop up 
 	
 @8 @SystemAccountManager 
-Scenario: 
-	comments for system accounts should only be available after system info has been correctly filled out 
+Scenario: comments for system accounts should only be available after system info has been correctly filled out 
 	Given _8 user logs in as system account manager 
 	And _8 _user navigates to system account directory page 
 	When _8 user clicks on review tab then comment text box should not be available 
@@ -127,8 +124,7 @@ Scenario: system account should be able to see all accounts
 	
 	
 @12 @GsaSecurityApprover 
-Scenario: 
-	gsa security approver should be able to publish accounts by system account admin 
+Scenario: gsa security approver should be able to publish accounts by system account admin 
 	Given _12 user logs in as system account admin 
 	And _12 user navigates to system account directory page 
 	And _12 user enters all the system information 
@@ -144,8 +140,7 @@ Scenario:
 	
 	# filter verifications---------------------------------------
 @13 
-Scenario: 
-	system account admin, system manager, gsa security approver and nonfed users should only see correct number and type of filters 
+Scenario: system account admin, system manager, gsa security approver and nonfed users should only see correct number and type of filters 
 	Given _13 user logs in as gsa security approver 
 	Then _13 gsa security approver should see correct number and type of filters on system account page 
 	When _13 user logs in as system account admin 
@@ -157,8 +152,7 @@ Scenario:
 	#-------------------------------------------------------------------------------------------------------------
 	
 @14 
-Scenario: 
-	system account admin should be able to deactivate their published system accounts
+Scenario: system account admin should be able to deactivate their published system accounts
 	Given _14 user logs in as system account admin 
 	And _14 user navigates to system account directory page 
 	And _14 user enters all the system information 
@@ -176,8 +170,7 @@ Scenario:
 	Then _14 they should be able to deactivate their system account 
 	
 @15 
-Scenario: 
-	system account manager should be able to deactivate their published system accounts
+Scenario: system account manager should be able to deactivate their published system accounts
 	Given _15 user logs in as system account manager 
 	And _15 system manager navigates to system account directory page 
 	And _15 system manager enters all the system information 
@@ -201,13 +194,26 @@ Scenario:
 	
 	
 @16 
-Scenario: 
-	system account history test
-	Given _16 test system account history	
+Scenario: gsasecurity approver should be able to deactivate fed published system accounts
+	Given _16 user logs in as system account admin 
+	And _16 user navigates to system account directory page 
+	And _16 user enters all the system information 
+	And _16 user enters all the organization info 
+	And _16 user enters permissions info 
+	And _16 user enters security info 
+	And _16 user enters authorization info 
+	Then _16 the newly created account should show up on the system account directory page 
+	When _16 gsa security approver logs in 
+	And _16 gsa security approver navigates to system accounts directory page 
+	Then _16 gsa security approver should be able to approve the request by system account admin 
+	Then _16 gsa security approver should be able to deactivate the published system account 
+	And _16 admin goes to system account directory page 
+	And _16 admin generates api key 
+	Then _16 they should be able to deactivate their system account 
 	
 	
-@17 @IntegrationTest @S1
-Scenario: system manager account approval flow with account history validation
+@17 @IntegrationTest @S1 
+Scenario: system manager account approval flow with account history validation and account deactivation 
 	Given _17saaccount user logs in as system account manager 
 	And _17saaccount user navigates to system account directory page 
 	And _17saaccount user enters all the system information 
@@ -216,7 +222,7 @@ Scenario: system manager account approval flow with account history validation
 	And _17saaccount user enters security info 
 	And _17saaccount user enters authorization info 
 	And _17saaccount the newly created account should show up on the system account directory page 
-	Then _17saaccount the system manager should see the account history updated
+	Then _17saaccount the system manager should see the account history updated 
 	
 	
 	When _17saaccount system admin changes the request to pending approval 
@@ -224,11 +230,15 @@ Scenario: system manager account approval flow with account history validation
 	
 	When _17saaccount gsa security approver logs in 
 	And _17saaccount gsa security approver approves the reviewed request 
-	Then _17saaccount the gsa security approver should see the account history updated
+	Then _17saaccount the gsa security approver should see the account history updated 
+	When _17saaccount user logs backin in as system account manager 
+	Then _17saacount they should be able to deactivate their published system account 
 	
 	
-@18 @IntegrationTest @S1
-Scenario: system manager account rejection flow with account history validation
+	
+	
+@18 @IntegrationTest @S1 
+Scenario: system manager account rejection flow with account history validation 
 	Given _18saaccount user logs in as system account manager 
 	And _18saaccount user navigates to system account directory page 
 	And _18saaccount user enters all the system information 
@@ -237,12 +247,12 @@ Scenario: system manager account rejection flow with account history validation
 	And _18saaccount user enters security info 
 	And _18saaccount user enters authorization info 
 	And _18saaccount the newly created account should show up on the system account directory page 
-	Then _18saaccount the system manager should see the account history updated
+	Then _18saaccount the system manager should see the account history updated 
 	When _18saaccount system admin rejects the request 
 	Then _18saaccount the system admin should see the account history updated 
-
-@19 @IntegrationTest @S1
-Scenario: nonfed system account approval flow with account history validation
+	
+@19 @IntegrationTest @S1 
+Scenario: nonfed system account approval flow with account history validation and account deactivation 
 	Given _19saaccount user logs in as nonfed user 
 	And _19saaccount user navigates to system account directory page 
 	And _19saaccount user enters all the system information 
@@ -251,12 +261,14 @@ Scenario: nonfed system account approval flow with account history validation
 	And _19saaccount user enters security info 
 	And _19saaccount user enters authorization info 
 	And _19saaccount the newly created account should show up on the system account directory page 
-	Then _19saaccount the nonfed user should see the account history updated
+	Then _19saaccount the nonfed user should see the account history updated 
 	When _19saaccount gsasecurity approver approves the request 
 	Then _19saaccount the gsasecurity approver should see the account history updated 
+	When _19saaccount user logs backin in as nonfed user 
+	Then _19saaccount they should be able to deactivate their published system account 
 	
-@20 @IntegrationTest @S1
-Scenario: nonfed system account rejection flow with account history validation
+@20 @IntegrationTest @S1 
+Scenario: nonfed system account rejection flow with account history validation 
 	Given _20saaccount user logs in as nonfed user 
 	And _20saaccount user navigates to system account directory page 
 	And _20saaccount user enters all the system information 
@@ -265,9 +277,46 @@ Scenario: nonfed system account rejection flow with account history validation
 	And _20saaccount user enters security info 
 	And _20saaccount user enters authorization info 
 	And _20saaccount the newly created account should show up on the system account directory page 
-	Then _20saaccount the nonfed user should see the account history updated
+	Then _20saaccount the nonfed user should see the account history updated 
 	When _20saaccount gsasecurity approver rejects the request 
-	Then _20saaccount the gsasecurity approver should see the account history updated 	
+	Then _20saaccount the gsasecurity approver should see the account history updated 
+	
+@21 @IntegrationTest @S1 
+Scenario: fed user of a published system account should be able to set reset and recover password 
+	Given _21saaccount user logs in as system admin 
+	And _21saaccount user navigates to system account directory page 
+	And _21saaccount user enters all the system information 
+	And _21saaccount user enters all the organization info 
+	And _21saaccount user enters permissions info 
+	And _21saaccount user enters security info 
+	And _21saaccount user enters authorization info 
+	And _21saaccount the newly created account should show up on the system account directory page 
+	When _21saaccount gsasecurity approver approves the request 
+	Then _21saaccount system admin should be able to set a password for the published account 
+	And _21saaccount system admin should be able to reset the password 
+	And _21saccount system admin should be able to set the password through forgot password link 
+	
+@22 @IntegrationTest @S1 
+Scenario: nonfed user of a published system account should be able to set reset and recover password 
+	Given _22saaccount user logs in as nonfed user 
+	And _22saaccount user navigates to system account directory page 
+	And _22saaccount user enters all the system information 
+	And _22saaccount user enters all the organization info 
+	And _22saaccount user enters permissions info 
+	And _22saaccount user enters security info 
+	And _22saaccount user enters authorization info 
+	And _22saaccount the newly created account should show up on the system account directory page 
+	When _22saaccount gsasecurity approver approves the request 
+	Then _22saaccount nonfed user should be able to set a password for the published account 
+	And _22saaccount nonfed user should be able to reset the password 
+	And _22saccount nonfed user should be able to set the password through forgot password link 
+	
+@23 @IntegrationTest @S1
+Scenario: user should be able to search for system accounts using special characters 
+	Given _23saaccount user logs in as system manager 
+	And _23saaccount user navigates to system account directory page 
+	When _23saaccount user searches for sytem accounts using special characters 
+	Then _23saaccount the filtered accounts displayed should contain those letters 
 	
 	
 	

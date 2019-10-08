@@ -1,11 +1,8 @@
 package gov.gsa.sam.rms.utilities;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,9 +11,6 @@ import java.util.logging.Logger;
  * This class is an abstraction over a single properties file. You pass the name
  * of the file (CLASSPATH-relative) and then you can use this class to deal with
  * the Properties file.
- * 
- * The Properties class is pretty nice, so this class doesn't represent any real
- * upgrade, and is purely for pedagogical purposes.
  *
  */
 public class PropertiesFileUtility {
@@ -77,14 +71,13 @@ public class PropertiesFileUtility {
 	}
 	
 	/**
-	   * Saves the properties object to a new file, along with
-	   * the COPYRIGHT statement.
+	   * Saves the properties object to a new file
 	   * 
 	   * All properties that have been added will be stored as well.
-	   * 
-	   * @param makeBackup
-	   */
-	  public void updateProperty(String propertykey, String updatedvalue) {
+	 * @param propertykey
+	 * @param updatedvalue
+	 */
+	public void updateProperty(String propertykey, String updatedvalue) {
 	    String outputFileName = this.propertiesFileName;
 
 	    try {

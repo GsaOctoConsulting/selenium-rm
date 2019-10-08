@@ -10,9 +10,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.RequestRolePageLocator;
-import gov.gsa.sam.rms.utilities.CommonMethods;
-import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
+/**
+ * this class refers to the page showing during bottom-up role request when the
+ * user clicks the request role button
+ *
+ */
 public class RequestRolePage {
 	private static WebDriver driver;
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(RequestRolePage.class);
@@ -20,10 +24,14 @@ public class RequestRolePage {
 	private RequestRolePage() {
 	}
 
-	// *****************************************************************************
-	// the following methods describe actions that can be taken immediately on
-	// loading of this Page
-	// *****************************************************************************
+	public static WebDriver getDriver() {
+		return driver;
+	}
+
+	public static void setDriver(WebDriver driver) {
+		RequestRolePage.driver = driver;
+	}
+
 	public static void writeSupervisorName(String name) {
 		driver.findElement(RequestRolePageLocator.SUPERVISOR_NAME_TEXTBOX).sendKeys(name);
 	}
@@ -34,32 +42,35 @@ public class RequestRolePage {
 
 	public static void writeComment(String comment) {
 		driver.findElement(RequestRolePageLocator.COMMENT_TEXTBOX).sendKeys(comment);
-		CommonMethods.delay(3);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	public static void clickSubmit() {
 		driver.findElement(RequestRolePageLocator.SUBMIT_BUTTON).click();
 		MyRolesPage.setDriver(RequestRolePage.getDriver());
-		CommonMethods.delay(4);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	public static void clickDomainDropdown() {
-		CommonMethods.delay(Constants.SECONDS);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(RequestRolePageLocator.DOMAINDROPDOWN_ICON).click();
 	}
 
 	public static void clickPendingRoleRequest() {
 		driver.findElement(RequestRolePageLocator.PENDING_REQUESTS).click();
-		CommonMethods.delay(1);
+		LaunchBrowserUtil.delay(1);
 	}
 
 	public static void clickPending() {
 		driver.findElement(RequestRolePageLocator.PENDING).click();
 		RoleRequestPendingPage.setDriver(driver);
-		CommonMethods.delay(1);
-
+		LaunchBrowserUtil.delay(1);
 	}
 
+	/**
+	 * @param roleName the name of the role to be requested
+	 * @return true if the role is found, false otherwise
+	 */
 	public static boolean selectRoleIfFound(String roleName) {
 		boolean roleFound = false;
 		Select role = new Select(driver.findElement(RequestRolePageLocator.ROLE_SELECTOR));
@@ -75,6 +86,10 @@ public class RequestRolePage {
 
 	}
 
+	/**
+	 * @param domainName the name of the domain
+	 * @return true if the domain is found, false otherwise
+	 */
 	public static boolean selectDomainIfFound(String domainName) {
 		boolean domainFound = false;
 		clickDomainDropdown();
@@ -93,21 +108,36 @@ public class RequestRolePage {
 		return domainFound;
 	}
 
+	/**
+	 * @param orgName the name of the org
+	 * @return true if the org is found, false otherwise
+	 */
 	public static boolean selectOrgIfFound(String orgName) {
 		boolean orgFound = false;
 		driver.findElement(RequestRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(orgName);
+		LaunchBrowserUtil.delay(3);
 		List<WebElement> orgList = driver.findElements(RequestRolePageLocator.ORG_SELECTOR);
 		logger.info(("The size of the list is......" + orgList.size()));
 		WebElement firstOrg = orgList.get(0);
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());
 		if (firstOrg.getText().toLowerCase().contains(orgName.toLowerCase())) {
-			orgList.get(0).click();
-			CommonMethods.delay(3);
+			driver.findElement(By.xpath("//*[@id=\"federalHierarchy-listbox\"]/li[1]/div[1]/div")).click();
+			//firstOrg.click();
+			LaunchBrowserUtil.delay(3);
 			orgFound = true;
 		}
 		return orgFound;
 	}
 
+	/**
+	 * this method validates whether all the search results contain the search term
+	 * e.g 'general' as a search term should contain only results with that term in
+	 * it.
+	 * 
+	 * @param search    the search term eg general services administration
+	 * @param givenWord general
+	 * @return true if all search results are validated
+	 */
 	public static boolean validateOrgSuggestionContainsGivenWord(String search, String givenWord) {
 		boolean allOrgsContainsGivenWord = true;
 		driver.findElement(RequestRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(search);
@@ -126,22 +156,6 @@ public class RequestRolePage {
 		return allOrgsContainsGivenWord;
 	}
 
-	// *****************************************************************************
-	// the following methods describe actions that are only available after some
-	// previous actions were taken on this SAME page.
-	// *****************************************************************************
-
-	// *****************************************************************************
-	// driver getter and setter & private methods
-	// *****************************************************************************
-	public static WebDriver getDriver() {
-		return driver;
-	}
-
-	public static void setDriver(WebDriver driver) {
-		RequestRolePage.driver = driver;
-	}
-
 	public static boolean elementFound(By locator) {
 		try {
 			driver.findElement(locator);
@@ -151,6 +165,5 @@ public class RequestRolePage {
 		}
 
 	}
-
 
 }

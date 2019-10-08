@@ -5,7 +5,14 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(plugin = { "pretty" }, features = "src/test/resources/features/", tags = { "@Login","@7"})
+@CucumberOptions(plugin = { "pretty" }, glue = {
+		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
+				"@RoleAssign","@1" })
 public class CucumberTestSuite {
-	// "@RoleMigration","@3"//latest at 5/22/2019
+	// "@SystemAccountEmail","@9"
+	// "@T1Workspace","@32"
+	//
+
+
+
 }

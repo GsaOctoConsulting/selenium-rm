@@ -8,12 +8,12 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.RolesDirectoryViewAccessLocator;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class RaBusinessRulesStep {
@@ -32,7 +32,7 @@ public class RaBusinessRulesStep {
     @When("^_1 role admin looks up another ra$")
     public void _1_role_admin_looks_up_another_ra() throws Throwable {
     	LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(raUser);
 		UserDirectoryPage.clickViewAccessOnly((raUser));
@@ -42,7 +42,7 @@ public class RaBusinessRulesStep {
 
     @Then("^_1 assign role button should not be there$")
     public void _1_assign_role_button_should_not_be_there() throws Throwable {
-     boolean assignRoleButtonFound= RolesDirectoryViewAccessPage.elementFound(RolesDirectoryViewAccessLocator.ASSIGN_ROLE_BUTTON);  
+     boolean assignRoleButtonFound= UserDirectoryViewAccessPage.elementFound(RolesDirectoryViewAccessLocator.ASSIGN_ROLE_BUTTON);  
      Assert.assertEquals(false, assignRoleButtonFound);
     }
 	
@@ -58,7 +58,7 @@ public class RaBusinessRulesStep {
     @When("^_2 role admin looks up nonfed user through user directory$")
     public void _2_role_admin_looks_up_nonfed_user_through_user_directory() throws Throwable {
     	LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
 		

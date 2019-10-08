@@ -8,4 +8,7 @@ public class SystemAccountDirectoryPageLocator {
 			/* By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/results/div[2]/div[2]/span/sam-button/button");
 */
+	public static final By PASSWORD_SUCCESS_BANNER = By.className("usa-alert-success");
+	public static final By PENDING_REVIEW_FILTER = By.id("filter-pending-review");
+	public static final By PENDING_APPROVAL_FILTER = By.id("filter-pending-approval");
 }

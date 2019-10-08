@@ -11,8 +11,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
@@ -21,9 +20,9 @@ import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.BulkUpdatePage;
 import gov.gsa.sam.rms.pages.BulkUpdateSelectionPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.MyWorkspacePage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 
@@ -33,28 +32,28 @@ public class ALGrandUserBusinessRulesStep {
 	@Given("^_1alg user logs in as assistance listing granduser$")
 	public void _1alg_user_logs_in_as_assistance_listing_granduser() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.AL_GRANDUSER_1, Constants.USERPASS,
-				ConstantsAccounts.AL_GRANDUSER_1_SECRETKEY, Constants.USER_FED);
+		ConstantsAccounts.AL_GRANDUSER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
 	@Then("^_1alg user should see not see role definitions link$")
 	public void _1alg_user_should_see_not_see_role_definitions_link() throws Throwable {
 		// role definition link check
-		boolean roleDefinitionLinkFound = RMWidgetUtility.linkFound("Role Definitions");
+		boolean roleDefinitionLinkFound = UserDirectoryWidgetUtility.linkFound("Role Definitions");
 		Assert.assertEquals(roleDefinitionLinkFound, false);
 	}
 
 	@And("^_1alg user should see bulk update link$")
 	public void _1alg_user_should_see_bulk_update_link() throws Throwable {
 		// bulk update link check
-		boolean bulkUpdateLinkFound = RMWidgetUtility.linkFound("Bulk Update");
+		boolean bulkUpdateLinkFound = UserDirectoryWidgetUtility.linkFound("Bulk Update");
 		Assert.assertEquals(bulkUpdateLinkFound, true);
 	}
 
 	@And("^_1alg user should see pending request link$")
 	public void _1alg_user_should_see_pending_request_link() throws Throwable {
 		// pending request link check
-		boolean pendingRequestLinkFound = RMWidgetUtility.linkFound("Pending Role Requests");
+		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
 		Assert.assertEquals(pendingRequestLinkFound, true);
 	}
 
@@ -66,7 +65,7 @@ public class ALGrandUserBusinessRulesStep {
 
 	@And("^_2alg user navigates to my profile page$")
 	public void _2alg_user_navigates_to_my_profile_page() throws Throwable {
-		MyWorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 	}
@@ -90,7 +89,7 @@ public class ALGrandUserBusinessRulesStep {
 	@And("^_3alg user navigates to user directory page$")
 	public void _3alg_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_3alg user directory links should be clickable$")
@@ -126,7 +125,7 @@ public class ALGrandUserBusinessRulesStep {
 	@And("^_4alg user navigates to user directory page$")
 	public void _4alg_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_4alg user searches for hhs in org picker$")
@@ -146,7 +145,7 @@ public class ALGrandUserBusinessRulesStep {
 	@And("^_5alg user navigates to user directory page$")
 	public void _5alg_user_navigates_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_5alg user should be able to clear filters$")
@@ -157,7 +156,8 @@ public class ALGrandUserBusinessRulesStep {
 		UserDirectoryPage.clickClearFilter();
 
 		boolean alAdminfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ALERTSADMIN_FILTER);
-		boolean assistanceUserfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
+		boolean assistanceUserfilterSelected = UserDirectoryPage
+				.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
 
 		Assert.assertEquals(alAdminfilterSelected, false);
 		Assert.assertEquals(assistanceUserfilterSelected, false);
@@ -186,7 +186,7 @@ public class ALGrandUserBusinessRulesStep {
 	@And("^_6alg user navigates to bulk update page$")
 	public void _6alg_user_navigates_to_bulk_update_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickBulkUpdateLink();
+		UserDirectoryWidgetUtility.clickBulkUpdateLink();
 	}
 
 	@Then("^_6alg user should see org and roles in gsa$")

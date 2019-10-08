@@ -10,14 +10,14 @@ import cucumber.api.java.en.Then;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.MyWorkspacePage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 
 public class MiscelleneousUsersBusinessRulesStep {
 	private static Logger logger = LoggerFactory.getLogger(MiscelleneousUsersBusinessRulesStep.class);
@@ -32,21 +32,21 @@ public class MiscelleneousUsersBusinessRulesStep {
 	public void _1mis_user_should_see_not_see_role_definitions_link() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		// role definition link check
-		boolean roleDefinitionLinkFound = RMWidgetUtility.linkFound("Role Definitions");
+		boolean roleDefinitionLinkFound = UserDirectoryWidgetUtility.linkFound("Role Definitions");
 		Assert.assertEquals(roleDefinitionLinkFound, false);
 	}
 
 	@And("^_1mis user should not see bulk update link$")
 	public void _1mis_user_should_not_see_bulk_update_link() throws Throwable {
 		// bulk update link check
-		boolean bulkUpdateLinkFound = RMWidgetUtility.linkFound("Bulk Update");
+		boolean bulkUpdateLinkFound = UserDirectoryWidgetUtility.linkFound("Bulk Update");
 		Assert.assertEquals(bulkUpdateLinkFound, false);
 	}
 
 	@And("^_1mis user should not see pending request link$")
 	public void _1mis_user_should_not_see_pending_request_link() throws Throwable {
 		// pending request link check
-		boolean pendingRequestLinkFound = RMWidgetUtility.linkFound("Pending Role Requests");
+		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
 		Assert.assertEquals(pendingRequestLinkFound, false);
 	}
 
@@ -68,7 +68,7 @@ public class MiscelleneousUsersBusinessRulesStep {
 	    @Then("^_2mis user search for themself through user directory$")
 	    public void _2mis_user_search_for_themself_through_user_directory() throws Throwable {
 	    	LaunchBrowserUtil.scrollAllTheWayDown();
-			RMWidgetUtility.searchUser(ConstantsAccounts.HHS_ASSISTANCEUSER_1);
+			UserDirectoryWidgetUtility.searchUser(ConstantsAccounts.HHS_ASSISTANCEUSER_1);
 			
 			UserDirectoryPage.clickActions(ConstantsAccounts.HHS_ASSISTANCEUSER_1);
 	    }
@@ -94,7 +94,7 @@ public class MiscelleneousUsersBusinessRulesStep {
 
 	    @Then("^_3mis user navigates to request role page$")
 	    public void _3mis_user_navigates_to_request_role_page() throws Throwable {
-	    	MyWorkspacePage.goToAccountDetailsPage();
+	    	T1WorkspacePage.goToAccountDetailsPage();
 			AccountDetailsPage.goToPageOnSideNav("My Roles");
 			MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 			MyRolesPage.clickRequestRoleButton();

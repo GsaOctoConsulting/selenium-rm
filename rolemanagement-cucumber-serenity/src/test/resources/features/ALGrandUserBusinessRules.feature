@@ -22,7 +22,7 @@ Description:  The purpose of this feature is to test functionality
 for OMB admin
 
 @1
-Scenario: user Directory Should Appear Without Admin Functions
+Scenario: workspace widget Should Appear Without Admin Functions
 Given _1alg user logs in as assistance listing granduser
 Then _1alg user should see not see role definitions link
 And _1alg user should see bulk update link

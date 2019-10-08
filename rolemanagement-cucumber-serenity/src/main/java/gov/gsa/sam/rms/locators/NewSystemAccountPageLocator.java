@@ -24,13 +24,13 @@ public class NewSystemAccountPageLocator {
 	public static final By FIPS_CATEGORY_TEXBOX = By.id("fips199-categorization");
 	public static final By FIPS_CATEGORY_LIST = By.id("sam-autocomplete-results-kv");
 	public static final String REST_APIS = "Rest APIs";
-	public static final By IP_ADDRESS_TEXTBOX = By.id("ip-address-required");
+	public static final By IP_ADDRESS_TEXTBOX = By.id("ip-input");
 	public static final By TEXTAREA_TYPE_OF_CONNECTION = By.id("type-of-connection-required-ac-textarea");
 	public static final By TYPE_OF_CONNECTION_LIST = By
 			.xpath("//*[@id=\"type-of-connection\"]/div/sam-label-wrapper/div/div[2]/div[2]/ul");
 	public static final By PHYSICAL_LOCATION = By.id("physical-location-required");
-	public static final By SECURITY_OFFICIAL_NAME = By.id("security-official-name-required");
-	public static final By SECURITY_OFFICIAL_EMAIL = By.id("security-official-email-required");
+	public static final By SECURITY_OFFICIAL_NAME = By.cssSelector("input[formcontrolname='securityOfficialName']");
+	public static final By SECURITY_OFFICIAL_EMAIL = By.cssSelector("input[formcontrolname='securityOfficialEmail']");
 	public static final By CERTIFY_CORRECT_INFO = By.id("authorization-confirmation");
 	public static final By REVIEW_BUTTON = By.id("button-review");
 	public static final By SUBMIT_BUTTON = By.id("button-submit");

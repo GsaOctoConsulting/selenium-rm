@@ -21,9 +21,9 @@ public class AssignRolePageLocator {// contains locators for AssignRolePageOnly
 
 	public static final By UNSELECT_DEFAULTORG_ICON = By.className("fa-times-circle");
 
-	public static final By ORGPICKER_TEXTAREA = By.id("access-org-pickerpicker-ac-textarea");
+	public static final By ORGPICKER_TEXTAREA = By.id("federalHierarchy");
 
-	public static final By ORG_SELECTOR = By.className("category-item");
+	public static final By ORG_SELECTOR = By.id("federalHierarchy-listbox");
 
 	public static final By CONTAINER = By
 			.xpath("//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[3]");
@@ -31,6 +31,10 @@ public class AssignRolePageLocator {// contains locators for AssignRolePageOnly
 	public static final By FEED_NOTIFICATION_ICON = By.id("headerIconRequests");
 
 	public static final By SHOWMORE_REQUEST_LINK = By.className("fa-chevron-circle-right");
+
+	public static final By ENTITYPICKER_TEXTAREA = By.id("grant-access-entity-picker-ac-textarea");
+
+	public static final By ENTITY_SELECTOR = By.className("category-item");
 
 	// the following locators are avaialble after some user action
 

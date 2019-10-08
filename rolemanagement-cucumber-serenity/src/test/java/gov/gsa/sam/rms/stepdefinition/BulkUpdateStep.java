@@ -10,13 +10,12 @@ import cucumber.api.java.en.Then;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.BulkUpdatePage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
-import gov.gsa.sam.rms.pages.RolesDirectoryViewAccessPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
-import gov.gsa.sam.rms.utilities.CommonMethods;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
-import gov.gsa.sam.rms.utilities.RMWidgetUtility;
+import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class BulkUpdateStep {
@@ -25,13 +24,15 @@ public class BulkUpdateStep {
 	@Given("^_1 user logs in as dra$")
 	public void _1_user_logs_in_as_dra() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+deptroleadmin@gsa.gov", Constants.USERPASS);
+
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
+				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_1 user navigates to bulk update page$")
 	public void _1_user_navigates_to_bulk_update_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickBulkUpdateLink();
+		UserDirectoryWidgetUtility.clickBulkUpdateLink();
 	}
 
 	@Then("^_1 org picker should show proper options$")
@@ -52,13 +53,13 @@ public class BulkUpdateStep {
 	@And("^_2 user navigates to bulk update page$")
 	public void _2_user_navigates_to_bulk_update_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		RMWidgetUtility.clickBulkUpdateLink();
+		UserDirectoryWidgetUtility.clickBulkUpdateLink();
 	}
 
 	@Then("^_2 org picker should show proper options$")
 	public void _2_org_picker_should_show_proper_options() throws Throwable {
 		BulkUpdatePage.selectOrgIfFound(Constants.ORG_GSA);
-		
+
 		BulkUpdatePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		BulkUpdatePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 
@@ -68,27 +69,26 @@ public class BulkUpdateStep {
 		Assert.assertEquals(true, userFound);
 		BulkUpdatePage.clickRemoveAccess();
 		BulkUpdatePage.clickNext();
-		BulkUpdatePage.writeComment("removing access");
+		/*BulkUpdatePage.writeComment("removing access");
 		BulkUpdatePage.clickDone();
-		
+
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.ASSISTANCE_USER_2);
-		boolean userHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(false, userHasRole);
 		// ------------give the role back-----------------------------------------
-		RolesDirectoryViewAccessPage.clickAssignRole();
+		UserDirectoryViewAccessPage.clickAssignRole();
 		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("assigning role back");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
-		boolean roleFound = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
-		Assert.assertEquals(true, roleFound);
+		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
+		Assert.assertEquals(true, roleFound);*/
 
-		
 		afterScenario();
 
 	}
