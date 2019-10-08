@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 
 public class BulkUpdatePageLocator {
 
-	public static final By ORGPICKER_TEXTAREA = By.id("bulk-update-org-pickerpicker-ac-textarea");
-	public static final By ORG_SELECTOR = By.className("usa-unstyled-list");
+	public static final By ORGPICKER_TEXTAREA = By.id("federalHierarchy");
+	public static final By ORG_SELECTOR = By.id("federalHierarchy-listbox");
 	public static final By ROLE_SELECTOR = By.id("role");
 	public static final By DOMAIN_SELECTOR = By.className("category-item");
 	public static final By DOMAINDROPDOWN_ICON = By.xpath(

@@ -142,7 +142,7 @@ public class RoleRequestStep {
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
-		Assert.assertEquals(requestFound, true);
+		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}

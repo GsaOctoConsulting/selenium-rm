@@ -37,9 +37,9 @@ public class LoginStep {
 
 		beforeScenario();
 		
-		  SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1,
+		/*  SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1,
 		  Constants.USERPASS, ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY,
-		  Constants.USER_FED);
+		  Constants.USER_FED);*/
 		 
 		/*
 		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.
@@ -48,13 +48,13 @@ public class LoginStep {
 		 * Constants.USER_FED); CommonMethods.delay(4);
 		 */
 
-		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);*/
 		
 		//WorkspacePage.goToRoleMigrationPage();
-	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
-				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
-		LaunchBrowserUtil.delay(4);*/
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 		
 		
 		

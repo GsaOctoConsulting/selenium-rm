@@ -3,6 +3,7 @@ package gov.gsa.sam.rms.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,11 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.BulkUpdatePageLocator;
+import gov.gsa.sam.rms.locators.RequestRolePageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 /**
- * This class refers to the first page seen
- * when doing bulk updates
+ * This class refers to the first page seen when doing bulk updates
  *
  */
 public class BulkUpdatePage {
@@ -25,6 +26,7 @@ public class BulkUpdatePage {
 
 	private BulkUpdatePage() {
 	}
+
 	public static WebDriver getDriver() {
 		return BulkUpdatePage.driver;
 	}
@@ -32,22 +34,33 @@ public class BulkUpdatePage {
 	public static void setDriver(WebDriver driver) {
 		BulkUpdatePage.driver = driver;
 	}
+
 	/**
 	 * this method will select the given org name if found
+	 * 
 	 * @param orgName the role name to be selected
 	 * @return true if found
 	 */
 	public static boolean selectOrgIfFound(String orgName) {
 		boolean orgFound = false;
 		driver.findElement(BulkUpdatePageLocator.ORGPICKER_TEXTAREA).sendKeys(orgName);
-		LaunchBrowserUtil.delay(2);
-		driver.findElement(By.xpath(
-				"//*[@id=\"bulk-update-org-pickerpicker-ac-textarea-picker-label\"]/div/sam-autocomplete-multiselect/div/sam-label-wrapper/div/div/div[2]/ul/li/ul/li[1]/p[1]"))
-				.click();
+		LaunchBrowserUtil.delay(3);
+		List<WebElement> orgList = driver.findElements(BulkUpdatePageLocator.ORG_SELECTOR);
+		logger.info(("The size of the list is......" + orgList.size()));
+		WebElement firstOrg = orgList.get(0);
+		logger.info("*****************the text from first org is*****" + firstOrg.getText());
+		if (firstOrg.getText().toLowerCase().contains(orgName.toLowerCase())) {
+			driver.findElement(By.xpath("//*[@id=\"federalHierarchy-listbox\"]/li[1]/div[1]/div")).click();
+			// firstOrg.click();
+			LaunchBrowserUtil.delay(3);
+			orgFound = true;
+		}
 		return orgFound;
 	}
+
 	/**
 	 * this method will select the given role name if found
+	 * 
 	 * @param roleName the role name to be selected
 	 * @return true if found
 	 */
@@ -62,8 +75,10 @@ public class BulkUpdatePage {
 		}
 		return roleFound;
 	}
+
 	/**
 	 * this method will select the given domain name if found
+	 * 
 	 * @param domainName the domain name to be selected
 	 * @return true if found
 	 */
@@ -128,12 +143,19 @@ public class BulkUpdatePage {
 		for (int i = 0; i < allUsers.size(); i++) {
 			String idtext = allUsers.get(i).getText();
 			if (idtext.contains(userid)) {
-				logger.info("User has been found*******************************the textid----");
+				logger.info("User has been found*******************************the textid-is--- " + idtext);
 				LaunchBrowserUtil.delay(4);
+				/*
+				 * WebElement element = allUsers.get(i).findElement(By.tagName("input"));
+				 * Actions actions = new Actions(driver);
+				 * actions.moveToElement(element).perform();
+				 */
 				WebElement element = allUsers.get(i).findElement(By.tagName("input"));
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+				LaunchBrowserUtil.delay(3);
 				Actions actions = new Actions(driver);
-				actions.moveToElement(element).click().perform();
-				// allUsers.get(i).findElement(By.tagName("input")).click();
+				actions.moveToElement(allUsers.get(i).findElement(By.className("input-toggle"))).click().perform();
+				// allUsers.get(i).findElement(By.className("input-toggle")).click();
 				userFound = true;
 				LaunchBrowserUtil.delay(3);
 				break;

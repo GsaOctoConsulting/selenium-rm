@@ -59,7 +59,6 @@ public class BulkUpdateStep {
 	@Then("^_2 org picker should show proper options$")
 	public void _2_org_picker_should_show_proper_options() throws Throwable {
 		BulkUpdatePage.selectOrgIfFound(Constants.ORG_GSA);
-
 		BulkUpdatePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		BulkUpdatePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 
@@ -69,7 +68,7 @@ public class BulkUpdateStep {
 		Assert.assertEquals(true, userFound);
 		BulkUpdatePage.clickRemoveAccess();
 		BulkUpdatePage.clickNext();
-		/*BulkUpdatePage.writeComment("removing access");
+		BulkUpdatePage.writeComment("removing access");
 		BulkUpdatePage.clickDone();
 
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_USER_2);
@@ -87,7 +86,7 @@ public class BulkUpdateStep {
 		AssignRolePage.clickCloseButton();
 		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
-		Assert.assertEquals(true, roleFound);*/
+		Assert.assertEquals(true, roleFound);
 
 		afterScenario();
 
