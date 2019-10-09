@@ -50,7 +50,7 @@ public class RoleRequestStep {
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
-		RequestRolePage.writeSupervisorEmail("email@gmail.com");
+		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
 		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
@@ -157,6 +157,7 @@ public class RoleRequestStep {
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollAllTheWayDown();
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(3);
 		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
@@ -173,7 +174,7 @@ public class RoleRequestStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("test");

@@ -13,8 +13,7 @@ import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import org.openqa.selenium.support.ui.Select;
 
 /**
- * This class refers to the page visible during 
- * role assignment
+ * This class refers to the page visible during role assignment
  *
  */
 public class AssignRolePage {
@@ -23,6 +22,7 @@ public class AssignRolePage {
 
 	private AssignRolePage() {
 	}
+
 	public static WebDriver getDriver() {
 		return AssignRolePage.driver;
 	}
@@ -30,6 +30,7 @@ public class AssignRolePage {
 	public static void setDriver(WebDriver driver) {
 		AssignRolePage.driver = driver;
 	}
+
 	public static void clickRoleDropdown() {
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(AssignRolePageLocator.ROLE_SELECTOR).click();
@@ -42,6 +43,7 @@ public class AssignRolePage {
 
 	/**
 	 * this method will select the given role name if found
+	 * 
 	 * @param roleName the role name to be selected
 	 * @return true if found
 	 */
@@ -58,10 +60,12 @@ public class AssignRolePage {
 		}
 		return roleFound;
 	}
+
 	/**
-	 * this overloaded method will select the given role name if 
-	both the provided role name and corresponding domain for that role is found
-	 * @param roleName the role name to be selected
+	 * this overloaded method will select the given role name if both the provided
+	 * role name and corresponding domain for that role is found
+	 * 
+	 * @param roleName   the role name to be selected
 	 * @param domainName the domain for the given role
 	 * @return true if found
 	 */
@@ -98,8 +102,10 @@ public class AssignRolePage {
 		return roleFound;
 
 	}
+
 	/**
 	 * this method will select the given domain name if found
+	 * 
 	 * @param domainName the domain name to be selected
 	 * @return true if found
 	 */
@@ -121,8 +127,10 @@ public class AssignRolePage {
 		return domainFound;
 
 	}
+
 	/**
 	 * this method will select the given org name if found
+	 * 
 	 * @param orgName the org name to be selected
 	 * @return true if found
 	 */
@@ -141,12 +149,13 @@ public class AssignRolePage {
 		}
 		return orgFound;
 	}
+
 	/**
-	 * this overloaded method will use the provided orgName as 
-	 * a search term and then select the exact number of dropdown
-	 * option from the suggested list if applicable.
-	 * <br>
-	 * @param orgName the search term
+	 * this overloaded method will use the provided orgName as a search term and
+	 * then select the exact number of dropdown option from the suggested list if
+	 * applicable. <br>
+	 * 
+	 * @param orgName          the search term
 	 * @param dropdownOptionNo the option number to be selected
 	 * @return true if any org with the given search term is found, false otherwise
 	 */
@@ -154,7 +163,9 @@ public class AssignRolePage {
 		boolean orgFound = false;
 		driver.findElement(AssignRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(orgName);
 		LaunchBrowserUtil.delay(4);
-		List<WebElement> orgList = driver.findElements(AssignRolePageLocator.ORG_SELECTOR);
+		List<WebElement> orgList = driver
+				.findElements(By.xpath("//li[starts-with(@id, 'federalHierarchy-resultItem')]"));
+
 		logger.info(("The size of the list is......" + orgList.size()));
 		LaunchBrowserUtil.delay(2);
 		WebElement firstOrg = orgList.get(dropdownOptionNo);
@@ -206,8 +217,8 @@ public class AssignRolePage {
 	}
 
 	/**
-	 * this method searches for the presence or absence of an element
-	 * in this page
+	 * this method searches for the presence or absence of an element in this page
+	 * 
 	 * @param locator the element to be searched for
 	 * @return true if found, false otherwise
 	 */
@@ -220,8 +231,6 @@ public class AssignRolePage {
 		}
 
 	}
-
-	
 
 	public static void clickCancel() {
 		driver.findElement(
@@ -244,14 +253,16 @@ public class AssignRolePage {
 				.click();
 		LaunchBrowserUtil.delay(4);
 	}
+
 	/**
-	 * this method is used for nonfed users only and uses the provided entityName as 
-	 * a search term and then select the exact number of dropdown
-	 * option from the suggested list if applicable.
-	 * <br>
-	 * @param entityName the nonfed entity used as the search term
+	 * this method is used for nonfed users only and uses the provided entityName as
+	 * a search term and then select the exact number of dropdown option from the
+	 * suggested list if applicable. <br>
+	 * 
+	 * @param entityName       the nonfed entity used as the search term
 	 * @param dropdownOptionNo the option number to be selected
-	 * @return true if any entity with the given search term is found, false otherwise
+	 * @return true if any entity with the given search term is found, false
+	 *         otherwise
 	 */
 	public static boolean selectEntityIfFound(String entityName, int dropdownOptionNo) {
 		boolean orgFound = false;

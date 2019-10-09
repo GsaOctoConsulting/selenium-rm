@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
+import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
@@ -78,7 +79,8 @@ public class T1WorkspacePage {
 		WebElement thelink = wait.until(ExpectedConditions.elementToBeClickable(MyWorkspacePageLocator.SHOWMORE_LINK));
 		thelink.click();
 		FeedsRequestPage.setDriver(WorkspacePage.getDriver());*/
-		driver.navigate().to("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/workspace/myfeed/requests");
+		String feedurl = Constants.LOGINGOV_HOME_PAGE+"/workspace/myfeed/requests";
+		driver.navigate().to(feedurl);
 		FeedsRequestPage.setDriver(driver);
 		LaunchBrowserUtil.delay(4);
 	}
