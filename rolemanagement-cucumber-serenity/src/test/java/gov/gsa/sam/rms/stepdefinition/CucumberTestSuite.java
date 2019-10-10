@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@SmokeTest"})
+				"@UserDirectoryFilter","@1"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9"
-	// "@T1Workspace","@32" // 5 10pm
+	// "@T1Workspace","@32" // 4 16pm
 	//
 
 
