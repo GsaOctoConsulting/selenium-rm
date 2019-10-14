@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
@@ -497,8 +498,10 @@ public class UserDirectoryPage {
 	public static void selectOrgInOrgPicker(String orgname) {
 		driver.findElement(UserDirectoryPageLocator.ORG_PICKER).sendKeys(orgname);
 		LaunchBrowserUtil.delay(2);
-		List<WebElement> listoforgs = driver.findElements(By.className("multiple-values"));
-		listoforgs.get(0).click();
+		List<WebElement> orgList = driver.findElements(AssignRolePageLocator.ORG_SELECTOR);
+		logger.info(("The size of the list is......" + orgList.size()));
+		WebElement firstOrg = orgList.get(0);
+		firstOrg.click();
 		LaunchBrowserUtil.delay(2);
 	}
 

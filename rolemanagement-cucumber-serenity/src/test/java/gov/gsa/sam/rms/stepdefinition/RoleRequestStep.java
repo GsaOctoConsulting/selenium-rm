@@ -687,7 +687,7 @@ public class RoleRequestStep {
 
 	@When("^_11 spaad goes through the feeds requests$")
 	public void _11_spaad_goes_through_the_feeds_requests() throws Throwable {
-		int totalNoOfPages = FeedsRequestPage.getTotalNoOfPages();
+		int totalNoOfPages =2; //FeedsRequestPage.getTotalNoOfPages(); currently searching two pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist

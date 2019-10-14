@@ -164,7 +164,7 @@ public class AssignRolePage {
 		driver.findElement(AssignRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(orgName);
 		LaunchBrowserUtil.delay(4);
 		List<WebElement> orgList = driver
-				.findElements(By.xpath("//li[starts-with(@id, 'federalHierarchy-resultItem')]"));
+				.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
 
 		logger.info(("The size of the list is......" + orgList.size()));
 		LaunchBrowserUtil.delay(2);

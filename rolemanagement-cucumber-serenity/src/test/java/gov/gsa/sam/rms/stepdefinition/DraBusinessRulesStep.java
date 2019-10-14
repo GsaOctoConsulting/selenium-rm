@@ -341,7 +341,7 @@ public class DraBusinessRulesStep {
 
 	@When("^_7 dra tries to hit the role request page directly through url$")
 	public void _7_dra_tries_to_hit_the_role_request_page_directly_through_url() throws Throwable {
-		LaunchBrowserUtil.enterUrl("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/profile/request-role");
+		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/profile/request-role");
 		ForBiddenPage.setDriver(MyRolesPage.getDriver());
 		LaunchBrowserUtil.delay(2);
 
@@ -363,7 +363,7 @@ public class DraBusinessRulesStep {
 	@Then("^_8 dra should not see migrate roles link$")
 	public void _8_dra_should_not_see_migrate_roles_link() throws Throwable {
 		boolean migrateRolesFound=T1WorkspacePage.profileLinksFound("Migrate Roles");
-		//Assert.assertEquals(false, migrateRolesFound);
+		Assert.assertEquals(false, migrateRolesFound);
 	}
 
 	@When("^_8 dra navigates to profile page$")
@@ -373,7 +373,7 @@ public class DraBusinessRulesStep {
 		boolean draRoleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
 				Constants.NOACTION);
-		//Assert.assertEquals(true, draRoleFound);
+		Assert.assertEquals(true, draRoleFound);
 	}
 
 	@Then("^_8 they should not see the role migration banner$")
@@ -384,7 +384,7 @@ public class DraBusinessRulesStep {
 
 	@When("^_8 dra tries to hit the role migration page directly through url$")
 	public void _8_dra_tries_to_hit_the_role_migration_page_directly_through_url() throws Throwable {
-		LaunchBrowserUtil.enterUrl("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/profile/migrations");
+		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/profile/migrations");
 		ForBiddenPage.setDriver(MyRolesPage.getDriver());
 		LaunchBrowserUtil.delay(2);
 	}
