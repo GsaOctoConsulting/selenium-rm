@@ -16,49 +16,69 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@Email
-Feature: Email functionality
-  Description:  The purpose of this feature is to test email validations
+@Email 
+Feature: Email functionality 
+	Description:  The purpose of this feature is to test email validations
 
-  @1 @IntegrationTest
-  Scenario: role requester and supervisor should receive email
-    Given _1 a no role user logs
-    And _1 user requests assitance user role in assistance listing
-    Then _1 user should receive an email with the proper message
-    Then _1 supervisor should also receive an email message
-
-  @2 @IntegrationTest
-  Scenario: role requested if approved should sent emails to requester and approver
-    Given _2 a no role user logs in
-    And _2 user requests assistance user role in assistance listing
-    When _2 assistance admin approves the request
-    Then _2 assistance admin should receive email message
-    Then _2 the requester should also receive an email message
-
-  @3 @IntegrationTest
-  Scenario: top down role assignment should sent emails to both the granter and grantee
-    Given _3 assistance admin logs into workspace
-    And _3 assistance admin looks up a no role user through the user directory
-    And _3 assistance admin gives assistance user role to this user
-    Then _3 assistance admin should receive proper email message
-    And _3 assistance admin removes the role
-    Then _3 assistance admin should receive role remove email
-    When _3 the user logs in
-    Then _3 the user should have received a role assign email
-    And _3 the user should have received a role removed email
-
-  @4 @IntegrationTest
-  Scenario: editing a role should send emails to both the editor and role holder
-    Given _4 user logs in workspace as assistance admin
-    And _4 admin looks up assistance user account in user directory
-    And _4 admin changes the users org to office of acquisition policy
-    Then _4 assistance admin should receive proper email message
-    Then _4 the assistance user should also receive proper email message
-
-  @5 @IntegrationTest
-  Scenario: role requested if rejected should sent emails to requester and approver
-    Given _5 a no role user logs in
-    And _5email_user requests assitance user role in assistance listing
-    When _5 assistance admin rejects the request
-    Then _5 supervisor should receive email message
-    Then _5 the requester should also receive an email message
+@1 @IntegrationTest 
+Scenario: role requester and supervisor should receive email 
+	Given _1 a no role user logs 
+	And _1 user requests assitance user role in assistance listing 
+	Then _1 user should receive an email with the proper message 
+	Then _1 supervisor should also receive an email message 
+	
+@2 @IntegrationTest 
+Scenario:
+role requested if approved should sent emails to requester and approver 
+	Given _2 a no role user logs in 
+	And _2 user requests assistance user role in assistance listing 
+	When _2 assistance admin approves the request 
+	Then _2 assistance admin should receive email message 
+	Then _2 the requester should also receive an email message 
+	
+@3 @IntegrationTest 
+Scenario:
+top down role assignment should sent emails to both the granter and grantee 
+	Given _3 assistance admin logs into workspace 
+	And _3 assistance admin looks up a no role user through the user directory 
+	And _3 assistance admin gives assistance user role to this user 
+	Then _3 assistance admin should receive proper email message 
+	And _3 assistance admin removes the role 
+	Then _3 assistance admin should receive role remove email 
+	When _3 the user logs in 
+	Then _3 the user should have received a role assign email 
+	And _3 the user should have received a role removed email 
+	
+@4 @IntegrationTest 
+Scenario: editing a role should send emails to both the editor and role holder 
+	Given _4 user logs in workspace as assistance admin 
+	And _4 admin looks up assistance user account in user directory 
+	And _4 admin changes the users org to office of acquisition policy 
+	Then _4 assistance admin should receive proper email message 
+	Then _4 the assistance user should also receive proper email message 
+	
+@5 @IntegrationTest 
+Scenario:
+role requested if rejected should sent emails to requester and approver 
+	Given _5 a no role user logs in 
+	And _5email_user requests assitance user role in assistance listing 
+	When _5 assistance admin rejects the request 
+	Then _5 supervisor should receive email message 
+	Then _5 the requester should also receive an email message 
+	
+@6 @IntegrationTest 
+Scenario: role requested if approved should sent emails supervisor 
+	Given _6email a no role user logs in 
+	And _6email_user requests assitance user role in assistance listing 
+	When _6email assistance admin approves the request 
+	Then _6email supervisor should receive email message regarding the approval
+	
+@7 @IntegrationTest 
+Scenario: role requested if approved should sent emails supervisor 
+	Given _7email a no role user logs in 
+	And _7email_user requests assitance user role in assistance listing 
+	When _7email assistance admin rejects the request 
+	Then _7email supervisor should receive email message regarding the rejection	 
+	
+	
+	

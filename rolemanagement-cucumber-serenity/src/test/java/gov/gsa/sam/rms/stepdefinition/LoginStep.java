@@ -53,6 +53,10 @@ public class LoginStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);	
+		LaunchBrowserUtil
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.navigateBack();
+		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		
 	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);*/

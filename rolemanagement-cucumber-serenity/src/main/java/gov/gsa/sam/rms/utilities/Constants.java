@@ -20,6 +20,9 @@ public class Constants {
 	public static final String ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA = "OFFICE OF ACQUISITION OPERA";
 	public static final String ORG_EOIR = "Executive Office for Immigration Review";
 	public static final String ORG_OCTO_CONSULTING_GROUP = "OCTO CONSULTING GROUP, INC";
+	
+	//Org Codes
+	public static final String ORG_GSA_CODE = "300000221";
 
 	// Roles---------------------------------
 	public static final String ROLE_ROLEADMIN_SAMPMOADMINALLDOMAINS = "SAM PMO Administrator All Domains";
@@ -181,6 +184,7 @@ public class Constants {
 	public static final String NO_SECRET_KEY = "No Secret Key";
 
 	public static final String SIGNUP_SECURITYLEVEL = "IAL1";
+	
 	
 	
 
