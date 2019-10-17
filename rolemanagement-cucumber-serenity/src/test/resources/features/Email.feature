@@ -28,8 +28,7 @@ Scenario: role requester and supervisor should receive email
 	Then _1 supervisor should also receive an email message 
 	
 @2 @IntegrationTest 
-Scenario:
-role requested if approved should sent emails to requester and approver 
+Scenario: role requested if approved should sent emails to requester and approver 
 	Given _2 a no role user logs in 
 	And _2 user requests assistance user role in assistance listing 
 	When _2 assistance admin approves the request 
@@ -37,8 +36,7 @@ role requested if approved should sent emails to requester and approver
 	Then _2 the requester should also receive an email message 
 	
 @3 @IntegrationTest 
-Scenario:
-top down role assignment should sent emails to both the granter and grantee 
+Scenario: top down role assignment should sent emails to both the granter and grantee 
 	Given _3 assistance admin logs into workspace 
 	And _3 assistance admin looks up a no role user through the user directory 
 	And _3 assistance admin gives assistance user role to this user 
@@ -58,8 +56,7 @@ Scenario: editing a role should send emails to both the editor and role holder
 	Then _4 the assistance user should also receive proper email message 
 	
 @5 @IntegrationTest 
-Scenario:
-role requested if rejected should sent emails to requester and approver 
+Scenario: role requested if rejected should sent emails to requester and approver 
 	Given _5 a no role user logs in 
 	And _5email_user requests assitance user role in assistance listing 
 	When _5 assistance admin rejects the request 
@@ -74,7 +71,7 @@ Scenario: role requested if approved should sent emails supervisor
 	Then _6email supervisor should receive email message regarding the approval
 	
 @7 @IntegrationTest 
-Scenario: role requested if approved should sent emails supervisor 
+Scenario: role requested if rejected should sent emails supervisor 
 	Given _7email a no role user logs in 
 	And _7email_user requests assitance user role in assistance listing 
 	When _7email assistance admin rejects the request 
