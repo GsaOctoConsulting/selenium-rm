@@ -20,9 +20,8 @@ import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
 /**
- * this class refers to the workspace page which is 
- * the landing page after signin for every user and 
- * so is the starting point of automation
+ * this class refers to the workspace page which is the landing page after
+ * signin for every user and so is the starting point of automation
  * 
  */
 public class T1WorkspacePage {
@@ -69,17 +68,18 @@ public class T1WorkspacePage {
 	}
 
 	public static void goToFeedsPage() {
-		/*Actions actions = new Actions(driver);
-		WebElement feed = driver.findElement(MyWorkspacePageLocator.NOTIFICATIONS);
-		actions.moveToElement(feed).click().perform();
-		logger.info("" + driver.findElement(MyWorkspacePageLocator.SHOWMORE_LINK).getText());
-		// option 4
-		LaunchBrowserUtil.delay(2);
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement thelink = wait.until(ExpectedConditions.elementToBeClickable(MyWorkspacePageLocator.SHOWMORE_LINK));
-		thelink.click();
-		FeedsRequestPage.setDriver(WorkspacePage.getDriver());*/
-		String feedurl = Constants.LOGINGOV_HOME_PAGE+"/workspace/myfeed/requests";
+		/*
+		 * Actions actions = new Actions(driver); WebElement feed =
+		 * driver.findElement(MyWorkspacePageLocator.NOTIFICATIONS);
+		 * actions.moveToElement(feed).click().perform(); logger.info("" +
+		 * driver.findElement(MyWorkspacePageLocator.SHOWMORE_LINK).getText()); //
+		 * option 4 LaunchBrowserUtil.delay(2); WebDriverWait wait = new
+		 * WebDriverWait(driver, 10); WebElement thelink =
+		 * wait.until(ExpectedConditions.elementToBeClickable(MyWorkspacePageLocator.
+		 * SHOWMORE_LINK)); thelink.click();
+		 * FeedsRequestPage.setDriver(WorkspacePage.getDriver());
+		 */
+		String feedurl = Constants.LOGINGOV_HOME_PAGE + "/workspace/myfeed/requests";
 		driver.navigate().to(feedurl);
 		FeedsRequestPage.setDriver(driver);
 		LaunchBrowserUtil.delay(4);
@@ -111,19 +111,21 @@ public class T1WorkspacePage {
 		// driver.findElement(By.id("login-accept")).click();
 
 	}
+
 	public static void goToRoleMigrationPage() {
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(T1WorkspacePageLocator.GO_TO_MYPROFILE_LINK).click();
 		AccountDetailsPage.setDriver(T1WorkspacePage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(driver);
 		LaunchBrowserUtil.delay(2);
-		
+
 		AccountDetailsPage.setDriver(driver);
 		UserDirectoryViewAccessPage.setDriver(driver);
 		AccountDetailsPage.goToPageOnSideNav("Role Migrations");
 		RoleMigrationPage.setDriver(driver);
 		LaunchBrowserUtil.delay(4);
 	}
+
 	public static void clickRoleDefinitionLink() {
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.id("role-definitions-button")).click();
@@ -182,19 +184,20 @@ public class T1WorkspacePage {
 	public static String getRoleDescriptionForSelectedRole() {
 		WebElement element = driver.findElement(By.tagName("form"));
 		String description = element.findElement(By.tagName("p")).getText();
-		logger.info("The role description is ---  "+ description);
+		logger.info("The role description is ---  " + description);
 		return description;
 	}
 
 	/**
 	 * This method returns text for the given element
+	 * 
 	 * @param element the element locator for which the text content is needed
-	 * @return the text content of the element 
+	 * @return the text content of the element
 	 */
 	public static String getElementsText(By element) {
 		LaunchBrowserUtil.delay(2);
 		String elementtext = driver.findElement(element).getText();
-		logger.info("The element text is ---  "+ elementtext);
+		logger.info("The element text is ---  " + elementtext);
 		return elementtext;
 	}
 
@@ -203,6 +206,17 @@ public class T1WorkspacePage {
 		driver.findElement(T1WorkspacePageLocator.PENDING).click();
 		LaunchBrowserUtil.delay(4);
 		SystemAccountDirectoryPage.setDriver(driver);
+	}
+
+	public static void clickVerifyBusineesNeedCheckbox() {
+		driver.findElement(T1WorkspacePageLocator.VERIFY_BUSINESS_NEEDCHECKBOX).click();
+		LaunchBrowserUtil.delay(1);
+	}
+
+	public static void clickRequestRoleButton() {
+		driver.findElement(T1WorkspacePageLocator.REQUEST_ROLE_BUTTON).click();
+		RequestRolePage.setDriver(driver);
+		LaunchBrowserUtil.delay(3);	
 	}
 
 }

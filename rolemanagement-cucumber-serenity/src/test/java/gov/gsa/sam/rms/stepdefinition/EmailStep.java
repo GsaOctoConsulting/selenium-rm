@@ -568,6 +568,28 @@ public class EmailStep {
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
+
+		// ----------------delete the role for the user---------------------
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+		LaunchBrowserUtil.delay(2);
+		// check whether user already has the role
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		Assert.assertEquals(true, userAlreadyHasRole);
+
+		// delete the role for the user
+		userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		LaunchBrowserUtil.delay(4);
+		afterScenario();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
+
 	}
 
 	@Given("^_7email a no role user logs in$")
@@ -625,6 +647,56 @@ public class EmailStep {
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Given("^_8 a no role user logs$")
+	public void _8_a_no_role_user_logs() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_8 user requests assitance user role in assistance listing through workspace page$")
+	public void _8_user_requests_assitance_user_role_in_assistance_listing_from_workspace() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		boolean roleFound = T1WorkspacePage.selectRoleForRoleRequest(Constants.ROLE_ASSISTANCE_USER);
+		Assert.assertEquals(true, roleFound);
+		T1WorkspacePage.clickVerifyBusineesNeedCheckbox();
+		T1WorkspacePage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		// delete the request
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		RoleRequestPendingPage.clickDeleteButton();
+		RoleRequestPendingPage.confirmDeleteOnPopup();
+		LaunchBrowserUtil.delay(6);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Then("^_8 supervisor should also receive an email message$")
+	public void _8_supervisor_should_receive_an_email_message() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		// asserting the email body
+		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
+		// Assert.assertEquals(true,
+		// emailContent.contains(Constants.EMAIL_ACTION_SUBMITTED));
+		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
+		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA_CODE));
+		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
+		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
+
 	}
 
 	// private methods are below this line

@@ -2409,7 +2409,7 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.clickContinueOnTermsOfUse();
 		NewSystemAccountPage.clickSubmitOnTermsOfUser();
 
-		//NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		// NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
 		NewSystemAccountPage.goToWorkspace();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
@@ -2420,8 +2420,9 @@ public class SystemAccountEmailStep {
 
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_PERMISSIONS_APPROVAL,
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -2441,9 +2442,9 @@ public class SystemAccountEmailStep {
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		// ----------------------------------------------------
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_PERMISSIONS_APPROVAL,
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
-				Constants.GO_TO_REQUEST_DETAILS);
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound);
 
 		SystemAccountRequestDetailsPage.writeComment("request is approved");

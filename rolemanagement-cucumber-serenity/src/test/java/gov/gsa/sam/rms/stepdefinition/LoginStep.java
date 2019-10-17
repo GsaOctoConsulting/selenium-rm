@@ -52,11 +52,10 @@ public class LoginStep {
 		//WorkspacePage.goToRoleMigrationPage();
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
 		LaunchBrowserUtil.delay(4);	
-		LaunchBrowserUtil
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
-		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		
 	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);*/
