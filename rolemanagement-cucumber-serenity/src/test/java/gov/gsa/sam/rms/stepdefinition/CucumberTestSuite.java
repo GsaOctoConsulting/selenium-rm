@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@Email"})
+				"@Email","@5"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9"
-	// "@T1Workspace","@32" // 303
+	// "@T1Workspace","@32" // 505
 	
 
 	//

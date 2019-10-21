@@ -59,9 +59,9 @@ Scenario: editing a role should send emails to both the editor and role holder
 Scenario: role requested if rejected should sent emails to requester and approver 
 	Given _5 a no role user logs in 
 	And _5email_user requests assitance user role in assistance listing 
-	When _5 assistance admin rejects the request 
-	Then _5 supervisor should receive email message 
-	Then _5 the requester should also receive an email message 
+	When _5 assistance admin rejects the request  
+	Then _5 the requester should receive an email message 
+	Then _5 supervisor should also receive email message
 	
 @6 @IntegrationTest 
 Scenario: role requested if approved should sent emails supervisor 
@@ -71,7 +71,7 @@ Scenario: role requested if approved should sent emails supervisor
 	Then _6email supervisor should receive email message regarding the approval
 	
 @7 @IntegrationTest 
-Scenario: role requested if rejected should sent emails supervisor 
+Scenario: role requested if rejected should sent emails to supervisor 
 	Given _7email a no role user logs in 
 	And _7email_user requests assitance user role in assistance listing 
 	When _7email assistance admin rejects the request 
