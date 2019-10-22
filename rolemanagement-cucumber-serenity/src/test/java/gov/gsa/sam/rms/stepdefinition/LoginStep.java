@@ -53,8 +53,7 @@ public class LoginStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+	
 		LaunchBrowserUtil.delay(4);	
 		
 	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
@@ -272,8 +271,8 @@ public class LoginStep {
 	@When("^_7 user creates a new account in login dot gov$")
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		//SignUpUtility.signUpNewUser(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_NONFED, Constants.USERPASS);
+		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
+		SignUpUtility.signUpNewUser(ConstantsAccounts.IAE_PMO_ADMINISTRATOR, Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")

@@ -174,5 +174,9 @@ public class ConstantsAccounts {
 	// ---------------------------------------------------------------------------
 	public static final String SPAAD_ALPHA = "octotestaccount1+alphara@gsa.gov";
 	public static final String SPAAD_ALPHA_SECRETKEY = "7T3P5LG6W6ELYFP7";
+	
+	//
+	public static final String IAE_PMO_ADMINISTRATOR = "octotestaccount1+iaepmoadmin1@gsa.gov";
+	public static final String IAE_PMO_ADMINISTRATOR_SECRETKEY = "";
 
 }

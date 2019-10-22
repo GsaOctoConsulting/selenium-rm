@@ -850,8 +850,8 @@ public class SystemAccountStep {
 
 	@And("^_14 user enters permissions info$")
 	public void _14_user_enters_permissions_info() throws Throwable {
-		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_PUBLIC);
-		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_PUBLIC);
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_SENSITIVE);
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_SENSITIVE);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		NewSystemAccountPage.selectFIPSCategorization(NewSystemAccountPageLocator.FIPS_LOW);
 		NewSystemAccountPage.clickNextToGoToSecurity();
@@ -873,7 +873,8 @@ public class SystemAccountStep {
 		NewSystemAccountPage.clickReviewButton();
 		LaunchBrowserUtil.scrollUp();
 		NewSystemAccountPage.clickSubmit();
-		NewSystemAccountPage.selectAllTermsOfUse();
+		// NewSystemAccountPage.selectAllTermsOfUse();
+		NewSystemAccountPage.selectAllTermsOfUseSensitivePermission();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
 		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
@@ -889,11 +890,43 @@ public class SystemAccountStep {
 	public void _14_the_newly_created_account_should_show_up_on_the_system_account_directory_page() throws Throwable {
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		SystemAccountDirectoryPage.clickPendingApprovalFilter();
+		SystemAccountDirectoryPage.clickPendingPermissionsApprovalFilter();
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
-				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_GSA,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_14 iae admin logs in$")
+	public void _14_iam_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+	}
+
+	@Then("^_14 iam admin should be able to approve the permission$")
+	public void _14_iam_admin_should_be_able_to_approve_the_permission() throws Throwable {
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickPendingPermissionsApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_PERMISSIONS_APPROVAL,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
+
+		SystemAccountRequestDetailsPage.writeComment("permission is approved");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+
+		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
+		Assert.assertEquals(true, accountstatusUpdated);
+		
+	
 	}
 
 	@When("^_14 gsa security approver logs in$")
@@ -1187,7 +1220,6 @@ public class SystemAccountStep {
 	@And("^_17saaccount user enters all the system information$")
 	public void _17saaccount_user_enters_all_the_system_information() throws Throwable {
 		NewSystemAccountPage.enterSystemAccountName(formattedDate);
-		NewSystemAccountPage.clickCheckAvailabilityButton();
 		NewSystemAccountPage.enterInterfacingSystemName("testv1");
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
@@ -1516,7 +1548,6 @@ public class SystemAccountStep {
 				"" + Constants.SAHISTORY_MESSAGE_SUFFIX_APPLICATION_REJECTED, 0);
 
 		Assert.assertEquals(true, historystampFound);
-
 	}
 
 	@Given("^_19saaccount user logs in as nonfed user$")
@@ -1536,7 +1567,6 @@ public class SystemAccountStep {
 	@And("^_19saaccount user enters all the system information$")
 	public void _19saaccount_user_enters_all_the_system_information() throws Throwable {
 		NewSystemAccountPage.enterSystemAccountName(formattedDate);
-		NewSystemAccountPage.clickCheckAvailabilityButton();
 		NewSystemAccountPage.enterInterfacingSystemName("testv1");
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
@@ -1613,7 +1643,7 @@ public class SystemAccountStep {
 				Constants.SAHISTORY_STATUS_APPLICATIONSUBMITTED,
 				"" + Constants.SAHISTORY_MESSAGE_SUFFIX_APPLICATION_SUBMITTED, 1);
 		Assert.assertEquals(true, historystampFound2);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -1813,8 +1843,7 @@ public class SystemAccountStep {
 		LaunchBrowserUtil.scrollByVisibleElement(By.className("history-item-0"));
 		LaunchBrowserUtil.delay(25);
 		boolean historystampFound = SystemAccountRequestDetailsPage.accountHistoryFound(
-				Constants.SAHISTORY_STATUS_EMAILAPPROVED,
-				"" + Constants.SAHISTORY_MESSAGE_APPROVAL_STATUS_SENT_TO, 0);
+				Constants.SAHISTORY_STATUS_EMAILAPPROVED, "" + Constants.SAHISTORY_MESSAGE_APPROVAL_STATUS_SENT_TO, 0);
 		Assert.assertEquals(true, historystampFound);
 	}
 
@@ -2155,7 +2184,6 @@ public class SystemAccountStep {
 	@When("^_23saaccount user searches for sytem accounts using special characters$")
 	public void _23saaccount_user_searches_for_sytem_accounts_using_special_characters() throws Throwable {
 		SystemAccountDirectoryPage.searchByKeyword("@()");
-		
 
 	}
 
@@ -2165,8 +2193,7 @@ public class SystemAccountStep {
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_DATA, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound1);
 		LaunchBrowserUtil.delay(3);
-		
-		
+
 		LaunchBrowserUtil.delay(3);
 		SystemAccountDirectoryPage.searchByKeyword("@()_");
 		boolean accountFound3 = SystemAccountDirectoryPage.accountFound("@()_-", Constants.STATUS_PENDING_REVIEW,

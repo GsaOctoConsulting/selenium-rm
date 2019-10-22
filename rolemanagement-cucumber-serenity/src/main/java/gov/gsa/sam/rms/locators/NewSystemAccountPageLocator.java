@@ -39,5 +39,8 @@ public class NewSystemAccountPageLocator {
 	public static final By EDIT_TAB = By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/div/a[1]");
 	public static final String COMMENT_ERROR = "Please enter at least 1 character before submitting a comment.";
+	public static final org.openqa.selenium.By CO_READ_SENSITIVE = By.xpath("//label[starts-with(@for, 'co-read-sensitive')]");
+	public static final org.openqa.selenium.By CO_WRITE_SENSITIVE = By.xpath("//label[starts-with(@for, 'co-write-sensitive')]");
+	
 
 }

@@ -267,14 +267,12 @@ public class NewSystemAccountPage {
 	public static void clickEditTab() {
 		driver.findElement(NewSystemAccountPageLocator.EDIT_TAB).click();
 		LaunchBrowserUtil.delay(1);
-
 	}
 
 	public static String getAlertMessage() {
 		return driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div[1]/div[6]/sam-alert/div/div/p"))
 				.getText();
-
 	}
 
 	public static void selectAllTermsOfUse() {
@@ -322,6 +320,60 @@ public class NewSystemAccountPage {
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.id("system-account-name-button")).click();
 		LaunchBrowserUtil.delay(1);
+		
+	}
+
+	public static void selectAllTermsOfUseSensitivePermission() {
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term0")).click();
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.id("term1")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term2")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term3")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term4")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term5")).click();
+		LaunchBrowserUtil.delay(1);
+		
+		driver.findElement(By.id("term6")).click();
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.id("term7")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term8")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term9")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term10")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term11")).click();
+		LaunchBrowserUtil.delay(1);
+		
+		driver.findElement(By.id("term12")).click();
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.id("term13")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term14")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term15")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term16")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term17")).click();
+		LaunchBrowserUtil.delay(1);
+		
+		driver.findElement(By.id("term18")).click();
+		LaunchBrowserUtil.delay(1);
+		
+		driver.findElement(By.id("term19")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term20")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term21")).click();
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
 		
 	}
 }

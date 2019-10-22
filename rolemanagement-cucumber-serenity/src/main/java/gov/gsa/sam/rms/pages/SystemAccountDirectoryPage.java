@@ -174,4 +174,10 @@ public class SystemAccountDirectoryPage {
 		return driver.findElement(filterlocator).isSelected();
 	}
 
+	public static void clickPendingPermissionsApprovalFilter() {
+		driver.findElement(By.id("filter-pending-permissions-approval")).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }

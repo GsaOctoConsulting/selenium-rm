@@ -151,7 +151,7 @@ Scenario: system account admin, system manager, gsa security approver and nonfed
 	Then _13 nonfed user should see should correct number and type of filters on system account page 
 	#-------------------------------------------------------------------------------------------------------------
 	
-@14 
+@14 @IntegrationTest 
 Scenario: system account admin should be able to deactivate their published system accounts
 	Given _14 user logs in as system account admin 
 	And _14 user navigates to system account directory page 
@@ -161,6 +161,9 @@ Scenario: system account admin should be able to deactivate their published syst
 	And _14 user enters security info 
 	And _14 user enters authorization info 
 	Then _14 the newly created account should show up on the system account directory page 
+	When _14 iae admin logs in 
+	Then _14 iam admin should be able to approve the permission
+	
 	When _14 gsa security approver logs in 
 	And _14 gsa security approver navigates to system accounts directory page 
 	Then _14 gsa security approver should be able to approve the request by system account admin 
@@ -232,10 +235,7 @@ Scenario: system manager account approval flow with account history validation a
 	And _17saaccount gsa security approver approves the reviewed request 
 	Then _17saaccount the gsa security approver should see the account history updated 
 	When _17saaccount user logs backin in as system account manager 
-	Then _17saacount they should be able to deactivate their published system account 
-	
-	
-	
+	Then _17saacount they should be able to deactivate their published system account 	
 	
 @18 @IntegrationTest @S1 
 Scenario: system manager account rejection flow with account history validation 
@@ -252,7 +252,7 @@ Scenario: system manager account rejection flow with account history validation
 	Then _18saaccount the system admin should see the account history updated 
 	
 @19 @IntegrationTest @S1 
-Scenario: nonfed system account approval flow with account history validation and account deactivation 
+Scenario: nonfed system account approval flow with account history validation permission approval and account deactivation 
 	Given _19saaccount user logs in as nonfed user 
 	And _19saaccount user navigates to system account directory page 
 	And _19saaccount user enters all the system information 
@@ -316,7 +316,9 @@ Scenario: user should be able to search for system accounts using special charac
 	Given _23saaccount user logs in as system manager 
 	And _23saaccount user navigates to system account directory page 
 	When _23saaccount user searches for sytem accounts using special characters 
-	Then _23saaccount the filtered accounts displayed should contain those letters 
+	Then _23saaccount the filtered accounts displayed should contain those letters
+	
+
 	
 	
 	

@@ -543,7 +543,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getOtpForSystemAccountFromEmail(String email) throws InterruptedException {
-		delay(4);
+		delay(15);
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
