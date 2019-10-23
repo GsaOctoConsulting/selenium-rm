@@ -925,8 +925,7 @@ public class SystemAccountStep {
 				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
-		
-	
+
 	}
 
 	@When("^_14 gsa security approver logs in$")
@@ -2200,6 +2199,114 @@ public class SystemAccountStep {
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_DATA, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound3);
 	}
+
+	@Given("^_24saaccount user logs in as nonfed user$")
+	public void _24saaccount_user_logs_in_as_nonfed_user() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+	}
+
+	@And("^_24saaccount user navigates to system account directory page$")
+	public void _24saaccount_user_navigates_to_system_account_directory_page() throws Throwable {
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickNewButton();
+	}
+
+	@And("^_24saaccount user enters all the system information$")
+	public void _24saaccount_user_enters_all_the_system_information() throws Throwable {
+		NewSystemAccountPage.enterSystemAccountName(formattedDate);
+		NewSystemAccountPage.enterInterfacingSystemName("testv1");
+		NewSystemAccountPage.enterSystemDescription("description");
+		NewSystemAccountPage.clickNextToGoToOrgInfo();
+	}
+
+	@And("^_24saaccount user enters all the organization info$")
+	public void _24saaccount_user_enters_all_the_organization_info() throws Throwable {
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
+		NewSystemAccountPage.clickNextToGoToPermissions();
+	}
+
+	@And("^_24saaccount user enters permissions info for sensitive read and write$")
+	public void _24saaccount_user_enters_permissions_info_for_sensitive_read_and_write() throws Throwable {
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_SENSITIVE);
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_SENSITIVE);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		NewSystemAccountPage.clickNextToGoToSecurity();
+	}
+
+	@And("^_24saaccount user enters security info$")
+	public void _24saaccount_user_enters_security_info() throws Throwable {
+		NewSystemAccountPage.enterIPaddress("192.168.1.1");
+		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
+		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
+		NewSystemAccountPage.enterSecurityOfficialName("a");
+		NewSystemAccountPage.enterSecurityOfficialEmail(ConstantsAccounts.GSASECURITY_APPROVER_1);
+		NewSystemAccountPage.clickNextToGoToAuthorization();
+	}
+
+	@And("^_24saaccount user enters authorization info$")
+	public void _24saaccount_user_enters_authorization_info() throws Throwable {
+		NewSystemAccountPage.certifyCorrectInformation();
+		NewSystemAccountPage.clickReviewButton();
+		LaunchBrowserUtil.scrollUp();
+		NewSystemAccountPage.clickSubmit();
+		NewSystemAccountPage.selectAllTermsOfUseSensitivePermission();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmailNonFed(Constants.EMAIL_NONFED,
+				Constants.USERPASS_NONFED);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+	}
+
+	@And("^_24saaccount the newly created account should show up on the system account directory page$")
+	public void _24saaccount_the_newly_created_account_should_show_up_on_the_system_account_directory_page()
+			throws Throwable {
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickPendingPermissionsApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+
+		Assert.assertEquals(true, accountFound);
+	}
+
+	@When("^_24 iae admin logs in$")
+	public void _24_iae_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+	}
+
+	@Then("^_24 iam admin should be able to approve the permission$")
+	public void _24_iam_admin_should_be_able_to_approve_the_permission() throws Throwable {
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickPendingPermissionsApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_PERMISSIONS_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.GO_TO_REQUEST_DETAILS);
+
+		SystemAccountRequestDetailsPage.writeComment("permission is approved");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+
+		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountstatusUpdated);
+	}
+
 
 	// private methods are below this line
 	private void beforeScenario() {

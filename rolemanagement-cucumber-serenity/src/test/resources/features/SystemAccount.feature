@@ -318,6 +318,19 @@ Scenario: user should be able to search for system accounts using special charac
 	When _23saaccount user searches for sytem accounts using special characters 
 	Then _23saaccount the filtered accounts displayed should contain those letters
 	
+@24 @IntegrationTest @S1
+Scenario: nonfed system account approval flow with permission approval
+	Given _24saaccount user logs in as nonfed user 
+	And _24saaccount user navigates to system account directory page 
+	And _24saaccount user enters all the system information 
+	And _24saaccount user enters all the organization info 
+	And _24saaccount user enters permissions info for sensitive read and write 
+	And _24saaccount user enters security info 
+	And _24saaccount user enters authorization info 
+	And _24saaccount the newly created account should show up on the system account directory page 
+	When _24 iae admin logs in 
+	Then _24 iam admin should be able to approve the permission
+	
 
 	
 	
