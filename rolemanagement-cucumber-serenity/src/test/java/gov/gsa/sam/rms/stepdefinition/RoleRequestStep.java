@@ -513,6 +513,9 @@ public class RoleRequestStep {
 		Assert.assertEquals(true, domainErrorFound);
 		boolean commentErrorFound = RequestRolePage.elementFound(RequestRolePageLocator.ERRORMESSAGE_ADDITIONALDETAILS);
 		Assert.assertEquals(true, commentErrorFound);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_9 assistance user logs into workspace$")

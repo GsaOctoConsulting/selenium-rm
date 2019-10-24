@@ -10,7 +10,7 @@ package gov.gsa.sam.rms.utilities;
 public class ConstantsAccounts {
 	private ConstantsAccounts() {
 	}
-
+	
 	/**
 	 * this phone number also forwards to nonfed email and so this one number is
 	 * used for fed and nonfed signup
@@ -178,5 +178,4 @@ public class ConstantsAccounts {
 	//
 	public static final String IAE_PMO_ADMINISTRATOR = "octotestaccount1+iaepmoadmin1@gsa.gov";
 	public static final String IAE_PMO_ADMINISTRATOR_SECRETKEY = "";
-
 }

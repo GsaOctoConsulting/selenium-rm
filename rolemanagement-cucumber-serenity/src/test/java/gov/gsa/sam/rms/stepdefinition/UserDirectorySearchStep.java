@@ -111,7 +111,6 @@ public class UserDirectorySearchStep {
 	public void _4_user_navigates_to_user_directory_page_and_searches_for_assistance_admin() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2);
-
 	}
 
 	@Then("^_4 user should be able to view access for assistance admin$")
@@ -163,7 +162,6 @@ public class UserDirectorySearchStep {
 				if (userid.contains("@gmail")&&!userinfo.contains(Constants.ORG_GSA)) {
 					Assert.assertFalse(true);
 				}
-			
 			}
 			// click to next page and increment page counter
 			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
@@ -205,12 +203,9 @@ public class UserDirectorySearchStep {
 		int currentlyselectedPage = UserDirectoryPage.getCurrentSelectedPage();
 		Assert.assertEquals(0, currentlyselectedPage);
 		int currentPage = 1;
-
 		do {// search page 1 regardless of whether other pages exist
-
 			List<WebElement> userList = UserDirectoryPage.getUserList();
 			logger.info("The size fo the user list is--" + userList.size());
-
 			for (int i = 0; i < userList.size(); i++) {
 				WebElement id = userList.get(i).findElement(UserDirectoryPageLocator.ID);
 				System.out.println(id.getText());
@@ -235,7 +230,6 @@ public class UserDirectorySearchStep {
 	@And("^_7uds user navigates to user directory page$")
 	public void _7uds_user_navigates_to_user_directory_page() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-
 	}
 
 	@When("^_7uds user searches user using four characters$")
@@ -281,7 +275,6 @@ public class UserDirectorySearchStep {
 	public void _8uds_no_search_results_message_should_be_displayed() throws Throwable {
 		String noresultsMessageFoundText = UserDirectoryPage.getNoResultsmessageFound();
 		Assert.assertEquals("No results found for selected criteria", noresultsMessageFoundText);
-
 	}
 
 	// private methods are below this line
