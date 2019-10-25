@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class T1WorkspacePageLocator {
 
-	public static final By USER_SEARCH_BAR = By.id("search-users");
+	public static final By USER_SEARCH_BAR = By.id("fsd-user-search");
 	public static final By GO_TO_MYPROFILE_LINK = By.id("profile-details-link");
 	public static final By GO_TO_SYSTEM_ACCOUNT = By.id("system-accounts-landing-link");
 	public static final By ROLE_DEFINITION_BUTTON = By.id("role-definitions-button");

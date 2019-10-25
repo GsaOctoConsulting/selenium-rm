@@ -639,7 +639,7 @@ public class LaunchBrowserUtil {
 		delay(2);
 		String phoneotp = driver
 				.findElement(By.xpath("//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/table[2]/tbody/tr[1]/td"))
-				.getText().substring(0, 7);
+				.getText().substring(6, 13);
 		logger.info("The captured phone otp is-------- " + phoneotp);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		delay(2);

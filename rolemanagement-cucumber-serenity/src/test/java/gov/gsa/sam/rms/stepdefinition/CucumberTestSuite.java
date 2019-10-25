@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@UserDirectoryWidget","@4"})
+				"@UserDirectoryFilter","@1"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9"
 	// "@T1Workspace","@32" // 433

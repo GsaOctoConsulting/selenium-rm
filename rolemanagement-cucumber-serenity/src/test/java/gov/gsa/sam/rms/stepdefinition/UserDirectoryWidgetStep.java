@@ -135,7 +135,7 @@ public class UserDirectoryWidgetStep {
 		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
 		Assert.assertEquals(true,pendingRequestLinkFound);*/
 
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(4);
 
 		UserDirectoryWidgetUtility.searchUser(ConstantsAccounts.ROLE_ADMIN_USER_3);
 		
