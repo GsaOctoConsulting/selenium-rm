@@ -36,7 +36,20 @@ Scenario: nonfed user with no entity should be able to get fsd agent role by fsd
 	And _2 fsd admin looks up the newly signed nonfed user in user directory 
 	And _2 fsd admin should be able to view the users profile 
 	Then _2 fsd admin should be able to assign fsdagent role to the nonfed user 	
+
+@3 @FsdAdmin @IntegrationTest @G1
+Scenario: fsd admin should be able to view permissions for nonfed user 
+	Given _3 fsd admin logs in  
+	And _3 fsd admin looks up a nonfed user with data entry role 
+	And _3 fsd admin should be able to view permission for this user
+
+@4 @FsdAdmin @IntegrationTest @G1
+Scenario: fsd admin should be able to view permissions for nonfed user with multiple roles 
+	Given _4 fsd admin logs in  
+	And _4 fsd admin looks up a nonfed user with multiple roles
+	And _4 fsd admin should be able to view permission for this user  
 	
+
 	
 	
    

@@ -1,6 +1,7 @@
 package gov.gsa.sam.rms.stepdefinition;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -132,6 +133,69 @@ public class FsdBusinessRulesStep {
 		Assert.assertEquals(true, userAlreadyHasRole);
 		afterScenario();
 	}
+	 	@Given("^_3 fsd admin logs in$")
+	    public void _3_fsd_admin_logs_in() throws Throwable {
+	 		beforeScenario();
+			SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_ADMIN_5, Constants.USERPASS,
+					ConstantsAccounts.FSD_ADMIN_5_SECRETKEY, Constants.USER_FED);  
+	    }
+
+	    @And("^_3 fsd admin looks up a nonfed user with data entry role$")
+	    public void _3_fsd_admin_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
+	       T1WorkspacePage.clickUserDirectoryLink();
+	       UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+	       UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
+	    }
+
+	    @And("^_3 fsd admin should be able to view permission for this user$")
+	    public void _3_fsd_admin_should_be_able_to_view_permission_for_this_user() throws Throwable {
+	    	boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+			Assert.assertEquals(true, userAlreadyHasRole); 
+	    	
+			String permissionspageheading = LaunchBrowserUtil.getDriver().findElement(By.tagName("h1")).getText();
+			Assert.assertEquals(true, permissionspageheading.contains("Permissions")); 
+	    }
+	
+	    
+	    
+	    @Given("^_4 fsd admin logs in$")
+	    public void _4_fsd_admin_logs_in() throws Throwable {
+	    	beforeScenario();
+			SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_ADMIN_5, Constants.USERPASS,
+					ConstantsAccounts.FSD_ADMIN_5_SECRETKEY, Constants.USER_FED);  
+	    }
+
+	    @And("^_4 fsd admin looks up a nonfed user with multiple roles$")
+	    public void _4_fsd_admin_looks_up_a_nonfed_user_with_multiple_roles() throws Throwable {
+	    	   T1WorkspacePage.clickUserDirectoryLink();
+		       UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
+		       UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES); 
+	    }
+
+	    @And("^_4 fsd admin should be able to view permission for this user$")
+	    public void _4_fsd_admin_should_be_able_to_view_permission_for_this_user() throws Throwable {
+	    	boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+			Assert.assertEquals(true, userAlreadyHasRole); 
+			
+			LaunchBrowserUtil.navigateBack();
+			LaunchBrowserUtil.delay(2);
+			
+			boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_CODA_OCTOPUS,
+					Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+			Assert.assertEquals(true, userAlreadyHasRole1); 
+			
+			LaunchBrowserUtil.navigateBack();
+			LaunchBrowserUtil.delay(2);
+			
+			boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_JACKSON_BOOKBINDING,
+					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+			Assert.assertEquals(true, userAlreadyHasRole2); 
+			
+			LaunchBrowserUtil.navigateBack();
+	    }
+	
 
 	// private methods are below this line
 	private void beforeScenario() {

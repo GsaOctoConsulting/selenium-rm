@@ -112,6 +112,17 @@ public class MyRolesPage {
 					LaunchBrowserUtil.delay(2);
 					return true;
 				}
+				
+				
+				if ((j == 3) && (orgFound == true && roleFound == true && domainFound == true)
+						&& (action.equalsIgnoreCase("VIEW PERMISSION"))) {
+
+					WebElement viewlink = eachRow.get(j).findElement(By.className("access-action-icon"));
+					logger.info("*********************about to 'view' link******************");
+					viewlink.click();
+					LaunchBrowserUtil.delay(2);
+					return true;
+				}
 
 			}
 			if (orgFound == true && roleFound == true && domainFound == true) {

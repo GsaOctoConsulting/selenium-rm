@@ -20,6 +20,8 @@ public class Constants {
 	public static final String ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA = "OFFICE OF ACQUISITION OPERA";
 	public static final String ORG_EOIR = "Executive Office for Immigration Review";
 	public static final String ORG_OCTO_CONSULTING_GROUP = "OCTO CONSULTING GROUP, INC";
+	public static final String ORG_CODA_OCTOPUS = "Coda Octopus Products";
+	public static final String ORG_JACKSON_BOOKBINDING = "Jackson Bookbinding Co";
 	
 	//Org Codes
 	public static final String ORG_GSA_CODE = "300000221";
@@ -45,6 +47,7 @@ public class Constants {
 	public static final String ROLE_DATA_ENTRY = "Data Entry";
 	public static final String ROLE_AGENCY_ADMIN = "Agency Admin";
 	public static final String ROLE_SUBTIER_ADMIN = "Sub-Tier Administrator";
+	public static final String ROLE_VIEWER = "Viewer";
 	// domains--------------------------
 	public static final String DOMAIN_CONTRACT_OPPORTUNITIES = "Contract Opportunities";
 	public static final String DOMAIN_CONTRACT_DATA = "Contract Data";
@@ -83,6 +86,7 @@ public class Constants {
 	public static final String GO_INTO_ROLE_UPDATED = "Go into role updated";
 	public static final String ASSIGNED = "Assigned";
 	public static final String UPDATED = "Updated";
+	public static final String VIEW_PERMISSION = "VIEW PERMISSION";
 
 	// email message constants-----------------------
 	public static final String EMAIL_ROLEREQUEST_MESSAGE = "You have submitted a pending request for Contracting Officer";
@@ -184,6 +188,10 @@ public class Constants {
 	public static final String NO_SECRET_KEY = "No Secret Key";
 
 	public static final String SIGNUP_SECURITYLEVEL = "IAL1";
+	
+	
+	
+	
 	
 	
 	

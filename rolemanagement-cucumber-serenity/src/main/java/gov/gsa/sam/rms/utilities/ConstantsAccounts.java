@@ -185,4 +185,9 @@ public class ConstantsAccounts {
 	//
 	public static final String IAE_PMO_ADMINISTRATOR = "octotestaccount1+iaepmoadmin1@gsa.gov";
 	public static final String IAE_PMO_ADMINISTRATOR_SECRETKEY = "";
+	
+	
+	public static final String NONFED_USER_MULTIPLE_ROLES = "nonfedgsaemail+multipleroles@yopmail.com";
+	public static final String NONFED_USER_MULTIPLE_ROLES_SECRETKEY = "W53GB5MCF4CAT6A4";
+	
 }
