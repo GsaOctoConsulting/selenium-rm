@@ -8,6 +8,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +55,7 @@ public class NewSystemAccountPage {
 
 	public static void clickNextToGoToOrgInfo() {
 		driver.findElement(NewSystemAccountPageLocator.NEXT_TO_DESCRIPTION_BUTTON).click();
-		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	/**
@@ -106,9 +108,9 @@ public class NewSystemAccountPage {
 		List<WebElement> idList = driver.findElements(NewSystemAccountPageLocator.SYSTEMADMIN_ID_SELECTOR);
 		LaunchBrowserUtil.delay(2);
 		logger.info(("The size of the list is......" + idList.size()));
-		WebElement firstId = idList.get(0);
-		logger.info("*****************the text from first id is*****" + firstId.getText());
-		if (firstId.getText().toLowerCase().contains(systemadmin.toLowerCase())) {
+		
+		logger.info("*****************the text from first id is*****" + idList.get(0).getText());
+		if (idList.get(0).getText().toLowerCase().contains(systemadmin.toLowerCase())) {
 			idList.get(0).click();
 			LaunchBrowserUtil.delay(3);
 			driver.findElement(NewSystemAccountPageLocator.CONTAINER).click();

@@ -925,13 +925,14 @@ public class SystemAccountStep {
 				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 
 	}
 
 	@When("^_14 gsa security approver logs in$")
 	public void _14_gsa_security_approver_logs_in() throws Throwable {
-		// SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+gsasecurityapprover@gsa.gov",
-		// Constants.USERPASS);
 
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
 				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
@@ -963,6 +964,8 @@ public class SystemAccountStep {
 				Constants.STATUS_PUBLISHED, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_14 system account admin logs in again$")
@@ -1003,6 +1006,9 @@ public class SystemAccountStep {
 				Constants.STATUS_DEACTIVATED, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.DELETE);
 		Assert.assertEquals(true, accountstatusUpdated);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_15 user logs in as system account manager$")
@@ -1435,7 +1441,6 @@ public class SystemAccountStep {
 	@And("^_18saaccount user enters all the system information$")
 	public void _18saaccount_user_enters_all_the_system_information() throws Throwable {
 		NewSystemAccountPage.enterSystemAccountName(formattedDate);
-		NewSystemAccountPage.clickCheckAvailabilityButton();
 		NewSystemAccountPage.enterInterfacingSystemName("testv1");
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
@@ -1495,7 +1500,8 @@ public class SystemAccountStep {
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound);
-
+		
+	
 	}
 
 	@Then("^_18saaccount the system manager should see the account history updated$")
@@ -1547,6 +1553,9 @@ public class SystemAccountStep {
 				"" + Constants.SAHISTORY_MESSAGE_SUFFIX_APPLICATION_REJECTED, 0);
 
 		Assert.assertEquals(true, historystampFound);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_19saaccount user logs in as nonfed user$")
@@ -1570,7 +1579,7 @@ public class SystemAccountStep {
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 	}
-
+	
 	@And("^_19saaccount user enters all the organization info$")
 	public void _19saaccount_user_enters_all_the_organization_info() throws Throwable {
 		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
@@ -1585,7 +1594,6 @@ public class SystemAccountStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		NewSystemAccountPage.clickNextToGoToSecurity();
 	}
-
 	@And("^_19saaccount user enters security info$")
 	public void _19saaccount_user_enters_security_info() throws Throwable {
 		NewSystemAccountPage.enterIPaddress("192.168.1.1");
@@ -1730,7 +1738,6 @@ public class SystemAccountStep {
 	@And("^_20saaccount user enters all the system information$")
 	public void _20saaccount_user_enters_all_the_system_information() throws Throwable {
 		NewSystemAccountPage.enterSystemAccountName(formattedDate);
-		NewSystemAccountPage.clickCheckAvailabilityButton();
 		NewSystemAccountPage.enterInterfacingSystemName("testv1");
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
@@ -1806,6 +1813,9 @@ public class SystemAccountStep {
 				"" + Constants.SAHISTORY_MESSAGE_SUFFIX_APPLICATION_SUBMITTED, 1);
 
 		Assert.assertEquals(true, historystampFound2);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 
 	}
 
@@ -1844,6 +1854,9 @@ public class SystemAccountStep {
 		boolean historystampFound = SystemAccountRequestDetailsPage.accountHistoryFound(
 				Constants.SAHISTORY_STATUS_EMAILAPPROVED, "" + Constants.SAHISTORY_MESSAGE_APPROVAL_STATUS_SENT_TO, 0);
 		Assert.assertEquals(true, historystampFound);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_21saaccount user logs in as system admin$")
@@ -1862,7 +1875,6 @@ public class SystemAccountStep {
 	public void _21saaccount_user_enters_all_the_system_information() throws Throwable {
 		SystemAccountDirectoryPage.clickNewButton();
 		NewSystemAccountPage.enterSystemAccountName(formattedDate);
-		NewSystemAccountPage.clickCheckAvailabilityButton();
 		NewSystemAccountPage.enterInterfacingSystemName("testv1");
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
@@ -1999,6 +2011,9 @@ public class SystemAccountStep {
 		boolean successbannerfound = SystemAccountRequestDetailsPage
 				.elementFound(SystemAccountDirectoryPageLocator.PASSWORD_SUCCESS_BANNER);
 		Assert.assertEquals(true, successbannerfound);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 
 	}
 
@@ -2025,7 +2040,7 @@ public class SystemAccountStep {
 
 	@And("^_22saaccount user enters all the organization info$")
 	public void _22saaccount_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo("raiaan.shah+newregisterednonfeduser81@gmail.com");
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}

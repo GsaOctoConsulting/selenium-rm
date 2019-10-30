@@ -152,7 +152,7 @@ Scenario: system account admin, system manager, gsa security approver and nonfed
 	#-------------------------------------------------------------------------------------------------------------
 	
 @14 @IntegrationTest 
-Scenario: system account admin should be able to deactivate their published system accounts
+Scenario: system account admin should be able to deactivate their published system accounts with permission approval
 	Given _14 user logs in as system account admin 
 	And _14 user navigates to system account directory page 
 	And _14 user enters all the system information 
@@ -226,7 +226,6 @@ Scenario: system manager account approval flow with account history validation a
 	And _17saaccount user enters authorization info 
 	And _17saaccount the newly created account should show up on the system account directory page 
 	Then _17saaccount the system manager should see the account history updated 
-	
 	
 	When _17saaccount system admin changes the request to pending approval 
 	Then _17saaccount the system admin should see the account history updated 
