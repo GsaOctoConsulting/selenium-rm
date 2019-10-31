@@ -925,7 +925,7 @@ public class SystemAccountStep {
 				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 
@@ -1006,7 +1006,7 @@ public class SystemAccountStep {
 				Constants.STATUS_DEACTIVATED, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.DELETE);
 		Assert.assertEquals(true, accountstatusUpdated);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -1500,8 +1500,7 @@ public class SystemAccountStep {
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound);
-		
-	
+
 	}
 
 	@Then("^_18saaccount the system manager should see the account history updated$")
@@ -1553,7 +1552,7 @@ public class SystemAccountStep {
 				"" + Constants.SAHISTORY_MESSAGE_SUFFIX_APPLICATION_REJECTED, 0);
 
 		Assert.assertEquals(true, historystampFound);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -1579,7 +1578,7 @@ public class SystemAccountStep {
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 	}
-	
+
 	@And("^_19saaccount user enters all the organization info$")
 	public void _19saaccount_user_enters_all_the_organization_info() throws Throwable {
 		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
@@ -1594,6 +1593,7 @@ public class SystemAccountStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		NewSystemAccountPage.clickNextToGoToSecurity();
 	}
+
 	@And("^_19saaccount user enters security info$")
 	public void _19saaccount_user_enters_security_info() throws Throwable {
 		NewSystemAccountPage.enterIPaddress("192.168.1.1");
@@ -1813,7 +1813,7 @@ public class SystemAccountStep {
 				"" + Constants.SAHISTORY_MESSAGE_SUFFIX_APPLICATION_SUBMITTED, 1);
 
 		Assert.assertEquals(true, historystampFound2);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 
@@ -1854,7 +1854,7 @@ public class SystemAccountStep {
 		boolean historystampFound = SystemAccountRequestDetailsPage.accountHistoryFound(
 				Constants.SAHISTORY_STATUS_EMAILAPPROVED, "" + Constants.SAHISTORY_MESSAGE_APPROVAL_STATUS_SENT_TO, 0);
 		Assert.assertEquals(true, historystampFound);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -2011,7 +2011,7 @@ public class SystemAccountStep {
 		boolean successbannerfound = SystemAccountRequestDetailsPage
 				.elementFound(SystemAccountDirectoryPageLocator.PASSWORD_SUCCESS_BANNER);
 		Assert.assertEquals(true, successbannerfound);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 
@@ -2055,11 +2055,11 @@ public class SystemAccountStep {
 
 	@And("^_22saaccount user enters security info$")
 	public void _22saaccount_user_enters_security_info() throws Throwable {
-		NewSystemAccountPage.enterIPaddress("192.168.1.1");
+		NewSystemAccountPage.enterIPaddress("192.198.0.0");
 		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
 		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
 		NewSystemAccountPage.enterSecurityOfficialName("a");
-		NewSystemAccountPage.enterSecurityOfficialEmail(gsasecurityapprover.toString() + "@gsa.gov");
+		NewSystemAccountPage.enterSecurityOfficialEmail(gsasecurityapprover.toString());
 		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
@@ -2078,14 +2078,9 @@ public class SystemAccountStep {
 		NewSystemAccountPage.clickSubmitOnTermsOfUser();
 
 		LaunchBrowserUtil.delay(7);
-		LaunchBrowserUtil.enterUrl("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/workspace/system/");// this
-																												// line
-																												// is
-																												// necessary
-																												// until
-																												// bug
-																												// is
-																												// fixed
+		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
 
 	@And("^_22saaccount the newly created account should show up on the system account directory page$")
@@ -2100,6 +2095,8 @@ public class SystemAccountStep {
 				Constants.GO_TO_REQUEST_DETAILS);
 
 		Assert.assertEquals(true, accountFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_22saaccount gsasecurity approver approves the request$")
@@ -2126,6 +2123,9 @@ public class SystemAccountStep {
 		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
 				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Then("^_22saaccount nonfed user should be able to set a password for the published account$")
@@ -2180,6 +2180,9 @@ public class SystemAccountStep {
 		boolean successbannerfound = SystemAccountRequestDetailsPage
 				.elementFound(SystemAccountDirectoryPageLocator.PASSWORD_SUCCESS_BANNER);
 		Assert.assertEquals(true, successbannerfound);
+
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_23saaccount user logs in as system manager$")
@@ -2197,8 +2200,9 @@ public class SystemAccountStep {
 
 	@When("^_23saaccount user searches for sytem accounts using special characters$")
 	public void _23saaccount_user_searches_for_sytem_accounts_using_special_characters() throws Throwable {
-		SystemAccountDirectoryPage.searchByKeyword("@()");
-
+		LaunchBrowserUtil.delay(4);
+		SystemAccountDirectoryPage.searchByKeyword("@()_-");
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_23saaccount the filtered accounts displayed should contain those letters$")
@@ -2292,6 +2296,9 @@ public class SystemAccountStep {
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 
 		Assert.assertEquals(true, accountFound);
+
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_24 iae admin logs in$")
@@ -2320,8 +2327,10 @@ public class SystemAccountStep {
 				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
-	}
 
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.closeBrowsers();
+	}
 
 	// private methods are below this line
 	private void beforeScenario() {

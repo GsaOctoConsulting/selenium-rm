@@ -47,10 +47,10 @@ public class LoginStep {
 		 * ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1_SECRETKEY,
 		 * Constants.USER_FED); CommonMethods.delay(4);
 		 */
-	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);*/
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
-				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY, Constants.USER_FED);
 	
 		//WorkspacePage.goToRoleMigrationPage();
 		
@@ -269,9 +269,9 @@ public class LoginStep {
 
 	@When("^_7 user creates a new account in login dot gov$")
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-		//String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		SignUpUtility.signUpNewUser(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS);
+		String counter = SignUpUtility.updatecounter("login.fed.accountno");
+		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
+		//SignUpUtility.signUpNewUser(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")

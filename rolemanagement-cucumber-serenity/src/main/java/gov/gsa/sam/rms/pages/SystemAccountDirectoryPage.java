@@ -54,6 +54,7 @@ public class SystemAccountDirectoryPage {
 	 */
 	public static boolean accountFound(String accountname, String status, String org, String domain, String action) {
 		boolean found = false;
+		LaunchBrowserUtil.delay(3);
 		List<WebElement> allAccounts = driver.findElements(By.tagName("system-listing"));
 		logger.info("The number of accounts found is --" + allAccounts.size());
 		for (int i = 0; i < allAccounts.size(); i++) {
@@ -168,7 +169,7 @@ public class SystemAccountDirectoryPage {
 	public static void searchByKeyword(String keyword) {
 		driver.findElement(By.id("search-keyword")).clear();
 		driver.findElement(By.id("search-keyword")).sendKeys(keyword);
-		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.delay(5);
 	}
 	public static boolean isFilterSelected(By filterlocator) {
 		return driver.findElement(filterlocator).isSelected();
