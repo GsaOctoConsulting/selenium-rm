@@ -47,10 +47,13 @@ public class LoginStep {
 		 * ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1_SECRETKEY,
 		 * Constants.USER_FED); CommonMethods.delay(4);
 		 */
-		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);*/
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1, Constants.USERPASS,
-				ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1,
+		 * Constants.USERPASS, ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
 	
 		//WorkspacePage.goToRoleMigrationPage();
 		

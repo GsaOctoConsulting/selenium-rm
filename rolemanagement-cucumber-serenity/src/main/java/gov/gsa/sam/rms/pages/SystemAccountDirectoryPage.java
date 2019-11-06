@@ -181,4 +181,27 @@ public class SystemAccountDirectoryPage {
 		
 	}
 
+	public static String validatePendingPermissionsApprovalStatus() {
+		LaunchBrowserUtil.delay(2);
+		String pendingPermissionsApprovalStatus = driver
+				.findElement(By.xpath("//label[contains(text(),'Pending Permissions Approval')]")).getText();
+		LaunchBrowserUtil.delay(3);
+		return pendingPermissionsApprovalStatus;
+	}
+
+	public static void clickOnPendingPermissionsApprovalFilter() {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.cssSelector("#filter-pending-permissions-approval")).click();
+		LaunchBrowserUtil.delay(2);
+	}
+
+	public static String validatePendingPermissionsApprovalFilter() {
+		LaunchBrowserUtil.delay(2);
+		List<WebElement> pendPermAppFilter = driver
+				.findElements(By.xpath("//*[@class='ng-star-inserted']/div/div/div/div/div"));
+		String pendingPermissionsApprovalFilter = pendPermAppFilter.get(0).getText();
+		LaunchBrowserUtil.delay(3);
+		return pendingPermissionsApprovalFilter;
+	}
+
 }
