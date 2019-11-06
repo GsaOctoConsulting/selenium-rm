@@ -189,5 +189,7 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_USER_MULTIPLE_ROLES = "nonfedgsaemail+multipleroles@yopmail.com";
 	public static final String NONFED_USER_MULTIPLE_ROLES_SECRETKEY = "W53GB5MCF4CAT6A4";
+	public static final String MA_SECURITYOFFICIAL = "";
+	public static final String MA_SECURITYOFFICIAL_EMAIL = "";
 	
 }

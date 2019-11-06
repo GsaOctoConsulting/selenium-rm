@@ -674,4 +674,108 @@ public class LaunchBrowserUtil {
 		logger.info("---------------------------------------------------------------------------------------");
 		return emailcontent;
 	}
+
+	public static String getOtpForSystemAccountFromEmailModified(String email) {
+		LaunchBrowserUtil.delay(4);
+		((JavascriptExecutor) LaunchBrowserUtil.driver).executeScript("window.open('https://mail.google.com/')");
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.tab_handles = new ArrayList<String>(LaunchBrowserUtil.driver.getWindowHandles());
+		LaunchBrowserUtil.driver.switchTo()
+				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 1));
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.tab_handles = new ArrayList<String>(LaunchBrowserUtil.driver.getWindowHandles());
+		LaunchBrowserUtil.driver.switchTo()
+				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 1));
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.driver.navigate().refresh();
+		LaunchBrowserUtil.delay(3);
+		List<WebElement> lastMail = LaunchBrowserUtil.driver.findElements(By.className("zA"));
+		// LaunchBrowserUtil.delay(4);
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();
+		LaunchBrowserUtil.delay(2);
+		Constants.OTP = LaunchBrowserUtil.driver
+				.findElement(By.xpath("//div[contains(text(),'Your one time password is:')]//h3")).getText();
+		logger.info("The captured OTP is- " + Constants.OTP);
+		LaunchBrowserUtil.driver.switchTo()
+				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 2));
+		return Constants.OTP;
+	}
+	
+	public static void goToGSAEmailInboxModified(String fedUser) {
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		delay(2);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(fedUser);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		LaunchBrowserUtil.delay(4);
+	}
+	public static String getOtpForSystemAccountFromEmailNonFedModified(String email, String userpass) {
+
+		LaunchBrowserUtil.delay(4);
+		((JavascriptExecutor) LaunchBrowserUtil.driver).executeScript("window.open('https://mail.google.com/')");
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.tab_handles = new ArrayList<String>(LaunchBrowserUtil.driver.getWindowHandles());
+		LaunchBrowserUtil.driver.switchTo()
+				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 1));
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input"))
+				.sendKeys(userpass);
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.driver.findElement(By.id("passwordNext")).click();
+		LaunchBrowserUtil.delay(6);
+		List<WebElement> lastMail = LaunchBrowserUtil.driver.findElements(By.className("zA"));
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();
+		LaunchBrowserUtil.delay(2);
+		Constants.OTP = LaunchBrowserUtil.driver
+				.findElement(By.xpath("//div[contains(text(),'Your one time password is:')]//h3")).getText();
+		logger.info("The captured OTP is- " + Constants.OTP);
+		LaunchBrowserUtil.driver.switchTo()
+				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 2));
+		return Constants.OTP;
+	}
+	
+	/**
+	 * This method adds fed email account
+	 */
+	public static void addFedEmailAccount(String fedUser) {
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[contains(text(),'Add another account')]")).click();
+		switchTabs(1);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(fedUser);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		delay(2);
+	}
+
+
+
+
+
+	/**
+	 * This method adds non fed email account
+	 */
+	public static void addNonFedEmailAccount(String nonfedUser, String userpass) {
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[contains(text(),'Add another account')]")).click();
+		switchTabs(1);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(nonfedUser);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys(userpass);
+		delay(2);
+		driver.findElement(By.id("passwordNext")).click();
+		delay(2);
+	}
 }

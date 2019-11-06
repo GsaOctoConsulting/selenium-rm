@@ -378,4 +378,74 @@ public class NewSystemAccountPage {
 		driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
 		
 	}
+
+	public static String uniqueSAN() {
+		/*
+		 * long epoch = System.currentTimeMillis() / 1000; String formattedDate =
+		 * Long.toString(epoch);
+		 */
+		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
+		int n = 13;
+		StringBuilder uniqueName = new StringBuilder("OCTO_" + n);
+		for (int i = 0; i < n; i++) {
+			int index = (int) (AlphaNumericString.length() * Math.random());
+			uniqueName.append(AlphaNumericString.charAt(index));
+		}
+		return uniqueName.toString();
+	}
+
+	public static void enterOrgModified(String org) {
+		driver.findElement(By.id("cws-agency-requiredpicker")).sendKeys(org);
+		driver.findElement(By.xpath("//*[contains(text(),'4700 - GENERAL SERVICES ADMINISTRATION')]"))
+		.click();
+		
+	}
+
+	public static void enterSAAMInOrgInfoModified(String entersaa) {
+		driver.findElement(By.id("system-admins-optional-ac-textarea")).sendKeys(entersaa);
+		LaunchBrowserUtil.delay(2);
+		driver
+				.findElement(By.xpath(
+						"//*[@id='system-admins-optional-ac-textarea']/parent::div/parent::div/ul/li/ul/li/p[2]"))
+				.click();
+		
+	}
+
+	public static void addDecisionComment(String decisionComment) {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.id("request-comment")).click();
+		driver.findElement(By.id("request-comment")).sendKeys(decisionComment);
+	}
+
+	public static void clickOnApproveButton() throws Exception {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.id("button-approve")).click();
+	}
+	public static void clickOnRejectButton() throws Exception {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.id("button-reject")).click();
+	}
+	
+	public static void selectPublicPermissionsTermsOfUse() throws Exception {
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.id("term0")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term1")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term2")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term3")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term4")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term5")).click();
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.id("term19")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term20")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term21")).click();
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
+	}
 }

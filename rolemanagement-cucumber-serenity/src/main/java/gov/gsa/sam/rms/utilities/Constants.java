@@ -189,14 +189,119 @@ public class Constants {
 
 	public static final String SIGNUP_SECURITYLEVEL = "IAL1";
 	
-	
-	
-	
-	
-	
-	
 
 	private Constants() {
 
 	}
+	// ************************************************************************************************************************************
+	
+	public static final String MA_GMAIL_FED_USERNAME = "shah.raiaan@gsa.gov";
+	public static final String MA_USERPASS = "";
+
+	public static final String MA_GMAIL_NON_FED_USERNAME = "octo.crimson@gmail.com";
+	public static final String MA_USERPASS_NONFED = "Octo@gmail0001";
+	
+	// system account email constants--
+	public static final String MA_EMAIL_FROM_ENV = "This email was sent from TEST ENV";
+	public static final String MA_EMAIL_MESSAGE_LERNINGCENTER = "If you have additional questions, please review the Learning Center";
+
+	// System Account Manager email constants
+	public static final String MA_EMAIL_SAM_ERROR_EMAIL = "If you feel this email was sent in error please contact your administrator.";
+	public static final String MA_EMAIL_SAM_SUBMISSION_SUBJECT_LINE = "You have submitted a pending System Account application for initial review";
+	public static final String MA_EMAIL_SAM_SUBMISSION_EMAIL_BODY = "You have submitted a System Account application which will be reviewed by a System Account Administrator prior to a GSA Security Approver making a final determination.";
+	public static final String MA_EMAIL_SAM_INITIAL_APPROVAL_SUBJECT_LINE = "Your System Account Application has received initial approval";
+	public static final String MA_EMAIL_SAM_INITIAL_APPROVAL_EMAIL_BODY = "Your System Account application has received initial approval and can be viewed";
+	public static final String MA_EMAIL_SAM_INITIAL_APPROVAL_TOPMOA_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for Permissions approval by an IAE PMO Administrator, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_SAM_INITIAL_APPROVAL_TOGSASA_EMAIL_BODY_SECONDLINE = "The application will now be reviewed by a GSA Security Approver for a final determination, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_SAM_PERMISSIONS_APPROVAL_SUBJECT_LINE = "Your System Account application has received permissions approval";
+	public static final String MA_EMAIL_SAM_PERMISSIONS_APPROVAL_EMAIL_BODY = "Your System Account application has received permissions approval and can be viewed";
+	public static final String MA_EMAIL_SAM_PERMISSIONS_APPROVAL_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for final approval by a GSA Security Approver, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_SAM_FINAL_APPROVAL_SUBJECT_LINE = "Your System Account application has received final approval";
+	public static final String MA_EMAIL_SAM_FINAL_APPROVAL_EMAIL_BODY = "Your System Account application has received final approval and can be viewed";
+	public static final String MA_EMAIL_SAM_REJECT_SUBJECT_LINE = "Your System Account application has been rejected";
+	public static final String MA_EMAIL_SAM_REJECT_EMAIL_BODY = "Your System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_SAM_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+
+	// System Account Administrator email constants
+	public static final String MA_EMAIL_SAA_ERROR_EMAIL = "If you feel this email was sent in error please contact your administrator.";
+	public static final String MA_EMAIL_SAA_PENDING_SUBJECT_LINE = "You have a pending System Account application to review";
+	public static final String MA_EMAIL_SAA_SUBMISSION_EMAIL_BODY = "A System Account application has been submitted for review.";
+	public static final String MA_EMAIL_SAA_REJECT_SUBJECT_LINE = "You rejected a System Account application";
+	public static final String MA_EMAIL_SAA_REJECT_EMAIL_BODY = "You have rejected a System Account application which can be viewed";
+	public static final String MA_EMAIL_SAA_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+	public static final String MA_EMAIL_SAA_INITIAL_APPROVAL_SUBJECT_LINE = "A System Account Application has received initial approval";
+	public static final String MA_EMAIL_SAA_INITIAL_APPROVAL_EMAIL_BODY = "A System Account application has received initial approval and can be viewed";
+	public static final String MA_EMAIL_SAA_INITIAL_APPROVAL_TOPMOA_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for Permissions approval by an IAE PMO Administrator.";
+	public static final String MA_EMAIL_SAA_INITIAL_APPROVAL_TOGSASA_EMAIL_BODY_SECONDLINE = "The application will now be reviewed by a GSA Security Approver for a final determination, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_SAA_PERMISSIONS_APPROVAL_SUBJECT_LINE = "A System Account application has received permissions approval";
+	public static final String MA_EMAIL_SAA_PERMISSIONS_APPROVAL_EMAIL_BODY = "A System Account application has received permissions approval and can be viewed";
+	public static final String MA_EMAIL_SAA_PERMISSIONS_APPROVAL_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for final approval by a GSA Security Approver, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_SAA_SUBMITTER_PERMISSIONS_APPROVAL_SUBJECT_LINE = "Your System Account application has received permissions approval";
+	public static final String MA_EMAIL_SAA_SUBMITTER_PERMISSIONS_APPROVAL_EMAIL_BODY = "Your System Account application has received permissions approval and can be viewed";
+	public static final String MA_EMAIL_SAA_SUBMITTER_PERMISSIONS_APPROVAL_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for final approval by a GSA Security Approver, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_SAA_FINAL_APPROVAL_SUBJECT_LINE = "A System Account application has received final approval";
+	public static final String MA_EMAIL_SAA_FINAL_APPROVAL_EMAIL_BODY = "A System Account application has received final approval and can be viewed";
+	public static final String MA_EMAIL_SAA_SUBMITTER_FINAL_APPROVAL_SUBJECT_LINE = "Your System Account application has received final approval";
+	public static final String MA_EMAIL_SAA_SUBMITTER_FINAL_APPROVAL_EMAIL_BODY = "Your System Account application has received final approval and can be viewed";
+	public static final String MA_EMAIL_SAA_REJECT_SUBJECT_LINE_RECEIVE = "A System Account application has been rejected";
+	public static final String MA_EMAIL_SAA_REJECT_EMAIL_BODY_RECEIVE = "A System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_SAA_REJECT_EMAIL_BODY_RECEIVE_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+	public static final String MA_EMAIL_SAA_ACCOUNT_CREATION_FORPMOA_SUBJECT_LINE = "You have submitted a pending System Account application for permissions approval";
+	public static final String MA_EMAIL_SAA_ACCOUNT_CREATION_FORPMOA_EMAIL_BODY = "You have submitted a System Account application which will be reviewed by an IAE PMO Administrator for permissions approval.";
+	public static final String MA_EMAIL_SAA_ACCOUNT_CREATION_FORGSASA_SUBJECT_LINE = "You have submitted a pending System Account application for approval";
+	public static final String MA_EMAIL_SAA_ACCOUNT_CREATION_FORGSASA_EMAIL_BODY = "ou have submitted a System Account application which will be reviewed by a GSA Security Approver for a final determination.";
+	public static final String MA_EMAIL_SAA_FINAL_REJECT_SUBJECT_LINE = "A System Account application has been rejected";
+	public static final String MA_EMAIL_SAA_FINAL_REJECT_EMAIL_BODY = "A System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_SAA_SUBMITTER_FINAL_REJECT_SUBJECT_LINE = "Your System Account application has been rejected";
+	public static final String MA_EMAIL_SAA_SUBMITTER_FINAL_REJECT_EMAIL_BODY = "Your System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_SAA_SUBMITTER_FINAL_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+
+	// IAE PMO Administrator email constants
+	public static final String MA_EMAIL_PMOA_ERROR_EMAIL = "If you feel this email was sent in error please contact your administrator.";
+	public static final String MA_EMAIL_PMOA_PENDING_SUBJECT_LINE = "A System Account application has been submitted for permissions review";
+	public static final String MA_EMAIL_PMOA_SUBMISSION_EMAIL_BODY = "A System Account application has been submitted for permissions review";
+	public static final String MA_EMAIL_PMOA_APPROVED_SUBJECT_LINE = "A System Account application has received permissions approval";
+	public static final String MA_EMAIL_PMOA_APPROVED_EMAIL_BODY = "A System Account application has received permissions approval and can be viewed";
+	public static final String MA_EMAIL_PMOA_APPROVED_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for final approval by a GSA Security Approver.";
+	public static final String MA_EMAIL_PMOA_FINAL_APPROVAL_SUBJECT_LINE = "A System Account application has received final approval";
+	public static final String MA_EMAIL_PMOA_FINAL_APPROVAL_EMAIL_BODY = "A System Account application has received final approval and can be viewed";
+	public static final String MA_EMAIL_PMOA_REJECT_SUBJECT_LINE = "A System Account application has been rejected";
+	public static final String MA_EMAIL_PMOA_REJECT_EMAIL_BODY = "A System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_PMOA_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+	public static final String MA_EMAIL_PMOA_FINAL_REJECT_SUBJECT_LINE = "A System Account application has been rejected";
+	public static final String MA_EMAIL_PMOA_FINAL_REJECT_EMAIL_BODY = "A System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_PMOA_FINAL_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+	
+	// GSA Security Approver email constants
+	public static final String MA_EMAIL_GSAPPROVER_PENDING_SUBJECT_LINE = "A System Account application has been submitted for approval/rejection";
+	public static final String MA_EMAIL_GSAPPROVER_PENDING_EMAIL_BODY = "A System Account application has been submitted for approval/rejection.";
+	public static final String MA_EMAIL_GSAPPROVER_APPROVAL_SUBJECT_LINE = "A System Account application has been approved";
+	public static final String MA_EMAIL_GSAPPROVER_APPROVAL_EMAIL_BODY = "A System Account has been approved and can be viewed";
+	public static final String MA_EMAIL_GSAPPROVER_REJECT_SUBJECT_LINE = "A System Account application has been rejected";
+	public static final String MA_EMAIL_GSAPPROVER_REJECT_EMAIL_BODY = "A System Account application has been rejected and can be viewed";
+	public static final String MA_EMAIL_GSAPPROVER_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
+	
+	// System Account Non-Fed constants
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_CREATION_SUBJECT_LINE = "You have submitted a pending System Account application for approval";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_CREATION_EMAIL_BODY = "You have submitted a System Account application which will be reviewed by a GSA Security Approver for a final determination.";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_CREATION_TOPMOA_SUBJECT_LINE = "You have submitted a pending System Account application for permissions approval";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_CREATION_TOPMOA_EMAIL_BODY = "You have submitted a System Account application which will be reviewed by an IAE PMO Administrator for permissions approval.";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_PERMISSIONSAPPROVAL_SUBJECT_LINE = "Your System Account application has received permissions approval";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_PERMISSIONSAPPROVAL_EMAIL_BODY = "Your System Account application has received permissions approval and can be viewed";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_PERMISSIONSAPPROVAL_EMAIL_BODY_SECONDLINE = "The application will now be reviewed for final approval by a GSA Security Approver, and you will be notified of any change in status via an additional email.";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_SUBJECT_LINE = "Your System Account application has received final approval";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_EMAIL_BODY = "Your System Account application has received final approval and can be viewed";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_SUBJECT_LINE = "Your System Account application has been rejected";
+	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_EMAIL_BODY = "Your System Account application has been rejected and can be viewed";
+	
+	//System Account comments
+	public static final String MA_SAM_ADD_COMMENT = "The comment has been added by System Account Manager";
+	public static final String MA_SAA_ADD_COMMENT = "The comment has been added by System Account Administrator";
+	public static final String MA_PMOA_ADD_COMMENT = "The comment has been added by IAE PMO Administrator";
+	public static final String MA_GSASA_ADD_COMMENT = "The comment has been added by GSA Security Approver";
+
+	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
+
+	// ************************************************************************************************************************************
+
 }

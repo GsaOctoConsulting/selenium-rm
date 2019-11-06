@@ -204,4 +204,18 @@ public class SystemAccountDirectoryPage {
 		return pendingPermissionsApprovalFilter;
 	}
 
+	public static void clickOnPendReviewFilterModified() {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.cssSelector("#filter-pending-review")).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
+	public static void clickOnFirstSearchResult() {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.xpath("//system-listing[@class='ng-star-inserted']//h4/a")).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }
