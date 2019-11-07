@@ -42,5 +42,18 @@ public class NewSystemAccountPageLocator {
 	public static final org.openqa.selenium.By CO_READ_SENSITIVE = By.xpath("//label[starts-with(@for, 'co-read-sensitive')]");
 	public static final org.openqa.selenium.By CO_WRITE_SENSITIVE = By.xpath("//label[starts-with(@for, 'co-write-sensitive')]");
 	
+	
+	public static final By CD_READ_PUBLIC = By.id("cd-read");
+	public static final By CD_WRITE = By.id("cd-write");
+	public static final By CD_READ_DOD_DATA = By.id("cd-read-dod-data");
+	public static final By CD_WRITE_DOD_DATA = By.id("cd-write-dod-data");
+	public static final By EI_READ_PUBLIC = By.id("ei-read-public");
+	public static final By EI_READ_FOUO = By.id("ei-read-fouo");
+	public static final By EI_READ_SENSITIVE = By.id("ei-read-sensitive");
+	public static final By FH_READ_ONLY = By.id("fh-public");
+	public static final By FH_READ_FOUO = By.id("fh-official");
+	public static final By AL_READ_PUBLIC = By.id("al-public");
+	public static final By WD_READ_PUBLIC = By.id("wd-public");
+	public static final By RD_READ_PUBLIC = By.id("rd-public");
 
 }

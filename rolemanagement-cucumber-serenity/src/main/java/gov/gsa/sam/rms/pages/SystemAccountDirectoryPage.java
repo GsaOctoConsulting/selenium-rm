@@ -218,4 +218,15 @@ public class SystemAccountDirectoryPage {
 		
 	}
 
+	/**
+	 * This method validates Status search result
+	 */
+	public static String validateStatusSearchResult() {
+		LaunchBrowserUtil.delay(2);
+		String actualSearchResult = driver
+				.findElement(By.xpath("//span[contains(text(),'info alert')]//following::h3")).getText();
+		LaunchBrowserUtil.delay(3);
+		return actualSearchResult;
+	}
+
 }

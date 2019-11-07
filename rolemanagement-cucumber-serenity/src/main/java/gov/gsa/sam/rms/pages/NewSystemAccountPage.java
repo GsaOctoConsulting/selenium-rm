@@ -448,4 +448,101 @@ public class NewSystemAccountPage {
 		LaunchBrowserUtil.delay(3);
 		driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
 	}
+	
+	/**
+	 * This method adds message before submit system account request
+	 */
+	public static void addMessageAndHitEnter(String addMessage) throws Exception {
+		LaunchBrowserUtil.scrollToMiddle();
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.driver.findElement(By.id("comment-component-input")).sendKeys(addMessage);
+		LaunchBrowserUtil.driver.findElement(By.id("comment-component-input")).sendKeys(Keys.ENTER);
+	}
+
+/**
+	 * This method takes comment text
+	 */
+	public static String validateComment(int commentNo) throws Exception {
+		LaunchBrowserUtil.delay(2);
+		List<WebElement> comment = LaunchBrowserUtil.driver.findElements(By.xpath("//*[@class='sam-comment']//p"));
+		String addComment = comment.get(commentNo).getText();
+		logger.info("Comment size is :" + comment.size());
+		logger.info("The added comment is :" + addComment);
+		return addComment;
+	}
+
+public static void selectALLPermissions() throws Exception {
+	LaunchBrowserUtil.driver.findElement(By.id("term0")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term1")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term2")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term3")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term4")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term5")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term6")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term7")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term8")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term9")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term10")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term11")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term12")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term13")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term14")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term15")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term16")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term17")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term18")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term19")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term20")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term21")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term22")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term23")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term24")).click();
+		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.driver.findElement(By.id("term25")).click();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
+	}
+
+
+
+/**
+	 * This method clicks on "Show previous comments" link
+	 */
+	public static void clickOnShowPreviousCommentLink() throws Exception {
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[contains(text(),'Show previous comments')]")).click();
+	}
+
+
+
+	
+	
+	
+	
+	
+	
 }
