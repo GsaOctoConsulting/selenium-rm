@@ -59,5 +59,6 @@ public class NewSystemAccountPageLocator {
 	public static final By DELETE_UPLOAD = By.xpath("//button[@class= 'clear-button']");
 		public static final By CONFIRM_DELETE = By.xpath("//button[@class= 'sam-ui button secondary']");
 		public static final By UPDATED_DATE = By.id("date0");
+		public static final By REORDER_UPLOAD = By.id("moveDown0");
 
 }

@@ -604,6 +604,13 @@ public static void selectALLPermissions() throws Exception {
 		browseUpload.sendKeys("C:\\eula.1031.txt");
 		LaunchBrowserUtil.delay(15);
 	}
+
+	public static void reorderFileUpload() 
+	{
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(NewSystemAccountPageLocator.REORDER_UPLOAD).click();
+		LaunchBrowserUtil.delay(4);
+	}
 	
 	
 
