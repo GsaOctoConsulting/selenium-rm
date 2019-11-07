@@ -11,4 +11,5 @@ public class SystemAccountDirectoryPageLocator {
 	public static final By PASSWORD_SUCCESS_BANNER = By.className("usa-alert-success");
 	public static final By PENDING_REVIEW_FILTER = By.id("filter-pending-review");
 	public static final By PENDING_APPROVAL_FILTER = By.id("filter-pending-approval");
+	public static final By WORKSPACE_LINK = By.xpath("//a[contains(text(),'Workspace')]");
 }

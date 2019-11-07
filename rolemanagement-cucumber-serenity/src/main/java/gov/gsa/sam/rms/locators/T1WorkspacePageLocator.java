@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class T1WorkspacePageLocator {
 
-	public static final By USER_SEARCH_BAR = By.id("fsd-user-search");
+	public static final By USER_SEARCH_BAR = By.id("userPicker");
 	public static final By GO_TO_MYPROFILE_LINK = By.id("profile-details-link");
 	public static final By GO_TO_SYSTEM_ACCOUNT = By.id("system-accounts-landing-link");
 	public static final By ROLE_DEFINITION_BUTTON = By.id("role-definitions-button");
@@ -31,6 +31,7 @@ public class T1WorkspacePageLocator {
 	public static final By AUTOCOMPLETE_RESULTS = By.id("sam-autocomplete-results-kv");
 	public static final By VERIFY_BUSINESS_NEEDCHECKBOX = By.id("business-need-verify");
 	public static final By REQUEST_ROLE_BUTTON =By.id("role-request-button");
+	public static final By SAN_ERROR_MESSAGE = By.xpath("//span[contains(text(),\" An account with this name already exists \")]");
 	
 
 }

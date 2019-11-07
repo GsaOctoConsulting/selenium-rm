@@ -229,4 +229,14 @@ public class SystemAccountDirectoryPage {
 		return actualSearchResult;
 	}
 
+	/**
+	 * 
+	 * */
+	public static void clickWorkspaceLink() {
+
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(SystemAccountDirectoryPageLocator.WORKSPACE_LINK).click();
+		LaunchBrowserUtil.delay(2);
+	}
+
 }

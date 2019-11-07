@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.NewSystemAccountPageLocator;
+import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 /**
@@ -536,7 +537,21 @@ public static void selectALLPermissions() throws Exception {
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.xpath("//*[contains(text(),'Show previous comments')]")).click();
 	}
+	/**
+	 * This method gets error message
+	 */
+	public static String getErrorMessage() {
+		LaunchBrowserUtil.delay(2);
+		String actualMessage = driver.findElement(T1WorkspacePageLocator.SAN_ERROR_MESSAGE).getText();
+		return actualMessage;
+	}
 
+	public static String checkStatus() {
+		String actualStatus = driver
+				.findElement(By.xpath("//a[@title='System Information - completed']")).getAttribute("title");
+		logger.info("Actual status is :" + actualStatus);
+		return actualStatus;
+	}
 
 
 	
