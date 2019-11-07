@@ -30,8 +30,8 @@ public class SystemAccountEmailStep {
 	private static StringBuilder nonfeduser = new StringBuilder("raiaan.shah");
 
 	// String formattedDate= new SimpleDateFormat("hh:mm:ss a").format(new Date());
-	long epoch = System.currentTimeMillis() / 1000;
-	String formattedDate = Long.toString(epoch);
+	 long epoch = System.currentTimeMillis() / 1000;
+	 String formattedDate = Long.toString(epoch);
 
 	@Given("^_1saemail_ user logs in as system account manager$")
 	public void _1saemail_user_logs_in_as_system_account_manager() throws Throwable {

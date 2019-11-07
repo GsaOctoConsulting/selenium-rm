@@ -55,5 +55,9 @@ public class NewSystemAccountPageLocator {
 	public static final By AL_READ_PUBLIC = By.id("al-public");
 	public static final By WD_READ_PUBLIC = By.id("wd-public");
 	public static final By RD_READ_PUBLIC = By.id("rd-public");
+	public static final By BROWSE_UPLOAD = By.id("fileLinkId");
+	public static final By DELETE_UPLOAD = By.xpath("//button[@class= 'clear-button']");
+		public static final By CONFIRM_DELETE = By.xpath("//button[@class= 'sam-ui button secondary']");
+		public static final By UPDATED_DATE = By.id("date0");
 
 }

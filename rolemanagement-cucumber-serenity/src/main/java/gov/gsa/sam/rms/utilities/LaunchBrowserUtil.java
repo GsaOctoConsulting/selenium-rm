@@ -778,4 +778,9 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.id("passwordNext")).click();
 		delay(2);
 	}
+
+	public static void scrollToEnd() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("scroll(0,1600)", "");
+	}
 }

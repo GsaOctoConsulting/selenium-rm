@@ -552,7 +552,60 @@ public static void selectALLPermissions() throws Exception {
 		logger.info("Actual status is :" + actualStatus);
 		return actualStatus;
 	}
+	public static String virusScan() 
+	{
+		LaunchBrowserUtil.delay(2);
+		WebDriverWait wait = new WebDriverWait(driver,25);
+		List<WebElement> scStatus = driver.findElements(By.xpath("//*[contains(text(),'Ready')]"));
+		WebElement scanStatus = scStatus.get(0);
+		String status = wait.until(ExpectedConditions.visibilityOf(scanStatus)).getText();
+		return status;
+	}
 
+	public static void browseUpload() 
+	{
+		LaunchBrowserUtil.delay(2);
+		final WebElement fileInput = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
+		fileInput.sendKeys("C:\\eula.1028.txt");
+		LaunchBrowserUtil.delay(5);
+	}
+
+	public static WebElement deleteFileValidation() 
+	{
+		LaunchBrowserUtil.delay(2);
+		WebElement deleteFile = driver.findElement(NewSystemAccountPageLocator.DELETE_UPLOAD);
+		return deleteFile;
+	}
+
+	public static void deleteFileUpload() 
+	{
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(NewSystemAccountPageLocator.DELETE_UPLOAD).click();
+		driver.findElement(NewSystemAccountPageLocator.CONFIRM_DELETE).click();
+		System.out.println("File deleted successfully");
+		LaunchBrowserUtil.delay(4);
+	}
+
+	public static void invalidFileUpload() 
+	{
+		LaunchBrowserUtil.delay(2);
+		final WebElement browseUpload = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
+		browseUpload.sendKeys("\\\\e04tcm-vdipcfs3\\ReDir$\\ManasaNayani\\Desktop\\US24125\\NegativeTest.pub");
+		
+	}
+
+	public static void uploadMultipleFiles() 
+	{
+		LaunchBrowserUtil.delay(2);
+		final WebElement browseUpload = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
+		browseUpload.sendKeys("C:\\eula.1028.txt");
+		LaunchBrowserUtil.delay(4);
+		//browseUpload.sendKeys("\\\\e04tcm-vdipcfs3\\ReDir$\\ManasaNayani\\Desktop\\US24125\\Test.xlsx");
+		browseUpload.sendKeys("C:\\eula.1031.txt");
+		LaunchBrowserUtil.delay(15);
+	}
+	
+	
 
 	
 	
