@@ -48,7 +48,12 @@ Scenario: fsd admin should be able to view permissions for nonfed user with mult
 	Given _4 fsd admin logs in  
 	And _4 fsd admin looks up a nonfed user with multiple roles
 	And _4 fsd admin should be able to view permission for this user  
-	
+
+@5 @FsdAdmin @IntegrationTest @G1
+Scenario: fsd agent should be able to view permissions for nonfed user 
+	Given _5 fsd agent logs in  
+	And _5 fsd agent looks up a nonfed user with data entry role
+	And _5 fsd agent should be able to view permission for this user
 
 	
 	

@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 
 public class UserDirectoryPageLocator {
 
-	public static final By USER_PICKER_BAR = By.id("user-picker");
-	public static final By FIRST_RESULT = By.id("sam-autocomplete-results-kv");
+	public static final By USER_PICKER_BAR = By.id("userPicker");
+	public static final By FIRST_RESULT = By.id("userPicker-resultItem-0");
 	public static final By USER_VIEWACCESS_LINK = By.id("shah.raiaan+coSelenium@gsa.gov-action-0");
 	public static final By ASSIGN_ROLE = By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul/li[1]/button/span[2]");

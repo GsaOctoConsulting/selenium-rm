@@ -195,6 +195,34 @@ public class FsdBusinessRulesStep {
 			
 			LaunchBrowserUtil.navigateBack();
 	    }
+	    
+	    
+	    
+	    @Given("^_5 fsd agent logs in$")
+	    public void _5_fsd_agent_logs_in() throws Throwable {
+	    	SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_AGENT_1, Constants.USERPASS,
+	    			ConstantsAccounts.FSD_AGENT_1_SECRETKEY, Constants.USER_FED); 
+	    }
+
+	    @And("^_5 fsd agent looks up a nonfed user with data entry role$")
+	    public void _5_fsd_agent_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
+	    	T1WorkspacePage.clickUserDirectoryLink();
+		       UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		       UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
+	    }
+
+	    @And("^_5 fsd agent should be able to view permission for this user$")
+	    public void _5_fsd_agent_should_be_able_to_view_permission_for_this_user() throws Throwable {
+	    	boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+			Assert.assertEquals(true, userAlreadyHasRole); 
+	    	
+			String permissionspageheading = LaunchBrowserUtil.getDriver().findElement(By.tagName("h1")).getText();
+			Assert.assertEquals(true, permissionspageheading.contains("Permissions")); 
+	    }
+	    
+	    
+	    
 	
 
 	// private methods are below this line

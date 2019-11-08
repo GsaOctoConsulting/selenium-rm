@@ -47,8 +47,8 @@ public class LoginStep {
 		 * ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1_SECRETKEY,
 		 * Constants.USER_FED); CommonMethods.delay(4);
 		 */
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_AGENT_1, Constants.USERPASS,
-				ConstantsAccounts.FSD_AGENT_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		
 		
 		/*
