@@ -8,8 +8,8 @@ public class NewSystemAccountPageLocator {
 	public static final By TEXTBOX_SYSTEM_INTERFACING_NAME = By.id("interfacing-system-version-required");
 	public static final By TEXTBOX_SYSTEM_DESCRIPTION = By.id("system-description-and-function-required");
 	public static final By NEXT_TO_DESCRIPTION_BUTTON = By.id("button-next");
-	public static final By AGENCYPICKER_ORG_INFO = By.id("cws-agency-requiredpicker");
-	public static final By ORG_SELECTOR = By.id("sam-autocomplete-results-kv");
+	public static final By AGENCYPICKER_ORG_INFO = By.id("federalHierarchy");
+	public static final By ORG_SELECTOR = By.id("federalHierarchy-listbox");
 	public static final By CONTAINER = By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[1]");
 	public static final By SYSTEM_MANAGER_PICKER = By.id("system-managers-optional-ac-textarea");

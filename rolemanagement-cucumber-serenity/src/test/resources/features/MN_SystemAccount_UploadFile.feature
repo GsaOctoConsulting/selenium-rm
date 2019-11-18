@@ -19,9 +19,8 @@
 @MN_SystemAccount_UploadFile
 Feature: ATO files Upload functionality 
 Description:  The purpose of this feature is to test Upload functionality of System Account ATO files
-
+@1
 Scenario: system account manager should be able to upload a ATO file
-
 	Given _1 sys user enters all the organization info 
 	And _1 sys user enters permissions info 
 	And _1 sys user enters security info 

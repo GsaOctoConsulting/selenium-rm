@@ -128,6 +128,52 @@ public class RoleEditStep {
 		afterScenario();
 	}
 
+	@Given("^_3re user logs in workspace as contract opportunities admin$")
+	public void _3re_user_logs_in_workspace_as_contract_opportunities_admin() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_3re user looks up a contracting officer in user directory$")
+	public void _3re_user_looks_up_a_contracting_officer_in_user_directory() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGOFFICER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGOFFICER_1);
+		// check whether user already has the role
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(userAlreadyHasRole, true);
+
+	}
+
+	@Then("^_3re user should be able to edit their roles$")
+	public void _3re_user_should_be_able_to_edit_their_roles() throws Throwable {
+		// edit the role
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY);
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.writeComment("adding organization");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		// ------------------edit the role back to previous state---------------
+
+		// change the role back
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
+				Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		LaunchBrowserUtil.delay(4);
+		// confirming the change has gone through
+		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
+		Assert.assertEquals(true, roleRestored);
+		afterScenario();
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
 	// private methods are below this line
 
 	private void beforeScenario() {

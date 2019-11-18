@@ -72,7 +72,8 @@ public class NewSystemAccountPage {
 		WebElement firstOrg = orgList.get(0);
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());
 		if (firstOrg.getText().toLowerCase().contains(orgname.toLowerCase())) {
-			driver.findElement(By.xpath("//*[@id=\"sam-autocomplete-results-kv\"]/li[1]/span[1]")).click();
+			firstOrg.click();
+			//driver.findElement(By.xpath("//*[@id=\"sam-autocomplete-results-kv\"]/li[1]/span[1]")).click();
 			driver.findElement(NewSystemAccountPageLocator.CONTAINER).click();
 			orgFound = true;
 		}

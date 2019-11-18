@@ -33,3 +33,10 @@ Scenario: edit role should function correctly for dra
 	And _2 dra looks up contracting officer in contract data 
 	Then _2 dra changes users role to contracting speacialist
 	Then _2 dra sees the role change showing up in my profile page
+
+@3 @SmokeTest @AssistanceAdmin @IntegrationTest
+Scenario: contract opportunities admin should be able to edit role for contracting officer 
+	Given _3re user logs in workspace as contract opportunities admin 
+	And _3re user looks up a contracting officer in user directory 
+	Then _3re user should be able to edit their roles 	
+	

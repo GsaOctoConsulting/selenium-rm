@@ -43,10 +43,9 @@ public class MN_SystemAccount_UploadFile {
 		NewSystemAccountPage.enterSystemDescription("Test");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 		//Enter Organization info and click Next to go to Permissions
-		LaunchBrowserUtil.driver.findElement(By.id("cws-agency-requiredpicker")).sendKeys(Constants.ORG_GSA);
-		LaunchBrowserUtil.driver.findElement(By.xpath("//*[contains(text(),'4700 - GENERAL SERVICES ADMINISTRATION')]")).click();
-		NewSystemAccountPage.selectSystemAdminInOrgInfo("Manasa");
-		NewSystemAccountPage.selectSystemManagerInOrgInfo("mahammad.abasguliyev+gsasm@gsa.gov");
+		NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.SYSTEM_MANAGER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 				
 	}
