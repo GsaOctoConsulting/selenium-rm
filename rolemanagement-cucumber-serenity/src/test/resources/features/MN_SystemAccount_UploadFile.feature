@@ -29,14 +29,14 @@ Scenario: system account manager should be able to upload a ATO file
 	Then _1 edited date should be displayed in the correct format
 	Then _1 user should be able to delete file
 	
-	
+@2	
 Scenario: system account manager should not be able to upload Invalid file type
-	Given _2 sys manager is in the authorization page
+	Given _2 sys manager logs in and opens a system account
 	When _2 sys manager enters authorization info and uploads invalid file type
 	Then _2 error message should be displayed for invalid file type
-	
+@3	
 Scenario: system account manager should be able to upload multiple files
-	Given _3 sys manager is in the authorization page for ATO upload
+	Given _3 sys manager logs in and opens a system account
 	When _3 sys manager enters authorization info and uploads multiple files
 	Then _3 multiple files should be uploaded successfully
 	

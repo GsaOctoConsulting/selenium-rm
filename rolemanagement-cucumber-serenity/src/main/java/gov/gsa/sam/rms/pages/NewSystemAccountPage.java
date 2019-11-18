@@ -567,7 +567,7 @@ public static void selectALLPermissions() throws Exception {
 	{
 		LaunchBrowserUtil.delay(2);
 		final WebElement fileInput = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
-		fileInput.sendKeys("C:\\eula.1028.txt");
+		fileInput.sendKeys("C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\sampletestfile.txt");
 		LaunchBrowserUtil.delay(5);
 	}
 
@@ -583,7 +583,7 @@ public static void selectALLPermissions() throws Exception {
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(NewSystemAccountPageLocator.DELETE_UPLOAD).click();
 		driver.findElement(NewSystemAccountPageLocator.CONFIRM_DELETE).click();
-		System.out.println("File deleted successfully");
+		logger.info("File deleted successfully");
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -591,19 +591,17 @@ public static void selectALLPermissions() throws Exception {
 	{
 		LaunchBrowserUtil.delay(2);
 		final WebElement browseUpload = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
-		browseUpload.sendKeys("\\\\e04tcm-vdipcfs3\\ReDir$\\ManasaNayani\\Desktop\\US24125\\NegativeTest.pub");
-		
+		browseUpload.sendKeys("C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\unsupportedformat.bat");
 	}
 
 	public static void uploadMultipleFiles() 
 	{
 		LaunchBrowserUtil.delay(2);
 		final WebElement browseUpload = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
-		browseUpload.sendKeys("C:\\eula.1028.txt");
+		browseUpload.sendKeys("C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\sampletestfile.txt");
 		LaunchBrowserUtil.delay(4);
-		//browseUpload.sendKeys("\\\\e04tcm-vdipcfs3\\ReDir$\\ManasaNayani\\Desktop\\US24125\\Test.xlsx");
-		browseUpload.sendKeys("C:\\eula.1031.txt");
-		LaunchBrowserUtil.delay(15);
+		browseUpload.sendKeys("C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\sampletestfile2.txt");
+		LaunchBrowserUtil.delay(5);
 	}
 
 	public static void reorderFileUpload() 
