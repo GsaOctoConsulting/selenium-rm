@@ -40,21 +40,21 @@ Scenario: system account manager should be able to upload multiple files
 	When _3 sys manager enters authorization info and uploads multiple files
 	Then _3 multiple files should be uploaded successfully
 	
-	
-Scenario: System Account Administrator should be able to upload a ATO file
-	Given _4 sys account admin enters all the organization info 
-	And _4 sys account admin user enters permissions info 
-	And _4 sys account admin enters security info 
-	When _4 sys account admin enters autohorization info and select one or more files to upload
-	Then _4 ATO files should be uploaded successfully
-	Then _4 edited date should be displayed in correct format 
-	Then _4 user should be able to delete the file
-	
+@4	
+Scenario: system account admin should be able to upload a ATO file
+	Given _4 sys user enters all the organization info 
+	And _4 sys user enters permissions info 
+	And _4 sys user enters security info 
+	When _4 user enters autohorization info and select one or more files to upload
+	Then _4 files should be uploaded successfully
+	Then _4 edited date should be displayed in the correct format
+	Then _4 user should be able to delete file
+@5	
 Scenario: system account adminstrator should not be able to upload Invalid file type
 	Given _5 sys account admin is in the authorization page
 	When _5 sys acount admin enters authorization info and uploads invalid file type
 	Then _5 sys account admin should not be able to upload file and error message is displayed
-	
+@6	
 Scenario: system account administrator should be able to upload multiple files
 	Given _6 sys account admin is in the authorization page for ATO upload
 	When _6 sys account admin enters authorization info and uploads multiple files

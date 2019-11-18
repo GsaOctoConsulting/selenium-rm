@@ -610,6 +610,14 @@ public static void selectALLPermissions() throws Exception {
 		driver.findElement(NewSystemAccountPageLocator.REORDER_UPLOAD).click();
 		LaunchBrowserUtil.delay(4);
 	}
+
+	public static void browseUploadDocFile() {
+		LaunchBrowserUtil.delay(2);
+		final WebElement fileInput = driver.findElement(NewSystemAccountPageLocator.BROWSE_UPLOAD);
+		fileInput.sendKeys("C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\sampletestdocfile.docx");
+		LaunchBrowserUtil.delay(5);
+		
+	}
 	
 	
 
