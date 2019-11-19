@@ -109,6 +109,13 @@ Scenario: all role request in feeds should show requester name as firstname and 
 	When _11 spaad goes through the feeds requests 
 	Then _11 should see requester name appearing as expected without any comma  
 	
+@12 
+Scenario: pending role request should be editable to add a lower tier org 
+	Given _12 subtier no role user request contracting officer in contract opp 
+	And _12 contracting opportunities admin logs in  
+	When _12 admin tries to edit the org for the request made by subtier user 
+	Then _12 the admin should be able to assign the role for that request 
+	
 	
 	
 	

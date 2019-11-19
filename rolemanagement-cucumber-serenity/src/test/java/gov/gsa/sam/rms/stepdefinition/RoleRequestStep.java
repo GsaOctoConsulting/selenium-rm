@@ -724,6 +724,26 @@ public class RoleRequestStep {
 	public void _11_should_see_requester_name_appearing_as_expected_without_any_comma() throws Throwable {
 
 	}
+	 @Given("^_12 subtier no role user request contracting officer in contract opp$")
+	    public void _12_subtier_no_role_user_request_contracting_officer_in_contract_opp() throws Throwable {
+	        
+	    }
+
+	    @When("^_12 admin tries to edit the org for the request made by subtier user$")
+	    public void _12_admin_tries_to_edit_the_org_for_the_request_made_by_subtier_user() throws Throwable {
+	        
+	    }
+
+	    @Then("^_12 the admin should be able to assign the role for that request$")
+	    public void _12_the_admin_should_be_able_to_assign_the_role_for_that_request() throws Throwable {
+	        
+	    }
+
+	    @And("^_12 contracting opportunities admin logs in$")
+	    public void _12_contracting_opportunities_admin_logs_in() throws Throwable {
+	        
+	    }
+
 
 	// private methods are below this line
 
