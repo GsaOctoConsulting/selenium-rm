@@ -726,7 +726,8 @@ public class RoleRequestStep {
 	}
 	 @Given("^_12 subtier no role user request contracting officer in contract opp$")
 	    public void _12_subtier_no_role_user_request_contracting_officer_in_contract_opp() throws Throwable {
-	        
+		 SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_SUBTIER, Constants.USERPASS,
+				 ConstantsAccounts.NO_ROLE_USER_SUBTIER_SECRETKEY, Constants.USER_FED); 
 	    }
 
 	    @When("^_12 admin tries to edit the org for the request made by subtier user$")
@@ -743,6 +744,104 @@ public class RoleRequestStep {
 	    public void _12_contracting_opportunities_admin_logs_in() throws Throwable {
 	        
 	    }
+	    
+	    
+	    @Given("^_13rr user logs in workspace with no role$")
+	    public void _13rr_user_logs_in_workspace_with_no_role() throws Throwable {
+	    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+					ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED); 
+	    }
+@And("^_13rr user requests assistance user role in assistance listing$")
+	    public void _13rr_user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
+	T1WorkspacePage.goToAccountDetailsPage();
+	AccountDetailsPage.goToPageOnSideNav("My Roles");
+	MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+	MyRolesPage.clickRequestRoleButton();
+	RequestRolePage.writeSupervisorName("AJ");
+	RequestRolePage.writeSupervisorEmail("a@b.c");
+	RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+	RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+	RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+	RequestRolePage.writeComment("test");
+	RequestRolePage.clickSubmit();
+	LaunchBrowserUtil.closeBrowsers();
+	    }
+	    @When("^_13rr assistance admin logs in$")
+	    public void _13rr_assistance_admin_logs_in() throws Throwable {
+	    	SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
+	    			ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);
+	    }
+
+	    @Then("^_13rr assistance admin should be able to approve the request$")
+	    public void _13rr_assistance_admin_should_be_able_to_approve_the_request() throws Throwable {
+	    	LaunchBrowserUtil.scrollAllTheWayDown();
+			String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
+			UserDirectoryWidgetUtility.clickUserDirectoryLink();
+			UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+			UserDirectoryPage.clickViewAccess(noRoleUser);
+			MyRolesPage.click1PendingRequest();
+			MyRolesPage.clickPendingLink();
+
+			RoleRequestPendingPage.clickAssignRole();
+			AssignRolePage.writeComment("giving this role");
+			AssignRolePage.clickAssign();
+			AssignRolePage.clickCloseButton();
+
+			// ---------delete the newly granted role-----------
+			boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+					Constants.DOMAIN_ASSISTANCE_LISTING, "DELETE");
+			Assert.assertEquals(userAlreadyHasRole, true);  
+	    }
+
+	    @Given("^_14rr user logs in workspace with no role$")
+	    public void _14rr_user_logs_in_workspace_with_no_role() throws Throwable {
+	    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+					ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED); 
+	    }
+ @And("^_14rr user requests contracting officer role in contract opportunities$")
+	    public void _14rr_user_requests_contracting_officer_role_in_contract_opportunities() throws Throwable {
+	 T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail("a@b.c");
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers(); 
+	    }
+	    @When("^_14rr contract opp admin logs in$")
+	    public void _14rr_contract_opp_admin_logs_in() throws Throwable {
+	    	SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+	    			ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED); 
+	    }
+
+	    @Then("^_14rr contract opp admin should be able to approve the request$")
+	    public void _14rr_contract_opp_admin_should_be_able_to_approve_the_request() throws Throwable {
+	    	LaunchBrowserUtil.scrollAllTheWayDown();
+			String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
+			UserDirectoryWidgetUtility.clickUserDirectoryLink();
+			UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+			UserDirectoryPage.clickViewAccess(noRoleUser);
+			MyRolesPage.click1PendingRequest();
+			MyRolesPage.clickPendingLink();
+
+			RoleRequestPendingPage.clickAssignRole();
+			AssignRolePage.writeComment("giving this role");
+			AssignRolePage.clickAssign();
+			AssignRolePage.clickCloseButton();
+
+			// ---------delete the newly granted role-----------
+			boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
+					Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+			Assert.assertEquals(userAlreadyHasRole, true);    
+	    }
+
+	   
 
 
 	// private methods are below this line

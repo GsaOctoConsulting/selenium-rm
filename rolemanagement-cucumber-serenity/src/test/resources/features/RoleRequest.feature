@@ -115,6 +115,20 @@ Scenario: pending role request should be editable to add a lower tier org
 	And _12 contracting opportunities admin logs in  
 	When _12 admin tries to edit the org for the request made by subtier user 
 	Then _12 the admin should be able to assign the role for that request 
+
+@13
+Scenario: role request for assistance user approval by assistance admin  
+	Given _13rr user logs in workspace with no role 
+	And _13rr user requests assistance user role in assistance listing 
+	When _13rr assistance admin logs in
+	Then _13rr assistance admin should be able to approve the request 
+
+@14
+Scenario: role request for contracting officer approval by contract opp admin  
+	Given _14rr user logs in workspace with no role 
+	And _14rr user requests contracting officer role in contract opportunities 
+	When _14rr contract opp admin logs in
+	Then _14rr contract opp admin should be able to approve the request 	  
 	
 	
 	
