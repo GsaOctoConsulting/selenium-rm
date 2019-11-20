@@ -163,8 +163,7 @@ public class AssignRolePage {
 		boolean orgFound = false;
 		driver.findElement(AssignRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(orgName);
 		LaunchBrowserUtil.delay(4);
-		List<WebElement> orgList = driver
-				.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
+		List<WebElement> orgList = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
 
 		logger.info(("The size of the list is......" + orgList.size()));
 		LaunchBrowserUtil.delay(2);
@@ -279,6 +278,14 @@ public class AssignRolePage {
 			orgFound = true;
 		}
 		return orgFound;
+
+	}
+
+	public static void cancelSelectedOrg() {
+		driver.findElement(By.xpath(
+				"//*[@id=\"org-picker\"]/div[1]/div/div/sam-agency-selector/sam-label-wrapper/div/div[2]/div[1]/sam-sds-autocomplete/sam-sds-selected-result/ul/li[1]/div/span"))
+				.click();
+		LaunchBrowserUtil.delay(2);
 
 	}
 
