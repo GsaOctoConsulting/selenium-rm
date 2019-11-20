@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@MN_SystemAccount_UploadFileReorder","@1"})
+				"@MN_DeleteUpload","@2"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9"
 	// "@T1Workspace","@32" // 433

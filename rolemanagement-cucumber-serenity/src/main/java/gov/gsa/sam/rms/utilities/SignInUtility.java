@@ -53,7 +53,6 @@ public class SignInUtility {
 		Thread.sleep(3000);
 		// -----------------------------------------
 		T1WorkspacePage.setDriver(LaunchBrowserUtil.getDriver());
-		
 		logger.info("------------Sign into workspace completed------------------------------");
 		//LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/t1-workspace");
 		//LaunchBrowserUtil.delay(3);

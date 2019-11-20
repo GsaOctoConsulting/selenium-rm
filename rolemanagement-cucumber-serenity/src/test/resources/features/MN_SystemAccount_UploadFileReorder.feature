@@ -20,3 +20,12 @@ Scenario: system account admin should be able to reorder uploaded files
 	And _2 system account admin enters autohorization info and select files to upload
 	When _2 system account admin reorders the files
 	Then _2 attachements should be reordered for system account files
+
+@3	
+Scenario: nonfed user should be able to reorder uploaded files
+	Given _3 nonfed user enters all the organization info 
+	And _3 nonfed user enters permissions info 
+	And _3 nonfed user enters security info 
+	And _3 nonfed user enters autohorization info and select files to upload
+	When _3 nonfed user reorders the files
+	Then _3 attachements should be reordered for nonfed user
