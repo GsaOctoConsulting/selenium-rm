@@ -2,6 +2,8 @@ package gov.gsa.sam.rms.stepdefinition;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -21,8 +23,9 @@ public class MN_SystemAccount_UploadFileReorder
 //Scenario: system account manager should be able reorder uploaded files
 	long epoch = System.currentTimeMillis() / 1000;
 	 String formattedDate = Long.toString(epoch);
-	@Given("^_(\\d+) system account manager enters all the organization info$")
-	public void __system_account_manager_enters_all_the_organization_info(int arg1) throws Exception 
+	 private static Logger logger = LoggerFactory.getLogger(MN_SystemAccount_UploadFileReorder.class);
+	@Given("^_1 system account manager enters all the organization info$")
+	public void __system_account_manager_enters_all_the_organization_info() throws Exception 
 	{
 		//Login and Go to System Account directory page 
 				SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1, Constants.USERPASS,
@@ -35,15 +38,13 @@ public class MN_SystemAccount_UploadFileReorder
 				NewSystemAccountPage.enterSystemDescription("Test");
 				NewSystemAccountPage.clickNextToGoToOrgInfo();
 				//Enter Organization info and click Next to go to Permissions
-				LaunchBrowserUtil.driver.findElement(By.id("cws-agency-requiredpicker")).sendKeys(Constants.ORG_GSA);
-				LaunchBrowserUtil.driver.findElement(By.xpath("//*[contains(text(),'4700 - GENERAL SERVICES ADMINISTRATION')]")).click();
-				NewSystemAccountPage.selectSystemAdminInOrgInfo("Manasa");
-				NewSystemAccountPage.selectSystemManagerInOrgInfo("mahammad.abasguliyev+gsasm@gsa.gov");
+				NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
+				NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
 				NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
-	@Given("^_(\\d+) system account manager enters permissions info$")
-	public void __system_account_manager_enters_permissions_info(int arg1) throws Exception 
+	@Given("^_1 system account manager enters permissions info$")
+	public void __system_account_manager_enters_permissions_info() throws Exception 
 	{
 		//Enter information in Permission page and click next to go to Security
 				NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_PUBLIC);
@@ -53,8 +54,8 @@ public class MN_SystemAccount_UploadFileReorder
 				NewSystemAccountPage.clickNextToGoToSecurity();
 	}
 
-	@Given("^_(\\d+) system account manager enters security info$")
-	public void __system_account_manager_enters_security_info(int arg1) throws Exception 
+	@Given("^_1 system account manager enters security info$")
+	public void __system_account_manager_enters_security_info() throws Exception 
 	{
 		//Enter Security info and click next to go to Authorization page
 				NewSystemAccountPage.enterIPaddress("192.168.1.1");
@@ -65,40 +66,46 @@ public class MN_SystemAccount_UploadFileReorder
 				NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
-	@Given("^_(\\d+) system account manager enters autohorization info and select files to upload$")
-	public void __system_account_manager_enters_autohorization_info_and_select_files_to_upload(int arg1) throws Exception 
+	@Given("^_1 system account manager enters autohorization info and select files to upload$")
+	public void __system_account_manager_enters_autohorization_info_and_select_files_to_upload() throws Exception 
 	{
 		NewSystemAccountPage.uploadMultipleFiles();
-		LaunchBrowserUtil.delay(20);
+		LaunchBrowserUtil.delay(5);
 		NewSystemAccountPage.certifyCorrectInformation();
 		LaunchBrowserUtil.delay(5);
 		
 	}
 
-	@When("^_(\\d+) user reorders the files$")
-	public void __user_reorders_the_files(int arg1) throws Exception
+	@When("^_1 user reorders the files$")
+	public void __user_reorders_the_files() throws Exception
 	{
 		NewSystemAccountPage.reorderFileUpload();
 		NewSystemAccountPage.clickReviewButton(); 
 	}
 
-	@Then("^_(\\d+) attachements should be reordered$")
-	public void __attachements_should_be_reordered(int arg1) throws Exception 
+	@Then("^_1 attachements should be reordered$")
+	public void __attachements_should_be_reordered() throws Exception 
 	{
 		LaunchBrowserUtil.scrollToEnd();
-		WebElement reviewPagevalue = LaunchBrowserUtil.driver.findElement(By.xpath("//div[@class = 'sam-ui segment']//a[@class= \"ng-star-inserted\"]"));
-		String actualReviewValue = reviewPagevalue.getText();
-		String expectedvalue = "eula.1031.txt";
-		Assert.assertEquals(expectedvalue, actualReviewValue);
-		System.out.println("Uploaded fiels are reordered successfully");
+		WebElement filenametext1 = LaunchBrowserUtil.driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[1]/td[1]/a"));
+		WebElement filenametext2 = LaunchBrowserUtil.driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[2]/td[1]/a"));
+		String actualfilename1 = filenametext1.getText();
+		String actualfilename2 = filenametext2.getText();
+		String expectedfilename1 = "sampletestfile2.txt";
+		String expectedfilename2 = "sampletestfile.txt";
+		Assert.assertEquals(expectedfilename1, actualfilename1);
+		Assert.assertEquals(expectedfilename2, actualfilename2);
+		logger.info("File Reorder success");
+		afterScenario();
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.driver.quit();
 	    
 	}
 //-------------------------------------------------------------------------------------------------------------------------
 	//Scenario: system account admin should be able to reorder uploaded files
-	@Given("^_(\\d+) system account admin enters all the organization info$")
-	public void __system_account_admin_enters_all_the_organization_info(int arg1) throws Exception 
+	@Given("^_2 system account admin enters all the organization info$")
+	public void __system_account_admin_enters_all_the_organization_info() throws Exception 
 	{
 		//Login as System Account Administrator and Go to System Account directory page 
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1, Constants.USERPASS,
@@ -117,8 +124,8 @@ public class MN_SystemAccount_UploadFileReorder
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
-	@Given("^_(\\d+) system account admin enters permissions info$")
-	public void __system_account_admin_enters_permissions_info(int arg1) throws Exception 
+	@Given("^_2 system account admin enters permissions info$")
+	public void __system_account_admin_enters_permissions_info() throws Exception 
 	{
 		//Enter information in Permission page and click next to go to Security
 		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_PUBLIC);
@@ -128,8 +135,8 @@ public class MN_SystemAccount_UploadFileReorder
 		NewSystemAccountPage.clickNextToGoToSecurity();
 	}
 
-	@Given("^_(\\d+) system account admin enters security info$")
-	public void __system_account_admin_enters_security_info(int arg1) throws Exception 
+	@Given("^_2 system account admin enters security info$")
+	public void __system_account_admin_enters_security_info() throws Exception 
 	{
 		//Enter Security info and click next to go to Authorization page
 		NewSystemAccountPage.enterIPaddress("192.168.1.1");
@@ -140,7 +147,7 @@ public class MN_SystemAccount_UploadFileReorder
 		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
-	@Given("^_(\\d+) system account admin enters autohorization info and select files to upload$")
+	@Given("^_2 system account admin enters autohorization info and select files to upload$")
 	public void __system_account_admin_enters_autohorization_info_and_select_files_to_upload(int arg1) throws Exception
 	{
 		NewSystemAccountPage.uploadMultipleFiles();
@@ -150,15 +157,15 @@ public class MN_SystemAccount_UploadFileReorder
 		
 	}
 
-	@When("^_(\\d+) system account admin reorders the files$")
-	public void __system_account_admin_reorders_the_files(int arg1) throws Exception 
+	@When("^_2 system account admin reorders the files$")
+	public void __system_account_admin_reorders_the_files() throws Exception 
 	{
 		NewSystemAccountPage.reorderFileUpload();
 		NewSystemAccountPage.clickReviewButton(); 
 	}
 
-	@Then("^_(\\d+) attachements should be reordered for system account files$")
-	public void __attachements_should_be_reordered_for_system_account_files(int arg1) throws Exception 
+	@Then("^_2 attachements should be reordered for system account files$")
+	public void __attachements_should_be_reordered_for_system_account_files() throws Exception 
 	{
 		LaunchBrowserUtil.scrollToEnd();
 		WebElement reviewPagevalue = LaunchBrowserUtil.driver.findElement(By.xpath("//div[@class = 'sam-ui segment']//a[@class= \"ng-star-inserted\"]"));
@@ -169,5 +176,7 @@ public class MN_SystemAccount_UploadFileReorder
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.driver.quit();
 	}
-		
+	private void afterScenario() {
+		logger.info("*************************END OF SCENARIO****************************************************");
+	}
 }

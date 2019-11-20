@@ -59,5 +59,14 @@ Scenario: system account administrator should be able to upload multiple files
 	Given _6 sys account admin is in the authorization page for ATO upload
 	When _6 sys account admin enters authorization info and uploads multiple files
 	Then _6 sys account admin should be able to upoad multiple files successfully
-	
+
+@7	
+Scenario: nonfed user should be able to upload an ATO file
+	Given _7 nonfed user enters all the organization info 
+	And _7 nonfed user enters permissions info 
+	And _7 nonfed user enters security info 
+	When _7 nonfed user enters autohorization info and select one or more files to upload
+	Then _7 nonfed files should be uploaded successfully
+	Then _7 nonfed edited date should be displayed in the correct format
+	Then _7 nonfed user should be able to delete file
 	
