@@ -67,16 +67,16 @@ public class UserDirectoryFilterStep {
 
 	@Then("^_2 user checks filter should be able to clears them$")
 	public void _2_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
-		UserDirectoryPage.clickAlertsAdminFilter();
+		UserDirectoryPage.clickAdminFilter();;
 		UserDirectoryPage.clickAssistanceUserFilter();
 		;
 		UserDirectoryPage.clickClearFilter();
 
-		boolean alAdminfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ALERTSADMIN_FILTER);
+		boolean adminfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ADMIN_FILTER);
 		boolean assistanceUserFilterSelected = UserDirectoryPage
 				.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
 
-		Assert.assertEquals(alAdminfilterSelected, false);
+		Assert.assertEquals(adminfilterSelected, false);
 		Assert.assertEquals(assistanceUserFilterSelected, false);
 	}
 
@@ -98,21 +98,23 @@ public class UserDirectoryFilterStep {
 
 	@And("^_3 user navigates to user directory page$")
 	public void _3_user_navigates_to_user_directory_page() throws Throwable {
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.scrollAllTheWayDown();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
 	@Then("^_3 user checks filter should be able to clears them$")
 	public void _3_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
-		UserDirectoryPage.clickAlertsAdminFilter();
-		UserDirectoryPage.clickOmbAdminFilter();
+		UserDirectoryPage.clickAssistanceUserFilter();
+		UserDirectoryPage.clickAdminFilter();
 		UserDirectoryPage.clickClearFilter();
 
-		boolean alAdminfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ALERTSADMIN_FILTER);
-		boolean ombAdminFilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.OMB_ADMIN_FILTER);
+		boolean assistanceUserfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
+		boolean adminFilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ADMIN_FILTER);
 
-		Assert.assertEquals(alAdminfilterSelected, false);
-		Assert.assertEquals(ombAdminFilterSelected, false);
+		Assert.assertEquals(assistanceUserfilterSelected, false);
+		Assert.assertEquals(adminFilterSelected, false);
 	}
 
 	@Then("^_3 user should be able to see provide feed links$")
@@ -124,6 +126,29 @@ public class UserDirectoryFilterStep {
 		afterScenario();
 	}
 
+	
+	  @Given("^_4udf given user logs in as assitance admin administrator$")
+	    public void _4udf_given_user_logs_in_as_assitance_admin_administrator() throws Throwable {
+	       
+	    }
+
+	    @Then("^_4udf user checks filter should be able to clears them$")
+	    public void _4udf_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
+	        
+	    }
+
+	    @Then("^_4udf user should be able to see provide feed links$")
+	    public void _4udf_user_should_be_able_to_see_provide_feed_links() throws Throwable {
+	        
+	    }
+
+	    @And("^_4udf user navigates to user directory page$")
+	    public void _4udf_user_navigates_to_user_directory_page() throws Throwable {
+	       
+	    }
+	
+	
+	
 	// private methods are below this line
 
 	private void beforeScenario() {

@@ -35,7 +35,8 @@ public class UserDirectorySearchStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
-		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		//int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		int totalNoOfPages = 10; //searching 10 pages right now
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
@@ -68,7 +69,7 @@ public class UserDirectorySearchStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		Assert.assertEquals(true,
-				UserDirectoryPage.orgPickerAllOrgsContainsThisSearchTermAndOrgName("human", "Dept: GSA"));
+				UserDirectoryPage.orgPickerAllOrgsContainsThisSearchTermAndOrgName("human", "47"));
 
 		/*
 		 * String firstSuggestedOrg = UserDirectoryPage.getFirstOrgFound(); String
@@ -143,7 +144,8 @@ public class UserDirectorySearchStep {
 
 	@Then("^_5 user should only see accounts with federal user id$")
 	public void _5_user_should_only_see_accounts_with_federal_user_id() throws Throwable {
-		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		//int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		int totalNoOfPages = 20;//currently looking 20 pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist

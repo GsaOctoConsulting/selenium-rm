@@ -457,7 +457,7 @@ public class UserDirectoryPage {
 	public static boolean userPickerAllUsersContainsThisSearchTerm(String searchterm) {
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).sendKeys(searchterm);
 		LaunchBrowserUtil.delay(1);
-		List<WebElement> listofusers = driver.findElements(By.className("multiple-values"));
+		List<WebElement> listofusers = driver.findElements(By.id("userPicker-listbox"));
 		logger.info("The size of the list of users --- " + listofusers.size());
 		boolean allTrue = false;
 		int counter = 0;
@@ -478,7 +478,7 @@ public class UserDirectoryPage {
 	public static boolean orgPickerAllOrgsContainsThisSearchTermAndOrgName(String searchterm, String org) {
 		driver.findElement(UserDirectoryPageLocator.ORG_PICKER).sendKeys(searchterm);
 		LaunchBrowserUtil.delay(1);
-		List<WebElement> listoforgs = driver.findElements(By.className("multiple-values"));
+		List<WebElement> listoforgs = driver.findElements(By.id("federalHierarchy-listbox"));
 		logger.info("The size of the list of orgs --- " + listoforgs.size());
 		boolean allTrue = false;
 		int counter = 0;

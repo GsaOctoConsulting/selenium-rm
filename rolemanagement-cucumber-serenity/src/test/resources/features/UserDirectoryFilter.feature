@@ -23,7 +23,7 @@ capability on the UserDirectoryPage
 
 
 @1 @RegressionTest @IntegrationTest @DRA @G1
-Scenario: verify clear filter and provide feed links 
+Scenario: verify clear filter and provide feed links for dra
 	Given _1 given user logs in as dra 
 	And _1 user navigates to user directory page 
 	Then _1 user checks filter should be able to clears them 
@@ -31,7 +31,7 @@ Scenario: verify clear filter and provide feed links
 	
 	# the below test is second part of #4 on integration test doc
 @2 @IntegrationTest @AssistanceUser @G1
-Scenario: verify clear filter and provide feed links 
+Scenario: verify clear filter and provide feed links for assitance user
 	Given _2 given user logs in as assistance user 
 	And _2 user navigates to user directory page 
 	Then _2 user checks filter should be able to clears them 
@@ -40,12 +40,18 @@ Scenario: verify clear filter and provide feed links
 	
 	# the below test is second part of #13 on integration test doc
 @3 @IntegrationTest @RA @G1
-Scenario: verify clear filter and provide feed links 
+Scenario: verify clear filter and provide feed links for ra
 	Given _3 given user logs in as role administrator
 	And _3 user navigates to user directory page 
 	Then _3 user checks filter should be able to clears them 
 	Then _3 user should be able to see provide feed links 
-	
+
+@4 @IntegrationTest @RA @G1
+Scenario: verify clear filter and provide feed links for assistance admin
+	Given _4udf given user logs in as assitance admin administrator
+	And _4udf user navigates to user directory page 
+	Then _4udf user checks filter should be able to clears them 
+	Then _4udf user should be able to see provide feed links 
 	
 	
 	
