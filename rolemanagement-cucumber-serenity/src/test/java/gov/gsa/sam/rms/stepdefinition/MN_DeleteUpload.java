@@ -24,6 +24,7 @@ import net.serenitybdd.core.annotations.findby.By;
 
 public class MN_DeleteUpload {
 	public final static String sysActName = NewSystemAccountPage.uniqueSAN();
+	public final static String sysActName2 = NewSystemAccountPage.uniqueSAN();
 
 	@Given("^_1du user login as Sys Account Admin and create a new account$")
 	public void __user_login_as_Sys_Account_Admin_and_create_a_new_account() throws Exception {
@@ -141,7 +142,7 @@ public class MN_DeleteUpload {
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.clickNewButton();// Click on New button
 		// Enter System Information and click next to go to Organization info
-		NewSystemAccountPage.enterSystemAccountName(sysActName);// Enter Unique system account name
+		NewSystemAccountPage.enterSystemAccountName(sysActName2);// Enter Unique system account name
 		NewSystemAccountPage.enterInterfacingSystemName("Test");
 		NewSystemAccountPage.enterSystemDescription("Test");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
@@ -207,12 +208,12 @@ public class MN_DeleteUpload {
 
 	@And("^_2du user enters the keyword and search for the account$")
 	public void _2du_user_enters_the_keyword_and_search_for_the_account() throws Throwable {
-		SystemAccountDirectoryPage.searchByKeyword(sysActName);
+		SystemAccountDirectoryPage.searchByKeyword(sysActName2);
 	}
 
 	@When("^_2du user go to the request details and check the Authorization$")
 	public void _2du_user_go_to_the_request_details_and_check_the_authorization() throws Throwable {
-		SystemAccountDirectoryPage.accountFound(sysActName, Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA,
+		SystemAccountDirectoryPage.accountFound(sysActName2, Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
 		LaunchBrowserUtil.delay(5);
 		// LaunchBrowserUtil.scrollToEnd();

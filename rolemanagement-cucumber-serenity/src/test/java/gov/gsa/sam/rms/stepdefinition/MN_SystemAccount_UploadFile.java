@@ -31,7 +31,7 @@ public class MN_SystemAccount_UploadFile {
 
 //Scenario: System Manager should be able to upload ATO file
 	@Given("^_1 sys user enters all the organization info$")
-	public void __sys_user_enters_all_the_organization_info(int arg1) throws Exception {
+	public void __sys_user_enters_all_the_organization_info() throws Exception {
 		// Login and Go to System Account directory page
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1, Constants.USERPASS,
 				ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY, Constants.USER_FED);
@@ -51,7 +51,7 @@ public class MN_SystemAccount_UploadFile {
 	}
 
 	@Given("^_1 sys user enters permissions info$")
-	public void __sys_user_enters_permissions_info(int arg1) throws Exception {
+	public void __sys_user_enters_permissions_info() throws Exception {
 		// Enter information in Permission page and click next to go to Security
 		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_PUBLIC);
 		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_PUBLIC);
@@ -62,7 +62,7 @@ public class MN_SystemAccount_UploadFile {
 	}
 
 	@Given("^_1 sys user enters security info$")
-	public void __sys_user_enters_security_info(int arg1) throws Exception {
+	public void __sys_user_enters_security_info() throws Exception {
 		// Enter Security info and click next to go to Authorization page
 		NewSystemAccountPage.enterIPaddress("192.168.1.1");
 		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
@@ -74,14 +74,14 @@ public class MN_SystemAccount_UploadFile {
 	}
 
 	@When("^_1 user enters autohorization info and select one or more files to upload$")
-	public void __user_enters_autohorization_info_and_select_one_or_more_files_to_upload(int arg1) throws Exception {
+	public void __user_enters_autohorization_info_and_select_one_or_more_files_to_upload() throws Exception {
 		LaunchBrowserUtil.scrollToMiddle();
 		NewSystemAccountPage.browseUpload();
 
 	}
 
 	@Then("^_1 files should be uploaded successfully$")
-	public void __files_should_be_uploaded_successfully(int arg1) throws Exception {
+	public void __files_should_be_uploaded_successfully() throws Exception {
 		WebElement value = LaunchBrowserUtil.driver.findElement(By.id("fileName0"));
 		String expectedFileName = "sampletestfile.txt";
 		String actualFileName = value.getText();
@@ -91,7 +91,7 @@ public class MN_SystemAccount_UploadFile {
 	}
 
 	@Then("^_1 edited date should be displayed in the correct format$")
-	public void __edited_date_should_be_displayed_in_the_correct_format(int arg1) throws Exception {
+	public void __edited_date_should_be_displayed_in_the_correct_format() throws Exception {
 		LaunchBrowserUtil.delay(2);
 		WebElement updatedFileDate = LaunchBrowserUtil.driver.findElement(NewSystemAccountPageLocator.UPDATED_DATE);
 		String actualDateValue = updatedFileDate.getText();
@@ -106,7 +106,7 @@ public class MN_SystemAccount_UploadFile {
 	}
 
 	@Then("^_1 user should be able to delete file$")
-	public void __user_should_be_able_to_delete_file(int arg1) throws Exception {
+	public void __user_should_be_able_to_delete_file() throws Exception {
 		Assert.assertTrue(NewSystemAccountPage.deleteFileValidation().isDisplayed());
 		NewSystemAccountPage.deleteFileUpload();
 		LaunchBrowserUtil.delay(4);
@@ -247,6 +247,7 @@ public class MN_SystemAccount_UploadFile {
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 		// Enter Organization info and click Next to go to Permissions
 		NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
+		LaunchBrowserUtil.delay(2);
 		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.SYSTEM_MANAGER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
