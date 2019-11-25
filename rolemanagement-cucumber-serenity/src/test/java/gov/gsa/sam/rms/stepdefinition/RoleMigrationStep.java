@@ -25,6 +25,7 @@ import gov.gsa.sam.rms.utilities.SignUpUtility;
 
 public class RoleMigrationStep {
 	private static Logger logger = LoggerFactory.getLogger(RoleMigrationStep.class);
+	
 	String newsignedupuser = "";
 	String newsignedupusersecretkey = "";
 	String legacyuserid1 = "gsaactest";
@@ -40,7 +41,7 @@ public class RoleMigrationStep {
 	@Given("^_1rm_ user is registered in login dot gov$")
 	public void _1rm_user_is_registered_in_login_dot_gov() throws Throwable {
 		RoleMigrationPage.resetTestData(
-				"https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov/iam/import/domain/fbo/reset/deanna.lucky/");
+				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/fbo/reset/deanna.lucky/");
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
 	}
@@ -51,7 +52,7 @@ public class RoleMigrationStep {
 		CommonProfilePage.enterLastName("lastname");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		//CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		CommonProfilePage.clickSubmitButton();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		RequestRoleOptionalPage.clickSkipAndFinish();
@@ -91,7 +92,7 @@ public class RoleMigrationStep {
 	@Given("^_2rm_ user is registered in login dot gov$")
 	public void _2rm_user_is_registered_in_login_dot_gov() throws Throwable {
 		RoleMigrationPage.resetTestData(
-				"https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov/iam/import/domain/cfda/reset/gsaactest/");
+				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/cfda/reset/gsaactest/");
 
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
@@ -99,7 +100,7 @@ public class RoleMigrationStep {
 		CommonProfilePage.enterLastName("lastname");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		//CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		CommonProfilePage.clickSubmitButton();
 		RequestRoleOptionalPage.clickSkipAndFinish();
 	}
@@ -167,9 +168,10 @@ public class RoleMigrationStep {
 	@Then("^_3rm_ user should see proper error message$")
 	public void _3rm_user_should_see_proper_error_message() throws Throwable {
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.scrollAllTheWayDown();
+		//LaunchBrowserUtil.scrollAllTheWayDown();
 		String alertmessage = RoleMigrationPage.getAlertMessage();
-		Assert.assertEquals("Error", alertmessage);
+		LaunchBrowserUtil.delay(2);
+		Assert.assertTrue(alertmessage.contains("User not found"));
 		RoleMigrationPage.goToWorkspace();
 		T1WorkspacePage.goToRoleMigrationPage();
 	}
@@ -185,9 +187,10 @@ public class RoleMigrationStep {
 	@Then("^_3rm_ user should see proper password error message$")
 	public void _3rm_user_should_see_proper_password_error_message() throws Throwable {
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.scrollAllTheWayDown();
 		String alertmessage = RoleMigrationPage.getAlertMessage();
-		Assert.assertEquals("Error", alertmessage);
+		LaunchBrowserUtil.delay(2);
+		Assert.assertTrue(alertmessage.contains("User not found"));
+		
 		RoleMigrationPage.goToWorkspace();
 		T1WorkspacePage.goToRoleMigrationPage();
 	}
@@ -203,9 +206,9 @@ public class RoleMigrationStep {
 	@Then("^_3rm_ user should see appropriate error response$")
 	public void _3rm_user_should_see_appropriate_error_response() throws Throwable {
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.scrollAllTheWayDown();
 		String alertmessage = RoleMigrationPage.getAlertMessage();
-		Assert.assertEquals("Error", alertmessage);
+		LaunchBrowserUtil.delay(2);
+		Assert.assertTrue(alertmessage.contains("User not found"));
 	}
 
 	@Given("^_4rm_ new user signs up$")

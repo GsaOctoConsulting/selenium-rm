@@ -81,16 +81,12 @@ public class RoleMigrationPage {
 	 */
 	public static String getAlertMessage() {
 		LaunchBrowserUtil.delay(2);
-		List<WebElement> alert = driver.findElements(By.className("usa-alert-warning"));
+		List<WebElement> alert = driver.findElements(By.tagName("sam-alert"));
 		logger.info("----------The size of the alert list is- "+ alert.size());
-		
-		/*for (int i = 0; i < alert.size(); i++) {
-			if (i == 0) {
-				LaunchBrowserUtil.delay(1);
-				return alert.get(i).findElement(By.tagName("h3")).getText();
-			}
-		}*/
-		return alert.get(0).findElement(By.tagName("p")).getText();
+		LaunchBrowserUtil.delay(2);
+		String alertmessage = alert.get(0).findElement(By.tagName("p")).getText();
+		logger.info("----------The alert message is - "+ alertmessage);
+		return alertmessage;
 	}
 
 	public static void goToWorkspace() {

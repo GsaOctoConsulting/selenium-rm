@@ -4,6 +4,6 @@ import org.openqa.selenium.By;
 
 public class RoleMigrationiPageLocator {
 
-	public static final By DOMAIN_SELECTOR = By.id("system");
+	public static final By DOMAIN_SELECTOR = By.tagName("select");
 
 }

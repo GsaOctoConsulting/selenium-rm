@@ -18,8 +18,7 @@
 		<serenity.cucumber.version>1.9.8</serenity.cucumber.version>
 		<encoding>UTF-8</encoding>
 		<tags></tags>
-		<parallel.tests>4</parallel.tests>
-		
+		<parallel.tests>4</parallel.tests>	
 	</properties>
 
 	<repositories>

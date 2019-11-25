@@ -4,7 +4,8 @@ public class Constants {
 
 	static PropertiesFileUtility fileUtilityreader = new PropertiesFileUtility("application.properties");
 	// urls
-	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
+	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
+	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov";
 
 	// login credentials
 	public static final String USERPASS = "WhiteColor1!";

@@ -82,6 +82,7 @@ public class SystemAccountRequestDetailsPage {
 
 	public static void enterNewPassword(String userpass) {
 		driver.findElement(By.xpath("//input[starts-with(@id, 'password')]")).sendKeys(userpass);
+		
 		LaunchBrowserUtil.delay(1);
 
 	}
