@@ -5,7 +5,7 @@ public class Constants {
 	static PropertiesFileUtility fileUtilityreader = new PropertiesFileUtility("application.properties");
 	// urls
 	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
-	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov";
+	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov";
 
 	// login credentials
 	public static final String USERPASS = "WhiteColor1!";
@@ -187,7 +187,6 @@ public class Constants {
 	public static final String USER_FED = "Fed";
 	public static final String USER_NONFED = "Nonfed";
 	public static final String NO_SECRET_KEY = "No Secret Key";
-
 	public static final String SIGNUP_SECURITYLEVEL = "IAL1";
 	
 

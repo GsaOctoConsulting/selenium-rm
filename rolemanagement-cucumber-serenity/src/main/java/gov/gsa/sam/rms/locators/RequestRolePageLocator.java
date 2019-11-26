@@ -12,7 +12,7 @@ public class RequestRolePageLocator {
 	public static final By CONTAINER = By
 			.xpath("//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[3]");
 	public static final By DOMAINDROPDOWN_ICON = By.className("fa-chevron-down");
-	public static final By DOMAIN_SELECTOR = By.className("category-item");
+	public static final By DOMAIN_SELECTOR = By.xpath("//li[(@role, 'option')]");
 	public static final By SUBMIT_BUTTON = By.id("done-button");
 	public static final By PENDING_REQUESTS = By.linkText("1 pending role request");
 	public static final By PENDING = By.linkText("Pending");

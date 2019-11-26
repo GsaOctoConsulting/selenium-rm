@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.RequestRolePageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
@@ -93,7 +94,7 @@ public class RequestRolePage {
 	public static boolean selectDomainIfFound(String domainName) {
 		boolean domainFound = false;
 		clickDomainDropdown();
-		List<WebElement> domain = driver.findElements(RequestRolePageLocator.DOMAIN_SELECTOR);
+		List<WebElement> domain = driver.findElements(AssignRolePageLocator.DOMAIN_SELECTOR);
 		logger.info(("The size of the list is......" + domain.size()));
 
 		for (int i = 0; i < domain.size(); i++) {
@@ -106,6 +107,7 @@ public class RequestRolePage {
 			}
 		}
 		return domainFound;
+
 	}
 
 	/**

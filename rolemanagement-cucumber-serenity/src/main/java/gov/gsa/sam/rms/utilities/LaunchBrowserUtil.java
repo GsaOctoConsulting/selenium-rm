@@ -425,7 +425,7 @@ public class LaunchBrowserUtil {
 
 	public static String getPhoneOtpFromEmailDuringSignUp(String gmailUsername) {
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
-		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.delay(19);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		delay(3);

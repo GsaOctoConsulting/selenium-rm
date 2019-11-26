@@ -366,7 +366,7 @@ public class RoleRequestStep {
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
 		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "this is the first comment";
 		RequestRolePage.writeComment(comments);
 		RequestRolePage.clickSubmit();
@@ -536,7 +536,7 @@ public class RoleRequestStep {
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
 		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "test";
 		RequestRolePage.writeComment(comments);
 		RequestRolePage.clickSubmit();
