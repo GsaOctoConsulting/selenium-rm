@@ -109,26 +109,35 @@ Scenario: all role request in feeds should show requester name as firstname and 
 	When _11 spaad goes through the feeds requests 
 	Then _11 should see requester name appearing as expected without any comma  
 	
-@12 
+@12 @G2
 Scenario: pending role request should be editable to add a lower tier org 
 	Given _12 subtier no role user request contracting officer in contract opp 
 	And _12 contracting opportunities admin logs in  
 	When _12 admin tries to edit the org for the request made by subtier user 
 	Then _12 the admin should be able to assign the role for that request 
 
-@13
+@13 @G2
 Scenario: role request for assistance user approval by assistance admin  
 	Given _13rr user logs in workspace with no role 
 	And _13rr user requests assistance user role in assistance listing 
 	When _13rr assistance admin logs in
 	Then _13rr assistance admin should be able to approve the request 
 
-@14
+@14 @G2
 Scenario: role request for contracting officer approval by contract opp admin  
 	Given _14rr user logs in workspace with no role 
 	And _14rr user requests contracting officer role in contract opportunities 
 	When _14rr contract opp admin logs in
-	Then _14rr contract opp admin should be able to approve the request 	  
+	Then _14rr contract opp admin should be able to approve the request
+	
+@15 @G2
+Scenario: role request edit for assisting listing domain   
+	Given _15rr user logs in workspace with no role 
+	And _15rr user requests assistance user role in assistance listing 
+	When _15rr assistance admin logs in
+	And _15rr assistance admin tries to change the role and domain of the request
+	Then _15rr assistance admin should not see role and domain options other than assistance listing 
+ 	  
 	
 	
 	

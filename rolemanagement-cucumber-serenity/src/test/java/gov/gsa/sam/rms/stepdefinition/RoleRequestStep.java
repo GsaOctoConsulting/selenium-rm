@@ -776,7 +776,8 @@ public class RoleRequestStep {
 	public void _12_the_admin_should_be_able_to_assign_the_role_for_that_request() throws Throwable {
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.DELETE);
 		Assert.assertEquals(true, userAlreadyHasRole);
 	}
 
@@ -878,6 +879,79 @@ public class RoleRequestStep {
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_15rr user logs in workspace with no role$")
+	public void _15rr_user_logs_in_workspace_with_no_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_15rr user requests assistance user role in assistance listing$")
+	public void _15rr_user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail("a@b.c");
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_15rr assistance admin logs in$")
+	public void _15rr_assistance_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_15rr assistance admin tries to change the role and domain of the request$")
+	public void _15rr_assistance_admin_changes_the_role_and_domain_of_the_request() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+		UserDirectoryPage.clickViewAccess(noRoleUser);
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+
+		RoleRequestPendingPage.clickAssignRole();
+		boolean roleFound1=AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		Assert.assertEquals(true, roleFound1);
+		
+		boolean roleFound2=AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		Assert.assertEquals(false, roleFound2);
+		
+		boolean domainFound1=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		Assert.assertEquals(true, domainFound1);
+		
+		
+		boolean domainFound2=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		Assert.assertEquals(false, domainFound2);
+		
+		//AssignRolePage.clickAssign();
+		//AssignRolePage.clickCloseButton();
+	}
+
+	@Then("^_15rr assistance admin should not see role and domain options other than assistance listing$")
+	public void _15rr_assistance_admin_should_be_able_to_assign_altered_role_to_the_user() throws Throwable {
+		boolean roleFound1=AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		Assert.assertEquals(true, roleFound1);
+		
+		boolean roleFound2=AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		Assert.assertEquals(false, roleFound2);
+		
+		boolean domainFound1=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		Assert.assertEquals(true, domainFound1);
+		
+		
+		boolean domainFound2=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		Assert.assertEquals(false, domainFound2);
 	}
 
 	// private methods are below this line
