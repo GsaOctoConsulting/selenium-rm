@@ -10,11 +10,11 @@ public class T1WorkspacePageLocator {
 	public static final By ROLE_DEFINITION_BUTTON = By.id("role-definitions-button");
 	public static final By BULK_UPDATE_BUTTON = By.id("bulk-update-button");
 	public static final By PENDING_ROLE_REQUEST_LINK = By.id("workspace-pending-requests-link");
-	public static final By USER_DIRECTORY_WIDGET = By.tagName("sam-workspace-rm-widget");
+	public static final By USER_DIRECTORY_WIDGET = By.tagName("workspace-rm-widget");
 	public static final By ASSISTANCE_LISTING_WIDGET = By.tagName("sam-workspace-assistance-listing-widget");
 	public static final By USER_DIRECTORY_LINK = By.id("user-directory-link");
 	public static final By COLLECTIVE_BARGAINING_WIDGET = By.tagName("sam-workspace-cba-wage-determination-widget");
-	public static final By FSD_FILTER = By.id("fsd-filter");
+	public static final By FSD_FILTER = By.id("userSearchFilter");
 	public static final By SYSTEMACCOUNT_WIDGET = By.tagName("sam-workspace-sa-widget");
 	public static final By PENDINGAPPROVAL_SYSTEMACCOUNT_LINK = By.id("system-accounts-pending-approval-link");
 	public static final By PENDINGREVIEW_SYSTEMACCOUNT_LINK =By.id("system-accounts-pending-review-link");

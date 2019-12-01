@@ -2,7 +2,7 @@
 @MN_DeleteUpload
 Feature: ATO files Delete Uploads validation
 Description:  The purpose of this feature is to test Security Approver and IAE PMO should not be able to delete upload files
-@1
+@1 @ATO
 Scenario: Security Approver should not be able to delete uploaded files
 	Given _1du user login as Sys Account Admin and create a new account
 	And _1du user enters public permission information
@@ -12,7 +12,7 @@ Scenario: Security Approver should not be able to delete uploaded files
 	And _1du user enters the keyword and search for the account
 	When _1du user go to the request details and check the Authorization 
 	Then _1du Security Approver should not be able to delete upload files
-@2
+@2 @ATO
 Scenario: IAE PMO should not be able to delete uploaded files
 Given _2du user login as Sys Account Admin and create a new account
 And _2du user enters public permission information

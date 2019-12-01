@@ -3,7 +3,7 @@
 Feature: ATO files Upload files reorder
 Description:  The purpose of this feature is to test Upload ATO files reorder 
 
-@1
+@1 @ATO
 Scenario: system account manager should be able reorder uploaded files
 	Given  _1 system account manager enters all the organization info 
 	And _1 system account manager enters permissions info 
@@ -12,7 +12,7 @@ Scenario: system account manager should be able reorder uploaded files
 	When _1 user reorders the files
 	Then _1 attachements should be reordered
 		
-@2	
+@2 @ATO	
 Scenario: system account admin should be able to reorder uploaded files
 	Given _2 system account admin enters all the organization info 
 	And _2 system account admin enters permissions info 
@@ -21,7 +21,7 @@ Scenario: system account admin should be able to reorder uploaded files
 	When _2 system account admin reorders the files
 	Then _2 attachements should be reordered for system account files
 
-@3	
+@3 @ATO	
 Scenario: nonfed user should be able to reorder uploaded files
 	Given _3 nonfed user enters all the organization info 
 	And _3 nonfed user enters permissions info 
