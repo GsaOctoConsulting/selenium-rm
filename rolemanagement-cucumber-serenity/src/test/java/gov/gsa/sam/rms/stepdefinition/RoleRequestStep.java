@@ -906,8 +906,8 @@ public class RoleRequestStep {
 
 	@When("^_15rr assistance admin logs in$")
 	public void _15rr_assistance_admin_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
-				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
+				ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_15rr assistance admin tries to change the role and domain of the request$")
@@ -921,37 +921,100 @@ public class RoleRequestStep {
 		MyRolesPage.clickPendingLink();
 
 		RoleRequestPendingPage.clickAssignRole();
-		boolean roleFound1=AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
-		Assert.assertEquals(true, roleFound1);
-		
-		boolean roleFound2=AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		boolean roleFound2 = AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		Assert.assertEquals(false, roleFound2);
-		
-		boolean domainFound1=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
-		Assert.assertEquals(true, domainFound1);
-		
-		
-		boolean domainFound2=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+
+		boolean roleFound1 = AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainFound2 = AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		Assert.assertEquals(false, domainFound2);
-		
-		//AssignRolePage.clickAssign();
-		//AssignRolePage.clickCloseButton();
+
+		boolean domainFound1 = AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		Assert.assertEquals(true, domainFound1);
+
 	}
 
 	@Then("^_15rr assistance admin should not see role and domain options other than assistance listing$")
 	public void _15rr_assistance_admin_should_be_able_to_assign_altered_role_to_the_user() throws Throwable {
-		boolean roleFound1=AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
-		Assert.assertEquals(true, roleFound1);
+		AssignRolePage.writeComment("assigning role");
+		AssignRolePage.clickAssign();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(3);
+
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ASSISTANCE_LISTING, "DELETE");
+		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_16rr user logs in workspace with no role$")
+	public void _16rr_user_logs_in_workspace_with_no_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_16rr user requests contracting officer in contract opportunities$")
+	public void _16rr_user_requests_contracting_officer_in_contract_opportunities() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail("a@b.c");
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_16rr contract opp admin logs in$")
+	public void _16rr_contract_opp_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_16rr admin tries to change the role and domain of the request$")
+	public void _16rr_admin_tries_to_change_the_role_and_domain_of_the_request() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+		UserDirectoryPage.clickViewAccess(noRoleUser);
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+
+		RoleRequestPendingPage.clickAssignRole();
+		boolean roleFound1 = AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		Assert.assertEquals(false, roleFound1);
+
+		boolean roleFound2 = AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		Assert.assertEquals(true, roleFound2);
+
+		boolean domainFound1 = AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		Assert.assertEquals(false, domainFound1);
 		
-		boolean roleFound2=AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-		Assert.assertEquals(false, roleFound2);
+		boolean domainFound2 = AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		Assert.assertEquals(true, domainFound2);
+
 		
-		boolean domainFound1=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
-		Assert.assertEquals(true, domainFound1);
-		
-		
-		boolean domainFound2=AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
-		Assert.assertEquals(false, domainFound2);
+	}
+
+	@Then("^_16rr co admin should not see role and domain options other than contract opportunities$")
+	public void _16rr_co_admin_should_not_see_role_and_domain_options_other_than_contract_opportunities()
+			throws Throwable {
+		AssignRolePage.writeComment("assigning role");
+		AssignRolePage.clickAssign();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(3);
+
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 
 	// private methods are below this line

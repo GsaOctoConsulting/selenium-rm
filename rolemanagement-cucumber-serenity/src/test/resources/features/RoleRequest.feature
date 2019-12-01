@@ -131,14 +131,20 @@ Scenario: role request for contracting officer approval by contract opp admin
 	Then _14rr contract opp admin should be able to approve the request
 	
 @15 @G2
-Scenario: role request edit for assisting listing domain   
+Scenario: role request edit for assisting listing domain should only show al role and domain  
 	Given _15rr user logs in workspace with no role 
 	And _15rr user requests assistance user role in assistance listing 
 	When _15rr assistance admin logs in
 	And _15rr assistance admin tries to change the role and domain of the request
 	Then _15rr assistance admin should not see role and domain options other than assistance listing 
  	  
-	
+@16 @G2
+Scenario: role request edit for contract opp domain should only show co role and domain  
+	Given _16rr user logs in workspace with no role 
+	And _16rr user requests contracting officer in contract opportunities 
+	When _16rr contract opp admin logs in
+	And _16rr admin tries to change the role and domain of the request
+	Then _16rr co admin should not see role and domain options other than contract opportunities
 	
 	
 	
