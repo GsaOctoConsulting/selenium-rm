@@ -145,6 +145,15 @@ Scenario: role request edit for contract opp domain should only show co role and
 	When _16rr contract opp admin logs in
 	And _16rr admin tries to change the role and domain of the request
 	Then _16rr co admin should not see role and domain options other than contract opportunities
+
+@17 @G2
+Scenario: pending role request can only be edited by specific domain admin  
+	Given _17rr user logs in workspace with no role 
+	And _17rr user requests contracting officer in contract opportunities 
+	When _17rr assistance admin logs in
+	And _17rr admin tries to look at the request details
+	Then _17rr assistance admin should not be able to look at the request
+
 	
 	
 	

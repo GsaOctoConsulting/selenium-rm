@@ -996,11 +996,10 @@ public class RoleRequestStep {
 
 		boolean domainFound1 = AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		Assert.assertEquals(false, domainFound1);
-		
+
 		boolean domainFound2 = AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		Assert.assertEquals(true, domainFound2);
 
-		
 	}
 
 	@Then("^_16rr co admin should not see role and domain options other than contract opportunities$")
@@ -1012,9 +1011,70 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(3);
 
 		// ---------delete the newly granted role-----------
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_17rr user logs in workspace with no role$")
+	public void _17rr_user_logs_in_workspace_with_no_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_17rr user requests contracting officer in contract opportunities$")
+	public void _17rr_user_requests_contracting_officer_in_contract_opportunities() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail("a@b.c");
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_17rr assistance admin logs in$")
+	public void _17rr_assistance_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
+				ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_17rr admin tries to look at the request details$")
+	public void _17rr_admin_tries_to_look_at_the_request_details() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+		UserDirectoryPage.clickViewAccess(noRoleUser);
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		AccountDetailsPage.setDriver(MyRolesPage.getDriver());
+		AccountDetailsPage.goToPageOnSideNav("Account Details");
+
+	}
+
+	@Then("^_17rr assistance admin should not be able to look at the request$")
+	public void _17rr_assistance_admin_should_not_be_able_to_look_at_the_request() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+
+		// delete the request
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		RoleRequestPendingPage.clickDeleteButton();
+		RoleRequestPendingPage.confirmDeleteOnPopup();
+		LaunchBrowserUtil.delay(6);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	// private methods are below this line
