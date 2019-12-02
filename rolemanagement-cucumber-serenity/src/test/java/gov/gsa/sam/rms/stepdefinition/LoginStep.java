@@ -274,13 +274,13 @@ public class LoginStep {
 	@When("^_7 user creates a new account in login dot gov$")
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
+		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov", Constants.USERPASS);
 		//SignUpUtility.signUpNewUser(ConstantsAccounts.IAE_PMO_ADMINISTRATOR, Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
 	public void _7_user_should_be_able_to_complete_the_profile() throws Throwable {
-		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterFirstName("s'hah'");
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();

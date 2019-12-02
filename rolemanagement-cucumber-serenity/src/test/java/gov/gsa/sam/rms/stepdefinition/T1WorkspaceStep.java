@@ -11,6 +11,7 @@ import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.SystemAccountDirectoryPageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.pages.AssignRolePage;
+import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.SystemAccountDirectoryPage;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
@@ -126,6 +127,7 @@ public class T1WorkspaceStep {
 				.elementFound(T1WorkspacePageLocator.EXCLUSION_REVIEWNEEDED_BUBBLE);
 		Assert.assertEquals(true, reviewneeded);
 	}
+	
 	@And("^_1t1 spaad should be able to view entity registration widget$")
     public void _1t1_spaad_should_be_able_to_view_entity_registration_widget() throws Throwable {
 		boolean entityregistrationwidgetfound = T1WorkspacePage
@@ -1412,9 +1414,16 @@ public class T1WorkspaceStep {
 	@Given("^_37t1 new user signs up$")
 	public void _37t1_new_user_signs_up() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		secretkey = SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov",
+		secretkey = SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov",
 				Constants.USERPASS);
-		newid = "octotestaccount1+newregistereduser" + counter + "@gsa.gov";
+		newid = "octotestaccount1+newregistereduser'" + counter + "@gsa.gov";
+		
+		CommonProfilePage.enterFirstName("s'hah'");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		//CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		CommonProfilePage.clickSubmitButton();
 	}
 
 	@And("^_37t1 the user is given system manager role by spaad$")
@@ -1425,8 +1434,8 @@ public class T1WorkspaceStep {
 		UserDirectoryPage.searchUserInUserPicker(newid);
 		UserDirectoryPage.clickAssignRole(newid);
 		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
-		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
-		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_SYSTEM_MANAGER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
