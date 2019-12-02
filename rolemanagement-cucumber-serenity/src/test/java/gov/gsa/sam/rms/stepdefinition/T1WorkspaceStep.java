@@ -88,6 +88,53 @@ public class T1WorkspaceStep {
 		Assert.assertEquals(true, collectivebargainingwidgetfound);// not seeing for this user
 	}
 
+	@And("^_1t1 spaad should be able to view the exclusion widget$")
+	public void _1t1_spaad_should_be_able_to_view_the_exclusion_widget() throws Throwable {
+		boolean exclusionwidgetfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_WIDGET);
+		Assert.assertEquals(true, exclusionwidgetfound);
+		
+		boolean exclusionlinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_LINK);
+		Assert.assertEquals(true, exclusionlinkfound);
+		
+		boolean newexclusionlinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.NEW_EXCLUSION_LINK);
+		Assert.assertEquals(true, newexclusionlinkfound);
+		
+		boolean proceedingspending = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_PROCEEDINGS_PENDING_BUBBLE);
+		Assert.assertEquals(true, proceedingspending);
+		
+		boolean proceedingscompleted = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_PROCEEDINGS_COMPLETED_BUBBLE);
+		Assert.assertEquals(true, proceedingscompleted);
+	
+		boolean prohibitionrestriction = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_PROHIBITION_RESTRICTION_BUBBLE);
+		Assert.assertEquals(true, prohibitionrestriction);
+		
+		boolean voluntaryexclusion = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_VOLUNTARY_EXCLUSION_BUBBLE);
+		Assert.assertEquals(true, voluntaryexclusion);
+		
+		boolean myactive = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_MY_ACTIVE_BUBBLE);
+		Assert.assertEquals(true, myactive);
+		
+		boolean reviewneeded = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.EXCLUSION_REVIEWNEEDED_BUBBLE);
+		Assert.assertEquals(true, reviewneeded);
+	}
+	@And("^_1t1 spaad should be able to view entity registration widget$")
+    public void _1t1_spaad_should_be_able_to_view_entity_registration_widget() throws Throwable {
+		boolean entityregistrationwidgetfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.ENTITY_REGISTRATION_WIDGET);
+		Assert.assertEquals(true, entityregistrationwidgetfound);
+		
+		
+    }
+	
 	@Given("^_2t1 user logs in as assistance admin$")
 	public void _2t1_user_logs_in_as_assistance_admin() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,

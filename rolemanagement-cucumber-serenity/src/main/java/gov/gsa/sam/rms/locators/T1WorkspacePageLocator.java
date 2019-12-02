@@ -32,6 +32,16 @@ public class T1WorkspacePageLocator {
 	public static final By VERIFY_BUSINESS_NEEDCHECKBOX = By.id("business-need-verify");
 	public static final By REQUEST_ROLE_BUTTON =By.id("role-request-button");
 	public static final By SAN_ERROR_MESSAGE = By.xpath("//span[contains(text(),\" An account with this name already exists \")]");
+	public static final By EXCLUSION_WIDGET = By.tagName("workspace-entity-exclusions-widget");
+	public static final By EXCLUSION_PROCEEDINGS_PENDING_BUBBLE = By.id("proceeding-pending-link");
+	public static final By EXCLUSION_PROCEEDINGS_COMPLETED_BUBBLE = By.id("proceeding-completed-link");
+	public static final By EXCLUSION_PROHIBITION_RESTRICTION_BUBBLE = By.id("prohibition-restriction-link");
+	public static final By EXCLUSION_VOLUNTARY_EXCLUSION_BUBBLE = By.id("voluntary-exclusions-link");
+	public static final By EXCLUSION_MY_ACTIVE_BUBBLE = By.id("my-active-link");
+	public static final By EXCLUSION_REVIEWNEEDED_BUBBLE = By.id("review-needed-link");
+	public static final By EXCLUSION_LINK = By.id("entity-exclusions-landing-link");
+	public static final By NEW_EXCLUSION_LINK = By.id("new-exclusions-button");
+	public static final By ENTITY_REGISTRATION_WIDGET = By.tagName("workspace-fsd-entity-registration-widget");
 	
 
 }

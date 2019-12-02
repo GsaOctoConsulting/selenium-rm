@@ -27,7 +27,9 @@ Scenario: spaad should see proper links and widgets in the t1 workspace
 	And _1t1 spaad should see both fed and nonfed in user dropdown in widget 
 	And _1t1 spaad should be able to view assistance listing widget 
 	And _1t1 spaad should be able to view contract opportunities widget 
-	And _1t1 spaad should be able to view collective bargaining widget 
+	And _1t1 spaad should be able to view collective bargaining widget
+	And _1t1 spaad should be able to view the exclusion widget
+	And _1t1 spaad should be able to view entity registration widget 
 	
 @2 
 Scenario: assistance admin should see proper links and widgets in the t1 workspace 
