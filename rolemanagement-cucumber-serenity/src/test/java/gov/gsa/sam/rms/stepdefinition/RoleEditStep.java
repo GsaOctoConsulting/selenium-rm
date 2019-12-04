@@ -196,12 +196,33 @@ public class RoleEditStep {
 
 	@And("^_4re spaad should be able to edit the role to viewer$")
 	public void _4re_spaad_should_be_able_to_edit_the_role_to_viewer() throws Throwable {
-
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_VIEWER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("editing the role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 	}
 
 	@Then("^_4re nonfed user should be left with the edit role$")
 	public void _4re_nonfed_user_should_be_left_with_the_edited_role() throws Throwable {
-
+		// check to ensure the changed role has gone through
+		boolean roleHasChanged = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(roleHasChanged, true);
+		//edit the role back to data entry
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("editing the role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		
+		// check to ensure the changed role has gone through
+				boolean roleHasChanged2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+						Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+				Assert.assertEquals(roleHasChanged2, true);
+		
 	}
 
 	// private methods are below this line
