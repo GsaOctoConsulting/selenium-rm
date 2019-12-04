@@ -38,5 +38,12 @@ Scenario: edit role should function correctly for dra
 Scenario: contract opportunities admin should be able to edit role for contracting officer 
 	Given _3re user logs in workspace as contract opportunities admin 
 	And _3re user looks up a contracting officer in user directory 
-	Then _3re user should be able to edit their roles 	
+	Then _3re user should be able to edit their roles
+
+@4 @G2
+Scenario: spaad should be able to edit role for nonfed user 
+	Given _4re user logs in spaad 
+	And _4re user looks up a nonfed user with data entry role in contract opportunities 
+	And _4re spaad should be able to edit the role to viewer
+	Then _4re nonfed user should be left with the edit role  	
 	

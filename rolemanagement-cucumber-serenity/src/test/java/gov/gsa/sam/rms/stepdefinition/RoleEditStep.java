@@ -174,6 +174,36 @@ public class RoleEditStep {
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
+	@Given("^_4re user logs in spaad$")
+	public void _4re_user_logs_in_spaad() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_4re user looks up a nonfed user with data entry role in contract opportunities$")
+	public void _4re_user_looks_up_a_nonfed_user_with_data_entry_role_in_contract_opportunities() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+		
+		// check whether user already has the role
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@And("^_4re spaad should be able to edit the role to viewer$")
+	public void _4re_spaad_should_be_able_to_edit_the_role_to_viewer() throws Throwable {
+
+	}
+
+	@Then("^_4re nonfed user should be left with the edit role$")
+	public void _4re_nonfed_user_should_be_left_with_the_edited_role() throws Throwable {
+
+	}
+
 	// private methods are below this line
 
 	private void beforeScenario() {
