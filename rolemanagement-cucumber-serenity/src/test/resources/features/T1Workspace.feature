@@ -26,17 +26,13 @@ Scenario: spaad should see proper links and widgets in the t1 workspace
 	Then _1t1 spaad should be able to view user directory widget and relevant links 
 	And _1t1 spaad should see both fed and nonfed in user dropdown in widget 
 	And _1t1 spaad should be able to view assistance listing widget 
-	And _1t1 spaad should be able to view contract opportunities widget 
 	And _1t1 spaad should be able to view collective bargaining widget
-	And _1t1 spaad should be able to view the exclusion widget
-	And _1t1 spaad should be able to view entity registration widget 
 	
 @2 
 Scenario: assistance admin should see proper links and widgets in the t1 workspace 
 	Given _2t1 user logs in as assistance admin 
 	Then _2t1 aad should be able to view user directory widget and relevant links 
 	And _2t1 aad should be able to view assistance listing widget 
-	And _2t1 aad should be able to view contract opportunities widget 
 	And _2t1 aad should be able to view collective bargaining widget 
 	
 @3 
@@ -183,6 +179,7 @@ Scenario: federal hierarchy spa should see proper links and widgets in the t1 wo
 	Then _24t1 fh spa should be able to view user directory widget and relevant links 
 	And _24t1 fh spa should be able to view federal hierarchy widget 
 	And _24t1 fh spa should be able to view upload aac widget 
+	And _24t1 fh spa should be able to view collective bargaining widget
 	
 @25 
 Scenario: federal hierarchy department admin should see proper links and widgets in the t1 workspace 
