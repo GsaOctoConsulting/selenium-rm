@@ -195,4 +195,8 @@ public class ConstantsAccounts {
 	public static final String NO_ROLE_USER_SUBTIER = "octotestaccount1+norolesubtier@gsa.gov";
 	public static final String NO_ROLE_USER_SUBTIER_SECRETKEY = "YHQRU6YCGEOXMEXX";
 	
+	
+	public static final String HELPDEST_TIER1_1 = null;
+	public static final String HELPDEST_TIER1_1_SECRETKEY = null;
+	
 }

@@ -280,6 +280,13 @@ Scenario: when a status count is zero then the bubble will not take the user to 
 	And  _37t1 the user is given system manager role by spaad 
 	When _37t1 the user logs in and clicks on the system account bubble with zero count 
 	Then _37t1 the user should not be taken to the system account page
+	
+@38
+Scenario: tier 1 help desk user should see proper links and widgets in the t1 workspace
+	Given _38t1 user logs in with tier1 help desk role 
+	Then  _38t1 user should be able to view user directory widget and relevant links 
+	And _38t1 the user should be able to to view entity registration widget 
+	And _38t1 the user should also be able to view collective bargaining widget
 
 
 	

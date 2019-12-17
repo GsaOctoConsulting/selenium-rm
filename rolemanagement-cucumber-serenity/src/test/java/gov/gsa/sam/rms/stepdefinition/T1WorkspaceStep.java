@@ -1403,6 +1403,28 @@ public class T1WorkspaceStep {
 		boolean newaccountButton = T1WorkspacePage.elementFound(SystemAccountDirectoryPageLocator.NEW_BUTTON);
 		Assert.assertEquals(false, newaccountButton);
 	}
+	
+	@Given("^_38t1 user logs in with tier1 help desk role$")
+    public void _38t1_user_logs_in_with_tier1_help_desk_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDEST_TIER1_1, Constants.USERPASS,
+				ConstantsAccounts.HELPDEST_TIER1_1_SECRETKEY, Constants.USER_FED); 
+    }
+
+    @Then("^ _38t1 user should be able to view user directory widget and relevant links$")
+    public void _38t1_user_should_be_able_to_view_user_directory_widget_and_relevant_links() throws Throwable {
+        
+    }
+
+    @And("^_38t1 the user should be able to to view entity registration widget$")
+    public void _38t1_the_user_should_be_able_to_to_view_entity_registration_widget() throws Throwable {
+        
+    }
+
+    @And("^_38t1 the user should also be able to view collective bargaining widget$")
+    public void _38t1_the_user_should_also_be_able_to_view_collective_bargaining_widget() throws Throwable {
+        
+    }
+
 
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
