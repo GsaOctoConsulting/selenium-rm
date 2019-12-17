@@ -195,8 +195,65 @@ public class ConstantsAccounts {
 	public static final String NO_ROLE_USER_SUBTIER = "octotestaccount1+norolesubtier@gsa.gov";
 	public static final String NO_ROLE_USER_SUBTIER_SECRETKEY = "YHQRU6YCGEOXMEXX";
 	
+	//-----------------------------------------------------------------------------------------
+	public static final String HELPDESK_TIER1_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String HELPDESK_TIER1_1_SECRETKEY = "HBM4TOYHG26L45XU";
 	
-	public static final String HELPDEST_TIER1_1 = null;
-	public static final String HELPDEST_TIER1_1_SECRETKEY = null;
+	public static final String FUNCTIONALHELPDESK_TIER2_1 = "octotestaccount1+functionalhelpdesktiertwo2@gsa.gov";
+	public static final String FUNCTIONALHELPDESK_TIER2_1_SECRETKEY = "";
+	
+	public static final String TECHNICALHELPDESK_TIER2_1 = "octotestaccount1+functionalhelpdesktiertwo2@gsa.gov";
+	public static final String TECHNICALHELPDESK_TIER2_1_SECRETKEY = "";
+	
+	public static final String HELPDESK_TIER3_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String HELPDESK_TIER3_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String AGENCYROLES_ADMINISTRATOR_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String AGENCYROLES_ADMINISTRATOR_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String ENTITY_ADMINISTRATOR_ENTITYCOMPLIANCE_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String ENTITY_ADMINISTRATOR_ENTITYCOMPLIANCE_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String DATA_ENTRY_ENTITYCOMPLIANCE_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String DATA_ENTRY_ENTITYCOMPLIANCE_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String DATA_ENTRY_ENTITYREGISTRATION_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String DDATA_ENTRY_ENTITYREGISTRATION_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String VIEWER_ENTITYREGISTRATION_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String VIEWER_ENTITYREGISTRATION_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String AGENCYADMIN_ENTITYREGISTRATION_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String AGENCYADMIN_ENTITYREGISTRATION_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String OFFICE_REGISTRATION_REPRESENTATIVE_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String OFFICE_REGISTRATION_REPRESENTATIVE_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String FOUO_ENTITYMANAGEMENT_DATAVIEWER_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String FOUO_ENTITYMANAGEMENT_DATAVIEWER_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String SENSITIVE_ENTITYMANAGEMENT_DATAVIEWER_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String SENSITIVE_ENTITYMANAGEMENT_DATAVIEWER_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String FOUO_AND_FAPIIS_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String FOUO_AND_FAPIIS_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String FOUO_EXECUTIVE_COMPENSATION_DATA_VIEWER_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String FOUO_EXECUTIVE_COMPENSATION_DATA_VIEWER_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String ENTITYMANAGEMENT_DATAACCESS_SYSTEMONLY_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String ENTITYMANAGEMENT_DATAACCESS_SYSTEMONLY_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String AGENCYADMIN_EXCLUSIONS_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String AGENCYADMIN_EXCLUSIONS_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String AGENCY_EXCLUSIONS_REPRESENTATIVE_1 = "octotestaccount1+helpdesktier1@gsa.gov";
+	public static final String AGENCY_EXCLUSIONS_REPRESENTATIVE_1_SECRETKEY = "HBM4TOYHG26L45XU";
+	
+	public static final String IAE_ADMIN = "octotestaccount1+iaeadmin3@gsa.gov";
+	public static final String IAE_ADMIN_SECRETKEY = "KHPFGUWZ32PUYL5J";
 	
 }

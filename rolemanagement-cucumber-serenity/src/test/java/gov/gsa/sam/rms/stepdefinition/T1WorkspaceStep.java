@@ -1406,8 +1406,8 @@ public class T1WorkspaceStep {
 	
 	@Given("^_38t1 user logs in with tier1 help desk role$")
     public void _38t1_user_logs_in_with_tier1_help_desk_role() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDEST_TIER1_1, Constants.USERPASS,
-				ConstantsAccounts.HELPDEST_TIER1_1_SECRETKEY, Constants.USER_FED); 
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDESK_TIER1_1, Constants.USERPASS,
+				ConstantsAccounts.HELPDESK_TIER1_1_SECRETKEY, Constants.USER_FED); 
     }
 
     @Then("^ _38t1 user should be able to view user directory widget and relevant links$")
