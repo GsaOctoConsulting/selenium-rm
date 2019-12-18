@@ -278,7 +278,7 @@ public class LoginStep {
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		//String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov", Constants.USERPASS);
-		SignUpUtility.signUpNewUser(ConstantsAccounts.AGENCYADMIN_ENTITYREGISTRATION_1, Constants.USERPASS);
+		SignUpUtility.signUpNewUser(ConstantsAccounts.AGENCY_EXCLUSIONS_REPRESENTATIVE_1, Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
