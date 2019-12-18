@@ -47,8 +47,8 @@ public class LoginStep {
 		 * ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1_SECRETKEY,
 		 * Constants.USER_FED); CommonMethods.delay(4);
 		 */
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.AGENCYADMIN_ENTITYREGISTRATION_1, Constants.USERPASS,
-				ConstantsAccounts.AGENCYADMIN_ENTITYREGISTRATION_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		
 		
 		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_ADMIN, Constants.USERPASS,
@@ -303,10 +303,10 @@ public class LoginStep {
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 
-		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
-			Constants.USERPASS);
-		//SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES,Constants.USERPASS);
+		//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		//SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+			//Constants.USERPASS);
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.VIEWER_ENTITYREGISTRATION_1,Constants.USERPASS);
 	}
 	@Then("^_8 user should be able to complete the profile$")
 	public void _8_user_should_be_able_to_complete_the_profile() throws Throwable {
