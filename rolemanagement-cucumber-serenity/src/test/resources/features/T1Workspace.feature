@@ -288,6 +288,13 @@ Scenario: tier 1 help desk user should see proper links and widgets in the t1 wo
 	And _38t1 the user should be able to to view entity registration widget 
 	And _38t1 the user should also be able to view collective bargaining widget
 
+@38
+Scenario: tier 1 help desk user should see proper links and widgets in the t1 workspace
+	Given _38t1 user logs in with tier1 help desk role 
+	Then  _38t1 user should be able to view user directory widget and relevant links 
+	And _38t1 the user should be able to to view entity registration widget 
+	And _38t1 the user should also be able to view collective bargaining widget
+
 
 	
 	
