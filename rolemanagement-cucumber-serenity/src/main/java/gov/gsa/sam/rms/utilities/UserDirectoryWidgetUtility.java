@@ -47,6 +47,7 @@ public class UserDirectoryWidgetUtility {
 			T1WorkspacePage.getDriver().findElement(T1WorkspacePageLocator.USER_SEARCH_BAR).sendKeys(username);
 			LaunchBrowserUtil.delay(2);
 			WebElement user = T1WorkspacePage.getDriver().findElement(T1WorkspacePageLocator.AUTOCOMPLETE_RESULTS);
+			
 			user.click();
 			UserDirectoryViewAccessPage.setDriver(T1WorkspacePage.getDriver());
 			UserDirectoryPage.setDriver(T1WorkspacePage.getDriver());

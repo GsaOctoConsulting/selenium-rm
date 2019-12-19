@@ -286,16 +286,52 @@ Scenario: tier 1 help desk user should see proper links and widgets in the t1 wo
 	Given _38t1 user logs in with tier1 help desk role 
 	Then  _38t1 user should be able to view user directory widget and relevant links 
 	And _38t1 the user should be able to to view entity registration widget 
-	And _38t1 the user should also be able to view collective bargaining widget
-
-@38
-Scenario: tier 1 help desk user should see proper links and widgets in the t1 workspace
-	Given _38t1 user logs in with tier1 help desk role 
-	Then  _38t1 user should be able to view user directory widget and relevant links 
-	And _38t1 the user should be able to to view entity registration widget 
-	And _38t1 the user should also be able to view collective bargaining widget
 
 
+@39
+Scenario: functional help desk tier 2 should see proper links and widgets in t1 workspace
+	Given _39t1 user logs in with functional help desk tier two role 
+	Then  _39t1 user should be able to view user directory widget and relevant links 
+	And _39t1 the user should be able to to view entity registration widget 
+	
+@40
+Scenario: technical help desk tier 2 should see proper links and widgets in t1 workspace
+	Given _40t1 user logs in with technical help desk tier two role 
+	Then  _40t1 user should be able to view user directory widget and relevant links 
+	And _40t1 the user should be able to to view entity registration widget 
+
+@41
+Scenario: entity administrator entity compliance should see proper links and widgets in t1 workspace
+	Given _41t1 user logs in with entity admin in entity compliance role 
+	Then  _41t1 user should be able to view user directory widget and relevant links
+	And _41t1 user should be able to view entity compliance widget
+
+@42
+Scenario: data entry in entity compliance should see proper links and widgets in t1 workspace
+	Given _42t1 user logs in with data entry in entity compliance domain 
+	Then  _42t1 user should be able to view entity compliance widget
+	And  _42t1 user should be able to view user directory widget and relevant links 
+
+@43
+Scenario: agency admin in exclusions domain should see proper links and widgets in t1 workspace
+	Given _43t1 user logs in with agency admin in exclusions domain 
+	Then  _43t1 user should be able to view user directory widget and relevant links
+	And  _43t1 user should be able to view exclusions and relevant links
+	And _43t1 user should see collective bargaining widget
+
+@44
+Scenario: agency exclusions representative should see proper links and widgets in t1 workspace
+	Given _44t1 user logs in with agency exclusions representative 
+	Then _44t1 user should be able to view user directory widget and relevant links
+	And _44t1 user should be able to view exclusions and relevant links
+	And _44t1 user should see collective bargaining widget
+
+@45
+Scenario: entity admin in entiry registration should see proper links and widgets in t1 workspace
+	Given _45t1 user logs in with entity admin role in entity registration 
+	Then _45t1 user should be able to view user directory widget and relevant links
+	And _45t1 user should be able to view entity management widget and relevant links
+	And _45t1 user should be able to view entity compliance widget 
 	
 	
 	

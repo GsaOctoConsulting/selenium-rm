@@ -166,7 +166,20 @@ public class T1WorkspacePage {
 		LaunchBrowserUtil.delay(1);
 		return usertypeFound;
 	}
+	public static boolean selectEntityTypeIfFound(String usertype) {
+		boolean usertypeFound = false;
+		Select role = new Select(driver.findElement(T1WorkspacePageLocator.ENTITY_USERTYPE_FILTER));
 
+		try {
+			role.selectByVisibleText(usertype);
+			usertypeFound = true;
+		} catch (NoSuchElementException e) {
+
+			return usertypeFound;
+		}
+		LaunchBrowserUtil.delay(1);
+		return usertypeFound;
+	}
 	public static boolean selectRoleForRoleRequest(String rolename) {
 		boolean roleFound = false;
 		Select role = new Select(driver.findElement(T1WorkspacePageLocator.ROLE_SELECTOR));
