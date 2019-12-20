@@ -338,6 +338,27 @@ Scenario: data entry in entity registration should see proper links and widgets 
 	Given _46t1 user logs in with data entry role in entity registration 
 	Then _46t1 user should be able to view user directory widget and relevant links
 	And _46t1 user should be able to view entity management widget and relevant links
+
+@47
+Scenario: entity rigistration viewer in entity registration should see proper links and widgets in t1 workspace
+	Given _47t1 user logs in with entity registration viewer role 
+	Then _47t1 user should be able to view user directory widget and relevant links
+	And _47t1 user should be able to view entity management widget and relevant links
+
+@48
+Scenario: agency admin entity management in entity registration should see proper links and widgets in t1 workspace
+	Given _48t1 user logs in with agency admin entity management role 
+	Then _48t1 user should be able to view user directory widget and relevant links
+	And _48t1 user should be able to view entity management widget and relevant links
+	And _48t1 user should see collective bargaining widget
 	
+@49
+Scenario: office registration representative in entity registration should see proper links and widgets in t1 workspace
+	Given _49t1 user logs in with office registration representative role 
+	Then _49t1 user should be able to view user directory widget and relevant links
+	And _49t1 user should be able to view entity management widget and relevant links
+	And _49t1 user should see collective bargaining widget
+	
+
 	
 	 
