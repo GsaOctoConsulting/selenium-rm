@@ -1665,21 +1665,60 @@ public class T1WorkspaceStep {
 	}
 
 	@And("^_45t1 user should be able to view entity management widget and relevant links$")
-	public void _45t1_user_should_be_able_to_view_entity_registration_widget_and_relevant_links() throws Throwable {
-		boolean entityregistrationwidgetfound = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.ENTITY_REGISTRATION_WIDGET);
-		Assert.assertEquals(true, entityregistrationwidgetfound);
+	public void _45t1_user_should_be_able_to_view_entity_management_widget_and_relevant_links() throws Throwable {
 
-		boolean feduseroptionfound = T1WorkspacePage.selectEntityTypeIfFound("Federal");
-		Assert.assertEquals(true, feduseroptionfound);
+		boolean entitymanagementwidgetfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_WIDGET);
+		Assert.assertEquals(true, entitymanagementwidgetfound);
 
-		boolean nonfeduseroptionfound = T1WorkspacePage.selectEntityTypeIfFound("Non-Federal");
-		Assert.assertEquals(true, nonfeduseroptionfound);
+		boolean entitymanagementlandinglinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_LANDING_LINK);
+		Assert.assertEquals(true, entitymanagementlandinglinkfound);
+
+		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
+		Assert.assertEquals(true, registerentitybuttonfound);
+
+		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
+		Assert.assertEquals(true, getentityIdbuttonfound);
+
 	}
 
 	@And("^_45t1 user should be able to view entity compliance widget$")
 	public void _45t1_user_should_be_able_to_view_entity_compliance_widget() throws Throwable {
 
+	}
+
+	@Given("^_46t1 user logs in with data entry role in entity registration$")
+	public void _46t1_user_logs_in_with_data_entry_role_in_entity_registration() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1, Constants.USERPASS,
+				ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@Then("^_46t1 user should be able to view user directory widget and relevant links$")
+	public void _46t1_user_should_be_able_to_view_user_directory_widget_and_relevant_links() throws Throwable {
+		LaunchBrowserUtil.scrollToMiddle();
+		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
+		Assert.assertEquals(true, userdirectorywidgetfound);
+
+		boolean userdirectorylinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_LINK);
+		Assert.assertEquals(true, userdirectorylinkfound);
+	}
+
+	@And("^_46t1 user should be able to view entity management widget and relevant links$")
+	public void _46t1_user_should_be_able_to_view_entity_management_widget_and_relevant_links() throws Throwable {
+		boolean entitymanagementwidgetfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_WIDGET);
+		Assert.assertEquals(true, entitymanagementwidgetfound);
+
+		boolean entitymanagementlandinglinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_LANDING_LINK);
+		Assert.assertEquals(true, entitymanagementlandinglinkfound);
+
+		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
+		Assert.assertEquals(true, registerentitybuttonfound);
+
+		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
+		Assert.assertEquals(true, getentityIdbuttonfound);
 	}
 
 	private void beforeScenario() {

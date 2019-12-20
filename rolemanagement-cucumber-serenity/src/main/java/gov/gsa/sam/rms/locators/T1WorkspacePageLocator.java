@@ -43,6 +43,10 @@ public class T1WorkspacePageLocator {
 	public static final By NEW_EXCLUSION_LINK = By.id("new-exclusions-button");
 	public static final By ENTITY_REGISTRATION_WIDGET = By.tagName("workspace-fsd-entity-registration-widget");
 	public static final By ENTITY_USERTYPE_FILTER = By.id("entityTypeFilter");
+	public static final By ENTITY_MANAGEMENT_WIDGET = By.tagName("workspace-entity-management-widget");
+	public static final By ENTITY_MANAGEMENT_LANDING_LINK = By.id("entity-management-landing-link");
+	public static final By REGISTER_ENTITY_BUTTON = By.id("register-entity-button");
+	public static final By GET_ENTITYID_BUTTON = By.id("get-entity-id-button");
 	
 
 }

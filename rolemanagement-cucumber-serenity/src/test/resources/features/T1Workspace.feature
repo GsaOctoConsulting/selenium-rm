@@ -327,12 +327,17 @@ Scenario: agency exclusions representative should see proper links and widgets i
 	And _44t1 user should see collective bargaining widget
 
 @45
-Scenario: entity admin in entiry registration should see proper links and widgets in t1 workspace
+Scenario: entity admin in entity registration should see proper links and widgets in t1 workspace
 	Given _45t1 user logs in with entity admin role in entity registration 
 	Then _45t1 user should be able to view user directory widget and relevant links
 	And _45t1 user should be able to view entity management widget and relevant links
 	And _45t1 user should be able to view entity compliance widget 
-	
+
+@46
+Scenario: data entry in entity registration should see proper links and widgets in t1 workspace
+	Given _46t1 user logs in with data entry role in entity registration 
+	Then _46t1 user should be able to view user directory widget and relevant links
+	And _46t1 user should be able to view entity management widget and relevant links
 	
 	
 	 
