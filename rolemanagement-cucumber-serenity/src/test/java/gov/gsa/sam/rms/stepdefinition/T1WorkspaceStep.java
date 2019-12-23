@@ -1825,6 +1825,32 @@ public class T1WorkspaceStep {
 
 			boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
 			Assert.assertEquals(true, getentityIdbuttonfound); 
+			//-----------
+			boolean entitymanagementactivebubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_ACTIVELINK);
+			Assert.assertEquals(true, entitymanagementactivebubble);
+	    
+			boolean entitymanagementdraftbubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_DRAFTLINK);
+			Assert.assertEquals(true, entitymanagementdraftbubble);
+	    
+			boolean entitymanagementworkinprogressbubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_WORKINPROGRESSLINK);
+			Assert.assertEquals(true, entitymanagementworkinprogressbubble);
+			
+			boolean entitymanagementsubmittedbubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_SUBMITTEDLINK);
+			Assert.assertEquals(true, entitymanagementsubmittedbubble);
+			
+			//-------
+			boolean uniteEntityIdActivebubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_UNIQUEID_ACTIVELINK);
+			Assert.assertEquals(true, uniteEntityIdActivebubble);
+	    
+			boolean uniteEntityIdDraftBubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_UNIQUEID_DRAFTLINK);
+			Assert.assertEquals(true, uniteEntityIdDraftBubble);
+			
+			boolean uniteEntityIdWorkInProgressBubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_UNIQUEID_WORKINPROGRESSLINK);
+			Assert.assertEquals(true, uniteEntityIdWorkInProgressBubble);
+	    
+			boolean uniteEntityIdSubmittedBubble = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_UNIQUEID_SUBMITTEDLINK);
+			Assert.assertEquals(true, uniteEntityIdSubmittedBubble);
+			
 	    }
 
 	    @And("^_49t1 user should see collective bargaining widget$")

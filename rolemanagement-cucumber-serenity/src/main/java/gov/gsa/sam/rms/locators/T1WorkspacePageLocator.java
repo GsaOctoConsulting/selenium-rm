@@ -47,6 +47,15 @@ public class T1WorkspacePageLocator {
 	public static final By ENTITY_MANAGEMENT_LANDING_LINK = By.id("entity-management-landing-link");
 	public static final By REGISTER_ENTITY_BUTTON = By.id("register-entity-button");
 	public static final By GET_ENTITYID_BUTTON = By.id("get-entity-id-button");
+	public static final By ENTITY_MANAGEMENT_ACTIVELINK = By.id("entity-registration-active-link");
+	public static final By ENTITY_MANAGEMENT_DRAFTLINK = By.id("entity-registration-draft-link");
+	public static final By ENTITY_MANAGEMENT_WORKINPROGRESSLINK = By.id("entity-registration-inProgress-link");
+	public static final By ENTITY_MANAGEMENT_SUBMITTEDLINK = By.id("entity-registration-submitted-link");
+	public static final By ENTITY_MANAGEMENT_UNIQUEID_ACTIVELINK = By.id("unique-entity-id-active-link");
+	public static final By ENTITY_MANAGEMENT_UNIQUEID_DRAFTLINK = By.id("unique-entity-id-draft-link");
+	public static final By ENTITY_MANAGEMENT_UNIQUEID_WORKINPROGRESSLINK =By.id("unique-entity-id-inProgress-link");
+	public static final By ENTITY_MANAGEMENT_UNIQUEID_SUBMITTEDLINK = By.id("unique-entity-id-submitted-link");
+	
 	
 
 }
