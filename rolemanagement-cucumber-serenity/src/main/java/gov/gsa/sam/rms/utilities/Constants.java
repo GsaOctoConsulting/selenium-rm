@@ -23,7 +23,8 @@ public class Constants {
 	public static final String ORG_OCTO_CONSULTING_GROUP = "OCTO CONSULTING GROUP, INC";
 	public static final String ORG_CODA_OCTOPUS = "Coda Octopus Products";
 	public static final String ORG_JACKSON_BOOKBINDING = "Jackson Bookbinding Co";
-	
+	public static final String ORG_UTAH_COMMUNICATIONS_AUTHORITY = "UTAH COMMUNICATIONS AUTHORITY";
+	public static final String ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND = "COCA-COLA BOTTLING COMPANY OF NORTHERN NEW ENGLAND, INC, THE";
 	//Org Codes
 	public static final String ORG_GSA_CODE = "300000221";
 
@@ -301,6 +302,7 @@ public class Constants {
 	public static final String MA_GSASA_ADD_COMMENT = "The comment has been added by GSA Security Approver";
 
 	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
+	
 
 	// ************************************************************************************************************************************
 

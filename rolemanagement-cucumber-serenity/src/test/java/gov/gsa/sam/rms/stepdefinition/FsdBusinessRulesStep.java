@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.MyRolesPageLocator;
@@ -36,9 +37,9 @@ public class FsdBusinessRulesStep {
 	public void _1_non_fed_user_signs_up() throws Throwable {
 		beforeScenario();
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		SignUpUtility.signUpNewUserNonFed(
-				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser"+counter+"@yopmail.com";
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
 		CommonProfilePage.enterFirstName("shah");
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
@@ -75,8 +76,7 @@ public class FsdBusinessRulesStep {
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		// ---------delete the newly granted role-----------
-		
-		
+
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_FSD_AGENT, Constants.DOMAIN_ADMIN, Constants.DELETE);
 		Assert.assertEquals(true, userAlreadyHasRole);
@@ -87,9 +87,9 @@ public class FsdBusinessRulesStep {
 	@Given("^_2 non fed user signs up$")
 	public void _2_non_fed_user_signs_up() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		SignUpUtility.signUpNewUserNonFed(
-				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser"+counter+"@yopmail.com";
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
 
 		CommonProfilePage.enterFirstName("shah");
 		CommonProfilePage.enterLastName("raiaan");
@@ -133,97 +133,128 @@ public class FsdBusinessRulesStep {
 		Assert.assertEquals(true, userAlreadyHasRole);
 		afterScenario();
 	}
-	 	@Given("^_3 fsd admin logs in$")
-	    public void _3_fsd_admin_logs_in() throws Throwable {
-	 		beforeScenario();
-			SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_ADMIN_5, Constants.USERPASS,
-					ConstantsAccounts.FSD_ADMIN_5_SECRETKEY, Constants.USER_FED);  
-	    }
 
-	    @And("^_3 fsd admin looks up a nonfed user with data entry role$")
-	    public void _3_fsd_admin_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
-	       T1WorkspacePage.clickUserDirectoryLink();
-	       UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-	       UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
-	    }
+	@Given("^_3 fsd admin logs in$")
+	public void _3_fsd_admin_logs_in() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_ADMIN_5, Constants.USERPASS,
+				ConstantsAccounts.FSD_ADMIN_5_SECRETKEY, Constants.USER_FED);
+	}
 
-	    @And("^_3 fsd admin should be able to view permission for this user$")
-	    public void _3_fsd_admin_should_be_able_to_view_permission_for_this_user() throws Throwable {
-	    	boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
-			Assert.assertEquals(true, userAlreadyHasRole); 
-	    	
-			String permissionspageheading = LaunchBrowserUtil.getDriver().findElement(By.tagName("h1")).getText();
-			Assert.assertEquals(true, permissionspageheading.contains("Permissions")); 
-	    }
-	
-	    
-	    
-	    @Given("^_4 fsd admin logs in$")
-	    public void _4_fsd_admin_logs_in() throws Throwable {
-	    	beforeScenario();
-			SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_ADMIN_5, Constants.USERPASS,
-					ConstantsAccounts.FSD_ADMIN_5_SECRETKEY, Constants.USER_FED);  
-	    }
+	@And("^_3 fsd admin looks up a nonfed user with data entry role$")
+	public void _3_fsd_admin_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
+	}
 
-	    @And("^_4 fsd admin looks up a nonfed user with multiple roles$")
-	    public void _4_fsd_admin_looks_up_a_nonfed_user_with_multiple_roles() throws Throwable {
-	    	   T1WorkspacePage.clickUserDirectoryLink();
-		       UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
-		       UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES); 
-	    }
+	@And("^_3 fsd admin should be able to view permission for this user$")
+	public void _3_fsd_admin_should_be_able_to_view_permission_for_this_user() throws Throwable {
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+		Assert.assertEquals(true, userAlreadyHasRole);
 
-	    @And("^_4 fsd admin should be able to view permission for this user$")
-	    public void _4_fsd_admin_should_be_able_to_view_permission_for_this_user() throws Throwable {
-	    	boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
-			Assert.assertEquals(true, userAlreadyHasRole); 
-			
-			LaunchBrowserUtil.navigateBack();
-			LaunchBrowserUtil.delay(2);
-			
-			boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_CODA_OCTOPUS,
-					Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
-			Assert.assertEquals(true, userAlreadyHasRole1); 
-			
-			LaunchBrowserUtil.navigateBack();
-			LaunchBrowserUtil.delay(2);
-			
-			boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_JACKSON_BOOKBINDING,
-					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
-			Assert.assertEquals(true, userAlreadyHasRole2); 
-			
-			LaunchBrowserUtil.navigateBack();
-	    }
-	    
-	    
-	    
-	    @Given("^_5 fsd agent logs in$")
-	    public void _5_fsd_agent_logs_in() throws Throwable {
-	    	SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_AGENT_1, Constants.USERPASS,
-	    			ConstantsAccounts.FSD_AGENT_1_SECRETKEY, Constants.USER_FED); 
-	    }
+		String permissionspageheading = LaunchBrowserUtil.getDriver().findElement(By.tagName("h1")).getText();
+		Assert.assertEquals(true, permissionspageheading.contains("Permissions"));
+	}
 
-	    @And("^_5 fsd agent looks up a nonfed user with data entry role$")
-	    public void _5_fsd_agent_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
-	    	T1WorkspacePage.clickUserDirectoryLink();
-		       UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		       UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
-	    }
+	@Given("^_4 fsd admin logs in$")
+	public void _4_fsd_admin_logs_in() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_ADMIN_5, Constants.USERPASS,
+				ConstantsAccounts.FSD_ADMIN_5_SECRETKEY, Constants.USER_FED);
+	}
 
-	    @And("^_5 fsd agent should be able to view permission for this user$")
-	    public void _5_fsd_agent_should_be_able_to_view_permission_for_this_user() throws Throwable {
-	    	boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-					Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
-			Assert.assertEquals(true, userAlreadyHasRole); 
-	    	
-			String permissionspageheading = LaunchBrowserUtil.getDriver().findElement(By.tagName("h1")).getText();
-			Assert.assertEquals(true, permissionspageheading.contains("Permissions")); 
-	    }
-	    
-	    
-	    
-	
+	@And("^_4 fsd admin looks up a nonfed user with multiple roles$")
+	public void _4_fsd_admin_looks_up_a_nonfed_user_with_multiple_roles() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
+		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
+	}
+
+	@And("^_4 fsd admin should be able to view permission for this user$")
+	public void _4_fsd_admin_should_be_able_to_view_permission_for_this_user() throws Throwable {
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+		Assert.assertEquals(true, userAlreadyHasRole);
+
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.delay(2);
+
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_CODA_OCTOPUS,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+		Assert.assertEquals(true, userAlreadyHasRole1);
+
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.delay(2);
+
+		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_JACKSON_BOOKBINDING,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+		Assert.assertEquals(true, userAlreadyHasRole2);
+
+		LaunchBrowserUtil.navigateBack();
+	}
+
+	@Given("^_5 fsd agent logs in$")
+	public void _5_fsd_agent_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_AGENT_1, Constants.USERPASS,
+				ConstantsAccounts.FSD_AGENT_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_5 fsd agent looks up a nonfed user with data entry role$")
+	public void _5_fsd_agent_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
+	}
+
+	@And("^_5 fsd agent should be able to view permission for this user$")
+	public void _5_fsd_agent_should_be_able_to_view_permission_for_this_user() throws Throwable {
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.VIEW_PERMISSION);
+		Assert.assertEquals(true, userAlreadyHasRole);
+
+		String permissionspageheading = LaunchBrowserUtil.getDriver().findElement(By.tagName("h1")).getText();
+		Assert.assertEquals(true, permissionspageheading.contains("Permissions"));
+	}
+
+	@Given("^_6 spaad logs in$")
+	public void _6_spaad_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_6 spaad looks up a nonfed user through the user directory$")
+	public void _6_spaad_looks_up_a_nonfed_user_through_the_user_directory() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+	}
+
+	@When("^_6 spaad tries to assign a role to this user$")
+	public void _6_spaad_tries_to_assign_a_role_to_this_user() throws Throwable {
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_1);
+
+	}
+
+	@Then("^_6 spaad should not be able to view certain orgs in the entity picker$")
+	public void _6_spaad_should_not_be_able_to_view_certain_orgs_in_the_entity_picker() throws Throwable {
+		boolean orgnotfound1 = AssignRolePage.selectEntityIfFound(Constants.ORG_UTAH_COMMUNICATIONS_AUTHORITY, 0);
+		Assert.assertEquals(false, orgnotfound1);
+		AssignRolePage.clearEntitySelector();
+		
+		boolean orgnotfound2 = AssignRolePage
+				.selectEntityIfFound(Constants.ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND, 0);
+		Assert.assertEquals(false, orgnotfound2);
+		AssignRolePage.clearEntitySelector();
+		
+		boolean orgnotfound3 = AssignRolePage
+				.selectEntityIfFound("001441674", 0);
+		Assert.assertEquals(false, orgnotfound3);
+		AssignRolePage.clearEntitySelector();
+		
+		
+		
+	}
 
 	// private methods are below this line
 	private void beforeScenario() {

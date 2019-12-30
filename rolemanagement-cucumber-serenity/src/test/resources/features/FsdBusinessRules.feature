@@ -55,6 +55,14 @@ Scenario: fsd agent should be able to view permissions for nonfed user
 	And _5 fsd agent looks up a nonfed user with data entry role
 	And _5 fsd agent should be able to view permission for this user
 
+@6 @FsdAdmin @IntegrationTest @G1
+Scenario: some orgs in entity picker should be restricted to gsa user 
+	Given _6 spaad logs in  
+	And _6 spaad looks up a nonfed user through the user directory
+	When _6 spaad tries to assign a role to this user
+	Then _6 spaad should not be able to view certain orgs in the entity picker
+	
+
 	
 	
    

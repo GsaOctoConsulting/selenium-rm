@@ -289,4 +289,8 @@ public class AssignRolePage {
 
 	}
 
+	public static void clearEntitySelector() {
+		driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA).clear();
+	}
+
 }
