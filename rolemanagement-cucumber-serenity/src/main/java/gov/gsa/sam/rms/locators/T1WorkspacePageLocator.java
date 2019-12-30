@@ -55,6 +55,11 @@ public class T1WorkspacePageLocator {
 	public static final By ENTITY_MANAGEMENT_UNIQUEID_DRAFTLINK = By.id("unique-entity-id-draft-link");
 	public static final By ENTITY_MANAGEMENT_UNIQUEID_WORKINPROGRESSLINK =By.id("unique-entity-id-inProgress-link");
 	public static final By ENTITY_MANAGEMENT_UNIQUEID_SUBMITTEDLINK = By.id("unique-entity-id-submitted-link");
+	public static final By ENTITY_COMPLIANCE = By.tagName("workspace-compliance-reporting-widget");
+	public static final By ENTITY_COMPLIANCE_BIOPREFERREDREQUIRED_LINK = By.id("bioPreferred-required-link");
+	public static final By ENTITY_COMPLIANCE_BIOPREFERREDSUBMITTED_LINK = By.id("bioPreferred-submitted-link");
+	public static final By ENTITY_COMPLIANCE_SERVICECONTRACTREQUIRED_LINK = By.id("serviceContract-required-link");
+	public static final By ENTITY_COMPLIANCE_SERVICECONTRACTSUBMITTED_LINK = By.id("serviceContract-submitted-link");
 	
 	
 

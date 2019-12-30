@@ -358,7 +358,20 @@ Scenario: office registration representative in entity registration should see p
 	Then _49t1 user should be able to view user directory widget and relevant links
 	And _49t1 user should be able to view entity management widget and relevant links
 	And _49t1 user should see collective bargaining widget
-	
+
+@50
+Scenario: entity admin in entity compliance should see proper links and widgets in t1 workspace
+	Given _50t1 user logs in with entity admin in entity compliance role 
+	Then _50t1 user should be able to view user directory widget and relevant links
+	And _50t1 user should be able to view entity compliance widget and relevant links
+	And _50t1 user should see upload aac widget
+
+@51
+Scenario: data entry in entity compliance should see proper links and widgets in t1 workspace
+	Given _51t1 user logs in with data entry in entity compliance role 
+	Then _51t1 user should be able to view user directory widget and relevant links
+	And _51t1 user should be able to view entity compliance widget and relevant links
+	And _51t1 user should see upload aac widget
 
 	
 	 
