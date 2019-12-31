@@ -37,18 +37,8 @@ public class LoginStep {
 
 		beforeScenario();
 		
-		/*  SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1,
-		  Constants.USERPASS, ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY,
-		  Constants.USER_FED);*/
-		 
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.
-		 * CONTRACT_OPPORTUNITIES_SPA_1, Constants.USERPASS,
-		 * ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1_SECRETKEY,
-		 * Constants.USER_FED); CommonMethods.delay(4);
-		 */
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYCOMPLIANCE_1, Constants.USERPASS,
-				ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYCOMPLIANCE_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		
 		
 		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_ADMIN, Constants.USERPASS,

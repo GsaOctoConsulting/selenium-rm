@@ -47,6 +47,11 @@ role assign capability admin users
  Given _4 user logs in with ra role
    And _4 user navigates to userdirectory and looks up a fed user
    When _4 ra tries to assign role they should not see subtier admin instead of agency admin  
-   
+
+@5 @IntegrationTest @G1
+Scenario: aad should be able to assign administrator role in contract data
+ Given _5 user logs in with administrator all domains role
+   And _5 user navigates to userdirectory and looks up a no role user
+   Then _5 aad should be able to assign administrator role in contract data in subtier     
    
  

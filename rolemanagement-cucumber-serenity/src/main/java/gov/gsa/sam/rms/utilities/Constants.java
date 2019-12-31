@@ -50,6 +50,7 @@ public class Constants {
 	public static final String ROLE_AGENCY_ADMIN = "Agency Admin";
 	public static final String ROLE_SUBTIER_ADMIN = "Sub-Tier Administrator";
 	public static final String ROLE_VIEWER = "Viewer";
+	public static final String ROLE_CONTRACTDATA_ADMIN = "Administrator";
 	// domains--------------------------
 	public static final String DOMAIN_CONTRACT_OPPORTUNITIES = "Contract Opportunities";
 	public static final String DOMAIN_CONTRACT_DATA = "Contract Data";
@@ -302,6 +303,7 @@ public class Constants {
 	public static final String MA_GSASA_ADD_COMMENT = "The comment has been added by GSA Security Approver";
 
 	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
+	
 	
 
 	// ************************************************************************************************************************************

@@ -61,14 +61,14 @@ public class RoleAssignStep {
 	public void _1_the_user_should_also_see_the_role_history_updated_with_correct_name_format() throws Throwable {
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, true);
-		
+
 		String latesthistorydescription = MyRolesPage.getLatestRoleHistory();
-		String descriptionwordarray[]= latesthistorydescription.split(" ");
-		String requestername = descriptionwordarray[0]+descriptionwordarray[1];
-		logger.info("The name of the requester is -- "+requestername);
+		String descriptionwordarray[] = latesthistorydescription.split(" ");
+		String requestername = descriptionwordarray[0] + descriptionwordarray[1];
+		logger.info("The name of the requester is -- " + requestername);
 		Assert.assertTrue(FeedsRequestPage.isStringOnlyAlphabetAndSpace(requestername));
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -82,7 +82,7 @@ public class RoleAssignStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
-		
+
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
@@ -166,6 +166,37 @@ public class RoleAssignStep {
 
 		boolean subtierAdminRoleFound = AssignRolePage.selectRoleIfFound(Constants.ROLE_SUBTIER_ADMIN);
 		Assert.assertEquals(true, subtierAdminRoleFound);
+	}
+
+	@Given("^_5 user logs in with administrator all domains role$")
+	public void _5_user_logs_in_with_administrator_all_domains_role() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_5 user navigates to userdirectory and looks up a no role user$")
+	public void _5_user_navigates_to_userdirectory_and_looks_up_a_no_role_user() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
+	}
+
+	@Then("^_5 aad should be able to assign administrator role in contract data in subtier$")
+	public void _5_aad_should_be_able_to_assign_administrator_role_in_contract_data_in_subtier() throws Throwable {
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTDATA_ADMIN);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
+				Constants.ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA, Constants.ROLE_CONTRACTDATA_ADMIN,
+				Constants.DOMAIN_CONTRACT_DATA, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		afterScenario();
 	}
 
 	// private methods are below this line
