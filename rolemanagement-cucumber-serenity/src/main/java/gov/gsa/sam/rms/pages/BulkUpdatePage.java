@@ -165,7 +165,7 @@ public class BulkUpdatePage {
 	}
 
 	public static void clickSelectAll() {
-		driver.findElement(By.id("NaN")).click();
+		driver.findElement(By.id("select-all")).click();
 		LaunchBrowserUtil.delay(1);
 
 	}

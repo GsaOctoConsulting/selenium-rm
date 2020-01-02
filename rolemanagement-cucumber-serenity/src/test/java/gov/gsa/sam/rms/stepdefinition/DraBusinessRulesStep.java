@@ -344,7 +344,6 @@ public class DraBusinessRulesStep {
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/profile/request-role");
 		ForBiddenPage.setDriver(MyRolesPage.getDriver());
 		LaunchBrowserUtil.delay(2);
-
 	}
 
 	@Then("^_7 dra should not be able to access the role request page$")

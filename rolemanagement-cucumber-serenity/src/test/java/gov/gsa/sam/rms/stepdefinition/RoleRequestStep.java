@@ -611,7 +611,7 @@ public class RoleRequestStep {
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
 		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "test";
 		RequestRolePage.writeComment(comments);
 		RequestRolePage.clickSubmit();
@@ -672,7 +672,7 @@ public class RoleRequestStep {
 	public void _10_role_admin_should_see_the_request_status_change_in_the_feeds() throws Throwable {
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, Constants.DELETE);
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 
