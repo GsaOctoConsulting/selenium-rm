@@ -491,9 +491,8 @@ public class EmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
-
 		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
-
+		
 		// asserting the email body
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_ACTION_REJECTED));
