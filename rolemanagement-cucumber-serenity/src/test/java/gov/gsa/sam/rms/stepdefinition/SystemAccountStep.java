@@ -902,8 +902,8 @@ public class SystemAccountStep {
 
 	@When("^_14 iae admin logs in$")
 	public void _14_iam_admin_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
-				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_PMO_ADMINISTRATOR, Constants.USERPASS,
+				ConstantsAccounts.IAE_PMO_ADMINISTRATOR_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -1001,7 +1001,9 @@ public class SystemAccountStep {
 
 	@Then("^_14 they should be able to deactivate their system account$")
 	public void _14_they_should_be_able_to_deactivate_their_system_account() throws Throwable {
+		SystemAccountDirectoryPage.clickDeactivatedFilter();
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+
 		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
 				Constants.STATUS_DEACTIVATED, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.DELETE);
