@@ -153,6 +153,15 @@ Scenario: pending role request can only be edited by specific domain admin
 	When _17rr assistance admin logs in
 	And _17rr admin tries to look at the request details
 	Then _17rr assistance admin should not be able to look at the request
+	
+@18 @G2 # https://cm-jira.usa.gov/browse/IAE-28158# testing for this bug
+Scenario: approved role request should show correct status in feeds 
+	Given _18rr no role user logs into workspace 
+	And _18rr user requests contracting officer in contract opportunities
+	When _18rr contract opportunities admin logs in  
+	And _18rr admin approves the request 
+	Then _18rr the approved request should appear as approved in the feeds 
+	 
 
 	
 	

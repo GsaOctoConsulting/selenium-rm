@@ -672,7 +672,8 @@ public class RoleRequestStep {
 	public void _10_role_admin_should_see_the_request_status_change_in_the_feeds() throws Throwable {
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 
@@ -1075,6 +1076,63 @@ public class RoleRequestStep {
 		RoleRequestPendingPage.confirmDeleteOnPopup();
 		LaunchBrowserUtil.delay(6);
 		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Given("^_18rr no role user logs into workspace$")
+	public void _18rr_no_role_user_logs_into_workspace() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_18rr user requests contracting officer in contract opportunities$")
+	public void _18_user_requests_contracting_officer_in_contract_opportunities() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail("a@b.c");
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_18rr contract opportunities admin logs in$")
+	public void _18_contract_opportunities_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_18rr admin approves the request$")
+	public void _18_admin_approves_the_request() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String noRoleUser = ConstantsAccounts.NO_ROLE_USER_2;
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
+		UserDirectoryPage.clickViewAccess(noRoleUser);
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		RoleRequestPendingPage.clickAssignRole();
+		AssignRolePage.writeComment("giving this role");
+		AssignRolePage.clickAssign();
+		AssignRolePage.clickCloseButton();
+	}
+
+	@Then("^_18rr the approved request should appear as approved in the feeds$")
+	public void _18_the_approved_request_should_appear_as_approved_in_the_feeds() throws Throwable {
+		/*FeedsRequestPage.clickReceivedOnSideNav();
+		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollUp();
+		LaunchBrowserUtil.delay(4);
+		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+		Assert.assertEquals(true, sameRequestFound);
+		afterScenario();
+		LaunchBrowserUtil.delay(6);*/
 	}
 
 	// private methods are below this line
