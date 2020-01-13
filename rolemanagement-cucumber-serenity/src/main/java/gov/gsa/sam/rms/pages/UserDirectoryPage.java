@@ -77,6 +77,7 @@ public class UserDirectoryPage {
 		driver.findElement(UserDirectoryPageLocator.VIEW_ACCESS).click();
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());
+		AccountDetailsPage.setDriver(driver);
 	}
 
 	public static void clickCancel() {

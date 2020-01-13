@@ -241,19 +241,55 @@ public class FsdBusinessRulesStep {
 		boolean orgnotfound1 = AssignRolePage.selectEntityIfFound(Constants.ORG_UTAH_COMMUNICATIONS_AUTHORITY, 0);
 		Assert.assertEquals(false, orgnotfound1);
 		AssignRolePage.clearEntitySelector();
-		
+
 		boolean orgnotfound2 = AssignRolePage
 				.selectEntityIfFound(Constants.ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND, 0);
 		Assert.assertEquals(false, orgnotfound2);
 		AssignRolePage.clearEntitySelector();
-		
-		boolean orgnotfound3 = AssignRolePage
-				.selectEntityIfFound("001441674", 0);
+
+		boolean orgnotfound3 = AssignRolePage.selectEntityIfFound("001441674", 0);
 		Assert.assertEquals(false, orgnotfound3);
 		AssignRolePage.clearEntitySelector();
-		
-		
-		
+	}
+
+	@Given("^_7 nonfed user logs in$")
+	public void _7_nonfed_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@When("^_7 nonfed user goes to the profile page$")
+	public void _7_user_goes_to_the_profile_page() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+	}
+
+	@Then("^_7 user should not see the entity section in account details tab$")
+	public void _7_user_should_not_see_the_entity_section_in_the_account_details_tab() throws Throwable {
+		boolean entitysectionFound = AccountDetailsPage.elementFound(AccountDetailsPageLocator.ENTITY_INFO);
+		Assert.assertEquals(true, entitysectionFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@And("^_7 spaad logs in$")
+	public void _7_spaad_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@When("^_7 spaad looks up the nonfed user$")
+	public void _7_looks_up_the_user_through_user_directory() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+		AccountDetailsPage.goToPageOnSideNav("Account Details");
+	}
+
+	@Then("^_7 spaad should not see the entity section for this users profile$")
+	public void _7_spaad_should_not_be_able_to_see_the_entity_section_in_the_users_profile_page() throws Throwable {
+		boolean entitysectionFound = AccountDetailsPage.elementFound(AccountDetailsPageLocator.ENTITY_INFO);
+		Assert.assertEquals(true, entitysectionFound);
+		LaunchBrowserUtil.delay(5);
 	}
 
 	// private methods are below this line
