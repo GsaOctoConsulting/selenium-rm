@@ -187,7 +187,7 @@ public class RoleEditStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
-		
+
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
@@ -210,19 +210,42 @@ public class RoleEditStep {
 		boolean roleHasChanged = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(roleHasChanged, true);
-		//edit the role back to data entry
+		// edit the role back to data entry
 		LaunchBrowserUtil.scrollToMiddle();
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		AssignRolePage.writeComment("editing the role");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
-		
+
 		// check to ensure the changed role has gone through
-				boolean roleHasChanged2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-						Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
-				Assert.assertEquals(roleHasChanged2, true);
-		
+		boolean roleHasChanged2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(roleHasChanged2, true);
+	}
+
+	@Given("^_5re user logs in workspace as contract opportunities admin$")
+	public void _5re_user_logs_in_workspace_as_contract_opportunities_admin() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_5re user looks up a contracting specialist in user directory$")
+	public void _5re_user_looks_up_a_contracting_specialist_in_user_directory() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1);
+		// check whether user already has the role
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Then("^_5re user should be able to edit their roles$")
+	public void _5re_user_should_be_able_to_edit_their_roles() throws Throwable {
+
 	}
 
 	// private methods are below this line

@@ -45,5 +45,12 @@ Scenario: spaad should be able to edit role for nonfed user
 	Given _4re user logs in spaad 
 	And _4re user looks up a nonfed user with data entry role in contract opportunities 
 	And _4re spaad should be able to edit the role to viewer
-	Then _4re nonfed user should be left with the edit role  	
+	Then _4re nonfed user should be left with the edit role  
+
+@5 @G2 
+Scenario: contract opportunities admin should be able to edit role for contracting specialist with an apostrophe in the id  
+	Given _5re user logs in workspace as contract opportunities admin 
+	And _5re user looks up a contracting specialist in user directory 
+	Then _5re user should be able to edit their roles
+	
 	

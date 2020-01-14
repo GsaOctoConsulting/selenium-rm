@@ -36,25 +36,30 @@ public class LoginStep {
 	public void user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
 
 		beforeScenario();
-		
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.FSD_AGENT_1, Constants.USERPASS,
-				ConstantsAccounts.FSD_AGENT_1_SECRETKEY, Constants.USER_FED);
-		
-		
-		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_ADMIN, Constants.USERPASS,
-				ConstantsAccounts.IAE_ADMIN_SECRETKEY, Constants.USER_FED);*/
-		
-		 /* SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2,
-		  Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY,
-		  Constants.USER_FED);*/
-		 
-	
-		//WorkspacePage.goToRoleMigrationPage();
-		
-		
-	/*	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);*/
-		//LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_ADMIN,
+		 * Constants.USERPASS, ConstantsAccounts.IAE_ADMIN_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
+
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2,
+		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
+
+		// WorkspacePage.goToRoleMigrationPage();
+
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1,
+		 * Constants.USERPASS, ConstantsAccounts.NONFED_USER_1_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
+		// LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 
 		/*
 		 * RMWidgetUtility.clickUserDirectoryLink();
@@ -67,17 +72,17 @@ public class LoginStep {
 		 * //AssignRolePage.writeComment("test"); //AssignRolePage.clickDone();
 		 */
 
-		
-		 /* SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2,
-		  Constants.USERPASS, ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY,
-		  Constants.USER_FED); */
-		 
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2,
+		 * Constants.USERPASS, ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
 
-		
-	/*	  SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2,
-		  Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY,
-		  Constants.USER_FED); */
-		 
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2,
+		 * Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
 
 		/*
 		 * SignInUtility.testSignin(LaunchBrowserUtil.getDriver(),
@@ -85,29 +90,32 @@ public class LoginStep {
 		 * Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY);
 		 */
 
-		 /* SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1,
-		  Constants.USERPASS, ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY,
-		  Constants.USER_FED);*/
-		 
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1,
+		 * Constants.USERPASS, ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
 
 		/*
 		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2,
 		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY,
 		 * Constants.USER_FED); CommonMethods.delay(4);
 		 */
-		
-		
-		  /*SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1,
-		  Constants.USERPASS, ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY,
-		  Constants.USER_FED);*/
-		 
-		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2, Constants.USERPASS,
-		ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY, Constants.USER_FED);*/
-		
-	//	LaunchBrowserUtil.captureSignUpLinkFromGmail();
-		
-		
-		
+
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1,
+		 * Constants.USERPASS, ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
+
+		/*
+		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2,
+		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY,
+		 * Constants.USER_FED);
+		 */
+
+		// LaunchBrowserUtil.captureSignUpLinkFromGmail();
+
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
@@ -121,8 +129,8 @@ public class LoginStep {
 
 	@Given("^_2 user has an account in login dot gov domain$")
 	public void _2_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
-		SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov",
-				Constants.USERPASS, "V3ZZVK7YC3XUXE4A", Constants.USER_FED);
+		SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
+				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);
 
 		/*
 		 * SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser21@gsa.gov",
@@ -151,8 +159,8 @@ public class LoginStep {
 
 	@Given("^_3 user has an account in login dot gov domain$")
 	public void _3_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
-		SignInUtility.signIntoWorkspace("shah.raiaan+profilecompleted@gsa.gov", Constants.USERPASS,
-				"TKWPBBXYHQOBGD7L", Constants.USER_FED);
+		SignInUtility.signIntoWorkspace("shah.raiaan+profilecompleted@gsa.gov", Constants.USERPASS, "TKWPBBXYHQOBGD7L",
+				Constants.USER_FED);
 	}
 
 	@And("^_3 the user already completed the profile page details$")
@@ -237,8 +245,8 @@ public class LoginStep {
 
 	@And("^_6 user enters same id in login dot gov to signin$")
 	public void _6_user_enters_same_id_in_login_dot_gov_to_signin() throws Throwable {
-		SignInUtility.signIntoWorkspace("shah.raiaan+saadmin@gsa.gov", Constants.USERPASS,
-				"CE667WGKHWKY5GC7", Constants.USER_FED);
+		SignInUtility.signIntoWorkspace("shah.raiaan+saadmin@gsa.gov", Constants.USERPASS, "CE667WGKHWKY5GC7",
+				Constants.USER_FED);
 	}
 
 	@Then("^_6 user should be able to log into workspace$")
@@ -266,18 +274,19 @@ public class LoginStep {
 
 	@When("^_7 user creates a new account in login dot gov$")
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-		String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov", Constants.USERPASS);
-		//SignUpUtility.signUpNewUser(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS);
+		//String counter = SignUpUtility.updatecounter("login.fed.accountno");
+		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov", Constants.USERPASS);
+		SignUpUtility.signUpNewUser(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1,
+		Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
 	public void _7_user_should_be_able_to_complete_the_profile() throws Throwable {
-		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterFirstName("sh'ah");
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		//CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		// CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		CommonProfilePage.clickSubmitButton();
 	}
 
@@ -293,11 +302,12 @@ public class LoginStep {
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 
-		//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		//SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
-			//Constants.USERPASS);
-		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.VIEWER_ENTITYREGISTRATION_1,Constants.USERPASS);
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.VIEWER_ENTITYREGISTRATION_1, Constants.USERPASS);
 	}
+
 	@Then("^_8 user should be able to complete the profile$")
 	public void _8_user_should_be_able_to_complete_the_profile() throws Throwable {
 		CommonProfilePage.enterFirstName("shah");
@@ -457,7 +467,7 @@ public class LoginStep {
 		 * Constants.USERPASS, ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY,
 		 * Constants.USER_FED); CommonMethods.delay(2);
 		 */
-		
+
 	}
 
 	@And("^_12 user lands on the new t1workspace$")
@@ -473,57 +483,55 @@ public class LoginStep {
 
 	@Then("^_12 user should be able to view the widget as per their roles$")
 	public void _12_user_should_be_able_to_navigate_the_website_through_working_links() throws Throwable {
-		/*// role definition link check
-		boolean roleDefinitionLinkFound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.ROLE_DEFINITION_BUTTON);
-		Assert.assertEquals(roleDefinitionLinkFound, true);
-
-		// bulk Update link check
-		boolean bulkUpdateLinkFound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.BULK_UPDATE_BUTTON);
-		Assert.assertEquals(bulkUpdateLinkFound, true);
-		// pending role request widge link
-		boolean pendingRoleRequestLinkFound = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
-		Assert.assertEquals(pendingRoleRequestLinkFound, true);
-
-		// ----------------dra---------------------
-
-		SignInUtility.testSignin(LaunchBrowserUtil.getDriver(), Constants.LOGINGOVCOMP_HOME_PAGE,
-				ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY);
-		// role definition link check
-		boolean roleDefinitionLinkFoundDra = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.ROLE_DEFINITION_BUTTON);
-		Assert.assertEquals(roleDefinitionLinkFoundDra, false);
-
-		// bulk Update link check
-		boolean bulkUpdateLinkFoundDra = T1WorkspacePage.elementFound(T1WorkspacePageLocator.BULK_UPDATE_BUTTON);
-		Assert.assertEquals(bulkUpdateLinkFoundDra, true);
-		// pending role request widge link
-		boolean pendingRoleRequestLinkFoundDra = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
-		Assert.assertEquals(pendingRoleRequestLinkFoundDra, true);
-
-		// ---------- assistance admin-----------
-
-		// -----------assistance user----------
-		SignInUtility.testSignin(LaunchBrowserUtil.getDriver(), Constants.LOGINGOVCOMP_HOME_PAGE,
-				ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY);
-		// role definition link check
-		boolean roleDefinitionLinkFoundAssistanceUser = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.ROLE_DEFINITION_BUTTON);
-		Assert.assertEquals(roleDefinitionLinkFoundAssistanceUser, false);
-
-		// bulk Update link check
-		boolean bulkUpdateLinkFoundAssistanceUser = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.BULK_UPDATE_BUTTON);
-		Assert.assertEquals(bulkUpdateLinkFoundDra, false);
-
-		// pending role request widge link
-		boolean pendingRoleRequestLinkFoundAssistanceUser = T1WorkspacePage
-				.elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
-		Assert.assertEquals(pendingRoleRequestLinkFoundDra, true);
-
-		// --------------assistance listing granduser-------
-*/
+		/*
+		 * // role definition link check boolean roleDefinitionLinkFound =
+		 * T1WorkspacePage.elementFound(T1WorkspacePageLocator.ROLE_DEFINITION_BUTTON);
+		 * Assert.assertEquals(roleDefinitionLinkFound, true);
+		 * 
+		 * // bulk Update link check boolean bulkUpdateLinkFound =
+		 * T1WorkspacePage.elementFound(T1WorkspacePageLocator.BULK_UPDATE_BUTTON);
+		 * Assert.assertEquals(bulkUpdateLinkFound, true); // pending role request widge
+		 * link boolean pendingRoleRequestLinkFound = T1WorkspacePage
+		 * .elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
+		 * Assert.assertEquals(pendingRoleRequestLinkFound, true);
+		 * 
+		 * // ----------------dra---------------------
+		 * 
+		 * SignInUtility.testSignin(LaunchBrowserUtil.getDriver(),
+		 * Constants.LOGINGOVCOMP_HOME_PAGE, ConstantsAccounts.DEPT_ROLEADMIN_2,
+		 * Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY); // role
+		 * definition link check boolean roleDefinitionLinkFoundDra = T1WorkspacePage
+		 * .elementFound(T1WorkspacePageLocator.ROLE_DEFINITION_BUTTON);
+		 * Assert.assertEquals(roleDefinitionLinkFoundDra, false);
+		 * 
+		 * // bulk Update link check boolean bulkUpdateLinkFoundDra =
+		 * T1WorkspacePage.elementFound(T1WorkspacePageLocator.BULK_UPDATE_BUTTON);
+		 * Assert.assertEquals(bulkUpdateLinkFoundDra, true); // pending role request
+		 * widge link boolean pendingRoleRequestLinkFoundDra = T1WorkspacePage
+		 * .elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
+		 * Assert.assertEquals(pendingRoleRequestLinkFoundDra, true);
+		 * 
+		 * // ---------- assistance admin-----------
+		 * 
+		 * // -----------assistance user----------
+		 * SignInUtility.testSignin(LaunchBrowserUtil.getDriver(),
+		 * Constants.LOGINGOVCOMP_HOME_PAGE, ConstantsAccounts.ASSISTANCE_USER_2,
+		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY); // role
+		 * definition link check boolean roleDefinitionLinkFoundAssistanceUser =
+		 * T1WorkspacePage .elementFound(T1WorkspacePageLocator.ROLE_DEFINITION_BUTTON);
+		 * Assert.assertEquals(roleDefinitionLinkFoundAssistanceUser, false);
+		 * 
+		 * // bulk Update link check boolean bulkUpdateLinkFoundAssistanceUser =
+		 * T1WorkspacePage .elementFound(T1WorkspacePageLocator.BULK_UPDATE_BUTTON);
+		 * Assert.assertEquals(bulkUpdateLinkFoundDra, false);
+		 * 
+		 * // pending role request widge link boolean
+		 * pendingRoleRequestLinkFoundAssistanceUser = T1WorkspacePage
+		 * .elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
+		 * Assert.assertEquals(pendingRoleRequestLinkFoundDra, true);
+		 * 
+		 * // --------------assistance listing granduser-------
+		 */
 	}
 
 	private void beforeScenario() {
