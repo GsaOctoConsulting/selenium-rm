@@ -235,16 +235,38 @@ public class RoleEditStep {
 	public void _5re_user_looks_up_a_contracting_specialist_in_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1);
+		UserDirectoryPage
+				.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1);
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 
 	@Then("^_5re user should be able to edit their roles$")
 	public void _5re_user_should_be_able_to_edit_their_roles() throws Throwable {
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		AssignRolePage.writeComment("editing the role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
+		Assert.assertEquals(userHasRole, true);
+
+		// give the original role back to the user
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("editing the role back");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+
+		boolean usersRoleHasBeenRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(usersRoleHasBeenRestored, true);
 
 	}
 
