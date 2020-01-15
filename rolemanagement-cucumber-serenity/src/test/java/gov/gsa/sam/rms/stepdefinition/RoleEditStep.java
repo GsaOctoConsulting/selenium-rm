@@ -247,13 +247,13 @@ public class RoleEditStep {
 	@Then("^_5re user should be able to edit their roles$")
 	public void _5re_user_should_be_able_to_edit_their_roles() throws Throwable {
 		LaunchBrowserUtil.scrollToMiddle();
-		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
-		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		AssignRolePage.writeComment("editing the role");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
-		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(userHasRole, true);
 
 		// give the original role back to the user

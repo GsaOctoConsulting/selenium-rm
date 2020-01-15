@@ -88,10 +88,12 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			String otpFromText = LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUp(Constants.GMAIL_USERNAME);
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).clear();
-			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otpFromText);
-			LaunchBrowserUtil.delay(2);
+			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otpFromText.trim());
+			LaunchBrowserUtil.delay(5);
 			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 			.click();
+			LaunchBrowserUtil.delay(2);
+			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 			CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());// passing reference to common profile page
 			RequestRoleOptionalPage.setDriver(LaunchBrowserUtil.getDriver());// passing reference to requestroleoption

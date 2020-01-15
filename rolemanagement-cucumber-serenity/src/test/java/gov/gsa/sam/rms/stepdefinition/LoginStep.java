@@ -274,10 +274,10 @@ public class LoginStep {
 
 	@When("^_7 user creates a new account in login dot gov$")
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-		//String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov", Constants.USERPASS);
-		SignUpUtility.signUpNewUser(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1,
-		Constants.USERPASS);
+		String counter = SignUpUtility.updatecounter("login.fed.accountno");
+		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov", Constants.USERPASS);
+		// SignUpUtility.signUpNewUser(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1,
+		// Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
@@ -305,7 +305,8 @@ public class LoginStep {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
 		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
 				Constants.USERPASS);
-		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.VIEWER_ENTITYREGISTRATION_1, Constants.USERPASS);
+		// SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.VIEWER_ENTITYREGISTRATION_1,
+		// Constants.USERPASS);
 	}
 
 	@Then("^_8 user should be able to complete the profile$")
