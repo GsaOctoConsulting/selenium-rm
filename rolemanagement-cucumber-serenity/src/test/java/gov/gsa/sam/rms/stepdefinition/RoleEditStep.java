@@ -252,8 +252,9 @@ public class RoleEditStep {
 		AssignRolePage.writeComment("editing the role");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
-		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(userHasRole, true);
 
 		// give the original role back to the user
@@ -265,7 +266,8 @@ public class RoleEditStep {
 		AssignRolePage.clickCloseButton();
 
 		boolean usersRoleHasBeenRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
 		Assert.assertEquals(usersRoleHasBeenRestored, true);
 
 	}

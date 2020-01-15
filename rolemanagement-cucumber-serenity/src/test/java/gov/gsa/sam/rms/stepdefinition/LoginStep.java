@@ -286,7 +286,7 @@ public class LoginStep {
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		// CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		CommonProfilePage.clickSubmitButton();
 	}
 

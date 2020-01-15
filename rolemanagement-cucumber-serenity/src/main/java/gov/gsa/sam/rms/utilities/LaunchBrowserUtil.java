@@ -561,22 +561,21 @@ public class LaunchBrowserUtil {
 		List<WebElement> lastMail = driver.findElements(By.className("zA"));
 		logger.info("The size of email list is - " + lastMail.size());
 		lastMail.get(0).click();
-		/*delay(2);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
-		delay(2);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
-		delay(2);
-		tab_handles = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
-		delay(4);
-		List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
-		delay(4);
-		logger.info("The size of email list is - " + lastMail.size());
-		lastMail.get(0).click();*/
+		/*
+		 * delay(2); tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		 * driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		 * driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
+		 * driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click()
+		 * ; driver.findElement(By.xpath(
+		 * "//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		 * delay(2); driver.findElement(By.xpath(
+		 * "//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		 * delay(2); tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		 * driver.switchTo().window(tab_handles.get(tab_handles.size() - 1)); delay(4);
+		 * List<WebElement> lastMail = driver.findElements(By.className("zA")); // to
+		 * delay(4); logger.info("The size of email list is - " + lastMail.size());
+		 * lastMail.get(0).click();
+		 */
 		delay(2);
 		Constants.OTP = driver.findElement(By.className("a3s")).getText().substring(27, 35);
 		logger.info("The captured OTP is- " + Constants.OTP);
@@ -601,6 +600,7 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
 		return Constants.OTP;
 	}
+
 	/**
 	 * Custom Method for delay entered in seconds
 	 * 
@@ -703,7 +703,7 @@ public class LaunchBrowserUtil {
 				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 2));
 		return Constants.OTP;
 	}
-	
+
 	public static void goToGSAEmailInboxModified(String fedUser) {
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
 		delay(2);
@@ -713,6 +713,7 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		LaunchBrowserUtil.delay(4);
 	}
+
 	public static String getOtpForSystemAccountFromEmailNonFedModified(String email, String userpass) {
 
 		LaunchBrowserUtil.delay(4);
@@ -740,7 +741,7 @@ public class LaunchBrowserUtil {
 				.window(LaunchBrowserUtil.tab_handles.get(LaunchBrowserUtil.tab_handles.size() - 2));
 		return Constants.OTP;
 	}
-	
+
 	/**
 	 * This method adds fed email account
 	 */
@@ -755,10 +756,6 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		delay(2);
 	}
-
-
-
-
 
 	/**
 	 * This method adds non fed email account
