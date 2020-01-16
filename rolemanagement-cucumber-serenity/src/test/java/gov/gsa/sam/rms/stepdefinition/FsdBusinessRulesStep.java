@@ -266,7 +266,7 @@ public class FsdBusinessRulesStep {
 	@Then("^_7 user should not see the entity section in account details tab$")
 	public void _7_user_should_not_see_the_entity_section_in_the_account_details_tab() throws Throwable {
 		boolean entitysectionFound = AccountDetailsPage.elementFound(AccountDetailsPageLocator.ENTITY_INFO);
-		Assert.assertEquals(true, entitysectionFound);
+		Assert.assertEquals(false, entitysectionFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -288,7 +288,7 @@ public class FsdBusinessRulesStep {
 	@Then("^_7 spaad should not see the entity section for this users profile$")
 	public void _7_spaad_should_not_be_able_to_see_the_entity_section_in_the_users_profile_page() throws Throwable {
 		boolean entitysectionFound = AccountDetailsPage.elementFound(AccountDetailsPageLocator.ENTITY_INFO);
-		Assert.assertEquals(true, entitysectionFound);
+		Assert.assertEquals(false, entitysectionFound);
 		LaunchBrowserUtil.delay(5);
 	}
 

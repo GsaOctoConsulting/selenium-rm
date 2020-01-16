@@ -273,7 +273,7 @@ public class LaunchBrowserUtil {
 		 * logger.info("---------------------------------- the now list size is- "+list.
 		 * getText()); list.click();
 		 */
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[3]")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -370,7 +370,7 @@ public class LaunchBrowserUtil {
 		}
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[5]/div[3]/div/a[2]/div/div[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		delay(15);
@@ -431,14 +431,14 @@ public class LaunchBrowserUtil {
 		delay(3);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		delay(4);
 		List<WebElement> lastMail = driver.findElements(By.className("zA"));
 		logger.info("The size of email list is - " + lastMail.size());
-		lastMail.get(0).click();
+		lastMail.get(1).click();
 		delay(3);
 		String phoneotp = driver.findElement(By.className("a3s")).getText().substring(6, 13);
 		logger.info("The captured OTP is- " + phoneotp);

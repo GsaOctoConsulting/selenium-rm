@@ -28,7 +28,7 @@ public class T1WorkspacePageLocator {
 	public static final By DRAFT = By.id("system-accounts-pending-review-link");
 	public static final By PENDING = By.id("system-accounts-pending-approval-link");
 	public static final By SIGNIN_TAB = By.id("signin-button");
-	public static final By AUTOCOMPLETE_RESULTS = By.id("sam-autocomplete-results-kv");
+	public static final By AUTOCOMPLETE_RESULTS = By.xpath("//li[starts-with(@id, 'userPicker-resultItem')]");
 	public static final By VERIFY_BUSINESS_NEEDCHECKBOX = By.id("business-need-verify");
 	public static final By REQUEST_ROLE_BUTTON =By.id("role-request-button");
 	public static final By SAN_ERROR_MESSAGE = By.xpath("//span[contains(text(),\" An account with this name already exists \")]");
