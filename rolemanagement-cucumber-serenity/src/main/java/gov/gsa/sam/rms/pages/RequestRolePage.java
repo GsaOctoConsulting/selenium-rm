@@ -124,7 +124,7 @@ public class RequestRolePage {
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());
 		if (firstOrg.getText().toLowerCase().contains(orgName.toLowerCase())) {
 			driver.findElement(By.xpath("//*[@id=\"federalHierarchy-listbox\"]/li[1]/div[1]/div")).click();
-			//firstOrg.click();
+			// firstOrg.click();
 			LaunchBrowserUtil.delay(3);
 			orgFound = true;
 		}
@@ -165,6 +165,55 @@ public class RequestRolePage {
 		} catch (NoSuchElementException e) {
 			return false;
 		}
+
+	}
+
+	public static boolean selectEntityNonFedIfFound(String entity, int dropdownOptionNo) {
+		boolean orgFound = false;
+		driver.findElement(By.id("entityPicker")).sendKeys(entity);
+		List<WebElement> orgList = driver.findElements(By.className("selected-item"));
+		logger.info(("The size of the list is......" + orgList.size()));
+		WebElement firstOrg = orgList.get(dropdownOptionNo);
+		logger.info("*****************the text from first org is*****" + firstOrg.getText());
+		if (firstOrg.getText().toLowerCase().contains(entity.toLowerCase())) {
+			orgList.get(dropdownOptionNo).click();
+			LaunchBrowserUtil.delay(3);
+			orgFound = true;
+		}
+		return orgFound;
+	}
+
+	public static boolean selectEntityRoleIfFound(String roleName) {
+		boolean roleFound = false;
+		Select role = new Select(driver.findElement(RequestRolePageLocator.ROLE_SELECTOR));
+
+		try {
+			role.selectByVisibleText(roleName);
+			roleFound = true;
+		} catch (NoSuchElementException e) {
+
+			return roleFound;
+		}
+		return roleFound;
+	}
+
+	public static boolean selectEntityDomainIfFound(String domainname) {
+		boolean domainFound = false;
+		driver.findElement(By.id("domain-ac-textarea")).sendKeys("");
+		LaunchBrowserUtil.delay(3);
+		List<WebElement> domain = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
+		logger.info(("The size of the list is......" + domain.size()));
+
+		for (int i = 0; i < domain.size(); i++) {
+			WebElement currentDomain = domain.get(i);
+			logger.info(currentDomain.getText());
+			if (domainname.equals(currentDomain.getText())) {
+				domainFound = true;
+				currentDomain.click();
+				return domainFound;
+			}
+		}
+		return domainFound;
 
 	}
 

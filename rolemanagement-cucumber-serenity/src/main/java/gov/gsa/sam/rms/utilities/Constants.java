@@ -57,7 +57,9 @@ public class Constants {
 	public static final String DOMAIN_ASSISTANCE_LISTING = "Assistance Listing";
 	public static final String DOMAIN_ADMIN = "Admin";
 	public static final String DOMAIN_FEDERAL_HIERARCHY = "Federal Hierarchy";
-
+	public static final String DOMAIN_ENTITY_COMPLIANCE= "Entity Compliance";
+	public static final String DOMAIN_ENTITY_REGISTRATION = "Entity Registration";
+	
 	// status--------------------------------
 	public static final String STATUS_PENDING = "Pending";
 	public static final String STATUS_REJECTED = "Rejected";

@@ -82,13 +82,12 @@ public class RoleRequestPendingPage {
 		driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[2]/div[3]/div[2]/div/sam-button[1]/button"))
 				.click();
-
 	}
 
 	public static void enterAdditionalInformation(String string) {
 		driver.findElement(By.id("Additional Information")).sendKeys(string);
 		LaunchBrowserUtil.delay(2);
-
 	}
+	
 
 }

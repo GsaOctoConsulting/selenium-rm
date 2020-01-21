@@ -112,8 +112,7 @@ public class MyRolesPage {
 					LaunchBrowserUtil.delay(2);
 					return true;
 				}
-				
-				
+
 				if ((j == 3) && (orgFound == true && roleFound == true && domainFound == true)
 						&& (action.equalsIgnoreCase("VIEW PERMISSION"))) {
 
@@ -183,8 +182,14 @@ public class MyRolesPage {
 	public static String getLatestRoleHistory() {
 		List<WebElement> rolehistorylist = driver.findElements(By.tagName("sam-history"));
 		String latesthistorydescription = rolehistorylist.get(0).findElement(By.tagName("em")).getText();
-		logger.info("The description for latest history is-- "+latesthistorydescription);
+		logger.info("The description for latest history is-- " + latesthistorydescription);
 		return latesthistorydescription;
-		
+
+	}
+
+	public static String getTextForNoRoleUser() {
+		LaunchBrowserUtil.delay(3);
+		return driver.findElement(MyRolesPageLocator.NO_ROLE_TEXT).getText();
+
 	}
 }
