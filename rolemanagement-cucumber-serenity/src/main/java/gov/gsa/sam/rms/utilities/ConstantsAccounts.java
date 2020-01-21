@@ -10,25 +10,32 @@ package gov.gsa.sam.rms.utilities;
 public class ConstantsAccounts {
 	private ConstantsAccounts() {
 	}
-	
+
 	/**
 	 * this phone number also forwards to nonfed email and so this one number is
 	 * used for fed and nonfed signup
 	 */
 
-	public static final String PHONE = "817-213-6337"; // used for otp through email 
+	public static final String PHONE = "817-213-6337"; // used for otp through email
 	// --------------------------------------------------------------------
 	public static final String ROLE_ADMIN_USER_3 = "octotestaccount1+ra1@gsa.gov";
 	public static final String ROLE_ADMIN_USER_3_SECRETKEY = "B4SDMPJGOYXB2QTA";
-	/*public static final String ROLE_ADMIN_USER_3 = "octotestaccount1+ra5@gsa.gov";
-	public static final String ROLE_ADMIN_USER_3_SECRETKEY = "VITQZTRKSCK2KY3W";*/
+	/*
+	 * public static final String ROLE_ADMIN_USER_3 =
+	 * "octotestaccount1+ra5@gsa.gov"; public static final String
+	 * ROLE_ADMIN_USER_3_SECRETKEY = "VITQZTRKSCK2KY3W";
+	 */
 
 	// ---------------------------------------------------------------------------
 	public static final String NO_ROLE_USER_2 = "octotestaccount1+noroless6@gsa.gov";
 	public static final String NO_ROLE_USER_2_SECRETKEY = "3DSEEI5YJ4PTBDCM";
-	/*// ---------------------------------------------------------------------------
-		public static final String NO_ROLE_USER_2 = "octotestaccount1+noroless4@gsa.gov";
-		public static final String NO_ROLE_USER_2_SECRETKEY = "YZGRD7JVPNUSKWQA";*/
+	/*
+	 * //
+	 * ---------------------------------------------------------------------------
+	 * public static final String NO_ROLE_USER_2 =
+	 * "octotestaccount1+noroless4@gsa.gov"; public static final String
+	 * NO_ROLE_USER_2_SECRETKEY = "YZGRD7JVPNUSKWQA";
+	 */
 	// ---------------------------------------------------------------------
 	public static final String ASSISTANCE_USER_2 = "octotestaccount1+assistanceuserv2@gsa.gov";
 	public static final String ASSISTANCE_USER_2_SECRETKEY = "EANIEF3YIZ7OFPFI";
@@ -40,17 +47,23 @@ public class ConstantsAccounts {
 	public static final String NO_ROLE_USER_5 = "octotestaccount1+noroless5@gsa.gov";
 	public static final String NO_ROLE_USER_5_SECRETKEY = "ZWNIUOWDHF4PYDYQ";
 
-	/*// ---------------------------------------------------------------------
-		public static final String NO_ROLE_USER_6 = "octotestaccount1+noroless6@gsa.gov";
-		public static final String NO_ROLE_USER_6_SECRETKEY = "3DSEEI5YJ4PTBDCM";*/
-
-		// ---------------------------------------------------------------------
+	/*
+	 * // ---------------------------------------------------------------------
+	 * public static final String NO_ROLE_USER_6 =
+	 * "octotestaccount1+noroless6@gsa.gov"; public static final String
+	 * NO_ROLE_USER_6_SECRETKEY = "3DSEEI5YJ4PTBDCM";
+	 */
+	// ---------------------------------------------------------------------
 	public static final String DEPT_ROLEADMIN_2 = "octotestaccount1+deptroleadmin2@gsa.gov";
 	public static final String DEPT_ROLEADMIN_2_SECRETKEY = "UBL3KM7AJVXNVNP6";
 
 	// ---------------------------------------------------------------------
 	public static final String NONFED_USER_1 = "nonfedgsaemail@yopmail.com";
 	public static final String NONFED_USER_1_SECRETKEY = "PISODXJ5ZDDAJ3GV";
+
+	// ---------------------------------------------------------------------
+	public static final String NONFED_USER_2_NO_ROLES = "nonfedgsaemail+2@yopmail.com";
+	public static final String NONFED_USER_2_NO_ROLES_SECRETKEY = "ELSJZZZW22MPZ5LL";
 
 	// ---------------------------------------------------------------------
 	public static final String AL_GRANDUSER_1 = "octotestaccount1+algranduser@gsa.gov";
@@ -76,8 +89,8 @@ public class ConstantsAccounts {
 	public static final String SYSTEMACCOUNT_ADMIN_2 = "octotestaccount1+saadmin3@gsa.gov";
 	public static final String SYSTEMACCOUNT_ADMIN_2_SECRETKEY = "N3RKESIDHUC3YTT2";
 	// ----------------------------------------------------------------------------
-		public static final String SYSTEMACCOUNT_ADMIN_NONFED = "nonfedgsaemail+saa@yopmail.com";
-		public static final String SYSTEMACCOUNT_ADMIN_NONFED_SECRETKEY = "2R22IVA6K6X3MVS7";
+	public static final String SYSTEMACCOUNT_ADMIN_NONFED = "nonfedgsaemail+saa@yopmail.com";
+	public static final String SYSTEMACCOUNT_ADMIN_NONFED_SECRETKEY = "2R22IVA6K6X3MVS7";
 	// ----------------------------------------------------------------------------
 	public static final String SYSTEM_MANAGER_1 = "octotestaccount1+samanager@gsa.gov";
 	public static final String SYSTEM_MANAGER_1_SECRETKEY = "CNKKVXFUQWVBQVDN";
@@ -152,7 +165,7 @@ public class ConstantsAccounts {
 
 	public static final String CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1 = "octotestaccount1+co'cs@gsa.gov";
 	public static final String CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1_SECRETKEY = "76X7XKBMEOF75RH4";
-	
+
 	// ---------------------------------------------------------------------------
 	public static final String CONTRACT_OPPORTUNITIES_VIEWER_1 = "nonfedgsaemail+contractopportunitiesviewer1@yopmail.com";
 	public static final String CONTRACT_OPPORTUNITIES_VIEWER_1_SECRETKEY = "4LCTZJIMKYYUA3QJ";
@@ -183,86 +196,82 @@ public class ConstantsAccounts {
 	// ---------------------------------------------------------------------------
 	public static final String COSPA_FHSPA_GSASECURITYAPPROVER_1 = "octotestaccount1+cospafhspagsasecurity2@gsa.gov";
 	public static final String COSPA_FHSPA_GSASECURITYAPPROVER_1_SECRETKEY = "JSZURU67AANB7ZEY";
-	
+
 	// ---------------------------------------------------------------------------
 	public static final String SPAAD_ALPHA = "octotestaccount1+alphara@gsa.gov";
 	public static final String SPAAD_ALPHA_SECRETKEY = "7T3P5LG6W6ELYFP7";
-	
+
 	//
 	public static final String IAE_PMO_ADMINISTRATOR = "octotestaccount1+iaepmoadmin2@gsa.gov";
 	public static final String IAE_PMO_ADMINISTRATOR_SECRETKEY = "EHNU63TENQZA2W2A";
-	
-	
+
 	public static final String NONFED_USER_MULTIPLE_ROLES = "nonfedgsaemail+multipleroles@yopmail.com";
 	public static final String NONFED_USER_MULTIPLE_ROLES_SECRETKEY = "W53GB5MCF4CAT6A4";
 	public static final String MA_SECURITYOFFICIAL = "";
 	public static final String MA_SECURITYOFFICIAL_EMAIL = "";
-	
+
 	public static final String NO_ROLE_USER_SUBTIER = "octotestaccount1+norolesubtier@gsa.gov";
 	public static final String NO_ROLE_USER_SUBTIER_SECRETKEY = "YHQRU6YCGEOXMEXX";
-	
+
 	public static final String IAE_ADMIN = "octotestaccount1+iaeadmin3@gsa.gov";
 	public static final String IAE_ADMIN_SECRETKEY = "KHPFGUWZ32PUYL5J";
-	
-	//-----------------------------------------------------------------------------------------
+
+	// -----------------------------------------------------------------------------------------
 	public static final String HELPDESK_TIER1_1 = "nonfedgsaemail+helpdesktierone1@yopmail.com";
 	public static final String HELPDESK_TIER1_1_SECRETKEY = "C7LR7WPZ2GBJGMTQ";
-	
+
 	public static final String FUNCTIONALHELPDESK_TIER2_1 = "nonfedgsaemail+functionalhelpdesktiertwo3@yopmail.com";
 	public static final String FUNCTIONALHELPDESK_TIER2_1_SECRETKEY = "4XT67T3PYLO2RMHS";
-	
+
 	public static final String TECHNICALHELPDESK_TIER2_1 = "nonfedgsaemail+technicalhelpdesktiertwo2@yopmail.com";
 	public static final String TECHNICALHELPDESK_TIER2_1_SECRETKEY = "JPKCKRENUDV3LBGB";
-	
+
 	public static final String HELPDESK_TIER3_1 = "octotestaccount1+helpdesktierthree1@gsa.gov";
 	public static final String HELPDESK_TIER3_1_SECRETKEY = "VIHUYGG33XSTBZX7";
-	
+
 	public static final String AGENCYROLES_ADMINISTRATOR_1 = "octotestaccount1+agencyrolesadmin1@gsa.gov";
 	public static final String AGENCYROLES_ADMINISTRATOR_1_SECRETKEY = "OPZRVVWBOZHFL37S";
-	
+
 	public static final String ENTITY_ADMINISTRATOR_ENTITYCOMPLIANCE_1 = "nonfedgsaemail+entityadminentitycompliance@yopmail.com";
 	public static final String ENTITY_ADMINISTRATOR_ENTITYCOMPLIANCE_1_SECRETKEY = "UIBVCBLJIGW653OV";
-	
+
 	public static final String DATA_ENTRY_ENTITYCOMPLIANCE_1 = "nonfedgsaemail+dataentryentitycompliance@yopmail.com";
 	public static final String DATA_ENTRY_ENTITYCOMPLIANCE_1_SECRETKEY = "4YAWCKN3RDZV3ZG4";
-	
+
 	public static final String ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1 = "nonfedgsaemail+entityadminentityregistration@yopmail.com";
 	public static final String ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1_SECRETKEY = "LLOWSSKM4KVY3HKP";
-	
+
 	public static final String DATA_ENTRY_ENTITYREGISTRATION_1 = "nonfedgsaemail+dataentryentityregistration@yopmail.com";
 	public static final String DATA_ENTRY_ENTITYREGISTRATION_1_SECRETKEY = "T4NP6UBVY4LLLWAI";
-	
+
 	public static final String VIEWER_ENTITYREGISTRATION_1 = "nonfedgsaemail+viewerentityregistration@yopmail.com";
 	public static final String VIEWER_ENTITYREGISTRATION_1_SECRETKEY = "IQ4ZH6LN62TFOAYE";
-	
+
 	public static final String AGENCYADMIN_ENTITYREGISTRATION_1 = "octotestaccount1+agencyadminentityregistration@gsa.gov";
 	public static final String AGENCYADMIN_ENTITYREGISTRATION_1_SECRETKEY = "AGJOWWF5LVV3NND4";
-	
+
 	public static final String OFFICE_REGISTRATION_REPRESENTATIVE_1 = "octotestaccount1+officeregistrationrepresentative1@gsa.gov";
 	public static final String OFFICE_REGISTRATION_REPRESENTATIVE_1_SECRETKEY = "ZJ7UGEELJ3GJAQVD";
-	
+
 	public static final String FOUO_ENTITYMANAGEMENT_DATAVIEWER_1 = "octotestaccount1+fouodataviewerentitymanagement1@gsa.gov";
 	public static final String FOUO_ENTITYMANAGEMENT_DATAVIEWER_1_SECRETKEY = "YBTZOEFVMX6BHTHI";
-	
+
 	public static final String SENSITIVE_ENTITYMANAGEMENT_DATAVIEWER_1 = "octotestaccount1+sensitivedataviwerentitymanagement@gsa.gov";
 	public static final String SENSITIVE_ENTITYMANAGEMENT_DATAVIEWER_1_SECRETKEY = "4LKTLGXIYFDAVN23";
-	
+
 	public static final String FOUO_AND_FAPIIS_1 = "octotestaccount1+fouoandfapiis1@gsa.gov";
 	public static final String FOUO_AND_FAPIIS_1_SECRETKEY = "EQOOPUMNVCCHXCNZ";
-	
+
 	public static final String FOUO_EXECUTIVE_COMPENSATION_DATA_VIEWER_1 = "octotestaccount1+fouoexecutivecompensationdataviewer@gsa.gov";
 	public static final String FOUO_EXECUTIVE_COMPENSATION_DATA_VIEWER_1_SECRETKEY = "PVWN5AQPVI2DI6NT";
-	
+
 	public static final String ENTITYMANAGEMENT_DATAACCESS_SYSTEMONLY_1 = "octotestaccount1+entitymanagementdataaccess@gsa.gov";
 	public static final String ENTITYMANAGEMENT_DATAACCESS_SYSTEMONLY_1_SECRETKEY = "QRUPRINXQQQZEUMX";
-	
+
 	public static final String AGENCYADMIN_EXCLUSIONS_1 = "octotestaccount1+agencyadminexclusions@gsa.gov";
 	public static final String AGENCYADMIN_EXCLUSIONS_1_SECRETKEY = "GW5ZC2IBKYA2EQ5G";
-	
+
 	public static final String AGENCY_EXCLUSIONS_REPRESENTATIVE_1 = "octotestaccount1+agencyexclusionsrepresentative@gsa.gov";
 	public static final String AGENCY_EXCLUSIONS_REPRESENTATIVE_1_SECRETKEY = "XL55ZDMFWFI7Y2PV";
-	
-	
-	
-	
+
 }

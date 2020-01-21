@@ -302,11 +302,11 @@ public class LoginStep {
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 
-		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
-				Constants.USERPASS);
-		// SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.VIEWER_ENTITYREGISTRATION_1,
-		// Constants.USERPASS);
+		//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		//SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+			//	Constants.USERPASS);
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_2_NO_ROLES,
+		Constants.USERPASS);
 	}
 
 	@Then("^_8 user should be able to complete the profile$")
@@ -315,7 +315,7 @@ public class LoginStep {
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		CommonProfilePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		//CommonProfilePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 		CommonProfilePage.clickSubmitButton();
 	}
 
