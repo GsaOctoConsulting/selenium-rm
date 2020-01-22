@@ -35,3 +35,22 @@ Scenario: A NonFed User Without a Role can make role request from a finite set o
 	Then _2nf user should have no roles
 	When _2nf user clicks role request button to go to role request page
 	Then _2nf nonfed user should see the expected list of role to choose from 
+
+@3
+Scenario: bottom up nonfed role request should sent feeds notifications to spaad and the requester 
+	Given _3nf nonfed user without a role logs in  
+	When _3nf nonfed user requests data entry role in entity compliance
+	Then _3nf user should see pending notification and feeds entry for the request
+	When _3nf spaad logs in
+	Then _3nf spaad should see the users pending request
+	When _3nf spaad approves the request
+	Then _3nf spaad should see the status updated in their feeds
+	When _3nf nonfed user logs back in 
+	Then _3nf user should see the role assigned
+	And _3nf user should see the feeds notifications for the requested updated to approved
+	
+	
+	
+	
+	
+	

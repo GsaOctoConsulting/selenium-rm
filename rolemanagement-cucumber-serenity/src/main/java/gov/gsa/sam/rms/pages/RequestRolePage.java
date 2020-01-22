@@ -171,6 +171,7 @@ public class RequestRolePage {
 	public static boolean selectEntityNonFedIfFound(String entity, int dropdownOptionNo) {
 		boolean orgFound = false;
 		driver.findElement(By.id("entityPicker")).sendKeys(entity);
+		LaunchBrowserUtil.delay(3);
 		List<WebElement> orgList = driver.findElements(By.className("selected-item"));
 		logger.info(("The size of the list is......" + orgList.size()));
 		WebElement firstOrg = orgList.get(dropdownOptionNo);

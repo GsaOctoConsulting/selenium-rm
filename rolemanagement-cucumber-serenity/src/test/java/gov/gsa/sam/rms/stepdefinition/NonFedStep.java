@@ -12,6 +12,7 @@ import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.locators.MyRolesPageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
+import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
@@ -23,6 +24,7 @@ import gov.gsa.sam.rms.utilities.SignInUtility;
 public class NonFedStep {
 
 	private static Logger logger = LoggerFactory.getLogger(NonFedStep.class);
+	String timestamp = new String();
 
 	@Given("^_1nf nonfed user without a role logs in$")
 	public void _1_nonfed_user_without_a_role_logs_in() throws Throwable {
@@ -84,7 +86,6 @@ public class NonFedStep {
 	@When("^_2nf user clicks role request button to go to role request page$")
 	public void _2nf_user_clicks_role_request_button_to_go_to_role_request_page() throws Throwable {
 		MyRolesPage.clickRequestRoleButton();
-
 	}
 
 	@Then("^_2nf nonfed user should see the expected list of role to choose from$")
@@ -96,7 +97,7 @@ public class NonFedStep {
 
 		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
 		Assert.assertEquals(true, domainfound1);
-		
+
 		boolean roleFound2 = RequestRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		Assert.assertEquals(true, roleFound2);
 
@@ -108,6 +109,80 @@ public class NonFedStep {
 
 		boolean domainfound3 = RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		Assert.assertEquals(true, domainfound3);
+	}
+
+	@Given("^_3nf nonfed user without a role logs in$")
+	public void _3nf_nonfed_user_without_a_role_logs_in() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@When("^_3nf nonfed user requests data entry role in entity compliance$")
+	public void _3nf_nonfed_user_requests_data_entry_role_in_entity_compliance() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+		
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
+		Assert.assertEquals(true, domainfound1); 
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		MyRolesPage.goToFeedsPage();
+	}
+
+	@Then("^_3nf user should see pending notification and feeds entry for the request$")
+	public void _3nf_user_should_see_pending_notification_and_feeds_entry_for_the_request() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_3nf spaad logs in$")
+	public void _3nf_spaad_logs_in() throws Throwable {
+	SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+			ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@Then("^_3nf spaad should see the users pending request$")
+	public void _3nf_spaad_should_see_the_users_pending_request() throws Throwable {
+
+	}
+
+	@When("^_3nf spaad approves the request$")
+	public void _3nf_spaad_approves_the_request() throws Throwable {
+
+	}
+
+	@Then("^_3nf spaad should see the status updated in their feeds$")
+	public void _3nf_spaad_should_be_see_the_status_updated_in_their_feeds() throws Throwable {
+
+	}
+
+	@When("^_3nf nonfed user logs back in$")
+	public void _3nf_nonfed_user_logs_back_in() throws Throwable {
+
+	}
+
+	@Then("^_3nf user should see the role assigned$")
+	public void _3nf_user_should_see_the_role_assigned() throws Throwable {
+
+	}
+
+	@And("^_3nf user should see the feeds notifications for the requested updated to approved$")
+	public void _3nf_user_should_see_the_feeds_notifications_for_the_requested_updated_to_approved() throws Throwable {
+
 	}
 
 	private void beforeScenario() {

@@ -98,7 +98,6 @@ public class FeedsRequestPage {
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(FeedsRequestPageLocator.WORKSPACEPAGE_BREADCRUMB_LINK).click();
 		LaunchBrowserUtil.delay(1);
-
 	}
 
 	/**
