@@ -143,6 +143,18 @@ public class FeedsRequestPage {
 				logger.info(eachFeedDetails);
 				logger.info("No action will be taken");
 				requestFound = true;
+				break;
+			} else if (eachFeedDetails.contains(fullName.toLowerCase()) && eachFeedDetails.contains(org.toLowerCase())
+					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(timestamp.toLowerCase())
+					&& eachFeedDetails.contains(status.toLowerCase())
+					&& action.equalsIgnoreCase(Constants.GO_TO_REQUEST_DETAILS)) {
+				logger.info(eachFeedDetails);
+				logger.info("Clicked the feeds request to see request details");
+				requestFound = true;
+				feedList.get(i).click();
+				LaunchBrowserUtil.delay(3);
+				RoleRequestPendingPage.setDriver(driver);
+				break;
 			}
 		}
 		return requestFound;
@@ -172,7 +184,7 @@ public class FeedsRequestPage {
 
 	public static int getTotalNoOfPages() {
 		String resultMessage = driver.findElement(FeedsRequestPageLocator.TOTAL_NO_OFRECORDS).getText();
-		logger.info("Total number of records found is - "+resultMessage);
+		logger.info("Total number of records found is - " + resultMessage);
 		String[] bits = resultMessage.trim().split(" ");
 		int recordNo = Integer.parseInt(bits[bits.length - 3]);
 		logger.info("The number of records found are - " + recordNo);
@@ -195,11 +207,13 @@ public class FeedsRequestPage {
 		return ((requestername != null) && (!requestername.equals(""))
 				&& (requestername.matches("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")));
 	}
+
 	public static List<WebElement> getPagination() {
 		List<WebElement> pagination = driver.findElements(FeedsRequestPageLocator.PAGINATION);
 		logger.info("The size of the pagination is -" + pagination.size());
 		return pagination;
 	}
+
 	public static void clickPageNo(int pageno, int pageLimit) {
 		List<WebElement> pagelist = getPagination();
 

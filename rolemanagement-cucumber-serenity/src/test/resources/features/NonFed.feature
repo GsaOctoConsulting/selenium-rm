@@ -16,7 +16,7 @@
 #"" 
 ## (Comments)
 #Sample Feature Definition Template
-@NonFed
+@Nonfed
 Feature: Nonfed functionalities 
 	Description:  The purpose of this feature is to test the workflow
 for nonfed users 
