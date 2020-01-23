@@ -66,7 +66,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(3);
 		String timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				"domain", timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.closeBrowsers();
@@ -80,7 +80,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				"domain", timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
 		LaunchBrowserUtil.delay(6);
@@ -547,7 +547,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(3);
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, "domain", timestamp, Constants.STATUS_PENDING,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_PENDING,
 				Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(2);
@@ -566,7 +566,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, "domain", timestamp, Constants.STATUS_PENDING,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_PENDING,
 				Constants.NOACTION);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
