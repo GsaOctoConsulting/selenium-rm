@@ -58,7 +58,16 @@ Scenario: bottom up nonfed role request should reflect correct feeds notificatio
 	Then _4nf user should see pending notification and feeds entry for the request  
 	When _4nf user cancels the pending request 
 	Then _4nf user should see the canceled status in the feeds notifications for the request 
-	
+
+@5 
+Scenario: bottom up nonfed role request should reflect correct feeds notifications for rejected requests 
+	Given _5nf nonfed user without a role logs in 
+	And _5nf nonfed user requests data entry role in contract opportunities
+	Then _5nf user should see pending notification and feeds entry for the request  
+	When _5nf spaad log in and rejects the pending request 
+	Then _5nf spaad should see the rejected status in the feeds notifications for the request
+	When _5nf nonfed user logs back in
+	Then _5nf user should see the feeds updated with rejected status for the request 
 	
 	
 	

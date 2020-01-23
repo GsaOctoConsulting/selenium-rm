@@ -136,6 +136,8 @@ public class FeedsRequestPage {
 				driver.findElement(By.id("Additional Information")).sendKeys("Request is rejected");
 				LaunchBrowserUtil.delay(1);
 				FeedsRequestPage.clickRejectButton();
+				MyRolesPage.setDriver(driver);
+				LaunchBrowserUtil.delay(3);
 				break;
 
 			} else if (eachFeedDetails.contains(fullName.toLowerCase()) && eachFeedDetails.contains(org.toLowerCase())

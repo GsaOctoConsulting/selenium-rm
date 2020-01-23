@@ -304,6 +304,98 @@ public class NonFedStep {
 		LaunchBrowserUtil.delay(5);
 	}
 
+	@Given("^_5nf nonfed user without a role logs in$")
+	public void _5nf_nonfed_user_without_a_role_logs_in() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_5nf nonfed user requests data entry role in contract opportunities$")
+	public void _5nf_nonfed_user_requests_data_entry_role_in_contract_opportunities() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		MyRolesPage.goToFeedsPage();
+	}
+
+	@Then("^_5nf user should see pending notification and feeds entry for the request$")
+	public void _5nf_user_should_see_pending_notification_and_feeds_entry_for_the_request() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_5nf spaad log in and rejects the pending request$")
+	public void _5nf_spaad_log_in_and_rejects_the_pending_request() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
+		
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickReceivedOnSideNav();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollUp();
+		LaunchBrowserUtil.delay(3);
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_PENDING,
+				Constants.REJECTROLE);
+		Assert.assertEquals(true, requestFound);	
+	}
+
+	@Then("^_5nf spaad should see the rejected status in the feeds notifications for the request$")
+	public void _5nf_spaad_should_see_the_rejected_status_in_the_feeds_notifications_for_the_request()
+			throws Throwable {
+		MyRolesPage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_REJECTED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+	
+	}
+
+	@When("^_5nf nonfed user logs back in$")
+	public void _5nf_nonfed_user_logs_back_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@Then("^_5nf user should see the feeds updated with rejected status for the request$")
+	public void _5nf_user_should_see_the_feeds_updated_with_rejected_status_for_the_request() throws Throwable {
+		T1WorkspacePage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		FeedsRequestPage.clickRejectedFilter();
+		LaunchBrowserUtil.scrollUp();
+		
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_REJECTED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+
+	}
+
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}

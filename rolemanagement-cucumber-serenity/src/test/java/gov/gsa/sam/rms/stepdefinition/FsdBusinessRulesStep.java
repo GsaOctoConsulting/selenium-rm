@@ -233,7 +233,6 @@ public class FsdBusinessRulesStep {
 	@When("^_6 spaad tries to assign a role to this user$")
 	public void _6_spaad_tries_to_assign_a_role_to_this_user() throws Throwable {
 		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_1);
-
 	}
 
 	@Then("^_6 spaad should not be able to view certain orgs in the entity picker$")
