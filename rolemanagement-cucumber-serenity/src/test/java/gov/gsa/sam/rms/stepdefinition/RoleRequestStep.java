@@ -66,7 +66,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(3);
 		String timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				"domain", timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.closeBrowsers();
@@ -80,7 +80,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
+				"domain", timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
 		LaunchBrowserUtil.delay(6);
@@ -141,7 +141,7 @@ public class RoleRequestStep {
 		FeedsRequestPage.clickSentOnSideBar();
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -161,7 +161,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(3);
 		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
 
 	}
@@ -190,7 +190,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(1);
 
 		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -208,7 +208,7 @@ public class RoleRequestStep {
 		FeedsRequestPage.clickSentOnSideBar();
 		FeedsRequestPage.clickCompletedFilter();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
-				timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);
 	}
 
@@ -333,7 +333,7 @@ public class RoleRequestStep {
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickRoleRequestFilter();
 		boolean requestFound = FeedsRequestPage.requestFound("SHAH noroless2 RAIAAN", Constants.ORG_GSA,
-				Constants.ROLE_ASSISTANCE_USER, timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_PENDING, Constants.REJECTROLE);
 
 		Assert.assertEquals(requestFound, true);
 
@@ -343,7 +343,7 @@ public class RoleRequestStep {
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickRoleRequestFilter();
 		requestFound = FeedsRequestPage.requestFound("SHAH noroless2 RAIAAN", Constants.ORG_GSA,
-				Constants.ROLE_ASSISTANCE_USER, timestamp, Constants.STATUS_REJECTED, Constants.NOACTION);
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_REJECTED, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);// assert with 'role request'
 												// filter
 	}
@@ -547,7 +547,8 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(3);
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, "domain", timestamp, Constants.STATUS_PENDING,
+				Constants.NOACTION);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.closeBrowsers();
@@ -565,7 +566,8 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, "domain", timestamp, Constants.STATUS_PENDING,
+				Constants.NOACTION);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
 		LaunchBrowserUtil.delay(6);
@@ -644,7 +646,8 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(4);
 		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_PENDING,
+				Constants.NOACTION);
 		Assert.assertEquals(true, sameRequestFound);
 		afterScenario();
 		LaunchBrowserUtil.delay(6);
@@ -1124,15 +1127,15 @@ public class RoleRequestStep {
 
 	@Then("^_18rr the approved request should appear as approved in the feeds$")
 	public void _18_the_approved_request_should_appear_as_approved_in_the_feeds() throws Throwable {
-		/*FeedsRequestPage.clickReceivedOnSideNav();
-		FeedsRequestPage.clickPendingFilter();
-		LaunchBrowserUtil.scrollUp();
-		LaunchBrowserUtil.delay(4);
-		boolean sameRequestFound = FeedsRequestPage.requestFound("", Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
-		Assert.assertEquals(true, sameRequestFound);
-		afterScenario();
-		LaunchBrowserUtil.delay(6);*/
+		/*
+		 * FeedsRequestPage.clickReceivedOnSideNav();
+		 * FeedsRequestPage.clickPendingFilter(); LaunchBrowserUtil.scrollUp();
+		 * LaunchBrowserUtil.delay(4); boolean sameRequestFound =
+		 * FeedsRequestPage.requestFound("", Constants.ORG_GSA,
+		 * Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, timestamp,
+		 * Constants.STATUS_PENDING, Constants.NOACTION); Assert.assertEquals(true,
+		 * sameRequestFound); afterScenario(); LaunchBrowserUtil.delay(6);
+		 */
 	}
 
 	// private methods are below this line

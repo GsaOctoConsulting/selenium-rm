@@ -148,7 +148,8 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollUp();
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, timestamp, Constants.STATUS_PENDING, Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -169,7 +170,8 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(3);
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, timestamp, Constants.STATUS_PENDING, Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 	}
 
@@ -189,7 +191,8 @@ public class NonFedStep {
 		FeedsRequestPage.clickApprovedFilter();
 		LaunchBrowserUtil.scrollUp();
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, timestamp, Constants.STATUS_APPROVED, Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_APPROVED,
+				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -214,12 +217,14 @@ public class NonFedStep {
 	public void _3nf_user_should_see_the_feeds_notifications_for_the_requested_updated_to_approved() throws Throwable {
 		MyRolesPage.goToFeedsPage();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, timestamp, Constants.STATUS_APPROVED, Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_APPROVED,
+				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
-		//LaunchBrowserUtil.closeBrowsers();
-		
-		//------------------------------deleting the role for this user-------------------
+		// LaunchBrowserUtil.closeBrowsers();
+
+		// ------------------------------deleting the role for this
+		// user-------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
@@ -235,6 +240,68 @@ public class NonFedStep {
 		LaunchBrowserUtil.delay(8);
 		LaunchBrowserUtil.closeBrowsers();
 		afterScenario();
+	}
+
+	@Given("^_4nf nonfed user without a role logs in$")
+	public void _4nf_nonfed_user_without_a_role_logs_in() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_4nf nonfed user requests data entry role in entity registration$")
+	public void _4nf_nonfed_user_requests_data_entry_role_in_entity_compliance() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+	}
+
+	@Then("^_4nf user should see pending notification and feeds entry for the request$")
+	public void _4nf_user_should_see_pending_notification_and_feeds_entry_for_the_request() throws Throwable {
+		MyRolesPage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		FeedsRequestPage.goToWorkspacePage();
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+	}
+
+	@When("^_4nf user cancels the pending request$")
+	public void _4nf_user_cancels_the_pending_request() throws Throwable {
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		RoleRequestPendingPage.clickDeleteButton();
+		RoleRequestPendingPage.confirmDeleteOnPopup();
+	}
+
+	@Then("^_4nf user should see the canceled status in the feeds notifications for the request$")
+	public void _4nf_user_should_see_the_canceled_status_in_the_feeds_notifications_for_the_request() throws Throwable {
+		MyRolesPage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_CANCELED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
 	}
 
 	private void beforeScenario() {

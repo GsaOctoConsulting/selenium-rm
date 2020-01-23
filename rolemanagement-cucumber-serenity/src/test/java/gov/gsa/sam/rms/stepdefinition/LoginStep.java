@@ -356,7 +356,7 @@ public class LoginStep {
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickSentOnSideBar();
 		LaunchBrowserUtil.delay(3);
-		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,Constants.DOMAIN_ASSISTANCE_LISTING,
 				"", Constants.STATUS_PENDING, Constants.REJECTROLE);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(2);

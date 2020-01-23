@@ -114,15 +114,16 @@ public class FeedsRequestPage {
 	 *                  NOACTION, see implementation
 	 * @return true if the request is found, false otherwise
 	 */
-	public static boolean requestFound(String fullName, String org, String role, String timestamp, String status,
-			String action) {
+	public static boolean requestFound(String fullName, String org, String role, String domain, String timestamp,
+			String status, String action) {
 		boolean requestFound = false;
 		List<WebElement> feedList = getFeedsList();
 
 		for (int i = 0; i < feedList.size(); i++) {
 			String eachFeedDetails = feedList.get(i).getText().toLowerCase();
 			if (eachFeedDetails.contains(fullName.toLowerCase()) && eachFeedDetails.contains(org.toLowerCase())
-					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(timestamp.toLowerCase())
+					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(domain.toLowerCase())
+					&& eachFeedDetails.contains(timestamp.toLowerCase())
 					&& eachFeedDetails.contains(status.toLowerCase())
 					&& action.equalsIgnoreCase(Constants.REJECTROLE)) {
 				logger.info(eachFeedDetails);
@@ -138,14 +139,16 @@ public class FeedsRequestPage {
 				break;
 
 			} else if (eachFeedDetails.contains(fullName.toLowerCase()) && eachFeedDetails.contains(org.toLowerCase())
-					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(timestamp.toLowerCase())
+					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(domain.toLowerCase())
+					&& eachFeedDetails.contains(timestamp.toLowerCase())
 					&& eachFeedDetails.contains(status.toLowerCase()) && action.equalsIgnoreCase(Constants.NOACTION)) {
 				logger.info(eachFeedDetails);
 				logger.info("No action will be taken");
 				requestFound = true;
 				break;
 			} else if (eachFeedDetails.contains(fullName.toLowerCase()) && eachFeedDetails.contains(org.toLowerCase())
-					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(timestamp.toLowerCase())
+					&& eachFeedDetails.contains(role.toLowerCase()) && eachFeedDetails.contains(domain.toLowerCase())
+					&& eachFeedDetails.contains(timestamp.toLowerCase())
 					&& eachFeedDetails.contains(status.toLowerCase())
 					&& action.equalsIgnoreCase(Constants.GO_TO_REQUEST_DETAILS)) {
 				logger.info(eachFeedDetails);

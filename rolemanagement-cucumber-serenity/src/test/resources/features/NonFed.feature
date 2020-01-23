@@ -16,40 +16,48 @@
 #"" 
 ## (Comments)
 #Sample Feature Definition Template
-@Nonfed
+@Nonfed 
 Feature: Nonfed functionalities 
 	Description:  The purpose of this feature is to test the workflow
 for nonfed users 
 
-@1
+@1 
 Scenario: A NonFed User Without a Role Can See the Entity Management Widget 
-	Given _1nf nonfed user without a role logs in  
-	Then _1nf nonfed user should be able to view entity management Widget
-	When _1nf nonfed user navigates to the profile page
+	Given _1nf nonfed user without a role logs in 
+	Then _1nf nonfed user should be able to view entity management Widget 
+	When _1nf nonfed user navigates to the profile page 
 	Then _1nf they should not see the entity details section 
-
-@2
-Scenario: A NonFed User Without a Role can make role request from a finite set of selections 
-	Given _2nf nonfed user without a role logs in  
-	And _2nf nonfed user navigates to profile page
-	Then _2nf user should have no roles
-	When _2nf user clicks role request button to go to role request page
+	
+@2 
+Scenario:
+A NonFed User Without a Role can make role request from a finite set of selections 
+	Given _2nf nonfed user without a role logs in 
+	And _2nf nonfed user navigates to profile page 
+	Then _2nf user should have no roles 
+	When _2nf user clicks role request button to go to role request page 
 	Then _2nf nonfed user should see the expected list of role to choose from 
-
-@3
-Scenario: bottom up nonfed role request should sent feeds notifications to spaad and the requester 
-	Given _3nf nonfed user without a role logs in  
-	When _3nf nonfed user requests data entry role in entity compliance
-	Then _3nf user should see pending notification and feeds entry for the request
-	When _3nf spaad logs in
-	Then _3nf spaad should see the users pending request
-	When _3nf spaad approves the request
-	Then _3nf spaad should see the status updated in their feeds
+	
+@3 
+Scenario:
+bottom up nonfed role request should sent feeds notifications to spaad and the requester 
+	Given _3nf nonfed user without a role logs in 
+	When _3nf nonfed user requests data entry role in entity compliance 
+	Then _3nf user should see pending notification and feeds entry for the request 
+	When _3nf spaad logs in 
+	Then _3nf spaad should see the users pending request 
+	When _3nf spaad approves the request 
+	Then _3nf spaad should see the status updated in their feeds 
 	When _3nf nonfed user logs back in 
-	Then _3nf user should see the role assigned
-	And _3nf user should see the feeds notifications for the requested updated to approved
+	Then _3nf user should see the role assigned 
+	And _3nf user should see the feeds notifications for the requested updated to approved 
 	
-	
+@4 
+Scenario: bottom up nonfed role request should reflect correct feeds notifications for canceled requests 
+	Given _4nf nonfed user without a role logs in 
+	And _4nf nonfed user requests data entry role in entity registration
+	Then _4nf user should see pending notification and feeds entry for the request  
+	When _4nf user cancels the pending request 
+	Then _4nf user should see the canceled status in the feeds notifications for the request 
 	
 	
 	
