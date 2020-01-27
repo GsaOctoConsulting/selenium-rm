@@ -347,7 +347,7 @@ public class NonFedStep {
 	public void _5nf_spaad_log_in_and_rejects_the_pending_request() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
-		
+
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		LaunchBrowserUtil.scrollAllTheWayDown();
@@ -357,7 +357,7 @@ public class NonFedStep {
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_PENDING,
 				Constants.REJECTROLE);
-		Assert.assertEquals(true, requestFound);	
+		Assert.assertEquals(true, requestFound);
 	}
 
 	@Then("^_5nf spaad should see the rejected status in the feeds notifications for the request$")
@@ -367,12 +367,12 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		FeedsRequestPage.clickRoleRequestFilter();
 		LaunchBrowserUtil.scrollUp();
-		
+
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_REJECTED,
-				Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp,
+				Constants.STATUS_REJECTED, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
-	
+
 	}
 
 	@When("^_5nf nonfed user logs back in$")
@@ -388,12 +388,125 @@ public class NonFedStep {
 		FeedsRequestPage.clickRoleRequestFilter();
 		FeedsRequestPage.clickRejectedFilter();
 		LaunchBrowserUtil.scrollUp();
-		
+
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp, Constants.STATUS_REJECTED,
-				Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, timestamp,
+				Constants.STATUS_REJECTED, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 
+	}
+
+	@Given("^_6nf nonfed user without a role logs in$")
+	public void _6nf_nonfed_user_without_a_role_logs_in() throws Throwable {
+		beforeScenario();
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_6nf user requests data entry role in entity compliance$")
+	public void _6nf_user_requests_data_entry_role_in_entity_compliance() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_6nf spaad logs in$")
+	public void _6nf_spaad_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_6nf spaad assigns the same role to the user without approving the pending request$")
+	public void _6nf_spaad_assigns_the_same_role_to_the_user_without_approving_the_pending_request() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 1);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+	}
+
+	@Then("^_6nf the pending request should appear as complete in the feeds$")
+	public void _6nf_the_pending_request_should_appear_as_complete_in_the_feeds() throws Throwable {
+		LaunchBrowserUtil.delay(2);
+		AssignRolePage.goToFeedsPage();
+		FeedsRequestPage.clickReceivedOnSideNav();
+		FeedsRequestPage.clickCompletedFilter();
+		LaunchBrowserUtil.delay(3);
+
+		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
+		Assert.assertEquals(requestFound, true);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_6nf the nonfed requestor logs into their account$")
+	public void _6nf_the_nonfed_requestor_logs_into_their_account() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@Then("^_6nf the requester should also see the request updated as complete in feeds$")
+	public void _6nf_the_requester_should_also_see_the_request_updated_as_complete_in_feeds() throws Throwable {
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickSentOnSideBar();
+		FeedsRequestPage.clickCompletedFilter();
+		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
+		Assert.assertEquals(requestFound, true);
+	}
+
+	@And("^_6nf the requester will also see the updated role in my roles page$")
+	public void _6nf_the_requester_will_also_see_the_updated_role_in_my_roles_page() throws Throwable {
+		LaunchBrowserUtil.scrollUp();
+		FeedsRequestPage.goToWorkspacePage();
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		LaunchBrowserUtil.delay(2);
+		boolean roleFound = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.NOACTION);
+		Assert.assertEquals(true, roleFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+		
+		//--------------------------delete the role for the user----------------
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		LaunchBrowserUtil.delay(2);
+		// check whether user already has the role
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		LaunchBrowserUtil.delay(2);
+		// delete the role for the user
+		userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.DELETE);
+		LaunchBrowserUtil.delay(8);
+		afterScenario();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	private void beforeScenario() {
