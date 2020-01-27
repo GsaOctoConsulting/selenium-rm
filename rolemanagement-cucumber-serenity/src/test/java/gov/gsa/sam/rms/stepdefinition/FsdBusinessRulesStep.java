@@ -69,7 +69,7 @@ public class FsdBusinessRulesStep {
 
 	@Then("^_1 role admin should be able to assign fsdagent role to the nonfed user$")
 	public void _1_role_admin_should_be_able_to_assign_fsdagent_role_to_the_nonfed_user() throws Throwable {
-		AssignRolePage.selectEntityIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_FSD_AGENT);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("test");
@@ -121,7 +121,7 @@ public class FsdBusinessRulesStep {
 
 	@Then("^_2 fsd admin should be able to assign fsdagent role to the nonfed user$")
 	public void _2_fsd_admin_should_be_able_to_assign_fsdagent_role_to_the_nonfed_user() throws Throwable {
-		AssignRolePage.selectEntityIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_FSD_AGENT);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("test");
@@ -237,16 +237,16 @@ public class FsdBusinessRulesStep {
 
 	@Then("^_6 spaad should not be able to view certain orgs in the entity picker$")
 	public void _6_spaad_should_not_be_able_to_view_certain_orgs_in_the_entity_picker() throws Throwable {
-		boolean orgnotfound1 = AssignRolePage.selectEntityIfFound(Constants.ORG_UTAH_COMMUNICATIONS_AUTHORITY, 0);
+		boolean orgnotfound1 = AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_UTAH_COMMUNICATIONS_AUTHORITY, 0);
 		Assert.assertEquals(false, orgnotfound1);
 		AssignRolePage.clearEntitySelector();
 
 		boolean orgnotfound2 = AssignRolePage
-				.selectEntityIfFound(Constants.ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND, 0);
+				.selectEntityNonFedIfFound(Constants.ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND, 0);
 		Assert.assertEquals(false, orgnotfound2);
 		AssignRolePage.clearEntitySelector();
 
-		boolean orgnotfound3 = AssignRolePage.selectEntityIfFound("001441674", 0);
+		boolean orgnotfound3 = AssignRolePage.selectEntityNonFedIfFound("001441674", 0);
 		Assert.assertEquals(false, orgnotfound3);
 		AssignRolePage.clearEntitySelector();
 	}

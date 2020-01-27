@@ -187,7 +187,6 @@ public class RequestRolePage {
 	public static boolean selectEntityRoleIfFound(String roleName) {
 		boolean roleFound = false;
 		Select role = new Select(driver.findElement(RequestRolePageLocator.ROLE_SELECTOR));
-
 		try {
 			role.selectByVisibleText(roleName);
 			roleFound = true;

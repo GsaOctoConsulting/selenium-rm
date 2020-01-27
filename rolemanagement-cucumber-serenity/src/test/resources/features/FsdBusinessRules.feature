@@ -73,6 +73,16 @@ Scenario: nonfed user should not be able to view entity picker anywhere in the s
 	And _7 spaad logs in 
 	When _7 spaad looks up the nonfed user 
 	Then _7 spaad should not see the entity section for this users profile 
+
+@8 @FsdAdmin @IntegrationTest @G1 
+Scenario: spaad and fsd administrator cannot assign fsd agent to a nonfed user who currently has a role assigned 
+	Given _8fbr spaad user logs in 
+	And _8fbr spaad looks upa a nonfed user with roles 
+	When _8fbr spaad tries to assign fsd agent to this user 
+	Then _8fbr spaad should see an error message 
+	When _7 spaad looks up the nonfed user 
+	Then _7 spaad should not see the entity section for this users profile 
+
 	
 	
 	

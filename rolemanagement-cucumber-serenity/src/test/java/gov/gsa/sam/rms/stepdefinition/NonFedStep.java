@@ -82,7 +82,7 @@ public class NonFedStep {
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 	}
 
-	@Then("^_2nf user should have no roles$")
+	@Then("^_2nf user should have no roles and should see that message$")
 	public void _2nf_user_should_have_no_roles() throws Throwable {
 		String noroletext = MyRolesPage.getTextForNoRoleUser();
 		Assert.assertEquals("No roles are assigned to user.", noroletext);
@@ -418,7 +418,7 @@ public class NonFedStep {
 		Assert.assertEquals(true, domainfound1);
 		RequestRolePage.writeComment("requesting role");
 		RequestRolePage.clickSubmit();
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -435,9 +435,9 @@ public class NonFedStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
 		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
-		AssignRolePage.selectOrgIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 1);
-		AssignRolePage.selectRoleIfFound(Constants.ROLE_DATA_ENTRY);
-		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
 	}
@@ -450,8 +450,9 @@ public class NonFedStep {
 		FeedsRequestPage.clickCompletedFilter();
 		LaunchBrowserUtil.delay(3);
 
-		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
+		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_COMPLETE,
+				Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -468,8 +469,9 @@ public class NonFedStep {
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickSentOnSideBar();
 		FeedsRequestPage.clickCompletedFilter();
-		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_COMPLETE, Constants.NOACTION);
+		boolean requestFound = FeedsRequestPage.requestFound("", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_COMPLETE,
+				Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);
 	}
 
@@ -486,8 +488,8 @@ public class NonFedStep {
 		Assert.assertEquals(true, roleFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
-		
-		//--------------------------delete the role for the user----------------
+
+		// --------------------------delete the role for the user----------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();

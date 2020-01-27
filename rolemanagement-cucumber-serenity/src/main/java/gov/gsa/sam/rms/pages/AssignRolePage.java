@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
+import gov.gsa.sam.rms.locators.RequestRolePageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import org.openqa.selenium.support.ui.Select;
 
@@ -263,22 +264,32 @@ public class AssignRolePage {
 	 * @return true if any entity with the given search term is found, false
 	 *         otherwise
 	 */
-	public static boolean selectEntityIfFound(String entityName, int dropdownOptionNo) {
+	public static boolean selectEntityNonFedIfFound(String entity, int dropdownOptionNo) {
 		boolean orgFound = false;
-		driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA).sendKeys(entityName);
+		driver.findElement(By.id("grant-access-entity-picker-ac-textarea")).sendKeys(entity);
 		LaunchBrowserUtil.delay(3);
-		List<WebElement> orgList = driver.findElements(AssignRolePageLocator.ENTITY_SELECTOR);
+		List<WebElement> orgList = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
 		logger.info(("The size of the list is......" + orgList.size()));
 		WebElement firstOrg = orgList.get(dropdownOptionNo);
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());
-		if (firstOrg.getText().toLowerCase().contains(entityName.toLowerCase())) {
+		if (firstOrg.getText().toLowerCase().contains(entity.toLowerCase())) {
 			orgList.get(dropdownOptionNo).click();
 			LaunchBrowserUtil.delay(3);
-			driver.findElement(AssignRolePageLocator.CONTAINER).click();
 			orgFound = true;
 		}
 		return orgFound;
+	}
+	public static boolean selectEntityRoleIfFound(String roleName) {
+		boolean roleFound = false;
+		Select role = new Select(driver.findElement(AssignRolePageLocator.ROLE_SELECTOR));
+		try {
+			role.selectByVisibleText(roleName);
+			roleFound = true;
+		} catch (NoSuchElementException e) {
 
+			return roleFound;
+		}
+		return roleFound;
 	}
 
 	public static void cancelSelectedOrg() {
@@ -291,6 +302,25 @@ public class AssignRolePage {
 
 	public static void clearEntitySelector() {
 		driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA).clear();
+	}
+	public static boolean selectEntityDomainIfFound(String domainname) {
+		boolean domainFound = false;
+		driver.findElement(By.id("domain-ac-textarea")).sendKeys("");
+		LaunchBrowserUtil.delay(3);
+		List<WebElement> domain = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
+		logger.info(("The size of the list is......" + domain.size()));
+
+		for (int i = 0; i < domain.size(); i++) {
+			WebElement currentDomain = domain.get(i);
+			logger.info(currentDomain.getText());
+			if (domainname.equals(currentDomain.getText())) {
+				domainFound = true;
+				currentDomain.click();
+				return domainFound;
+			}
+		}
+		return domainFound;
+
 	}
 
 }
