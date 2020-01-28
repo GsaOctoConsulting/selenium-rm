@@ -324,6 +324,8 @@ public class LoginStep {
 
 	@And("^_8 user should land on my workspace page$")
 	public void _8_user_should_land_on_my_workspace_page() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RequestRoleOptionalPage.clickSkipAndFinish();
 		T1WorkspacePage.goToAccountDetailsPage();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		// AccountDetailsPage.clickDeactivateAccount();
