@@ -335,6 +335,66 @@ public class LaunchBrowserUtil {
 		return tab_handles;
 	}
 
+	public static ArrayList<String> captureSignUpLinkFromNonFedEmailTemporary(String email) throws InterruptedException {
+		delay(8);
+		LaunchBrowserUtil.clearCookies();
+		((JavascriptExecutor) driver).executeScript("window.open('http://gmail.com')");
+		delay(2);
+		driver.navigate().refresh();
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		driver.findElement(By.id("identifierId")).sendKeys(email);
+		delay(2);
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		delay(3);
+		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("WhiteColor1!");
+		// List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		// logger.info("The size of email list is - " + lastMail.size()); // how
+		// lastMail.get(0).click();
+		// delay(1);
+
+		delay(6);
+		/*
+		 * driver.findElement(By.id( "mailmillieu")) .click();
+		 */
+		// driver.findElement(by) startsWith
+		/*
+		 * driver.findElement(By.xpath(
+		 * "By.xpath(\"//a[contains(@href, 'https://idp.int.identitysandbox.gov/sign_up/email/confirm?')]\"));"
+		 * )) .click();
+		 */
+
+		// (By.className("float-center")).click();
+		/*
+		 * WebElement element = driver.findElement(By.xpath(
+		 * "//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"
+		 * )); Actions actions = new Actions(driver);
+		 * actions.moveToElement(element).click().perform();
+		 */
+		driver.manage().window().maximize();
+		driver.switchTo().frame("ifmail");
+		driver.findElement(By.xpath(
+				"//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"))
+				.click();
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		return tab_handles;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void goToFedMailInbox(String username, String password) {
 		delay(3);
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
