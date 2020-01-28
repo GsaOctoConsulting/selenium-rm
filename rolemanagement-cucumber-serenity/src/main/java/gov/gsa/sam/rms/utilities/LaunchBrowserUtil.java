@@ -348,34 +348,13 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		delay(3);
 		driver.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("WhiteColor1!");
-		// List<WebElement> lastMail = driver.findElements(By.className("zA"));
-		// logger.info("The size of email list is - " + lastMail.size()); // how
-		// lastMail.get(0).click();
-		// delay(1);
-
+		driver.findElement(By.xpath("//*[@id=\"passwordNext\"]/span/span")).click();
+		delay(3);
+		List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();
 		delay(6);
-		/*
-		 * driver.findElement(By.id( "mailmillieu")) .click();
-		 */
-		// driver.findElement(by) startsWith
-		/*
-		 * driver.findElement(By.xpath(
-		 * "By.xpath(\"//a[contains(@href, 'https://idp.int.identitysandbox.gov/sign_up/email/confirm?')]\"));"
-		 * )) .click();
-		 */
-
-		// (By.className("float-center")).click();
-		/*
-		 * WebElement element = driver.findElement(By.xpath(
-		 * "//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"
-		 * )); Actions actions = new Actions(driver);
-		 * actions.moveToElement(element).click().perform();
-		 */
-		driver.manage().window().maximize();
-		driver.switchTo().frame("ifmail");
-		driver.findElement(By.xpath(
-				"//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"))
-				.click();
+		driver.findElement(By.linkText("Confirm email address")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -706,7 +685,23 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
 		return phoneotp;
 	}
-
+	public static String getPhoneOtpFromEmailDuringSignUpNonFedTemporary(String gmailNonfed) {
+		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		delay(4);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+		LaunchBrowserUtil.delay(19);
+		List<WebElement> lastMail = driver.findElements(By.className("zA"));
+		logger.info("The size of email list is - " + lastMail.size());
+		lastMail.get(0).click();
+		delay(3);
+		String phoneotp = driver.findElement(By.className("a3s")).getText().substring(6, 13);
+		logger.info("The captured OTP is- " + phoneotp);
+		tab_handles = new ArrayList<String>(driver.getWindowHandles());
+		delay(2);
+		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
+		return phoneotp.trim();
+	}
 	public static void goToNonFedFedMailInbox(String nonfedemail) {
 		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
 		LaunchBrowserUtil.delay(3);

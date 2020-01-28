@@ -207,7 +207,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			// -----capture link----------------------
-			LaunchBrowserUtil.captureSignUpLinkFromNonFedEmailTemporary(Constants.EMAIL_NONFED);
+			LaunchBrowserUtil.captureSignUpLinkFromNonFedEmailTemporary("raiaan.zyx@gmail.com");
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("password_form_password")).sendKeys(password);
 			LaunchBrowserUtil.delay(2);
@@ -245,7 +245,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(8);
 			// String otpFromText =
 			// LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUp(Constants.GMAIL_USERNAME);
-			String otpFromText = LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUpNonFed(Constants.EMAIL_NONFED);
+			String otpFromText = LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUpNonFedTemporary("raiaan.zyx@gmail.com");
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otpFromText);
 			LaunchBrowserUtil.delay(3);
 			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
