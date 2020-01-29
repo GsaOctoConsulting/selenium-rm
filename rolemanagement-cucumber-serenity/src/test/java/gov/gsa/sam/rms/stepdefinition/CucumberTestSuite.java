@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@Nonfed","@8"})
+				"@FsdBusinessRules","@8"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9
 	// "@T1Workspace","@32" // 433

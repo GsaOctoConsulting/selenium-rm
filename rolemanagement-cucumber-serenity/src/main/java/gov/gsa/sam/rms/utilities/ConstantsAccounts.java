@@ -165,7 +165,6 @@ public class ConstantsAccounts {
 
 	public static final String CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1 = "octotestaccount1+co'cs@gsa.gov";
 	public static final String CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1_SECRETKEY = "76X7XKBMEOF75RH4";
-
 	// ---------------------------------------------------------------------------
 	public static final String CONTRACT_OPPORTUNITIES_VIEWER_1 = "nonfedgsaemail+contractopportunitiesviewer1@yopmail.com";
 	public static final String CONTRACT_OPPORTUNITIES_VIEWER_1_SECRETKEY = "4LCTZJIMKYYUA3QJ";

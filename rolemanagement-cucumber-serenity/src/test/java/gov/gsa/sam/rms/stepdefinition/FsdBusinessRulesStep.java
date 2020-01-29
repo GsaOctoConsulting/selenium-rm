@@ -81,7 +81,6 @@ public class FsdBusinessRulesStep {
 				Constants.ROLE_FSD_AGENT, Constants.DOMAIN_ADMIN, Constants.DELETE);
 		Assert.assertEquals(true, userAlreadyHasRole);
 		afterScenario();
-
 	}
 
 	@Given("^_2 non fed user signs up$")
@@ -289,6 +288,56 @@ public class FsdBusinessRulesStep {
 		boolean entitysectionFound = AccountDetailsPage.elementFound(AccountDetailsPageLocator.ENTITY_INFO);
 		Assert.assertEquals(false, entitysectionFound);
 		LaunchBrowserUtil.delay(5);
+	}
+	
+	@Given("^_8fbr spaad user logs in$")
+	public void _8fbr_spaad_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+	
+	@And("^_8fbr spaad looks upa a nonfed user with roles$")
+	public void _8fbr_spaad_looks_upa_a_nonfed_user_with_roles() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
+	}
+	
+	@When("^_8fbr spaad tries to assign fsd agent to this user$")
+	public void _8fbr_spaad_tries_to_assign_fsd_agent_to_this_user() throws Throwable {
+		LaunchBrowserUtil.delay(3);
+		UserDirectoryViewAccessPage.clickAssignRole();
+	
+	}
+
+	@Then("^_8fbr spaad should not see fsd agent in the dropdown$")
+	public void _8fbr_spaad_should_not_see_fsdagent_in_the_dropdown() throws Throwable {
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		boolean fsdagentrolefound=AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_FSD_AGENT);
+		Assert.assertEquals(false, fsdagentrolefound);
+		
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_8fbr fsd admin logs in$")
+	public void _8fbr_fsd_admin_logs_in() throws Throwable {
+
+	}
+
+	@And("^_8fbr fsd admin looks up a nonfed user with roles$")
+	public void _8fbr_fsd_admin_looks_up_a_nonfed_user_with_roles() throws Throwable {
+
+	}
+
+	@When("^_8fbr fsd admin tries to assign fsd agent to this user$")
+	public void _8fbr_fsdadmin_tries_to_assign_fsd_agent_to_this_user() throws Throwable {
+
+	}
+
+	@Then("^_8fbr fsd admin should see an error message$")
+	public void _8fbr_fsd_admin_should_see_an_error_message() throws Throwable {
+
 	}
 
 	// private methods are below this line

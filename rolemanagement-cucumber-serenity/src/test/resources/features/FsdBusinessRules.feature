@@ -79,9 +79,11 @@ Scenario: spaad and fsd administrator cannot assign fsd agent to a nonfed user w
 	Given _8fbr spaad user logs in 
 	And _8fbr spaad looks upa a nonfed user with roles 
 	When _8fbr spaad tries to assign fsd agent to this user 
-	Then _8fbr spaad should see an error message 
-	When _7 spaad looks up the nonfed user 
-	Then _7 spaad should not see the entity section for this users profile 
+	Then _8fbr spaad should not see fsd agent in the dropdown 
+	When _8fbr fsd admin logs in 
+	And _8fbr fsd admin looks up a nonfed user with roles
+	When _8fbr fsd admin tries to assign fsd agent to this user
+	Then _8fbr fsd admin should see an error message
 
 	
 	
