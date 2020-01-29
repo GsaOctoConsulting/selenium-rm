@@ -553,22 +553,40 @@ public class NonFedStep {
 
 	@Given("^_8nf nonfed user attempts to signup for an account$")
 	public void _8nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
-
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
+				Constants.USERPASS);
 	}
 
 	@And("^_8nf user goes through all the identity verification$")
 	public void _8nf_user_goes_through_all_the_identity_verification() throws Throwable {
-
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		CommonProfilePage.clickSubmitButton();
 	}
 
 	@And("^_8nf user should be able to request role and land on workspace page$")
 	public void _8nf_user_should_be_able_to_request_role_and_land_on_workspace_page() throws Throwable {
-
+		RequestRoleOptionalPage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		RequestRoleOptionalPage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		RequestRoleOptionalPage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
+		RequestRoleOptionalPage.enterAdditionalDetails("requesting this role");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RequestRoleOptionalPage.clickFinishButton();
 	}
 
 	@Then("^_8nf user should be able to view their pending request in feeds$")
 	public void _8nf_user_should_be_able_to_view_their_pending_request_in_feeds() throws Throwable {
-
+		T1WorkspacePage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
 	}
 
 	private void beforeScenario() {
