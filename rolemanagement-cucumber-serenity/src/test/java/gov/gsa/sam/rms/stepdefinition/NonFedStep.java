@@ -13,8 +13,10 @@ import gov.gsa.sam.rms.locators.MyRolesPageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
+import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
+import gov.gsa.sam.rms.pages.RequestRoleOptionalPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
@@ -24,6 +26,7 @@ import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.SignInUtility;
+import gov.gsa.sam.rms.utilities.SignUpUtility;
 import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 
 public class NonFedStep {
@@ -509,6 +512,63 @@ public class NonFedStep {
 		LaunchBrowserUtil.delay(8);
 		afterScenario();
 		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Given("^_7nf nonfed user attempts to signup for an account$")
+	public void _7nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
+				Constants.USERPASS);
+	}
+
+	@And("^_7nf user goes through all the identity verification$")
+	public void _7nf_user_goes_through_all_the_identity_verification() throws Throwable {
+
+	}
+
+	@Then("^_7nf user should not see the entity section in common profile page$")
+	public void _7nf_user_should_not_see_the_entity_section_in_common_profile_page() throws Throwable {
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		boolean entitysectionFound = CommonProfilePage.elementFound(AccountDetailsPageLocator.ENTITY_INFO);
+		Assert.assertEquals(false, entitysectionFound);
+
+		CommonProfilePage.clickSubmitButton();
+
+	}
+
+	@And("^_7nf user should be able to skip role request and land on workspace page$")
+	public void _7nf_user_should_be_able_to_skip_role_request_and_land_on_workspace_page() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RequestRoleOptionalPage.clickSkipAndFinish();
+		T1WorkspacePage.goToAccountDetailsPage();
+	}
+
+	@And("^_7nf user should be able to deactivate their account$")
+	public void _7nf_user_should_be_able_to_deactivate_their_account() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		AccountDetailsPage.clickDeactivateAccount();
+	}
+
+	@Given("^_8nf nonfed user attempts to signup for an account$")
+	public void _8nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
+
+	}
+
+	@And("^_8nf user goes through all the identity verification$")
+	public void _8nf_user_goes_through_all_the_identity_verification() throws Throwable {
+
+	}
+
+	@And("^_8nf user should be able to request role and land on workspace page$")
+	public void _8nf_user_should_be_able_to_request_role_and_land_on_workspace_page() throws Throwable {
+
+	}
+
+	@Then("^_8nf user should be able to view their pending request in feeds$")
+	public void _8nf_user_should_be_able_to_view_their_pending_request_in_feeds() throws Throwable {
+
 	}
 
 	private void beforeScenario() {

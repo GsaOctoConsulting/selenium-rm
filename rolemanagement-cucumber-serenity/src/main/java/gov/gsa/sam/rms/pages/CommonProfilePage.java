@@ -3,6 +3,7 @@ package gov.gsa.sam.rms.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -96,6 +97,15 @@ public class CommonProfilePage {
 	public static void enterLastName(String lastname) {
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.id("last-name")).sendKeys(lastname);
+
+	}
+	public static boolean elementFound(By locator) {
+		try {
+			driver.findElement(locator);
+			return true;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
 
 	}
 }

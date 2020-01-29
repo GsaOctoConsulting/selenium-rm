@@ -29,7 +29,8 @@ Scenario: A NonFed User Without a Role Can See the Entity Management Widget
 	Then _1nf they should not see the entity details section 
 	
 @2 
-Scenario: A NonFed User Without a Role can make role request from a finite set of selections 
+Scenario:
+A NonFed User Without a Role can make role request from a finite set of selections 
 	Given _2nf nonfed user without a role logs in 
 	And _2nf nonfed user navigates to profile page 
 	Then _2nf user should have no roles and should see that message 
@@ -37,7 +38,8 @@ Scenario: A NonFed User Without a Role can make role request from a finite set o
 	Then _2nf nonfed user should see the expected list of role to choose from 
 	
 @3 
-Scenario: bottom up nonfed role request should sent feeds notifications to spaad and the requester 
+Scenario:
+bottom up nonfed role request should sent feeds notifications to spaad and the requester 
 	Given _3nf nonfed user without a role logs in 
 	When _3nf nonfed user requests data entry role in entity compliance 
 	Then _3nf user should see pending notification and feeds entry for the request 
@@ -50,7 +52,8 @@ Scenario: bottom up nonfed role request should sent feeds notifications to spaad
 	And _3nf user should see the feeds notifications for the requested updated to approved 
 	
 @4 
-Scenario: bottom up nonfed role request should reflect correct feeds notifications for canceled requests 
+Scenario:
+bottom up nonfed role request should reflect correct feeds notifications for canceled requests 
 	Given _4nf nonfed user without a role logs in 
 	And _4nf nonfed user requests data entry role in entity registration 
 	Then _4nf user should see pending notification and feeds entry for the request 
@@ -58,7 +61,8 @@ Scenario: bottom up nonfed role request should reflect correct feeds notificatio
 	Then _4nf user should see the canceled status in the feeds notifications for the request 
 	
 @5 
-Scenario: bottom up nonfed role request should reflect correct feeds notifications for rejected requests 
+Scenario:
+bottom up nonfed role request should reflect correct feeds notifications for rejected requests 
 	Given _5nf nonfed user without a role logs in 
 	And _5nf nonfed user requests data entry role in contract opportunities 
 	Then _5nf user should see pending notification and feeds entry for the request 
@@ -68,7 +72,8 @@ Scenario: bottom up nonfed role request should reflect correct feeds notificatio
 	Then _5nf user should see the feeds updated with rejected status for the request 
 	
 @6 
-Scenario: bottom up nonfed role request should reflect completed status in feeds notifications for bottomup flow 
+Scenario:
+bottom up nonfed role request should reflect completed status in feeds notifications for bottomup flow 
 	Given _6nf nonfed user without a role logs in 
 	And _6nf user requests data entry role in entity compliance 
 	When _6nf spaad logs in 
@@ -78,7 +83,20 @@ Scenario: bottom up nonfed role request should reflect completed status in feeds
 	Then _6nf the requester should also see the request updated as complete in feeds 
 	And _6nf the requester will also see the updated role in my roles page 
 	
-	
+@7 
+Scenario: a new nonfed user should be able to register for an account without requesting role at signup 
+	Given _7nf nonfed user attempts to signup for an account 
+	And _7nf user goes through all the identity verification 
+	Then _7nf user should not see the entity section in common profile page 
+	And _7nf user should be able to skip role request and land on workspace page
+	And _7nf user should be able to deactivate their account 
+
+@8 
+Scenario: a new nonfed user should be able to register for an account and requesting role at signup with feeds 
+	Given _8nf nonfed user attempts to signup for an account 
+	And _8nf user goes through all the identity verification  
+	And _8nf user should be able to request role and land on workspace page
+	Then _8nf user should be able to view their pending request in feeds
 	
 	
 	
