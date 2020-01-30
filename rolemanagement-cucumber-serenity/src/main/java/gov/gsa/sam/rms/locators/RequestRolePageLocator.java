@@ -16,10 +16,10 @@ public class RequestRolePageLocator {
 	public static final By SUBMIT_BUTTON = By.id("done-button");
 	public static final By PENDING_REQUESTS = By.linkText("1 pending role request");
 	public static final By PENDING = By.linkText("Pending");
-	public static final By ERRORMESSAGE_SUPERVISOR_NAME = By.id("supervisor-name-error");
-	public static final By ERRORMESSAGE_SUPERVISOR_EMAIL = By.id("supervisor-email");
-	public static final By ERRORMESSAGE_ORG = By.id("federalHierarchy-error");
-	public static final By ERRORMESSAGE_ROLE = By.id("role-select-error");
-	public static final By ERRORMESSAGE_DOMAIN = By.id("domain-ac-textarea-error");
-	public static final By ERRORMESSAGE_ADDITIONALDETAILS = By.id("additional-details-error");
+	public static final By ERRORMESSAGE_SUPERVISOR_NAME = By.id("superName-topErrorLink");
+	public static final By ERRORMESSAGE_SUPERVISOR_EMAIL = By.id("superEmail-topErrorLink");
+	public static final By ERRORMESSAGE_ORG = By.id("org-topErrorLink");
+	public static final By ERRORMESSAGE_ROLE = By.id("role-topErrorLink");
+	public static final By ERRORMESSAGE_DOMAIN = By.id("domains-topErrorLink");
+	public static final By ERRORMESSAGE_ADDITIONALDETAILS = By.id("comment-topErrorLink");
 }

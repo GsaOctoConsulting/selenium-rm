@@ -42,8 +42,12 @@ public class UserDirectoryPage {
 	}
 
 	public static void clickActions(String useremail) {
-		int itemNo = 0;
+	/*	int itemNo = 0;
 		String id = useremail.concat("-action-" + itemNo);
+		driver.findElement(By.id(id)).click();
+		LaunchBrowserUtil.delay(2);*/
+		//int itemNo = 0;
+		String id = useremail.concat("-action-button");
 		driver.findElement(By.id(id)).click();
 		LaunchBrowserUtil.delay(2);
 	}
@@ -66,7 +70,8 @@ public class UserDirectoryPage {
 	public static void clickAssignRole(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-		driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
+		//driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
+		driver.findElement(By.id("menuitem1")).click();
 		AssignRolePage.setDriver(UserDirectoryPage.getDriver());
 		LaunchBrowserUtil.delay(4);
 	}
@@ -74,7 +79,8 @@ public class UserDirectoryPage {
 	public static void clickViewAccess(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-		driver.findElement(UserDirectoryPageLocator.VIEW_ACCESS).click();
+		//driver.findElement(UserDirectoryPageLocator.VIEW_ACCESS).click();
+		driver.findElement(By.id("menuitem0")).click();
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());
 		AccountDetailsPage.setDriver(driver);
@@ -437,9 +443,10 @@ public class UserDirectoryPage {
 	public static void clickViewAccessOnly(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(3); //
-		driver.findElement(By.xpath(
+	/*	driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul/li/button/span[2]"))
-				.click();
+				.click();*/
+		driver.findElement(By.id("menuitem0")).click();
 		LaunchBrowserUtil.delay(2);
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());

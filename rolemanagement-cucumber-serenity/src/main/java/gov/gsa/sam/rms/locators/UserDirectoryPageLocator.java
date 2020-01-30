@@ -3,7 +3,6 @@ package gov.gsa.sam.rms.locators;
 import org.openqa.selenium.By;
 
 public class UserDirectoryPageLocator {
-
 	public static final By USER_PICKER_BAR = By.id("userPicker");
 	public static final By FIRST_RESULT = By.id("userPicker-resultItem-0");
 	public static final By USER_VIEWACCESS_LINK = By.id("shah.raiaan+coSelenium@gsa.gov-action-0");

@@ -138,7 +138,9 @@ public class RoleRequestStep {
 		RequestRolePage.clickSubmit();
 		LaunchBrowserUtil.delay(3);
 		MyRolesPage.goToFeedsPage();
-		FeedsRequestPage.clickSentOnSideBar();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollUp();
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
 				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_PENDING, Constants.NOACTION);
