@@ -550,7 +550,7 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		AccountDetailsPage.clickDeactivateAccount();
 	}
-
+	
 	@Given("^_8nf nonfed user attempts to signup for an account$")
 	public void _8nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");

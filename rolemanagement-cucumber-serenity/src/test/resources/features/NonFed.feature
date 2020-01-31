@@ -67,16 +67,16 @@ Scenario: bottom up nonfed role request should reflect correct feeds notificatio
 	When _5nf nonfed user logs back in 
 	Then _5nf user should see the feeds updated with rejected status for the request 
 	
-@6 
-Scenario: bottom up nonfed role request should reflect completed status in feeds notifications for bottomup flow 
-	Given _6nf nonfed user without a role logs in 
-	And _6nf user requests data entry role in entity compliance 
-	When _6nf spaad logs in 
-	And _6nf spaad assigns the same role to the user without approving the pending request 
-	Then _6nf the pending request should appear as complete in the feeds 
-	When _6nf the nonfed requestor logs into their account 
-	Then _6nf the requester should also see the request updated as complete in feeds 
-	And _6nf the requester will also see the updated role in my roles page 
+#@6 
+#Scenario: bottom up nonfed role request should reflect completed status in feeds notifications for bottomup flow 
+#	Given _6nf nonfed user without a role logs in 
+#	And _6nf user requests data entry role in entity compliance 
+#	When _6nf spaad logs in 
+#	And _6nf spaad assigns the same role to the user without approving the pending request 
+#	Then _6nf the pending request should appear as complete in the feeds 
+#	When _6nf the nonfed requestor logs into their account 
+#	Then _6nf the requester should also see the request updated as complete in feeds 
+#	And _6nf the requester will also see the updated role in my roles page 
 	
 @7 
 Scenario: a new nonfed user should be able to register for an account without requesting role at signup 

@@ -477,9 +477,9 @@ public class LaunchBrowserUtil {
 		delay(4);
 		List<WebElement> lastMail = driver.findElements(By.className("zA"));
 		logger.info("The size of email list is - " + lastMail.size());
-		lastMail.get(1).click();
+		lastMail.get(0).click();
 		delay(3);
-		String phoneotp = driver.findElement(By.className("a3s")).getText().substring(6, 13);
+		String phoneotp = driver.findElement(By.className("a3s")).getText().substring(6, 13).trim();
 		logger.info("The captured OTP is- " + phoneotp);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		delay(2);
