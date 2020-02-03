@@ -21,115 +21,52 @@ import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.utilities.SignUpUtility;
 import junit.framework.Assert;
+import net.serenitybdd.core.Serenity;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
+
+import java.awt.Dimension;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.io.File;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import atu.testrecorder.ATUTestRecorder;
+
 public class LoginStep {
 
+	// private static ScreenRecorder screenRecorder;
 	private static Logger logger = LoggerFactory.getLogger(LoginStep.class);
 	String newid = "";
 	String secretkey = "";
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
-	public void user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
+	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
 
-		beforeScenario();
+		/*beforeScenario();
+		ATUTestRecorder recorder = new ATUTestRecorder(
+				"C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\videos",
+				this.getClass().getSimpleName() + new Object() {
+				}.getClass().getEnclosingMethod().getName().substring(0, 2), false);
+		recorder.start();*/
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_ADMIN,
-		 * Constants.USERPASS, ConstantsAccounts.IAE_ADMIN_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2,
-		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		// WorkspacePage.goToRoleMigrationPage();
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1,
-		 * Constants.USERPASS, ConstantsAccounts.NONFED_USER_1_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-		// LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
-
-		/*
-		 * RMWidgetUtility.clickUserDirectoryLink();
-		 * UserDirectoryPage.searchUserInUserPicker("shah.raiaan+noroless2@gsa.gov");
-		 * UserDirectoryPage.clickAssignRole("shah.raiaan+noroless2@gsa.gov");
-		 * CommonMethods.delay(4); AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
-		 * AssignRolePage.selectRoleIfFound(Constants.
-		 * ROLE_AL_GRANDUSER_SAMPMOADMINISTRATOR, Constants.DOMAIN_FEDERAL_HIERARCHY);
-		 * //AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
-		 * //AssignRolePage.writeComment("test"); //AssignRolePage.clickDone();
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2,
-		 * Constants.USERPASS, ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2,
-		 * Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		/*
-		 * SignInUtility.testSignin(LaunchBrowserUtil.getDriver(),
-		 * Constants.ACTIVE_ENV_URL, ConstantsAccounts.DEPT_ROLEADMIN_2,
-		 * Constants.USERPASS, ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY);
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1,
-		 * Constants.USERPASS, ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2,
-		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY,
-		 * Constants.USER_FED); CommonMethods.delay(4);
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1,
-		 * Constants.USERPASS, ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		/*
-		 * SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2,
-		 * Constants.USERPASS, ConstantsAccounts.ASSISTANCE_ADMIN_USER_2_SECRETKEY,
-		 * Constants.USER_FED);
-		 */
-
-		// LaunchBrowserUtil.captureSignUpLinkFromGmail();
+		/*recorder.stop();*/
 
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
 	public void dra_should_see_userdirectory_widget() throws Throwable {
-		/*
-		 * boolean rmWidgetFound = RMWidgetUtility.widgetFound();
-		 * Assert.assertEquals(rmWidgetFound, true); afterScenario();
-		 * //LaunchBrowserUtil.closeBrowsers();
-		 */
 	}
 
 	@Given("^_2 user has an account in login dot gov domain$")
 	public void _2_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
-		SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
-				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);
+		/*SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
+				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);*/
 
 		/*
 		 * SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser21@gsa.gov",
@@ -150,10 +87,10 @@ public class LoginStep {
 
 	@Then("^_2 user should be shown the complete profile page when logging back in$")
 	public void _2_user_should_be_able_to_sign_into_workspace() throws Throwable {
-		CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
+		/*CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.delay(4);
-		LaunchBrowserUtil.closeBrowsers();
+		LaunchBrowserUtil.closeBrowsers();*/
 	}
 
 	@Given("^_3 user has an account in login dot gov domain$")
@@ -316,7 +253,8 @@ public class LoginStep {
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		//CommonProfilePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		// CommonProfilePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+		// 0);
 		CommonProfilePage.clickSubmitButton();
 	}
 
@@ -545,5 +483,30 @@ public class LoginStep {
 	private void afterScenario() {
 		logger.info("*************************END OF SCENARIO****************************************************");
 	}
+
+	/*
+	 * public void startRecording() throws Exception { File file = new
+	 * File("C:\\RM\\project");
+	 * 
+	 * Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); int width
+	 * = screenSize.width; int height = screenSize.height;
+	 * 
+	 * Rectangle captureSize = new Rectangle(0, 0, width, height);
+	 * 
+	 * GraphicsConfiguration gc =
+	 * GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().
+	 * getDefaultConfiguration();
+	 * 
+	 * this.screenRecorder = new SpecializedScreenRecorder(gc, captureSize, new
+	 * Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI), new
+	 * Format(MediaTypeKey, MediaType.VIDEO, EncodingKey,
+	 * ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE, CompressorNameKey,
+	 * ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE, DepthKey, 24, FrameRateKey,
+	 * Rational.valueOf(15), QualityKey, 1.0f, KeyFrameIntervalKey, 15 * 60), new
+	 * Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, "black", FrameRateKey,
+	 * Rational.valueOf(30)), null, file, "MyVideo"); this.screenRecorder.start();
+	 * 
+	 * }
+	 */
 
 }

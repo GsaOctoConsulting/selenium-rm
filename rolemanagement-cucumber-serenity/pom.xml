@@ -36,10 +36,6 @@
 	</pluginRepositories>
 
 	<dependencies>
-
-
-
-
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
@@ -195,6 +191,7 @@
 			<artifactId>aerogear-otp-java</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -219,6 +216,7 @@
 					<systemPropertyVariables>
 						<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
 					</systemPropertyVariables>
+
 					<parallel>classes</parallel>
 					<threadCount>${parallel.tests}</threadCount>
 					<forkCount>${parallel.tests}</forkCount>

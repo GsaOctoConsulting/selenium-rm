@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -72,6 +71,7 @@ public class LaunchBrowserUtil {
 		System.setProperty("webdriver.chrome.driver", chromedriverpath);
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		
 		return driver;
 	}
 
