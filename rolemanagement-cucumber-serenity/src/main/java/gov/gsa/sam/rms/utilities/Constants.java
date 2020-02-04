@@ -303,6 +303,7 @@ public class Constants {
 	public static final String MA_GSASA_ADD_COMMENT = "The comment has been added by GSA Security Approver";
 
 	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
+	public static final String SCENARIO_VIDEO_FILE_PATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\videos";
 	
 	
 
