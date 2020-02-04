@@ -48,6 +48,7 @@ public class LoginStep {
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
 
 		/*beforeScenario();
+		 VideoRecordingUtility.
 		ATUTestRecorder recorder = new ATUTestRecorder(
 				"C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\videos",
 				this.getClass().getSimpleName() + new Object() {
