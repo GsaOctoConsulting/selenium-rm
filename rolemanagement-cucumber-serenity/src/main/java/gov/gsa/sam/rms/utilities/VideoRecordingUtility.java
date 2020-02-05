@@ -28,7 +28,7 @@ public class VideoRecordingUtility {
 		}
 	}
 	/**
-	 * this method will start recording in and save the file as .mov format
+	 * this method will start recording and save the file as .mov format
 	 * 
 	 * @throws SecurityException
 	 * @throws ATUTestRecorderException
