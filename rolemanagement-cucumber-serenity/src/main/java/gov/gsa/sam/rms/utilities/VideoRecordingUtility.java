@@ -1,30 +1,60 @@
 package gov.gsa.sam.rms.utilities;
 
-import org.openqa.selenium.WebDriver;
 import atu.testrecorder.ATUTestRecorder;
 import atu.testrecorder.exceptions.ATUTestRecorderException;
 
+/**
+ * @author ShahMRaiaan
+ * Description: - this class provides video recording capabilities for 
+ * cucumber tests. This class needs to be instantiated in
+ * the @before method in CucumberHooks.java to be executed before 
+ * each scenario. 
+ *
+ */
 public class VideoRecordingUtility {
 	private String folderlocation;
 	private ATUTestRecorder recorder;
-	StringBuilder filename = new StringBuilder("");
+	private StringBuilder filename = new StringBuilder("");
 
-	public StringBuilder getFilename() {
-		return filename;
-	}
-
-	public void setFilename(String filenames) {
-		System.out.println("The saved filename arriving is--------" + filenames);
-		this.filename.append(filenames);
-	}
-
-	public VideoRecordingUtility(String folderlocation) {
+	/**
+	 * @param folderlocation  the url for storing the recorded videos
+	 * @param desiredfilename the name of the file to be saved
+	 */
+	public VideoRecordingUtility(String folderlocation, String desiredfilename) {
 		try {
-			
-			recorder = new ATUTestRecorder(folderlocation, filename.toString(), true);
+			recorder = new ATUTestRecorder(folderlocation, desiredfilename, false);
 		} catch (SecurityException | ATUTestRecorderException e) {
 			e.printStackTrace();
 		}
+	}
+	/**
+	 * this method will start recording in and save the file as .mov format
+	 * 
+	 * @throws SecurityException
+	 * @throws ATUTestRecorderException
+	 */
+	public void start() {
+		try {
+			recorder.start();
+		} catch (ATUTestRecorderException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * stop the recording
+	 * 
+	 * @throws ATUTestRecorderException
+	 */
+	public void stop() {
+		try {
+			recorder.stop();
+		} catch (ATUTestRecorderException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	public String getFolderlocation() {
@@ -35,20 +65,12 @@ public class VideoRecordingUtility {
 		this.folderlocation = folderlocation;
 	}
 
-	/**
-	 * this methord in addition to initiating recording will also name the file in
-	 * the following format - FeatureName+scenario no, eg Login_1
-	 * 
-	 * @throws SecurityException
-	 * @throws ATUTestRecorderException
-	 */
-	public void start() throws SecurityException, ATUTestRecorderException {
-		recorder.start();
+	public StringBuilder getFilename() {
+		return filename;
 	}
 
-	public void stop() throws ATUTestRecorderException {
-		recorder.stop();
-
+	public void setFilename(String filenames) {
+		this.filename.append(filenames);
 	}
 
 }

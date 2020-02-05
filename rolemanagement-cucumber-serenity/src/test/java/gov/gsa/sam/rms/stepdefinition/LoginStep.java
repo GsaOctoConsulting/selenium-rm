@@ -35,8 +35,6 @@ import java.io.File;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import atu.testrecorder.ATUTestRecorder;
-
 public class LoginStep {
 
 	// private static ScreenRecorder screenRecorder;
@@ -46,18 +44,8 @@ public class LoginStep {
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
-
-		/*beforeScenario();
-		 VideoRecordingUtility.
-		ATUTestRecorder recorder = new ATUTestRecorder(
-				"C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\videos",
-				this.getClass().getSimpleName() + new Object() {
-				}.getClass().getEnclosingMethod().getName().substring(0, 2), false);
-		recorder.start();*/
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-		/*recorder.stop();*/
-
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
@@ -66,8 +54,8 @@ public class LoginStep {
 
 	@Given("^_2 user has an account in login dot gov domain$")
 	public void _2_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
-		/*SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
-				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);*/
+		SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
+				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);
 
 		/*
 		 * SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser21@gsa.gov",
