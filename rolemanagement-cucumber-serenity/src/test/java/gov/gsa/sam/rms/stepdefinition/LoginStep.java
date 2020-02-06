@@ -44,18 +44,29 @@ public class LoginStep {
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		try {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		
+		}
+		catch(Exception e) {
+		logger.info("integer exception happended");	
+		}
+		//LaunchBrowserUtil.takeScreenshot();
+		LaunchBrowserUtil.delay(4);
+		//Constants.SCENARIO_VIDEO_FILE_PATH;
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
 	public void dra_should_see_userdirectory_widget() throws Throwable {
+	
 	}
 
 	@Given("^_2 user has an account in login dot gov domain$")
 	public void _2_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
 		SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
 				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);
+		LaunchBrowserUtil.takeScreenshot();
 
 		/*
 		 * SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser21@gsa.gov",

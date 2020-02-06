@@ -22,7 +22,7 @@ public class VideoRecordingUtility {
 	 */
 	public VideoRecordingUtility(String folderlocation, String desiredfilename) {
 		try {
-			recorder = new ATUTestRecorder(folderlocation, desiredfilename, false);
+			recorder = new ATUTestRecorder(desiredfilename, false);
 		} catch (SecurityException | ATUTestRecorderException e) {
 			e.printStackTrace();
 		}

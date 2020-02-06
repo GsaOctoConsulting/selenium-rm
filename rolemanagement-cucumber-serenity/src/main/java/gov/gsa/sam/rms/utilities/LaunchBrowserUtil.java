@@ -1,12 +1,18 @@
 package gov.gsa.sam.rms.utilities;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
 
 import org.jboss.aerogear.security.otp.Totp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +24,9 @@ import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 /**
  * This class is the primary utility class for browser actions and other custom
@@ -35,7 +44,6 @@ import gov.gsa.sam.rms.pages.T1WorkspacePage;
  *
  */
 public class LaunchBrowserUtil {
-
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static ArrayList<String> tab_handles;
@@ -71,7 +79,7 @@ public class LaunchBrowserUtil {
 		System.setProperty("webdriver.chrome.driver", chromedriverpath);
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		
+
 		return driver;
 	}
 
@@ -335,7 +343,8 @@ public class LaunchBrowserUtil {
 		return tab_handles;
 	}
 
-	public static ArrayList<String> captureSignUpLinkFromNonFedEmailTemporary(String email) throws InterruptedException {
+	public static ArrayList<String> captureSignUpLinkFromNonFedEmailTemporary(String email)
+			throws InterruptedException {
 		delay(8);
 		LaunchBrowserUtil.clearCookies();
 		((JavascriptExecutor) driver).executeScript("window.open('http://gmail.com')");
@@ -360,20 +369,7 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		return tab_handles;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public static void goToFedMailInbox(String username, String password) {
 		delay(3);
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
@@ -685,6 +681,7 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
 		return phoneotp;
 	}
+
 	public static String getPhoneOtpFromEmailDuringSignUpNonFedTemporary(String gmailNonfed) {
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
 		delay(4);
@@ -702,6 +699,7 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 2));
 		return phoneotp.trim();
 	}
+
 	public static void goToNonFedFedMailInbox(String nonfedemail) {
 		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
 		LaunchBrowserUtil.delay(3);
@@ -834,5 +832,10 @@ public class LaunchBrowserUtil {
 	public static void scrollToEnd() throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("scroll(0,1600)", "");
+	}
+
+	public static void takeScreenshot() throws IOException {
+		Screenshot screenshot = new AShot().takeScreenshot(driver);
+		ImageIO.write(screenshot.getImage(), "png", new File(".\\screenshot\\fullimage.jpg"));
 	}
 }
