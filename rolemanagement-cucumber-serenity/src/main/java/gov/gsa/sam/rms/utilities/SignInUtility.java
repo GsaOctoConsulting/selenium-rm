@@ -56,8 +56,6 @@ public class SignInUtility {
 		logger.info("------------Sign into workspace completed------------------------------");
 		//LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/t1-workspace");
 		//LaunchBrowserUtil.delay(3);
-		int i = 8 /0;
-
 	}
 
 }

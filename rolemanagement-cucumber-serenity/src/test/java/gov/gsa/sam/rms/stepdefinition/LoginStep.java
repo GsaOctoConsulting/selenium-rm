@@ -44,17 +44,13 @@ public class LoginStep {
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
-		try {
+		
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
-		
-		}
-		catch(Exception e) {
-		logger.info("integer exception happended");	
-		}
 		//LaunchBrowserUtil.takeScreenshot();
+		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);*/
 		LaunchBrowserUtil.delay(4);
-		//Constants.SCENARIO_VIDEO_FILE_PATH;
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")

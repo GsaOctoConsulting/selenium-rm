@@ -550,7 +550,7 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		AccountDetailsPage.clickDeactivateAccount();
 	}
-	
+
 	@Given("^_8nf nonfed user attempts to signup for an account$")
 	public void _8nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
@@ -587,6 +587,21 @@ public class NonFedStep {
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
+	}
+
+	@Given("^_9nf nonfed user without a role logs in$")
+	public void _9nf_nonfed_user_without_a_role_logs_in() throws Throwable {
+
+	}
+
+	@Then("^_9nf user should not see user directory widget$")
+	public void _9nf_user_should_not_see_user_directory_widget() throws Throwable {
+
+	}
+
+	@And("^_9nf user should also not be able to hit the user directory url$")
+	public void _9nf_user_should_also_not_be_able_to_hit_the_user_directory_url() throws Throwable {
+
 	}
 
 	private void beforeScenario() {

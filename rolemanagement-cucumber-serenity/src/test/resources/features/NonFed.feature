@@ -93,6 +93,11 @@ Scenario: a new nonfed user should be able to register for an account and reques
 	And _8nf user should be able to request role and land on workspace page
 	Then _8nf user should be able to view their pending request in feeds
 	
+@9
+Scenario: a nonfed user without a role should not be able to view the userdirectory
+	Given _9nf nonfed user without a role logs in 
+	Then _9nf user should not see user directory widget  
+	And _9nf user should also not be able to hit the user directory url
 	
 	
 	
