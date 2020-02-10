@@ -591,17 +591,19 @@ public class NonFedStep {
 
 	@Given("^_9nf nonfed user without a role logs in$")
 	public void _9nf_nonfed_user_without_a_role_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_9nf user should not see user directory widget$")
 	public void _9nf_user_should_not_see_user_directory_widget() throws Throwable {
-
+		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
+		Assert.assertEquals(false, userdirectorywidgetfound);
 	}
 
 	@And("^_9nf user should also not be able to hit the user directory url$")
 	public void _9nf_user_should_also_not_be_able_to_hit_the_user_directory_url() throws Throwable {
-
+LaunchBrowserUtil.enterUrl(url);
 	}
 
 	private void beforeScenario() {
