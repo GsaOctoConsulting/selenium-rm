@@ -4,8 +4,8 @@ public class Constants {
 
 	static PropertiesFileUtility fileUtilityreader = new PropertiesFileUtility("application.properties");
 	// urls
-	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
-	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov";
+	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
+	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov";
 	//public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
 	// login credentials
 	public static final String USERPASS = "WhiteColor1!";
@@ -304,7 +304,7 @@ public class Constants {
 
 	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
 	public static final String SCENARIO_VIDEO_FILE_PATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\videos";
-	public static final boolean VIDEO_RECORD_ON = true;
+	public static final boolean VIDEO_RECORD_ON = false;
 	public static final String SCREENSHOTS_FILEPATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\screenshots.png";
 	
 	

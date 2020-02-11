@@ -15,6 +15,7 @@ import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
+import gov.gsa.sam.rms.pages.ForBiddenPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.RequestRoleOptionalPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
@@ -603,7 +604,32 @@ public class NonFedStep {
 
 	@And("^_9nf user should also not be able to hit the user directory url$")
 	public void _9nf_user_should_also_not_be_able_to_hit_the_user_directory_url() throws Throwable {
-LaunchBrowserUtil.enterUrl(url);
+		ForBiddenPage.setDriver(MyRolesPage.getDriver());
+		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE + "/role-management/user-directory");
+		LaunchBrowserUtil.delay(2);
+		String message = ForBiddenPage.getPrimaryContentMessage();
+		Assert.assertEquals("You do not have sufficient privileges to view the requested page.", message);
+	}
+
+	@Given("^_10nf nonfed user with a role logs in$")
+	public void _10nf_nonfed_user_with_a_role_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@Then("^_10nf nonfed user should see user directory widget$")
+	public void _10nf_nonfed_user_should_see_user_directory_widget() throws Throwable {
+		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
+		Assert.assertEquals(true, userdirectorywidgetfound);
+	}
+
+	@And("^_10nf nonfed user should also be able to hit the user directory url to access the page$")
+	public void _10nf_nonfed_user_should_also_be_able_to_hit_the_user_directory_url_to_access_the_page()
+			throws Throwable {
+		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE + "/role-management/user-directory");
+		LaunchBrowserUtil.delay(2);
+		UserDirectoryPage.setDriver(LaunchBrowserUtil.getDriver());
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
 	}
 
 	private void beforeScenario() {
