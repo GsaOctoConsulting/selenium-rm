@@ -104,7 +104,12 @@ Scenario: a nonfed user with a role should be able to view the userdirectory
 	Given _10nf nonfed user with a role logs in 
 	Then _10nf nonfed user should see user directory widget  
 	And _10nf nonfed user should also be able to hit the user directory url to access the page	
-	
+
+@11
+Scenario: a nonfed user with a role should be able to view the userdirectory
+	Given _11nf nonfed user logs in with data entry role in entity registration  
+	And _11nf user navigates to user directory page and clicks data entry and entity registration filter  
+	And _11nf user should see all those users as clickable
 	
 	
 	

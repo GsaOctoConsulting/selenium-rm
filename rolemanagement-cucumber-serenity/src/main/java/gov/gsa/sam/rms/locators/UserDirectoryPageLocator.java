@@ -18,7 +18,7 @@ public class UserDirectoryPageLocator {
 	public static final By PDF_DOWNLOAD = By.className("fa-file-pdf-o");
 	public static final By CSV_DOWNLOAD = By.className("fa-table");
 	public static final By NONFED_FILTER = By.id("userTypeNon-Federal-Users");
-	public static final By FED_FILTER = By.id("userTypeFederal-Users");
+	public static final By FED_FILTER = By.id("option-Federal Users");
 	public static final By CONTRACTING_OFFICER_FILTER = By.id("role-7");
 	public static final By DOWNLOAD_DIALOGUE_BOX = By.className("usa-alert-info");
 	public static final By USERNAME = By.className("h3");
@@ -77,6 +77,7 @@ public class UserDirectoryPageLocator {
 	public static final By ID = By.className("description");
 	public static final By ORG_PICKER_FILTER_WHERE_USERS_HAVE_ROLES = By.id("orgTypeOrganizations-where-users-have-roles");
 	public static final By NO_RESULTS_MESSAGE = By.xpath("//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/p");
+	public static final By DATA_ENTRY_FILTER = By.id("role-Data Entry");
 
 	private UserDirectoryPageLocator() {
 

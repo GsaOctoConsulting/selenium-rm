@@ -522,7 +522,15 @@ public class UserDirectoryPage {
 
 	public static String getNoResultsmessageFound() {
 		return driver.findElement(UserDirectoryPageLocator.NO_RESULTS_MESSAGE).getText();
-
+	}
+	public static void clickUsersOwnDomain() {
+		driver.findElement(By.xpath("//input[starts-with(@id, 'my-domain-')]")).click();	
+		LaunchBrowserUtil.delay(2);
+		
+	}
+	public static void clickDataEntryFilter() {
+		driver.findElement(UserDirectoryPageLocator.DATA_ENTRY_FILTER).click();
+		LaunchBrowserUtil.delay(2);		
 	}
 
 }

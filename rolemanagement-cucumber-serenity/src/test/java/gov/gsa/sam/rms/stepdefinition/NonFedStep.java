@@ -1,6 +1,9 @@
 package gov.gsa.sam.rms.stepdefinition;
 
+import java.util.List;
+
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +14,7 @@ import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.locators.MyRolesPageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
+import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.CommonProfilePage;
@@ -630,6 +634,45 @@ public class NonFedStep {
 		LaunchBrowserUtil.delay(2);
 		UserDirectoryPage.setDriver(LaunchBrowserUtil.getDriver());
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+	}
+
+	@Given("^_11nf nonfed user logs in with data entry role in entity registration$")
+	public void _11nf_nonfed_user_logs_in_with_data_entry_role_in_entity_registration() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1, Constants.USERPASS,
+				ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_11nf user navigates to user directory page and clicks data entry and entity registration filter$")
+	public void _11nf_user_navigates_to_user_directory_page_and_clicks_data_entry_and_entity_registration_filter()
+			throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickUsersOwnDomain();
+		UserDirectoryPage.clickDataEntryFilter();
+		LaunchBrowserUtil.scrollUp();
+	}
+
+	@And("^_11nf user should see all those users as clickable$")
+	public void _11nf_user_should_see_all_those_users_as_clickable() throws Throwable {
+		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		int currentPage = 1;
+
+		do {// search page 1 regardless of whether other pages exist
+
+			List<WebElement> userList = UserDirectoryPage.getUserList();
+			logger.info("The size fo the user list is--" + userList.size());
+
+			for (int i = 0; i < userList.size(); i++) {
+				WebElement user = userList.get(i).findElement(UserDirectoryPageLocator.USERNAME);
+				boolean isClickable = UserDirectoryPage.isClickable(user);
+				Assert.assertTrue(isClickable);
+			}
+			// click to next page and increment page counter
+			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
+				currentPage++;
+				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
+			}
+
+		} while (currentPage < totalNoOfPages);
 	}
 
 	private void beforeScenario() {
