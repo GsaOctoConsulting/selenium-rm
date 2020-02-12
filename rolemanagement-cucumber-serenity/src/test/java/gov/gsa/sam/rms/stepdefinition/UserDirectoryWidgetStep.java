@@ -87,7 +87,7 @@ public class UserDirectoryWidgetStep {
 	public void _3_user_goes_back_to_workspace_page_and_searches_for_a_user_through_widget() throws Throwable {
 		AccountDetailsPage.goToMyWorkspacePage();
 		LaunchBrowserUtil.scrollToMiddle();
-		UserDirectoryWidgetUtility.searchUser(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2);
+		T1WorkspacePage.clickUserDirectoryLink();
 
 	}
 

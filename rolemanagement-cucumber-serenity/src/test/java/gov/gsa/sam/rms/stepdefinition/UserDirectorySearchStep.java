@@ -276,7 +276,7 @@ public class UserDirectorySearchStep {
 	@Then("^_8uds no search results message should be displayed$")
 	public void _8uds_no_search_results_message_should_be_displayed() throws Throwable {
 		String noresultsMessageFoundText = UserDirectoryPage.getNoResultsmessageFound();
-		Assert.assertEquals("No results found for selected criteria", noresultsMessageFoundText);
+		Assert.assertEquals("No User Found For the Selected Criteria", noresultsMessageFoundText);
 	}
 
 	// private methods are below this line

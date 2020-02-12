@@ -434,6 +434,7 @@ public class UserDirectoryPage {
 
 	public static void searchUserInUserPicker(String user) {
 		LaunchBrowserUtil.delay(1);
+		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).clear();
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).sendKeys(user);
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(UserDirectoryPageLocator.FIRST_RESULT).click();
@@ -509,8 +510,9 @@ public class UserDirectoryPage {
 		LaunchBrowserUtil.delay(2);
 		List<WebElement> orgList = driver.findElements(AssignRolePageLocator.ORG_SELECTOR);
 		logger.info(("The size of the list is......" + orgList.size()));
-		WebElement firstOrg = orgList.get(0);
-		firstOrg.click();
+		/*WebElement firstOrg = orgList.get(0);
+		firstOrg.click();*/
+		driver.findElement(By.xpath("//*[@id=\"federalHierarchy_100006688\"]")).click();
 		LaunchBrowserUtil.delay(2);
 	}
 

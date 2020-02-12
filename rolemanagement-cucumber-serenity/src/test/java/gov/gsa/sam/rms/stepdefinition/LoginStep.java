@@ -44,18 +44,14 @@ public class LoginStep {
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
-		
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_FED);
-		//LaunchBrowserUtil.takeScreenshot();
-		/*SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);*/
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
 	public void dra_should_see_userdirectory_widget() throws Throwable {
-	
+
 	}
 
 	@Given("^_2 user has an account in login dot gov domain$")
@@ -83,10 +79,11 @@ public class LoginStep {
 
 	@Then("^_2 user should be shown the complete profile page when logging back in$")
 	public void _2_user_should_be_able_to_sign_into_workspace() throws Throwable {
-		/*CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
-		CommonProfilePage.enterWorkphone("5555555555");
-		LaunchBrowserUtil.delay(4);
-		LaunchBrowserUtil.closeBrowsers();*/
+		/*
+		 * CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
+		 * CommonProfilePage.enterWorkphone("5555555555"); LaunchBrowserUtil.delay(4);
+		 * LaunchBrowserUtil.closeBrowsers();
+		 */
 	}
 
 	@Given("^_3 user has an account in login dot gov domain$")
@@ -122,7 +119,7 @@ public class LoginStep {
 	public void _4_user_should_be_able_to_log_into_workspace() throws Throwable {
 
 	}
-
+	
 	@And("^_4 user navigates to myprofile page$")
 	public void _4_user_navigates_to_myprofile_page() throws Throwable {
 		T1WorkspacePage.goToAccountDetailsPage();
@@ -145,7 +142,7 @@ public class LoginStep {
 	@And("^_5 user enters same id in login dot gov to signin$")
 	public void _5_user_enters_same_id_in_login_dot_gov_to_signin() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS,
-				ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
+		ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@Then("^_5 user should be able to log into workspace$")
