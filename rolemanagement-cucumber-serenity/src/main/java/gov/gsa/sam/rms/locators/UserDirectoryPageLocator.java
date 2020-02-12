@@ -62,7 +62,7 @@ public class UserDirectoryPageLocator {
 	public static final By DOMAIN_FH_FILTER = By.id("domain-5");
 	public static final By DOMAIN_REPORTING_FILTER = By.id("domain-11");
 	public static final By CLEARFILTER = By
-			.xpath("//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[1]/sidebar/div[1]/a");
+			.id("filter-reset-button");
 	public static final By PROVIDEFEEDBACK_LINK = By.className("usa-button-primary-alt");
 	public static final By ORGPICKER_ADVANCED = By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[1]/sidebar/div[1]/sam-agency-picker-v2/sam-label-wrapper/div/div[2]/a[2]");

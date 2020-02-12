@@ -69,7 +69,6 @@ public class UserDirectoryFilterStep {
 	public void _2_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
 		UserDirectoryPage.clickAdminFilter();;
 		UserDirectoryPage.clickAssistanceUserFilter();
-		;
 		UserDirectoryPage.clickClearFilter();
 
 		boolean adminfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ADMIN_FILTER);
