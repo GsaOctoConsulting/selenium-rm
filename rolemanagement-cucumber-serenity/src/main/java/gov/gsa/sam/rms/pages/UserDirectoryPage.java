@@ -37,7 +37,7 @@ public class UserDirectoryPage {
 	}
 
 	public static List<WebElement> getUserList() {
-		logger.info("The of the userlist is - " + driver.findElements(UserDirectoryPageLocator.GET_LISTOFUSERS).size());
+		logger.info("The userdirectory list size is - " + driver.findElements(UserDirectoryPageLocator.GET_LISTOFUSERS).size());
 		return driver.findElements(UserDirectoryPageLocator.GET_LISTOFUSERS);
 	}
 
@@ -355,13 +355,25 @@ public class UserDirectoryPage {
 	}
 
 	public static boolean isClickable(WebElement webelement) {
-		// logger.info(webelement.getText());
-
-		if (webelement.getTagName().equals("a")) {
+		try {
+			webelement.findElement(By.tagName("a"));
+			return true;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		/*if (linktag.isDisplayed()) {
 			return true;
 		} else {
 			return false;
-		}
+		}*/
+		
+		/*if (webelement.getTagName().equals("a")) {
+			return true;
+		} else {
+			return false;
+		}*/
 	}
 
 	public static boolean elementFound(By locator) {
@@ -394,13 +406,20 @@ public class UserDirectoryPage {
 	}
 
 	public static int getTotalNoOfPages() {
-		String resultMessage = driver.findElement(UserDirectoryPageLocator.TOTAL_NO_OFRECORDS).getText();
+		List<WebElement> pages = driver.findElements(UserDirectoryPageLocator.TOTAL_NO_OFRECORDS);
+		logger.info("The number of pages in userdirectory are---" + pages.size());
+		
+		return pages.size();
+		
+		
+		
+		/*String resultMessage = driver.findElement(UserDirectoryPageLocator.TOTAL_NO_OFRECORDS).getText();
 		String[] bits = resultMessage.split(" ");
 		int recordNo = Integer.parseInt(bits[bits.length - 2]);
 		logger.info("The number of records found are - " + recordNo);
 		int totalNoPages = noOfPageExpected(recordNo);
 		logger.info("The number of pages found are - " + totalNoPages);
-		return totalNoPages;
+		return totalNoPages;*/
 	}
 
 	private static int noOfPageExpected(int totalNoOfRecords) {
@@ -417,7 +436,8 @@ public class UserDirectoryPage {
 		List<WebElement> pagelist = getPagination();
 
 		for (int i = 0; i < pageLimit && pagelist.size() > 1; i++) {
-			if (Integer.parseInt(pagelist.get(i).getText()) == pageno) {
+		
+			if (Integer.parseInt(pagelist.get(i).getText().substring(5)) == pageno) {
 				logger.info("Text from the pagebutton - " + pagelist.get(i).getText());
 				pagelist.get(i).click();
 				LaunchBrowserUtil.delay(3);

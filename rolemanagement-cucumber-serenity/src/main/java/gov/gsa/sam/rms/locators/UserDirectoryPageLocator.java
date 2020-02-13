@@ -10,7 +10,7 @@ public class UserDirectoryPageLocator {
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul/li[1]/button/span[2]");
 	public static final By VIEW_ACCESS = By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul/li[2]/button/span[2]");
-	public static final By GET_LISTOFUSERS = By.className("user-role");
+	public static final By GET_LISTOFUSERS = By.className("user-row");
 	public static final By GET_LISTOFUSERACTIONS = By.xpath(
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul");
 	public static final By DOWNLOAD_ICON = By.className("menu-links-div");
@@ -21,7 +21,7 @@ public class UserDirectoryPageLocator {
 	public static final By FED_FILTER = By.id("option-Federal Users");
 	public static final By CONTRACTING_OFFICER_FILTER = By.id("role-7");
 	public static final By DOWNLOAD_DIALOGUE_BOX = By.className("usa-alert-info");
-	public static final By USERNAME = By.className("h3");
+	public static final By USERNAME = By.className("name-line");
 
 	// role and
 	// filters----------------------------------------------------------
@@ -71,7 +71,7 @@ public class UserDirectoryPageLocator {
 	public static final By FIRST_ORG_RESULT = By.xpath("//*[@id=\"sam-autocomplete-results-kv\"]/li[1]/span");
 	public static final By USER_INFO = By.className("p_All-4x");
 	public static final By PAGINATION = By.className("page-button");
-	public static final By TOTAL_NO_OFRECORDS = By.tagName("list-results-message");
+	public static final By TOTAL_NO_OFRECORDS = By.className("page-button");
 	public static final By SEARCH_ORGPICKER = By.linkText("\r\n" + "        Advanced\r\n" + "        ");
 	public static final By ORG_PICKER = By.id("federalHierarchy");
 	public static final By ID = By.className("description");

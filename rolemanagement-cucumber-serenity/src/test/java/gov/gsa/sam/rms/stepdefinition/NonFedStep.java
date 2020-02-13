@@ -653,7 +653,7 @@ public class NonFedStep {
 
 	@And("^_11nf user should see all those users as clickable$")
 	public void _11nf_user_should_see_all_those_users_as_clickable() throws Throwable {
-		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		int totalNoOfPages = 3; //UserDirectoryPage.getTotalNoOfPages(); check 3 pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
