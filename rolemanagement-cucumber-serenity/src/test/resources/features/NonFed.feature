@@ -106,10 +106,16 @@ Scenario: a nonfed user with a role should be able to view the userdirectory
 	And _10nf nonfed user should also be able to hit the user directory url to access the page	
 
 @11
-Scenario: a nonfed user with a role should be able to view the userdirectory
+Scenario: a nonfed user with data entry in entity registration should be able to view users as clickable
 	Given _11nf nonfed user logs in with data entry role in entity registration  
 	And _11nf user navigates to user directory page and clicks data entry and entity registration filter  
 	And _11nf user should see all those users as clickable
+
+@12
+Scenario: a nonfed user with data entry in entity compliance should be able to view users as clickable
+	Given _12nf nonfed user logs in with data entry role in entity entity compliance  
+	And _12nf user navigates to user directory page and clicks data entry and entity compliance filter  
+	And _12nf user should see all those users as clickable
 	
 	
 	
