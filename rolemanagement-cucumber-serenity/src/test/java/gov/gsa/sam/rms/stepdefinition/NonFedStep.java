@@ -714,6 +714,43 @@ public class NonFedStep {
 		} while (currentPage < totalNoOfPages);
 	}
 
+	 @Given("^_13nf nonfed user logs in with data entry role in contract opportunities$")
+	    public void _13nf_nonfed_user_logs_in_with_data_entry_role_in_contract_opportunities() throws Throwable {
+		 SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDESK_TIER1_1, Constants.USERPASS,
+				 ConstantsAccounts.HELPDESK_TIER1_1_SECRETKEY, Constants.USER_NONFED); 
+	    }
+
+	    @And("^_13nf user navigates to user directory page and clicks data entry and contract opportunities filter$")
+	    public void _13nf_user_navigates_to_user_directory_page_and_clicks_data_entry_and_contract_opportunities_filter() throws Throwable {
+	    	T1WorkspacePage.clickUserDirectoryLink();
+			UserDirectoryPage.clickUsersOwnDomain();
+			UserDirectoryPage.clickDataEntryFilter();
+			LaunchBrowserUtil.scrollUp();
+	    }
+
+	    @And("^_13nf user should see all those users as clickable$")
+	    public void _13nf_user_should_see_all_those_users_as_clickable() throws Throwable {
+	    	int totalNoOfPages = 3; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
+			int currentPage = 1;
+
+			do {// search page 1 regardless of whether other pages exist
+
+				List<WebElement> userList = UserDirectoryPage.getUserList();
+				logger.info("The size fo the user list is--" + userList.size());
+
+				for (int i = 0; i < userList.size(); i++) {
+					WebElement user = userList.get(i).findElement(UserDirectoryPageLocator.USERNAME);
+					boolean isClickable = UserDirectoryPage.isClickable(user);
+					Assert.assertTrue(isClickable);
+				}
+				// click to next page and increment page counter
+				if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
+					currentPage++;
+					UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
+				}
+
+			} while (currentPage < totalNoOfPages); 
+	    }
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}
