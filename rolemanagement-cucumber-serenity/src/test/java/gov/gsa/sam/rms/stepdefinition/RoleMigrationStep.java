@@ -328,7 +328,7 @@ public class RoleMigrationStep {
 	@Given("^_7rm_ user signs in$")
 	public void _7rm_user_signs_in() throws Throwable {
 		RoleMigrationPage.resetTestData(
-			"https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov/iam/import/domain/cfda/reset/justin.hamer/");
+				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/cfda/reset/justin.hamer/");
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
 				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
 	}
@@ -353,12 +353,9 @@ public class RoleMigrationStep {
 	@Then("^_7rm user should get role not supported error$")
 	public void _7rm_user_should_get_role_not_supported_error() throws Throwable {
 		String alertmessage = RoleMigrationPage.getAlertMessage();
-		Assert.assertEquals("Success", alertmessage);
+		Assert.assertEquals("Legacy User Not Supported", alertmessage);
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 
-		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole("",
-				"", "", Constants.NOACTION);
-		Assert.assertEquals(false, userAlreadyHasRole);
 	}
 
 	@Given("^_8rm_ user is registered in login dot gov$")
@@ -393,6 +390,8 @@ public class RoleMigrationStep {
 	
 	@Given("^_9rm_ user is registered in login dot gov$")
 	public void _9rm_user_is_registered_in_login_dot_gov() throws Throwable {
+		RoleMigrationPage.resetTestData(
+				Constants.ROLE_MIGRATION_RESET_URL+"");
 		RoleMigrationPage.resetTestData(
 				"https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov/iam/import/domain/fbo/reset/michaela.garcia@gsa.gov/");
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
@@ -438,7 +437,9 @@ public class RoleMigrationStep {
 	@Given("^_10rm_ user is registered in login dot gov$")
 	public void _10rm_user_is_registered_in_login_dot_gov() throws Throwable {
 		RoleMigrationPage.resetTestData(
-				"https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov/iam/import/domain/fbo/reset/michaela.garcia@gsa.gov/");
+				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/fbo/reset/michaela.garcia@gsa.gov/");
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
 	}
@@ -472,12 +473,8 @@ public class RoleMigrationStep {
 	@Then("^_10rm_ user should have their corresponding role migrated$")
 	public void _10rm_user_should_have_their_corresponding_role_migrated() throws Throwable {
 		String alertmessage = RoleMigrationPage.getAlertMessage();
-		Assert.assertEquals("Success", alertmessage);
-		AccountDetailsPage.goToPageOnSideNav("My Roles");
-
-	//	boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				//Constants.role, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
-		//Assert.assertEquals(true, userAlreadyHasRole);
+		Assert.assertEquals("Legacy User : michaela.garcia@gsa.govclaimed for Legacy System FBO ... Show more", alertmessage);
+		
 
 	}
 

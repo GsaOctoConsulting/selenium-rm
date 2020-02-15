@@ -182,10 +182,10 @@ public class AssignRolePage {
 	public static void writeComment(String string) {
 		driver.findElement(AssignRolePageLocator.COMMENT_TEXTBOX).sendKeys(string);
 		LaunchBrowserUtil.delay(5);
-
 	}
 
-	public static void clickDone() {
+	public static void clickDone() throws Exception {
+		LaunchBrowserUtil.scrollAllTheWayDown();
 		LaunchBrowserUtil.delay(3);
 		driver.findElement(AssignRolePageLocator.DONE_BUTTON).click();
 		UserDirectoryViewAccessPage.setDriver(AssignRolePage.getDriver());
@@ -195,6 +195,7 @@ public class AssignRolePage {
 	}
 
 	public static void clickAssign() {
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(AssignRolePageLocator.DONE_BUTTON).click();
 		MyRolesPage.setDriver(AssignRolePage.getDriver());
 		LaunchBrowserUtil.delay(4);
