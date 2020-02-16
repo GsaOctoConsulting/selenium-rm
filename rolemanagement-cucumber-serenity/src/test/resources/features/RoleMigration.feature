@@ -90,7 +90,7 @@ Scenario: User should be presented an error message for maximum password use att
 	Then _8rm user should get proper error message
 	
 @9 # migration for fbo domain
-Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role with fbo domain to CO role
+Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role with fbo domain to CS role
 	Given _9rm_ user is registered in login dot gov 
 	And _9rm_ user signs in 
 	And _9rm_ user nagivates to role migrration page 
@@ -98,7 +98,7 @@ Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role
 	Then _9rm_ user should have their corresponding role migrated 	
 	
 @10 # migration for fbo domain
-Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role with fbo domain to CS role
+Scenario: Legacy user should be able to migrate a legacy beta.SAM supported role with fbo domain to CO role
 	Given _10rm_ user is registered in login dot gov 
 	And _10rm_ user signs in 
 	And _10rm_ user nagivates to role migrration page 

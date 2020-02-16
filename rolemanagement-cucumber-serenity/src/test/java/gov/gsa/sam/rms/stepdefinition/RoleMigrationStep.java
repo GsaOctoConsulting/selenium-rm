@@ -11,6 +11,7 @@ import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.CommonProfilePage;
+import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.RequestRoleOptionalPage;
 import gov.gsa.sam.rms.pages.RoleMigrationPage;
@@ -36,6 +37,8 @@ public class RoleMigrationStep {
 	String legacyuseridpassword3 = "testpassword";
 	private String legacyuserid4 = "michaela.garcia@gsa.gov";
 	private String legacyuseridpassword4="testpassword";
+	private String legacyuserid5 = "amurakaam";
+	private String legacyuseridpassword5="testpassword";
 	
 	
 	@Given("^_1rm_ user is registered in login dot gov$")
@@ -391,9 +394,7 @@ public class RoleMigrationStep {
 	@Given("^_9rm_ user is registered in login dot gov$")
 	public void _9rm_user_is_registered_in_login_dot_gov() throws Throwable {
 		RoleMigrationPage.resetTestData(
-				Constants.ROLE_MIGRATION_RESET_URL+"");
-		RoleMigrationPage.resetTestData(
-				"https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov/iam/import/domain/fbo/reset/michaela.garcia@gsa.gov/");
+				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/fbo/reset/amurakaam/");
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
 	}
@@ -418,19 +419,20 @@ public class RoleMigrationStep {
 	@When("^_9rm_ user enters proper legacy domain name and password$")
 	public void _9rm_user_enters_proper_domain_name_and_password() throws Throwable {
 		RoleMigrationPage.selectLegacyDomainIfFound("FBO.gov");
-		RoleMigrationPage.enterLegacyUserid(legacyuserid3);
-		RoleMigrationPage.enterLegacyUserPassword(legacyuseridpassword3);
+		RoleMigrationPage.enterLegacyUserid(legacyuserid5);
+		RoleMigrationPage.enterLegacyUserPassword(legacyuseridpassword5);
 		RoleMigrationPage.clickMigrateButton();
 	}
 
 	@Then("^_9rm_ user should have their corresponding role migrated$")
 	public void _9rm_user_should_have_their_corresponding_role_migrated() throws Throwable {
 		String alertmessage = RoleMigrationPage.getAlertMessage();
-		Assert.assertEquals("Success", alertmessage);
+		Assert.assertEquals("Legacy User : amurakaamclaimed for Legacy System FBO ... Show more", alertmessage);
+		LaunchBrowserUtil.delay(2);
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
-	//	boolean userAlreadyHasRole = RolesDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				//Constants.role, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
-		//Assert.assertEquals(true, userAlreadyHasRole);
+		boolean roleFound = MyRolesPage.userHasRole(Constants.ORG_PUBLIC_BUILDING_SERVICE,
+			Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+			Assert.assertEquals(true, roleFound);
 	}
 	
 	
@@ -474,7 +476,11 @@ public class RoleMigrationStep {
 	public void _10rm_user_should_have_their_corresponding_role_migrated() throws Throwable {
 		String alertmessage = RoleMigrationPage.getAlertMessage();
 		Assert.assertEquals("Legacy User : michaela.garcia@gsa.govclaimed for Legacy System FBO ... Show more", alertmessage);
-		
+		LaunchBrowserUtil.delay(2);
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		boolean roleFound = MyRolesPage.userHasRole(Constants.ORG_PUBLIC_BUILDING_SERVICE,
+			Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+			Assert.assertEquals(true, roleFound);
 
 	}
 
