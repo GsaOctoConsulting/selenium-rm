@@ -74,7 +74,7 @@ public class NewSystemAccountPage {
 		if (firstOrg.getText().toLowerCase().contains(orgname.toLowerCase())) {
 			firstOrg.click();
 			//driver.findElement(By.xpath("//*[@id=\"sam-autocomplete-results-kv\"]/li[1]/span[1]")).click();
-			driver.findElement(NewSystemAccountPageLocator.CONTAINER).click();
+			//driver.findElement(NewSystemAccountPageLocator.CONTAINER).click();
 			orgFound = true;
 		}
 		return orgFound;
