@@ -170,10 +170,15 @@ public class RequestRolePage {
 
 	public static boolean selectEntityNonFedIfFound(String entity, int dropdownOptionNo) {
 		boolean orgFound = false;
-		driver.findElement(By.id("entityPicker")).sendKeys(entity);
+		driver.findElement(RequestRolePageLocator.ENTITYPICKER_TEXTAREA).clear();
+		driver.findElement(RequestRolePageLocator.ENTITYPICKER_TEXTAREA).sendKeys(entity);
 		LaunchBrowserUtil.delay(3);
-		List<WebElement> orgList = driver.findElements(By.className("selected-item"));
+		List<WebElement> orgList = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
+		//List<WebElement> orgList = driver.findElements(By.className("selected-item"));
 		logger.info(("The size of the list is......" + orgList.size()));
+		if(orgList.size()==0) {
+			return orgFound;
+		}
 		WebElement firstOrg = orgList.get(dropdownOptionNo);
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());
 		if (firstOrg.getText().toLowerCase().contains(entity.toLowerCase())) {
@@ -191,7 +196,6 @@ public class RequestRolePage {
 			role.selectByVisibleText(roleName);
 			roleFound = true;
 		} catch (NoSuchElementException e) {
-
 			return roleFound;
 		}
 		return roleFound;
@@ -214,7 +218,6 @@ public class RequestRolePage {
 			}
 		}
 		return domainFound;
-
 	}
-
+	
 }

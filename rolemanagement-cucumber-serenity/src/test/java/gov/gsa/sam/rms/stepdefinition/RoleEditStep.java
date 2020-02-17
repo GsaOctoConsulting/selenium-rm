@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.RolesDirectoryViewAccessLocator;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
@@ -269,6 +270,32 @@ public class RoleEditStep {
 				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.NOACTION);
 		Assert.assertEquals(usersRoleHasBeenRestored, true);
+	}
+
+	@Given("^_6re user logs in as as contract opportunities admin$")
+	public void _6re_user_logs_in_as_as_contract_opportunities_admin() throws Throwable {
+
+	}
+
+	@And("^_6re admin looks up a user with contracting specialist role in both contract opp and contract data$")
+	public void _6re_admin_looks_up_a_user_with_contracting_specialist_role_in_both_contract_opp_and_contract_data()
+			throws Throwable {
+
+	}
+
+	@When("^_6re admin tries to edit the role and reassign contracting specialist role in contract data$")
+	public void _6re_admin_trie_to_edit_the_role_and_reassign_contracting_specialist_role_in_contract_data()
+			throws Throwable {
+
+	}
+
+	@Then("^_6re admin should received role already assigned error$")
+	public void _6re_admin_should_received_role_already_assigned_error() throws Throwable {
+
+	}
+
+	@And("^_6re both the existing roles should stay intact as before$")
+	public void _6re_both_the_existing_roles_should_stay_intact_as_before() throws Throwable {
 
 	}
 

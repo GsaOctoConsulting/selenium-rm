@@ -22,4 +22,5 @@ public class RequestRolePageLocator {
 	public static final By ERRORMESSAGE_ROLE = By.id("role-topErrorLink");
 	public static final By ERRORMESSAGE_DOMAIN = By.id("domains-topErrorLink");
 	public static final By ERRORMESSAGE_ADDITIONALDETAILS = By.id("comment-topErrorLink");
+	public static final By ENTITYPICKER_TEXTAREA = By.id("entityPicker");
 }

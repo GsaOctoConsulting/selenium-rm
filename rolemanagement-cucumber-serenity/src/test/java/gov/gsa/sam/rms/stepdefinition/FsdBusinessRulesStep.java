@@ -19,6 +19,7 @@ import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.RequestRoleOptionalPage;
+import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
@@ -217,37 +218,36 @@ public class FsdBusinessRulesStep {
 		Assert.assertEquals(true, permissionspageheading.contains("Permissions"));
 	}
 
-	@Given("^_6 spaad logs in$")
+	@Given("^_6 nonfed user from octo consulting logs in$")
 	public void _6_spaad_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
-	@And("^_6 spaad looks up a nonfed user through the user directory$")
+	@And("^_6 nonfed user navigates to role request page$")
 	public void _6_spaad_looks_up_a_nonfed_user_through_the_user_directory() throws Throwable {
-		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
 	}
 
-	@When("^_6 spaad tries to assign a role to this user$")
+	@When("^_6 nonfed user tries to search in the entity picker$")
 	public void _6_spaad_tries_to_assign_a_role_to_this_user() throws Throwable {
-		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_1);
+
 	}
 
-	@Then("^_6 spaad should not be able to view certain orgs in the entity picker$")
+	@Then("^_6 nonfed user should not be able to view certain orgs in the entity picker$")
 	public void _6_spaad_should_not_be_able_to_view_certain_orgs_in_the_entity_picker() throws Throwable {
-		boolean orgnotfound1 = AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_UTAH_COMMUNICATIONS_AUTHORITY, 0);
+		boolean orgnotfound1 = RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_UTAH_COMMUNICATIONS_AUTHORITY,
+				0);
 		Assert.assertEquals(false, orgnotfound1);
-		AssignRolePage.clearEntitySelector();
 
-		boolean orgnotfound2 = AssignRolePage
+		boolean orgnotfound2 = RequestRolePage
 				.selectEntityNonFedIfFound(Constants.ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND, 0);
 		Assert.assertEquals(false, orgnotfound2);
-		AssignRolePage.clearEntitySelector();
 
-		boolean orgnotfound3 = AssignRolePage.selectEntityNonFedIfFound("001441674", 0);
+		boolean orgnotfound3 = RequestRolePage.selectEntityNonFedIfFound("001441674", 0);
 		Assert.assertEquals(false, orgnotfound3);
-		AssignRolePage.clearEntitySelector();
 	}
 
 	@Given("^_7 nonfed user logs in$")
@@ -289,33 +289,33 @@ public class FsdBusinessRulesStep {
 		Assert.assertEquals(false, entitysectionFound);
 		LaunchBrowserUtil.delay(5);
 	}
-	
+
 	@Given("^_8fbr spaad user logs in$")
 	public void _8fbr_spaad_user_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
-	
+
 	@And("^_8fbr spaad looks upa a nonfed user with roles$")
 	public void _8fbr_spaad_looks_upa_a_nonfed_user_with_roles() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_MULTIPLE_ROLES);
 	}
-	
+
 	@When("^_8fbr spaad tries to assign fsd agent to this user$")
 	public void _8fbr_spaad_tries_to_assign_fsd_agent_to_this_user() throws Throwable {
 		LaunchBrowserUtil.delay(3);
 		UserDirectoryViewAccessPage.clickAssignRole();
-	
+
 	}
 
 	@Then("^_8fbr spaad should not see fsd agent in the dropdown$")
 	public void _8fbr_spaad_should_not_see_fsdagent_in_the_dropdown() throws Throwable {
 		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
-		boolean fsdagentrolefound=AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_FSD_AGENT);
+		boolean fsdagentrolefound = AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_FSD_AGENT);
 		Assert.assertEquals(false, fsdagentrolefound);
-		
+
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
