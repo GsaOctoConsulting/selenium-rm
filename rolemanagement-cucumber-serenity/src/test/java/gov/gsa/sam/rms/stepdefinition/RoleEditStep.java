@@ -274,13 +274,26 @@ public class RoleEditStep {
 
 	@Given("^_6re user logs in as as contract opportunities admin$")
 	public void _6re_user_logs_in_as_as_contract_opportunities_admin() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+		ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_6re admin looks up a user with contracting specialist role in both contract opp and contract data$")
 	public void _6re_admin_looks_up_a_user_with_contracting_specialist_role_in_both_contract_opp_and_contract_data()
 			throws Throwable {
-
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage
+				.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD);
+		// check whether user already has the role
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, userAlreadyHasRole1);
+		
+		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, Constants.NOACTION);
+		Assert.assertEquals(userAlreadyHasRole2, true);
 	}
 
 	@When("^_6re admin tries to edit the role and reassign contracting specialist role in contract data$")

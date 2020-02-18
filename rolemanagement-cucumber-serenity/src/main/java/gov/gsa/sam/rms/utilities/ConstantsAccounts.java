@@ -150,7 +150,6 @@ public class ConstantsAccounts {
 	public static final String CONTRACT_OPPORTUNITIES_SPA_1_SECRETKEY = "3R7M56GW6QTX6TCR";
 	// public static final String CONTRACT_OPPORTUNITIES_SPA_1 =
 	// "shah.raiaan+007@gsa.gov";
-
 	// ---------------------------------------------------------------------------
 	public static final String CONTRACT_OPPORTUNITIES_ADMIN_1 = "octotestaccount1+contractopportunitiesadmin1@gsa.gov";
 	public static final String CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY = "3U57JNI5A3GRMMKW";
@@ -272,5 +271,9 @@ public class ConstantsAccounts {
 
 	public static final String AGENCY_EXCLUSIONS_REPRESENTATIVE_1 = "octotestaccount1+agencyexclusionsrepresentative@gsa.gov";
 	public static final String AGENCY_EXCLUSIONS_REPRESENTATIVE_1_SECRETKEY = "XL55ZDMFWFI7Y2PV";
+	
+	public static final String MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD = "octotestaccount1+csco@gsa.gov";
+	public static final String MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD_SECRETKEY = "ZJHQ7DIGS53IWIGD";
+	
 
 }

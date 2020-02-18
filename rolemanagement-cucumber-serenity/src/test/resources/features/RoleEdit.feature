@@ -52,14 +52,14 @@ Scenario: contract opportunities admin should be able to edit role for contracti
 	Given _5re user logs in workspace as contract opportunities admin 
 	And _5re user looks up a contracting specialist in user directory 
 	Then _5re user should be able to edit their roles
-
+		
 @6 @G2 
 Scenario: role edit of user with multiple roles but in different domains is not working expectedly  
 	Given _6re user logs in as as contract opportunities admin 
 	And _6re admin looks up a user with contracting specialist role in both contract opp and contract data 
 	When _6re admin tries to edit the role and reassign contracting specialist role in contract data
 	Then _6re admin should received role already assigned error
-	And _6re both the existing roles should stay intact as before 
+	And _6re both the existing roles should stay intact as before
 	
 
 	
