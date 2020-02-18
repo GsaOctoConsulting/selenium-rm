@@ -292,13 +292,14 @@ public class RoleEditStep {
 		Assert.assertEquals(true, userAlreadyHasRole1);
 		
 		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, Constants.NOACTION);
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole2, true);
 	}
 
 	@When("^_6re admin tries to edit the role and reassign contracting specialist role in contract data$")
 	public void _6re_admin_trie_to_edit_the_role_and_reassign_contracting_specialist_role_in_contract_data()
 			throws Throwable {
+		
 
 	}
 

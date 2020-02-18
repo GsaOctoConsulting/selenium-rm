@@ -15,7 +15,6 @@ import gov.gsa.sam.rms.pages.T1WorkspacePage;
 public class SignInUtility {
 
 	private static Logger logger = LoggerFactory.getLogger(SignInUtility.class);
-	
 
 	/**
 	 * This methods allows the caller to land on Workspace page <br>
@@ -28,13 +27,14 @@ public class SignInUtility {
 	 * @param secretkey the secretkey for this account saved during signup
 	 * @param usertype  specify which type of useraccount this is eg. fed / nonfed
 	 *                  user
-	 * @throws InterruptedException 
+	 * @throws InterruptedException
 	 */
-	public static void signIntoWorkspace(String username, String password, String secretkey, String usertype) throws InterruptedException {
+	public static void signIntoWorkspace(String username, String password, String secretkey, String usertype)
+			throws InterruptedException {
 		LaunchBrowserUtil.openThisBrowser();
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
-		// ------------------------------------ 
+		// ---------------------------
 		LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 		Thread.sleep(2000);
 		LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
@@ -51,11 +51,11 @@ public class SignInUtility {
 		Thread.sleep(2000);
 		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 		Thread.sleep(3000);
-		// -----------------------------------------
+		// ---------------------------
 		T1WorkspacePage.setDriver(LaunchBrowserUtil.getDriver());
 		logger.info("------------Sign into workspace completed------------------------------");
-		//LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/t1-workspace");
-		//LaunchBrowserUtil.delay(3);
+		// LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/t1-workspace");
+		// LaunchBrowserUtil.delay(3);
 	}
 
 }

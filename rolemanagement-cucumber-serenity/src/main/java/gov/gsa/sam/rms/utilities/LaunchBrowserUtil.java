@@ -140,7 +140,6 @@ public class LaunchBrowserUtil {
 	public static void clearCookies() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		Thread.sleep(5000);
-
 	}
 
 	public static void goToOctoTestEmailInbox() {
@@ -188,7 +187,6 @@ public class LaunchBrowserUtil {
 		// div")).click();
 		// new
 		// Actions(driver).click(driver.findElement(By.cssSelector("div[aria-label='Delete']>div>div"))).perform();
-
 		return emailbody;
 	}
 
