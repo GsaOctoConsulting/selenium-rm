@@ -275,5 +275,6 @@ public class ConstantsAccounts {
 	public static final String MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD = "octotestaccount1+csco@gsa.gov";
 	public static final String MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD_SECRETKEY = "ZJHQ7DIGS53IWIGD";
 	
-
+	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER = "octotestaccount1+aadsystemmanager@gsa.gov";
+	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER_SECRETKEY = "5QTBAKH7TK6VB7DS";
 }

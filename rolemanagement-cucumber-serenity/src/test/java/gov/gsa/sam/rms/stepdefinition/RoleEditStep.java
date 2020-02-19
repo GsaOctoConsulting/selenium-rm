@@ -69,7 +69,7 @@ public class RoleEditStep {
 
 	@Given("^_2 user logs in workspace as dra$")
 	public void _2_user_logs_in_workspace_as_dra() throws Throwable {
-		beforeScenario();
+
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
 				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
 	}
@@ -78,12 +78,11 @@ public class RoleEditStep {
 	public void _2_dra_looks_up_contracting_officer_in_contract_data() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		String searchUser = "shah.raiaan+coSelenium@gsa.gov";
-		UserDirectoryPage.searchUserInUserPicker(searchUser);
-		UserDirectoryPage.clickViewAccess(searchUser);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.CONTRACT_DATA_CONTRACTINGOFFICER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.CONTRACT_DATA_CONTRACTINGOFFICER_1);
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, "EDIT");
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 
@@ -94,6 +93,7 @@ public class RoleEditStep {
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
 		AssignRolePage.writeComment("changing roles");
 		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 
 		// check to ensure page is back on RolesDirectoryViewAccessPage
 		boolean assignButtonFound = UserDirectoryViewAccessPage
@@ -102,14 +102,14 @@ public class RoleEditStep {
 
 		// check to ensure the changed role has gone through
 		boolean roleHasChanged = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, "NO ACTION");
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, Constants.NOACTION);
 		Assert.assertEquals(roleHasChanged, true);
 
 		// ------------------edit the role back---------------
 		LaunchBrowserUtil.delay(3);
 		// change the role back
 		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR,
-				Constants.DOMAIN_CONTRACT_DATA, "EDIT");
+				Constants.DOMAIN_CONTRACT_DATA, Constants.EDIT);
 
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		LaunchBrowserUtil.scrollToMiddle();
@@ -117,6 +117,7 @@ public class RoleEditStep {
 		AssignRolePage.writeComment("reverting back");
 		LaunchBrowserUtil.delay(2);
 		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 
 	}
 
@@ -124,9 +125,9 @@ public class RoleEditStep {
 	public void _2_dra_sees_the_role_change_showing_up_in_my_profile_page() throws Throwable {
 		// check to ensure the changed role has gone through
 		boolean previousRoleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, "NO ACTION");
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, Constants.NOACTION);
 		Assert.assertEquals(previousRoleRestored, true);
-		afterScenario();
+
 	}
 
 	@Given("^_3re user logs in workspace as contract opportunities admin$")
@@ -275,7 +276,7 @@ public class RoleEditStep {
 	@Given("^_6re user logs in as as contract opportunities admin$")
 	public void _6re_user_logs_in_as_as_contract_opportunities_admin() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
-		ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_6re admin looks up a user with contracting specialist role in both contract opp and contract data$")
@@ -283,14 +284,14 @@ public class RoleEditStep {
 			throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage
-				.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD);
 		// check whether user already has the role
 		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
 		Assert.assertEquals(true, userAlreadyHasRole1);
-		
+
 		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole2, true);
@@ -299,7 +300,6 @@ public class RoleEditStep {
 	@When("^_6re admin tries to edit the role and reassign contracting specialist role in contract data$")
 	public void _6re_admin_trie_to_edit_the_role_and_reassign_contracting_specialist_role_in_contract_data()
 			throws Throwable {
-		
 
 	}
 
@@ -310,6 +310,27 @@ public class RoleEditStep {
 
 	@And("^_6re both the existing roles should stay intact as before$")
 	public void _6re_both_the_existing_roles_should_stay_intact_as_before() throws Throwable {
+
+	}
+
+	@Given("^_7re user logs in with spaad role$")
+	public void _7re_user_logs_in_with_spaad_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_7re spaad looks up a user with aad role and system manager role in admin domain$")
+	public void _7re_spaad_looks_up_a_user_with_aad_role_and_system_manager_role_in_admin_domain() throws Throwable {
+
+	}
+
+	@When("^_7re spaad tries to edit the role to keep only system manager role$")
+	public void _7re_spaad_tries_to_edit_the_role_to_keep_only_system_manager_role() throws Throwable {
+
+	}
+
+	@Then("^_7re the role edit attempt should successfully go through$")
+	public void _7re_the_role_edit_attempt_should_successfully_go_through() throws Throwable {
 
 	}
 
