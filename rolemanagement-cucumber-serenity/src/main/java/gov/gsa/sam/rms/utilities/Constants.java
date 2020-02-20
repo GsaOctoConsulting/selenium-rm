@@ -35,7 +35,7 @@ public class Constants {
 	public static final String ROLE_CONTRACT_OPPORTUNITIES_GRANDUSER_SAMPMOADMINISTRATOR = "SAM PMO Administrator";
 	public static final String ROLE_ASSISTANCE_USER = "Assistance User";
 	public static final String ROLE_ASSISTANCE_ADMIN = "Administrator";
-	public static final String ROLE_SYSTEM_ACCOUNT_ADMIN = "System Account Admin";
+	public static final String ROLE_SYSTEM_ACCOUNT_ADMIN = "System Account Administrator";
 	public static final String ROLE_SYSTEM_MANAGER = "System Manager";
 	public static final String ROLE_GSA_SECURITYAPPROVER = "GSA Security Approver";
 	public static final String ROLE_IAM_ADMIN = "IAM Admin";

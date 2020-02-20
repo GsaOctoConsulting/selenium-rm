@@ -319,19 +319,58 @@ public class RoleEditStep {
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
-	@And("^_7re spaad looks up a user with aad role and system manager role in admin domain$")
+	@And("^_7re spaad looks up a user with aad role and system account admin role in admin domain$")
 	public void _7re_spaad_looks_up_a_user_with_aad_role_and_system_manager_role_in_admin_domain() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER);
 
 	}
 
-	@When("^_7re spaad tries to edit the role to keep only system manager role$")
+	@When("^_7re spaad tries to edit the role to keep only system admin role$")
 	public void _7re_spaad_tries_to_edit_the_role_to_keep_only_system_manager_role() throws Throwable {
 
+		// check whether user already has the role
+		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN, Constants.DELETE);
+		Assert.assertEquals(true, userAlreadyHasRole2);
+
+		// check whether user already has the role
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_SYSTEM_ACCOUNT_ADMIN, Constants.DOMAIN_ADMIN, Constants.EDIT);
+		Assert.assertEquals(true, userAlreadyHasRole1);
+
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
+		AssignRolePage.writeComment("editing the role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+
+		// giving system account admin the role back
+		UserDirectoryViewAccessPage.clickAssignRole();
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_SYSTEM_ACCOUNT_ADMIN);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(5);
 	}
 
 	@Then("^_7re the role edit attempt should successfully go through$")
 	public void _7re_the_role_edit_attempt_should_successfully_go_through() throws Throwable {
+		// confirm whether user has the role
+		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN,
+				Constants.NOACTION);
+		Assert.assertEquals(true, userAlreadyHasRole2);
 
+		// confirm whether user has the role
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_SYSTEM_ACCOUNT_ADMIN, Constants.DOMAIN_ADMIN, Constants.NOACTION);
+		Assert.assertEquals(true, userAlreadyHasRole1);
 	}
 
 	// private methods are below this line
