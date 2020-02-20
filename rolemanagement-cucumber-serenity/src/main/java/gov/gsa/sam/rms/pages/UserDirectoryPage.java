@@ -47,7 +47,7 @@ public class UserDirectoryPage {
 		driver.findElement(By.id(id)).click();
 		LaunchBrowserUtil.delay(2);
 		
-		//int itemNo = 0;
+		//int itemNo = 0; // old view
 		/*String id = useremail.concat("-action-button");
 		driver.findElement(By.id(id)).click();
 		LaunchBrowserUtil.delay(2);*/

@@ -325,12 +325,10 @@ public class RoleEditStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER);
-
 	}
 
 	@When("^_7re spaad tries to edit the role to keep only system admin role$")
 	public void _7re_spaad_tries_to_edit_the_role_to_keep_only_system_manager_role() throws Throwable {
-
 		// check whether user already has the role
 		boolean userAlreadyHasRole2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN, Constants.DELETE);

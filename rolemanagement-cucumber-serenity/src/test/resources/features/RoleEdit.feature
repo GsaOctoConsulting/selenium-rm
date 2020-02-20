@@ -62,7 +62,7 @@ Scenario: role edit of user with multiple roles but in different domains is not 
 	And _6re both the existing roles should stay intact as before
 
 @7 @G2 
-Scenario: role edit of user with multiple roles but in same domain should work as expecdted  
+Scenario: role edit of user with multiple roles but in same domain should work as expected  
 	Given _7re user logs in with spaad role 
 	And _7re spaad looks up a user with aad role and system account admin role in admin domain 
 	When _7re spaad tries to edit the role to keep only system admin role

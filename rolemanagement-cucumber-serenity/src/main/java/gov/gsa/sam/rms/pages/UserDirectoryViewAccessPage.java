@@ -17,7 +17,8 @@ import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 /**
  * this page refers to following flow for specific users only
- * WorkspacePage-->UserDirectoryPage-->UserDirectoryViewAccessPage (when looking up a user)
+ * WorkspacePage-->UserDirectoryPage-->UserDirectoryViewAccessPage (when looking
+ * up a user)
  *
  */
 public class UserDirectoryViewAccessPage {
@@ -26,7 +27,7 @@ public class UserDirectoryViewAccessPage {
 
 	private UserDirectoryViewAccessPage() {
 	}
-	
+
 	public static WebDriver getDriver() {
 		return driver;
 	}
@@ -34,11 +35,13 @@ public class UserDirectoryViewAccessPage {
 	public static void setDriver(WebDriver driver) {
 		UserDirectoryViewAccessPage.driver = driver;
 	}
+
 	public static void clickAssignRole() {
 		driver.findElement(RolesDirectoryViewAccessLocator.ASSIGN_ROLE_BUTTON).click();
 		AssignRolePage.setDriver(UserDirectoryViewAccessPage.getDriver());
 		LaunchBrowserUtil.delay(2);
 	}
+
 	/**
 	 * this method look for whether a role is present or not. In addition the custom
 	 * command is able to edit or delete the role if the user has the required
@@ -67,10 +70,10 @@ public class UserDirectoryViewAccessPage {
 
 	/**
 	 * @param accountEditor name of the account editor
-	 * @param actiontaken eg. granted, removed
-	 * @param role the name of the role
-	 * @param org the org name
-	 * @param nextAction eg. GO_INTO_ROLEASSIGNED
+	 * @param actiontaken   eg. granted, removed
+	 * @param role          the name of the role
+	 * @param org           the org name
+	 * @param nextAction    eg. GO_INTO_ROLEASSIGNED
 	 * @return true if found, false otherwise
 	 */
 	public static boolean latestRoleHistoryFound(String accountEditor, String actiontaken, String role, String org,
@@ -105,19 +108,19 @@ public class UserDirectoryViewAccessPage {
 			logger.info("The role history was found");
 			roleHistoryFound = true;
 			allTimelines.get(0).findElement(By.linkText("Role Assigned")).click();
-		
+
 		} else if (accoundEditorNameFound == true && roleFound == true && orgFound == true && actionTakenFound == true
 				&& (nextAction.equals(Constants.GO_INTO_ROLE_UPDATED))) {
 			logger.info("The role history was found");
 			roleHistoryFound = true;
-			allTimelines.get(0).findElement(By.linkText("Role Updated")).click();			
+			allTimelines.get(0).findElement(By.linkText("Role Updated")).click();
 		}
 		return roleHistoryFound;
 	}
 
 	public static void goToUserDirectoryPage() {
 		driver.findElement(By.linkText("User Directory")).click();
-		LaunchBrowserUtil.delay(2);	
+		LaunchBrowserUtil.delay(2);
 	}
 
 }

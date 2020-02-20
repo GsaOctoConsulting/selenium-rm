@@ -8,6 +8,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
@@ -197,6 +198,43 @@ public class RoleAssignStep {
 				Constants.DOMAIN_CONTRACT_DATA, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
 		afterScenario();
+	}
+
+	@Given("^_6ra user logs in as sampmo admin$")
+	public void _6ra_user_logs_in_as_sampmo_admin() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_6ra user navigates to userdirectory and looks up a user with system account admin role$")
+	public void _6ra_user_navigates_to_userdirectory_and_looks_up_a_user_with_system_account_admin_role()
+			throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+	}
+
+	@When("^_6ra spaad tries to assign adminstrator all domains role to this user$")
+	public void _6ra_spaad_tries_to_assign_adminstrator_all_domains_role_to_this_user() throws Throwable {
+		// check whether user already has the role
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_SYSTEM_ACCOUNT_ADMIN, Constants.DOMAIN_ADMIN, Constants.NOACTION);
+		Assert.assertEquals(true, userAlreadyHasRole1);
+
+		UserDirectoryViewAccessPage.clickAssignRole();
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
+		AssignRolePage.writeComment("assigning this role");
+		//AssignRolePage.clickDone();
+		
+	}
+
+	@Then("^_6ra appropriate error message should be displayed$")
+	public void _6ra_appropriate_error_message_should_be_displayed() throws Throwable {
+		boolean alertFound=AssignRolePage.elementFound(AssignRolePageLocator.ERROR_ALERT);
+		Assert.assertEquals(true, alertFound);
 	}
 
 	// private methods are below this line

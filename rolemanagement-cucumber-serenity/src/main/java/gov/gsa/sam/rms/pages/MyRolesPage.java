@@ -46,7 +46,6 @@ public class MyRolesPage {
 
 	public static void click1PendingRequest() {
 		driver.findElement(MyRolesPageLocator.PENDINGREQUEST_LINK).click();
-
 	}
 
 	public static void clickPendingLink() {
@@ -89,12 +88,10 @@ public class MyRolesPage {
 				if ((j == 2) && (eachRow.get(j).getText().equalsIgnoreCase(domain))) {
 					domainFound = true;
 					logger.info("The domain has been found...");
-
 				}
 				if ((j == 2) && (eachRow.get(j).getText().toLowerCase().contains(domain.toLowerCase()))) {// finding
 					domainFound = true;
-					logger.info("multiple domain has been found...");		// multiple																											// domains
-
+					logger.info("multiple domain has been found..."); // multiple // domains
 				}
 				if ((j == 3) && (orgFound == true && roleFound == true && domainFound == true)
 						&& (action.equalsIgnoreCase("DELETE"))) {
