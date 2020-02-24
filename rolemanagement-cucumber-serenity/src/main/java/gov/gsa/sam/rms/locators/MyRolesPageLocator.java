@@ -13,4 +13,5 @@ public class MyRolesPageLocator {
 	public static final By WEBSITE_LINK = By.linkText("websites");
 	public static final By BEGINNOW_LINK = By.linkText("Begin Now");
 	public static final By NO_ROLE_TEXT = By.className("result-box");
+	public static final By ASSIGN_BUTTON = By.className("role-buttons");
 }

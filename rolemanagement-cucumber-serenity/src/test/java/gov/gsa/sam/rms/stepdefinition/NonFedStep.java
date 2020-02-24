@@ -324,7 +324,6 @@ public class NonFedStep {
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.clickRequestRoleButton();
-
 		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 
 		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
@@ -775,7 +774,7 @@ public class NonFedStep {
 		RequestRolePage.clickSubmit();
 	}
 
-	@When("^_14nf spaad  accepts the pending role request for the user$")
+	@When("^_14nf spaad accepts the pending role request for the user$")
 	public void _14nf_spaad_accepts_the_pending_role_request_for_the_user() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
@@ -791,7 +790,7 @@ public class NonFedStep {
 		AssignRolePage.clickCloseButton();
 	}
 
-	@Then("^_14 then requsters profile page should show the role assigned in role history$")
+	@Then("^_14nf then requsters profile page should show the role assigned in role history$")
 	public void _14_then_requsters_profile_page_should_show_the_role_assigned_in_role_history() throws Throwable {
 		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_REMOVED, "", 0);
 		Assert.assertEquals(true, rolehistoryfound);
@@ -800,6 +799,44 @@ public class NonFedStep {
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_15nf spaad logs in$")
+	public void _15nf_spaad_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_15nf spaad looks up a nonfed user with a role$")
+	public void _15nf_spaad_looks_up_a_nonfed_user_with_a_role() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+	}
+
+	@When("^_15nf spaad removes the users role$")
+	public void _15nf_spaad_removes_the_users_role() throws Throwable {
+		MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+	}
+
+	@Then("^_15nf then users history should show role removed status in in profile history$")
+	public void _15nf_then_users_history_should_show_role_removed_status_in_in_profile_history() throws Throwable {
+		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_REMOVED, "", 0);
+		Assert.assertEquals(true, rolehistoryfound);
+		// ---------------------assign the role
+		// back------------------------------------------------
+		MyRolesPage.clickAssignRoleButton();
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("giving this role back");
+		AssignRolePage.clickAssign();
+		AssignRolePage.clickCloseButton();
+
+		boolean rolefound = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, rolefound);
 	}
 
 	private void beforeScenario() {

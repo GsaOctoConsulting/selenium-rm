@@ -127,8 +127,16 @@ Scenario: a nonfed user with data entry in contract opportunities should be able
 Scenario: when requested role is accepted a nonfed user should see role assigned status in profile history
 	Given _14nf a nonfed user with no role logs in  
 	And _14nf user requests viewer role in contract opportunities  
-	When _14nf spaad  accepts the pending role request for the user
-	Then _14 then requsters profile page should show the role assigned in role history
+	When _14nf spaad accepts the pending role request for the user
+	Then _14nf then requsters profile page should show the role assigned in role history
+
+@15 
+Scenario: when a role is removed from a nonfed user then user should see role removed status in profile history
+	Given _15nf spaad logs in  
+	And _15nf spaad looks up a nonfed user with a role  
+	When _15nf spaad removes the users role
+	Then _15nf then users history should show role removed status in in profile history
+	
 	
 	
 	

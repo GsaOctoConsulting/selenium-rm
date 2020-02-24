@@ -98,10 +98,10 @@ public class MyRolesPage {
 
 					WebElement deleteButton = eachRow.get(j).findElement(By.className("fa-trash"));
 					deleteButton.click();
-					LaunchBrowserUtil.delay(2);
 
 					WebElement deleteConfirmButton = driver.findElement(By.className("usa-modal-content-submit-btn"));
 					deleteConfirmButton.click();
+					LaunchBrowserUtil.delay(7);
 					return true;
 				}
 				if ((j == 3) && (orgFound == true && roleFound == true && domainFound == true)
@@ -221,10 +221,18 @@ public class MyRolesPage {
 		}
 
 		if (timestampfound && rolestatusfound && messagefound) {
+			LaunchBrowserUtil.delay(3);
 			return true;
 		} else {
+			LaunchBrowserUtil.delay(3);
 			return false;
 		}
 
+	}
+
+	public static void clickAssignRoleButton() {
+		driver.findElement(MyRolesPageLocator.ASSIGN_BUTTON).click();
+		AssignRolePage.setDriver(driver);
+		
 	}
 }
