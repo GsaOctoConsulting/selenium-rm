@@ -122,6 +122,13 @@ Scenario: a nonfed user with data entry in contract opportunities should be able
 	Given _13nf nonfed user logs in with data entry role in contract opportunities  
 	And _13nf user navigates to user directory page and clicks data entry and contract opportunities filter  
 	And _13nf user should see all those users as clickable
+
+@14 
+Scenario: when requested role is accepted a nonfed user should see role assigned status in profile history
+	Given _14nf a nonfed user with no role logs in  
+	And _14nf user requests viewer role in contract opportunities  
+	When _14nf spaad  accepts the pending role request for the user
+	Then _14 then requsters profile page should show the role assigned in role history
 	
 	
 	

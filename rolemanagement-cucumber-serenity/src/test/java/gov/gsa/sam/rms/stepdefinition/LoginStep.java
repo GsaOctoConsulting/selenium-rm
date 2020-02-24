@@ -44,14 +44,13 @@ public class LoginStep {
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
 	public void dra_should_see_userdirectory_widget() throws Throwable {
-
 	}
 
 	@Given("^_2 user has an account in login dot gov domain$")
@@ -119,7 +118,7 @@ public class LoginStep {
 	public void _4_user_should_be_able_to_log_into_workspace() throws Throwable {
 
 	}
-	
+
 	@And("^_4 user navigates to myprofile page$")
 	public void _4_user_navigates_to_myprofile_page() throws Throwable {
 		T1WorkspacePage.goToAccountDetailsPage();
@@ -142,7 +141,7 @@ public class LoginStep {
 	@And("^_5 user enters same id in login dot gov to signin$")
 	public void _5_user_enters_same_id_in_login_dot_gov_to_signin() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS,
-		ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
+				ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
 	}
 
 	@Then("^_5 user should be able to log into workspace$")
@@ -205,8 +204,8 @@ public class LoginStep {
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		//SignUpUtility.signUpNewUser(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER,
-		//Constants.USERPASS);
+		// SignUpUtility.signUpNewUser(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER,
+		// Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
@@ -215,7 +214,7 @@ public class LoginStep {
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		//CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		// CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		CommonProfilePage.clickSubmitButton();
 	}
 

@@ -195,4 +195,36 @@ public class MyRolesPage {
 		return driver.findElement(MyRolesPageLocator.NO_ROLE_TEXT).getText();
 
 	}
+
+	public static boolean roleHistoryFound(String timestamp, String rolestatus, String message, int rolehistoryno) {
+		WebElement rolehistory = driver.findElement(By.tagName("sam-history"));
+		List<WebElement> historylist = rolehistory.findElements(By.xpath("//li[starts-with(@class, 'history-item')]"));
+		logger.info("The size of the role history list is - " + historylist.size());
+
+		String fullhistorytext = historylist.get(rolehistoryno).getText();
+		logger.info("The full text of this particular history is - " + fullhistorytext);
+		boolean timestampfound = false;
+		boolean rolestatusfound = false;
+		boolean messagefound = false;
+
+		if (fullhistorytext.contains(timestamp)) {
+			logger.info("the timestamp was found");
+			timestampfound = true;
+		}
+		if (fullhistorytext.contains(rolestatus)) {
+			logger.info("the rolestatus was found");
+			rolestatusfound = true;
+		}
+		if (fullhistorytext.contains(message)) {
+			logger.info("the message was found");
+			messagefound = true;
+		}
+
+		if (timestampfound && rolestatusfound && messagefound) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
 }

@@ -653,7 +653,7 @@ public class NonFedStep {
 
 	@And("^_11nf user should see all those users as clickable$")
 	public void _11nf_user_should_see_all_those_users_as_clickable() throws Throwable {
-		int totalNoOfPages = 3; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
+		int totalNoOfPages = 1; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
@@ -714,43 +714,94 @@ public class NonFedStep {
 		} while (currentPage < totalNoOfPages);
 	}
 
-	 @Given("^_13nf nonfed user logs in with data entry role in contract opportunities$")
-	    public void _13nf_nonfed_user_logs_in_with_data_entry_role_in_contract_opportunities() throws Throwable {
-		 SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDESK_TIER1_1, Constants.USERPASS,
-				 ConstantsAccounts.HELPDESK_TIER1_1_SECRETKEY, Constants.USER_NONFED); 
-	    }
+	@Given("^_13nf nonfed user logs in with data entry role in contract opportunities$")
+	public void _13nf_nonfed_user_logs_in_with_data_entry_role_in_contract_opportunities() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDESK_TIER1_1, Constants.USERPASS,
+				ConstantsAccounts.HELPDESK_TIER1_1_SECRETKEY, Constants.USER_NONFED);
+	}
 
-	    @And("^_13nf user navigates to user directory page and clicks data entry and contract opportunities filter$")
-	    public void _13nf_user_navigates_to_user_directory_page_and_clicks_data_entry_and_contract_opportunities_filter() throws Throwable {
-	    	T1WorkspacePage.clickUserDirectoryLink();
-			UserDirectoryPage.clickUsersOwnDomain();
-			UserDirectoryPage.clickDataEntryFilter();
-			LaunchBrowserUtil.scrollUp();
-	    }
+	@And("^_13nf user navigates to user directory page and clicks data entry and contract opportunities filter$")
+	public void _13nf_user_navigates_to_user_directory_page_and_clicks_data_entry_and_contract_opportunities_filter()
+			throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickUsersOwnDomain();
+		UserDirectoryPage.clickDataEntryFilter();
+		LaunchBrowserUtil.scrollUp();
+	}
 
-	    @And("^_13nf user should see all those users as clickable$")
-	    public void _13nf_user_should_see_all_those_users_as_clickable() throws Throwable {
-	    	int totalNoOfPages = 3; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
-			int currentPage = 1;
+	@And("^_13nf user should see all those users as clickable$")
+	public void _13nf_user_should_see_all_those_users_as_clickable() throws Throwable {
+		int totalNoOfPages = 3; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
+		int currentPage = 1;
 
-			do {// search page 1 regardless of whether other pages exist
+		do {// search page 1 regardless of whether other pages exist
 
-				List<WebElement> userList = UserDirectoryPage.getUserList();
-				logger.info("The size fo the user list is--" + userList.size());
+			List<WebElement> userList = UserDirectoryPage.getUserList();
+			logger.info("The size fo the user list is--" + userList.size());
 
-				for (int i = 0; i < userList.size(); i++) {
-					WebElement user = userList.get(i).findElement(UserDirectoryPageLocator.USERNAME);
-					boolean isClickable = UserDirectoryPage.isClickable(user);
-					Assert.assertTrue(isClickable);
-				}
-				// click to next page and increment page counter
-				if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
-					currentPage++;
-					UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
-				}
+			for (int i = 0; i < userList.size(); i++) {
+				WebElement user = userList.get(i).findElement(UserDirectoryPageLocator.USERNAME);
+				boolean isClickable = UserDirectoryPage.isClickable(user);
+				Assert.assertTrue(isClickable);
+			}
+			// click to next page and increment page counter
+			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
+				currentPage++;
+				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
+			}
 
-			} while (currentPage < totalNoOfPages); 
-	    }
+		} while (currentPage < totalNoOfPages);
+	}
+
+	@Given("^_14nf a nonfed user with no role logs in$")
+	public void _14nf_a_nonfed_user_with_no_role_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_14nf user requests viewer role in contract opportunities$")
+	public void _14nf_user_requests_viewer_role_in_contract_opportunities() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+	}
+
+	@When("^_14nf spaad  accepts the pending role request for the user$")
+	public void _14nf_spaad_accepts_the_pending_role_request_for_the_user() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+
+		RoleRequestPendingPage.clickAssignRole();
+		AssignRolePage.writeComment("giving this role");
+		AssignRolePage.clickAssign();
+		AssignRolePage.clickCloseButton();
+	}
+
+	@Then("^_14 then requsters profile page should show the role assigned in role history$")
+	public void _14_then_requsters_profile_page_should_show_the_role_assigned_in_role_history() throws Throwable {
+		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_REMOVED, "", 0);
+		Assert.assertEquals(true, rolehistoryfound);
+
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}

@@ -309,6 +309,11 @@ public class Constants {
 	public static final String ORG_PUBLIC_BUILDING_SERVICE = "PUBLIC BUILDINGS SERVICE";
 	
 	
+	// Role History Status
+	public static final String ROLEHISTORY_STATUS_ROLE_ASSIGNED = "Role Assigned";
+	public static final String ROLEHISTORY_STATUS_ROLE_REMOVED = "Role Removed";
+	public static final String ROLEHISTORY_STATUS_ROLE_UPDATED = "Role Updated";
+	
 
 	// ************************************************************************************************************************************
 
