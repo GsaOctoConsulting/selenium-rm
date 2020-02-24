@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@RoleAssign","@6"})
+				"@Login","@1"})
 public class CucumberTestSuite {
-	// "@SystemAccountEmail","@9
+	// "@SystemAccountEmail","@9R
 	// "@T1Workspace","@32" // 433
 	//	@id starts-with entity
 }
