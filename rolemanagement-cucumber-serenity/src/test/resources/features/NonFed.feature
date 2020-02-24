@@ -29,7 +29,8 @@ Scenario: A NonFed User Without a Role Can See the Entity Management Widget
 	Then _1nf they should not see the entity details section 
 	
 @2 
-Scenario: A NonFed User Without a Role can make role request from a finite set of selections 
+Scenario:
+A NonFed User Without a Role can make role request from a finite set of selections 
 	Given _2nf nonfed user without a role logs in 
 	And _2nf nonfed user navigates to profile page 
 	Then _2nf user should have no roles and should see that message 
@@ -37,7 +38,8 @@ Scenario: A NonFed User Without a Role can make role request from a finite set o
 	Then _2nf nonfed user should see the expected list of role to choose from 
 	
 @3 
-Scenario: bottom up nonfed role request should sent feeds notifications to spaad and the requester 
+Scenario:
+bottom up nonfed role request should sent feeds notifications to spaad and the requester 
 	Given _3nf nonfed user without a role logs in 
 	When _3nf nonfed user requests data entry role in entity compliance 
 	Then _3nf user should see pending notification and feeds entry for the request 
@@ -50,7 +52,8 @@ Scenario: bottom up nonfed role request should sent feeds notifications to spaad
 	And _3nf user should see the feeds notifications for the requested updated to approved 
 	
 @4 
-Scenario: bottom up nonfed role request should reflect correct feeds notifications for canceled requests 
+Scenario:
+bottom up nonfed role request should reflect correct feeds notifications for canceled requests 
 	Given _4nf nonfed user without a role logs in 
 	And _4nf nonfed user requests data entry role in entity registration 
 	Then _4nf user should see pending notification and feeds entry for the request 
@@ -58,7 +61,8 @@ Scenario: bottom up nonfed role request should reflect correct feeds notificatio
 	Then _4nf user should see the canceled status in the feeds notifications for the request 
 	
 @5 
-Scenario: bottom up nonfed role request should reflect correct feeds notifications for rejected requests 
+Scenario:
+bottom up nonfed role request should reflect correct feeds notifications for rejected requests 
 	Given _5nf nonfed user without a role logs in 
 	And _5nf nonfed user requests data entry role in contract opportunities 
 	Then _5nf user should see pending notification and feeds entry for the request 
@@ -67,75 +71,92 @@ Scenario: bottom up nonfed role request should reflect correct feeds notificatio
 	When _5nf nonfed user logs back in 
 	Then _5nf user should see the feeds updated with rejected status for the request 
 	
-#@6 
-#Scenario: bottom up nonfed role request should reflect completed status in feeds notifications for bottomup flow 
-#	Given _6nf nonfed user without a role logs in 
-#	And _6nf user requests data entry role in entity compliance 
-#	When _6nf spaad logs in 
-#	And _6nf spaad assigns the same role to the user without approving the pending request 
-#	Then _6nf the pending request should appear as complete in the feeds 
-#	When _6nf the nonfed requestor logs into their account 
-#	Then _6nf the requester should also see the request updated as complete in feeds 
-#	And _6nf the requester will also see the updated role in my roles page 
+	#@6 
+	#Scenario: bottom up nonfed role request should reflect completed status in feeds notifications for bottomup flow 
+	#	Given _6nf nonfed user without a role logs in 
+	#	And _6nf user requests data entry role in entity compliance 
+	#	When _6nf spaad logs in 
+	#	And _6nf spaad assigns the same role to the user without approving the pending request 
+	#	Then _6nf the pending request should appear as complete in the feeds 
+	#	When _6nf the nonfed requestor logs into their account 
+	#	Then _6nf the requester should also see the request updated as complete in feeds 
+	#	And _6nf the requester will also see the updated role in my roles page 
 	
 @7 
-Scenario: a new nonfed user should be able to register for an account without requesting role at signup 
+Scenario:
+a new nonfed user should be able to register for an account without requesting role at signup 
 	Given _7nf nonfed user attempts to signup for an account 
 	And _7nf user goes through all the identity verification 
 	Then _7nf user should not see the entity section in common profile page 
-	And _7nf user should be able to skip role request and land on workspace page
+	And _7nf user should be able to skip role request and land on workspace page 
 	And _7nf user should be able to deactivate their account 
-
+	
 @8 
-Scenario: a new nonfed user should be able to register for an account and requesting role at signup with feeds 
+Scenario:
+a new nonfed user should be able to register for an account and requesting role at signup with feeds 
 	Given _8nf nonfed user attempts to signup for an account 
-	And _8nf user goes through all the identity verification  
-	And _8nf user should be able to request role and land on workspace page
-	Then _8nf user should be able to view their pending request in feeds
+	And _8nf user goes through all the identity verification 
+	And _8nf user should be able to request role and land on workspace page 
+	Then _8nf user should be able to view their pending request in feeds 
 	
-@9 @gg
-Scenario: a nonfed user without a role should not be able to view the userdirectory
+@9 @gg 
+Scenario:
+a nonfed user without a role should not be able to view the userdirectory 
 	Given _9nf nonfed user without a role logs in 
-	Then _9nf user should not see user directory widget  
-	And _9nf user should also not be able to hit the user directory url
-
-@10 @gg
-Scenario: a nonfed user with a role should be able to view the userdirectory
-	Given _10nf nonfed user with a role logs in 
-	Then _10nf nonfed user should see user directory widget  
-	And _10nf nonfed user should also be able to hit the user directory url to access the page	
-
-@11 @gg
-Scenario: a nonfed user with data entry in entity registration should be able to view users as clickable
-	Given _11nf nonfed user logs in with data entry role in entity registration  
-	And _11nf user navigates to user directory page and clicks data entry and entity registration filter  
-	And _11nf user should see all those users as clickable
-
-@12 @gg
-Scenario: a nonfed user with data entry in entity compliance should be able to view users as clickable
-	Given _12nf nonfed user logs in with data entry role in entity entity compliance  
-	And _12nf user navigates to user directory page and clicks data entry and entity compliance filter  
-	And _12nf user should see all those users as clickable
+	Then _9nf user should not see user directory widget 
+	And _9nf user should also not be able to hit the user directory url 
 	
-@13 @gg
-Scenario: a nonfed user with data entry in contract opportunities should be able to view users as clickable
-	Given _13nf nonfed user logs in with data entry role in contract opportunities  
-	And _13nf user navigates to user directory page and clicks data entry and contract opportunities filter  
-	And _13nf user should see all those users as clickable
-
+@10 @gg 
+Scenario: a nonfed user with a role should be able to view the userdirectory 
+	Given _10nf nonfed user with a role logs in 
+	Then _10nf nonfed user should see user directory widget 
+	And _10nf nonfed user should also be able to hit the user directory url to access the page 
+	
+@11 @gg 
+Scenario:
+a nonfed user with data entry in entity registration should be able to view users as clickable 
+	Given _11nf nonfed user logs in with data entry role in entity registration 
+	And _11nf user navigates to user directory page and clicks data entry and entity registration filter 
+	And _11nf user should see all those users as clickable 
+	
+@12 @gg 
+Scenario:
+a nonfed user with data entry in entity compliance should be able to view users as clickable 
+	Given _12nf nonfed user logs in with data entry role in entity entity compliance 
+	And _12nf user navigates to user directory page and clicks data entry and entity compliance filter 
+	And _12nf user should see all those users as clickable 
+	
+@13 @gg 
+Scenario:
+a nonfed user with data entry in contract opportunities should be able to view users as clickable 
+	Given _13nf nonfed user logs in with data entry role in contract opportunities 
+	And _13nf user navigates to user directory page and clicks data entry and contract opportunities filter 
+	And _13nf user should see all those users as clickable 
+	
 @14 
-Scenario: when requested role is accepted a nonfed user should see role assigned status in profile history
-	Given _14nf a nonfed user with no role logs in  
-	And _14nf user requests viewer role in contract opportunities  
-	When _14nf spaad accepts the pending role request for the user
-	Then _14nf then requsters profile page should show the role assigned in role history
-
+Scenario:
+when requested role is accepted a nonfed user should see role assigned status in profile history 
+	Given _14nf a nonfed user with no role logs in 
+	And _14nf user requests viewer role in contract opportunities 
+	When _14nf spaad accepts the pending role request for the user 
+	Then _14nf then requsters profile page should show the role assigned in role history 
+	
 @15 
-Scenario: when a role is removed from a nonfed user then user should see role removed status in profile history
-	Given _15nf spaad logs in  
-	And _15nf spaad looks up a nonfed user with a role  
-	When _15nf spaad removes the users role
-	Then _15nf then users history should show role removed status in in profile history
+Scenario:
+when a role is removed from a nonfed user then user should see role removed status in profile history 
+	Given _15nf spaad logs in 
+	And _15nf spaad looks up a nonfed user with a role 
+	When _15nf spaad removes the users role 
+	Then _15nf then users history should show role removed status in in profile history 
+	
+@16 
+Scenario: when a role is updated for a nonfed user then user should see role updated status in profile history 
+	Given _16nf spaad logs in 
+	And _16nf spaad looks up a nonfed user with data entry in contract opportunities 
+	When _16nf spaad updates users role to viewer in contract opportunities 
+	Then _16nf then the user should see role updated status in profile history 
+	
+	
 	
 	
 	

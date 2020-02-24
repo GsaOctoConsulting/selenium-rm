@@ -839,6 +839,26 @@ public class NonFedStep {
 		Assert.assertEquals(true, rolefound);
 	}
 
+	@Given("^_16nf spaad logs in$")
+	public void _16nf_spaad_logs_in() throws Throwable {
+
+	}
+
+	@And("^_16nf spaad looks up a nonfed user with data entry in contract opportunities$")
+	public void _16nf_spaad_looks_up_a_nonfed_user_with_data_entry_in_contract_opportunities() throws Throwable {
+
+	}
+
+	@When("^_16nf spaad updates users role to viewer in contract opportunities$")
+	public void _16nf_spaad_updates_users_role_to_viewer_in_contract_opportunities() throws Throwable {
+
+	}
+
+	@Then("^_16nf then the user should see role updated status in profile history$")
+	public void _16nf_then_the_user_should_see_role_updated_status_in_profile_history() throws Throwable {
+
+	}
+
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}
