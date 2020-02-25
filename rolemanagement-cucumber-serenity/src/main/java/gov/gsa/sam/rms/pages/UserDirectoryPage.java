@@ -23,6 +23,7 @@ public class UserDirectoryPage {
 	private UserDirectoryPage() {
 
 	}
+
 	public static WebDriver getDriver() {
 		return driver;
 	}
@@ -30,6 +31,7 @@ public class UserDirectoryPage {
 	public static void setDriver(WebDriver driver) {
 		UserDirectoryPage.driver = driver;
 	}
+
 	public static void searchUserOrgUserPicker(String userid) {
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).sendKeys(userid);
 		driver.findElement(UserDirectoryPageLocator.FIRST_RESULT).click();
@@ -37,20 +39,21 @@ public class UserDirectoryPage {
 	}
 
 	public static List<WebElement> getUserList() {
-		logger.info("The userdirectory list size is - " + driver.findElements(UserDirectoryPageLocator.GET_LISTOFUSERS).size());
+		logger.info("The userdirectory list size is - "
+				+ driver.findElements(UserDirectoryPageLocator.GET_LISTOFUSERS).size());
 		return driver.findElements(UserDirectoryPageLocator.GET_LISTOFUSERS);
 	}
 
 	public static void clickActions(String useremail) {
-		int itemNo = 0;
-		String id = useremail.concat("-action-" + itemNo);
-		driver.findElement(By.id(id)).click();
+//		int itemNo = 0; // new view
+//		String id = useremail.concat("-action-" + itemNo);
+//		driver.findElement(By.id(id)).click();
+//		LaunchBrowserUtil.delay(2);
+
+		// new view
+
+		driver.findElement(By.id(useremail.concat("-action-button"))).click();
 		LaunchBrowserUtil.delay(2);
-		
-		//int itemNo = 0; // old view
-		/*String id = useremail.concat("-action-button");
-		driver.findElement(By.id(id)).click();
-		LaunchBrowserUtil.delay(2);*/
 	}
 
 	public static void clickDownload() {
@@ -71,8 +74,8 @@ public class UserDirectoryPage {
 	public static void clickAssignRole(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-		//driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
-		driver.findElement(By.id("menuitem0")).click();
+		driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
+		// driver.findElement(By.id("menuitem0")).click();
 		AssignRolePage.setDriver(UserDirectoryPage.getDriver());
 		LaunchBrowserUtil.delay(4);
 	}
@@ -80,8 +83,8 @@ public class UserDirectoryPage {
 	public static void clickViewAccess(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-		//driver.findElement(UserDirectoryPageLocator.VIEW_ACCESS).click();
-		driver.findElement(By.id("menuitem1")).click();
+	
+		driver.findElement(By.id("menuitem0")).click();
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());
 		AccountDetailsPage.setDriver(driver);
@@ -363,18 +366,15 @@ public class UserDirectoryPage {
 			e.printStackTrace();
 			return false;
 		}
-		
-		/*if (linktag.isDisplayed()) {
-			return true;
-		} else {
-			return false;
-		}*/
-		
-		/*if (webelement.getTagName().equals("a")) {
-			return true;
-		} else {
-			return false;
-		}*/
+
+		/*
+		 * if (linktag.isDisplayed()) { return true; } else { return false; }
+		 */
+
+		/*
+		 * if (webelement.getTagName().equals("a")) { return true; } else { return
+		 * false; }
+		 */
 	}
 
 	public static boolean elementFound(By locator) {
@@ -409,18 +409,19 @@ public class UserDirectoryPage {
 	public static int getTotalNoOfPages() {
 		List<WebElement> pages = driver.findElements(UserDirectoryPageLocator.TOTAL_NO_OFRECORDS);
 		logger.info("The number of pages in userdirectory are---" + pages.size());
-		
+
 		return pages.size();
-		
-		
-		
-		/*String resultMessage = driver.findElement(UserDirectoryPageLocator.TOTAL_NO_OFRECORDS).getText();
-		String[] bits = resultMessage.split(" ");
-		int recordNo = Integer.parseInt(bits[bits.length - 2]);
-		logger.info("The number of records found are - " + recordNo);
-		int totalNoPages = noOfPageExpected(recordNo);
-		logger.info("The number of pages found are - " + totalNoPages);
-		return totalNoPages;*/
+
+		/*
+		 * String resultMessage =
+		 * driver.findElement(UserDirectoryPageLocator.TOTAL_NO_OFRECORDS).getText();
+		 * String[] bits = resultMessage.split(" "); int recordNo =
+		 * Integer.parseInt(bits[bits.length - 2]);
+		 * logger.info("The number of records found are - " + recordNo); int
+		 * totalNoPages = noOfPageExpected(recordNo);
+		 * logger.info("The number of pages found are - " + totalNoPages); return
+		 * totalNoPages;
+		 */
 	}
 
 	private static int noOfPageExpected(int totalNoOfRecords) {
@@ -437,7 +438,7 @@ public class UserDirectoryPage {
 		List<WebElement> pagelist = getPagination();
 
 		for (int i = 0; i < pageLimit && pagelist.size() > 1; i++) {
-		
+
 			if (Integer.parseInt(pagelist.get(i).getText().substring(5)) == pageno) {
 				logger.info("Text from the pagebutton - " + pagelist.get(i).getText());
 				pagelist.get(i).click();
@@ -465,10 +466,10 @@ public class UserDirectoryPage {
 	public static void clickViewAccessOnly(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(3); //
-	/*	driver.findElement(By.xpath(
-				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul/li/button/span[2]"))
-				.click();*/
-		driver.findElement(By.id("menuitem0")).click();
+//		driver.findElement(By.xpath(
+//				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/results/div[3]/div[1]/sam-actions-dropdown/div/ul/li/button/span[2]"))
+//				.click(); // old view
+		driver.findElement(By.id("menuitem0")).click(); // new view
 		LaunchBrowserUtil.delay(2);
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());
@@ -531,8 +532,9 @@ public class UserDirectoryPage {
 		LaunchBrowserUtil.delay(2);
 		List<WebElement> orgList = driver.findElements(AssignRolePageLocator.ORG_SELECTOR);
 		logger.info(("The size of the list is......" + orgList.size()));
-		/*WebElement firstOrg = orgList.get(0);
-		firstOrg.click();*/
+		/*
+		 * WebElement firstOrg = orgList.get(0); firstOrg.click();
+		 */
 		driver.findElement(By.xpath("//*[@id=\"federalHierarchy_100006688\"]")).click();
 		LaunchBrowserUtil.delay(2);
 	}
@@ -540,20 +542,22 @@ public class UserDirectoryPage {
 	public static void clickOrgTypeWhereUsersHaveRoles() {
 		driver.findElement(UserDirectoryPageLocator.ORG_PICKER_FILTER_WHERE_USERS_HAVE_ROLES).click();
 		LaunchBrowserUtil.delay(1);
-		
+
 	}
 
 	public static String getNoResultsmessageFound() {
 		return driver.findElement(UserDirectoryPageLocator.NO_RESULTS_MESSAGE).getText();
 	}
+
 	public static void clickUsersOwnDomain() {
-		driver.findElement(By.xpath("//input[starts-with(@id, 'my-domain-')]")).click();	
+		driver.findElement(By.xpath("//input[starts-with(@id, 'my-domain-')]")).click();
 		LaunchBrowserUtil.delay(2);
-		
+
 	}
+
 	public static void clickDataEntryFilter() {
 		driver.findElement(UserDirectoryPageLocator.DATA_ENTRY_FILTER).click();
-		LaunchBrowserUtil.delay(2);		
+		LaunchBrowserUtil.delay(2);
 	}
 
 }

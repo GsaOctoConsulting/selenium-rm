@@ -841,22 +841,55 @@ public class NonFedStep {
 
 	@Given("^_16nf spaad logs in$")
 	public void _16nf_spaad_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_16nf spaad looks up a nonfed user with data entry in contract opportunities$")
 	public void _16nf_spaad_looks_up_a_nonfed_user_with_data_entry_in_contract_opportunities() throws Throwable {
-
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
 	}
 
 	@When("^_16nf spaad updates users role to viewer in contract opportunities$")
 	public void _16nf_spaad_updates_users_role_to_viewer_in_contract_opportunities() throws Throwable {
-
+		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(true, rolefound);
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.writeComment("editing this role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 	}
 
 	@Then("^_16nf then the user should see role updated status in profile history$")
 	public void _16nf_then_the_user_should_see_role_updated_status_in_profile_history() throws Throwable {
-
+		LaunchBrowserUtil.scrollToMiddle();
+		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, "", 0);
+		Assert.assertEquals(true, rolehistoryfound);
+		// ------------------edit the role back to previous state---------------
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		LaunchBrowserUtil.delay(4);
+		
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.writeComment("editing this role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		
+		// confirming the change has gone through
+		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(roleRestored, true);
+		LaunchBrowserUtil.delay(5);		
 	}
 
 	private void beforeScenario() {
