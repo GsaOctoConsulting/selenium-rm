@@ -234,9 +234,7 @@ public class AssignRolePage {
 	}
 
 	public static void clickCancel() {
-		driver.findElement(
-				By.xpath("//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[2]/form/div[2]/button[1]"))
-				.click();
+		driver.findElement(By.id("cancel-button")).click();
 		LaunchBrowserUtil.delay(2);
 
 	}
@@ -280,6 +278,7 @@ public class AssignRolePage {
 		}
 		return orgFound;
 	}
+
 	public static boolean selectEntityRoleIfFound(String roleName) {
 		boolean roleFound = false;
 		Select role = new Select(driver.findElement(AssignRolePageLocator.ROLE_SELECTOR));
@@ -304,6 +303,7 @@ public class AssignRolePage {
 	public static void clearEntitySelector() {
 		driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA).clear();
 	}
+
 	public static boolean selectEntityDomainIfFound(String domainname) {
 		boolean domainFound = false;
 		driver.findElement(By.id("domain-ac-textarea")).sendKeys("");

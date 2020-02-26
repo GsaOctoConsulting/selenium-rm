@@ -12,6 +12,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
+import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.MyRolesPageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
@@ -892,27 +893,91 @@ public class NonFedStep {
 
 	@Given("^_17nf user logs in with viewer role in entity registration$")
 	public void _17nf_user_logs_in_with_viewer_role_in_entity_registration() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_VIEWER_ENTITYREGISRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_VIEWER_ENTITYREGISRATION_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_17nf user requests viewer role in entity registration$")
 	public void _17nf_user_requests_viewer_role_in_entity_registration() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
 	}
 
 	@When("^_17nf spaad logs in$")
 	public void _17nf_spaad_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_17nf spaad tries to approve the pending request for the user$")
 	public void _17nf_spaad_tries_to_approve_the_pending_request_for_the_user() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_VIEWER_ENTITYREGISRATION);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_VIEWER_ENTITYREGISRATION);
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+
+		RoleRequestPendingPage.clickAssignRole();
+		AssignRolePage.writeComment("giving this role");
 
 	}
 
 	@Then("^_17nf proper error message show up$")
 	public void _17nf_proper_error_message_show_up() throws Throwable {
+		LaunchBrowserUtil.scrollUp();
+		boolean alertFound = AssignRolePage.elementFound(AssignRolePageLocator.ERROR_ALERT);
+		Assert.assertEquals(true, alertFound);
+		// --------------------------reject the request-----------------------------
+		AssignRolePage.clickCancel();
+		RoleRequestPendingPage.enterAdditionalInformation("rejecting");
+		RoleRequestPendingPage.clickRejectButton();
 
+	}
+
+	@Given("^_18nf user logs in with admin role in entity registration$")
+	public void _18nf_user_logs_in_with_admin_role_in_entity_registration() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_18nf user navigates to role request page$")
+	public void _18nf_user_navigates_to_role_request_page() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+
+	}
+
+	@When("^_18nf user looks for role under role tab$")
+	public void _18nf_user_looks_for_role_under_role_tab() throws Throwable {
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+	}
+
+	@Then("^_18nf no role options under entity registration should show up$")
+	public void _18nf_no_role_options_under_entity_registration_should_show_up() throws Throwable {
+		boolean viewerfound = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, viewerfound);
+		boolean entityregistrationdomainNotFound = RequestRolePage
+				.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(false, entityregistrationdomainNotFound);
+		
+		boolean dataentryfound = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, dataentryfound);
+		boolean entityregistrationdomainNotFound2 = RequestRolePage
+				.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(false, entityregistrationdomainNotFound2);
 	}
 
 	private void beforeScenario() {

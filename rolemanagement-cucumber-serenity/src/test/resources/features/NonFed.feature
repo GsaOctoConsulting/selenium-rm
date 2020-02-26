@@ -162,7 +162,16 @@ Scenario: when user is being assigned a role that they already have proper error
 	And _17nf user requests viewer role in entity registration 
 	When _17nf spaad logs in 
 	And _17nf spaad tries to approve the pending request for the user
-	Then _17nf proper error message show up 
+	Then _17nf proper error message show up
+
+@18 
+Scenario: a nonfed admin in a particular domain when requesting a role should not see any role options under that domain 
+	Given _18nf user logs in with admin role in entity registration 
+	And _18nf user navigates to role request page 
+	When _18nf user looks for role under role tab 
+	Then _18nf no role options under entity registration should show up
+
+
 	
 	
 	

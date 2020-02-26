@@ -282,4 +282,7 @@ public class ConstantsAccounts {
 	
 	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER = "octotestaccount1+aadsystemmanager@gsa.gov";
 	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER_SECRETKEY = "5QTBAKH7TK6VB7DS";
+	
+	public static final String NONFED_ADMIN_ENTITYREGISTRATION = "nonfedgsaemail+adminentityregistration1@yopmail.com";
+	public static final String NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY = "KPRLO5R675BXCGDW";
 }
