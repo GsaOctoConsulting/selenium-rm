@@ -854,8 +854,8 @@ public class NonFedStep {
 
 	@When("^_16nf spaad updates users role to viewer in contract opportunities$")
 	public void _16nf_spaad_updates_users_role_to_viewer_in_contract_opportunities() throws Throwable {
-		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(true, rolefound);
 		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
@@ -871,25 +871,48 @@ public class NonFedStep {
 		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, "", 0);
 		Assert.assertEquals(true, rolehistoryfound);
 		// ------------------edit the role back to previous state---------------
-		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 		LaunchBrowserUtil.delay(4);
-		
+
 		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		LaunchBrowserUtil.scrollToMiddle();
 		AssignRolePage.writeComment("editing this role");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
-		
+
 		// confirming the change has gone through
-		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(roleRestored, true);
-		LaunchBrowserUtil.delay(5);		
+		LaunchBrowserUtil.delay(5);
+	}
+
+	@Given("^_17nf user logs in with viewer role in entity registration$")
+	public void _17nf_user_logs_in_with_viewer_role_in_entity_registration() throws Throwable {
+
+	}
+
+	@And("^_17nf user requests viewer role in entity registration$")
+	public void _17nf_user_requests_viewer_role_in_entity_registration() throws Throwable {
+
+	}
+
+	@When("^_17nf spaad logs in$")
+	public void _17nf_spaad_logs_in() throws Throwable {
+
+	}
+
+	@And("^_17nf spaad tries to approve the pending request for the user$")
+	public void _17nf_spaad_tries_to_approve_the_pending_request_for_the_user() throws Throwable {
+
+	}
+
+	@Then("^_17nf proper error message show up$")
+	public void _17nf_proper_error_message_show_up() throws Throwable {
+
 	}
 
 	private void beforeScenario() {

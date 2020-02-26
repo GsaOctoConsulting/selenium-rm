@@ -143,7 +143,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(5);
 			LaunchBrowserUtil.driver
 					.findElement(
-							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[2]/div/span[1]"))
+							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
@@ -155,30 +155,53 @@ public class SignUpUtility {
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp);
 			LaunchBrowserUtil.delay(4);
 			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
-					.click();
+			.click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-			LaunchBrowserUtil.delay(5);
+			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
 					.click();
-			LaunchBrowserUtil.delay(1);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[2]/input"))
+			LaunchBrowserUtil.delay(2);
+			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.delay(2);
+			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xde");
+			String secretCode2 = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
+			String otp2 = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode2);
+			logger.info("The captured secret code is --- " + secretCode);
+			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp2);
+			LaunchBrowserUtil.delay(4);
+			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("new_phone_form_phone")).sendKeys(ConstantsAccounts.PHONE);
+
+			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
-			LaunchBrowserUtil.delay(8);
-			// String otpFromText =
-			// LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUp(Constants.GMAIL_USERNAME);
-			String otpFromText = LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUpNonFed(Constants.EMAIL_NONFED);
-			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otpFromText);
-			LaunchBrowserUtil.delay(3);
-			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
+			
+			
+//			LaunchBrowserUtil.driver
+//					.findElement(
+//							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
+//					.click();
+//			LaunchBrowserUtil.delay(1);
+//			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[2]/input"))
+//					.click();
+//			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.driver.findElement(By.id("new_phone_form_phone")).sendKeys(ConstantsAccounts.PHONE);
+//			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
+//			LaunchBrowserUtil.delay(8);
+//			// String otpFromText =
+//			// LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUp(Constants.GMAIL_USERNAME);
+//			String otpFromText = LaunchBrowserUtil.getPhoneOtpFromEmailDuringSignUpNonFed(Constants.EMAIL_NONFED);
+//			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otpFromText);
+//			LaunchBrowserUtil.delay(3);
+//			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
+//			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 			CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
 			// RequestRoleOptionalPage.setDriver(LaunchBrowserUtil.getDriver());

@@ -155,6 +155,14 @@ Scenario: when a role is updated for a nonfed user then user should see role upd
 	And _16nf spaad looks up a nonfed user with data entry in contract opportunities 
 	When _16nf spaad updates users role to viewer in contract opportunities 
 	Then _16nf then the user should see role updated status in profile history 
+
+@17 
+Scenario: when user is being assigned a role that they already have proper error message should display 
+	Given _17nf user logs in with viewer role in entity registration 
+	And _17nf user requests viewer role in entity registration 
+	When _17nf spaad logs in 
+	And _17nf spaad tries to approve the pending request for the user
+	Then _17nf proper error message show up 
 	
 	
 	

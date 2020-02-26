@@ -64,8 +64,13 @@ public class ConstantsAccounts {
 	// ---------------------------------------------------------------------
 	public static final String NONFED_USER_2_NO_ROLES = "nonfedgsaemail+2@yopmail.com";
 	public static final String NONFED_USER_2_NO_ROLES_SECRETKEY = "ELSJZZZW22MPZ5LL";
-
+	
 	// ---------------------------------------------------------------------
+		public static final String NONFED_VIEWER_ENTITYREGISRATION = "nonfedgsaemail+viewerentityregistration11@yopmail.com";
+		public static final String NONFED_VIEWER_ENTITYREGISRATION_SECRETKEY = "2MAQAKTUQ4OPY6T5";
+
+		// ---------------------------------------------------------------------
+	
 	public static final String AL_GRANDUSER_1 = "octotestaccount1+algranduser@gsa.gov";
 	public static final String AL_GRANDUSER_1_SECRETKEY = "MCOC2TZTR5ASGT3A";
 
