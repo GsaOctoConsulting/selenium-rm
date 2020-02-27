@@ -134,8 +134,7 @@ a nonfed user with data entry in contract opportunities should be able to view u
 	And _13nf user should see all those users as clickable 
 	
 @14 
-Scenario:
-when requested role is accepted a nonfed user should see role assigned status in profile history 
+Scenario: when requested role is accepted a nonfed user should see role assigned status in profile history 
 	Given _14nf a nonfed user with no role logs in 
 	And _14nf user requests viewer role in contract opportunities 
 	When _14nf spaad accepts the pending role request for the user 
@@ -172,8 +171,6 @@ Scenario: a nonfed admin in a particular domain when requesting a role should no
 	Then _18nf no role options under entity registration should show up
 
 
-	
-	
 	
 	
 	

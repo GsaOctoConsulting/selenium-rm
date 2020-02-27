@@ -6,7 +6,8 @@ public class Constants {
 	// urls
 	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
 	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov";
-	//public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
+	// public static final String LOGINGOV_HOME_PAGE =
+	// "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
 	// login credentials
 	public static final String USERPASS = "WhiteColor1!";
 	public static final String USERPASS_NONFED = "WhiteColor1!";
@@ -15,17 +16,18 @@ public class Constants {
 	public static String OTP;
 
 	// Org----------------------------
-	public static final String ORG_GSA = "General Services Administration";
-	public static final String ORG_HHS = "Health and Human Services, Department of";
-	public static final String ORG_EOP = "Executive Office of the President";
-	public static final String ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA = "OFFICE OF ACQUISITION OPERA";
-	public static final String ORG_EOIR = "Executive Office for Immigration Review";
-	public static final String ORG_OCTO_CONSULTING_GROUP = "OCTO CONSULTING GROUP, INC";
-	public static final String ORG_CODA_OCTOPUS = "Coda Octopus Products";
-	public static final String ORG_JACKSON_BOOKBINDING = "Jackson Bookbinding Co";
-	public static final String ORG_UTAH_COMMUNICATIONS_AUTHORITY = "UTAH COMMUNICATIONS AUTHORITY";
-	public static final String ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND = "COCA-COLA BOTTLING COMPANY OF NORTHERN NEW ENGLAND, INC, THE";
-	//Org Codes
+	public static final String ORG_GSA = "General Services Administration".toUpperCase();
+	public static final String ORG_HHS = "Health and Human Services, Department of".toUpperCase();
+	public static final String ORG_EOP = "Executive Office of the President".toUpperCase();
+	public static final String ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA = "OFFICE OF ACQUISITION OPERA".toUpperCase();
+	public static final String ORG_EOIR = "Executive Office for Immigration Review".toUpperCase();
+	public static final String ORG_OCTO_CONSULTING_GROUP = "OCTO CONSULTING GROUP, INC".toUpperCase();
+	public static final String ORG_CODA_OCTOPUS = "Coda Octopus Products".toUpperCase();
+	public static final String ORG_JACKSON_BOOKBINDING = "Jackson Bookbinding Co".toUpperCase();
+	public static final String ORG_UTAH_COMMUNICATIONS_AUTHORITY = "UTAH COMMUNICATIONS AUTHORITY".toUpperCase();
+	public static final String ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND = "COCA-COLA BOTTLING COMPANY OF NORTHERN NEW ENGLAND, INC, THE"
+			.toUpperCase();
+	// Org Codes
 	public static final String ORG_GSA_CODE = "300000221";
 
 	// Roles---------------------------------
@@ -57,9 +59,9 @@ public class Constants {
 	public static final String DOMAIN_ASSISTANCE_LISTING = "Assistance Listing";
 	public static final String DOMAIN_ADMIN = "Admin";
 	public static final String DOMAIN_FEDERAL_HIERARCHY = "Federal Hierarchy";
-	public static final String DOMAIN_ENTITY_COMPLIANCE= "Entity Compliance";
+	public static final String DOMAIN_ENTITY_COMPLIANCE = "Entity Compliance";
 	public static final String DOMAIN_ENTITY_REGISTRATION = "Entity Registration";
-	
+
 	// status--------------------------------
 	public static final String STATUS_PENDING = "Pending";
 	public static final String STATUS_REJECTED = "Rejected";
@@ -75,8 +77,8 @@ public class Constants {
 
 	// Role descriptions
 	public static final String ROLEDESCRIPTION_ASSISTANCEUSER = "As an Assistance User, you may create and update assistance listings and regional office information. You may also submit listings to OMB for approval and request agency, title, or CFDA number changes.";
-	public static final String ROLEDESCRIPTION_CONSTRACTINGOFFICER="As a Contracting Officer, you may create, update, delete, and approve publication of notices.";
-	public static final String ROLEDESCRIPTION_CONSTRACTINGSPECIALIST="As a Contracting Specialist, you may create and update notices, and delete drafts. A Contracting Officer must approve your notices for publication.";
+	public static final String ROLEDESCRIPTION_CONSTRACTINGOFFICER = "As a Contracting Officer, you may create, update, delete, and approve publication of notices.";
+	public static final String ROLEDESCRIPTION_CONSTRACTINGSPECIALIST = "As a Contracting Specialist, you may create and update notices, and delete drafts. A Contracting Officer must approve your notices for publication.";
 	// custom commands--------------------------
 
 	/**
@@ -192,17 +194,17 @@ public class Constants {
 	public static final String USER_NONFED = "Nonfed";
 	public static final String NO_SECRET_KEY = "No Secret Key";
 	public static final String SIGNUP_SECURITYLEVEL = "IAL1";
-	
 
 	private Constants() {
 	}
+
 	// ************************************************************************************************************************************
 	public static final String MA_GMAIL_FED_USERNAME = "shah.raiaan@gsa.gov";
 	public static final String MA_USERPASS = "";
 
 	public static final String MA_GMAIL_NON_FED_USERNAME = "octo.crimson@gmail.com";
 	public static final String MA_USERPASS_NONFED = "Octo@gmail0001";
-	
+
 	// system account email constants--
 	public static final String MA_EMAIL_FROM_ENV = "This email was sent from TEST ENV";
 	public static final String MA_EMAIL_MESSAGE_LERNINGCENTER = "If you have additional questions, please review the Learning Center";
@@ -273,7 +275,7 @@ public class Constants {
 	public static final String MA_EMAIL_PMOA_FINAL_REJECT_SUBJECT_LINE = "A System Account application has been rejected";
 	public static final String MA_EMAIL_PMOA_FINAL_REJECT_EMAIL_BODY = "A System Account application has been rejected and can be viewed";
 	public static final String MA_EMAIL_PMOA_FINAL_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
-	
+
 	// GSA Security Approver email constants
 	public static final String MA_EMAIL_GSAPPROVER_PENDING_SUBJECT_LINE = "A System Account application has been submitted for approval/rejection";
 	public static final String MA_EMAIL_GSAPPROVER_PENDING_EMAIL_BODY = "A System Account application has been submitted for approval/rejection.";
@@ -282,7 +284,7 @@ public class Constants {
 	public static final String MA_EMAIL_GSAPPROVER_REJECT_SUBJECT_LINE = "A System Account application has been rejected";
 	public static final String MA_EMAIL_GSAPPROVER_REJECT_EMAIL_BODY = "A System Account application has been rejected and can be viewed";
 	public static final String MA_EMAIL_GSAPPROVER_REJECT_EMAIL_BODY_SECONDLINE = "The application will now be found in draft status for resubmission at a later date or deletion.";
-	
+
 	// System Account Non-Fed constants
 	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_CREATION_SUBJECT_LINE = "You have submitted a pending System Account application for approval";
 	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_CREATION_EMAIL_BODY = "You have submitted a System Account application which will be reviewed by a GSA Security Approver for a final determination.";
@@ -295,8 +297,8 @@ public class Constants {
 	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_EMAIL_BODY = "Your System Account application has received final approval and can be viewed";
 	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_SUBJECT_LINE = "Your System Account application has been rejected";
 	public static final String MA_EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_EMAIL_BODY = "Your System Account application has been rejected and can be viewed";
-	
-	//System Account comments
+
+	// System Account comments
 	public static final String MA_SAM_ADD_COMMENT = "The comment has been added by System Account Manager";
 	public static final String MA_SAA_ADD_COMMENT = "The comment has been added by System Account Administrator";
 	public static final String MA_PMOA_ADD_COMMENT = "The comment has been added by IAE PMO Administrator";
@@ -304,16 +306,14 @@ public class Constants {
 
 	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
 	public static final String SCENARIO_VIDEO_FILE_PATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\videos";
-	public static final boolean VIDEO_RECORD_ON = false;
+	public static final boolean VIDEO_RECORD_ON = true;
 	public static final String SCREENSHOTS_FILEPATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\screenshots.png";
 	public static final String ORG_PUBLIC_BUILDING_SERVICE = "PUBLIC BUILDINGS SERVICE";
-	
-	
+
 	// Role History Status
 	public static final String ROLEHISTORY_STATUS_ROLE_ASSIGNED = "Role Assigned";
 	public static final String ROLEHISTORY_STATUS_ROLE_REMOVED = "Role Removed";
 	public static final String ROLEHISTORY_STATUS_ROLE_UPDATED = "Role Updated";
-	
 
 	// ************************************************************************************************************************************
 

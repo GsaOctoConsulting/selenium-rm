@@ -972,7 +972,7 @@ public class NonFedStep {
 		boolean entityregistrationdomainNotFound = RequestRolePage
 				.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
 		Assert.assertEquals(false, entityregistrationdomainNotFound);
-		
+
 		boolean dataentryfound = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		Assert.assertEquals(true, dataentryfound);
 		boolean entityregistrationdomainNotFound2 = RequestRolePage

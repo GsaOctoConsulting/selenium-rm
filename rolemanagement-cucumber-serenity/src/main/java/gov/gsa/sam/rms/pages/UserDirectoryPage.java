@@ -74,8 +74,8 @@ public class UserDirectoryPage {
 	public static void clickAssignRole(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-		driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
-		// driver.findElement(By.id("menuitem0")).click();
+		//driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
+		driver.findElement(By.id("menuitem1")).click();
 		AssignRolePage.setDriver(UserDirectoryPage.getDriver());
 		LaunchBrowserUtil.delay(4);
 	}
