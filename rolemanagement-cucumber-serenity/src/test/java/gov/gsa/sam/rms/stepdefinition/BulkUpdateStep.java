@@ -78,7 +78,7 @@ public class BulkUpdateStep {
 		Assert.assertEquals(false, userHasRole);
 		// ------------give the role back-----------------------------------------
 		UserDirectoryViewAccessPage.clickAssignRole();
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("assigning role back");
