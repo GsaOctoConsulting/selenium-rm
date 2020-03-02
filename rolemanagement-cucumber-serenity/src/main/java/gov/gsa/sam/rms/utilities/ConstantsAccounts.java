@@ -58,7 +58,7 @@ public class ConstantsAccounts {
 	public static final String DEPT_ROLEADMIN_2_SECRETKEY = "UBL3KM7AJVXNVNP6";
 
 	// ---------------------------------------------------------------------
-	public static final String NONFED_USER_1 = "nonfedgsaemail@yopmail.com";
+	public static final String NONFED_USER_1 = "nonfedgsaemail@yopmail.com";//data entry contract opp
 	public static final String NONFED_USER_1_SECRETKEY = "PISODXJ5ZDDAJ3GV";
 
 	// ---------------------------------------------------------------------

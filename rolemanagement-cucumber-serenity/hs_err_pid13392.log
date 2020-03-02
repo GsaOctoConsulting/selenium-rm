@@ -1,0 +1,1439 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:272), pid=13392, tid=0x0000000000003ddc
+#
+# JRE version: OpenJDK Runtime Environment (8.0_232-b09) (build 1.8.0_232-b09)
+# Java VM: OpenJDK 64-Bit Server VM (25.232-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000178a6000):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=15836, stack(0x0000000018c40000,0x0000000018d40000)]
+
+Stack: [0x0000000018c40000,0x0000000018d40000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:3526353 5570       4       com.google.gson.stream.JsonWriter::beforeValue (134 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000019f3b800 JavaThread "pool-1-thread-2" [_thread_in_native, id=10704, stack(0x0000000027eb0000,0x0000000027fb0000)]
+  0x0000000019f35800 JavaThread "pool-1-thread-1" [_thread_in_native, id=18604, stack(0x000000001cde0000,0x000000001cee0000)]
+  0x0000000019f3c800 JavaThread "UrlChecker-15" daemon [_thread_blocked, id=31952, stack(0x0000000025fb0000,0x00000000260b0000)]
+  0x0000000019f3b000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=8616, stack(0x0000000027cb0000,0x0000000027db0000)]
+  0x0000000019f3a000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=28492, stack(0x0000000027bb0000,0x0000000027cb0000)]
+  0x0000000019f37800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=30712, stack(0x0000000027ab0000,0x0000000027bb0000)]
+  0x00000000187b8000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=30488, stack(0x00000000279b0000,0x0000000027ab0000)]
+  0x00000000187b2800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=30020, stack(0x00000000278b0000,0x00000000279b0000)]
+  0x00000000187b8800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=28928, stack(0x00000000277b0000,0x00000000278b0000)]
+  0x00000000187b6800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=29760, stack(0x00000000276b0000,0x00000000277b0000)]
+  0x00000000187b1800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=28280, stack(0x00000000275b0000,0x00000000276b0000)]
+  0x00000000187b5800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=29728, stack(0x00000000274b0000,0x00000000275b0000)]
+  0x00000000187b4800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=16140, stack(0x00000000273b0000,0x00000000274b0000)]
+  0x00000000187b7000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=21144, stack(0x00000000272b0000,0x00000000273b0000)]
+  0x00000000187b4000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=27732, stack(0x00000000271b0000,0x00000000272b0000)]
+  0x00000000187b3000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=28988, stack(0x00000000270b0000,0x00000000271b0000)]
+  0x00000000187a9800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=28948, stack(0x0000000026fb0000,0x00000000270b0000)]
+  0x00000000187b0000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=28924, stack(0x0000000026eb0000,0x0000000026fb0000)]
+  0x00000000187ad800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=26996, stack(0x0000000026db0000,0x0000000026eb0000)]
+  0x00000000187ad000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=27612, stack(0x0000000026cb0000,0x0000000026db0000)]
+  0x00000000187af000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=5820, stack(0x0000000026bb0000,0x0000000026cb0000)]
+  0x00000000187ac000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=27168, stack(0x0000000026ab0000,0x0000000026bb0000)]
+  0x00000000187aa800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=25700, stack(0x00000000269b0000,0x0000000026ab0000)]
+  0x00000000187ab800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=27932, stack(0x00000000268b0000,0x00000000269b0000)]
+  0x00000000187ae800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=28556, stack(0x00000000267b0000,0x00000000268b0000)]
+  0x00000000187b1000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=13388, stack(0x00000000266b0000,0x00000000267b0000)]
+  0x0000000019fbe000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=12156, stack(0x00000000265b0000,0x00000000266b0000)]
+  0x0000000018904000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=23000, stack(0x00000000264b0000,0x00000000265b0000)]
+  0x0000000018909800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=15404, stack(0x00000000263b0000,0x00000000264b0000)]
+  0x0000000018901800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=352, stack(0x00000000262b0000,0x00000000263b0000)]
+  0x0000000018908800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=23924, stack(0x00000000261b0000,0x00000000262b0000)]
+  0x0000000018908000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=23796, stack(0x00000000260b0000,0x00000000261b0000)]
+  0x0000000018907000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=28020, stack(0x0000000025cb0000,0x0000000025db0000)]
+  0x0000000018901000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=24448, stack(0x0000000025eb0000,0x0000000025fb0000)]
+  0x00000000188ff800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=27856, stack(0x0000000025db0000,0x0000000025eb0000)]
+  0x0000000018905800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=28076, stack(0x00000000259b0000,0x0000000025ab0000)]
+  0x0000000018905000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17152, stack(0x0000000025bb0000,0x0000000025cb0000)]
+  0x0000000018903000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17620, stack(0x0000000025ab0000,0x0000000025bb0000)]
+  0x0000000018906800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=17396, stack(0x00000000253b0000,0x00000000254b0000)]
+  0x00000000188fc000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=26656, stack(0x00000000258b0000,0x00000000259b0000)]
+  0x00000000188fe000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=24652, stack(0x00000000257b0000,0x00000000258b0000)]
+  0x00000000188fd000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=26944, stack(0x00000000256b0000,0x00000000257b0000)]
+  0x00000000188fb800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=18420, stack(0x00000000255b0000,0x00000000256b0000)]
+  0x00000000188fe800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=25280, stack(0x00000000254b0000,0x00000000255b0000)]
+  0x0000000018902800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=27228, stack(0x0000000024db0000,0x0000000024eb0000)]
+  0x00000000188fa800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=26280, stack(0x00000000252b0000,0x00000000253b0000)]
+  0x0000000019fc2000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=24592, stack(0x00000000251b0000,0x00000000252b0000)]
+  0x0000000019fc0800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=22904, stack(0x00000000250b0000,0x00000000251b0000)]
+  0x0000000019fc1000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=23176, stack(0x0000000024fb0000,0x00000000250b0000)]
+  0x0000000019fb7000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=26072, stack(0x0000000024eb0000,0x0000000024fb0000)]
+  0x0000000019fbd800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=26084, stack(0x00000000241b0000,0x00000000242b0000)]
+  0x0000000019fbc800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=26220, stack(0x0000000024cb0000,0x0000000024db0000)]
+  0x0000000019fbf000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=26216, stack(0x0000000024bb0000,0x0000000024cb0000)]
+  0x0000000019fbf800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=26204, stack(0x0000000024ab0000,0x0000000024bb0000)]
+  0x0000000019fb5800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=8688, stack(0x00000000249b0000,0x0000000024ab0000)]
+  0x0000000019fbc000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=25264, stack(0x00000000248b0000,0x00000000249b0000)]
+  0x0000000019fbb000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=25300, stack(0x00000000247b0000,0x00000000248b0000)]
+  0x0000000019fb3000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=24940, stack(0x00000000246b0000,0x00000000247b0000)]
+  0x0000000019fb9800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=24484, stack(0x00000000245b0000,0x00000000246b0000)]
+  0x0000000019fb8000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=24924, stack(0x00000000244b0000,0x00000000245b0000)]
+  0x0000000019fb4800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=23188, stack(0x00000000243b0000,0x00000000244b0000)]
+  0x0000000019fb4000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22876, stack(0x00000000242b0000,0x00000000243b0000)]
+  0x0000000019fb8800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=23152, stack(0x0000000023eb0000,0x0000000023fb0000)]
+  0x0000000019fba000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22676, stack(0x00000000240b0000,0x00000000241b0000)]
+  0x0000000019fb6800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=24064, stack(0x0000000023fb0000,0x00000000240b0000)]
+  0x0000000019a1a000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=23984, stack(0x0000000023bb0000,0x0000000023cb0000)]
+  0x000000001b4f8800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17576, stack(0x0000000023db0000,0x0000000023eb0000)]
+  0x0000000019a22800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22068, stack(0x0000000023cb0000,0x0000000023db0000)]
+  0x0000000019a21000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=22304, stack(0x00000000235b0000,0x00000000236b0000)]
+  0x0000000019a21800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=21500, stack(0x0000000023ab0000,0x0000000023bb0000)]
+  0x0000000019a23800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17672, stack(0x00000000239b0000,0x0000000023ab0000)]
+  0x0000000019a20000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=22432, stack(0x00000000238b0000,0x00000000239b0000)]
+  0x0000000019a14800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=21924, stack(0x00000000237b0000,0x00000000238b0000)]
+  0x0000000019a1a800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=23060, stack(0x00000000236b0000,0x00000000237b0000)]
+  0x0000000019a18800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=22924, stack(0x0000000022cb0000,0x0000000022db0000)]
+  0x0000000019a1f800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22500, stack(0x00000000234b0000,0x00000000235b0000)]
+  0x0000000019a1d000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22472, stack(0x00000000233b0000,0x00000000234b0000)]
+  0x0000000019a1e800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=22368, stack(0x00000000232b0000,0x00000000233b0000)]
+  0x0000000019a16800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22300, stack(0x00000000231b0000,0x00000000232b0000)]
+  0x0000000019a19000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=21352, stack(0x00000000230b0000,0x00000000231b0000)]
+  0x0000000019a1c000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=13360, stack(0x0000000022fb0000,0x00000000230b0000)]
+  0x0000000019a1e000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22444, stack(0x0000000022eb0000,0x0000000022fb0000)]
+  0x0000000019a15000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=22168, stack(0x0000000022db0000,0x0000000022eb0000)]
+  0x0000000019a17800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=10368, stack(0x000000001e5b0000,0x000000001e6b0000)]
+  0x0000000019a16000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20688, stack(0x00000000229b0000,0x0000000022ab0000)]
+  0x0000000019a1b800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=18884, stack(0x00000000228b0000,0x00000000229b0000)]
+  0x0000000019a0e000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=19920, stack(0x00000000227b0000,0x00000000228b0000)]
+  0x0000000019a0d800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17568, stack(0x00000000226b0000,0x00000000227b0000)]
+  0x0000000019a11800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20132, stack(0x00000000225b0000,0x00000000226b0000)]
+  0x0000000019a0c800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=19204, stack(0x00000000224b0000,0x00000000225b0000)]
+  0x0000000019a12000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20100, stack(0x00000000223b0000,0x00000000224b0000)]
+  0x0000000019a10000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20084, stack(0x00000000222b0000,0x00000000223b0000)]
+  0x0000000019a0c000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=15136, stack(0x00000000221b0000,0x00000000222b0000)]
+  0x0000000019a10800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=19604, stack(0x00000000220b0000,0x00000000221b0000)]
+  0x0000000019a0f000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=16796, stack(0x0000000021fb0000,0x00000000220b0000)]
+  0x0000000019a05000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=19904, stack(0x0000000021eb0000,0x0000000021fb0000)]
+  0x0000000019a0b000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20068, stack(0x0000000021db0000,0x0000000021eb0000)]
+  0x0000000019a03000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17516, stack(0x0000000021cb0000,0x0000000021db0000)]
+  0x0000000019a0a800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=14200, stack(0x0000000021bb0000,0x0000000021cb0000)]
+  0x0000000019a06800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20464, stack(0x0000000021ab0000,0x0000000021bb0000)]
+  0x0000000019a08800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=20460, stack(0x00000000219b0000,0x0000000021ab0000)]
+  0x0000000019a08000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=20448, stack(0x00000000218b0000,0x00000000219b0000)]
+  0x0000000019a09800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=18600, stack(0x00000000217b0000,0x00000000218b0000)]
+  0x0000000019a04000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=18712, stack(0x00000000215b0000,0x00000000216b0000)]
+  0x0000000019a05800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=17868, stack(0x00000000214b0000,0x00000000215b0000)]
+  0x0000000019a07000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=16956, stack(0x00000000213b0000,0x00000000214b0000)]
+  0x0000000019be4800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=18500, stack(0x00000000212b0000,0x00000000213b0000)]
+  0x0000000019be4000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=11724, stack(0x00000000211b0000,0x00000000212b0000)]
+  0x0000000019be3000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=16428, stack(0x00000000210b0000,0x00000000211b0000)]
+  0x0000000019be5800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17592, stack(0x0000000020fb0000,0x00000000210b0000)]
+  0x0000000019be2800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=18208, stack(0x0000000020eb0000,0x0000000020fb0000)]
+  0x0000000019bda800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=8176, stack(0x0000000020db0000,0x0000000020eb0000)]
+  0x0000000019be1800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17896, stack(0x0000000020cb0000,0x0000000020db0000)]
+  0x0000000019bd9800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=18100, stack(0x0000000020bb0000,0x0000000020cb0000)]
+  0x0000000019be0800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17100, stack(0x0000000020ab0000,0x0000000020bb0000)]
+  0x0000000019bdf000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=14932, stack(0x00000000209b0000,0x0000000020ab0000)]
+  0x0000000019bde800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=2936, stack(0x00000000208b0000,0x00000000209b0000)]
+  0x0000000019bdb000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=13860, stack(0x00000000207b0000,0x00000000208b0000)]
+  0x0000000019be0000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=14236, stack(0x00000000206b0000,0x00000000207b0000)]
+  0x0000000019bd7800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=10872, stack(0x00000000205b0000,0x00000000206b0000)]
+  0x0000000019bd6800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17292, stack(0x00000000204b0000,0x00000000205b0000)]
+  0x0000000019bdc000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=17288, stack(0x00000000203b0000,0x00000000204b0000)]
+  0x0000000019bd9000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=17276, stack(0x00000000202b0000,0x00000000203b0000)]
+  0x0000000019bd8000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=7964, stack(0x00000000201b0000,0x00000000202b0000)]
+  0x0000000019bdd800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=11484, stack(0x00000000200b0000,0x00000000201b0000)]
+  0x0000000019bdd000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=6168, stack(0x000000001ffb0000,0x00000000200b0000)]
+  0x0000000019b44000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=16172, stack(0x000000001feb0000,0x000000001ffb0000)]
+  0x0000000019b42000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=14628, stack(0x000000001fdb0000,0x000000001feb0000)]
+  0x0000000019b43800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=6600, stack(0x000000001fcb0000,0x000000001fdb0000)]
+  0x0000000019b42800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=3236, stack(0x000000001fbb0000,0x000000001fcb0000)]
+  0x0000000019b40800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=15596, stack(0x000000001fab0000,0x000000001fbb0000)]
+  0x0000000019b41000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=11268, stack(0x000000001f9b0000,0x000000001fab0000)]
+  0x0000000019b38800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=14276, stack(0x000000001f8b0000,0x000000001f9b0000)]
+  0x0000000019b3f800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=8824, stack(0x000000001f7b0000,0x000000001f8b0000)]
+  0x0000000019b3e800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=12228, stack(0x000000001f6b0000,0x000000001f7b0000)]
+  0x0000000019b3e000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=13128, stack(0x000000001f5b0000,0x000000001f6b0000)]
+  0x0000000019b36000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=15592, stack(0x000000001f4b0000,0x000000001f5b0000)]
+  0x0000000019b3d000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=9532, stack(0x000000001f3b0000,0x000000001f4b0000)]
+  0x0000000019b37000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=9684, stack(0x000000001f2b0000,0x000000001f3b0000)]
+  0x0000000019b3c800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=14260, stack(0x000000001e0b0000,0x000000001e1b0000)]
+  0x0000000019b3b800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=3940, stack(0x000000001c4e0000,0x000000001c5e0000)]
+  0x0000000019b3b000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=4784, stack(0x000000001f1b0000,0x000000001f2b0000)]
+  0x0000000019b3a000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=12232, stack(0x000000001f0b0000,0x000000001f1b0000)]
+  0x0000000019b37800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=10256, stack(0x000000001efb0000,0x000000001f0b0000)]
+  0x0000000019b35800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10892, stack(0x000000001eeb0000,0x000000001efb0000)]
+  0x0000000019b39000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10940, stack(0x000000001edb0000,0x000000001eeb0000)]
+  0x000000001b4fb000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=13088, stack(0x000000001ecb0000,0x000000001edb0000)]
+  0x000000001b4fb800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=9564, stack(0x000000001ebb0000,0x000000001ecb0000)]
+  0x000000001b4fa000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=13828, stack(0x000000001eab0000,0x000000001ebb0000)]
+  0x000000001b4f7800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=12252, stack(0x000000001e9b0000,0x000000001eab0000)]
+  0x000000001b4f9800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=13552, stack(0x000000001e7b0000,0x000000001e8b0000)]
+  0x000000001b4f7000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=5076, stack(0x000000001e6b0000,0x000000001e7b0000)]
+  0x000000001b4f4800 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=14652, stack(0x000000001cae0000,0x000000001cbe0000)]
+  0x000000001b4f5800 JavaThread "Okio Watchdog" daemon [_thread_blocked, id=7120, stack(0x000000001e2b0000,0x000000001e3b0000)]
+  0x000000001b4f6000 JavaThread "OkHttp ConnectionPool" daemon [_thread_blocked, id=15468, stack(0x000000001e1b0000,0x000000001e2b0000)]
+  0x000000001a8b3000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=12708, stack(0x000000001cfe0000,0x000000001d0e0000)]
+  0x000000001aa06800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=14736, stack(0x000000001cee0000,0x000000001cfe0000)]
+  0x000000001b032000 JavaThread "Exec Default Executor" daemon [_thread_in_native, id=14732, stack(0x000000001c9e0000,0x000000001cae0000)]
+  0x000000001a971800 JavaThread "pool-1-thread-1" daemon [_thread_in_vm, id=9260, stack(0x000000001c1e0000,0x000000001c2e0000)]
+  0x000000001881a800 JavaThread "ping-20s" daemon [_thread_blocked, id=6964, stack(0x0000000019140000,0x0000000019240000)]
+  0x0000000018813800 JavaThread "surefire-forkedjvm-command-thread" daemon [_thread_in_native, id=3212, stack(0x0000000019040000,0x0000000019140000)]
+  0x0000000018704000 JavaThread "Service Thread" daemon [_thread_blocked, id=10920, stack(0x0000000018e40000,0x0000000018f40000)]
+  0x0000000018648800 JavaThread "C1 CompilerThread1" daemon [_thread_in_native, id=11660, stack(0x0000000018d40000,0x0000000018e40000)]
+=>0x00000000178a6000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=15836, stack(0x0000000018c40000,0x0000000018d40000)]
+  0x00000000178a5800 JavaThread "Attach Listener" daemon [_thread_blocked, id=7172, stack(0x0000000018b40000,0x0000000018c40000)]
+  0x0000000018692800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=12192, stack(0x0000000018a40000,0x0000000018b40000)]
+  0x000000001788e000 JavaThread "Finalizer" daemon [_thread_blocked, id=1440, stack(0x0000000018440000,0x0000000018540000)]
+  0x0000000017883000 JavaThread "Reference Handler" daemon [_thread_blocked, id=15696, stack(0x0000000018340000,0x0000000018440000)]
+  0x0000000002d2a000 JavaThread "main" [_thread_blocked, id=448, stack(0x0000000002bd0000,0x0000000002cd0000)]
+
+Other Threads:
+  0x000000001787c800 VMThread [stack: 0x0000000018240000,0x0000000018340000] [id=10684]
+  0x0000000018706800 WatcherThread [stack: 0x0000000018f40000,0x0000000019040000] [id=4748]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000080000000, size: 2048 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 175104K, used 148154K [0x00000000d5580000, 0x00000000e1980000, 0x0000000100000000)
+  eden space 165376K, 84% used [0x00000000d5580000,0x00000000dde869a8,0x00000000df700000)
+  from space 9728K, 80% used [0x00000000e0100000,0x00000000e08a8220,0x00000000e0a80000)
+  to   space 10240K, 0% used [0x00000000df700000,0x00000000df700000,0x00000000e0100000)
+ ParOldGen       total 52224K, used 13000K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 24% used [0x0000000080000000,0x0000000080cb2170,0x0000000083300000)
+ Metaspace       used 31898K, capacity 32714K, committed 33024K, reserved 1079296K
+  class space    used 3553K, capacity 3797K, committed 3840K, reserved 1048576K
+
+Card table byte_map: [0x00000000121f0000,0x0000000012600000] byte_map_base: 0x0000000011df0000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006420a170
+ Begin Bits: [0x0000000012ab0000, 0x0000000014ab0000)
+ End Bits:   [0x0000000014ab0000, 0x0000000016ab0000)
+
+Polling page: 0x0000000002a50000
+
+CodeCache: size=245760Kb used=16015Kb max_used=16046Kb free=229744Kb
+ bounds [0x0000000002e30000, 0x0000000003df0000, 0x0000000011e30000]
+ total_blobs=5215 nmethods=4768 adapters=359
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 2898.270 Thread 0x0000000018648800 nmethod 5448 0x000000000321bc90 code [0x000000000321be40, 0x000000000321c508]
+Event: 2898.271 Thread 0x0000000018648800 5449       3       java.lang.reflect.Method::specificToGenericStringHeader (48 bytes)
+Event: 2898.274 Thread 0x0000000018648800 nmethod 5449 0x0000000003daf090 code [0x0000000003daf380, 0x0000000003db0b18]
+Event: 2898.274 Thread 0x0000000018648800 5450       3       java.lang.reflect.Method::getGenericExceptionTypes (5 bytes)
+Event: 2898.277 Thread 0x0000000018648800 nmethod 5450 0x000000000350a510 code [0x000000000350a720, 0x000000000350b158]
+Event: 2898.278 Thread 0x0000000018648800 5451       3       java.lang.reflect.Executable::getGenericExceptionTypes (27 bytes)
+Event: 2898.278 Thread 0x0000000018648800 nmethod 5451 0x000000000327a590 code [0x000000000327a740, 0x000000000327ac18]
+Event: 2898.278 Thread 0x0000000018648800 5452       3       java.util.regex.Pattern$Loop::match (143 bytes)
+Event: 2898.279 Thread 0x0000000018648800 nmethod 5452 0x000000000350df90 code [0x000000000350e140, 0x000000000350e788]
+Event: 2898.281 Thread 0x0000000018648800 5453       3       cucumber.api.TestCase::getUri (8 bytes)
+Event: 2898.282 Thread 0x0000000018648800 nmethod 5453 0x0000000002ff5510 code [0x0000000002ff5660, 0x0000000002ff57b0]
+Event: 2898.292 Thread 0x0000000018648800 5454       3       cucumber.runtime.formatter.PrettyFormatter::getStepKeyword (36 bytes)
+Event: 2898.294 Thread 0x0000000018648800 nmethod 5454 0x000000000317be90 code [0x000000000317c020, 0x000000000317c478]
+Event: 2898.295 Thread 0x0000000018648800 5455       3       cucumber.runner.PickleTestStep::getStepText (8 bytes)
+Event: 2898.295 Thread 0x0000000018648800 nmethod 5455 0x0000000003542850 code [0x00000000035429a0, 0x0000000003542b30]
+Event: 2898.302 Thread 0x0000000018648800 5456       3       com.google.common.collect.ImmutableList::copyIntoArray (36 bytes)
+Event: 2898.304 Thread 0x0000000018648800 nmethod 5456 0x00000000038aad50 code [0x00000000038aaee0, 0x00000000038ab3f8]
+Event: 2898.304 Thread 0x0000000018648800 5457       3       com.google.common.collect.SingletonImmutableList::get (11 bytes)
+Event: 2898.305 Thread 0x0000000018648800 nmethod 5457 0x00000000030f1710 code [0x00000000030f18a0, 0x00000000030f1c38]
+Event: 2898.835 Thread 0x0000000018648800 5458       1       java.net.URLConnection::getUseCaches (5 bytes)
+Event: 2898.835 Thread 0x0000000018648800 nmethod 5458 0x000000000350a250 code [0x000000000350a3a0, 0x000000000350a4b0]
+Event: 2898.838 Thread 0x0000000018648800 5459       3       com.google.gson.JsonArray::<init> (16 bytes)
+Event: 2898.839 Thread 0x0000000018648800 nmethod 5459 0x00000000030f0f90 code [0x00000000030f1120, 0x00000000030f1530]
+Event: 2898.839 Thread 0x0000000018648800 5460  s    3       com.google.common.io.FileBackedOutputStream::close (8 bytes)
+Event: 2898.839 Thread 0x0000000018648800 nmethod 5460 0x0000000002f64090 code [0x0000000002f64200, 0x0000000002f64588]
+Event: 2898.845 Thread 0x0000000018648800 5461   !   3       org.openqa.selenium.json.JsonInput::nextName (18 bytes)
+Event: 2898.845 Thread 0x0000000018648800 nmethod 5461 0x00000000030f0990 code [0x00000000030f0b20, 0x00000000030f0e18]
+Event: 2898.845 Thread 0x0000000018648800 5462   !   3       org.openqa.selenium.json.JsonInput::close (21 bytes)
+Event: 2898.845 Thread 0x0000000018648800 nmethod 5462 0x000000000321f350 code [0x000000000321f4e0, 0x000000000321f7d8]
+Event: 2898.845 Thread 0x0000000018648800 5463       3       com.google.gson.stream.JsonReader::close (26 bytes)
+Event: 2898.846 Thread 0x0000000018648800 nmethod 5463 0x000000000321ee90 code [0x000000000321f000, 0x000000000321f248]
+Event: 2898.848 Thread 0x0000000018648800 5464       3       java.util.stream.DistinctOps$1::opEvaluateParallelLazy (57 bytes)
+Event: 2898.851 Thread 0x0000000018648800 nmethod 5464 0x0000000003dabd50 code [0x0000000003dac020, 0x0000000003dad308]
+Event: 2898.851 Thread 0x0000000018648800 5465       3       java.util.stream.AbstractPipeline::wrapSpliterator (25 bytes)
+Event: 2898.854 Thread 0x0000000018648800 nmethod 5465 0x0000000003db1810 code [0x0000000003db19c0, 0x0000000003db2168]
+Event: 2898.854 Thread 0x0000000018648800 5467       3       java.io.BufferedReader::read1 (171 bytes)
+Event: 2898.854 Thread 0x0000000018648800 nmethod 5467 0x000000000321e3d0 code [0x000000000321e5a0, 0x000000000321ec78]
+Event: 2898.854 Thread 0x0000000018648800 5468   !   3       sun.nio.cs.StreamDecoder::ready (38 bytes)
+Event: 2898.855 Thread 0x0000000018648800 nmethod 5468 0x0000000003db24d0 code [0x0000000003db2680, 0x0000000003db2dd8]
+Event: 2898.855 Thread 0x0000000018648800 5466       3       org.openqa.selenium.remote.session.ChromeFilter$$Lambda$106/562306780::test (8 bytes)
+Event: 2898.855 Thread 0x0000000018648800 nmethod 5466 0x0000000003db3110 code [0x0000000003db3280, 0x0000000003db3508]
+Event: 2901.499 Thread 0x0000000018648800 5469       3       org.openqa.selenium.remote.http.AbstractHttpCommandCodec::delete (13 bytes)
+Event: 2901.499 Thread 0x0000000018648800 nmethod 5469 0x00000000038aa8d0 code [0x00000000038aaa40, 0x00000000038aac68]
+Event: 3440.334 Thread 0x0000000018648800 5470       3       java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject::checkInterruptWhileWaiting (27 bytes)
+Event: 3440.335 Thread 0x0000000018648800 nmethod 5470 0x0000000003db35d0 code [0x0000000003db37a0, 0x0000000003db3df8]
+Event: 3506.609 Thread 0x00000000178a6000 5471       4       com.google.common.base.Splitter::splitToList (49 bytes)
+Event: 3506.633 Thread 0x00000000178a6000 nmethod 5471 0x0000000003db7ad0 code [0x0000000003db7ce0, 0x0000000003db8b10]
+Event: 3506.694 Thread 0x00000000178a6000 5472       4       java.util.stream.ReferencePipeline::filter (22 bytes)
+Event: 3506.696 Thread 0x00000000178a6000 nmethod 5472 0x0000000003db4910 code [0x0000000003db4a60, 0x0000000003db4bf8]
+Event: 3506.708 Thread 0x0000000018648800 5473       3       com.google.common.collect.ImmutableList::copyOf (50 bytes)
+Event: 3506.709 Thread 0x0000000018648800 nmethod 5473 0x0000000003db6810 code [0x0000000003db6a40, 0x0000000003db7498]
+Event: 3506.720 Thread 0x0000000018648800 5474       3       java.util.LinkedHashMap::afterNodeRemoval (65 bytes)
+Event: 3506.720 Thread 0x0000000018648800 nmethod 5474 0x0000000003db42d0 code [0x0000000003db4440, 0x0000000003db47d0]
+Event: 3506.724 Thread 0x00000000178a6000 5475       4       java.util.AbstractCollection::toArray (147 bytes)
+Event: 3506.728 Thread 0x00000000178a6000 nmethod 5475 0x0000000003dbb290 code [0x0000000003dbb3e0, 0x0000000003dbb658]
+Event: 3507.260 Thread 0x0000000018648800 5476       3       java.io.FilterInputStream::read (9 bytes)
+Event: 3507.261 Thread 0x0000000018648800 nmethod 5476 0x0000000003dbae50 code [0x0000000003dbafc0, 0x0000000003dbb1e8]
+Event: 3525.250 Thread 0x0000000018648800 5477       3       java.lang.Integer::getChars (131 bytes)
+Event: 3525.250 Thread 0x0000000018648800 nmethod 5477 0x0000000003dba410 code [0x0000000003dba5a0, 0x0000000003dbaa10]
+Event: 3525.251 Thread 0x0000000018648800 5478       3       java.lang.AbstractStringBuilder::append (62 bytes)
+Event: 3525.251 Thread 0x00000000178a6000 5479       4       java.lang.Integer::stringSize (21 bytes)
+Event: 3525.252 Thread 0x0000000018648800 nmethod 5478 0x0000000003db57d0 code [0x0000000003db59c0, 0x0000000003db62f8]
+Event: 3525.253 Thread 0x00000000178a6000 nmethod 5479 0x0000000003db5510 code [0x0000000003db5640, 0x0000000003db5738]
+Event: 3525.265 Thread 0x0000000018648800 5480       3       java.lang.Math::floorDiv (31 bytes)
+Event: 3525.265 Thread 0x0000000018648800 nmethod 5480 0x0000000003db5110 code [0x0000000003db5260, 0x0000000003db5470]
+Event: 3525.269 Thread 0x0000000018648800 5481       3       net.thucydides.core.model.failures.FailureAnalysis::reportAsPending (54 bytes)
+Event: 3525.271 Thread 0x0000000018648800 nmethod 5481 0x0000000003dbda10 code [0x0000000003dbdbe0, 0x0000000003dbe328]
+Event: 3525.271 Thread 0x0000000018648800 5483       3       net.thucydides.core.model.failures.FailureAnalysis::reportAsFailure (54 bytes)
+Event: 3525.272 Thread 0x0000000018648800 nmethod 5483 0x0000000003dbce50 code [0x0000000003dbd020, 0x0000000003dbd768]
+Event: 3525.272 Thread 0x0000000018648800 5482       3       net.thucydides.core.model.failures.FailureAnalysisConfiguration::pendingTypes (89 bytes)
+Event: 3525.273 Thread 0x0000000018648800 nmethod 5482 0x0000000003dbe5d0 code [0x0000000003dbe8a0, 0x0000000003dbf848]
+Event: 3525.273 Thread 0x0000000018648800 5484       3       java.util.ArrayList$SubList::size (9 bytes)
+Event: 3525.274 Thread 0x0000000018648800 nmethod 5484 0x0000000003187e50 code [0x0000000003187fc0, 0x0000000003188288]
+Event: 3525.276 Thread 0x0000000018648800 5485       3       java.io.PrintWriter::ensureOpen (18 bytes)
+Event: 3525.276 Thread 0x0000000018648800 nmethod 5485 0x0000000003568a10 code [0x0000000003568b80, 0x0000000003568dc8]
+Event: 3525.291 Thread 0x00000000178a6000 5486       4       com.google.common.base.Splitter::on (50 bytes)
+Event: 3525.294 Thread 0x00000000178a6000 nmethod 5486 0x0000000003356890 code [0x0000000003356a00, 0x0000000003356c18]
+Event: 3525.297 Thread 0x0000000018648800 5487       3       net.thucydides.core.model.failures.FailureAnalysis::reportAsCompromised (54 bytes)
+Event: 3525.297 Thread 0x0000000018648800 nmethod 5487 0x0000000003dbc290 code [0x0000000003dbc460, 0x0000000003dbcba8]
+Event: 3525.297 Thread 0x0000000018648800 5488       3       net.thucydides.core.model.failures.FailureAnalysisConfiguration::compromisedTypes (89 bytes)
+Event: 3525.298 Thread 0x0000000018648800 nmethod 5488 0x0000000003dc1950 code [0x0000000003dc1c20, 0x0000000003dc2bc8]
+Event: 3525.305 Thread 0x00000000178a6000 5489       4       java.lang.AbstractStringBuilder::append (62 bytes)
+Event: 3525.318 Thread 0x0000000018648800 5491       3       org.junit.runner.Description::toString (5 bytes)
+Event: 3525.319 Thread 0x0000000018648800 nmethod 5491 0x000000000336c610 code [0x000000000336c760, 0x000000000336c8d0]
+Event: 3525.327 Thread 0x00000000178a6000 nmethod 5489 0x0000000003dc3390 code [0x0000000003dc3500, 0x0000000003dc4298]
+Event: 3525.327 Thread 0x0000000018648800 5492       3       net.thucydides.core.model.failures.FailureAnalysis::reportAsSkipped (54 bytes)
+Event: 3525.327 Thread 0x00000000178a6000 5490       4       java.lang.Integer::getChars (131 bytes)
+Event: 3525.328 Thread 0x0000000018648800 nmethod 5492 0x0000000003dc0d90 code [0x0000000003dc0f60, 0x0000000003dc16a8]
+Event: 3525.335 Thread 0x00000000178a6000 nmethod 5490 0x0000000003db9990 code [0x0000000003db9ae0, 0x0000000003dba1b8]
+Event: 3525.412 Thread 0x0000000018648800 5493       3       java.lang.Character::isJavaIdentifierPart (9 bytes)
+Event: 3525.413 Thread 0x0000000018648800 nmethod 5493 0x00000000037fc690 code [0x00000000037fc800, 0x00000000037fca38]
+Event: 3525.413 Thread 0x0000000018648800 5494       3       java.lang.CharacterDataLatin1::isJavaIdentifierPart (20 bytes)
+Event: 3525.413 Thread 0x0000000018648800 nmethod 5494 0x0000000003613490 code [0x0000000003613600, 0x0000000003613850]
+Event: 3525.613 Thread 0x0000000018648800 5495   !   3       java.util.logging.LogManager::ensureLogManagerInitialized (128 bytes)
+Event: 3525.613 Thread 0x0000000018648800 nmethod 5495 0x0000000003dc0350 code [0x0000000003dc0500, 0x0000000003dc0b88]
+Event: 3525.628 Thread 0x00000000178a6000 5496  s!   4       java.net.URLStreamHandler::getHostAddress (54 bytes)
+Event: 3525.630 Thread 0x00000000178a6000 nmethod 5496 0x0000000003dc4b90 code [0x0000000003dc4ce0, 0x0000000003dc5018]
+Event: 3525.659 Thread 0x0000000018648800 5497   !   3       java.lang.ClassLoader::definePackage (77 bytes)
+Event: 3525.661 Thread 0x0000000018648800 nmethod 5497 0x0000000003dc5a50 code [0x0000000003dc5c00, 0x0000000003dc6298]
+Event: 3525.662 Thread 0x00000000178a6000 5498       4       java.util.WeakHashMap::remove (133 bytes)
+Event: 3525.665 Thread 0x00000000178a6000 nmethod 5498 0x0000000003dc53d0 code [0x0000000003dc5520, 0x0000000003dc57c8]
+Event: 3525.763 Thread 0x0000000018648800 5499  s    3       java.util.Hashtable::containsKey (65 bytes)
+Event: 3525.763 Thread 0x0000000018648800 nmethod 5499 0x0000000003dc75d0 code [0x0000000003dc7760, 0x0000000003dc7d98]
+Event: 3525.915 Thread 0x0000000018648800 5500       1       sun.misc.PerfCounter::getReadClassBytesTime (4 bytes)
+Event: 3525.915 Thread 0x0000000018648800 nmethod 5500 0x0000000003ad9810 code [0x0000000003ad9960, 0x0000000003ad9a50]
+Event: 3525.930 Thread 0x0000000018648800 5501   !   3       org.slf4j.impl.SimpleLogger::getStringProperty (27 bytes)
+Event: 3525.931 Thread 0x0000000018648800 nmethod 5501 0x0000000003a38dd0 code [0x0000000003a38fe0, 0x0000000003a39948]
+Event: 3525.975 Thread 0x0000000018648800 5502       3       java.util.stream.ReferencePipeline::sorted (6 bytes)
+Event: 3525.976 Thread 0x0000000018648800 nmethod 5502 0x0000000003dbbdd0 code [0x0000000003dbbf40, 0x0000000003dbc1a8]
+Event: 3525.976 Thread 0x0000000018648800 5503       3       java.util.stream.SortedOps::makeRef (10 bytes)
+Event: 3525.976 Thread 0x0000000018648800 nmethod 5503 0x0000000003dc6cd0 code [0x0000000003dc6e80, 0x0000000003dc7318]
+Event: 3526.002 Thread 0x0000000018648800 5506       3       net.thucydides.core.model.TestOutcome::getPath (17 bytes)
+Event: 3526.002 Thread 0x0000000018648800 nmethod 5506 0x0000000003356490 code [0x0000000003356600, 0x00000000033567d0]
+Event: 3526.002 Thread 0x0000000018648800 5507       3       java.time.LocalTime::toSecondOfDay (28 bytes)
+Event: 3526.002 Thread 0x0000000018648800 nmethod 5507 0x0000000003dc0010 code [0x0000000003dc0160, 0x0000000003dc02d0]
+Event: 3526.005 Thread 0x0000000018648800 5508       3       jdk.internal.org.objectweb.asm.MethodVisitor::visitInsn (16 bytes)
+Event: 3526.005 Thread 0x0000000018648800 nmethod 5508 0x0000000003dbb8d0 code [0x0000000003dbba40, 0x0000000003dbbca8]
+Event: 3526.006 Thread 0x0000000018648800 5509       3       java.lang.invoke.DirectMethodHandle::preparedLambdaForm (31 bytes)
+Event: 3526.007 Thread 0x0000000018648800 nmethod 5509 0x0000000003a38650 code [0x0000000003a387e0, 0x0000000003a38c68]
+Event: 3526.017 Thread 0x00000000178a6000 5510   !   4       java.util.Collections$SynchronizedMap::get (25 bytes)
+Event: 3526.027 Thread 0x00000000178a6000 nmethod 5510 0x0000000003a37a10 code [0x0000000003a37b80, 0x0000000003a381d8]
+Event: 3526.084 Thread 0x00000000178a6000 5511       4       java.io.WinNTFileSystem::prefixLength (91 bytes)
+Event: 3526.086 Thread 0x00000000178a6000 nmethod 5511 0x0000000003dc6650 code [0x0000000003dc67a0, 0x0000000003dc6998]
+Event: 3526.089 Thread 0x0000000018648800 5512       3       sun.security.provider.SHA2::lf_S (11 bytes)
+Event: 3526.089 Thread 0x0000000018648800 nmethod 5512 0x0000000003a376d0 code [0x0000000003a37820, 0x0000000003a37970]
+Event: 3526.089 Thread 0x0000000018648800 5513       3       sun.security.provider.SHA2::lf_R (4 bytes)
+Event: 3526.089 Thread 0x0000000018648800 nmethod 5513 0x0000000003dc4850 code [0x0000000003dc49a0, 0x0000000003dc4ad0]
+Event: 3526.089 Thread 0x0000000018648800 5514       1       sun.security.provider.SHA2::lf_S (11 bytes)
+Event: 3526.089 Thread 0x0000000018648800 nmethod 5514 0x0000000003187b90 code [0x0000000003187ce0, 0x0000000003187df0]
+Event: 3526.089 Thread 0x0000000018648800 5515       3       sun.security.provider.SHA2::lf_sigma1 (21 bytes)
+Event: 3526.090 Thread 0x0000000018648800 nmethod 5515 0x0000000003dcadd0 code [0x0000000003dcaf40, 0x0000000003dcb1b0]
+Event: 3526.090 Thread 0x0000000018648800 5516       3       sun.security.provider.SHA2::lf_ch (10 bytes)
+Event: 3526.090 Thread 0x0000000018648800 nmethod 5516 0x0000000003db4d50 code [0x0000000003db4ea0, 0x0000000003db4ff0]
+Event: 3526.137 Thread 0x0000000018648800 5517       3       java.lang.reflect.Modifier::isSynthetic (14 bytes)
+Event: 3526.137 Thread 0x0000000018648800 nmethod 5517 0x00000000034c00d0 code [0x00000000034c0220, 0x00000000034c03b0]
+Event: 3526.160 Thread 0x0000000018648800 5518       1       sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl::getRawType (5 bytes)
+Event: 3526.160 Thread 0x0000000018648800 nmethod 5518 0x0000000003dca150 code [0x0000000003dca2a0, 0x0000000003dca3b0]
+Event: 3526.167 Thread 0x00000000178a6000 5519   !   4       java.util.concurrent.ConcurrentHashMap::putVal (362 bytes)
+Event: 3526.170 Thread 0x0000000018648800 5520       3       sun.reflect.Reflection::filter (220 bytes)
+Event: 3526.171 Thread 0x0000000018648800 nmethod 5520 0x0000000003dc8cd0 code [0x0000000003dc8ee0, 0x0000000003dc9ac8]
+Event: 3526.174 Thread 0x0000000018648800 5521       3       java.lang.Class::getSimpleName (120 bytes)
+Event: 3526.175 Thread 0x0000000018648800 nmethod 5521 0x00000000030ee2d0 code [0x00000000030ee5c0, 0x00000000030efd38]
+Event: 3526.176 Thread 0x0000000018648800 5522       3       sun.reflect.generics.parser.SignatureParser::parseClassTypeSignatureSuffix (29 bytes)
+Event: 3526.176 Thread 0x0000000018648800 nmethod 5522 0x00000000030edc50 code [0x00000000030ede00, 0x00000000030ee178]
+Event: 3526.181 Thread 0x0000000018648800 5526       3       java.util.concurrent.ConcurrentHashMap::addCount (292 bytes)
+Event: 3526.183 Thread 0x0000000018648800 nmethod 5526 0x000000000302f450 code [0x000000000302f660, 0x0000000003030178]
+Event: 3526.183 Thread 0x0000000018648800 5525       3       sun.reflect.generics.parser.SignatureParser::parseClassTypeSignature (118 bytes)
+Event: 3526.185 Thread 0x0000000018648800 nmethod 5525 0x000000000302c4d0 code [0x000000000302c880, 0x000000000302e428]
+Event: 3526.185 Thread 0x0000000018648800 5523       3       sun.reflect.generics.tree.ClassTypeSignature::make (9 bytes)
+Event: 3526.185 Thread 0x0000000018648800 nmethod 5523 0x0000000003367090 code [0x0000000003367200, 0x0000000003367450]
+Event: 3526.186 Thread 0x0000000018648800 5524       3       sun.reflect.generics.tree.ClassTypeSignature::<init> (10 bytes)
+Event: 3526.186 Thread 0x0000000018648800 nmethod 5524 0x00000000030ed890 code [0x00000000030ed9e0, 0x00000000030edbb0]
+Event: 3526.187 Thread 0x0000000018648800 5527       3       com.google.gson.internal.bind.ReflectiveTypeAdapterFactory::excludeField (10 bytes)
+Event: 3526.187 Thread 0x0000000018648800 nmethod 5527 0x000000000302bd50 code [0x000000000302bee0, 0x000000000302c358]
+Event: 3526.188 Thread 0x0000000018648800 5528       3       java.util.Collections$UnmodifiableMap::containsKey (11 bytes)
+Event: 3526.188 Thread 0x0000000018648800 nmethod 5528 0x00000000030d71d0 code [0x00000000030d7340, 0x00000000030d7568]
+Event: 3526.188 Thread 0x0000000018648800 5529       1       java.lang.reflect.Field::getGenericSignature (5 bytes)
+Event: 3526.189 Thread 0x0000000018648800 nmethod 5529 0x0000000003180d10 code [0x0000000003180e60, 0x0000000003180f70]
+Event: 3526.198 Thread 0x00000000178a6000 nmethod 5519 0x0000000003dcf490 code [0x0000000003dcf6a0, 0x0000000003dd0c40]
+Event: 3526.208 Thread 0x0000000018648800 5530       3       com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl::<init> (157 bytes)
+Event: 3526.209 Thread 0x0000000018648800 nmethod 5530 0x0000000003dcd610 code [0x0000000003dcd8c0, 0x0000000003dcecb8]
+Event: 3526.218 Thread 0x0000000018648800 5531       3       jdk.internal.org.objectweb.asm.AnnotationWriter::put (109 bytes)
+Event: 3526.218 Thread 0x0000000018648800 nmethod 5531 0x00000000032b3e10 code [0x00000000032b3fc0, 0x00000000032b4478]
+Event: 3526.221 Thread 0x0000000018648800 5532       3       java.lang.reflect.Field::isSynthetic (8 bytes)
+Event: 3526.221 Thread 0x0000000018648800 nmethod 5532 0x00000000030fc9d0 code [0x00000000030fcb40, 0x00000000030fcdf0]
+Event: 3526.222 Thread 0x0000000018648800 5533       1       java.util.concurrent.ConcurrentHashMap::spread (10 bytes)
+Event: 3526.222 Thread 0x0000000018648800 nmethod 5533 0x00000000032b3b90 code [0x00000000032b3ce0, 0x00000000032b3dd0]
+Event: 3526.224 Thread 0x0000000018648800 5534       3       com.google.gson.internal.Excluder::excludeField (226 bytes)
+Event: 3526.227 Thread 0x0000000018648800 nmethod 5534 0x0000000003dd1f10 code [0x0000000003dd2500, 0x0000000003dd6758]
+Event: 3526.227 Thread 0x0000000018648800 5536       3       java.util.concurrent.ConcurrentHashMap::get (162 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5536 0x0000000003dcc450 code [0x0000000003dcc660, 0x0000000003dcd1d8]
+Event: 3526.228 Thread 0x0000000018648800 5537       1       io.vavr.collection.List$Cons::isEmpty (2 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5537 0x0000000003180a10 code [0x0000000003180b60, 0x0000000003180c70]
+Event: 3526.228 Thread 0x0000000018648800 5541       3       io.vavr.collection.Traversable$1::hasNext (18 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5541 0x00000000033b5a90 code [0x00000000033b5c00, 0x00000000033b5e68]
+Event: 3526.228 Thread 0x0000000018648800 5538       1       io.vavr.collection.List$Cons::length (5 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5538 0x00000000037beb50 code [0x00000000037beca0, 0x00000000037bedb0]
+Event: 3526.228 Thread 0x0000000018648800 5542       3       io.vavr.collection.List$Cons::<init> (7 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5542 0x00000000034c9510 code [0x00000000034c9680, 0x00000000034c9988]
+Event: 3526.228 Thread 0x0000000018648800 5540       1       io.vavr.collection.List$Cons::tail (5 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5540 0x0000000003523a50 code [0x0000000003523ba0, 0x0000000003523cb0]
+Event: 3526.228 Thread 0x0000000018648800 5539       1       io.vavr.collection.List$Cons::head (5 bytes)
+Event: 3526.228 Thread 0x0000000018648800 nmethod 5539 0x0000000003523790 code [0x00000000035238e0, 0x00000000035239f0]
+Event: 3526.228 Thread 0x0000000018648800 5543       3       io.vavr.collection.AbstractIterator::next (22 bytes)
+Event: 3526.231 Thread 0x0000000018648800 nmethod 5543 0x000000000346a0d0 code [0x000000000346a280, 0x000000000346a708]
+Event: 3526.231 Thread 0x0000000018648800 5544       3       io.vavr.collection.List$Cons::<init> (27 bytes)
+Event: 3526.231 Thread 0x0000000018648800 nmethod 5544 0x0000000003dc8790 code [0x0000000003dc8900, 0x0000000003dc8bc8]
+Event: 3526.231 Thread 0x0000000018648800 5545       3       io.vavr.collection.Traversable$1::getNext (25 bytes)
+Event: 3526.231 Thread 0x0000000018648800 nmethod 5545 0x0000000003dc8210 code [0x0000000003dc8380, 0x0000000003dc8698]
+Event: 3526.231 Thread 0x0000000018648800 5546       3       io.vavr.collection.List$Cons::tail (5 bytes)
+Event: 3526.231 Thread 0x0000000018648800 nmethod 5546 0x0000000003469c50 code [0x0000000003469da0, 0x0000000003469f90]
+Event: 3526.231 Thread 0x0000000018648800 5547       3       io.vavr.collection.List::prepend (11 bytes)
+Event: 3526.231 Thread 0x0000000018648800 nmethod 5547 0x0000000003dcbd50 code [0x0000000003dcbee0, 0x0000000003dcc2a8]
+Event: 3526.231 Thread 0x0000000018648800 5548       3       io.vavr.collection.List$$Lambda$235/1457050933::apply (11 bytes)
+Event: 3526.232 Thread 0x0000000018648800 nmethod 5548 0x0000000003dcb7d0 code [0x0000000003dcb940, 0x0000000003dcbc68]
+Event: 3526.232 Thread 0x0000000018648800 5535       3       com.google.gson.internal.bind.TreeTypeAdapter$SingleTypeFactory::create (86 bytes)
+Event: 3526.232 Thread 0x0000000018648800 nmethod 5535 0x0000000003dd8510 code [0x0000000003dd86e0, 0x0000000003dd8fe8]
+Event: 3526.232 Thread 0x0000000018648800 5549       3       io.vavr.collection.Seq$$Lambda$234/354189945::apply (10 bytes)
+Event: 3526.233 Thread 0x0000000018648800 nmethod 5549 0x0000000003dcb290 code [0x0000000003dcb400, 0x0000000003dcb688]
+Event: 3526.233 Thread 0x0000000018648800 5550       3       io.vavr.collection.Seq::lambda$foldRight$2 (9 bytes)
+Event: 3526.233 Thread 0x0000000018648800 nmethod 5550 0x0000000003dd9250 code [0x0000000003dd93c0, 0x0000000003dd95c8]
+Event: 3526.233 Thread 0x0000000018648800 5551       3       io.vavr.collection.List$$Lambda$233/2062604478::apply (9 bytes)
+Event: 3526.233 Thread 0x0000000018648800 nmethod 5551 0x0000000003dd9690 code [0x0000000003dd9800, 0x0000000003dd9b88]
+Event: 3526.233 Thread 0x0000000018648800 5552       3       io.vavr.collection.List::lambda$append$1 (8 bytes)
+Event: 3526.233 Thread 0x0000000018648800 nmethod 5552 0x0000000003dd9cd0 code [0x0000000003dd9e40, 0x0000000003dda048]
+Event: 3526.233 Thread 0x0000000018648800 5553       1       net.thucydides.core.model.Story::getName (5 bytes)
+Event: 3526.233 Thread 0x0000000018648800 nmethod 5553 0x0000000003dda110 code [0x0000000003dda260, 0x0000000003dda370]
+Event: 3526.234 Thread 0x00000000178a6000 5554   !   4       java.lang.Class::getSimpleBinaryName (38 bytes)
+Event: 3526.237 Thread 0x00000000178a6000 nmethod 5554 0x0000000003ddd290 code [0x0000000003ddd440, 0x0000000003ddd700]
+Event: 3526.240 Thread 0x0000000018648800 5555       3       sun.security.provider.SHA2::lf_delta1 (21 bytes)
+Event: 3526.240 Thread 0x0000000018648800 nmethod 5555 0x0000000003ddcdd0 code [0x0000000003ddcf40, 0x0000000003ddd1b0]
+Event: 3526.240 Thread 0x0000000018648800 5556       3       sun.security.provider.SHA2::lf_delta0 (20 bytes)
+Event: 3526.241 Thread 0x0000000018648800 nmethod 5556 0x0000000003ddc910 code [0x0000000003ddca80, 0x0000000003ddccf0]
+Event: 3526.241 Thread 0x0000000018648800 5557       3       sun.security.provider.SHA2::lf_sigma0 (20 bytes)
+Event: 3526.241 Thread 0x0000000018648800 nmethod 5557 0x0000000003ddc450 code [0x0000000003ddc5c0, 0x0000000003ddc830]
+Event: 3526.241 Thread 0x0000000018648800 5558       3       sun.security.provider.SHA2::lf_maj (12 bytes)
+Event: 3526.241 Thread 0x0000000018648800 nmethod 5558 0x0000000003ddc150 code [0x0000000003ddc2a0, 0x0000000003ddc3f0]
+Event: 3526.244 Thread 0x0000000018648800 5559       3       com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper::<init> (20 bytes)
+Event: 3526.245 Thread 0x0000000018648800 nmethod 5559 0x0000000003ddbc90 code [0x0000000003ddbe00, 0x0000000003ddc050]
+Event: 3526.245 Thread 0x0000000018648800 5560       3       com.google.gson.stream.JsonWriter::string (169 bytes)
+Event: 3526.246 Thread 0x0000000018648800 nmethod 5560 0x0000000003dda8d0 code [0x0000000003ddaae0, 0x0000000003ddb6d8]
+Event: 3526.250 Thread 0x0000000018648800 5561       3       com.google.gson.internal.bind.TypeAdapters$16::write (10 bytes)
+Event: 3526.250 Thread 0x0000000018648800 nmethod 5561 0x0000000003ddda50 code [0x0000000003dddbc0, 0x0000000003dddfa8]
+Event: 3526.250 Thread 0x0000000018648800 5562       3       com.google.gson.internal.bind.TypeAdapters$16::write (7 bytes)
+Event: 3526.250 Thread 0x0000000018648800 nmethod 5562 0x0000000003dda3d0 code [0x0000000003dda540, 0x0000000003dda768]
+Event: 3526.250 Thread 0x0000000018648800 5563       3       com.google.gson.internal.bind.JsonTreeWriter::name (54 bytes)
+Event: 3526.251 Thread 0x0000000018648800 nmethod 5563 0x0000000003dde0d0 code [0x0000000003dde2a0, 0x0000000003ddeac8]
+Event: 3526.251 Thread 0x0000000018648800 5564       3       sun.nio.cs.UTF_8$Encoder::encodeArrayLoop (489 bytes)
+Event: 3526.253 Thread 0x00000000178a6000 5567       4       java.nio.ByteBuffer::array (35 bytes)
+Event: 3526.253 Thread 0x00000000178a6000 nmethod 5567 0x0000000003de1a10 code [0x0000000003de1b40, 0x0000000003de1bd8]
+Event: 3526.254 Thread 0x0000000018648800 nmethod 5564 0x0000000003de1c90 code [0x0000000003de2200, 0x0000000003de5868]
+Event: 3526.254 Thread 0x0000000018648800 5565       3       com.google.gson.internal.bind.TypeAdapters$29::write (256 bytes)
+Event: 3526.256 Thread 0x0000000018648800 nmethod 5565 0x0000000003de7e10 code [0x0000000003de8340, 0x0000000003dec3f8]
+Event: 3526.256 Thread 0x0000000018648800 5566       3       com.google.gson.internal.bind.JsonTreeWriter::value (23 bytes)
+Event: 3526.257 Thread 0x0000000018648800 nmethod 5566 0x0000000003de1150 code [0x0000000003de1300, 0x0000000003de1808]
+Event: 3526.284 Thread 0x0000000018648800 5568       3       com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1::writeField (29 bytes)
+Event: 3526.284 Thread 0x0000000018648800 nmethod 5568 0x0000000003de0c50 code [0x0000000003de0dc0, 0x0000000003de1088]
+Event: 3526.284 Thread 0x0000000018648800 5569       3       com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1::write (55 bytes)
+Event: 3526.285 Thread 0x00000000178a6000 5570       4       com.google.gson.stream.JsonWriter::beforeValue (134 bytes)
+Event: 3526.285 Thread 0x0000000018648800 nmethod 5569 0x0000000002f63390 code [0x0000000002f63520, 0x0000000002f63ab8]
+Event: 3526.285 Thread 0x0000000018648800 5571       3       java.io.OutputStreamWriter::write (9 bytes)
+Event: 3526.285 Thread 0x0000000018648800 nmethod 5571 0x0000000003de0710 code [0x0000000003de0880, 0x0000000003de0b28]
+Event: 3526.302 Thread 0x0000000018648800 5574       3       java.util.concurrent.ThreadPoolExecutor$Worker::unlock (7 bytes)
+Event: 3526.302 Thread 0x0000000018648800 nmethod 5574 0x0000000003ddfe90 code [0x0000000003de0020, 0x0000000003de0568]
+Event: 3526.303 Thread 0x0000000018648800 5575       3       java.security.MessageDigest::digest (12 bytes)
+Event: 3526.303 Thread 0x0000000018648800 nmethod 5575 0x0000000003ddfa50 code [0x0000000003ddfbc0, 0x0000000003ddfde8]
+Event: 3526.306 Thread 0x0000000018648800 5576       3       com.google.gson.internal.LinkedTreeMap::rebalance (379 bytes)
+Event: 3526.307 Thread 0x0000000018648800 nmethod 5576 0x0000000003ded8d0 code [0x0000000003dedb40, 0x0000000003dee8a8]
+Event: 3526.339 Thread 0x0000000018648800 5577       3       org.apache.commons.lang3.StringUtils::replace (8 bytes)
+Event: 3526.340 Thread 0x0000000018648800 nmethod 5577 0x00000000032fe150 code [0x00000000032fe2c0, 0x00000000032fe488]
+
+GC Heap History (22 events):
+Event: 1.269 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 38400K, used 33280K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5580000,0x00000000d7600000,0x00000000d7600000)
+  from space 5120K, 0% used [0x00000000d7b00000,0x00000000d7b00000,0x00000000d8000000)
+  to   space 5120K, 0% used [0x00000000d7600000,0x00000000d7600000,0x00000000d7b00000)
+ ParOldGen       total 87552K, used 0K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080000000,0x0000000085580000)
+ Metaspace       used 6350K, capacity 6500K, committed 6656K, reserved 1056768K
+  class space    used 681K, capacity 720K, committed 768K, reserved 1048576K
+Event: 1.274 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 38400K, used 3412K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d7600000)
+  from space 5120K, 66% used [0x00000000d7600000,0x00000000d7955160,0x00000000d7b00000)
+  to   space 5120K, 0% used [0x00000000d7b00000,0x00000000d7b00000,0x00000000d8000000)
+ ParOldGen       total 87552K, used 0K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080000000,0x0000000085580000)
+ Metaspace       used 6350K, capacity 6500K, committed 6656K, reserved 1056768K
+  class space    used 681K, capacity 720K, committed 768K, reserved 1048576K
+}
+Event: 2.079 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 38400K, used 36692K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5580000,0x00000000d7600000,0x00000000d7600000)
+  from space 5120K, 66% used [0x00000000d7600000,0x00000000d7955160,0x00000000d7b00000)
+  to   space 5120K, 0% used [0x00000000d7b00000,0x00000000d7b00000,0x00000000d8000000)
+ ParOldGen       total 87552K, used 0K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080000000,0x0000000085580000)
+ Metaspace       used 9625K, capacity 9712K, committed 9856K, reserved 1058816K
+  class space    used 1092K, capacity 1106K, committed 1152K, reserved 1048576K
+Event: 2.091 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 38400K, used 4937K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d7600000)
+  from space 5120K, 96% used [0x00000000d7b00000,0x00000000d7fd2748,0x00000000d8000000)
+  to   space 5120K, 0% used [0x00000000d7600000,0x00000000d7600000,0x00000000d7b00000)
+ ParOldGen       total 87552K, used 0K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080000000,0x0000000085580000)
+ Metaspace       used 9625K, capacity 9712K, committed 9856K, reserved 1058816K
+  class space    used 1092K, capacity 1106K, committed 1152K, reserved 1048576K
+}
+Event: 2.860 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 38400K, used 38217K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5580000,0x00000000d7600000,0x00000000d7600000)
+  from space 5120K, 96% used [0x00000000d7b00000,0x00000000d7fd2748,0x00000000d8000000)
+  to   space 5120K, 0% used [0x00000000d7600000,0x00000000d7600000,0x00000000d7b00000)
+ ParOldGen       total 87552K, used 0K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080000000,0x0000000085580000)
+ Metaspace       used 13769K, capacity 14040K, committed 14336K, reserved 1062912K
+  class space    used 1612K, capacity 1712K, committed 1792K, reserved 1048576K
+Event: 2.867 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 38400K, used 5077K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d7600000)
+  from space 5120K, 99% used [0x00000000d7600000,0x00000000d7af55f8,0x00000000d7b00000)
+  to   space 5120K, 0% used [0x00000000d7b00000,0x00000000d7b00000,0x00000000d8000000)
+ ParOldGen       total 87552K, used 8K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080002000,0x0000000085580000)
+ Metaspace       used 13769K, capacity 14040K, committed 14336K, reserved 1062912K
+  class space    used 1612K, capacity 1712K, committed 1792K, reserved 1048576K
+}
+Event: 3.668 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 38400K, used 38357K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5580000,0x00000000d7600000,0x00000000d7600000)
+  from space 5120K, 99% used [0x00000000d7600000,0x00000000d7af55f8,0x00000000d7b00000)
+  to   space 5120K, 0% used [0x00000000d7b00000,0x00000000d7b00000,0x00000000d8000000)
+ ParOldGen       total 87552K, used 8K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080002000,0x0000000085580000)
+ Metaspace       used 16055K, capacity 16320K, committed 16512K, reserved 1064960K
+  class space    used 1793K, capacity 1884K, committed 1920K, reserved 1048576K
+Event: 3.680 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 38400K, used 5116K [0x00000000d5580000, 0x00000000da080000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d7600000)
+  from space 5120K, 99% used [0x00000000d7b00000,0x00000000d7fff330,0x00000000d8000000)
+  to   space 5120K, 0% used [0x00000000d7600000,0x00000000d7600000,0x00000000d7b00000)
+ ParOldGen       total 87552K, used 2679K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 3% used [0x0000000080000000,0x000000008029dde8,0x0000000085580000)
+ Metaspace       used 16055K, capacity 16320K, committed 16512K, reserved 1064960K
+  class space    used 1793K, capacity 1884K, committed 1920K, reserved 1048576K
+}
+Event: 4.496 GC heap before
+{Heap before GC invocations=5 (full 0):
+ PSYoungGen      total 38400K, used 38396K [0x00000000d5580000, 0x00000000da080000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5580000,0x00000000d7600000,0x00000000d7600000)
+  from space 5120K, 99% used [0x00000000d7b00000,0x00000000d7fff330,0x00000000d8000000)
+  to   space 5120K, 0% used [0x00000000d7600000,0x00000000d7600000,0x00000000d7b00000)
+ ParOldGen       total 87552K, used 2679K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 3% used [0x0000000080000000,0x000000008029dde8,0x0000000085580000)
+ Metaspace       used 18606K, capacity 18848K, committed 19072K, reserved 1067008K
+  class space    used 2083K, capacity 2168K, committed 2176K, reserved 1048576K
+Event: 4.508 GC heap after
+Heap after GC invocations=5 (full 0):
+ PSYoungGen      total 38400K, used 5107K [0x00000000d5580000, 0x00000000da880000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d7600000)
+  from space 5120K, 99% used [0x00000000d7600000,0x00000000d7afcdb8,0x00000000d7b00000)
+  to   space 9216K, 0% used [0x00000000d9f80000,0x00000000d9f80000,0x00000000da880000)
+ ParOldGen       total 87552K, used 4966K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 5% used [0x0000000080000000,0x00000000804d99e0,0x0000000085580000)
+ Metaspace       used 18606K, capacity 18848K, committed 19072K, reserved 1067008K
+  class space    used 2083K, capacity 2168K, committed 2176K, reserved 1048576K
+}
+Event: 5.300 GC heap before
+{Heap before GC invocations=6 (full 0):
+ PSYoungGen      total 38400K, used 38387K [0x00000000d5580000, 0x00000000da880000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000d5580000,0x00000000d7600000,0x00000000d7600000)
+  from space 5120K, 99% used [0x00000000d7600000,0x00000000d7afcdb8,0x00000000d7b00000)
+  to   space 9216K, 0% used [0x00000000d9f80000,0x00000000d9f80000,0x00000000da880000)
+ ParOldGen       total 87552K, used 4966K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 5% used [0x0000000080000000,0x00000000804d99e0,0x0000000085580000)
+ Metaspace       used 20618K, capacity 20946K, committed 21120K, reserved 1069056K
+  class space    used 2316K, capacity 2419K, committed 2432K, reserved 1048576K
+Event: 5.314 GC heap after
+Heap after GC invocations=6 (full 0):
+ PSYoungGen      total 75776K, used 6871K [0x00000000d5580000, 0x00000000da880000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d9680000)
+  from space 9216K, 74% used [0x00000000d9f80000,0x00000000da635dc0,0x00000000da880000)
+  to   space 9216K, 0% used [0x00000000d9680000,0x00000000d9680000,0x00000000d9f80000)
+ ParOldGen       total 87552K, used 4974K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 5% used [0x0000000080000000,0x00000000804db9e0,0x0000000085580000)
+ Metaspace       used 20618K, capacity 20946K, committed 21120K, reserved 1069056K
+  class space    used 2316K, capacity 2419K, committed 2432K, reserved 1048576K
+}
+Event: 5.419 GC heap before
+{Heap before GC invocations=7 (full 0):
+ PSYoungGen      total 75776K, used 14633K [0x00000000d5580000, 0x00000000da880000, 0x0000000100000000)
+  eden space 66560K, 11% used [0x00000000d5580000,0x00000000d5d14718,0x00000000d9680000)
+  from space 9216K, 74% used [0x00000000d9f80000,0x00000000da635dc0,0x00000000da880000)
+  to   space 9216K, 0% used [0x00000000d9680000,0x00000000d9680000,0x00000000d9f80000)
+ ParOldGen       total 87552K, used 4974K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 5% used [0x0000000080000000,0x00000000804db9e0,0x0000000085580000)
+ Metaspace       used 20784K, capacity 21118K, committed 21296K, reserved 1069056K
+  class space    used 2344K, capacity 2455K, committed 2560K, reserved 1048576K
+Event: 5.432 GC heap after
+Heap after GC invocations=7 (full 0):
+ PSYoungGen      total 75776K, used 4963K [0x00000000d5580000, 0x00000000de980000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d9680000)
+  from space 9216K, 53% used [0x00000000d9680000,0x00000000d9b58fe8,0x00000000d9f80000)
+  to   space 9216K, 0% used [0x00000000de080000,0x00000000de080000,0x00000000de980000)
+ ParOldGen       total 87552K, used 5806K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 6% used [0x0000000080000000,0x00000000805ab820,0x0000000085580000)
+ Metaspace       used 20784K, capacity 21118K, committed 21296K, reserved 1069056K
+  class space    used 2344K, capacity 2455K, committed 2560K, reserved 1048576K
+}
+Event: 5.432 GC heap before
+{Heap before GC invocations=8 (full 1):
+ PSYoungGen      total 75776K, used 4963K [0x00000000d5580000, 0x00000000de980000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d9680000)
+  from space 9216K, 53% used [0x00000000d9680000,0x00000000d9b58fe8,0x00000000d9f80000)
+  to   space 9216K, 0% used [0x00000000de080000,0x00000000de080000,0x00000000de980000)
+ ParOldGen       total 87552K, used 5806K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 6% used [0x0000000080000000,0x00000000805ab820,0x0000000085580000)
+ Metaspace       used 20784K, capacity 21118K, committed 21296K, reserved 1069056K
+  class space    used 2344K, capacity 2455K, committed 2560K, reserved 1048576K
+Event: 5.481 GC heap after
+Heap after GC invocations=8 (full 1):
+ PSYoungGen      total 75776K, used 0K [0x00000000d5580000, 0x00000000de980000, 0x0000000100000000)
+  eden space 66560K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000d9680000)
+  from space 9216K, 0% used [0x00000000d9680000,0x00000000d9680000,0x00000000d9f80000)
+  to   space 9216K, 0% used [0x00000000de080000,0x00000000de080000,0x00000000de980000)
+ ParOldGen       total 52224K, used 9331K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 17% used [0x0000000080000000,0x000000008091cef0,0x0000000083300000)
+ Metaspace       used 20784K, capacity 21118K, committed 21296K, reserved 1069056K
+  class space    used 2344K, capacity 2455K, committed 2560K, reserved 1048576K
+}
+Event: 151.646 GC heap before
+{Heap before GC invocations=9 (full 1):
+ PSYoungGen      total 75776K, used 66560K [0x00000000d5580000, 0x00000000de980000, 0x0000000100000000)
+  eden space 66560K, 100% used [0x00000000d5580000,0x00000000d9680000,0x00000000d9680000)
+  from space 9216K, 0% used [0x00000000d9680000,0x00000000d9680000,0x00000000d9f80000)
+  to   space 9216K, 0% used [0x00000000de080000,0x00000000de080000,0x00000000de980000)
+ ParOldGen       total 52224K, used 9331K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 17% used [0x0000000080000000,0x000000008091cef0,0x0000000083300000)
+ Metaspace       used 28332K, capacity 29024K, committed 29184K, reserved 1075200K
+  class space    used 3322K, capacity 3544K, committed 3584K, reserved 1048576K
+Event: 151.659 GC heap after
+Heap after GC invocations=9 (full 1):
+ PSYoungGen      total 124416K, used 7655K [0x00000000d5580000, 0x00000000de800000, 0x0000000100000000)
+  eden space 116736K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000dc780000)
+  from space 7680K, 99% used [0x00000000de080000,0x00000000de7f9db0,0x00000000de800000)
+  to   space 9728K, 0% used [0x00000000dd500000,0x00000000dd500000,0x00000000dde80000)
+ ParOldGen       total 52224K, used 9339K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 17% used [0x0000000080000000,0x000000008091eef0,0x0000000083300000)
+ Metaspace       used 28332K, capacity 29024K, committed 29184K, reserved 1075200K
+  class space    used 3322K, capacity 3544K, committed 3584K, reserved 1048576K
+}
+Event: 773.608 GC heap before
+{Heap before GC invocations=10 (full 1):
+ PSYoungGen      total 124416K, used 124391K [0x00000000d5580000, 0x00000000de800000, 0x0000000100000000)
+  eden space 116736K, 100% used [0x00000000d5580000,0x00000000dc780000,0x00000000dc780000)
+  from space 7680K, 99% used [0x00000000de080000,0x00000000de7f9db0,0x00000000de800000)
+  to   space 9728K, 0% used [0x00000000dd500000,0x00000000dd500000,0x00000000dde80000)
+ ParOldGen       total 52224K, used 9339K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 17% used [0x0000000080000000,0x000000008091eef0,0x0000000083300000)
+ Metaspace       used 29197K, capacity 29960K, committed 30208K, reserved 1075200K
+  class space    used 3333K, capacity 3554K, committed 3584K, reserved 1048576K
+Event: 773.623 GC heap after
+Heap after GC invocations=10 (full 1):
+ PSYoungGen      total 140288K, used 7372K [0x00000000d5580000, 0x00000000e0a80000, 0x0000000100000000)
+  eden space 130560K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000dd500000)
+  from space 9728K, 75% used [0x00000000dd500000,0x00000000ddc33188,0x00000000dde80000)
+  to   space 9728K, 0% used [0x00000000e0100000,0x00000000e0100000,0x00000000e0a80000)
+ ParOldGen       total 52224K, used 9347K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 17% used [0x0000000080000000,0x0000000080920ef0,0x0000000083300000)
+ Metaspace       used 29197K, capacity 29960K, committed 30208K, reserved 1075200K
+  class space    used 3333K, capacity 3554K, committed 3584K, reserved 1048576K
+}
+Event: 1891.958 GC heap before
+{Heap before GC invocations=11 (full 1):
+ PSYoungGen      total 140288K, used 137932K [0x00000000d5580000, 0x00000000e0a80000, 0x0000000100000000)
+  eden space 130560K, 100% used [0x00000000d5580000,0x00000000dd500000,0x00000000dd500000)
+  from space 9728K, 75% used [0x00000000dd500000,0x00000000ddc33188,0x00000000dde80000)
+  to   space 9728K, 0% used [0x00000000e0100000,0x00000000e0100000,0x00000000e0a80000)
+ ParOldGen       total 52224K, used 9347K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 17% used [0x0000000080000000,0x0000000080920ef0,0x0000000083300000)
+ Metaspace       used 29629K, capacity 30416K, committed 30464K, reserved 1077248K
+  class space    used 3335K, capacity 3554K, committed 3584K, reserved 1048576K
+Event: 1892.196 GC heap after
+Heap after GC invocations=11 (full 1):
+ PSYoungGen      total 175104K, used 7840K [0x00000000d5580000, 0x00000000e1980000, 0x0000000100000000)
+  eden space 165376K, 0% used [0x00000000d5580000,0x00000000d5580000,0x00000000df700000)
+  from space 9728K, 80% used [0x00000000e0100000,0x00000000e08a8220,0x00000000e0a80000)
+  to   space 10240K, 0% used [0x00000000df700000,0x00000000df700000,0x00000000e0100000)
+ ParOldGen       total 52224K, used 13000K [0x0000000080000000, 0x0000000083300000, 0x00000000d5580000)
+  object space 52224K, 24% used [0x0000000080000000,0x0000000080cb2170,0x0000000083300000)
+ Metaspace       used 29629K, capacity 30416K, committed 30464K, reserved 1077248K
+  class space    used 3335K, capacity 3554K, committed 3584K, reserved 1048576K
+}
+
+Deoptimization events (94 events):
+Event: 0.902 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002fec6bc method=java.io.WinNTFileSystem.normalize(Ljava/lang/String;II)Ljava/lang/String; @ 90
+Event: 1.168 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003027e2c method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 13
+Event: 1.237 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003028eec method=java.lang.String.indexOf([CII[CIII)I @ 3
+Event: 1.839 Thread 0x0000000002d2a000 Uncommon trap: reason=range_check action=make_not_entrant pc=0x00000000030fc560 method=sun.reflect.generics.parser.SignatureParser.current()C @ 34
+Event: 2.421 Thread 0x0000000002d2a000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x000000000318f1c4 method=java.lang.String.regionMatches(ZILjava/lang/String;II)Z @ 63
+Event: 2.505 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000030e8cfc method=sun.nio.cs.UTF_8$Decoder.decode([BII[C)I @ 30
+Event: 2.509 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000030d3300 method=sun.nio.cs.UTF_8$Decoder.decode([BII[C)I @ 30
+Event: 2.966 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000030da158 method=java.io.WinNTFileSystem.normalize(Ljava/lang/String;)Ljava/lang/String; @ 128
+Event: 3.327 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000333b064 method=java.util.regex.Pattern.RemoveQEQuoting()V @ 22
+Event: 3.352 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003346c78 method=java.util.regex.Pattern.expr(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node; @ 129
+Event: 3.352 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000333d3a8 method=java.util.regex.Pattern.has(I)Z @ 6
+Event: 3.355 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000031a27d4 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 16
+Event: 3.355 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000031a27d4 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 16
+Event: 3.386 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000031a27d4 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 16
+Event: 3.392 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000031a281c method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 5
+Event: 3.401 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000032aaffc method=java.lang.CharacterDataLatin1.isWhitespace(I)Z @ 14
+Event: 3.458 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000033751b8 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 31
+Event: 3.458 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000033751b8 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 31
+Event: 3.458 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000033751b8 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 31
+Event: 3.458 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000033751b8 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 31
+Event: 3.628 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000034015e4 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 3.628 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003465a9c method=java.util.regex.Pattern$Curly.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 19
+Event: 3.632 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000034015e4 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 3.632 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003465a9c method=java.util.regex.Pattern$Curly.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 19
+Event: 3.636 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003465a9c method=java.util.regex.Pattern$Curly.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 19
+Event: 3.636 Thread 0x0000000002d2a000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003465a9c method=java.util.regex.Pattern$Curly.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 19
+Event: 3.641 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000034015e4 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 3.772 Thread 0x0000000002d2a000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003349328 method=java.lang.Class.arrayContentsEq([Ljava/lang/Object;[Ljava/lang/Object;)Z @ 38
+Event: 3.952 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000034015e4 method=java.util.regex.Matcher.match(II)Z @ 86
+Event: 4.177 Thread 0x0000000002d2a000 Uncommon trap: reason=uninitialized action=reinterpret pc=0x000000000344edb8 method=java.util.regex.Pattern.closure(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node; @ 95
+Event: 4.178 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000033a3594 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 16
+Event: 4.178 Thread 0x0000000002d2a000 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000033a3594 method=java.util.regex.Pattern$BmpCharProperty.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 16
+Event: 4.284 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000346bad0 method=java.lang.Integer.valueOf(I)Ljava/lang/Integer; @ 3
+Event: 4.859 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000035c58ec method=org.mockito.asm.Item.isEqualTo(Lorg/mockito/asm/Item;)Z @ 211
+Event: 4.921 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000033ecc60 method=java.io.BufferedReader.readLine(Z)Ljava/lang/String; @ 153
+Event: 5.155 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000036187d4 method=java.util.regex.Matcher.search(I)Z @ 86
+Event: 5.155 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000036187d4 method=java.util.regex.Matcher.search(I)Z @ 86
+Event: 5.155 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000036187d4 method=java.util.regex.Matcher.search(I)Z @ 86
+Event: 5.155 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00000000036187d4 method=java.util.regex.Matcher.search(I)Z @ 86
+Event: 5.216 Thread 0x000000001a971800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000000003631250 method=java.util.regex.Pattern$Slice.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 21
+Event: 5.496 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000034cc2cc method=com.google.inject.internal.asm.$Frame.execute(IILcom/google/inject/internal/asm/$ClassWriter;Lcom/google/inject/internal/asm/$Item;)V @ 1922
+Event: 5.637 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000367e0ec method=java.lang.Character.isHighSurrogate(C)Z @ 3
+Event: 5.637 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000032bbc58 method=java.lang.Character.isHighSurrogate(C)Z @ 3
+Event: 5.638 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003641d10 method=java.util.Locale.hashCode()I @ 6
+Event: 5.929 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003635ea8 method=java.util.regex.Pattern$Begin.match(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z @ 30
+Event: 5.969 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003284450 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 504
+Event: 5.969 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000356fc38 method=sun.net.util.IPAddressUtil.scan(Ljava/lang/String;JJ[C)I @ 14
+Event: 5.977 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000030b5fc0 method=sun.misc.MetaIndex.mayContain(Ljava/lang/String;)Z @ 38
+Event: 6.056 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000369170c method=java.util.TreeMap.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; @ 55
+Event: 6.068 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000307f050 method=java.util.Properties$LineReader.readLine()I @ 246
+Event: 6.170 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003185294 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 236
+Event: 6.303 Thread 0x000000001a971800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x0000000003284450 method=java.net.URL.<init>(Ljava/net/URL;Ljava/lang/String;Ljava/net/URLStreamHandler;)V @ 504
+Event: 6.484 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002f61f80 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4
+Event: 6.601 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000301ceb4 method=java.lang.String.replace(CC)Ljava/lang/String; @ 2
+Event: 7.245 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000036ed5a0 method=java.io.ByteArrayInputStream.read([BII)I @ 63
+Event: 7.407 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003015918 method=java.io.DataInputStream.readChar()C @ 4
+Event: 7.407 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003015918 method=java.io.DataInputStream.readChar()C @ 4
+Event: 7.407 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003015918 method=java.io.DataInputStream.readChar()C @ 4
+Event: 7.407 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003015918 method=java.io.DataInputStream.readChar()C @ 4
+Event: 117.158 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003572364 method=sun.nio.cs.SingleByte$Encoder.encode(C)I @ 13
+Event: 649.379 Thread 0x000000001a971800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x0000000003a692e4 method=com.google.gson.JsonPrimitive.isPrimitiveOrString(Ljava/lang/Object;)Z @ 39
+Event: 1114.844 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000395a4a4 method=com.google.gson.stream.JsonReader.nextQuotedValue(C)Ljava/lang/String; @ 27
+Event: 3206.544 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003593c2c method=okio.Buffer.skip(J)V @ 86
+Event: 3521.235 Thread 0x0000000019f3b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000039e90c8 method=java.lang.AbstractStringBuilder.append(I)Ljava/lang/AbstractStringBuilder; @ 16
+Event: 3521.235 Thread 0x0000000019f3b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000039d6b18 method=java.lang.Integer.getChars(II[C)V @ 7
+Event: 3525.273 Thread 0x000000001a971800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000000003dbb5ec method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 49
+Event: 3525.500 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003cdae8c method=com.google.common.collect.AbstractMapBasedMultimap.put(Ljava/lang/Object;Ljava/lang/Object;)Z @ 5
+Event: 3525.621 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000334fe64 method=java.lang.CharacterDataLatin1.digit(II)I @ 60
+Event: 3525.916 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003ba618c method=com.google.common.collect.AbstractMapBasedMultimap$WrappedCollection.refreshIfEmpty()V @ 40
+Event: 3525.918 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003ba618c method=com.google.common.collect.AbstractMapBasedMultimap$WrappedCollection.refreshIfEmpty()V @ 40
+Event: 3525.918 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003ba618c method=com.google.common.collect.AbstractMapBasedMultimap$WrappedCollection.refreshIfEmpty()V @ 40
+Event: 3526.124 Thread 0x0000000019f35800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003da019c method=java.lang.Class.privateGetDeclaredConstructors(Z)[Ljava/lang/reflect/Constructor; @ 38
+Event: 3526.139 Thread 0x0000000019f35800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000325f610 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 3526.142 Thread 0x0000000019f35800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000325f610 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 3526.151 Thread 0x0000000019f35800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000325f610 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 3526.160 Thread 0x0000000019f35800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000325f610 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 192
+Event: 3526.160 Thread 0x0000000019f3b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000361c0bc method=java.lang.Class.getSimpleName()Ljava/lang/String; @ 4
+Event: 3526.171 Thread 0x0000000019f35800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000338f3d0 method=java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 152
+Event: 3526.210 Thread 0x0000000019f35800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003418f38 method=com.google.gson.stream.JsonWriter.string(Ljava/lang/String;)V @ 4
+Event: 3526.211 Thread 0x0000000019f3b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003418f38 method=com.google.gson.stream.JsonWriter.string(Ljava/lang/String;)V @ 4
+Event: 3526.234 Thread 0x000000001a971800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003d051b8 method=java.util.stream.AbstractPipeline.evaluate(Ljava/util/stream/TerminalOp;)Ljava/lang/Object; @ 60
+Event: 3526.235 Thread 0x0000000019f35800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003dd08b8 method=com.google.gson.internal.$Gson$Types.equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z @ 21
+Event: 3526.237 Thread 0x0000000019f3b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000034f8470 method=com.google.gson.internal.LinkedTreeMap.rebalance(Lcom/google/gson/internal/LinkedTreeMap$Node;Z)V @ 184
+Event: 3526.239 Thread 0x0000000019f3b800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003a00278 method=com.google.gson.internal.bind.TypeAdapters$29.write(Lcom/google/gson/stream/JsonWriter;Lcom/google/gson/JsonElement;)V @ 74
+Event: 3526.239 Thread 0x0000000019f35800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000000003a00278 method=com.google.gson.internal.bind.TypeAdapters$29.write(Lcom/google/gson/stream/JsonWriter;Lcom/google/gson/JsonElement;)V @ 74
+Event: 3526.241 Thread 0x0000000019f35800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003a03550 method=com.google.gson.internal.bind.TypeAdapters$29.write(Lcom/google/gson/stream/JsonWriter;Lcom/google/gson/JsonElement;)V @ 1
+Event: 3526.241 Thread 0x0000000019f3b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003a03550 method=com.google.gson.internal.bind.TypeAdapters$29.write(Lcom/google/gson/stream/JsonWriter;Lcom/google/gson/JsonElement;)V @ 1
+Event: 3526.245 Thread 0x0000000019f3b800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000039ee31c method=com.google.gson.stream.JsonWriter.beforeValue()V @ 92
+Event: 3526.245 Thread 0x0000000019f3b800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000039ee31c method=com.google.gson.stream.JsonWriter.beforeValue()V @ 92
+Event: 3526.245 Thread 0x0000000019f3b800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000039ee31c method=com.google.gson.stream.JsonWriter.beforeValue()V @ 92
+Event: 3526.246 Thread 0x0000000019f3b800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00000000039ee31c method=com.google.gson.stream.JsonWriter.beforeValue()V @ 92
+Event: 3526.251 Thread 0x0000000019f35800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003380470 method=sun.nio.cs.UTF_8$Encoder.encodeArrayLoop(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult; @ 87
+Event: 3526.253 Thread 0x0000000019f35800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003d21260 method=java.time.LocalTime.toString()Ljava/lang/String; @ 76
+Event: 3526.328 Thread 0x000000001a971800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003774c38 method=java.util.jar.Manifest.getTrustedAttributes(Ljava/lang/String;)Ljava/util/jar/Attributes; @ 7
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (250 events):
+Event: 2572.704 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e3b9d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2572.719 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e4be38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2577.824 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e59e98) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2577.840 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e6dc00) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2580.158 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e7bdc8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2580.173 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e8d5f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2582.322 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8e9b8f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2582.336 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8eabd60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2586.303 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8ebb2c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2586.318 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8f77700) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2588.387 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8f85a00) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2588.401 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8f95e70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2595.087 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8fb7c38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2595.097 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8fc5d10) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2595.111 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d8fd6800) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2595.668 Thread 0x0000000018900000 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000d8f07800) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2598.024 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93863b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2598.029 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93909b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2603.045 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d939ddc8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2605.671 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93aae98) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2606.993 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93b7e78) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2613.229 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93c5c30) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2613.245 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93d60f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2615.338 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93e4058) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2615.353 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d93f44a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2620.219 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9402298) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2620.237 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9415948) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2622.548 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d94238a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2622.563 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d94350b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2624.711 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d94e81e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2624.725 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d94f8648) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2628.859 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9507938) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2628.875 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9518c68) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2630.950 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9526cf8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2630.966 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9537158) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.871 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d954f550) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.881 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d955d3b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.898 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d956dc38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.913 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9588330) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.927 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9598df8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.944 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d95a9680) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.957 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d95b9f18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.971 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d95ca7e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.984 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d95db0c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2636.998 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d95eb998) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2637.011 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d95fc170) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2637.025 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d960c9c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2637.038 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9626f60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2637.586 Thread 0x0000000018900000 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000d8f15d48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2639.830 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a40830) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2639.847 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a4ae48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2644.905 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a58268) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2647.034 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a65488) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2648.122 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a726d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2654.081 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a80700) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2654.100 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a90bd8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2656.207 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9a9eda8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2656.221 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9aaf208) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2660.923 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9abd268) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2660.941 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9ad11f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2663.279 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9adf3b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2663.296 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9af0be0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2665.443 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9afeee0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2665.463 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b0f350) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2669.628 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b1e8b0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2669.644 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b2fbf0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2671.715 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b3def0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2671.733 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b4e360) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2678.926 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b666f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2678.937 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b747d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2678.956 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b852c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2678.972 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9b9fc28) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2678.992 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9bb0960) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.007 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9bc1458) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.026 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9bd1f60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.040 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9be2a98) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.055 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9bf35f0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.068 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9c04130) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.084 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9c14b78) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.098 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9c25638) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.116 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000d9c3fe28) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2679.667 Thread 0x0000000018900000 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000d99e9700) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2681.952 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0209c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2681.956 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da02afe0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2686.965 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da038400) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2689.088 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da045620) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2690.028 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da052870) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2696.229 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da060898) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2696.247 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da070d70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2698.367 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da07ef40) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2698.383 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da08f3a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2703.515 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da09d400) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2703.531 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0b1448) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2705.893 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0bf610) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2705.909 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0d0e38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2708.049 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0df138) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2708.063 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0ef5a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2712.067 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da0feb08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2712.082 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da10fe48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2714.160 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da11e148) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2714.176 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da12e5b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.182 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da146b78) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.192 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da154c50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.207 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da165740) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.221 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da225238) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.237 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da235f70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.254 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da246a80) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2721.268 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da2575e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2724.274 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da5b83d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2724.277 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da5c29e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2729.287 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da5cfe08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2734.657 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da5dd028) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2736.483 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da5ea278) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2742.636 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da5f82a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2742.652 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da608778) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2744.746 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da616948) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2744.759 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da626da8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2748.855 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da634e08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2748.873 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da648cd8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2751.363 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da656ea0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2751.377 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da6686c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2753.508 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da6769c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2753.523 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da686e38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2757.762 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da696398) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2757.777 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da6a76d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2759.848 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da6b59d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2759.863 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da6c5e48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.224 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da6de368) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.232 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da781050) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.246 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da791b40) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.262 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da7ac4e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.278 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da7bd220) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.305 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da7cdd30) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.320 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000da7de890) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2767.866 Thread 0x0000000018900000 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000dac32318) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2770.405 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab38200) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2770.408 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab42818) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2775.431 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab4fc38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2778.431 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab5ce58) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2780.571 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab6a0a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2787.586 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab780d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2787.602 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab885a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2789.685 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dab96778) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2789.700 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000daba6bd8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2794.183 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dabb4c38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2794.202 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dabc88e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2796.505 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dabd6aa8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2796.520 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dabe82d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2798.654 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dabf65d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2798.669 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dac06a40) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2803.509 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dac15fa0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2803.523 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dac272e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2805.590 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dacda6c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2805.600 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000daceab30) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.254 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad03028) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.272 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad11100) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.289 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad21bf0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.303 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad3c6e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.317 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad4d418) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.330 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad5df28) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2812.343 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dad6ea88) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2815.457 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db112e68) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2815.459 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db11d480) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2820.471 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db12a8a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2822.941 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db137ac0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2824.368 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db144d10) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2830.707 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db152d38) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2830.761 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db163210) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2832.914 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db1713e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2832.930 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db181840) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2837.615 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db18f8a0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2837.631 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2507e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2839.952 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db25e9a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2839.968 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2701d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2842.111 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db27e4d0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2842.124 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db28e940) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2846.175 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db29dea0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2846.191 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2af1e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2848.263 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2bd4e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2848.277 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2cd950) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.411 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2e5f88) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.420 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db2f4060) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.435 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db304b50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.449 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db31f718) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.464 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db330450) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.479 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db340f60) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.494 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db351ac0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2855.509 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db36c7a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2856.051 Thread 0x0000000018900000 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000db6fc6f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2858.407 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db78ab70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2858.408 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db795188) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2863.434 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7a25a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2865.711 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7af7c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2867.331 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7bca18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2874.181 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7caa40) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2874.201 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7daf18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2876.291 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7e90e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2876.306 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db7f9548) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2880.426 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8075a8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2880.443 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db81b758) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2882.774 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db829920) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2882.791 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db83b148) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2884.932 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db849448) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2884.947 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8598b8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2888.900 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db868e18) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2888.917 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db87a158) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2891.015 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db888458) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2891.030 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8988c8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.011 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8b1040) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.022 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8bf118) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.038 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8cfc08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.054 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8ea810) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.068 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db8fb548) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.085 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db90c058) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.100 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db91cbb8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.115 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db92d8f8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.130 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db93e628) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.145 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db94f450) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.160 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db960278) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.175 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db971010) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.190 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db981d90) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.205 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db992c08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.220 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db9a3a78) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.237 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000db9be850) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2898.819 Thread 0x0000000018900000 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000db70ad08) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2901.506 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dbd92ff8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2901.511 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dbd9d610) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 2906.528 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dbdaaa30) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3206.547 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dbdb2f58) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3506.555 Thread 0x000000001a971800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x00000000dbdce9e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\runtime\reflection.cpp, line 1092]
+Event: 3507.232 Thread 0x0000000019f3c800 Exception <a 'java/net/SocketTimeoutException': connect timed out> (0x00000000dc670130) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3509.738 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dc5faa30) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3509.799 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dc604f88) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3514.827 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dc6122e8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3515.147 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dc61f448) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3515.194 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dc62c5d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3520.229 Thread 0x000000001a971800 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000000dc63a540) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3521.221 Thread 0x000000001a971800 Exception <a 'sun/net/ConnectionResetException': > (0x00000000dc63af50) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3521.221 Thread 0x000000001a971800 Exception <a 'sun/net/ConnectionResetException': > (0x00000000dc63b550) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3523.241 Thread 0x000000001a971800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000dc64b158) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3525.247 Thread 0x000000001a971800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000dc64e300) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 3525.247 Thread 0x000000001a971800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x00000000dc650368) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\runtime\reflection.cpp, line 1092]
+Event: 3525.971 Thread 0x000000001a971800 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x00000000dd51d9c0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line
+Event: 3525.999 Thread 0x000000001a971800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$comparing$ea9a8b3a$1(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I> (0x00000000dd587a70) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.
+Event: 3526.001 Thread 0x000000001a971800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$thenComparing$36697e65$1(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I> (0x00000000dd5924e0) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\s
+Event: 3526.217 Thread 0x000000001a971800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$append$1(Ljava/lang/Object;Lio/vavr/collection/List;)Lio/vavr/collection/List;> (0x00000000ddb0c490) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm
+Event: 3526.218 Thread 0x000000001a971800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$foldRight$2(Ljava/util/function/BiFunction;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000ddb0fa48) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\
+Event: 3526.226 Thread 0x000000001a971800 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x00000000ddb288d8) thrown at [C:\cygwin64\tmp\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\interpreter\linkResolver.cpp, line
+Event: 3526.241 Thread 0x0000000019f35800 Implicit null exception at 0x00000000039fb87c to 0x0000000003a03539
+Event: 3526.241 Thread 0x0000000019f3b800 Implicit null exception at 0x00000000039fb87c to 0x0000000003a03539
+
+Events (250 events):
+Event: 3526.161 Executing VM operation: RevokeBias
+Event: 3526.161 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027fae738 mode 2
+Event: 3526.161 Executing VM operation: RevokeBias done
+Event: 3526.161 Executing VM operation: RevokeBias
+Event: 3526.163 Executing VM operation: RevokeBias done
+Event: 3526.163 loading class com/google/gson/internal/$Gson$Types$GenericArrayTypeImpl
+Event: 3526.163 loading class com/google/gson/internal/$Gson$Types$GenericArrayTypeImpl done
+Event: 3526.164 Executing VM operation: RevokeBias
+Event: 3526.167 Executing VM operation: RevokeBias done
+Event: 3526.167 loading class io/vavr/control/Validation
+Event: 3526.167 loading class io/vavr/control/Validation done
+Event: 3526.171 Thread 0x0000000018648800 flushing nmethod 0x00000000030d71d0
+Event: 3526.171 Thread 0x0000000018648800 flushing nmethod 0x00000000030ed890
+Event: 3526.171 Thread 0x0000000018648800 flushing nmethod 0x00000000030fca10
+Event: 3526.171 Thread 0x0000000018648800 flushing nmethod 0x0000000003131550
+Event: 3526.171 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x000000000338f3d0
+Event: 3526.171 Thread 0x0000000019f35800 DEOPT PACKING pc=0x000000000338f3d0 sp=0x000000001cedea30
+Event: 3526.173 loading class io/vavr/control/Either
+Event: 3526.173 loading class io/vavr/control/Either done
+Event: 3526.175 Thread 0x0000000018648800 flushing nmethod 0x0000000003180a10
+Event: 3526.176 Thread 0x0000000018648800 flushing nmethod 0x00000000032b3b90
+Event: 3526.177 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cede9a0 mode 2
+Event: 3526.177 Executing VM operation: RevokeBias
+Event: 3526.178 Executing VM operation: RevokeBias done
+Event: 3526.179 loading class net/thucydides/core/model/DataSetDescriptor
+Event: 3526.179 loading class net/thucydides/core/model/DataSetDescriptor done
+Event: 3526.180 loading class io/vavr/collection/Iterator
+Event: 3526.180 loading class io/vavr/collection/Iterator done
+Event: 3526.182 Executing VM operation: RevokeBias
+Event: 3526.183 Executing VM operation: RevokeBias done
+Event: 3526.183 Thread 0x0000000018648800 flushing nmethod 0x0000000003367090
+Event: 3526.185 Thread 0x0000000018648800 flushing nmethod 0x00000000033b5910
+Event: 3526.185 Thread 0x0000000018648800 flushing nmethod 0x0000000003469c50
+Event: 3526.185 Thread 0x0000000018648800 flushing nmethod 0x00000000034c9510
+Event: 3526.186 Thread 0x0000000018648800 flushing nmethod 0x00000000035235d0
+Event: 3526.189 Thread 0x0000000018648800 flushing nmethod 0x00000000037be9d0
+Event: 3526.189 Executing VM operation: RevokeBias
+Event: 3526.189 Executing VM operation: RevokeBias done
+Event: 3526.189 Executing VM operation: RevokeBias
+Event: 3526.190 Executing VM operation: RevokeBias done
+Event: 3526.190 Executing VM operation: RevokeBias
+Event: 3526.190 Executing VM operation: RevokeBias done
+Event: 3526.190 Executing VM operation: RevokeBias
+Event: 3526.190 Executing VM operation: RevokeBias done
+Event: 3526.190 Executing VM operation: RevokeBias
+Event: 3526.190 Executing VM operation: RevokeBias done
+Event: 3526.196 loading class sun/reflect/generics/tree/BottomSignature
+Event: 3526.198 Executing VM operation: RevokeBias
+Event: 3526.200 Executing VM operation: RevokeBias done
+Event: 3526.201 loading class sun/reflect/generics/tree/BottomSignature done
+Event: 3526.201 loading class sun/reflect/generics/tree/Wildcard
+Event: 3526.201 Executing VM operation: RevokeBias
+Event: 3526.201 Executing VM operation: RevokeBias done
+Event: 3526.201 loading class io/vavr/Tuple
+Event: 3526.201 loading class io/vavr/Tuple done
+Event: 3526.201 Executing VM operation: RevokeBias
+Event: 3526.202 Executing VM operation: RevokeBias done
+Event: 3526.202 loading class sun/reflect/generics/tree/Wildcard done
+Event: 3526.203 loading class sun/reflect/generics/reflectiveObjects/WildcardTypeImpl
+Event: 3526.204 loading class sun/reflect/generics/reflectiveObjects/WildcardTypeImpl done
+Event: 3526.204 loading class com/google/gson/internal/$Gson$Types$WildcardTypeImpl
+Event: 3526.204 loading class com/google/gson/internal/$Gson$Types$WildcardTypeImpl done
+Event: 3526.205 Executing VM operation: RevokeBias
+Event: 3526.205 Executing VM operation: RevokeBias done
+Event: 3526.205 Executing VM operation: RevokeBias
+Event: 3526.206 Executing VM operation: RevokeBias done
+Event: 3526.207 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003418f38
+Event: 3526.207 loading class io/vavr/collection/List$Nil
+Event: 3526.207 loading class io/vavr/collection/List$Nil done
+Event: 3526.209 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003418f38
+Event: 3526.210 Thread 0x0000000019f35800 DEOPT PACKING pc=0x0000000003418f38 sp=0x000000001cedef20
+Event: 3526.211 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x0000000003418f38 sp=0x0000000027faec80
+Event: 3526.211 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cedef38 mode 2
+Event: 3526.211 loading class sun/reflect/UnsafeQualifiedObjectFieldAccessorImpl
+Event: 3526.212 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027faec98 mode 2
+Event: 3526.212 loading class io/vavr/collection/List$Cons
+Event: 3526.212 loading class io/vavr/collection/List$Cons done
+Event: 3526.213 loading class sun/reflect/UnsafeQualifiedFieldAccessorImpl
+Event: 3526.213 loading class sun/reflect/UnsafeQualifiedFieldAccessorImpl done
+Event: 3526.213 loading class sun/reflect/UnsafeQualifiedObjectFieldAccessorImpl done
+Event: 3526.214 loading class net/serenitybdd/core/rest/RestQuery
+Event: 3526.214 loading class net/serenitybdd/core/rest/RestQuery done
+Event: 3526.216 Executing VM operation: RevokeBias
+Event: 3526.217 Executing VM operation: RevokeBias done
+Event: 3526.217 loading class io/vavr/collection/List
+Event: 3526.217 loading class io/vavr/collection/List done
+Event: 3526.217 loading class io/vavr/collection/List
+Event: 3526.217 loading class io/vavr/collection/List done
+Event: 3526.219 loading class io/vavr/collection/Traversable$1
+Event: 3526.219 loading class io/vavr/collection/Traversable$1 done
+Event: 3526.219 loading class net/thucydides/core/model/ReportData
+Event: 3526.219 loading class net/thucydides/core/model/ReportData done
+Event: 3526.220 Executing VM operation: RevokeBias
+Event: 3526.221 Executing VM operation: RevokeBias done
+Event: 3526.221 loading class io/vavr/collection/AbstractIterator
+Event: 3526.221 loading class io/vavr/collection/AbstractIterator done
+Event: 3526.223 loading class net/serenitybdd/core/rest/RestMethod
+Event: 3526.223 loading class net/serenitybdd/core/rest/RestMethod done
+Event: 3526.225 loading class java/util/concurrent/ConcurrentNavigableMap
+Event: 3526.226 loading class io/vavr/collection/List
+Event: 3526.226 loading class io/vavr/collection/List done
+Event: 3526.226 loading class io/vavr/collection/List
+Event: 3526.226 loading class io/vavr/collection/List done
+Event: 3526.228 Executing VM operation: BulkRevokeBias
+Event: 3526.230 Executing VM operation: BulkRevokeBias done
+Event: 3526.230 loading class java/util/concurrent/ConcurrentNavigableMap done
+Event: 3526.230 Executing VM operation: RevokeBias
+Event: 3526.230 Executing VM operation: RevokeBias done
+Event: 3526.230 loading class com/google/gson/internal/ConstructorConstructor$13
+Event: 3526.230 loading class com/google/gson/internal/ConstructorConstructor$13 done
+Event: 3526.232 Executing VM operation: RevokeBias
+Event: 3526.233 Executing VM operation: RevokeBias done
+Event: 3526.234 loading class net/thucydides/core/reports/junit/JUnitXMLOutcomeReporter
+Event: 3526.234 loading class net/thucydides/core/reports/junit/JUnitXMLOutcomeReporter done
+Event: 3526.234 Thread 0x000000001a971800 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000000003d051b8
+Event: 3526.234 Thread 0x000000001a971800 DEOPT PACKING pc=0x0000000003d051b8 sp=0x000000001c2de580
+Event: 3526.234 Thread 0x000000001a971800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001c2de550 mode 2
+Event: 3526.235 loading class sun/reflect/UnsafeIntegerFieldAccessorImpl
+Event: 3526.235 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000000003dd08b8
+Event: 3526.235 Executing VM operation: RevokeBias
+Event: 3526.235 loading class java/util/stream/ForEachOps$ForEachTask
+Event: 3526.235 Executing VM operation: RevokeBias done
+Event: 3526.235 Thread 0x0000000019f35800 DEOPT PACKING pc=0x0000000003dd08b8 sp=0x000000001cede2a0
+Event: 3526.235 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cede180 mode 2
+Event: 3526.236 Executing VM operation: RevokeBias
+Event: 3526.236 Executing VM operation: RevokeBias done
+Event: 3526.236 Executing VM operation: RevokeBias
+Event: 3526.236 Executing VM operation: RevokeBias done
+Event: 3526.236 Executing VM operation: RevokeBias
+Event: 3526.236 Executing VM operation: RevokeBias done
+Event: 3526.237 loading class sun/reflect/UnsafeIntegerFieldAccessorImpl done
+Event: 3526.237 loading class sun/reflect/UnsafeLongFieldAccessorImpl
+Event: 3526.237 loading class sun/reflect/UnsafeLongFieldAccessorImpl done
+Event: 3526.237 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00000000034f8470
+Event: 3526.237 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x00000000034f8470 sp=0x0000000027fae750
+Event: 3526.237 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027fae6b0 mode 2
+Event: 3526.237 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000000003a00278
+Event: 3526.238 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffffde fr.pc=0x0000000003a00278
+Event: 3526.239 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x0000000003a00278 sp=0x0000000027fae7c0
+Event: 3526.239 Thread 0x0000000019f35800 DEOPT PACKING pc=0x0000000003a00278 sp=0x000000001cedea60
+Event: 3526.240 loading class java/util/stream/ForEachOps$ForEachTask done
+Event: 3526.241 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cedead8 mode 2
+Event: 3526.241 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003a03550
+Event: 3526.241 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027fae838 mode 2
+Event: 3526.241 Thread 0x0000000019f35800 DEOPT PACKING pc=0x0000000003a03550 sp=0x000000001cedea60
+Event: 3526.241 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003a03550
+Event: 3526.241 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cedeae0 mode 2
+Event: 3526.241 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x0000000003a03550 sp=0x0000000027fae7c0
+Event: 3526.241 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027fae840 mode 2
+Event: 3526.241 loading class sun/reflect/UnsafeBooleanFieldAccessorImpl
+Event: 3526.242 loading class sun/reflect/UnsafeBooleanFieldAccessorImpl done
+Event: 3526.243 loading class io/vavr/collection/JavaConverters$ChangePolicy
+Event: 3526.243 loading class io/vavr/collection/JavaConverters$ChangePolicy done
+Event: 3526.244 Executing VM operation: RevokeBias
+Event: 3526.244 Executing VM operation: RevokeBias done
+Event: 3526.245 loading class io/vavr/collection/JavaConverters
+Event: 3526.245 loading class io/vavr/collection/JavaConverters done
+Event: 3526.245 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffffde fr.pc=0x00000000039ee31c
+Event: 3526.245 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x00000000039ee31c sp=0x0000000027faebb0
+Event: 3526.245 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027faebc8 mode 2
+Event: 3526.245 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffffde fr.pc=0x00000000039ee31c
+Event: 3526.245 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x00000000039ee31c sp=0x0000000027faebb0
+Event: 3526.245 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027faebc8 mode 2
+Event: 3526.245 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffffde fr.pc=0x00000000039ee31c
+Event: 3526.245 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x00000000039ee31c sp=0x0000000027faebb0
+Event: 3526.245 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027faebc8 mode 2
+Event: 3526.246 Thread 0x0000000019f3b800 Uncommon trap: trap_request=0xffffffde fr.pc=0x00000000039ee31c
+Event: 3526.246 Thread 0x0000000019f3b800 DEOPT PACKING pc=0x00000000039ee31c sp=0x0000000027faebb0
+Event: 3526.246 Thread 0x0000000019f3b800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x0000000027faebc8 mode 2
+Event: 3526.247 loading class io/vavr/collection/JavaConverters$ListView
+Event: 3526.247 loading class io/vavr/collection/JavaConverters$ListView done
+Event: 3526.247 loading class net/thucydides/core/reports/io/SafelyMoveFiles
+Event: 3526.247 loading class net/thucydides/core/reports/io/SafelyMoveFiles done
+Event: 3526.251 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003380470
+Event: 3526.251 Thread 0x0000000019f35800 DEOPT PACKING pc=0x0000000003380470 sp=0x000000001cede8a0
+Event: 3526.251 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cede810 mode 2
+Event: 3526.251 loading class io/vavr/collection/JavaConverters$HasDelegate
+Event: 3526.251 loading class io/vavr/collection/JavaConverters$HasDelegate done
+Event: 3526.253 Thread 0x0000000019f35800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003d21260
+Event: 3526.253 Thread 0x0000000019f35800 DEOPT PACKING pc=0x0000000003d21260 sp=0x000000001cedef10
+Event: 3526.253 Thread 0x0000000019f35800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001cedee68 mode 2
+Event: 3526.254 Executing VM operation: RevokeBias
+Event: 3526.255 Executing VM operation: RevokeBias done
+Event: 3526.255 loading class net/thucydides/core/reports/io/SafelyMoveFiles$SafelyMoveFilesBuilder
+Event: 3526.255 loading class net/thucydides/core/reports/io/SafelyMoveFiles$SafelyMoveFilesBuilder done
+Event: 3526.257 loading class javax/xml/parsers/DocumentBuilderFactory
+Event: 3526.257 Executing VM operation: RevokeBias
+Event: 3526.257 Executing VM operation: RevokeBias done
+Event: 3526.257 loading class java/nio/file/StandardCopyOption
+Event: 3526.257 Executing VM operation: RevokeBias
+Event: 3526.257 Executing VM operation: RevokeBias done
+Event: 3526.257 Executing VM operation: RevokeBias
+Event: 3526.258 Executing VM operation: RevokeBias done
+Event: 3526.259 loading class java/nio/file/StandardCopyOption done
+Event: 3526.259 Executing VM operation: RevokeBias
+Event: 3526.259 loading class javax/xml/parsers/DocumentBuilderFactory done
+Event: 3526.259 Executing VM operation: RevokeBias done
+Event: 3526.259 Executing VM operation: BulkRevokeBias
+Event: 3526.260 Executing VM operation: BulkRevokeBias done
+Event: 3526.260 loading class javax/xml/parsers/FactoryFinder
+Event: 3526.261 loading class javax/xml/parsers/FactoryFinder done
+Event: 3526.261 loading class javax/xml/parsers/SecuritySupport
+Event: 3526.262 loading class javax/xml/parsers/SecuritySupport done
+Event: 3526.262 loading class javax/xml/parsers/SecuritySupport$2
+Event: 3526.262 loading class javax/xml/parsers/SecuritySupport$2 done
+Event: 3526.262 loading class javax/xml/parsers/SecuritySupport$5
+Event: 3526.262 loading class javax/xml/parsers/SecuritySupport$5 done
+Event: 3526.263 loading class sun/nio/fs/WindowsFileCopy
+Event: 3526.265 loading class javax/xml/parsers/FactoryFinder$1
+Event: 3526.265 loading class sun/nio/fs/WindowsFileCopy done
+Event: 3526.265 loading class javax/xml/parsers/FactoryFinder$1 done
+Event: 3526.280 loading class org/apache/xerces/jaxp/DocumentBuilderFactoryImpl
+Event: 3526.280 loading class org/apache/xerces/jaxp/DocumentBuilderFactoryImpl done
+Event: 3526.284 Thread 0x0000000018648800 flushing nmethod 0x0000000002f63150
+Event: 3526.307 Thread 0x0000000018648800 flushing nmethod 0x00000000032fe150
+Event: 3526.316 loading class org/xml/sax/SAXNotRecognizedException
+Event: 3526.319 loading class org/xml/sax/SAXException
+Event: 3526.319 loading class org/xml/sax/SAXException done
+Event: 3526.319 loading class org/xml/sax/SAXNotRecognizedException done
+Event: 3526.319 loading class org/xml/sax/SAXNotSupportedException
+Event: 3526.319 loading class org/xml/sax/SAXNotSupportedException done
+Event: 3526.319 loading class javax/xml/parsers/DocumentBuilder
+Event: 3526.319 loading class javax/xml/parsers/DocumentBuilder done
+Event: 3526.319 loading class org/apache/xerces/jaxp/DocumentBuilderImpl
+Event: 3526.319 loading class org/apache/xerces/jaxp/DocumentBuilderImpl done
+Event: 3526.321 loading class org/apache/xerces/jaxp/JAXPConstants
+Event: 3526.321 loading class org/apache/xerces/jaxp/JAXPConstants done
+Event: 3526.322 loading class org/apache/xerces/xni/parser/XMLConfigurationException
+Event: 3526.322 loading class org/apache/xerces/xni/parser/XMLConfigurationException done
+Event: 3526.325 loading class org/apache/xerces/xni/XNIException
+Event: 3526.325 loading class org/apache/xerces/xni/XNIException done
+Event: 3526.326 loading class org/w3c/dom/Document
+Event: 3526.327 loading class org/w3c/dom/Document done
+Event: 3526.327 loading class org/xml/sax/ErrorHandler
+Event: 3526.327 loading class org/xml/sax/ErrorHandler done
+Event: 3526.327 loading class org/apache/xerces/xni/XMLDTDHandler
+Event: 3526.327 loading class org/apache/xerces/xni/XMLDTDHandler done
+Event: 3526.328 Thread 0x000000001a971800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003774c38
+Event: 3526.328 Thread 0x000000001a971800 DEOPT PACKING pc=0x0000000003774c38 sp=0x000000001c2db720
+Event: 3526.328 Thread 0x000000001a971800 DEOPT UNPACKING pc=0x0000000002e7807b sp=0x000000001c2db450 mode 2
+Event: 3526.329 loading class org/apache/xerces/xni/parser/XMLDTDSource
+Event: 3526.329 loading class org/apache/xerces/xni/parser/XMLDTDSource done
+Event: 3526.330 loading class org/apache/xerces/xni/parser/XMLComponentManager
+Event: 3526.330 loading class org/apache/xerces/xni/parser/XMLComponentManager done
+Event: 3526.330 loading class org/apache/xerces/impl/xs/XMLSchemaValidator
+Event: 3526.330 loading class org/apache/xerces/impl/xs/XMLSchemaValidator done
+Event: 3526.341 Thread 0x0000000018648800 flushing nmethod 0x00000000033a4690
+Event: 3526.341 Thread 0x0000000018648800 flushing nmethod 0x0000000003404010
+Event: 3526.341 Thread 0x0000000018648800 flushing nmethod 0x0000000003409b10
+Event: 3526.341 Thread 0x0000000018648800 flushing nmethod 0x000000000340aa10
+
+
+Dynamic libraries:
+0x00007ff651290000 - 0x00007ff65131b000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\java.exe
+0x00007ffc71840000 - 0x00007ffc71a30000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc70250000 - 0x00007ffc70302000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc6f640000 - 0x00007ffc6f8e3000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc6fab0000 - 0x00007ffc6fb53000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc71030000 - 0x00007ffc710ce000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc6f9a0000 - 0x00007ffc6fa37000 	C:\Windows\System32\sechost.dll
+0x00007ffc713e0000 - 0x00007ffc71500000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc71500000 - 0x00007ffc71694000 	C:\Windows\System32\USER32.dll
+0x00007ffc6f430000 - 0x00007ffc6f451000 	C:\Windows\System32\win32u.dll
+0x00007ffc70830000 - 0x00007ffc70856000 	C:\Windows\System32\GDI32.dll
+0x00007ffc6e7d0000 - 0x00007ffc6e964000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc6e970000 - 0x00007ffc6ea0e000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc6f4f0000 - 0x00007ffc6f5ea000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc6be20000 - 0x00007ffc6c0a5000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.657_none_e6c5b579130e3898\COMCTL32.dll
+0x00007ffc704f0000 - 0x00007ffc70826000 	C:\Windows\System32\combase.dll
+0x00007ffc6f3b0000 - 0x00007ffc6f430000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc70310000 - 0x00007ffc7033e000 	C:\Windows\System32\IMM32.DLL
+0x0000000064990000 - 0x0000000064a29000 	C:\Program Files\Immidio\Flex Profiles\FlexHook64.dll
+0x00007ffc70940000 - 0x00007ffc71025000 	C:\Windows\System32\SHELL32.dll
+0x00007ffc6f5f0000 - 0x00007ffc6f63a000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ffc6f8f0000 - 0x00007ffc6f999000 	C:\Windows\System32\shcore.dll
+0x00007ffc6eac0000 - 0x00007ffc6f23f000 	C:\Windows\System32\windows.storage.dll
+0x00007ffc6e7b0000 - 0x00007ffc6e7cf000 	C:\Windows\System32\profapi.dll
+0x00007ffc6e740000 - 0x00007ffc6e78a000 	C:\Windows\System32\powrprof.dll
+0x00007ffc6e710000 - 0x00007ffc6e720000 	C:\Windows\System32\UMPDC.dll
+0x00007ffc71310000 - 0x00007ffc71362000 	C:\Windows\System32\shlwapi.dll
+0x00007ffc6e720000 - 0x00007ffc6e731000 	C:\Windows\System32\kernel.appcore.dll
+0x00007ffc6f390000 - 0x00007ffc6f3a7000 	C:\Windows\System32\cryptsp.dll
+0x00007ffc6f460000 - 0x00007ffc6f486000 	C:\Windows\System32\bcrypt.dll
+0x00007ffc6e630000 - 0x00007ffc6e655000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffc6cdf0000 - 0x00007ffc6ce21000 	C:\Windows\SYSTEM32\ntmarta.dll
+0x00007ffc6e5a0000 - 0x00007ffc6e5fd000 	C:\Program Files\Citrix\System32\MfApHook64.dll
+0x00007ffc6dd00000 - 0x00007ffc6dd2b000 	C:\Program Files\Citrix\ICAService\CtxDodHook64.dll
+0x00007ffc6dce0000 - 0x00007ffc6dd00000 	C:\Windows\SYSTEM32\dxcore.dll
+0x00007ffc6e4c0000 - 0x00007ffc6e4f2000 	C:\Program Files\Citrix\ICAService\picaFullScreenHookX64.dll
+0x00007ffc6deb0000 - 0x00007ffc6defe000 	C:\Program Files\Citrix\ICAService\ShellHook64.dll
+0x00007ffc6dd30000 - 0x00007ffc6deae000 	C:\Program Files\Citrix\ICAService\SCardHook64.dll
+0x00007ffc6dc20000 - 0x00007ffc6dc4a000 	C:\Program Files\Citrix\ICAService\cxinjime64.dll
+0x00007ffc6dba0000 - 0x00007ffc6dbe9000 	C:\Program Files\Citrix\ICAService\PicaWtsHook64.dll
+0x0000000063810000 - 0x00000000638e2000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\msvcr100.dll
+0x00000000639d0000 - 0x000000006428d000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\server\jvm.dll
+0x00007ffc71370000 - 0x00007ffc71378000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffc56b50000 - 0x00007ffc56b59000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc70860000 - 0x00007ffc708cf000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc5cd00000 - 0x00007ffc5cd24000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc6e3b0000 - 0x00007ffc6e3ba000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc5cad0000 - 0x00007ffc5cafd000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x00007ffc592a0000 - 0x00007ffc592af000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\verify.dll
+0x00007ffc48d70000 - 0x00007ffc48d99000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\java.dll
+0x00007ffc53bc0000 - 0x00007ffc53bd6000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\zip.dll
+0x00007ffc523b0000 - 0x00007ffc523bd000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\management.dll
+0x00007ffc5aa60000 - 0x00007ffc5aa7a000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\net.dll
+0x00007ffc6d600000 - 0x00007ffc6d667000 	C:\Windows\system32\mswsock.dll
+0x00007ffc5aa40000 - 0x00007ffc5aa52000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\nio.dll
+0x00007ffc6d360000 - 0x00007ffc6d42a000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffc711c0000 - 0x00007ffc711c8000 	C:\Windows\System32\NSI.dll
+0x00007ffc6d320000 - 0x00007ffc6d35a000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffc67390000 - 0x00007ffc6739a000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffc686d0000 - 0x00007ffc68747000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ffc522b0000 - 0x00007ffc522c4000 	C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin\sunec.dll
+0x00007ffc6d180000 - 0x00007ffc6d1b3000 	C:\Windows\system32\rsaenh.dll
+0x00007ffc6d7d0000 - 0x00007ffc6d7dc000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffc67e00000 - 0x00007ffc67e16000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffc67cf0000 - 0x00007ffc67d0c000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ffc59d20000 - 0x00007ffc59d36000 	C:\Windows\system32\napinsp.dll
+0x00007ffc59d40000 - 0x00007ffc59d5a000 	C:\Windows\system32\pnrpnsp.dll
+0x00007ffc59d60000 - 0x00007ffc59d6e000 	C:\Windows\System32\winrnr.dll
+0x00007ffc67990000 - 0x00007ffc679ac000 	C:\Windows\system32\NLAapi.dll
+0x00007ffc59d70000 - 0x00007ffc59d85000 	C:\Windows\system32\wshbth.dll
+
+VM Arguments:
+java_command: C:\RM\project\selenium-rm\rolemanagement-cucumber-serenity\target\surefire\surefirebooter430827442580642530.jar C:\RM\project\selenium-rm\rolemanagement-cucumber-serenity\target\surefire 2020-03-01T13-47-54_514-jvmRun1 surefire4329896021287307680tmp surefire_06465701073138080285tmp
+java_class_path (initial): C:\RM\project\selenium-rm\rolemanagement-cucumber-serenity\target\surefire\surefirebooter430827442580642530.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3
+JRE_HOME=C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre
+PATH=C:/Program Files/RedHat/java-1.8.0-openjdk-1.8.0.232-3/jre/bin/server;C:/Program Files/RedHat/java-1.8.0-openjdk-1.8.0.232-3/jre/bin;C:/Program Files/RedHat/java-1.8.0-openjdk-1.8.0.232-3/jre/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Citrix\System32\;C:\Program Files\Citrix\ICAService\;C:\Program Files (x86)\Norskale\Norskale Agent Host\;C:\Program Files (x86)\HID Global\ActivClient\;C:\Program Files\HID Global\ActivClient\;C:\DevTools\Python27;C:\DevTools\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\bin;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.232-3\jre\bin;C:\ProgramData\Boxstarter;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\PuTTY;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Users\ShahMRaiaan\AppData\Local\Microsoft\WindowsApps;C:\Users\ShahMRaiaan\AppData\Local\GitHubDesktop\bin;C:\ProgramData\ShahMRaiaan\GitHubDesktop\bin;C:\Program Files (x86)\sts-bundle\sts-4.4.1.RELEASE;
+USERNAME=ShahMRaiaan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 79 Stepping 0, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.329)
+
+CPU:total 2 (initial active 2) (2 cores per cpu, 1 threads per core) family 6 model 79 stepping 0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8387564k(175608k free), swap 16776172k(4456k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.232-b09) for windows-amd64 JRE (1.8.0_232-b09), built on Oct 20 2019 23:15:08 by "build" with MS VC++ 10.0 (VS2010)
+
+time: Sun Mar 01 14:46:42 2020
+timezone: Eastern Standard Time
+elapsed time: 3526 seconds (0d 0h 58m 46s)
+

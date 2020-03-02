@@ -57,7 +57,7 @@ public class LoginStep {
 	public void _2_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
 		SignInUtility.signIntoWorkspace("shah.raiaan+newregistereduser319@gsa.gov", Constants.USERPASS,
 				"V3ZZVK7YC3XUXE4A", Constants.USER_FED);
-		LaunchBrowserUtil.takeScreenshot();
+		// LaunchBrowserUtil.takeScreenshot();
 
 		/*
 		 * SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser21@gsa.gov",
@@ -78,17 +78,18 @@ public class LoginStep {
 
 	@Then("^_2 user should be shown the complete profile page when logging back in$")
 	public void _2_user_should_be_able_to_sign_into_workspace() throws Throwable {
-		/*
-		 * CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
-		 * CommonProfilePage.enterWorkphone("5555555555"); LaunchBrowserUtil.delay(4);
-		 * LaunchBrowserUtil.closeBrowsers();
-		 */
+
+		CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.closeBrowsers();
+
 	}
 
 	@Given("^_3 user has an account in login dot gov domain$")
 	public void _3_user_has_an_account_in_login_dot_gov_domain() throws Throwable {
 		SignInUtility.signIntoWorkspace("shah.raiaan+profilecompleted@gsa.gov", Constants.USERPASS, "TKWPBBXYHQOBGD7L",
-				Constants.USER_FED);
+				Constants.USER_FED); // IEJOYN6TKIFCLYX4
 	}
 
 	@And("^_3 the user already completed the profile page details$")
@@ -229,14 +230,14 @@ public class LoginStep {
 
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-	//	String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		//SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
-		//counter + "@yopmail.com",
-		//Constants.USERPASS);
-		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION,
-		Constants.USERPASS);
-		//SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
-				//Constants.USERPASS);
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
+//		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION,
+//		Constants.USERPASS);
+		// SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser"
+		// + counter + "@gmail.com",
+		// Constants.USERPASS);
 	}
 
 	@Then("^_8 user should be able to complete the profile$")
