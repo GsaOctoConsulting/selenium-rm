@@ -236,6 +236,7 @@ public class RoleEditStep {
 	@And("^_5re user looks up a contracting specialist in user directory$")
 	public void _5re_user_looks_up_a_contracting_specialist_in_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
+		Assert.assertTrue(false);//bug not fixed
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage
 				.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGSPECIALIST_APOSTROPHE_1);
@@ -282,6 +283,7 @@ public class RoleEditStep {
 	@And("^_6re admin looks up a user with contracting specialist role in both contract opp and contract data$")
 	public void _6re_admin_looks_up_a_user_with_contracting_specialist_role_in_both_contract_opp_and_contract_data()
 			throws Throwable {
+		Assert.assertTrue(false);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD);

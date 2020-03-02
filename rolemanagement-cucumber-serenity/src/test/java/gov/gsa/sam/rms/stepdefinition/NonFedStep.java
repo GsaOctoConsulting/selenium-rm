@@ -522,7 +522,9 @@ public class NonFedStep {
 	@Given("^_7nf nonfed user attempts to signup for an account$")
 	public void _7nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
+//		SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
+//				Constants.USERPASS);
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
 				Constants.USERPASS);
 	}
 
@@ -559,7 +561,9 @@ public class NonFedStep {
 	@Given("^_8nf nonfed user attempts to signup for an account$")
 	public void _8nf_nonfed_user_attempts_to_signup_for_an_account() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
+//		SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser" + counter + "@gmail.com",
+//				Constants.USERPASS);
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
 				Constants.USERPASS);
 	}
 

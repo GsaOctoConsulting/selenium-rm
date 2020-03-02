@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -196,7 +197,10 @@ public class AssignRolePage {
 
 	public static void clickAssign() {
 		LaunchBrowserUtil.delay(2);
-		driver.findElement(AssignRolePageLocator.DONE_BUTTON).click();
+		WebElement element = driver.findElement(AssignRolePageLocator.DONE_BUTTON);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).click().build().perform();
+		//driver.findElement(AssignRolePageLocator.DONE_BUTTON).click(); // element click intercepted issues
 		MyRolesPage.setDriver(AssignRolePage.getDriver());
 		LaunchBrowserUtil.delay(4);
 
@@ -247,10 +251,9 @@ public class AssignRolePage {
 	}
 
 	public static void clickCloseButton() {
-		driver.findElement(By.xpath(
-				"//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[2]/div[3]/div/sam-button/button"))
-				.click();
+		driver.findElement(By.xpath("//button[starts-with(@type, 'button')]")).click();
 		LaunchBrowserUtil.delay(4);
+		MyRolesPage.setDriver(driver);
 	}
 
 	/**
