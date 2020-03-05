@@ -28,7 +28,8 @@ public class Constants {
 	public static final String ORG_COCACOLA_BOTTLINGCOMPANY_OFNORTHERNNEWENGLAND = "COCA-COLA BOTTLING COMPANY OF NORTHERN NEW ENGLAND, INC, THE"
 			.toUpperCase();
 	// Org Codes
-	public static final String ORG_GSA_CODE = "300000221";
+	public static final String CODE_ORG_GSA_DEPT = "047";
+	public static final String CODE_ORG_GSA_SUBTIER = "4700";
 
 	// Roles---------------------------------
 	public static final String ROLE_ROLEADMIN_SAMPMOADMINALLDOMAINS = "SAM PMO Administrator All Domains";
@@ -110,6 +111,7 @@ public class Constants {
 	public static final String EMAIL_ACTION_REMOVED = "removed";
 	public static final String EMAIL_ACTION_UPDATED = "updated";
 	public static final String EMAIL_ACTION_APPROVED = "approved";
+	public static final CharSequence EMAIL_ACTION_REQUESTED = "requested";
 
 	// system account email constants--
 	public static final String EMAIL_SA_SUBMISSION_SUBJECT_LINE = "You have submitted a pending System Account application for initial review";
@@ -118,8 +120,9 @@ public class Constants {
 	public static final String EMAIL_SA_APPLICATION_LINK_REJECT = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/workspace/system/new/";
 	public static final String EMAIL_SA_LEARNING_CENTER_LINK = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/help/new-to-sam";
 	public static final CharSequence EMAIL_SENT_FROM = "donotreply";
-	public static final CharSequence EMAIL_ENV = "TEST ENV";
+
 	public static final CharSequence EMAIL_SENT_FROM_DOMAIN = "donotreply@sam.gov";
+	public static CharSequence EMAIL_ENV;
 
 	// system account admin email constants
 	public static final String EMAIL_SAA_PENDING_SUBJECT_LINE = "You have a pending System Account application to review";
@@ -196,6 +199,15 @@ public class Constants {
 	public static final String SIGNUP_SECURITYLEVEL = "IAL1";
 
 	private Constants() {
+	}
+
+	static {
+		if (Constants.LOGINGOV_HOME_PAGE.contains("comp")) {
+			EMAIL_ENV = "DEV ENV";
+		} else if (Constants.LOGINGOV_HOME_PAGE.contains("minc")) {
+			EMAIL_ENV = "TEST ENV";
+		}
+
 	}
 
 	// ************************************************************************************************************************************

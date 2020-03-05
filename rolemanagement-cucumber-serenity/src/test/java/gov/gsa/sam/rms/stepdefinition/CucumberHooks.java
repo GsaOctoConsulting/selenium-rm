@@ -23,6 +23,7 @@ public class CucumberHooks {
 	@Before
 	public void beforeScenario(Scenario scenario) {
 		logger.info("-------------------------------Start of the scenario--------------------------------");
+		logger.info("Environment initialized is --- "+ Constants.EMAIL_ENV);
 		//---------- configuring unique file name-------
 	if(Constants.VIDEO_RECORD_ON) {
 		Collection<String> lines = scenario.getSourceTagNames();

@@ -57,13 +57,12 @@ public class EmailStep {
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
 		LaunchBrowserUtil.navigateBack();
-
 		LaunchBrowserUtil.switchTabs(3);
-
+		
 		// asserting email subject
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_SUBMITTED));
-		Assert.assertEquals(true, emailSubject.contains(Constants.ROLE_ASSISTANCE_USER));
+		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ENV));
 
 		// asserting email to and from address
 		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
@@ -73,10 +72,12 @@ public class EmailStep {
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ACTION_SUBMITTED));
 		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA_CODE));
-
 		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
+		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
+
+		// here link asserts
 
 		// delete the request
 		MyRolesPage.click1PendingRequest();
@@ -92,16 +93,17 @@ public class EmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
-
-		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
-
-		// asserting the email body
-		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA_CODE));
-		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
-		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
-
+		
+		String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
+		// asserting the email body 
+		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
+		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ACTION_REQUESTED));
+		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
+		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
+		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
+		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
+		
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -466,12 +468,12 @@ public class EmailStep {
 
 	@Then("^_5 the requester should receive an email message$")
 	public void _5_the_requester_should_also_receive_an_email_message() throws Throwable {
-		
+
 		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		
+
 		// asserting the email subject line
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 		Assert.assertEquals(emailSubject.contains(Constants.EMAIL_ACTION_REJECTED), true);
@@ -486,25 +488,24 @@ public class EmailStep {
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
 	}
+
 	@Then("^_5 supervisor should also receive email message$")
 	public void _5_supervisor_should_receive_email_message() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
-		
+
 		// asserting the email body
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_ACTION_REJECTED));
 		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA_CODE));
+		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
-
-	
 
 	@Given("^_6email a no role user logs in$")
 	public void _6email_a_no_role_user_logs_in() throws Throwable {
@@ -560,7 +561,7 @@ public class EmailStep {
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_ACTION_APPROVED));
 		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA_CODE));
+		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		LaunchBrowserUtil.delay(3);
@@ -641,7 +642,7 @@ public class EmailStep {
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_ACTION_REJECTED));
 		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA_CODE));
+		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		LaunchBrowserUtil.delay(3);
@@ -690,7 +691,7 @@ public class EmailStep {
 		// Assert.assertEquals(true,
 		// emailContent.contains(Constants.EMAIL_ACTION_SUBMITTED));
 		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA_CODE));
+		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		LaunchBrowserUtil.delay(3);
