@@ -326,6 +326,9 @@ public class Constants {
 	public static final String ROLEHISTORY_STATUS_ROLE_ASSIGNED = "Role Assigned";
 	public static final String ROLEHISTORY_STATUS_ROLE_REMOVED = "Role Removed";
 	public static final String ROLEHISTORY_STATUS_ROLE_UPDATED = "Role Updated";
+	public static final CharSequence EMAIL_APPROVED_ORGANIZATIONS = "Approved Organizations:";
+	public static final CharSequence EMAIL_APPROVED_ROLE = "Approved Role";
+	public static final CharSequence EMAIL_APPROVED_DOMAINS = "Approved Domains";
 
 	// ************************************************************************************************************************************
 
