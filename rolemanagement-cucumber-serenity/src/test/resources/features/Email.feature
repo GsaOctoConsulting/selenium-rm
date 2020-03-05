@@ -21,19 +21,19 @@ Feature: Email functionality
 	Description:  The purpose of this feature is to test email validations
 
 @1 @IntegrationTest 
-Scenario: role requester and supervisor should receive email 
+Scenario: role requester and supervisor should receive email when request is submitted
 	Given _1 a no role user logs 
 	And _1 user requests assitance user role in assistance listing 
 	Then _1 user should receive an email with the proper message 
 	Then _1 supervisor should also receive an email message 
 	
 @2 @IntegrationTest 
-Scenario: role requested if approved should sent emails to requester and approver 
+Scenario: role requested if approved should sent two emails to requester and one to approver if supervisor email is not selected 
 	Given _2 a no role user logs in 
 	And _2 user requests assistance user role in assistance listing 
 	When _2 assistance admin approves the request 
-	Then _2 assistance admin should receive email message 
-	Then _2 the requester should also receive an email message 
+	Then _2 assistance admin should receive an email message 
+	Then _2 the requester should also receive two email messages 
 	
 @3 @IntegrationTest 
 Scenario: top down role assignment should sent emails to both the granter and grantee 

@@ -25,6 +25,7 @@ import gov.gsa.sam.rms.utilities.SignInUtility;
 public class EmailStep {
 
 	private static Logger logger = LoggerFactory.getLogger(EmailStep.class);
+	private static String decisionComment = "comments written here";
 
 	@Given("^_1 a no role user logs$")
 	public void _1_a_no_role_user_logs() throws Throwable {
@@ -58,7 +59,7 @@ public class EmailStep {
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
 		LaunchBrowserUtil.navigateBack();
 		LaunchBrowserUtil.switchTabs(3);
-		
+
 		// asserting email subject
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_SUBMITTED));
@@ -93,9 +94,9 @@ public class EmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
-		
+
 		String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
-		// asserting the email body 
+		// asserting the email body
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ACTION_REQUESTED));
 		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
@@ -103,7 +104,7 @@ public class EmailStep {
 		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
-		
+
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -142,58 +143,140 @@ public class EmailStep {
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
 		RoleRequestPendingPage.clickAssignRole();
-		AssignRolePage.writeComment("assign");
+		AssignRolePage.writeComment(decisionComment);
 		AssignRolePage.clickAssign();
 		AssignRolePage.clickCloseButton();
 	}
 
-	@Then("^_2 assistance admin should receive email message$")
+	@Then("^_2 assistance admin should receive an email message$")
 	public void _2_assistance_admin_should_receive_email_message() throws Throwable {
 		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 
-		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
-		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
-		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
+		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
+		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
+		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
 		LaunchBrowserUtil.navigateBack();
-		// LaunchBrowserUtil.switchTabs(3);
 
-		// asserting the email subject line
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_ASSIGNED));
-		Assert.assertEquals(true, emailSubject.contains(Constants.ROLE_ASSISTANCE_USER));
+		String emailSubject2 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
+		String emailBody2 = LaunchBrowserUtil.captureEmailMessage(1);
+		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
 
-		// asserting email to and from address
-		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
-		Assert.assertEquals(true,
-				emailToAndFrom.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", "")));
+		String emailSubject3 = LaunchBrowserUtil.captureTitleFromLastEmail(2);
+		String emailBody3 = LaunchBrowserUtil.captureEmailMessage(2);
+		String emailToAndFrom3 = LaunchBrowserUtil.captureToAndFromInEmail();
 
-		// asserting the email body
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
-		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+		LaunchBrowserUtil.switchTabs(3);
+
+		int counter = 0;
+		if (emailToAndFrom1.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", ""))) {// assistance
+			// asserting the email subject line
+						Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_REGULAR_SENT_FROM));
+						Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+						Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_ENV));
+						// asserting email to and from address
+						Assert.assertEquals(true, emailToAndFrom1.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
+						Assert.assertEquals(true,
+								emailToAndFrom1.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", "")));
+						// asserting the email body
+						Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+						Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+						Assert.assertEquals(true, emailBody1.contains(Constants.ORG_GSA.toUpperCase()));
+						Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_ASSISTANCE_USER));
+						Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+						Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
+						Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));																								// admin
+																											// received
+
+			counter++;
+		} else if (emailToAndFrom1.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
+				&& (emailSubject1.contains("SAM.gov"))) {// requester receiving approval email
+
+			counter++;
+		}
+
+		else if (emailToAndFrom1.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))) {// requester 
+
+		}
+//----------------------------------
+		if (emailToAndFrom2.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", ""))) {// assistance admin received
+			// asserting the email subject line
+						Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_REGULAR_SENT_FROM));
+						Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_ACTION_ASSIGNED));
+						Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_ENV));
+						// asserting email to and from address
+						Assert.assertEquals(true, emailToAndFrom2.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
+						Assert.assertEquals(true,
+								emailToAndFrom2.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", "")));
+						// asserting the email body
+						Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
+						Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_ASSIGNED));
+						Assert.assertEquals(true, emailBody2.contains(Constants.ORG_GSA.toUpperCase()));
+						Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_ASSISTANCE_USER));
+						Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+						Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_SUBTIER));
+						Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
+			counter++;
+		} else if (emailToAndFrom2.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
+				&& (emailSubject2.contains("SAM.gov"))) {// requester receiving approval email
+
+			counter++;
+		}
+
+
+		else if (emailToAndFrom2.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))) {
+
+		}
+//----------------------------------		
+		if (emailToAndFrom3.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", ""))) {// assistance admin received
+			// asserting the email subject line
+			Assert.assertEquals(true, emailSubject3.contains(Constants.EMAIL_REGULAR_SENT_FROM));
+			Assert.assertEquals(true, emailSubject3.contains(Constants.EMAIL_ACTION_ASSIGNED));
+			Assert.assertEquals(true, emailSubject3.contains(Constants.EMAIL_ENV));
+			// asserting email to and from address
+			Assert.assertEquals(true, emailToAndFrom3.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
+			Assert.assertEquals(true,
+					emailToAndFrom3.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", "")));
+			// asserting the email body
+			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_ACTION_ASSIGNED));
+			Assert.assertEquals(true, emailBody3.contains(Constants.ORG_GSA.toUpperCase()));
+			Assert.assertEquals(true, emailBody3.contains(Constants.ROLE_ASSISTANCE_USER));
+			Assert.assertEquals(true, emailBody3.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_ENV));
+			counter++;
+		} else if (emailToAndFrom3.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
+				&& (emailSubject3.contains("SAM.gov"))) {// requester receiving approval email
+
+			counter++;
+		}
+
+		else if (emailToAndFrom3.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))) {
+
+		}
+		Assert.assertEquals(3, counter);
 	}
 
-	@Then("^_2 the requester should also receive an email message$")
+	@Then("^_2 the requester should also receive two email messages$")
 	public void _2_the_requester_should_also_receive_an_email_message() throws Throwable {
-		// LaunchBrowserUtil.navigateBack();
-		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(1);
-		String emailBody = LaunchBrowserUtil.captureEmailMessage(1);
-		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(3);
-		// asserting the email subject line
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_ASSIGNED));
-
-		// asserting email to and from address
-		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
-		Assert.assertEquals(true, emailToAndFrom.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", "")));
-
-		// asserting the email body
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
-		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+//		// LaunchBrowserUtil.navigateBack();
+//		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(1);
+//		String emailBody = LaunchBrowserUtil.captureEmailMessage(1);
+//		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
+//		LaunchBrowserUtil.switchTabs(3);
+//		// asserting the email subject line
+//		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
+//		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_ASSIGNED));
+//
+//		// asserting email to and from address
+//		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
+//		Assert.assertEquals(true, emailToAndFrom.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", "")));
+//
+//		// asserting the email body
+//		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
+//		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
+//		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
+//		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 
 		// ----------------delete the role for the user---------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
