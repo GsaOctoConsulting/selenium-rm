@@ -78,7 +78,7 @@ Scenario: role requested if rejected should sent emails to supervisor
 	Then _7email supervisor should receive email message regarding the rejection	 
 	
 @8 @IntegrationTest 
-Scenario: when role is requested then supervisor should receive email 
+Scenario: when role is requested through workpace then also supervisor should receive email 
 	Given _8 a no role user logs 
 	And _8 user requests assitance user role in assistance listing through workspace page  
 	Then _8 supervisor should also receive an email message 

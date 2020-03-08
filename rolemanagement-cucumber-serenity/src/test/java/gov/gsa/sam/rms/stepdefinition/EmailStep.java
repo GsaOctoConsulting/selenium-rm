@@ -741,6 +741,11 @@ public class EmailStep {
 		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+
+		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
+		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_ENV));
+
+		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_SUPERVISOR));
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 
@@ -865,12 +870,15 @@ public class EmailStep {
 
 		// asserting the email body
 		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_REQUESTOR_NAME));
-		// Assert.assertEquals(true,
-		// emailContent.contains(Constants.EMAIL_ACTION_SUBMITTED));
+		Assert.assertEquals(true,emailContent.contains(Constants.EMAIL_ACTION_REQUESTED));
 		Assert.assertEquals(true, emailContent.contains(Constants.ORG_GSA.toUpperCase()));
 		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailContent.contains(Constants.ROLE_ASSISTANCE_USER));
 		Assert.assertEquals(true, emailContent.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
+		Assert.assertEquals(true, emailContent.contains(Constants.CODE_ORG_GSA_SUBTIER));
+		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_ENV));
+
+		Assert.assertEquals(true, emailContent.contains(Constants.EMAIL_SUPERVISOR));
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 
