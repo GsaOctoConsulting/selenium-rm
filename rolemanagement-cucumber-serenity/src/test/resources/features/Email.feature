@@ -81,5 +81,14 @@ Scenario: role requested if rejected should sent emails to supervisor
 Scenario: when role is requested then supervisor should receive email 
 	Given _8 a no role user logs 
 	And _8 user requests assitance user role in assistance listing through workspace page  
-	Then _8 supervisor should also receive an email message 	
+	Then _8 supervisor should also receive an email message 
+
+@9 @IntegrationTest 
+Scenario: role requested if approved should sent two emails to requester and one to supervisor if supervisor is also the approver 
+	Given _9 a no role user logs in 
+	And _9 user requests contracting officer role in contract opportunities 
+	When _9 contract opportunities admin who is also the supervisor approves the request 
+	Then _9 contract opportunities admin should receive an email message 
+	Then _9 the requester should also receive two email messages 
+	
 	
