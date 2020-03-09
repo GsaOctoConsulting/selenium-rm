@@ -44,7 +44,7 @@ Scenario: top down role assignment should sent emails to both the assigner and a
 	And _3 the user should also receive proper email message 
 	
 @4 @IntegrationTest 
-Scenario: editing a role should send emails to both the editor and role holder 
+Scenario: editing a role should send updated status emails to both the editor and role holder 
 	Given _4 user logs in workspace as assistance admin 
 	And _4 admin looks up assistance user account in user directory 
 	And _4 admin changes the users org to office of acquisition policy 
@@ -92,7 +92,9 @@ Scenario: role removal should sent emails to both the admin and user
 	Given _10 contracting data admin logs into workspace 
 	And _10 admin looks up a user with contracting specialist role in contract data 
 	When _10 admin removes the users role 
-	Then _10 assistance admin should receive proper email message 
-	And _10 the user should also receive proper email message 
+	Then _10 contracting data admin should receive proper email message 
+	And _10 the user should also receive proper email message
+
+ 
 	
 	
