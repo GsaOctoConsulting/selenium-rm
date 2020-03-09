@@ -21,7 +21,7 @@ Feature: Email functionality
 	Description:  The purpose of this feature is to test email validations
 
 @1 @IntegrationTest 
-Scenario: role requester and supervisor should receive email when request is submitted
+Scenario: role requester and supervisor should receive email when request is submitted 
 	Given _1 a no role user logs 
 	And _1 user requests assitance user role in assistance listing 
 	Then _1 user should receive an email with the proper message 
@@ -36,16 +36,12 @@ Scenario: role requested if approved should sent two emails to requester and one
 	Then _2 the requester should also receive two email messages 
 	
 @3 @IntegrationTest 
-Scenario: top down role assignment should sent emails to both the granter and grantee 
+Scenario: top down role assignment should sent emails to both the assigner and assignee 
 	Given _3 assistance admin logs into workspace 
 	And _3 assistance admin looks up a no role user through the user directory 
 	And _3 assistance admin gives assistance user role to this user 
 	Then _3 assistance admin should receive proper email message 
-	And _3 assistance admin removes the role 
-	Then _3 assistance admin should receive role remove email 
-	When _3 the user logs in 
-	Then _3 the user should have received a role assign email 
-	And _3 the user should have received a role removed email 
+	And _3 the user should also receive proper email message 
 	
 @4 @IntegrationTest 
 Scenario: editing a role should send emails to both the editor and role holder 
@@ -59,30 +55,30 @@ Scenario: editing a role should send emails to both the editor and role holder
 Scenario: role requested if rejected should sent emails to requester and approver 
 	Given _5 a no role user logs in 
 	And _5email_user requests assitance user role in assistance listing 
-	When _5 assistance admin rejects the request  
+	When _5 assistance admin rejects the request 
 	Then _5 the requester should receive an email message 
-	Then _5 supervisor should also receive email message
+	Then _5 supervisor should also receive email message 
 	
 @6 @IntegrationTest 
 Scenario: role requested if approved should sent emails supervisor 
 	Given _6email a no role user logs in 
 	And _6email_user requests assitance user role in assistance listing 
 	When _6email assistance admin approves the request 
-	Then _6email supervisor should receive email message regarding the approval
+	Then _6email supervisor should receive email message regarding the approval 
 	
 @7 @IntegrationTest 
 Scenario: role requested if rejected should sent emails to supervisor 
 	Given _7email a no role user logs in 
 	And _7email_user requests assitance user role in assistance listing 
 	When _7email assistance admin rejects the request 
-	Then _7email supervisor should receive email message regarding the rejection	 
+	Then _7email supervisor should receive email message regarding the rejection 
 	
 @8 @IntegrationTest 
 Scenario: when role is requested through workpace then also supervisor should receive email 
 	Given _8 a no role user logs 
-	And _8 user requests assitance user role in assistance listing through workspace page  
+	And _8 user requests assitance user role in assistance listing through workspace page 
 	Then _8 supervisor should also receive an email message 
-
+	
 @9 @IntegrationTest 
 Scenario: role requested if approved should sent two emails to requester and one to supervisor if supervisor is also the approver 
 	Given _9 a no role user logs in 
@@ -90,5 +86,13 @@ Scenario: role requested if approved should sent two emails to requester and one
 	When _9 contract opportunities admin who is also the supervisor approves the request 
 	Then _9 contract opportunities admin should receive an email message 
 	Then _9 the requester should also receive two email messages 
+	
+@10 @IntegrationTest 
+Scenario: role removal should sent emails to both the admin and user 
+	Given _10 contracting data admin logs into workspace 
+	And _10 admin looks up a user with contracting specialist role in contract data 
+	When _10 admin removes the users role 
+	Then _10 assistance admin should receive proper email message 
+	And _10 the user should also receive proper email message 
 	
 	
