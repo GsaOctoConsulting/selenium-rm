@@ -58,7 +58,7 @@ public class UserDirectoryPageLocator {
 	public static final By DOMAIN_ADMIN_FILTER = By.id("domain-10");
 	public static final By DOMAIN_AL_FILTER = By.id("domain-9");
 	public static final By DOMAIN_CONTRACTDATA_FILTER = By.id("domain-1");
-	public static final By DOMAIN_CONTRACTOPPORTUNITIES_FILTER = By.id("domain-2");
+	public static final By DOMAIN_CONTRACTOPPORTUNITIES_FILTER = By.id("my-domain-2");
 	public static final By DOMAIN_FH_FILTER = By.id("domain-5");
 	public static final By DOMAIN_REPORTING_FILTER = By.id("domain-11");
 	public static final By CLEARFILTER = By

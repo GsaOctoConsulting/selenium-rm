@@ -560,4 +560,18 @@ public class UserDirectoryPage {
 		LaunchBrowserUtil.delay(2);
 	}
 
+	public static boolean selectFilter(By filterlocator) {
+		LaunchBrowserUtil.delay(1);
+		boolean found = true;
+		try {
+			driver.findElement(filterlocator).click();
+			LaunchBrowserUtil.delay(2);
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+			found=false;
+			return found;
+		}
+		return found;
+	}
+
 }
