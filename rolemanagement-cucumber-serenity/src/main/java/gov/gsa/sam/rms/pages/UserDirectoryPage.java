@@ -2,6 +2,8 @@ package gov.gsa.sam.rms.pages;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+//import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -74,7 +76,7 @@ public class UserDirectoryPage {
 	public static void clickAssignRole(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-		//driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
+		// driver.findElement(UserDirectoryPageLocator.ASSIGN_ROLE).click();
 		driver.findElement(By.id("menuitem1")).click();
 		AssignRolePage.setDriver(UserDirectoryPage.getDriver());
 		LaunchBrowserUtil.delay(4);
@@ -83,7 +85,7 @@ public class UserDirectoryPage {
 	public static void clickViewAccess(String useremail) {
 		clickActions(useremail);
 		LaunchBrowserUtil.delay(2);
-	
+
 		driver.findElement(By.id("menuitem0")).click();
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());
@@ -568,10 +570,68 @@ public class UserDirectoryPage {
 			LaunchBrowserUtil.delay(2);
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
-			found=false;
+			found = false;
 			return found;
 		}
 		return found;
+	}
+
+	public static boolean searchEntityInEntityPicker(String entityname) {
+		boolean entityfound = false;
+		driver.findElement(UserDirectoryPageLocator.ENTITY_PICKER).sendKeys(entityname);
+		LaunchBrowserUtil.delay(2);
+		List<WebElement> entityList = driver.findElements(AssignRolePageLocator.ENTITY_LIST_SELECTOR);
+		logger.info(("The size of the entity list is......" + entityList.size()));
+		for (int i = 0; i < entityList.size(); i++) {
+			WebElement currententity = entityList.get(i);
+			String singleentitytext = currententity.getText();
+			logger.info("Current entity is - " + singleentitytext);
+			if (singleentitytext.toLowerCase().contains(entityname.toLowerCase())) {
+				entityfound = true;
+				currententity.click();
+				break;
+			}
+
+		}
+		return entityfound;
+	}
+
+	public static void searchUserInEntityPicker(String user) {
+		searchUserInUserPicker(user);
+
+	}
+
+	public static boolean ifAllUsersAreClicable(int numberofpagestosearch, String texttoAssert) {
+		boolean allAreClickable = true;
+		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
+		int currentPage = numberofpagestosearch;
+		do {// search page 1 regardless of whether other pages exist
+			List<WebElement> userList = UserDirectoryPage.getUserList();
+			for (int i = 0; i < userList.size(); i++) {
+				WebElement currentuser = userList.get(i);
+				String usertext = "";
+				try {
+					WebElement id = currentuser.findElement(UserDirectoryPageLocator.ID);
+					usertext = id.getText();
+					// ensures names are clickable
+					logger.info("The text is ---- " + id.getText());
+				} catch (NoSuchElementException e) {
+					allAreClickable = false;
+				}
+
+				boolean fedIdFound = usertext.contains(texttoAssert);// ensures fed id not found
+				// Assert.assertEquals(false, fedIdFound);
+				// ------------------------------------------------------
+
+			}
+			// click to next page and increment page counter
+			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
+				currentPage++;
+				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
+			}
+		} while (currentPage < totalNoOfPages);
+		return allAreClickable;
 	}
 
 }

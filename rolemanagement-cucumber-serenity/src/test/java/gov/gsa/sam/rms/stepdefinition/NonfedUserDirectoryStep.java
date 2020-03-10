@@ -44,6 +44,9 @@ public class NonfedUserDirectoryStep {
 
 	@Then("^_1nfusdr user should be able to see the access for all the users they can see$")
 	public void _1nfusdr_user_should_be_able_to_see_the_access_for_all_the_users_they_can_see() throws Throwable {
+		
+		boolean allClickable = UserDirectoryPage.ifAllUsersAreClicable(6,"");
+		Assert.assertEquals(true, allClickable);
 		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
 		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
 		int currentPage = 1;
@@ -55,8 +58,8 @@ public class NonfedUserDirectoryStep {
 				logger.info("The text is ---- " + id.getText());
 				boolean fedIdFound = id.getText().contains("@gsa");// ensures fed id not found
 				Assert.assertEquals(false, fedIdFound);
-				//------------------------------------------------------
-				
+				// ------------------------------------------------------
+
 			}
 			// click to next page and increment page counter
 			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
@@ -64,6 +67,34 @@ public class NonfedUserDirectoryStep {
 				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
 			}
 		} while (currentPage < totalNoOfPages);
+	}
+
+	@Given("^_2nfusdr a nonfed user with data entry with contract opp logs in$")
+	public void _2nfusdr_a_nonfed_user_with_data_entry_with_contract_opp_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_2nfusdr user goes to user directory page$")
+	public void _2nfusdr_user_goes_to_user_directory_page() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+	}
+
+	@And("^_2nfusdr user selects octo consulting group in entity picker$")
+	public void _2nfusdr_user_selects_octo_consulting_group_in_entity_picker() throws Throwable {
+		UserDirectoryPage.searchEntityInEntityPicker(Constants.ORG_OCTO_CONSULTING_GROUP);
+	}
+
+	@When("^_2nfusdr user searches for a user in entity registration domain$")
+	public void _2nfusdr_user_searches_for_a_user_in_entity_registration_domain() throws Throwable {
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1);
+	}
+
+	@Then("^_2nfusdr user should not be clickable$")
+	public void _2nfusdr_user_should_not_be_clickable() throws Throwable {
+		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(1, "");
+		Assert.assertEquals(false, nameisclickable);
 	}
 
 }

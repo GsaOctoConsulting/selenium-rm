@@ -79,6 +79,7 @@ public class UserDirectoryPageLocator {
 	public static final By NO_RESULTS_MESSAGE = By.xpath("//*[@id=\"main-container\"]/sam-user-directory-v2/page/div/div/div[2]/div/div[2]/div[2]/user-directory-results/div/div");
 	public static final By DATA_ENTRY_FILTER = By.id("role-Data Entry");
 	public static final By VIEWER_FILTER = By.id("role-Viewer");
+	public static final By ENTITY_PICKER = By.id("entityPicker-Name");
 
 	private UserDirectoryPageLocator() {
 

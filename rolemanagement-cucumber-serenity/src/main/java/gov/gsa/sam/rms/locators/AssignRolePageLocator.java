@@ -36,6 +36,8 @@ public class AssignRolePageLocator {// contains locators for AssignRolePageOnly
 
 	public static final By ENTITY_SELECTOR = By.className("category-item");
 
+	public static final By ENTITY_LIST_SELECTOR = By.id("entityPicker-Name-listbox");
+
 	// the following locators are avaialble after some user action
 
 	private AssignRolePageLocator() {
