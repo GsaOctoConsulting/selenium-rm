@@ -32,29 +32,31 @@ public class NonfedUserDirectoryStep {
 	public void _1nfusdr_user_goes_to_user_directory_page() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		
+
 	}
 
 	@When("^_1nfusdr user selects data entry role filter and contract opp domain filter$")
 	public void _1nfusdr_user_selects_data_entry_role_filter_and_contract_opp_domain_filter() throws Throwable {
 		UserDirectoryPage.selectFilter(UserDirectoryPageLocator.DATA_ENTRY_FILTER);
 		UserDirectoryPage.selectFilter(UserDirectoryPageLocator.DOMAIN_CONTRACTOPPORTUNITIES_FILTER);
+
 	}
 
 	@Then("^_1nfusdr user should be able to see the access for all the users they can see$")
 	public void _1nfusdr_user_should_be_able_to_see_the_access_for_all_the_users_they_can_see() throws Throwable {
 		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
-		int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
-		//Assert.assertEquals(0, currentlyselectedPage);
+		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
 		int currentPage = 1;
 		do {// search page 1 regardless of whether other pages exist
 			List<WebElement> userList = UserDirectoryPage.getUserList();
-			logger.info("The size fo the user list is--" + userList.size());
 			for (int i = 0; i < userList.size(); i++) {
-				WebElement id = userList.get(i).findElement(UserDirectoryPageLocator.ID);
-				System.out.println(id.getText());
-				boolean fedIdFound = id.getText().contains("@gsa");
-				Assert.assertFalse(fedIdFound);
+				WebElement currentuser = userList.get(i);
+				WebElement id = currentuser.findElement(UserDirectoryPageLocator.ID);// ensures names are clickable
+				logger.info("The text is ---- " + id.getText());
+				boolean fedIdFound = id.getText().contains("@gsa");// ensures fed id not found
+				Assert.assertEquals(false, fedIdFound);
+				//------------------------------------------------------
+				
 			}
 			// click to next page and increment page counter
 			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
