@@ -88,12 +88,12 @@ public class NonfedUserDirectoryStep {
 
 	@When("^_2nfusdr user searches for a user in entity registration domain$")
 	public void _2nfusdr_user_searches_for_a_user_in_entity_registration_domain() throws Throwable {
-		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1);
+		//UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1);
 	}
 
 	@Then("^_2nfusdr user should not be clickable$")
 	public void _2nfusdr_user_should_not_be_clickable() throws Throwable {
-		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(1, "");
+		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(2, "");
 		Assert.assertEquals(false, nameisclickable);
 	}
 

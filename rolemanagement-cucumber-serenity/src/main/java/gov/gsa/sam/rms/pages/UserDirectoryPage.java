@@ -603,21 +603,25 @@ public class UserDirectoryPage {
 
 	public static boolean ifAllUsersAreClicable(int numberofpagestosearch, String texttoAssert) {
 		boolean allAreClickable = true;
-		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
-		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
-		int currentPage = numberofpagestosearch;
+		boolean breakouterloop = false;
+		int totalNoOfPages = numberofpagestosearch;//UserDirectoryPage.getTotalNoOfPages();
+		//int currentlyselectedPage = 1;//UserDirectoryPage.getCurrentSelectedPage();
+		int currentPage = 1;// always start at page 1
 		do {// search page 1 regardless of whether other pages exist
 			List<WebElement> userList = UserDirectoryPage.getUserList();
 			for (int i = 0; i < userList.size(); i++) {
 				WebElement currentuser = userList.get(i);
 				String usertext = "";
 				try {
+					logger.info("--------------starting search on page no-- "+currentPage);
 					WebElement id = currentuser.findElement(UserDirectoryPageLocator.ID);
 					usertext = id.getText();
 					// ensures names are clickable
 					logger.info("The text is ---- " + id.getText());
 				} catch (NoSuchElementException e) {
 					allAreClickable = false;
+					breakouterloop = true;
+					break;
 				}
 
 				boolean fedIdFound = usertext.contains(texttoAssert);// ensures fed id not found
@@ -630,7 +634,7 @@ public class UserDirectoryPage {
 				currentPage++;
 				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
 			}
-		} while (currentPage < totalNoOfPages);
+		} while ((currentPage < totalNoOfPages) && (breakouterloop == false));
 		return allAreClickable;
 	}
 
