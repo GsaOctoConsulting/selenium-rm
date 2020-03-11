@@ -93,7 +93,7 @@ public class NonfedUserDirectoryStep {
 
 	@Then("^_2nfusdr user should not be clickable$")
 	public void _2nfusdr_user_should_not_be_clickable() throws Throwable {
-		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(2, "");
+		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(1, "");
 		Assert.assertEquals(false, nameisclickable);
 	}
 
