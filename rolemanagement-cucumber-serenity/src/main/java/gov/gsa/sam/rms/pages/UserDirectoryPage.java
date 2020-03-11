@@ -3,10 +3,8 @@ package gov.gsa.sam.rms.pages;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-
-//import org.junit.Assert;
+import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -625,7 +623,7 @@ public class UserDirectoryPage {
 				}
 
 				boolean fedIdFound = usertext.contains(texttoAssert);// ensures fed id not found
-				//Assert.assertEquals(false, fedIdFound);
+				Assert.assertEquals(false, fedIdFound);
 				// ------------------------------------------------------
 
 			}

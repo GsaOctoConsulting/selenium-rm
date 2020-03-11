@@ -20,7 +20,7 @@ Feature: nonfed userdirectory functionality
 	Description:  The purpose of this feature is to test nonfed userdirectory related flows
 
 @1 @IntegrationTest 
-Scenario: nonfed user should be able to view access for user in their domain
+Scenario: nonfed user with role in contract opp should be able to view access for user in contract opp domain
 	Given _1nfusdr a nonfed user with data entry with contract opp logs in
 	And _1nfusdr user goes to user directory page 
 	When _1nfusdr user selects data entry role filter and contract opp domain filter 
@@ -33,6 +33,15 @@ Scenario: nonfed user should be able to view users in different domainis but sho
 	And _2nfusdr user selects octo consulting group in entity picker
 	When _2nfusdr user searches for a user in entity registration domain 
 	Then _2nfusdr user should not be clickable 
+
+@3 @IntegrationTest 
+Scenario: nonfed admin in entity registration should be able to view users in different domains as clickable 
+	Given _2nfusdr a nonfed user with data entry with contract opp logs in
+	And _2nfusdr user goes to user directory page 
+	And _2nfusdr user selects octo consulting group in entity picker
+	When _2nfusdr user searches for a user in entity registration domain 
+	Then _2nfusdr user should not be clickable
+ 
  
 	
 	
