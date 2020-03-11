@@ -285,4 +285,10 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_ADMIN_ENTITYREGISTRATION = "nonfedgsaemail+adminentityregistration1@yopmail.com";
 	public static final String NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY = "KPRLO5R675BXCGDW";
+	
+	public static final String NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM = "nonfedgsaemail+octoentityadminibmdataentry@yopmail.com";
+	public static final String NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM_SECRETKEY = "RN4IBS2VHF5BE2KZ";
+	
+	public static final String NONFED_DATAENTRY_ENTITYCOMPLIANCE_IBM = "nonfedgsaemail+ibmdataentryentitycompliance@yopmail.com";
+	public static final String NONFED_DATAENTRY_ENTITYCOMPLIANCE_IBM_SECRETKEY = "BM6BD6W2YN2BYKHI";
 }
