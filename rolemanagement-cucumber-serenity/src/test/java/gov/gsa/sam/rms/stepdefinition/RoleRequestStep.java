@@ -334,7 +334,7 @@ public class RoleRequestStep {
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		FeedsRequestPage.clickRoleRequestFilter();
-		boolean requestFound = FeedsRequestPage.requestFound("SHAH noroless2 RAIAAN", Constants.ORG_GSA,
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, timestamp,
 				Constants.STATUS_PENDING, Constants.REJECTROLE);
 
@@ -345,7 +345,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(4);
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickRoleRequestFilter();
-		requestFound = FeedsRequestPage.requestFound("SHAH noroless2 RAIAAN", Constants.ORG_GSA,
+		requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, timestamp,
 				Constants.STATUS_REJECTED, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);// assert with 'role request'

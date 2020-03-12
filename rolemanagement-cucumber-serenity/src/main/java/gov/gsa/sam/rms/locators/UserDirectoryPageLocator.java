@@ -69,7 +69,7 @@ public class UserDirectoryPageLocator {
 	public static final By DEPARTMENT_SEARCHBOX = By.id("Department");
 	public static final By DEPARTMENT_SUGGESTIONLIST = By.id("sam-autocomplete-results-kv");
 	public static final By FIRST_ORG_RESULT = By.xpath("//*[@id=\"sam-autocomplete-results-kv\"]/li[1]/span");
-	public static final By USER_INFO = By.className("p_All-4x");
+	public static final By USER_INFO = By.className("user-info");
 	public static final By PAGINATION = By.className("page-button");
 	public static final By TOTAL_NO_OFRECORDS = By.className("page-button");
 	public static final By SEARCH_ORGPICKER = By.linkText("\r\n" + "        Advanced\r\n" + "        ");

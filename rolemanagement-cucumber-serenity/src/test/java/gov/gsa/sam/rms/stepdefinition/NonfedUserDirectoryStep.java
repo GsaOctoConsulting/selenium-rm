@@ -59,7 +59,6 @@ public class NonfedUserDirectoryStep {
 				boolean fedIdFound = id.getText().contains("@gsa");// ensures fed id not found
 				Assert.assertEquals(false, fedIdFound);
 				// ------------------------------------------------------
-
 			}
 			// click to next page and increment page counter
 			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
@@ -123,6 +122,7 @@ public class NonfedUserDirectoryStep {
 	@Given("^_4nfusdr user logs in with admin in entity registration in octo and data entry in contract opp in ibm$")
 	public void _4nfusdr_user_logs_in_with_admin_in_entity_registration_in_octo_and_data_entry_in_contract_opp_in_ibm()
 			throws Throwable {
+		Assert.assertTrue(false);
 		SignInUtility.signIntoWorkspace(
 				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM,
 				Constants.USERPASS,
