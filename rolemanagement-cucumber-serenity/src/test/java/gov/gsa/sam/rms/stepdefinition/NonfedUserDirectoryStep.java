@@ -45,27 +45,27 @@ public class NonfedUserDirectoryStep {
 	@Then("^_1nfusdr user should be able to see the access for all the users they can see$")
 	public void _1nfusdr_user_should_be_able_to_see_the_access_for_all_the_users_they_can_see() throws Throwable {
 
-		boolean allClickable = UserDirectoryPage.ifAllUsersAreClicable(6, "");
+		boolean allClickable = UserDirectoryPage.ifAllUsersAreClicable(4, "");
 		Assert.assertEquals(true, allClickable);
-		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
-		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
-		int currentPage = 1;
-		do {// search page 1 regardless of whether other pages exist
-			List<WebElement> userList = UserDirectoryPage.getUserList();
-			for (int i = 0; i < userList.size(); i++) {
-				WebElement currentuser = userList.get(i);
-				WebElement id = currentuser.findElement(UserDirectoryPageLocator.ID);// ensures names are clickable
-				logger.info("The text is ---- " + id.getText());
-				boolean fedIdFound = id.getText().contains("@gsa");// ensures fed id not found
-				Assert.assertEquals(false, fedIdFound);
-				// ------------------------------------------------------
-			}
-			// click to next page and increment page counter
-			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
-				currentPage++;
-				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
-			}
-		} while (currentPage < totalNoOfPages);
+//		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+//		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
+//		int currentPage = 1;
+//		do {// search page 1 regardless of whether other pages exist
+//			List<WebElement> userList = UserDirectoryPage.getUserList();
+//			for (int i = 0; i < userList.size(); i++) {
+//				WebElement currentuser = userList.get(i);
+//				WebElement id = currentuser.findElement(UserDirectoryPageLocator.ID);// ensures names are clickable
+//				logger.info("The text is ---- " + id.getText());
+//				boolean fedIdFound = id.getText().contains("@gsa");// ensures fed id not found
+//				Assert.assertEquals(false, fedIdFound);
+//				// ------------------------------------------------------
+//			}
+//			// click to next page and increment page counter
+//			if (totalNoOfPages > 1 && currentPage < totalNoOfPages) {
+//				currentPage++;
+//				UserDirectoryPage.clickPageNo(currentPage, totalNoOfPages);
+//			}
+//		} while (currentPage < totalNoOfPages);
 	}
 
 	@Given("^_2nfusdr a nonfed user with data entry with contract opp logs in$")
@@ -87,7 +87,7 @@ public class NonfedUserDirectoryStep {
 
 	@When("^_2nfusdr user searches for a user in entity registration domain$")
 	public void _2nfusdr_user_searches_for_a_user_in_entity_registration_domain() throws Throwable {
-		// UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1);
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1);
 	}
 
 	@Then("^_2nfusdr user should not be clickable$")
