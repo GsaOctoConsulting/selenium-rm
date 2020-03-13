@@ -318,7 +318,7 @@ public class Constants {
 
 	public static final String MA_ADD_DECISIONCOMMENT = "Decision comment";
 	public static final String SCENARIO_VIDEO_FILE_PATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\videos";
-	public static final boolean VIDEO_RECORD_ON = false;
+	public static final boolean VIDEO_RECORD_ON = true;
 	public static final String SCREENSHOTS_FILEPATH = "C:\\RM\\project\\selenium-rm\\rolemanagement-cucumber-serenity\\src\\test\\resources\\screenshots.png";
 	public static final String ORG_PUBLIC_BUILDING_SERVICE = "PUBLIC BUILDINGS SERVICE";
 

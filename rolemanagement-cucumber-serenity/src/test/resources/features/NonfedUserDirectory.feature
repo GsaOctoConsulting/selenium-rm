@@ -41,8 +41,9 @@ Scenario: nonfed admin in entity registration should be able to view users in di
 	When _3nfusdr user selects contract opportunities domain filter
 	Then _3nfusdr user should see all the users as clickable 
 
+
 @4 @IntegrationTest 
-Scenario: nonfed admin in entity registration should be able to view users in different domains as clickable 
+Scenario: nonfed admin in entity registration should not able to view users in different domains as clickable 
 	Given _4nfusdr user logs in with admin in entity registration in octo and data entry in contract opp in ibm
 	And _4nfusdr user goes to user directory page and searches for octo user with data entry in entity registration
 	Then _4nfusdr user should be clickable
