@@ -36,12 +36,6 @@ Scenario: organization on assign role page should not be prepopulated
 	And _2 user navigates to Assign Role Page 
 	Then _2 organziation box should show as empty 
 	
-@3 
-Scenario: update all non-fed users with data entry role 
-	Given _3 user logs in with ra role 
-	And _3 user navigates to userdirectory and looks up a non-fed no role user 
-	And _3 user gives data entry role in contract opportunities 
-	
 @4 @IntegrationTest @G1 
 Scenario: agency admin is now known as subtier admin for fh 
 	Given _4 user logs in with ra role 

@@ -42,13 +42,20 @@ public class RoleAssignStep {
 
 	@Then("^_1 user gives assistance user role in assistance listing$")
 	public void _1_user_gives_assistance_user_role_in_assistance_listing() throws Throwable {
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		LaunchBrowserUtil.delay(5);
+
+		// --------------------------
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
+				Constants.ASSIGNED, Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA,
+				Constants.GO_INTO_ROLE_ASSIGNED);
+		Assert.assertEquals(true, roleHistoryFound);
+
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
@@ -72,7 +79,7 @@ public class RoleAssignStep {
 		logger.info("The name of the requester is -- " + requestername);
 		Assert.assertTrue(FeedsRequestPage.isStringOnlyAlphabetAndSpace(requestername));
 		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.closeBrowsers();
+
 	}
 
 	@Then("^_1 the dra should be able to remove the role for the user$")
@@ -227,13 +234,13 @@ public class RoleAssignStep {
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("assigning this role");
-		//AssignRolePage.clickDone();
-		
+		// AssignRolePage.clickDone();
+
 	}
 
 	@Then("^_6ra appropriate error message should be displayed$")
 	public void _6ra_appropriate_error_message_should_be_displayed() throws Throwable {
-		boolean alertFound=AssignRolePage.elementFound(AssignRolePageLocator.ERROR_ALERT);
+		boolean alertFound = AssignRolePage.elementFound(AssignRolePageLocator.ERROR_ALERT);
 		Assert.assertEquals(true, alertFound);
 	}
 
