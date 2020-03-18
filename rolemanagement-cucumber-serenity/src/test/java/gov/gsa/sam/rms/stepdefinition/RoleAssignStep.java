@@ -73,11 +73,17 @@ public class RoleAssignStep {
 				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, true);
 
-		String latesthistorydescription = MyRolesPage.getLatestRoleHistory();
-		String descriptionwordarray[] = latesthistorydescription.split(" ");
-		String requestername = descriptionwordarray[0] + descriptionwordarray[1];
-		logger.info("The name of the requester is -- " + requestername);
-		Assert.assertTrue(FeedsRequestPage.isStringOnlyAlphabetAndSpace(requestername));
+		// --------------------------
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("",
+				Constants.ASSIGNED, Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA,
+				Constants.NOACTION);
+		Assert.assertEquals(true, roleHistoryFound);
+		
+		//		String latesthistorydescription = MyRolesPage.getLatestRoleHistory();
+//		String descriptionwordarray[] = latesthistorydescription.split(" ");
+//		String requestername = descriptionwordarray[0] + descriptionwordarray[1];
+//		logger.info("The name of the requester is -- " + requestername);
+//		Assert.assertTrue(FeedsRequestPage.isStringOnlyAlphabetAndSpace(requestername));
 		LaunchBrowserUtil.delay(5);
 
 	}
@@ -90,6 +96,8 @@ public class RoleAssignStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+		
+		
 
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,

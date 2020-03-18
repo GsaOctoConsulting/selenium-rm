@@ -108,12 +108,14 @@ public class UserDirectoryViewAccessPage {
 			logger.info("The role history was found");
 			roleHistoryFound = true;
 			allTimelines.get(0).findElement(By.linkText("Role Assigned")).click();
+			LaunchBrowserUtil.delay(3);
 
 		} else if (accoundEditorNameFound == true && roleFound == true && orgFound == true && actionTakenFound == true
 				&& (nextAction.equals(Constants.GO_INTO_ROLE_UPDATED))) {
 			logger.info("The role history was found");
 			roleHistoryFound = true;
 			allTimelines.get(0).findElement(By.linkText("Role Updated")).click();
+			LaunchBrowserUtil.delay(3);
 		}
 		return roleHistoryFound;
 	}
