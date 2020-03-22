@@ -21,10 +21,18 @@ Feature: Role and Role History functionality
 	Description:  The purpose of this feature is to validate users role
 and role history
 
-@1 @RegressionTest @DRA @temp
+@1 @temp
 Scenario: remmoval of existing role should update the role history for both admin and user
 	Given _1rh user logs in workspace with dra role 
 	And _1rh dra navigates to user directory and looks up a user with contracting specialist role
 	When _1rh dra removes the role for the user
 	Then _1rh the role history should update in the profile for dra
 	And _1rh the role history should update in the profile for the user 
+	
+@2	@temp
+Scenario: addition of new role on existing role should update the role history for both admin and user
+	Given _2rh user logs in workspace with dra role 
+	And _2rh dra navigates to user directory and looks up a user with contracting specialist role
+	When _2rh dra adds assiting user role on assistance listing to this user
+	Then _2rh the role history should update in the profile for dra
+	And _2rh the role history should update in the profile for the user 
