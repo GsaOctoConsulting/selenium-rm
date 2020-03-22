@@ -331,6 +331,7 @@ public class Constants {
 	public static final CharSequence EMAIL_APPROVED_DOMAINS = "Approved Domains";
 	public static final CharSequence EMAIL_SUPERVISOR = "supervisor";
 	public static final CharSequence EMAIL_PERMISSIONS = "permissions";
+	
 
 	// ************************************************************************************************************************************
 
