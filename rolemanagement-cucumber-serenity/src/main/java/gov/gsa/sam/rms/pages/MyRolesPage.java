@@ -113,7 +113,7 @@ public class MyRolesPage {
 					editButton.click();
 					logger.info("*********************about to click the edit button******************");
 					AssignRolePage.setDriver(UserDirectoryViewAccessPage.getDriver());
-					LaunchBrowserUtil.delay(2);
+					LaunchBrowserUtil.delay(3);
 					return true;
 				}
 
@@ -123,12 +123,13 @@ public class MyRolesPage {
 					WebElement viewlink = eachRow.get(j).findElement(By.className("access-action-icon"));
 					logger.info("*********************about to 'view' link******************");
 					viewlink.click();
-					LaunchBrowserUtil.delay(2);
+					LaunchBrowserUtil.delay(3);
 					return true;
 				}
 
 			}
 			if (orgFound == true && roleFound == true && domainFound == true) {
+				LaunchBrowserUtil.delay(3);
 				return true;
 			}
 		}

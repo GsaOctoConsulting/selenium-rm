@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
@@ -17,24 +19,30 @@ public class RoleAndRoleHistoryStep {
 
 	private static Logger logger = LoggerFactory.getLogger(RoleAndRoleHistoryStep.class);
 
-	@Given("^_1 user logs in workspace with dra role$") 
-	public void _1_user_longs_in_workspace_with_dra_role() throws Throwable {
-		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
-				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_FED);
+	@Given("^_1rh user logs in workspace with dra role$")
+	public void _1rh_user_logs_in_workspace_with_dra_role() throws Throwable {
 
 	}
 
-	@Then("^_1 user navigates to My Roles page to see their current role$")
-	public void _1_user_navigates_to_my_roles_page_to_see_their_current_role() throws Throwable {
-		T1WorkspacePage.goToAccountDetailsPage();
-		AccountDetailsPage.goToPageOnSideNav("My Roles");
-		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+	@And("^_1rh dra navigates to user directory and looks up a user with contracting specialist role$")
+	public void _1rh_dra_navigates_to_user_directory_and_looks_up_a_user_with_contracting_specialist_role()
+			throws Throwable {
 
-		boolean roleFound = MyRolesPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN, "NO ACTION");
-		Assert.assertEquals(roleFound, true);
-		afterScenario();
+	}
+
+	@When("^_1rh dra removes the role for the user$")
+	public void _1rh_dra_removes_the_role_for_the_user() throws Throwable {
+
+	}
+
+	@Then("^_1rh the role history should update in the profile for dra$")
+	public void _1rh_the_role_history_should_update_in_the_profile_for_dra() throws Throwable {
+
+	}
+
+	@And("^_1rh the role history should update in the profile for the user$")
+	public void _1rh_the_role_history_should_update_in_the_profile_for_the_user() throws Throwable {
+
 	}
 
 	// private methods are below this line

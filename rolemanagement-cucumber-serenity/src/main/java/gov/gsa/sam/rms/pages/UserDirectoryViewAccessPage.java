@@ -91,15 +91,20 @@ public class UserDirectoryViewAccessPage {
 
 			if (allTimelines.get(0).getText().toLowerCase().contains(accountEditor.toLowerCase())) {
 				accoundEditorNameFound = true;
+				logger.info("name was found");
 			}
 			if (allTimelines.get(0).getText().toLowerCase().contains(role.toLowerCase())) {
 				roleFound = true;
+				logger.info("role was found");
 			}
 			if (allTimelines.get(0).getText().toLowerCase().contains(org.toLowerCase())) {
 				orgFound = true;
+				logger.info("org was found");
 			}
-			if (allTimelines.get(0).getText().toLowerCase().contains(org.toLowerCase())) {
+			if (allTimelines.get(0).getText().toLowerCase().contains(actiontaken.toLowerCase())) {
 				actionTakenFound = true;
+				logger.info("action taken was found");
+				
 			}
 
 		}
@@ -116,7 +121,12 @@ public class UserDirectoryViewAccessPage {
 			roleHistoryFound = true;
 			allTimelines.get(0).findElement(By.linkText("Role Updated")).click();
 			LaunchBrowserUtil.delay(3);
+		}else if(accoundEditorNameFound == true && roleFound == true && orgFound == true && actionTakenFound == true
+				&& (nextAction.equals(Constants.NOACTION))) {
+			logger.info("The role history was found");
+			roleHistoryFound=true;
 		}
+		
 		return roleHistoryFound;
 	}
 

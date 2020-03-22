@@ -191,8 +191,7 @@ public class AssignRolePage {
 		driver.findElement(AssignRolePageLocator.DONE_BUTTON).click();
 		UserDirectoryViewAccessPage.setDriver(AssignRolePage.getDriver());
 		MyRolesPage.setDriver(AssignRolePage.getDriver());
-		LaunchBrowserUtil.delay(6);
-
+		LaunchBrowserUtil.delay(10);
 	}
 
 	public static void clickAssign() {
@@ -251,7 +250,7 @@ public class AssignRolePage {
 	}
 
 	public static void clickCloseButton() {
-		driver.findElement(By.xpath("//button[starts-with(@type, 'button')]")).click();
+		driver.findElement(By.xpath(".//button[starts-with(@type, 'button')]")).click();
 		LaunchBrowserUtil.delay(4);
 		MyRolesPage.setDriver(driver);
 	}

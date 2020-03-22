@@ -22,6 +22,9 @@ Feature: Role and Role History functionality
 and role history
 
 @1 @RegressionTest @DRA 
-Scenario: verify my roles page for Links Data And Role hist
-	Given _1 user logs in workspace with dra role 
-	Then _1 user navigates to My Roles page to see their current role 
+Scenario: remmoval of existing role should update the role history for both admin and user
+	Given _1rh user logs in workspace with dra role 
+	And _1rh dra navigates to user directory and looks up a user with contracting specialist role
+	When _1rh dra removes the role for the user
+	Then _1rh the role history should update in the profile for dra
+	And _1rh the role history should update in the profile for the user 

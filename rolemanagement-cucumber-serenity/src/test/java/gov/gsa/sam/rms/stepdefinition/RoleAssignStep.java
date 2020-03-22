@@ -53,7 +53,7 @@ public class RoleAssignStep {
 		// --------------------------
 		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
 				Constants.ASSIGNED, Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA,
-				Constants.GO_INTO_ROLE_ASSIGNED);
+				Constants.GO_INTO_ROLE_ASSIGNED);// also checking if role history is clickable
 		Assert.assertEquals(true, roleHistoryFound);
 
 		LaunchBrowserUtil.closeBrowsers();
@@ -74,7 +74,7 @@ public class RoleAssignStep {
 		Assert.assertEquals(userAlreadyHasRole, true);
 
 		// --------------------------
-		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("",
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
 				Constants.ASSIGNED, Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA,
 				Constants.NOACTION);
 		Assert.assertEquals(true, roleHistoryFound);
