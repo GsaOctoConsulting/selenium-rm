@@ -47,6 +47,7 @@ public class MyRolesPage {
 
 	public static void click1PendingRequest() {
 		driver.findElement(MyRolesPageLocator.PENDINGREQUEST_LINK).click();
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickPendingLink() {
@@ -236,5 +237,11 @@ public class MyRolesPage {
 		driver.findElement(MyRolesPageLocator.ASSIGN_BUTTON).click();
 		AssignRolePage.setDriver(driver);
 		
+	}
+
+	public static String getTextForPendingRequest() {
+		String message = driver.findElement(By.className("usa-width-two-thirds")).getText();
+		logger.info("The message found is -- "+message);
+		return message;
 	}
 }

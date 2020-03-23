@@ -39,6 +39,8 @@ public class NonFedStep {
 
 	private static Logger logger = LoggerFactory.getLogger(NonFedStep.class);
 	String timestamp = new String();
+	String newsignedupnonfeduser = "";
+	String newsignedupnonfedusersecretkey = "";
 
 	@Given("^_1nf nonfed user without a role logs in$")
 	public void _1_nonfed_user_without_a_role_logs_in() throws Throwable {
@@ -1001,22 +1003,42 @@ public class NonFedStep {
 
 	@Given("^_19nf new nonfed user signs up$")
 	public void _19nf_new_nonfed_user_signs_up() throws Throwable {
-
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		newsignedupnonfedusersecretkey=SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
+		newsignedupnonfeduser = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		
+		
 	}
 
-	@And("^_19nf user requests data entry at entity compliance at octo consulting groupo$")
+	@And("^_19nf user requests data entry at entity compliance at octo consulting group$")
 	public void _19nf_user_requests_data_entry_at_entity_compliance_at_octo_consulting_groupo() throws Throwable {
-
+		RequestRoleOptionalPage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		RequestRoleOptionalPage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		RequestRoleOptionalPage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
+		RequestRoleOptionalPage.enterAdditionalDetails("requesting this role");
+		RequestRoleOptionalPage.clickFinishButton();
 	}
 
 	@When("^_19nf spaads logs in and views the pending request$")
 	public void _19nf_spaads_logs_in_and_views_the_pending_request() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@Then("^_19nf spaad should be able to view the requesting org in the pending link$")
 	public void _19nf_spaad_should_be_able_to_view_the_requesting_org_in_the_pending_link() throws Throwable {
-
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(newsignedupnonfeduser);
+		UserDirectoryPage.clickViewAccess(newsignedupnonfeduser);
+		MyRolesPage.click1PendingRequest();
+		String message = MyRolesPage.getTextForPendingRequest();
+		Assert.assertEquals("Data Entry for Entity Compliance at Octo Consulting Group, Inc",message);
 	}
 
 	private void beforeScenario() {

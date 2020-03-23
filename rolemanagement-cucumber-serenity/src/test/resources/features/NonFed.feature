@@ -162,7 +162,7 @@ Scenario: a nonfed admin in a particular domain when requesting a role should no
 @19 @test
 Scenario: a new nonfed users pending request should diplay with accurate info in spaads 
 	Given _19nf new nonfed user signs up 
-	And _19nf user requests data entry at entity compliance at octo consulting groupo 
+	And _19nf user requests data entry at entity compliance at octo consulting group 
 	When _19nf spaads logs in and views the pending request 
 	Then _19nf spaad should be able to view the requesting org in the pending link
 

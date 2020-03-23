@@ -9,11 +9,12 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@Nonfed","@3"})
+				"@Nonfed","@19"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9R
 	// "@T1Workspace","@32" // 433
 	//	@id starts-with entity
+	// selectEntity
 
 //public static void main(String...args) {
 //	Totp totp = new Totp("IEJOYN6TKIFCLYX4");

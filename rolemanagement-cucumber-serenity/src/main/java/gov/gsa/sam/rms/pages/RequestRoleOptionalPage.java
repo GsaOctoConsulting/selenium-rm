@@ -64,7 +64,7 @@ public class RequestRoleOptionalPage {
 	public static void clickFinishButton() {
 		driver.findElement(By.id("done-button")).click();
 		T1WorkspacePage.setDriver(driver);
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	/**

@@ -115,11 +115,13 @@ public class SignUpUtility {
 	 * @throws Exception
 	 */
 	public static String signUpNewUserNonFed(String nonfeduseremail, String password) throws Exception {
+
 		String secretCode = new String("");
 		if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL2")) {
 			// to be implemented in future if IAL2 is enforced
 		} else if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL1")) {
 			LaunchBrowserUtil.openThisBrowser();
+			LaunchBrowserUtil.clearCookies();
 			LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
@@ -141,6 +143,10 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
+			
+			
+			
+			
 			LaunchBrowserUtil.driver
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
@@ -159,25 +165,32 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver
-					.findElement(
-							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
-					.click();
-			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xde");
-			String secretCode2 = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
-			String otp2 = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode2);
-			logger.info("The captured secret code is --- " + secretCode);
-			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp2);
-			LaunchBrowserUtil.delay(4);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
-					.click();
-			LaunchBrowserUtil.delay(2);
-
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-			LaunchBrowserUtil.delay(2);
+			
+			
+			
+//			LaunchBrowserUtil.driver
+//					.findElement(
+//							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
+//					.click();
+//			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+//			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xde");
+//			String secretCode2 = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
+//			String otp2 = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode2);
+//			logger.info("The captured secret code is --- " + secretCode);
+//			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp2);
+//			LaunchBrowserUtil.delay(4);
+//			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+//					.click();
+//			LaunchBrowserUtil.delay(2);
+//
+//			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+//			LaunchBrowserUtil.delay(2);
+			
+			
+			
+			
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 			
