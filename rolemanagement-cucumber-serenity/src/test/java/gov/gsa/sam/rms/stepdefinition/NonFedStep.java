@@ -890,8 +890,14 @@ public class NonFedStep {
 	@Then("^_16nf then the user should see role updated status in profile history$")
 	public void _16nf_then_the_user_should_see_role_updated_status_in_profile_history() throws Throwable {
 		LaunchBrowserUtil.scrollToMiddle();
-		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, "", 0);
+//		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, "", 0);
+//		Assert.assertEquals(true, rolehistoryfound);
+
+		boolean rolehistoryfound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
+				Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, Constants.ROLE_DATA_ENTRY, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.NOACTION);
 		Assert.assertEquals(true, rolehistoryfound);
+
 		// ------------------edit the role back to previous state---------------
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
@@ -1004,16 +1010,15 @@ public class NonFedStep {
 	@Given("^_19nf new nonfed user signs up$")
 	public void _19nf_new_nonfed_user_signs_up() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		newsignedupnonfedusersecretkey=SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
-				Constants.USERPASS);
+		newsignedupnonfedusersecretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
 		newsignedupnonfeduser = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
 		CommonProfilePage.enterFirstName("shah");
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		CommonProfilePage.clickSubmitButton();
-		
-		
+
 	}
 
 	@And("^_19nf user requests data entry at entity compliance at octo consulting group$")
@@ -1038,7 +1043,7 @@ public class NonFedStep {
 		UserDirectoryPage.clickViewAccess(newsignedupnonfeduser);
 		MyRolesPage.click1PendingRequest();
 		String message = MyRolesPage.getTextForPendingRequest();
-		Assert.assertEquals("Data Entry for Entity Compliance at Octo Consulting Group, Inc",message);
+		Assert.assertEquals("Data Entry for Entity Compliance at Octo Consulting Group, Inc", message);
 	}
 
 	private void beforeScenario() {
