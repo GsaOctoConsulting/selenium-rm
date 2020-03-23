@@ -127,7 +127,6 @@ public class NonFedStep {
 
 	@Given("^_3nf nonfed user without a role logs in$")
 	public void _3nf_nonfed_user_without_a_role_logs_in() throws Throwable {
-		beforeScenario();
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
@@ -146,7 +145,8 @@ public class NonFedStep {
 		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
 		Assert.assertEquals(true, domainfound1);
 		RequestRolePage.writeComment("requesting role");
-		RequestRolePage.clickSubmit();
+		RequestRolePage.clickSubmit();	
+		
 		MyRolesPage.goToFeedsPage();
 	}
 
@@ -190,6 +190,16 @@ public class NonFedStep {
 		AssignRolePage.writeComment("assigning this role");
 		AssignRolePage.clickAssign();
 		AssignRolePage.clickCloseButton();
+		//----------
+		// --------------------------
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
+				Constants.ROLEHISTORY_STATUS_ROLE_ASSIGNED, Constants.ROLE_DATA_ENTRY,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.GO_INTO_ROLE_ASSIGNED);
+		Assert.assertEquals(true, roleHistoryFound);
+		
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.navigateBack();
+		LaunchBrowserUtil.delay(3);
 		AssignRolePage.goToFeedsPage();
 	}
 
@@ -220,6 +230,13 @@ public class NonFedStep {
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
 				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.NOACTION);
+		
+		
+		// --------------------------
+				boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
+						Constants.ASSIGNED, Constants.ROLE_DATA_ENTRY, Constants.ORG_OCTO_CONSULTING_GROUP,
+						Constants.NOACTION);
+				Assert.assertEquals(true, roleHistoryFound);
 	}
 
 	@And("^_3nf user should see the feeds notifications for the requested updated to approved$")

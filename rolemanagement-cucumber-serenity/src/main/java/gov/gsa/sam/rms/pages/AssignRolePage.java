@@ -253,6 +253,7 @@ public class AssignRolePage {
 		driver.findElement(By.xpath(".//button[starts-with(@type, 'button')]")).click();
 		LaunchBrowserUtil.delay(4);
 		MyRolesPage.setDriver(driver);
+		UserDirectoryViewAccessPage.setDriver(driver);
 	}
 
 	/**
