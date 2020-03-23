@@ -145,8 +145,8 @@ public class NonFedStep {
 		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
 		Assert.assertEquals(true, domainfound1);
 		RequestRolePage.writeComment("requesting role");
-		RequestRolePage.clickSubmit();	
-		
+		RequestRolePage.clickSubmit();
+
 		MyRolesPage.goToFeedsPage();
 	}
 
@@ -190,13 +190,13 @@ public class NonFedStep {
 		AssignRolePage.writeComment("assigning this role");
 		AssignRolePage.clickAssign();
 		AssignRolePage.clickCloseButton();
-		//----------
+		// ----------
 		// --------------------------
 		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
 				Constants.ROLEHISTORY_STATUS_ROLE_ASSIGNED, Constants.ROLE_DATA_ENTRY,
 				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.GO_INTO_ROLE_ASSIGNED);
 		Assert.assertEquals(true, roleHistoryFound);
-		
+
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.navigateBack();
 		LaunchBrowserUtil.delay(3);
@@ -230,13 +230,11 @@ public class NonFedStep {
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
 				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.NOACTION);
-		
-		
+
 		// --------------------------
-				boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
-						Constants.ASSIGNED, Constants.ROLE_DATA_ENTRY, Constants.ORG_OCTO_CONSULTING_GROUP,
-						Constants.NOACTION);
-				Assert.assertEquals(true, roleHistoryFound);
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan", Constants.ASSIGNED,
+				Constants.ROLE_DATA_ENTRY, Constants.ORG_OCTO_CONSULTING_GROUP, Constants.NOACTION);
+		Assert.assertEquals(true, roleHistoryFound);
 	}
 
 	@And("^_3nf user should see the feeds notifications for the requested updated to approved$")
@@ -999,6 +997,26 @@ public class NonFedStep {
 		boolean entityregistrationdomainNotFound2 = RequestRolePage
 				.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
 		Assert.assertEquals(false, entityregistrationdomainNotFound2);
+	}
+
+	@Given("^_19nf new nonfed user signs up$")
+	public void _19nf_new_nonfed_user_signs_up() throws Throwable {
+
+	}
+
+	@And("^_19nf user requests data entry at entity compliance at octo consulting groupo$")
+	public void _19nf_user_requests_data_entry_at_entity_compliance_at_octo_consulting_groupo() throws Throwable {
+
+	}
+
+	@When("^_19nf spaads logs in and views the pending request$")
+	public void _19nf_spaads_logs_in_and_views_the_pending_request() throws Throwable {
+
+	}
+
+	@Then("^_19nf spaad should be able to view the requesting org in the pending link$")
+	public void _19nf_spaad_should_be_able_to_view_the_requesting_org_in_the_pending_link() throws Throwable {
+
 	}
 
 	private void beforeScenario() {

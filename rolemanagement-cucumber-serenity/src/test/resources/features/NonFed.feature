@@ -137,7 +137,7 @@ Scenario: when a role is removed from a nonfed user then user should see role re
 	When _15nf spaad removes the users role 
 	Then _15nf then users history should show role removed status in in profile history 
 	
-@16 @ll
+@16 @ll @temp
 Scenario: when a role is updated for a nonfed user then user should see role updated status in profile history 
 	Given _16nf spaad logs in 
 	And _16nf spaad looks up a nonfed user with data entry in contract opportunities 
@@ -158,6 +158,14 @@ Scenario: a nonfed admin in a particular domain when requesting a role should no
 	And _18nf user navigates to role request page 
 	When _18nf user looks for role under role tab 
 	Then _18nf no role options under entity registration should show up
+
+@19 @test
+Scenario: a new nonfed users pending request should diplay with accurate info in spaads 
+	Given _19nf new nonfed user signs up 
+	And _19nf user requests data entry at entity compliance at octo consulting groupo 
+	When _19nf spaads logs in and views the pending request 
+	Then _19nf spaad should be able to view the requesting org in the pending link
+
 
 
 	
