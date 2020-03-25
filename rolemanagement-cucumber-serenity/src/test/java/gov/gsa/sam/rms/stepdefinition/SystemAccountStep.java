@@ -2334,6 +2334,99 @@ public class SystemAccountStep {
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
+	@Given("^_25saaccount user logs in as system manager$")
+	public void _25saaccount_user_logs_in_as_system_manager() throws Throwable {
+
+	}
+
+	@And("^_25saaccount user navigates to system account directory page$")
+	public void _25saaccount_user_navigates_to_system_account_directory_page() throws Throwable {
+
+	}
+
+	@And("^_25saaccount user enters all the system information$")
+	public void _25saaccount_user_enters_all_the_system_information() throws Throwable {
+
+	}
+
+	@And("^_25saaccount user enters all the organization info$")
+	public void _25saaccount_user_enters_all_the_organization_info() throws Throwable {
+
+	}
+
+	@And("^_25saaccount user enters permissions info for sensitive read and write$")
+	public void _25saaccount_user_enters_permissions_info_for_sensitive_read_and_write() throws Throwable {
+
+	}
+
+	@And("^_25saaccount user enters security info$")
+	public void _25saaccount_user_enters_security_info() throws Throwable {
+
+	}
+
+	@And("^_25saaccount user enters authorization info$")
+	public void _25saaccount_user_enters_authorization_info() throws Throwable {
+
+	}
+
+	@And("^_25saaccount the newly created account should show up on the system account directory page$")
+	public void _25saaccount_the_newly_created_account_should_show_up_on_the_system_account_directory_page()
+			throws Throwable {
+
+	}
+
+	@When("^_25saacount system account admin logs in$")
+	public void _25saacount_system_account_admin_logs_in() throws Throwable {
+
+	}
+
+	@Then("^_25saacount system account admin should be able to move the change request to pending approval$")
+	public void _25saacount_system_account_admin_should_be_able_to_move_the_change_request_to_pending_approval()
+			throws Throwable {
+
+	}
+
+	@When("^_25saacount iaepmo admin logs in$")
+	public void _25saacount_iaepmo_admin_logs_in() throws Throwable {
+
+	}
+
+	@And("^_25saacount iaepmo changes the status to pending permissions approval$")
+	public void _25saacount_iaepmo_changes_the_status_to_pending_permissions_approval() throws Throwable {
+
+	}
+
+	@Then("^_25saacount gsa security approver should be able to publish the system account$")
+	public void _25saacount_gsa_security_approver_should_be_able_to_publish_the_system_account() throws Throwable {
+
+	}
+
+	@When("^_25saacount system manager logs back in$")
+	public void _25saacount_system_manager_logs_back_in() throws Throwable {
+
+	}
+
+	@And("^_25saacount changes the accounts permission to non sensitive$")
+	public void _25saacount_changes_the_accounts_permission_to_non_sensitive() throws Throwable {
+
+	}
+
+	@Then("^_25saacount system account admin should be able to change the status to pending permissions approval$")
+	public void _25saacount_system_account_admin_should_be_able_to_change_the_status_to_pending_permissions_approval()
+			throws Throwable {
+
+	}
+
+	@And("^_25saacount gsa security approver should be able to aprove the change request$")
+	public void _25saacount_gsa_security_approver_should_be_able_to_aprove_the_change_request() throws Throwable {
+
+	}
+
+	@And("^_25saacount the old published system account is replaced$")
+	public void _25saacount_the_old_published_system_account_is_replaced() throws Throwable {
+
+	}
+
 	// private methods are below this line
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");

@@ -332,16 +332,25 @@ Scenario: nonfed system account approval flow with permission approval
 
 @25  @temp2
 Scenario: system manager should be able to intiate change request for published account and get approval
-	Given _24saaccount user logs in as nonfed user 
-	And _24saaccount user navigates to system account directory page 
-	And _24saaccount user enters all the system information 
-	And _24saaccount user enters all the organization info 
-	And _24saaccount user enters permissions info for sensitive read and write 
-	And _24saaccount user enters security info 
-	And _24saaccount user enters authorization info 
-	And _24saaccount the newly created account should show up on the system account directory page 
-	When _24 iae admin logs in 
-	Then _24 iam admin should be able to approve the permission
+	Given _25saaccount user logs in as system manager 
+	And _25saaccount user navigates to system account directory page 
+	And _25saaccount user enters all the system information 
+	And _25saaccount user enters all the organization info 
+	And _25saaccount user enters permissions info for sensitive read and write 
+	And _25saaccount user enters security info 
+	And _25saaccount user enters authorization info 
+	And _25saaccount the newly created account should show up on the system account directory page 
+	When _25saacount system account admin logs in 
+	Then _25saacount system account admin should be able to change the status to pending permissions approval
+	When _25saacount iaepmo admin logs in
+	And _25saacount iaepmo changes the status to pending permissions approval
+	Then _25saacount gsa security approver should be able to publish the system account
+	When _25saacount system manager logs back in
+	And _25saacount changes the accounts permission to non sensitive
+	Then _25saacount system account admin should be able to move the change request to pending approval
+	And _25saacount gsa security approver should be able to aprove the change request
+	And _25saacount the old published system account is replaced
+	 
 	
 
 	
