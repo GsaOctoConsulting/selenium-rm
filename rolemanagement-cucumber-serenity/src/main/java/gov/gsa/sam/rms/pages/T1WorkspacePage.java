@@ -88,9 +88,9 @@ public class T1WorkspacePage {
 	public static void goToSystemAccountDirectoryPage() {
 		driver.findElement(T1WorkspacePageLocator.GO_TO_SYSTEM_ACCOUNT).click();
 		SystemAccountDirectoryPage.setDriver(driver);
-		LaunchBrowserUtil.delay(8);
-		driver.navigate().refresh();
 		LaunchBrowserUtil.delay(2);
+		driver.navigate().refresh();
+		LaunchBrowserUtil.delay(8);
 	}
 
 	public static void clickAcceptOnBanner() {

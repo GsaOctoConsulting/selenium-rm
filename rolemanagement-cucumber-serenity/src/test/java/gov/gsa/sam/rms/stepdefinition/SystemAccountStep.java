@@ -2336,69 +2336,172 @@ public class SystemAccountStep {
 
 	@Given("^_25saaccount user logs in as system manager$")
 	public void _25saaccount_user_logs_in_as_system_manager() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1, Constants.USERPASS,
+				ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
 	@And("^_25saaccount user navigates to system account directory page$")
 	public void _25saaccount_user_navigates_to_system_account_directory_page() throws Throwable {
-
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickNewButton();
 	}
 
 	@And("^_25saaccount user enters all the system information$")
 	public void _25saaccount_user_enters_all_the_system_information() throws Throwable {
-
+		NewSystemAccountPage.enterSystemAccountName(formattedDate);
+		NewSystemAccountPage.enterInterfacingSystemName("testv1");
+		NewSystemAccountPage.enterSystemDescription("description");
+		NewSystemAccountPage.clickNextToGoToOrgInfo();
+		
 	}
 
 	@And("^_25saaccount user enters all the organization info$")
 	public void _25saaccount_user_enters_all_the_organization_info() throws Throwable {
-
+		NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
+		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
 	@And("^_25saaccount user enters permissions info for sensitive read and write$")
 	public void _25saaccount_user_enters_permissions_info_for_sensitive_read_and_write() throws Throwable {
-
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_SENSITIVE);
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_SENSITIVE);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		NewSystemAccountPage.selectFIPSCategorization(NewSystemAccountPageLocator.FIPS_LOW);
+		NewSystemAccountPage.clickNextToGoToSecurity();
 	}
 
 	@And("^_25saaccount user enters security info$")
 	public void _25saaccount_user_enters_security_info() throws Throwable {
-
+		NewSystemAccountPage.enterIPaddress("192.168.1.1");
+		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
+		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
+		NewSystemAccountPage.enterSecurityOfficialName("a");
+		NewSystemAccountPage.enterSecurityOfficialEmail("a@b.c");
+		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
 	@And("^_25saaccount user enters authorization info$")
 	public void _25saaccount_user_enters_authorization_info() throws Throwable {
-
+		NewSystemAccountPage.certifyCorrectInformation();
+		NewSystemAccountPage.clickReviewButton();
+		LaunchBrowserUtil.scrollUp();
+		NewSystemAccountPage.clickSubmit();
+		NewSystemAccountPage.selectAllTermsOfUseSensitivePermission();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
 
 	@And("^_25saaccount the newly created account should show up on the system account directory page$")
 	public void _25saaccount_the_newly_created_account_should_show_up_on_the_system_account_directory_page()
 			throws Throwable {
-
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickPendingReviewFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound);
 	}
 
 	@When("^_25saacount system account admin logs in$")
 	public void _25saacount_system_account_admin_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
-	@Then("^_25saacount system account admin should be able to move the change request to pending approval$")
-	public void _25saacount_system_account_admin_should_be_able_to_move_the_change_request_to_pending_approval()
+	@Then("^_25saacount system account admin should be able to change the status to pending permissions approval$")
+	public void _25saacount_system_account_admin_should_be_able_to_change_the_status_to_pending_permissions_approval()
 			throws Throwable {
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickPendingReviewFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, accountFound);
 
+		SystemAccountRequestDetailsPage.writeComment("request is reviewed");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+
+		SystemAccountDirectoryPage.clickPendingApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+
+		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
+		Assert.assertEquals(true, accountstatusUpdated);
 	}
+	
 
 	@When("^_25saacount iaepmo admin logs in$")
 	public void _25saacount_iaepmo_admin_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
 	@And("^_25saacount iaepmo changes the status to pending permissions approval$")
 	public void _25saacount_iaepmo_changes_the_status_to_pending_permissions_approval() throws Throwable {
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickPendingPermissionsApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_PERMISSIONS_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.GO_TO_REQUEST_DETAILS);
 
+		SystemAccountRequestDetailsPage.writeComment("permission is approved");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+
+		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountstatusUpdated);
+
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Then("^_25saacount gsa security approver should be able to publish the system account$")
 	public void _25saacount_gsa_security_approver_should_be_able_to_publish_the_system_account() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
+				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickPendingApprovalFilter();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 
+		SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.GO_TO_REQUEST_DETAILS);
+
+		SystemAccountRequestDetailsPage.writeComment("request is approved");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+		SystemAccountDirectoryPage.clickPublishedFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		LaunchBrowserUtil.delay(5);
+
+		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_25saacount system manager logs back in$")
@@ -2410,12 +2513,12 @@ public class SystemAccountStep {
 	public void _25saacount_changes_the_accounts_permission_to_non_sensitive() throws Throwable {
 
 	}
-
-	@Then("^_25saacount system account admin should be able to change the status to pending permissions approval$")
-	public void _25saacount_system_account_admin_should_be_able_to_change_the_status_to_pending_permissions_approval()
+	@Then("^_25saacount system account admin should be able to move the change request to pending approval$")
+	public void _25saacount_system_account_admin_should_be_able_to_move_the_change_request_to_pending_approval()
 			throws Throwable {
 
 	}
+	
 
 	@And("^_25saacount gsa security approver should be able to aprove the change request$")
 	public void _25saacount_gsa_security_approver_should_be_able_to_aprove_the_change_request() throws Throwable {
