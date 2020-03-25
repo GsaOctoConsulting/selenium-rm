@@ -95,6 +95,7 @@ public class Constants {
 	public static final String ASSIGNED = "Assigned";
 	public static final String UPDATED = "Updated";
 	public static final String VIEW_PERMISSION = "VIEW PERMISSION";
+	public static final String REQUEST_CHANGES = "Request Changes";
 
 	// email message constants-----------------------
 	public static final String EMAIL_ROLEREQUEST_MESSAGE = "You have submitted a pending request for Contracting Officer";
@@ -331,6 +332,7 @@ public class Constants {
 	public static final CharSequence EMAIL_APPROVED_DOMAINS = "Approved Domains";
 	public static final CharSequence EMAIL_SUPERVISOR = "supervisor";
 	public static final CharSequence EMAIL_PERMISSIONS = "permissions";
+	
 	
 
 	// ************************************************************************************************************************************

@@ -91,7 +91,14 @@ public class SystemAccountDirectoryPage {
 					SystemAccountRequestDetailsPage.setDriver(driver);
 					break;
 				}
-
+				else if (action.equals(Constants.REQUEST_CHANGES)) {
+					LaunchBrowserUtil.delay(1);
+					logger.info("***************REQUEST CHANGES option picked***************");
+					allAccounts.get(i).findElement(By.id("menuitem1")).click();
+					NewSystemAccountPage.setDriver(driver);
+					LaunchBrowserUtil.delay(2);
+					break;
+				}
 				// found = true;
 			}
 		}
@@ -177,7 +184,7 @@ public class SystemAccountDirectoryPage {
 
 	public static void clickPendingPermissionsApprovalFilter() {
 		driver.findElement(By.id("filter-pending-permissions-approval")).click();
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(5);
 		
 	}
 

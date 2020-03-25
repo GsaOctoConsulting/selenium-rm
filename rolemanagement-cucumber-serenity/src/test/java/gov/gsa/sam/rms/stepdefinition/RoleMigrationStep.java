@@ -332,8 +332,8 @@ public class RoleMigrationStep {
 	public void _7rm_user_signs_in() throws Throwable {
 		RoleMigrationPage.resetTestData(
 				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/cfda/reset/justin.hamer/");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
-				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_PMO_ADMIN, Constants.USERPASS,
+				ConstantsAccounts.IAE_PMO_ADMIN_SECRETKEY, Constants.USER_FED);
 	}
 	@And("^_7rm_ user nagivates to role migration page$")
 	public void _7rm_user_nagivates_to_role_migration_page() throws Throwable {
@@ -440,8 +440,8 @@ public class RoleMigrationStep {
 	public void _10rm_user_is_registered_in_login_dot_gov() throws Throwable {
 		RoleMigrationPage.resetTestData(
 				Constants.ROLE_MIGRATION_RESET_URL+"/iam/import/domain/fbo/reset/michaela.garcia@gsa.gov/");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5, Constants.USERPASS,
-				ConstantsAccounts.NO_ROLE_USER_5_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.IAE_PMO_ADMIN, Constants.USERPASS,
+				ConstantsAccounts.IAE_PMO_ADMIN_SECRETKEY, Constants.USER_FED);
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("shah.raiaan+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
 	}
