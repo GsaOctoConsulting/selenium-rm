@@ -2519,11 +2519,6 @@ public class SystemAccountStep {
 		boolean accountfound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.REQUEST_CHANGES);
 		Assert.assertEquals(true, accountfound);
-	}
-
-	@Then("^_25saacount system account admin should be able to move the change request to pending approval$")
-	public void _25saacount_system_account_admin_should_be_able_to_move_the_change_request_to_pending_approval()
-			throws Throwable {
 		
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
@@ -2550,13 +2545,44 @@ public class SystemAccountStep {
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
 		
-		boolean accountFound1 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+		boolean accountFound1 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound1);
 
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Then("^_25saacount system account admin should be able to move the change request to pending approval$")
+	public void _25saacount_system_account_admin_should_be_able_to_move_the_change_request_to_pending_approval()
+			throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		
+		boolean accountFound1 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, accountFound1);
+		
+		SystemAccountRequestDetailsPage.writeComment("request is reviewed");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		
+		boolean accountFound2 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound2);
+		
+
+		boolean accountFound3 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound3);
+		
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@And("^_25saacount gsa security approver should be able to aprove the change request$")
@@ -2564,11 +2590,26 @@ public class SystemAccountStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
 				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		boolean accountFound2 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, accountFound2);
+		
+		SystemAccountRequestDetailsPage.writeComment("request is approved");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
+		SystemAccountDirectoryPage.clickPublishedFilter();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		LaunchBrowserUtil.delay(3);
 	}
 
 	@And("^_25saacount the old published system account is replaced$")
 	public void _25saacount_the_old_published_system_account_is_replaced() throws Throwable {
-
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(true, accountFound);
 	}
 
 	// private methods are below this line
