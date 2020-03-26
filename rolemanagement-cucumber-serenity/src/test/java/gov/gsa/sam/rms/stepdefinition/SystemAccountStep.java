@@ -2410,6 +2410,8 @@ public class SystemAccountStep {
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_25saacount system account admin logs in$")
@@ -2441,6 +2443,9 @@ public class SystemAccountStep {
 				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_GSA,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
+		
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_25saacount iaepmo admin logs in$")
@@ -2500,7 +2505,7 @@ public class SystemAccountStep {
 		Assert.assertEquals(true, accountstatusUpdated);
 
 		LaunchBrowserUtil.delay(5);
-		// LaunchBrowserUtil.closeBrowsers();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_25saacount system manager logs back in$")
