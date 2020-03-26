@@ -93,6 +93,8 @@ public class SystemAccountDirectoryPage {
 				}
 				else if (action.equals(Constants.REQUEST_CHANGES)) {
 					LaunchBrowserUtil.delay(1);
+					WebElement actions = allAccounts.get(i).findElement(By.className("usa-button"));
+					actions.click();
 					logger.info("***************REQUEST CHANGES option picked***************");
 					allAccounts.get(i).findElement(By.id("menuitem1")).click();
 					NewSystemAccountPage.setDriver(driver);

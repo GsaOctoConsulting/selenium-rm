@@ -618,6 +618,20 @@ public static void selectALLPermissions() throws Exception {
 		LaunchBrowserUtil.delay(5);
 		
 	}
+
+	public static void selectFouoTermsOfUse() {
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.id("term0")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term19")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term20")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("term21")).click();
+		LaunchBrowserUtil.delay(3);
+		driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
+		
+	}
 	
 	
 

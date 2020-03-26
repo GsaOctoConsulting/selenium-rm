@@ -2516,7 +2516,7 @@ public class SystemAccountStep {
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 
-		boolean accountfound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+		boolean accountfound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.REQUEST_CHANGES);
 		Assert.assertEquals(true, accountfound);
 	}
@@ -2537,12 +2537,33 @@ public class SystemAccountStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		NewSystemAccountPage.clickReviewButton();
 		NewSystemAccountPage.clickSubmit();
+		NewSystemAccountPage.selectFouoTermsOfUse();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+		LaunchBrowserUtil.delay(5);
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound);
+		
+		boolean accountFound1 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound1);
+
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 		
 	}
 
 	@And("^_25saacount gsa security approver should be able to aprove the change request$")
 	public void _25saacount_gsa_security_approver_should_be_able_to_aprove_the_change_request() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
+				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
 
 	@And("^_25saacount the old published system account is replaced$")
