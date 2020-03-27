@@ -15,7 +15,7 @@
 #<> (placeholder)
 ## (Comments)
 #Sample Feature Definition Template
-@Email 
+@NonfedEmail 
 Feature: nonfed Email functionality 
 	Description:  The purpose of this feature is to test email validations for nonfed
 
