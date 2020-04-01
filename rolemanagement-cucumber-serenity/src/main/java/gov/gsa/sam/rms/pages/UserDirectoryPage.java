@@ -488,8 +488,9 @@ public class UserDirectoryPage {
 
 	public static boolean userPickerAllUsersContainsThisSearchTerm(String searchterm) {
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).sendKeys(searchterm);
-		LaunchBrowserUtil.delay(1);
-		List<WebElement> listofusers = driver.findElements(By.id("userPicker-listbox"));
+		LaunchBrowserUtil.delay(3);
+		WebElement allusers = driver.findElement(By.id("userPicker-listbox"));
+		List<WebElement> listofusers = allusers.findElements(By.xpath(".//li[starts-with(@id, 'userPicker-resultItem')]"));
 		logger.info("The size of the list of users --- " + listofusers.size());
 		boolean allTrue = false;
 		int counter = 0;
