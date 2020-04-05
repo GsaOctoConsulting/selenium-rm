@@ -32,7 +32,7 @@ Description:  The purpose of this feature is to test user search capability
    Then _2 user navigates to user directory org picker and see only his own org
   
  # the below test is first part of #4 on integration test doc 
-   @3 @IntegrationTest @AssistanceUser @G1
+   @3 @IntegrationTest @AssistanceUser @G1 @temp
     Scenario: verify user directory search for assistance user
     Given _3 user logs in workspace with assistance userrole
     And _3 user navigates to user directory page and searches for assistance admin
@@ -60,12 +60,16 @@ Description:  The purpose of this feature is to test user search capability
     When _6uds user unselects feduser filter and selects nonfed filter
     Then _6uds user should only see accounts with nonfederal user id 
     
-    @7 @G1
-     Scenario: user directory search box should give expected list of users
+    @7 @G1 @temp
+     Scenario: user directory search box should give expected list of users for assistance user
     Given _7uds user logs in workspace as assistanceuser 
     And _7uds user navigates to user directory page 
-    When _7uds user searches user using four characters
-    Then _7uds user should only see accounts containing the four characters 
+    When _7uds user searches user using firstname
+    Then _7uds user should only see accounts containing firstname
+    When _7uds user searches using lastname
+    Then _7uds user should only see accounts containing lastname
+    When _7uds user searches using fullname
+    Then _7uds user should only see accounts containing fullname
     
     @8 @G1
     Scenario: user directory org search filter should return expected results

@@ -35,8 +35,8 @@ public class UserDirectorySearchStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
-		//int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
-		int totalNoOfPages = 10; //searching 10 pages right now
+		// int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		int totalNoOfPages = 10; // searching 10 pages right now
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
@@ -68,8 +68,7 @@ public class UserDirectorySearchStep {
 	public void _2_user_navigates_to_user_directory_org_picker_and_see_only_his_own_org() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		Assert.assertEquals(true,
-				UserDirectoryPage.orgPickerAllOrgsContainsThisSearchTermAndOrgName("human", "47"));
+		Assert.assertEquals(true, UserDirectoryPage.orgPickerAllOrgsContainsThisSearchTermAndOrgName("human", "47"));
 
 		/*
 		 * String firstSuggestedOrg = UserDirectoryPage.getFirstOrgFound(); String
@@ -89,7 +88,7 @@ public class UserDirectorySearchStep {
 	@And("^_3 user navigates to user directory page and searches for assistance admin$")
 	public void _3_user_navigates_to_user_directory_page_and_searches_for_assistance_admin() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2 + " ");//fails due to a bug
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2 + " ");// fails due to a bug
 	}
 
 	@Then("^_3 user should be able to view access for assistance admin$")
@@ -144,8 +143,8 @@ public class UserDirectorySearchStep {
 
 	@Then("^_5 user should only see accounts with federal user id$")
 	public void _5_user_should_only_see_accounts_with_federal_user_id() throws Throwable {
-		//int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
-		int totalNoOfPages = 20;//currently looking 20 pages
+		// int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
+		int totalNoOfPages = 20;// currently looking 20 pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
@@ -157,11 +156,11 @@ public class UserDirectorySearchStep {
 				WebElement id = userList.get(i).findElement(UserDirectoryPageLocator.ID);
 				String userid = id.getText();
 				System.out.println(userid);
-				
+
 				String userinfo = userList.get(i).findElement(UserDirectoryPageLocator.USER_INFO).getText();
 				System.out.println(userinfo);
-				
-				if (userid.contains("@gmail")&&!userinfo.contains(Constants.ORG_GSA)) {
+
+				if (userid.contains("@gmail") && !userinfo.contains(Constants.ORG_GSA)) {
 					Assert.assertFalse(true);
 				}
 			}
@@ -234,14 +233,36 @@ public class UserDirectorySearchStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 	}
 
-	@When("^_7uds user searches user using four characters$")
+	@When("^_7uds user searches user using firstname$")
 	public void _7uds_user_searches_user_using_four_characters() throws Throwable {
 		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah");
 		Assert.assertEquals(true, searchtermfound);
 	}
 
-	@Then("^_7uds user should only see accounts containing the four characters$")
+	@Then("^_7uds user should only see accounts containing firstname$")
 	public void _7uds_user_should_only_see_accounts_containing_the_four_characters() throws Throwable {
+		
+	}
+
+	@When("^_7uds user searches using lastname$")
+	public void _7uds_user_searches_using_lastname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("raiaan");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_7uds user should only see accounts containing lastname$")
+	public void _7uds_user_should_only_see_accounts_containing_lastname() throws Throwable {
+
+	}
+
+	@When("^_7uds user searches using fullname$")
+	public void _7uds_user_searches_using_fullname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah raiaan");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_7uds user should only see accounts containing fullname$")
+	public void _7uds_user_should_only_see_accounts_containing_fullname() throws Throwable {
 
 	}
 

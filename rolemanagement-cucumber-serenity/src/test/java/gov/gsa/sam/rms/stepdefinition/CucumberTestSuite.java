@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
-		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@UserDirectorySearch","@7"})
+		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = true, tags = {
+				"@temp"})
 public class CucumberTestSuite {
 	// "@SystemAccountEmail","@9R
 	// "@T1Workspace","@32" // 433

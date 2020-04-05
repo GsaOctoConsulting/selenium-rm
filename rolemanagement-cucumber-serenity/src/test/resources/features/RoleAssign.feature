@@ -21,7 +21,7 @@ Feature: Top-down role assign functionality
 	Description:  The purpose of this feature is to test top-down
 role assign capability admin users
 
-@1 @DRA @IntegrationTest @G1 @temp
+@1 @DRA @IntegrationTest @G1
 Scenario: top down role assignment for dra should function correctly 
 	Given _1 user logs in with dra role 
 	And _1 user navigates to userdirectory and looks up a no role user 

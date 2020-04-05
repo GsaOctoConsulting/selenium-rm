@@ -330,7 +330,7 @@ Scenario: nonfed system account approval flow with permission approval
 	When _24 iae admin logs in 
 	Then _24 iam admin should be able to approve the permission
 
-@25  @temp2
+@25 
 Scenario: system manager should be able to intiate change request for published account and get approval
 	Given _25saaccount user logs in as system manager 
 	And _25saaccount user navigates to system account directory page 

@@ -36,7 +36,7 @@ Scenario: A NonFed User Without a Role can make role request from a finite set o
 	When _2nf user clicks role request button to go to role request page 
 	Then _2nf nonfed user should see the expected list of role to choose from 
 	
-@3 @temp
+@3
 Scenario: bottom up nonfed role request should sent feeds notifications to spaad and the requester 
 	Given _3nf nonfed user without a role logs in 
 	When _3nf nonfed user requests data entry role in entity compliance 
@@ -130,14 +130,14 @@ Scenario: when requested role is accepted a nonfed user should see role assigned
 	When _14nf spaad accepts the pending role request for the user 
 	Then _14nf then requsters profile page should show the role assigned in role history 
 	
-@15 @temp
+@15
 Scenario: when a role is removed from a nonfed user then user should see role removed status in profile history 
 	Given _15nf spaad logs in 
 	And _15nf spaad looks up a nonfed user with a role 
 	When _15nf spaad removes the users role 
 	Then _15nf then users history should show role removed status in in profile history 
 	
-@16  @temp
+@16 
 Scenario: when a role is updated for a nonfed user then user should see role updated status in profile history 
 	Given _16nf spaad logs in 
 	And _16nf spaad looks up a nonfed user with data entry in contract opportunities 

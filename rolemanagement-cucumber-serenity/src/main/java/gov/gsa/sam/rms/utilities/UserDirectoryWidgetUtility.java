@@ -63,7 +63,7 @@ public class UserDirectoryWidgetUtility {
 	public static void clickUserDirectoryLink() {
 		T1WorkspacePage.getDriver().findElement(By.id("user-directory-link")).click();
 		UserDirectoryPage.setDriver(T1WorkspacePage.getDriver());
-		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.delay(5);
 	}
 
 	public static void clickRoleDefinitionsLink() {
