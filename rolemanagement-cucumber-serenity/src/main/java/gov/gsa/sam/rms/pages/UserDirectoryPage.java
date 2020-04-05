@@ -487,12 +487,13 @@ public class UserDirectoryPage {
 	}
 
 	public static boolean userPickerAllUsersContainsThisSearchTerm(String searchterm) {
-		WebElement usersearchbox=driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR);
+		WebElement usersearchbox = driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR);
 		usersearchbox.clear();
 		usersearchbox.sendKeys(searchterm);
 		LaunchBrowserUtil.delay(3);
 		WebElement allusers = driver.findElement(By.id("userPicker-listbox"));
-		List<WebElement> listofusers = allusers.findElements(By.xpath(".//li[starts-with(@id, 'userPicker-resultItem')]"));
+		List<WebElement> listofusers = allusers
+				.findElements(By.xpath(".//li[starts-with(@id, 'userPicker-resultItem')]"));
 		logger.info("The size of the list of users --- " + listofusers.size());
 		boolean allTrue = false;
 		int counter = 0;
@@ -606,8 +607,8 @@ public class UserDirectoryPage {
 	public static boolean ifAllUsersAreClicable(int numberofpagestosearch, String texttoAssert) {
 		boolean allAreClickable = true;
 		boolean breakouterloop = false;
-		int totalNoOfPages = numberofpagestosearch;//UserDirectoryPage.getTotalNoOfPages();
-		//int currentlyselectedPage = 1;//UserDirectoryPage.getCurrentSelectedPage();
+		int totalNoOfPages = numberofpagestosearch;// UserDirectoryPage.getTotalNoOfPages();
+		// int currentlyselectedPage = 1;//UserDirectoryPage.getCurrentSelectedPage();
 		int currentPage = 1;// always start at page 1
 		do {// search page 1 regardless of whether other pages exist
 			List<WebElement> userList = UserDirectoryPage.getUserList();
@@ -625,8 +626,9 @@ public class UserDirectoryPage {
 					break;
 				}
 
-				//boolean fedIdFound = usertext.contains(texttoAssert);// ensures fed id not found
-				//Assert.assertEquals(false, fedIdFound);
+				// boolean fedIdFound = usertext.contains(texttoAssert);// ensures fed id not
+				// found
+				// Assert.assertEquals(false, fedIdFound);
 				// ------------------------------------------------------
 
 			}
@@ -637,6 +639,78 @@ public class UserDirectoryPage {
 			}
 		} while ((currentPage < totalNoOfPages) && (breakouterloop == false));
 		return allAreClickable;
+	}
+
+	public static boolean entityPickerAllUsersContainsThisSearchTerm(String entityname) {
+		WebElement usersearchbox = driver.findElement(UserDirectoryPageLocator.ENTITY_PICKER);
+		usersearchbox.clear();
+		usersearchbox.sendKeys(entityname);
+		LaunchBrowserUtil.delay(3);
+		WebElement allusers = driver.findElement(By.id("entityPicker-Name-listbox"));
+		List<WebElement> listofentities = allusers
+				.findElements(By.xpath(".//li[starts-with(@id, 'entityPicker-Name-resultItem')]"));
+		logger.info("The size of the list of entities --- " + listofentities.size());
+		boolean allTrue = false;
+		int counter = 0;
+		for (int i = 0; i < listofentities.size(); i++) {
+			String entity = listofentities.get(i).getText().toLowerCase();
+			logger.info("The text for entity is -- " + entity);
+			if (entity.contains(entityname.toLowerCase())) {
+				counter++;
+			}
+		}
+		if ((listofentities.size() == counter) && (counter != 0)) {
+			allTrue = true;
+		}
+		return allTrue;
+	}
+
+	public static boolean dunsPickerAllUsersContainsThisSearchTerm(String dunsnumber) {
+		WebElement dunsentitysearchbox = driver.findElement(UserDirectoryPageLocator.DUNS_PICKER);
+		dunsentitysearchbox.clear();
+		dunsentitysearchbox.sendKeys(dunsnumber);
+		LaunchBrowserUtil.delay(3);
+		WebElement allentity = driver.findElement(By.id("entityPicker-Unique Entity ID-listbox"));
+		List<WebElement> listofentities = allentity
+				.findElements(By.xpath(".//li[starts-with(@id, 'entityPicker-Unique Entity ID-resultItem')]"));
+		logger.info("The size of the list of entities --- " + listofentities.size());
+		boolean allTrue = false;
+		int counter = 0;
+		for (int i = 0; i < listofentities.size(); i++) {
+			String entity = listofentities.get(i).getText().toLowerCase();
+			logger.info("The text for entity is -- " + entity);
+			if (entity.contains(dunsnumber.toLowerCase())) {
+				counter++;
+			}
+		}
+		if ((listofentities.size() == counter) && (counter != 0)) {
+			allTrue = true;
+		}
+		return allTrue;
+	}
+
+	public static boolean cagePickerAllUsersContainsThisSearchTerm(String cagecode) {
+		WebElement cageentitysearchbox = driver.findElement(UserDirectoryPageLocator.CAGECODE_PICKER);
+		cageentitysearchbox.clear();
+		cageentitysearchbox.sendKeys(cagecode);
+		LaunchBrowserUtil.delay(3);
+		WebElement allentity = driver.findElement(By.id("entityPicker-CAGE Code-listbox"));
+		List<WebElement> listofentities = allentity
+				.findElements(By.xpath(".//li[starts-with(@id, 'entityPicker-CAGE Code-resultItem')]"));
+		logger.info("The size of the list of entities --- " + listofentities.size());
+		boolean allTrue = false;
+		int counter = 0;
+		for (int i = 0; i < listofentities.size(); i++) {
+			String entity = listofentities.get(i).getText().toLowerCase();
+			logger.info("The text for entity is -- " + entity);
+			if (entity.contains(cagecode.toLowerCase())) {
+				counter++;
+			}
+		}
+		if ((listofentities.size() == counter) && (counter != 0)) {
+			allTrue = true;
+		}
+		return allTrue;
 	}
 
 }

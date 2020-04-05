@@ -1140,6 +1140,53 @@ public class NonFedStep {
 
 	}
 
+	@Given("^_22nf user logs in workspace as nonfed admin$")
+	public void _22nf_user_logs_in_workspace_as_nonfed_admin() throws Throwable {
+		SignInUtility.signIntoWorkspace(
+				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM,
+				Constants.USERPASS,
+				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM_SECRETKEY,
+				Constants.USER_NONFED);
+	}
+
+	@And("^_22nf user navigates to user directory page$")
+	public void _22nf_user_navigates_to_user_directory_page() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+	}
+
+	@When("^_22nf user searches entity with name in entity search box$")
+	public void _22nf_user_searches_entity_with_name_in_entity_search_box() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.entityPickerAllUsersContainsThisSearchTerm("octo");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_22nf user should only see entities containing the search term in the results$")
+	public void _22nf_user_should_only_see_entities_containing_the_search_term_in_the_results() throws Throwable {
+
+	}
+
+	@When("^_22nf user searches enity with duns no in duns search box$")
+	public void _21nf_user_searches_enity_with_duns_no_in_duns_search_box() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.dunsPickerAllUsersContainsThisSearchTerm("0103");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_22nf user should only see entities containing the duns no in the results$")
+	public void _22nf_user_should_only_see_entities_containing_the_duns_no_in_the_results() throws Throwable {
+
+	}
+
+	@When("^_22nf user searches enity with cage code in cage search box$")
+	public void _22nf_user_searches_enity_with_cage_code_in_cage_search_box() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.cagePickerAllUsersContainsThisSearchTerm("61gj");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_22nf user should only see entities containing the cage no in the results$")
+	public void _22nf_user_should_only_see_entities_containing_the_cage_no_in_the_results() throws Throwable {
+
+	}
+
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}

@@ -80,6 +80,8 @@ public class UserDirectoryPageLocator {
 	public static final By DATA_ENTRY_FILTER = By.id("role-Data Entry");
 	public static final By VIEWER_FILTER = By.id("role-Viewer");
 	public static final By ENTITY_PICKER = By.id("entityPicker-Name");
+	public static final By DUNS_PICKER = By.id("entityPicker-Unique Entity ID");
+	public static final By CAGECODE_PICKER = By.id("entityPicker-CAGE Code");
 
 	private UserDirectoryPageLocator() {
 

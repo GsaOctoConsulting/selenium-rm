@@ -188,6 +188,19 @@ Scenario: a new nonfed users pending request should diplay with accurate info in
     Then _21nf user should only see accounts containing octoconsulting
     When _21nf user searches users with ids ending with gsa
     Then _21nf user should not see no results
+    
+ @22 @temp
+     Scenario: user directory entiy search should give expected list of orgs with name duns and cage code for nonfed admin
+    Given _22nf user logs in workspace as nonfed admin 
+    And _22nf user navigates to user directory page 
+    When _22nf user searches entity with name in entity search box
+    Then _22nf user should only see entities containing the search term in the results
+    When _22nf user searches enity with duns no in duns search box
+    Then _22nf user should only see entities containing the duns no in the results
+    When _22nf user searches enity with cage code in cage search box
+    Then _22nf user should only see entities containing the cage no in the results
+
+
 
 
 	
