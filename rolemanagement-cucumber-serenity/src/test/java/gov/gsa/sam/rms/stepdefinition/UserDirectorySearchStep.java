@@ -223,7 +223,7 @@ public class UserDirectorySearchStep {
 
 	@Given("^_7uds user logs in workspace as assistanceuser$")
 	public void _7uds_user_logs_in_workspace_as_assistanceuser() throws Throwable {
-		beforeScenario();
+		
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS,
 				ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
 	}

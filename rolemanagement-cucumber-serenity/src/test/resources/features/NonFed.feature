@@ -165,7 +165,29 @@ Scenario: a new nonfed users pending request should diplay with accurate info in
 	And _19nf user requests data entry at entity compliance at octo consulting group 
 	When _19nf spaads logs in and views the pending request 
 	Then _19nf spaad should be able to view the requesting org in the pending link
+	
 
+ @20 @temp
+     Scenario: user directory search box should give expected list of users for nonfed user
+    Given _20nf user logs in workspace as nonfed user with a role 
+    And _20nf user navigates to user directory page 
+    When _20nf user searches user using firstname
+    Then _20nf user should only see accounts containing firstname
+    When _20nf user searches using lastname
+    Then _20nf user should only see accounts containing lastname
+    When _20nf user searches using fullname
+    Then _20nf user should only see accounts containing fullname
+
+ @21 @temp
+     Scenario: user directory search box should give expected list of users with entity specific emails for nonfed user
+    Given _21nf user logs in workspace as nonfed user with a role 
+    And _21nf user navigates to user directory page 
+    When _21nf user searches users with ids ending with gmail
+    Then _21nf user should only see accounts containing gmail ids
+    When _21nf user searches users with ids ending with octoconsulting
+    Then _21nf user should only see accounts containing octoconsulting
+    When _21nf user searches users with ids ending with gsa
+    Then _21nf user should not see no results
 
 
 	

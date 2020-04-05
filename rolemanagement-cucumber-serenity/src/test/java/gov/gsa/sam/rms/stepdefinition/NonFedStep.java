@@ -894,8 +894,8 @@ public class NonFedStep {
 //		Assert.assertEquals(true, rolehistoryfound);
 
 		boolean rolehistoryfound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
-				Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, Constants.ROLE_DATA_ENTRY, Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.NOACTION);
+				Constants.ROLEHISTORY_STATUS_ROLE_UPDATED, Constants.ROLE_DATA_ENTRY,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.NOACTION);
 		Assert.assertEquals(true, rolehistoryfound);
 
 		// ------------------edit the role back to previous state---------------
@@ -1044,6 +1044,100 @@ public class NonFedStep {
 		MyRolesPage.click1PendingRequest();
 		String message = MyRolesPage.getTextForPendingRequest();
 		Assert.assertEquals("Data Entry for Entity Compliance at Octo Consulting Group, Inc", message);
+	}
+
+	@Given("^_20nf user logs in workspace as nonfed user with a role$")
+	public void _20nf_user_logs_in_workspace_as_nonfed_user_with_a_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(
+				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM,
+				Constants.USERPASS,
+				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM_SECRETKEY,
+				Constants.USER_NONFED);
+	}
+
+	@And("^_20nf user navigates to user directory page$")
+	public void _20nf_user_navigates_to_user_directory_page() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+	}
+
+	@When("^_20nf user searches user using firstname$")
+	public void _20nf_user_searches_user_using_firstname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_20nf user should only see accounts containing firstname$")
+	public void _20nf_user_should_only_see_accounts_containing_firstname() throws Throwable {
+
+	}
+
+	@When("^_20nf user searches using lastname$")
+	public void _20nf_user_searches_using_lastname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("raiaan");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_20nf user should only see accounts containing lastname$")
+	public void _20nf_user_should_only_see_accounts_containing_lastname() throws Throwable {
+
+	}
+
+	@When("^_20nf user searches using fullname$")
+	public void _20nf_user_searches_using_fullname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah raiaan");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_20nf user should only see accounts containing fullname$")
+	public void _20nf_user_should_only_see_accounts_containing_fullname() throws Throwable {
+
+	}
+
+	@Given("^_21nf user logs in workspace as nonfed user with a role$")
+	public void _21nf_user_logs_in_workspace_as_nonfed_user_with_a_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(
+				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM,
+				Constants.USERPASS,
+				ConstantsAccounts.NONFED_ENTITYADMIN_ENTITYREGISTRATIONI_OCTO_DATAENTRY_CONTRACTOPP_IBM_SECRETKEY,
+				Constants.USER_NONFED);
+	}
+
+	@And("^_21nf user navigates to user directory page$")
+	public void _21nf_user_navigates_to_user_directory_page() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+	}
+
+	@When("^_21nf user searches users with ids ending with gmail$")
+	public void _21nf_user_searches_users_with_ids_ending_with_gmail() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("@gmail");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_21nf user should only see accounts containing gmail ids$")
+	public void _21nf_user_should_only_see_accounts_containing_gmail_ids() throws Throwable {
+
+	}
+
+	@When("^_21nf user searches users with ids ending with octoconsulting$")
+	public void _21nf_user_searches_users_with_ids_ending_with_octoconsulting() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("@octoconsulting");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_21nf user should only see accounts containing octoconsulting$")
+	public void _21nf_user_should_only_see_accounts_containing_octoconsulting() throws Throwable {
+
+	}
+
+	@When("^_21nf user searches users with ids ending with gsa$")
+	public void _21nf_user_searches_users_with_ids_ending_with_gsa() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("@gsa");
+		Assert.assertEquals(false, searchtermfound);
+	}
+
+	@Then("^_21nf user should not see no results$")
+	public void _21nf_user_should_not_see_no_results() throws Throwable {
+
 	}
 
 	private void beforeScenario() {
