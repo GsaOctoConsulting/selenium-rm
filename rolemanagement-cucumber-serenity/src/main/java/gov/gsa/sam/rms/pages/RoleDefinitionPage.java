@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.locators.RoleDefinitionPageLocator;
+import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
+import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 /**
@@ -53,6 +55,36 @@ public class RoleDefinitionPage {
 	public static List<WebElement> getDomainFilterList() {
 		return driver.findElements(RoleDefinitionPageLocator.DOMAINFILTER_LIST);
 
+	}
+	
+	public static void clickDomainFilter(By filterlocator) {
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(filterlocator).click();
+		LaunchBrowserUtil.delay(2);
+	}
+
+	public static void getRoleDefinitionDetails(String rolename,
+			String nextaction) {
+		LaunchBrowserUtil.delay(4);
+		//WebElement allusers = driver.findElement(By.id("userPicker-listbox"));
+		//List<WebElement> listofusers = allusers
+				//.findElements(By.xpath(".//li[starts-with(@id, 'userPicker-resultItem')]"));
+		List<WebElement> listofroles = driver.findElements(By.className("section-spc"));
+		logger.info("The size of the list of users --- " + listofroles.size());
+	
+		for (int i = 0; i < listofroles.size(); i++) {
+			WebElement currentrole = listofroles.get(i);
+			String rolenamefromUI = currentrole.findElement(By.tagName("h3")).getText();
+			logger.info("The text for rolename from ui is -- " + rolenamefromUI);
+			
+			if(rolename.equalsIgnoreCase(rolenamefromUI)&& (nextaction.equals(Constants.GO_INTO_EDITPERMISSIONS))) {
+				currentrole.findElement(By.className("icons-color")).click();
+				LaunchBrowserUtil.delay(3);
+				return;
+			}
+			
+			}
+		
 	}
 
 }

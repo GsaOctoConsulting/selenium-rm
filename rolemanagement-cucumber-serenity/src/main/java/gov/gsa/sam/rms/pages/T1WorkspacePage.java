@@ -129,7 +129,8 @@ public class T1WorkspacePage {
 	public static void clickRoleDefinitionLink() {
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.id("role-definitions-button")).click();
-		LaunchBrowserUtil.delay(1);
+		RoleDefinitionPage.setDriver(driver);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	public static boolean profileLinksFound(String linkName) {

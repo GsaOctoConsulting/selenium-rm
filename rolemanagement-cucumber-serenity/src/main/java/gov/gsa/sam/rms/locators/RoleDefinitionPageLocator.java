@@ -9,5 +9,6 @@ public class RoleDefinitionPageLocator {
 	public static final By OBJECTDEFINITION_FILTER = By.id("object-def");
 	public static final By DOMAINFILTER_LIST = By
 			.xpath("//*[@id=\"Domains-Filter\"]/sam-checkbox/sam-fieldset-wrapper/div/fieldset/ul");
+	public static final By DOMAIN_FILTER_CONTRACTDATA = By.id("Contract Data");
 
 }

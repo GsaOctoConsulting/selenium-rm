@@ -10,8 +10,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.CreateNewRolePageLocator;
+import gov.gsa.sam.rms.locators.RoleDefinitionPageLocator;
 import gov.gsa.sam.rms.pages.CreateNewRolePage;
 import gov.gsa.sam.rms.pages.RoleDefinitionPage;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
@@ -56,13 +58,16 @@ public class RoleDefinitionStep {
 
 	@Given("^_2rd user logs in a spaad$")
 	public void _2rd_user_logs_in_a_spaad() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_2rd user navigates to role definition page and filters all roles in contract data domain$")
 	public void _2rd_user_navigates_to_role_definition_page_and_filters_all_roles_in_contract_data_domain()
 			throws Throwable {
-
+		T1WorkspacePage.clickRoleDefinitionLink();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_CONTRACTDATA);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS,Constants.GO_INTO_EDITPERMISSIONS);
 	}
 
 	@When("^_2rd user goes through all permission for aad role$")
