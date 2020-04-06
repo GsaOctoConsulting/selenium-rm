@@ -79,7 +79,7 @@ public class RoleDefinitionPage {
 			
 			if(rolename.equalsIgnoreCase(rolenamefromUI)&& (nextaction.equals(Constants.GO_INTO_EDITPERMISSIONS))) {
 				currentrole.findElement(By.className("icons-color")).click();
-				LaunchBrowserUtil.delay(3);
+				LaunchBrowserUtil.delay(4);
 				return;
 			}
 			

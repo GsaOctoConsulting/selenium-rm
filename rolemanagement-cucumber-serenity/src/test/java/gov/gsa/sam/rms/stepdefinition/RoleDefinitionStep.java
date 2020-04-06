@@ -11,6 +11,7 @@ import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.CreateNewRolePageLocator;
 import gov.gsa.sam.rms.locators.RoleDefinitionPageLocator;
+import gov.gsa.sam.rms.locators.RolePermissionPageLocator;
 import gov.gsa.sam.rms.pages.CreateNewRolePage;
 import gov.gsa.sam.rms.pages.RoleDefinitionPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
@@ -67,17 +68,24 @@ public class RoleDefinitionStep {
 			throws Throwable {
 		T1WorkspacePage.clickRoleDefinitionLink();
 		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_CONTRACTDATA);
-		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS,Constants.GO_INTO_EDITPERMISSIONS);
+
 	}
 
 	@When("^_2rd user goes through all permission for aad role$")
 	public void _2rd_user_goes_through_all_permission_for_aad_role() throws Throwable {
-
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS,
+				Constants.GO_INTO_EDITPERMISSIONS);
 	}
 
 	@Then("^_2rd all the expected checkbox should be marked for aad role$")
 	public void _2rd_all_the_expected_checkbox_should_be_marked_for_aad_role() throws Throwable {
-
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OTHERTRANSCATIONAWARED_ALL_DEFAULT).isSelected());
+//		LaunchBrowserUtil.getDriver()
+//		.findElement(RolePermissionPageLocator.OTHERTRANSCATIONAWARED_ALL_DEFAULT).click();
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OTHERTRANSCATIONAWARED_DELETE_ASSOCIABLESELECTED).isSelected());
+		
 	}
 
 	@When("^_2rd user goes through all permssion for sampmo admin role$")
