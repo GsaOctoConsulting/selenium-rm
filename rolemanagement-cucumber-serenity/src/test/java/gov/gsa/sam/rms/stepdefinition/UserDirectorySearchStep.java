@@ -223,7 +223,7 @@ public class UserDirectorySearchStep {
 
 	@Given("^_7uds user logs in workspace as assistanceuser$")
 	public void _7uds_user_logs_in_workspace_as_assistanceuser() throws Throwable {
-		
+
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS,
 				ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED);
 	}
@@ -241,7 +241,7 @@ public class UserDirectorySearchStep {
 
 	@Then("^_7uds user should only see accounts containing firstname$")
 	public void _7uds_user_should_only_see_accounts_containing_the_four_characters() throws Throwable {
-		
+
 	}
 
 	@When("^_7uds user searches using lastname$")
@@ -298,6 +298,50 @@ public class UserDirectorySearchStep {
 	public void _8uds_no_search_results_message_should_be_displayed() throws Throwable {
 		String noresultsMessageFoundText = UserDirectoryPage.getNoResultsmessageFound();
 		Assert.assertEquals("No User Found For the Selected Criteria", noresultsMessageFoundText);
+	}
+
+	@Given("^_9uds user logs in workspace as contract opp admin$")
+	public void _9uds_user_logs_in_workspace_as_contract_opp_admin() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_9uds user navigates to user directory page$")
+	public void _9uds_user_navigates_to_user_directory_page() throws Throwable {
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+	}
+
+	@When("^_9uds user searches user using firstname$")
+	public void _9uds_user_searches_user_using_firstname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_9uds user should only see accounts containing firstname$")
+	public void _9uds_user_should_only_see_accounts_containing_firstname() throws Throwable {
+
+	}
+
+	@When("^_9uds user searches using lastname$")
+	public void _9uds_user_searches_using_lastname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("raiaan");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_9uds user should only see accounts containing lastname$")
+	public void _9uds_user_should_only_see_accounts_containing_lastname() throws Throwable {
+
+	}
+
+	@When("^_9uds user searches using fullname$")
+	public void _9uds_user_searches_using_fullname() throws Throwable {
+		boolean searchtermfound = UserDirectoryPage.userPickerAllUsersContainsThisSearchTerm("shah raiaan");
+		Assert.assertEquals(true, searchtermfound);
+	}
+
+	@Then("^_9uds user should only see accounts containing fullname$")
+	public void _9uds_user_should_only_see_accounts_containing_fullname() throws Throwable {
+
 	}
 
 	// private methods are below this line

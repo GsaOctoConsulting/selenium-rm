@@ -80,6 +80,19 @@ Description:  The purpose of this feature is to test user search capability
     When _8uds selects the filter for org where users have roles
     Then _8uds no search results message should be displayed
     
+    @9 @G1 @temp
+     Scenario: user directory search box should give expected list of users for contract opp admin
+    Given _9uds user logs in workspace as contract opp admin 
+    And _9uds user navigates to user directory page 
+    When _9uds user searches user using firstname
+    Then _9uds user should only see accounts containing firstname
+    When _9uds user searches using lastname
+    Then _9uds user should only see accounts containing lastname
+    When _9uds user searches using fullname
+    Then _9uds user should only see accounts containing fullname
+    
+    
+    
     
     
    
