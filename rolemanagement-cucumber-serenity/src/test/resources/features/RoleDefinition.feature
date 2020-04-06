@@ -27,3 +27,21 @@ Description:  The purpose of this feature is to test role definition capability
    And _1 user navigates to role definition page through widget
    Then _1 user shoudl see proper links and buttons
    
+ @2 
+  Scenario: role permissions should be consisent in both dev and test environment for all roles in contract data domain
+   Given _2rd user logs in a spaad
+   And _2rd user navigates to role definition page and filters all roles in contract data domain
+   When _2rd user goes through all permission for aad role
+   Then _2rd all the expected checkbox should be marked for aad role
+   When _2rd user goes through all permssion for sampmo admin role
+   Then _2rd all the expected checkbox should be marked for sampmo role
+   When _2rd user goes through all permission for administrator role
+   Then _2rd all the expeted checkbox should be marked for administrator role
+   When _2rd user goes through all permission for contracting officer role
+   Then _2rd all the expected checkbox should be marked for contracting officer role
+   When _2rd user goes through all the permission for contracting specialist role
+   Then _2rd all the expected checkbox should be marked for contracting specialist role
+   
+   
+   
+   

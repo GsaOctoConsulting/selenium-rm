@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.CreateNewRolePageLocator;
 import gov.gsa.sam.rms.pages.CreateNewRolePage;
@@ -34,7 +35,7 @@ public class RoleDefinitionStep {
 
 	@Then("^_1 user shoudl see proper links and buttons$")
 	public void _1_user_shoudl_see_proper_links_and_buttons() throws Throwable {
-		//check create newrole page...and submit and cancel button
+		// check create newrole page...and submit and cancel button
 		RoleDefinitionPage.clickCreateNewRole();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
@@ -51,6 +52,67 @@ public class RoleDefinitionStep {
 		Assert.assertEquals(pageTitle2, "Object Definitions");
 
 		afterScenario();
+	}
+
+	@Given("^_2rd user logs in a spaad$")
+	public void _2rd_user_logs_in_a_spaad() throws Throwable {
+
+	}
+
+	@And("^_2rd user navigates to role definition page and filters all roles in contract data domain$")
+	public void _2rd_user_navigates_to_role_definition_page_and_filters_all_roles_in_contract_data_domain()
+			throws Throwable {
+
+	}
+
+	@When("^_2rd user goes through all permission for aad role$")
+	public void _2rd_user_goes_through_all_permission_for_aad_role() throws Throwable {
+
+	}
+
+	@Then("^_2rd all the expected checkbox should be marked for aad role$")
+	public void _2rd_all_the_expected_checkbox_should_be_marked_for_aad_role() throws Throwable {
+
+	}
+
+	@When("^_2rd user goes through all permssion for sampmo admin role$")
+	public void _2rd_user_goes_through_all_permssion_for_sampmo_admin_role() throws Throwable {
+
+	}
+
+	@Then("^_2rd all the expected checkbox should be marked for sampmo role$")
+	public void _2rd_all_the_expected_checkbox_should_be_marked_for_sampmo_role() throws Throwable {
+
+	}
+
+	@When("^_2rd user goes through all permission for administrator role$")
+	public void _2rd_user_goes_through_all_permission_for_administrator_role() throws Throwable {
+
+	}
+
+	@Then("^_2rd all the expeted checkbox should be marked for administrator role$")
+	public void _2rd_all_the_expeted_checkbox_should_be_marked_for_administrator_role() throws Throwable {
+
+	}
+
+	@When("^_2rd user goes through all permission for contracting officer role$")
+	public void _2rd_user_goes_through_all_permission_for_contracting_officer_role() throws Throwable {
+
+	}
+
+	@Then("^_2rd all the expected checkbox should be marked for contracting officer role$")
+	public void _2rd_all_the_expected_checkbox_should_be_marked_for_contracting_officer_role() throws Throwable {
+
+	}
+
+	@When("^_2rd user goes through all the permission for contracting specialist role$")
+	public void _2rd_user_goes_through_all_the_permission_for_contracting_specialist_role() throws Throwable {
+
+	}
+
+	@Then("^_2rd all the expected checkbox should be marked for contracting specialist role$")
+	public void _2rd_all_the_expected_checkbox_should_be_marked_for_contracting_specialist_role() throws Throwable {
+
 	}
 
 	// private methods are below this line
