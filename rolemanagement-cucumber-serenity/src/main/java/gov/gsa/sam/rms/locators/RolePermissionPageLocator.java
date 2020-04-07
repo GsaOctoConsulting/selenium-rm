@@ -132,4 +132,16 @@ public class RolePermissionPageLocator {
 			.id("Reports-Access-Administrative-Reports-isAssociateChecked-cbx-31");
 	public static final By REPORTS_ACCESSADMINISTRATIVEREPORTS_ASSOCIABLEUNSELECTED = By
 			.id("Reports-Access-Administrative-Reports-isAssociateUnchecked-cbx-32");
+	// ---------------------
+	public static final By USER_ALL_DEFAULT = By.id("User-isAllDefaultsChecked-all-cbx");
+	public static final By USER_ALL_ASSOCIABLESELECTED = By.id("User-isAllAssociateChecked-all-cbx");
+	public static final By USER_ALL_ASSOCIABLEUNSELECTED = By.id("User-isAllAssociateUnchecked-all-cbx");
+	// ----------------
+
+	public static final By USER_ASSIGNREMOVEPRIVILEGES_DEFAULT = By
+			.id("User-Assign/Remove-Privileges-isDefault-cbx-00");
+	public static final By USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLESELECTED = By
+			.id("User-Assign/Remove-Privileges-isAssociateChecked-cbx-01");
+	public static final By USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLEUNSELECTED = By
+			.id("User-Assign/Remove-Privileges-isAssociateUnchecked-cbx-02");
 }
