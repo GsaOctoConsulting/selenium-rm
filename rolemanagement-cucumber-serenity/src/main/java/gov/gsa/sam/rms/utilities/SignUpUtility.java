@@ -74,27 +74,27 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
-			LaunchBrowserUtil.driver
-					.findElement(
-							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
-					.click();
-			LaunchBrowserUtil.delay(1);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[2]/input"))
-					.click();
-			LaunchBrowserUtil.delay(2);
-
-			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("hge");
-			String secretCode2 = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
-			LaunchBrowserUtil.delay(2);
-			String otp2 = LaunchBrowserUtil.getOtp(useremail, secretCode2);
-			LaunchBrowserUtil.delay(2);
-			logger.info("The captured secret code is --- " + secretCode2);
-			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp2);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
-					.click();
-			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
-			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.driver
+//					.findElement(
+//							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
+//					.click();
+//			LaunchBrowserUtil.delay(1);
+//			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[2]/input"))
+//					.click();
+//			LaunchBrowserUtil.delay(2);
+//
+//			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("hge");
+//			String secretCode2 = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
+//			LaunchBrowserUtil.delay(2);
+//			String otp2 = LaunchBrowserUtil.getOtp(useremail, secretCode2);
+//			LaunchBrowserUtil.delay(2);
+//			logger.info("The captured secret code is --- " + secretCode2);
+//			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp2);
+//			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+//					.click();
+//			LaunchBrowserUtil.delay(2);
+//			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
+//			LaunchBrowserUtil.delay(2);
 			CommonProfilePage.setDriver(LaunchBrowserUtil.getDriver());// passing reference to common profile page
 			RequestRoleOptionalPage.setDriver(LaunchBrowserUtil.getDriver());// passing reference to requestroleoption
 																				// page

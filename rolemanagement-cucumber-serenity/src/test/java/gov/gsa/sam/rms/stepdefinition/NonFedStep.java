@@ -629,7 +629,7 @@ public class NonFedStep {
 
 	@And("^_9nf user should also not be able to hit the user directory url$")
 	public void _9nf_user_should_also_not_be_able_to_hit_the_user_directory_url() throws Throwable {
-		ForBiddenPage.setDriver(MyRolesPage.getDriver());
+		ForBiddenPage.setDriver(T1WorkspacePage.getDriver());
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE + "/role-management/user-directory");
 		LaunchBrowserUtil.delay(2);
 		String message = ForBiddenPage.getPrimaryContentMessage();
