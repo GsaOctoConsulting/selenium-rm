@@ -1043,7 +1043,7 @@ public class NonFedStep {
 		UserDirectoryPage.clickViewAccess(newsignedupnonfeduser);
 		MyRolesPage.click1PendingRequest();
 		String message = MyRolesPage.getTextForPendingRequest();
-		Assert.assertEquals("Data Entry for Entity Compliance at Octo Consulting Group, Inc", message);
+		Assert.assertEquals("Data Entry for Entity Compliance at the OCTO CONSULTING GROUP, INC.", message);
 	}
 
 	@Given("^_20nf user logs in workspace as nonfed user with a role$")
