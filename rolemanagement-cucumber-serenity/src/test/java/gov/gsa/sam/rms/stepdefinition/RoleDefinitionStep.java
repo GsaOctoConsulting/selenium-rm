@@ -322,9 +322,9 @@ public class RoleDefinitionStep {
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ALL_ASSOCIABLEUNSELECTED).isSelected());
-		//-----------------------------
-		Assert.assertEquals(true,
-				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
+		// -----------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLESELECTED).isSelected());
@@ -586,9 +586,9 @@ public class RoleDefinitionStep {
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ALL_ASSOCIABLEUNSELECTED).isSelected());
-		//-----------------------------
-		Assert.assertEquals(false,
-				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
+		// -----------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLESELECTED).isSelected());
@@ -850,9 +850,9 @@ public class RoleDefinitionStep {
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ALL_ASSOCIABLEUNSELECTED).isSelected());
-		//-----------------------------
-		Assert.assertEquals(true,
-				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
+		// -----------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLESELECTED).isSelected());
@@ -1114,9 +1114,9 @@ public class RoleDefinitionStep {
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ALL_ASSOCIABLEUNSELECTED).isSelected());
-		//-----------------------------
-		Assert.assertEquals(false,
-				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
+		// -----------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLESELECTED).isSelected());
@@ -1378,15 +1378,106 @@ public class RoleDefinitionStep {
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ALL_ASSOCIABLEUNSELECTED).isSelected());
-		//-----------------------------
-		Assert.assertEquals(false,
-				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
+		// -----------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_DEFAULT).isSelected());
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLESELECTED).isSelected());
 
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.USER_ASSIGNREMOVEPRIVILEGES_ASSOCIABLEUNSELECTED).isSelected());
+	}
+
+	@Given("^_3rd user logs in a spaad$")
+	public void _3rd_user_logs_in_a_spaad() throws Throwable {
+
+	}
+
+	@And("^_3rd user navigates to role definition page and filters all roles in contract opportunities domain$")
+	public void _3rd_user_navigates_to_role_definition_page_and_filters_all_roles_in_contract_opportunities_domain()
+			throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all permission for aad role$")
+	public void _3rd_user_goes_through_all_permission_for_aad_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for aad role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_aad_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all permssion for sampmo admin role$")
+	public void _3rd_user_goes_through_all_permssion_for_sampmo_admin_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for sampmo role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_sampmo_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all permission for administrator role$")
+	public void _3rd_user_goes_through_all_permission_for_administrator_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expeted checkbox should be marked for administrator role$")
+	public void _3rd_all_the_expeted_checkbox_should_be_marked_for_administrator_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all permission for contracting officer role$")
+	public void _3rd_user_goes_through_all_permission_for_contracting_officer_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for contracting officer role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_contracting_officer_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all the permission for opportunities admin role$")
+	public void _3rd_user_goes_through_all_the_permission_for_opportunities_admin_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for opportunities admin role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_opportunities_admin_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all the permission for contracting specialist role$")
+	public void _3rd_user_goes_through_all_the_permission_for_contracting_specialist_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for contracting specialist role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_contracting_specialist_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes throgh all the permission for data entry role$")
+	public void _3rd_user_goes_throgh_all_the_permission_for_data_entry_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for data entry role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_data_entry_role() throws Throwable {
+
+	}
+
+	@When("^_3rd user goes through all the permission for viewer role$")
+	public void _3rd_user_goes_through_all_the_permission_for_viewer_role() throws Throwable {
+
+	}
+
+	@Then("^_3rd all the expected checkbox should be marked for viewer role$")
+	public void _3rd_all_the_expected_checkbox_should_be_marked_for_viewer_role() throws Throwable {
+
 	}
 
 	// private methods are below this line

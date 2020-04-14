@@ -41,7 +41,28 @@ Description:  The purpose of this feature is to test role definition capability
    Then _2rd all the expected checkbox should be marked for contracting officer role
    When _2rd user goes through all the permission for contracting specialist role
    Then _2rd all the expected checkbox should be marked for contracting specialist role
-   
+
+ @3 
+  Scenario: role permissions should be consisent in both dev and test environment for all roles in contract opportunities domain
+   Given _3rd user logs in a spaad
+   And _3rd user navigates to role definition page and filters all roles in contract opportunities domain
+   When _3rd user goes through all permission for aad role
+   Then _3rd all the expected checkbox should be marked for aad role
+   When _3rd user goes through all permssion for sampmo admin role
+   Then _3rd all the expected checkbox should be marked for sampmo role
+   When _3rd user goes through all permission for administrator role
+   Then _3rd all the expeted checkbox should be marked for administrator role
+   When _3rd user goes through all permission for contracting officer role
+   Then _3rd all the expected checkbox should be marked for contracting officer role
+   When _3rd user goes through all the permission for opportunities admin role
+   Then _3rd all the expected checkbox should be marked for opportunities admin role
+   When _3rd user goes through all the permission for contracting specialist role
+   Then _3rd all the expected checkbox should be marked for contracting specialist role
+   When _3rd user goes throgh all the permission for data entry role
+   Then _3rd all the expected checkbox should be marked for data entry role
+   When _3rd user goes through all the permission for viewer role
+   Then _3rd all the expected checkbox should be marked for viewer role
+
    
    
    
