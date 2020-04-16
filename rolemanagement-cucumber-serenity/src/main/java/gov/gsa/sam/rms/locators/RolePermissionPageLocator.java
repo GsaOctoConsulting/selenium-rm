@@ -162,81 +162,81 @@ public class RolePermissionPageLocator {
 	public static final By NOTICES_VIEWDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-View-Draft-Notice-isAssociateChecked-cbx-01");
 	public static final By NOTICES_VIEWDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-View-Draft-Notice-isAssociateUnchecked-cbx-02");
 	
-	public static final By NOTICES_SEARCHDRAFTNOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_SEARCHDRAFTNOTICES_DEFAULT = By.id("NOTICES-Search-Draft-Notices-isDefault-cbx-10");
+	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Search-Draft-Notices-isAssociateChecked-cbx-11");
+	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Search-Draft-Notices-isAssociateUnchecked-cbx-12");
 	
-	public static final By NOTICES_CREATEDRAFTNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_CREATEDRAFTNOTICE_DEFAULT = By.id("NOTICES-Create-Draft-Notice-isDefault-cbx-20");
+	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Create-Draft-Notice-isAssociateChecked-cbx-21");
+	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Create-Draft-Notice-isAssociateUnchecked-cbx-22");
 	
-	public static final By NOTICES_EDITDRAFTNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_EDITDRAFTNOTICE_DEFAULT = By.id("NOTICES-Edit-Draft-Notice-isDefault-cbx-30");
+	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Edit-Draft-Notice-isAssociateChecked-cbx-31");
+	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Edit-Draft-Notice-isAssociateUnchecked-cbx-32");
 	
-	public static final By NOTICES_PUBLISHDRAFTNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_PUBLISHDRAFTNOTICE_DEFAULT = By.id("NOTICES-Publish-Draft-Notice-isDefault-cbx-40");
+	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Publish-Draft-Notice-isAssociateChecked-cbx-41");
+	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Publish-Draft-Notice-isAssociateUnchecked-cbx-42");
 	
-	public static final By NOTICES_EDITPUBLISHEDNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_EDITPUBLISHEDNOTICE_DEFAULT = By.id("NOTICES-Edit-Published-Notice-isDefault-cbx-50");
+	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Edit-Published-Notice-isAssociateChecked-cbx-51");
+	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Edit-Published-Notice-isAssociateUnchecked-cbx-52");
 	
-	public static final By NOTICES_CANCELPUBLISHEDNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_CANCELPUBLISHEDNOTICE_DEFAULT = By.id("NOTICES-Cancel-Published-Notice-isDefault-cbx-60");
+	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Cancel-Published-Notice-isAssociateChecked-cbx-61");
+	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Cancel-Published-Notice-isAssociateUnchecked-cbx-62");
 	
-	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_DEFAULT = By.id("NOTICES-Archive-Published-Notice-isDefault-cbx-70");
+	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Archive-Published-Notice-isAssociateChecked-cbx-71");
+	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Archive-Published-Notice-isAssociateUnchecked-cbx-72");
 	
-	public static final By NOTICES_UNARCHIVENOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_UNARCHIVENOTICES_DEFAULT = By.id("NOTICES-Unarchive-Notices-isDefault-cbx-80");
+	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Unarchive-Notices-isAssociateChecked-cbx-81");
+	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Unarchive-Notices-isAssociateUnchecked-cbx-82");
 	
-	public static final By NOTICES_VIEWPUBLISHEDNOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_VIEWPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-View-Published-Notices-isDefault-cbx-90");
+	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-View-Published-Notices-isAssociateChecked-cbx-91");
+	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-View-Published-Notices-isAssociateUnchecked-cbx-92");
 	
-	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Search-Published-Notices-isDefault-cbx-100");
+	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Search-Published-Notices-isAssociateChecked-cbx-101");
+	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Search-Published-Notices-isAssociateUnchecked-cbx-102");
 	
-	public static final By NOTICES_PRINTPUBLISHEDNOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_PRINTPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Print-Published-Notices-isDefault-cbx-110");
+	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Print-Published-Notices-isAssociateChecked-cbx-111");
+	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Print-Published-Notices-isAssociateUnchecked-cbx-112");
 	
-	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Download-Published-Notices-isDefault-cbx-120");
+	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Download-Published-Notices-isAssociateChecked-cbx-121");
+	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Download-Published-Notices-isAssociateUnchecked-cbx-122");
 	
-	public static final By NOTICES_SEARCHARCHIVENOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_SEARCHARCHIVENOTICES_DEFAULT = By.id("NOTICES-Search-Archive-Notices-isDefault-cbx-130");
+	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Search-Archive-Notices-isAssociateChecked-cbx-131");
+	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Search-Archive-Notices-isAssociateUnchecked-cbx-132");
 	
-	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_DEFAULT = By.id("");
-	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Export-Published-Notices-isDefault-cbx-140");
+	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Export-Published-Notices-isAssociateChecked-cbx-141");
+	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Export-Published-Notices-isAssociateUnchecked-cbx-142");
 	
-	public static final By NOTICES_EDITAWARDNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_EDITAWARDNOTICE_DEFAULT = By.id("NOTICES-Edit-Award-Notice-isDefault-cbx-150");
+	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Edit-Award-Notice-isAssociateChecked-cbx-151");
+	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Edit-Award-Notice-isAssociateUnchecked-cbx-152");
 	
-	public static final By NOTICES_CREATEAWARDNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_CREATEAWARDNOTICE_DEFAULT = By.id("NOTICES-Create-Award-Notice-isDefault-cbx-160");
+	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Create-Award-Notice-isAssociateChecked-cbx-161");
+	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Create-Award-Notice-isAssociateUnchecked-cbx-162");
 	
-	public static final By NOTICES_DELETEDRAFTNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_DELETEDRAFTNOTICE_DEFAULT = By.id("NOTICES-Delete-Draft-Notice-isDefault-cbx-170");
+	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Delete-Draft-Notice-isAssociateChecked-cbx-171");
+	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Delete-Draft-Notice-isAssociateUnchecked-cbx-172");
 	
-	public static final By NOTICES_DELETENOTICEVERSIONS_DEFAULT = By.id("");
-	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_DELETENOTICEVERSIONS_DEFAULT = By.id("NOTICES-Delete-Notice-Version(s)-isDefault-cbx-180");
+	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLESELECTED = By.id("NOTICES-Delete-Notice-Version(s)-isAssociateChecked-cbx-181");
+	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLEUNSELECTED = By.id("NOTICES-Delete-Notice-Version(s)-isAssociateUnchecked-cbx-182");
 	
-	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_DEFAULT = By.id("");
-	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLESELECTED = By.id("");
-	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_DEFAULT = By.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isDefault-cbx-190");
+	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isAssociateChecked-cbx-191");
+	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isAssociateUnchecked-cbx-192");
 	
 	
 }
