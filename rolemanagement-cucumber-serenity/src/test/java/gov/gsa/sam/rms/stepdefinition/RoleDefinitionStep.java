@@ -2040,6 +2040,175 @@ public class RoleDefinitionStep {
 				RolePermissionPageLocator.DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLEUNSELECTED)
 				.isSelected());
 		// ---------------NEW PERMISSION------------------
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_ALL_DEFAULT).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_ALL_ASSOCIABLESELECTED).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_ALL_ASSOCIABLEUNSELECTED).isSelected());
+				// ---------------NEW PERMISSION------------------
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_DEFAULT).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLESELECTED).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLEUNSELECTED).isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_CREATEDRAFTATTACHMENT_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_DELETEDRAFTATTACHMENT_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_RELEASEDRAFTATTACHMENT_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_ASSIGNATTACHMENT_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_DELETEATTACHMENT_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver().findElement(
+								RolePermissionPageLocator.ATTACHMENTS_EDITDRAFTATTACHMENT_DEFAULT)
+								.isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLESELECTED)
+						.isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLEUNSELECTED)
+						.isSelected());
+				// ---------------NEW PERMISSION------------------
 
 	}
 

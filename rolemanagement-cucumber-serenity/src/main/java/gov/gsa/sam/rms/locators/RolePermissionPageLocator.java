@@ -153,192 +153,365 @@ public class RolePermissionPageLocator {
 	public static final By BIDS_SUBMIT_DEFAULT = By.id("BIDS-Submit-isDefault-cbx-10");
 	public static final By BIDS_SUBMIT_ASSOCIABLESELECTED = By.id("BIDS-Submit-isAssociateChecked-cbx-11");
 	public static final By BIDS_SUBMIT_ASSOCIABLEUNSELECTED = By.id("BIDS-Submit-isAssociateUnchecked-cbx-12");
-	//--------
+	// --------
 	public static final By NOTICES_ALL_DEFAULT = By.id("NOTICES-isAllDefaultsChecked-all-cbx");
 	public static final By NOTICES_ALL_ASSOCIABLESELECTED = By.id("NOTICES-isAllAssociateChecked-all-cbx");
 	public static final By NOTICES_ALL_ASSOCIABLEUNSELECTED = By.id("NOTICES-isAllAssociateUnchecked-all-cbx");
-	
+
 	public static final By NOTICES_VIEWDRAFTNOTICE_DEFAULT = By.id("NOTICES-View-Draft-Notice-isDefault-cbx-00");
-	public static final By NOTICES_VIEWDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-View-Draft-Notice-isAssociateChecked-cbx-01");
-	public static final By NOTICES_VIEWDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-View-Draft-Notice-isAssociateUnchecked-cbx-02");
-	
+	public static final By NOTICES_VIEWDRAFTNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-View-Draft-Notice-isAssociateChecked-cbx-01");
+	public static final By NOTICES_VIEWDRAFTNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-View-Draft-Notice-isAssociateUnchecked-cbx-02");
+
 	public static final By NOTICES_SEARCHDRAFTNOTICES_DEFAULT = By.id("NOTICES-Search-Draft-Notices-isDefault-cbx-10");
-	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Search-Draft-Notices-isAssociateChecked-cbx-11");
-	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Search-Draft-Notices-isAssociateUnchecked-cbx-12");
-	
+	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Search-Draft-Notices-isAssociateChecked-cbx-11");
+	public static final By NOTICES_SEARCHDRAFTNOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Search-Draft-Notices-isAssociateUnchecked-cbx-12");
+
 	public static final By NOTICES_CREATEDRAFTNOTICE_DEFAULT = By.id("NOTICES-Create-Draft-Notice-isDefault-cbx-20");
-	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Create-Draft-Notice-isAssociateChecked-cbx-21");
-	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Create-Draft-Notice-isAssociateUnchecked-cbx-22");
-	
+	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Create-Draft-Notice-isAssociateChecked-cbx-21");
+	public static final By NOTICES_CREATEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Create-Draft-Notice-isAssociateUnchecked-cbx-22");
+
 	public static final By NOTICES_EDITDRAFTNOTICE_DEFAULT = By.id("NOTICES-Edit-Draft-Notice-isDefault-cbx-30");
-	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Edit-Draft-Notice-isAssociateChecked-cbx-31");
-	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Edit-Draft-Notice-isAssociateUnchecked-cbx-32");
-	
+	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Edit-Draft-Notice-isAssociateChecked-cbx-31");
+	public static final By NOTICES_EDITDRAFTNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Edit-Draft-Notice-isAssociateUnchecked-cbx-32");
+
 	public static final By NOTICES_PUBLISHDRAFTNOTICE_DEFAULT = By.id("NOTICES-Publish-Draft-Notice-isDefault-cbx-40");
-	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Publish-Draft-Notice-isAssociateChecked-cbx-41");
-	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Publish-Draft-Notice-isAssociateUnchecked-cbx-42");
-	
-	public static final By NOTICES_EDITPUBLISHEDNOTICE_DEFAULT = By.id("NOTICES-Edit-Published-Notice-isDefault-cbx-50");
-	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Edit-Published-Notice-isAssociateChecked-cbx-51");
-	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Edit-Published-Notice-isAssociateUnchecked-cbx-52");
-	
-	public static final By NOTICES_CANCELPUBLISHEDNOTICE_DEFAULT = By.id("NOTICES-Cancel-Published-Notice-isDefault-cbx-60");
-	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Cancel-Published-Notice-isAssociateChecked-cbx-61");
-	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Cancel-Published-Notice-isAssociateUnchecked-cbx-62");
-	
-	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_DEFAULT = By.id("NOTICES-Archive-Published-Notice-isDefault-cbx-70");
-	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Archive-Published-Notice-isAssociateChecked-cbx-71");
-	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Archive-Published-Notice-isAssociateUnchecked-cbx-72");
-	
+	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Publish-Draft-Notice-isAssociateChecked-cbx-41");
+	public static final By NOTICES_PUBLISHDRAFTNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Publish-Draft-Notice-isAssociateUnchecked-cbx-42");
+
+	public static final By NOTICES_EDITPUBLISHEDNOTICE_DEFAULT = By
+			.id("NOTICES-Edit-Published-Notice-isDefault-cbx-50");
+	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Edit-Published-Notice-isAssociateChecked-cbx-51");
+	public static final By NOTICES_EDITPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Edit-Published-Notice-isAssociateUnchecked-cbx-52");
+
+	public static final By NOTICES_CANCELPUBLISHEDNOTICE_DEFAULT = By
+			.id("NOTICES-Cancel-Published-Notice-isDefault-cbx-60");
+	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Cancel-Published-Notice-isAssociateChecked-cbx-61");
+	public static final By NOTICES_CANCELPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Cancel-Published-Notice-isAssociateUnchecked-cbx-62");
+
+	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_DEFAULT = By
+			.id("NOTICES-Archive-Published-Notice-isDefault-cbx-70");
+	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Archive-Published-Notice-isAssociateChecked-cbx-71");
+	public static final By NOTICES_ARCHIVEPUBLISHEDNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Archive-Published-Notice-isAssociateUnchecked-cbx-72");
+
 	public static final By NOTICES_UNARCHIVENOTICES_DEFAULT = By.id("NOTICES-Unarchive-Notices-isDefault-cbx-80");
-	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Unarchive-Notices-isAssociateChecked-cbx-81");
-	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Unarchive-Notices-isAssociateUnchecked-cbx-82");
-	
-	public static final By NOTICES_VIEWPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-View-Published-Notices-isDefault-cbx-90");
-	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-View-Published-Notices-isAssociateChecked-cbx-91");
-	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-View-Published-Notices-isAssociateUnchecked-cbx-92");
-	
-	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Search-Published-Notices-isDefault-cbx-100");
-	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Search-Published-Notices-isAssociateChecked-cbx-101");
-	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Search-Published-Notices-isAssociateUnchecked-cbx-102");
-	
-	public static final By NOTICES_PRINTPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Print-Published-Notices-isDefault-cbx-110");
-	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Print-Published-Notices-isAssociateChecked-cbx-111");
-	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Print-Published-Notices-isAssociateUnchecked-cbx-112");
-	
-	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Download-Published-Notices-isDefault-cbx-120");
-	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Download-Published-Notices-isAssociateChecked-cbx-121");
-	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Download-Published-Notices-isAssociateUnchecked-cbx-122");
-	
-	public static final By NOTICES_SEARCHARCHIVENOTICES_DEFAULT = By.id("NOTICES-Search-Archive-Notices-isDefault-cbx-130");
-	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Search-Archive-Notices-isAssociateChecked-cbx-131");
-	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Search-Archive-Notices-isAssociateUnchecked-cbx-132");
-	
-	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_DEFAULT = By.id("NOTICES-Export-Published-Notices-isDefault-cbx-140");
-	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By.id("NOTICES-Export-Published-Notices-isAssociateChecked-cbx-141");
-	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By.id("NOTICES-Export-Published-Notices-isAssociateUnchecked-cbx-142");
-	
+	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Unarchive-Notices-isAssociateChecked-cbx-81");
+	public static final By NOTICES_UNARCHIVENOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Unarchive-Notices-isAssociateUnchecked-cbx-82");
+
+	public static final By NOTICES_VIEWPUBLISHEDNOTICES_DEFAULT = By
+			.id("NOTICES-View-Published-Notices-isDefault-cbx-90");
+	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-View-Published-Notices-isAssociateChecked-cbx-91");
+	public static final By NOTICES_VIEWPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-View-Published-Notices-isAssociateUnchecked-cbx-92");
+
+	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_DEFAULT = By
+			.id("NOTICES-Search-Published-Notices-isDefault-cbx-100");
+	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Search-Published-Notices-isAssociateChecked-cbx-101");
+	public static final By NOTICES_SEARCHPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Search-Published-Notices-isAssociateUnchecked-cbx-102");
+
+	public static final By NOTICES_PRINTPUBLISHEDNOTICES_DEFAULT = By
+			.id("NOTICES-Print-Published-Notices-isDefault-cbx-110");
+	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Print-Published-Notices-isAssociateChecked-cbx-111");
+	public static final By NOTICES_PRINTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Print-Published-Notices-isAssociateUnchecked-cbx-112");
+
+	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_DEFAULT = By
+			.id("NOTICES-Download-Published-Notices-isDefault-cbx-120");
+	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Download-Published-Notices-isAssociateChecked-cbx-121");
+	public static final By NOTICES_DOWNLOADPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Download-Published-Notices-isAssociateUnchecked-cbx-122");
+
+	public static final By NOTICES_SEARCHARCHIVENOTICES_DEFAULT = By
+			.id("NOTICES-Search-Archive-Notices-isDefault-cbx-130");
+	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Search-Archive-Notices-isAssociateChecked-cbx-131");
+	public static final By NOTICES_SEARCHARCHIVENOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Search-Archive-Notices-isAssociateUnchecked-cbx-132");
+
+	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_DEFAULT = By
+			.id("NOTICES-Export-Published-Notices-isDefault-cbx-140");
+	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLESELECTED = By
+			.id("NOTICES-Export-Published-Notices-isAssociateChecked-cbx-141");
+	public static final By NOTICES_EXPORTPUBLISHEDNOTICES_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Export-Published-Notices-isAssociateUnchecked-cbx-142");
+
 	public static final By NOTICES_EDITAWARDNOTICE_DEFAULT = By.id("NOTICES-Edit-Award-Notice-isDefault-cbx-150");
-	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Edit-Award-Notice-isAssociateChecked-cbx-151");
-	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Edit-Award-Notice-isAssociateUnchecked-cbx-152");
-	
+	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Edit-Award-Notice-isAssociateChecked-cbx-151");
+	public static final By NOTICES_EDITAWARDNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Edit-Award-Notice-isAssociateUnchecked-cbx-152");
+
 	public static final By NOTICES_CREATEAWARDNOTICE_DEFAULT = By.id("NOTICES-Create-Award-Notice-isDefault-cbx-160");
-	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Create-Award-Notice-isAssociateChecked-cbx-161");
-	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Create-Award-Notice-isAssociateUnchecked-cbx-162");
-	
+	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Create-Award-Notice-isAssociateChecked-cbx-161");
+	public static final By NOTICES_CREATEAWARDNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Create-Award-Notice-isAssociateUnchecked-cbx-162");
+
 	public static final By NOTICES_DELETEDRAFTNOTICE_DEFAULT = By.id("NOTICES-Delete-Draft-Notice-isDefault-cbx-170");
-	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Delete-Draft-Notice-isAssociateChecked-cbx-171");
-	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Delete-Draft-Notice-isAssociateUnchecked-cbx-172");
-	
-	public static final By NOTICES_DELETENOTICEVERSIONS_DEFAULT = By.id("NOTICES-Delete-Notice-Version(s)-isDefault-cbx-180");
-	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLESELECTED = By.id("NOTICES-Delete-Notice-Version(s)-isAssociateChecked-cbx-181");
-	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLEUNSELECTED = By.id("NOTICES-Delete-Notice-Version(s)-isAssociateUnchecked-cbx-182");
-	
-	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_DEFAULT = By.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isDefault-cbx-190");
-	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLESELECTED = By.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isAssociateChecked-cbx-191");
-	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLEUNSELECTED = By.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isAssociateUnchecked-cbx-192");
-	//-----------------------
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ALL_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-isAllDefaultsChecked-all-cbx");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ALL_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-isAllAssociateChecked-all-cbx");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ALL_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWDOCUMENTAUDITTRAL_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-Document-Audit-Trail-isDefault-cbx-00");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWDOCUMENTAUDITTRAL_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-Document-Audit-Trail-isAssociateChecked-cbx-01");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWDOCUMENTAUDITTRAL_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-Document-Audit-Trail-isAssociateUnchecked-cbx-02");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_SEARCHREPORTS_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Search-reports-isDefault-cbx-10");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_SEARCHREPORTS_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Search-reports-isAssociateChecked-cbx-11");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_SEARCHREPORTS_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Search-reports-isAssociateUnchecked-cbx-12");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWREPORTS_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-reports-isDefault-cbx-20");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWREPORTS_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-reports-isAssociateChecked-cbx-21");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWREPORTS_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-reports-isAssociateUnchecked-cbx-22");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_CREATEREPORT_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Create-report-isDefault-cbx-30");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_CREATEREPORT_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Create-report-isAssociateChecked-cbx-31");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_CREATEREPORT_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Create-report-isAssociateUnchecked-cbx-32");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_DOWNLOADDATAFILE_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Download-data-file-isDefault-cbx-40");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_DOWNLOADDATAFILE_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Download-data-file-isAssociateChecked-cbx-41");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_DOWNLOADDATAFILE_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Download-data-file-isAssociateUnchecked-cbx-42");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWSYSTEMSTATS_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-system-stats-isDefault-cbx-50");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWSYSTEMSTATS_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-system-stats-isAssociateChecked-cbx-51");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWSYSTEMSTATS_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-View-system-stats-isAssociateUnchecked-cbx-52");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSPUBLICREPORTS_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Public-Reports-isDefault-cbx-60");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSPUBLICREPORTS_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Public-Reports-isAssociateChecked-cbx-61");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSPUBLICREPORTS_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Public-Reports-isAssociateUnchecked-cbx-62");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSFEDERALREPORTS_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Federal-Reports-(For-Official-Use-Only)-isDefault-cbx-70");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSFEDERALREPORTS_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Federal-Reports-(For-Official-Use-Only)-isAssociateChecked-cbx-71");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSFEDERALREPORTS_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Federal-Reports-(For-Official-Use-Only)-isAssociateUnchecked-cbx-72");
-	
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSADMINREPORTS_DEFAULT = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Admin-Reports-(For-Official-Use-Only)-isDefault-cbx-80");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSADMINREPORTS_ASSOCIABLESELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Admin-Reports-(For-Official-Use-Only)-isAssociateChecked-cbx-81");
-	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSADMINREPORTS_ASSOCIABLEUNSELECTED = By.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Admin-Reports-(For-Official-Use-Only)-isAssociateUnchecked-cbx-82");
-	//----------------------
-	public static final By NONFBOSOLICITATIONS_ALL_DEFAULT =By.id("NON-FBO-SOLICITATIONS-isAllDefaultsChecked-all-cbx");
-	public static final By NONFBOSOLICITATIONS_ALL_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-isAllAssociateChecked-all-cbx");
-	public static final By NONFBOSOLICITATIONS_ALL_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By NONFBOSOLICITATIONS_UNRELEASE_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Unrelease-isDefault-cbx-00");
-	public static final By NONFBOSOLICITATIONS_UNRELEASE_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Unrelease-isAssociateChecked-cbx-01");
-	public static final By NONFBOSOLICITATIONS_UNRELEASE_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Unrelease-isAssociateUnchecked-cbx-02");
-	
+	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Delete-Draft-Notice-isAssociateChecked-cbx-171");
+	public static final By NOTICES_DELETEDRAFTNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Delete-Draft-Notice-isAssociateUnchecked-cbx-172");
+
+	public static final By NOTICES_DELETENOTICEVERSIONS_DEFAULT = By
+			.id("NOTICES-Delete-Notice-Version(s)-isDefault-cbx-180");
+	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLESELECTED = By
+			.id("NOTICES-Delete-Notice-Version(s)-isAssociateChecked-cbx-181");
+	public static final By NOTICES_DELETENOTICEVERSIONS_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Delete-Notice-Version(s)-isAssociateUnchecked-cbx-182");
+
+	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_DEFAULT = By
+			.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isDefault-cbx-190");
+	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLESELECTED = By
+			.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isAssociateChecked-cbx-191");
+	public static final By NOTICES_DELETEBASEANDALLVERSIONSOFNOTICE_ASSOCIABLEUNSELECTED = By
+			.id("NOTICES-Delete-Base-and-All-Versions-of-Notice-isAssociateUnchecked-cbx-192");
+	// -----------------------
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ALL_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-isAllDefaultsChecked-all-cbx");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ALL_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-isAllAssociateChecked-all-cbx");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ALL_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-isAllAssociateUnchecked-all-cbx");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWDOCUMENTAUDITTRAL_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-Document-Audit-Trail-isDefault-cbx-00");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWDOCUMENTAUDITTRAL_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-Document-Audit-Trail-isAssociateChecked-cbx-01");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWDOCUMENTAUDITTRAL_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-Document-Audit-Trail-isAssociateUnchecked-cbx-02");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_SEARCHREPORTS_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Search-reports-isDefault-cbx-10");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_SEARCHREPORTS_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Search-reports-isAssociateChecked-cbx-11");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_SEARCHREPORTS_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Search-reports-isAssociateUnchecked-cbx-12");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWREPORTS_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-reports-isDefault-cbx-20");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWREPORTS_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-reports-isAssociateChecked-cbx-21");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWREPORTS_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-reports-isAssociateUnchecked-cbx-22");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_CREATEREPORT_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Create-report-isDefault-cbx-30");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_CREATEREPORT_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Create-report-isAssociateChecked-cbx-31");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_CREATEREPORT_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Create-report-isAssociateUnchecked-cbx-32");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_DOWNLOADDATAFILE_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Download-data-file-isDefault-cbx-40");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_DOWNLOADDATAFILE_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Download-data-file-isAssociateChecked-cbx-41");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_DOWNLOADDATAFILE_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Download-data-file-isAssociateUnchecked-cbx-42");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWSYSTEMSTATS_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-system-stats-isDefault-cbx-50");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWSYSTEMSTATS_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-system-stats-isAssociateChecked-cbx-51");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_VIEWSYSTEMSTATS_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-View-system-stats-isAssociateUnchecked-cbx-52");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSPUBLICREPORTS_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Public-Reports-isDefault-cbx-60");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSPUBLICREPORTS_ASSOCIABLESELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Public-Reports-isAssociateChecked-cbx-61");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSPUBLICREPORTS_ASSOCIABLEUNSELECTED = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Public-Reports-isAssociateUnchecked-cbx-62");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSFEDERALREPORTS_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Federal-Reports-(For-Official-Use-Only)-isDefault-cbx-70");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSFEDERALREPORTS_ASSOCIABLESELECTED = By.id(
+			"CONTRACT-OPPORTUNITIES-DATABANK-Access-Federal-Reports-(For-Official-Use-Only)-isAssociateChecked-cbx-71");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSFEDERALREPORTS_ASSOCIABLEUNSELECTED = By.id(
+			"CONTRACT-OPPORTUNITIES-DATABANK-Access-Federal-Reports-(For-Official-Use-Only)-isAssociateUnchecked-cbx-72");
+
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSADMINREPORTS_DEFAULT = By
+			.id("CONTRACT-OPPORTUNITIES-DATABANK-Access-Admin-Reports-(For-Official-Use-Only)-isDefault-cbx-80");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSADMINREPORTS_ASSOCIABLESELECTED = By.id(
+			"CONTRACT-OPPORTUNITIES-DATABANK-Access-Admin-Reports-(For-Official-Use-Only)-isAssociateChecked-cbx-81");
+	public static final By CONTRACTOPPORTUNITIESDATABANK_ACCESSADMINREPORTS_ASSOCIABLEUNSELECTED = By.id(
+			"CONTRACT-OPPORTUNITIES-DATABANK-Access-Admin-Reports-(For-Official-Use-Only)-isAssociateUnchecked-cbx-82");
+	// ----------------------
+	public static final By NONFBOSOLICITATIONS_ALL_DEFAULT = By
+			.id("NON-FBO-SOLICITATIONS-isAllDefaultsChecked-all-cbx");
+	public static final By NONFBOSOLICITATIONS_ALL_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-isAllAssociateChecked-all-cbx");
+	public static final By NONFBOSOLICITATIONS_ALL_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-isAllAssociateUnchecked-all-cbx");
+
+	public static final By NONFBOSOLICITATIONS_UNRELEASE_DEFAULT = By
+			.id("NON-FBO-SOLICITATIONS-Unrelease-isDefault-cbx-00");
+	public static final By NONFBOSOLICITATIONS_UNRELEASE_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Unrelease-isAssociateChecked-cbx-01");
+	public static final By NONFBOSOLICITATIONS_UNRELEASE_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Unrelease-isAssociateUnchecked-cbx-02");
+
 	public static final By NONFBOSOLICITATIONS_CREATE_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Create-isDefault-cbx-10");
-	public static final By NONFBOSOLICITATIONS_CREATE_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Create-isAssociateChecked-cbx-11");
-	public static final By NONFBOSOLICITATIONS_CREATE_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Create-isAssociateUnchecked-cbx-12");
-	
+	public static final By NONFBOSOLICITATIONS_CREATE_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Create-isAssociateChecked-cbx-11");
+	public static final By NONFBOSOLICITATIONS_CREATE_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Create-isAssociateUnchecked-cbx-12");
+
 	public static final By NONFBOSOLICITATIONS_EDIT_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Edit-isDefault-cbx-20");
-	public static final By NONFBOSOLICITATIONS_EDIT_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Edit-isAssociateChecked-cbx-21");
-	public static final By NONFBOSOLICITATIONS_EDIT_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Edit-isAssociateUnchecked-cbx-22");
-	
+	public static final By NONFBOSOLICITATIONS_EDIT_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Edit-isAssociateChecked-cbx-21");
+	public static final By NONFBOSOLICITATIONS_EDIT_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Edit-isAssociateUnchecked-cbx-22");
+
 	public static final By NONFBOSOLICITATIONS_DELETE_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Delete-isDefault-cbx-30");
-	public static final By NONFBOSOLICITATIONS_DELETE_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Delete-isAssociateChecked-cbx-31");
-	public static final By NONFBOSOLICITATIONS_DELETE_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Delete-isAssociateUnchecked-cbx-32");
-	
-	public static final By NONFBOSOLICITATIONS_EDITDRAFT_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Edit-Draft-isDefault-cbx-40");
-	public static final By NONFBOSOLICITATIONS_EDITDRAFT_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Edit-Draft-isAssociateChecked-cbx-41");
-	public static final By NONFBOSOLICITATIONS_EDITDRAFT_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Edit-Draft-isAssociateUnchecked-cbx-42");
-	
-	public static final By NONFBOSOLICITATIONS_DELETEDRAFT_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Delete-Draft-isDefault-cbx-50");
-	public static final By NONFBOSOLICITATIONS_DELETEDRAFT_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Delete-Draft-isAssociateChecked-cbx-51");
-	public static final By NONFBOSOLICITATIONS_DELETEDRAFT_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Delete-Draft-isAssociateUnchecked-cbx-52");
-	
+	public static final By NONFBOSOLICITATIONS_DELETE_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Delete-isAssociateChecked-cbx-31");
+	public static final By NONFBOSOLICITATIONS_DELETE_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Delete-isAssociateUnchecked-cbx-32");
+
+	public static final By NONFBOSOLICITATIONS_EDITDRAFT_DEFAULT = By
+			.id("NON-FBO-SOLICITATIONS-Edit-Draft-isDefault-cbx-40");
+	public static final By NONFBOSOLICITATIONS_EDITDRAFT_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Edit-Draft-isAssociateChecked-cbx-41");
+	public static final By NONFBOSOLICITATIONS_EDITDRAFT_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Edit-Draft-isAssociateUnchecked-cbx-42");
+
+	public static final By NONFBOSOLICITATIONS_DELETEDRAFT_DEFAULT = By
+			.id("NON-FBO-SOLICITATIONS-Delete-Draft-isDefault-cbx-50");
+	public static final By NONFBOSOLICITATIONS_DELETEDRAFT_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Delete-Draft-isAssociateChecked-cbx-51");
+	public static final By NONFBOSOLICITATIONS_DELETEDRAFT_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Delete-Draft-isAssociateUnchecked-cbx-52");
+
 	public static final By NONFBOSOLICITATIONS_SEARCH_DEFAULT = By.id("NON-FBO-SOLICITATIONS-Search-isDefault-cbx-60");
-	public static final By NONFBOSOLICITATIONS_SEARCH_ASSOCIABLESELECTED = By.id("NON-FBO-SOLICITATIONS-Search-isAssociateChecked-cbx-61");
-	public static final By NONFBOSOLICITATIONS_SEARCH_ASSOCIABLEUNSELECTED = By.id("NON-FBO-SOLICITATIONS-Search-isAssociateUnchecked-cbx-62");
-	//------------------
-	public static final By DOCUMENTPACKAGE_ALL_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_ALL_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_ALL_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_CREATEDRAFTDOCPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_CREATEDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_CREATEDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_EDITDRAFTDOCPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_EDITDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_EDITDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_DELETEDRAFTDOCPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_DELETEDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_DELETEDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_RELEASEDRAFTDOCPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_RELEASEDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_RELEASEDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_ASSIGNDOCPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_ASSIGNDOCPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_ASSIGNDOCPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_DELETEDOCPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_DELETEDOCPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_DELETEDOCPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_SEARCHPUBLISHEDPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_SEARCHPUBLISHEDPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_SEARCHPUBLISHEDPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_SEARCHARCHIVEDPACKAGE_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_SEARCHARCHIVEDPACKAGE_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_SEARCHARCHIVEDPACKAGE_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_DEFAULT = By.id("");
-	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLESELECTED = By.id("");
-	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLEUNSELECTED = By.id("");
-	
+	public static final By NONFBOSOLICITATIONS_SEARCH_ASSOCIABLESELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Search-isAssociateChecked-cbx-61");
+	public static final By NONFBOSOLICITATIONS_SEARCH_ASSOCIABLEUNSELECTED = By
+			.id("NON-FBO-SOLICITATIONS-Search-isAssociateUnchecked-cbx-62");
+	// ------------------
+	public static final By DOCUMENTPACKAGE_ALL_DEFAULT = By.id("DOCUMENT-PACKAGE-isAllDefaultsChecked-all-cbx");
+	public static final By DOCUMENTPACKAGE_ALL_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-isAllAssociateChecked-all-cbx");
+	public static final By DOCUMENTPACKAGE_ALL_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-isAllAssociateUnchecked-all-cbx");
+
+	public static final By DOCUMENTPACKAGE_CREATEDRAFTDOCPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Create-Draft-Doc-Package-isDefault-cbx-00");
+	public static final By DOCUMENTPACKAGE_CREATEDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Create-Draft-Doc-Package-isAssociateChecked-cbx-01");
+	public static final By DOCUMENTPACKAGE_CREATEDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Create-Draft-Doc-Package-isAssociateUnchecked-cbx-02");
+
+	public static final By DOCUMENTPACKAGE_EDITDRAFTDOCPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Edit-Draft-Doc-Package-isDefault-cbx-10");
+	public static final By DOCUMENTPACKAGE_EDITDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Edit-Draft-Doc-Package-isAssociateChecked-cbx-11");
+	public static final By DOCUMENTPACKAGE_EDITDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Edit-Draft-Doc-Package-isAssociateUnchecked-cbx-12");
+
+	public static final By DOCUMENTPACKAGE_DELETEDRAFTDOCPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Delete-Draft-Doc-Package-isDefault-cbx-20");
+	public static final By DOCUMENTPACKAGE_DELETEDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Delete-Draft-Doc-Package-isAssociateChecked-cbx-21");
+	public static final By DOCUMENTPACKAGE_DELETEDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Delete-Draft-Doc-Package-isAssociateUnchecked-cbx-22");
+
+	public static final By DOCUMENTPACKAGE_RELEASEDRAFTDOCPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Release-Draft-Doc-Package-isDefault-cbx-30");
+	public static final By DOCUMENTPACKAGE_RELEASEDRAFTDOCPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Release-Draft-Doc-Package-isAssociateChecked-cbx-31");
+	public static final By DOCUMENTPACKAGE_RELEASEDRAFTDOCPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Release-Draft-Doc-Package-isAssociateUnchecked-cbx-32");
+
+	public static final By DOCUMENTPACKAGE_ASSIGNDOCPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Assign-Doc-Package-isDefault-cbx-40");
+	public static final By DOCUMENTPACKAGE_ASSIGNDOCPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Assign-Doc-Package-isAssociateChecked-cbx-41");
+	public static final By DOCUMENTPACKAGE_ASSIGNDOCPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Assign-Doc-Package-isAssociateUnchecked-cbx-42");
+
+	public static final By DOCUMENTPACKAGE_DELETEDOCPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Delete-Doc-Package-isDefault-cbx-50");
+	public static final By DOCUMENTPACKAGE_DELETEDOCPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Delete-Doc-Package-isAssociateChecked-cbx-51");
+	public static final By DOCUMENTPACKAGE_DELETEDOCPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Delete-Doc-Package-isAssociateUnchecked-cbx-52");
+
+	public static final By DOCUMENTPACKAGE_SEARCHPUBLISHEDPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Search-Published-Package-isDefault-cbx-60");
+	public static final By DOCUMENTPACKAGE_SEARCHPUBLISHEDPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Search-Published-Package-isAssociateChecked-cbx-61");
+	public static final By DOCUMENTPACKAGE_SEARCHPUBLISHEDPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Search-Published-Package-isAssociateUnchecked-cbx-62");
+
+	public static final By DOCUMENTPACKAGE_SEARCHARCHIVEDPACKAGE_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Search-Archived-Package-isDefault-cbx-70");
+	public static final By DOCUMENTPACKAGE_SEARCHARCHIVEDPACKAGE_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Search-Archived-Package-isAssociateChecked-cbx-71");
+	public static final By DOCUMENTPACKAGE_SEARCHARCHIVEDPACKAGE_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Search-Archived-Package-isAssociateUnchecked-cbx-72");
+
+	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_DEFAULT = By
+			.id("DOCUMENT-PACKAGE-Request-to-View-Secure-Opportunity-Packages-isDefault-cbx-80");
+	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLESELECTED = By
+			.id("DOCUMENT-PACKAGE-Request-to-View-Secure-Opportunity-Packages-isAssociateChecked-cbx-81");
+	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLEUNSELECTED = By
+			.id("DOCUMENT-PACKAGE-Request-to-View-Secure-Opportunity-Packages-isAssociateUnchecked-cbx-82");
+	//---------------
+	public static final By ATTACHMENTS_ALL_DEFAULT =By.id("");
+	public static final By ATTACHMENTS_ALL_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_ALL_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_DEFAULT = By.id("");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+
 }
