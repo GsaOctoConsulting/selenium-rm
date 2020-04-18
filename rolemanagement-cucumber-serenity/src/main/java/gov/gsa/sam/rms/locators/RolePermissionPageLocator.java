@@ -583,5 +583,41 @@ public class RolePermissionPageLocator {
 	public static final By INTERESTEDVENDORLIST_VIEWLIST_DEFAULT = By.id("INTERESTED-VENDOR-LIST-View-List-isDefault-cbx-60");
 	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-View-List-isAssociateChecked-cbx-61");
 	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-View-List-isAssociateUnchecked-cbx-62");
+	//----------------------
+	public static final By USERACCOUNTMANAGEMENT_ALL_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-isAllDefaultsChecked-all-cbx");
+	public static final By USERACCOUNTMANAGEMENT_ALL_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-isAllAssociateChecked-all-cbx");
+	public static final By USERACCOUNTMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isDefault-cbx-00");
+	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isAssociateChecked-cbx-01");
+	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isAssociateUnchecked-cbx-02");
+	
+	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isDefault-cbx-10");
+	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isAssociateChecked-cbx-11");
+	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isAssociateUnchecked-cbx-12");
+	
+	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isDefault-cbx-20");
+	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isAssociateChecked-cbx-21");
+	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isAssociateUnchecked-cbx-22");
+	
+	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isDefault-cbx-30");
+	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isAssociateChecked-cbx-31");
+	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isAssociateUnchecked-cbx-32");
+	
+	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isDefault-cbx-40");
+	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isAssociateChecked-cbx-41");
+	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isAssociateUnchecked-cbx-42");
+	
+	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isDefault-cbx-50");
+	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isAssociateChecked-cbx-51");
+	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isAssociateUnchecked-cbx-52");
+	
+	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isDefault-cbx-60");
+	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isAssociateChecked-cbx-61");
+	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isAssociateUnchecked-cbx-62");
+	
+	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isDefault-cbx-70");
+	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateChecked-cbx-71");
+	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateUnchecked-cbx-72");
 
 }
