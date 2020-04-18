@@ -480,38 +480,108 @@ public class RolePermissionPageLocator {
 	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLEUNSELECTED = By
 			.id("DOCUMENT-PACKAGE-Request-to-View-Secure-Opportunity-Packages-isAssociateUnchecked-cbx-82");
 	//---------------
-	public static final By ATTACHMENTS_ALL_DEFAULT =By.id("");
-	public static final By ATTACHMENTS_ALL_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_ALL_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_ASSIGNATTACHMENT_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_DELETEATTACHMENT_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLEUNSELECTED = By.id("");
-	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_DEFAULT = By.id("");
-	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("");
-	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("");
+	public static final By ATTACHMENTS_ALL_DEFAULT =By.id("ATTACHMENTS-isAllDefaultsChecked-all-cbx");
+	public static final By ATTACHMENTS_ALL_ASSOCIABLESELECTED = By.id("ATTACHMENTS-isAllAssociateChecked-all-cbx");
+	public static final By ATTACHMENTS_ALL_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_DEFAULT = By.id("ATTACHMENTS-Search-Published-Attachments-isDefault-cbx-00");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Search-Published-Attachments-isAssociateChecked-cbx-01");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Search-Published-Attachments-isAssociateUnchecked-cbx-02");
+	
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_DEFAULT = By.id("ATTACHMENTS-Search-Archived-Attachments-isDefault-cbx-10");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Search-Archived-Attachments-isAssociateChecked-cbx-11");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Search-Archived-Attachments-isAssociateUnchecked-cbx-12");
+	
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_DEFAULT = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isDefault-cbx-20");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isAssociateChecked-cbx-21");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isAssociateUnchecked-cbx-22");
+	
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Create-Draft-Attachment-isDefault-cbx-30");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Create-Draft-Attachment-isAssociateChecked-cbx-31");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Create-Draft-Attachment-isAssociateUnchecked-cbx-32");
+	
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Delete-Draft-Attachment-isDefault-cbx-40");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Delete-Draft-Attachment-isAssociateChecked-cbx-41");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Delete-Draft-Attachment-isAssociateUnchecked-cbx-42");
+	
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Release-Draft-Attachment-isDefault-cbx-50");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Release-Draft-Attachment-isAssociateChecked-cbx-51");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Release-Draft-Attachment-isAssociateUnchecked-cbx-52");
+	
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Assign-Attachment-isDefault-cbx-60");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Assign-Attachment-isAssociateChecked-cbx-61");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Assign-Attachment-isAssociateUnchecked-cbx-62");
+	
+	public static final By ATTACHMENTS_DELETEATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Delete-Attachment-isDefault-cbx-70");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Delete-Attachment-isAssociateChecked-cbx-71");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Delete-Attachment-isAssociateUnchecked-cbx-72");
+	
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_DEFAULT = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isDefault-cbx-80");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isAssociateChecked-cbx-81");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isAssociateUnchecked-cbx-82");
+	
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Edit-Draft-Attachment-isDefault-cbx-90");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Edit-Draft-Attachment-isAssociateChecked-cbx-91");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Edit-Draft-Attachment-isAssociateUnchecked-cbx-92");
+	//----------------
+	public static final By VENDORACCESSCONTROL_ALL_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-isAllDefaultsChecked-all-cbx");
+	public static final By VENDORACCESSCONTROL_ALL_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-isAllAssociateChecked-all-cbx");
+	public static final By VENDORACCESSCONTROL_ALL_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isDefault-cbx-00");
+	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isAssociateChecked-cbx-01");
+	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isAssociateUnchecked-cbx-02");
+	
+	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isDefault-cbx-10");
+	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isAssociateChecked-cbx-11");
+	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isAssociateUnchecked-cbx-12");
+	
+	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isDefault-cbx-20");
+	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isAssociateChecked-cbx-21");
+	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isAssociateUnchecked-cbx-22");
+	
+	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isDefault-cbx-30");
+	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isAssociateChecked-cbx-31");
+	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isAssociateUnchecked-cbx-32");
+	
+	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isDefault-cbx-40");
+	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isAssociateChecked-cbx-41");
+	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isAssociateUnchecked-cbx-42");
+	
+	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isDefault-cbx-50");
+	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isAssociateChecked-cbx-51");
+	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isAssociateUnchecked-cbx-52");
+	//-----------------------
+	public static final By INTERESTEDVENDORLIST_ALL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-isAllDefaultsChecked-all-cbx");
+	public static final By INTERESTEDVENDORLIST_ALL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-isAllAssociateChecked-all-cbx");
+	public static final By INTERESTEDVENDORLIST_ALL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_DEFAULT = By.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isDefault-cbx-00");
+	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isAssociateChecked-cbx-01");
+	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isAssociateUnchecked-cbx-02");
+	
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isDefault-cbx-10");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isAssociateChecked-cbx-11");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isAssociateUnchecked-cbx-12");
+	
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isDefault-cbx-20");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isAssociateChecked-cbx-21");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isAssociateUnchecked-cbx-22");
+	
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isDefault-cbx-30");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isAssociateChecked-cbx-31");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isAssociateUnchecked-cbx-32");
+	
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isDefault-cbx-40");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isAssociateChecked-cbx-41");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isAssociateUnchecked-cbx-42");
+	
+	public static final By INTERESTEDVENDORLIST_ADDENTITY_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Add-Entity--isDefault-cbx-50");
+	public static final By INTERESTEDVENDORLIST_ADDENTITY_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Add-Entity--isAssociateChecked-cbx-51");
+	public static final By INTERESTEDVENDORLIST_ADDENTITY_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Add-Entity--isAssociateUnchecked-cbx-52");
+	
+	public static final By INTERESTEDVENDORLIST_VIEWLIST_DEFAULT = By.id("INTERESTED-VENDOR-LIST-View-List-isDefault-cbx-60");
+	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-View-List-isAssociateChecked-cbx-61");
+	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-View-List-isAssociateUnchecked-cbx-62");
 
 }
