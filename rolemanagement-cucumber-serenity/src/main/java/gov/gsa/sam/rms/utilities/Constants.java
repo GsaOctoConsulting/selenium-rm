@@ -333,6 +333,7 @@ public class Constants {
 	public static final CharSequence EMAIL_SUPERVISOR = "supervisor";
 	public static final CharSequence EMAIL_PERMISSIONS = "permissions";
 	public static final String GO_INTO_EDITPERMISSIONS = "EDIT PERMISSIONS";
+	public static final String ROLE_ADMIN = "Administrator";
 	
 	
 	
