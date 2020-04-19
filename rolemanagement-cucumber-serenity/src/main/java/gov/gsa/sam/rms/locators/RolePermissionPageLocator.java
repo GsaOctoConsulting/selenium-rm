@@ -619,5 +619,40 @@ public class RolePermissionPageLocator {
 	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isDefault-cbx-70");
 	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateChecked-cbx-71");
 	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateUnchecked-cbx-72");
-
+//---------------------
+	public static final By FALSPUBLISHED_ALL_DEFAULT = By.id("FALs_PUBLISHED-isAllDefaultsChecked-all-cbx");
+	public static final By FALSPUBLISHED_ALL_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-isAllAssociateChecked-all-cbx");
+	public static final By FALSPUBLISHED_ALL_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isDefault-cbx-00");
+	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isAssociateChecked-cbx-01");
+	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isAssociateUnchecked-cbx-02");
+	
+	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve-archive-change-req-isDefault-cbx-10");
+	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve-archive-change-req-isAssociateChecked-cbx-11");
+	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve-archive-change-req-isAssociateUnchecked-cbx-12");
+	
+	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isDefault-cbx-20");
+	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isAssociateChecked-cbx-21");
+	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isAssociateUnchecked-cbx-22");
+	
+	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isDefault-cbx-30");
+	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isAssociateChecked-cbx-31");
+	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isAssociateUnchecked-cbx-32");
+	
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_DEFAULT = By.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isDefault-cbx-40");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isAssociateChecked-cbx-41");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isAssociateUnchecked-cbx-42");
+	
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_DEFAULT = By.id("FALs_PUBLISHED-Number-Change-Request-Approve-isDefault-cbx-50");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Approve-isAssociateChecked-cbx-51");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Approve-isAssociateUnchecked-cbx-52");
+	
+	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isDefault-cbx-60");
+	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isAssociateChecked-cbx-61");
+	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isAssociateUnchecked-cbx-62");
+	
+	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isDefault-cbx-70");
+	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateChecked-cbx-71");
+	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateUnchecked-cbx-72");
 }

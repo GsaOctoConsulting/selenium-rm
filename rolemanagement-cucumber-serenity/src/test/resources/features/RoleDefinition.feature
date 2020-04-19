@@ -63,6 +63,23 @@ Description:  The purpose of this feature is to test role definition capability
    When _3rd user goes through all the permission for viewer role
    Then _3rd all the expected checkbox should be marked for viewer role
 
+
+@4 
+  Scenario: role permissions should be consisent in both dev and test environment for all roles in assistance listing domain
+   Given _4rd user logs in a spaad
+   And _4rd user navigates to role definition page and filters all roles in assistance listing domain
+   When _4rd user goes through all permission for administrator role
+   Then _4rd all the expected checkbox should be marked for administrator role
+   When _4rd user goes through all permssion for assistance user role
+   Then _4rd all the expected checkbox should be marked for assistance user role
+   When _4rd user goes through all permission for omb analyst role
+   Then _4rd all the expeted checkbox should be marked for omb analyst role
+   When _4rd user goes through all permission for aad role
+   Then _4rd all the expected checkbox should be marked for aad role
+   When _4rd user goes through all the permission for sampmo admin role
+   Then _4rd all the expected checkbox should be marked for sampmo admin role
+   When _4rd user goes through all the permission for omb administrator role
+   Then _4rd all the expected checkbox should be marked for omb administrator role
    
    
    

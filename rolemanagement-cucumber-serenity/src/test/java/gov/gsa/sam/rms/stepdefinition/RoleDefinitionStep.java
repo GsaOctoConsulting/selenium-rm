@@ -3687,8 +3687,7 @@ public class RoleDefinitionStep {
 		LaunchBrowserUtil.delay(4);
 		LaunchBrowserUtil.navigateBack();
 		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_CONTRACTOPPORTUNITIES);
-		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_ADMIN,
-				Constants.GO_INTO_EDITPERMISSIONS);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_ADMIN, Constants.GO_INTO_EDITPERMISSIONS);
 		LaunchBrowserUtil.scrollToMiddle();
 	}
 
@@ -5963,8 +5962,7 @@ public class RoleDefinitionStep {
 		LaunchBrowserUtil.delay(4);
 		LaunchBrowserUtil.navigateBack();
 		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_CONTRACTOPPORTUNITIES);
-		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_OPPADMIN,
-				Constants.GO_INTO_EDITPERMISSIONS);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_OPPADMIN, Constants.GO_INTO_EDITPERMISSIONS);
 		LaunchBrowserUtil.scrollToMiddle();
 	}
 
@@ -8239,8 +8237,7 @@ public class RoleDefinitionStep {
 		LaunchBrowserUtil.delay(4);
 		LaunchBrowserUtil.navigateBack();
 		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_CONTRACTOPPORTUNITIES);
-		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_DATA_ENTRY,
-				Constants.GO_INTO_EDITPERMISSIONS);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_DATA_ENTRY, Constants.GO_INTO_EDITPERMISSIONS);
 		LaunchBrowserUtil.scrollToMiddle();
 	}
 
@@ -9377,8 +9374,7 @@ public class RoleDefinitionStep {
 		LaunchBrowserUtil.delay(4);
 		LaunchBrowserUtil.navigateBack();
 		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_CONTRACTOPPORTUNITIES);
-		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_VIEWER,
-				Constants.GO_INTO_EDITPERMISSIONS);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_VIEWER, Constants.GO_INTO_EDITPERMISSIONS);
 		LaunchBrowserUtil.scrollToMiddle();
 	}
 
@@ -10508,6 +10504,203 @@ public class RoleDefinitionStep {
 		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
 				.findElement(RolePermissionPageLocator.REPORTS_SCHEDULEREPORTS_ASSOCIABLEUNSELECTED).isSelected());
 		// ---------------NEW PERMISSION------------------
+	}
+
+	@Given("^_4rd user logs in a spaad$")
+	public void _4rd_user_logs_in_a_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_4rd user navigates to role definition page and filters all roles in assistance listing domain$")
+	public void _4rd_user_navigates_to_role_definition_page_and_filters_all_roles_in_assistance_listing_domain()
+			throws Throwable {
+		T1WorkspacePage.clickRoleDefinitionLink();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ASSISTANCELISTING);
+	}
+
+	@When("^_4rd user goes through all permission for administrator role$")
+	public void _4rd_user_goes_through_all_permission_for_administrator_role() throws Throwable {
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_ASSISTANCE_ADMIN, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
+	}
+
+	@Then("^_4rd all the expected checkbox should be marked for administrator role$")
+	public void _4rd_all_the_expected_checkbox_should_be_marked_for_administrator_role() throws Throwable {
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_ALL_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_ALL_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_ALL_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_INITIATETITLECHANGEREQ_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// -----------------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------NEW PERMISSION------------------
+	}
+
+	@When("^_4rd user goes through all permssion for assistance user role$")
+	public void _4rd_user_goes_through_all_permssion_for_assistance_user_role() throws Throwable {
+
+	}
+
+	@Then("^_4rd all the expected checkbox should be marked for assistance user role$")
+	public void _4rd_all_the_expected_checkbox_should_be_marked_for_assistance_user_role() throws Throwable {
+
+	}
+
+	@When("^_4rd user goes through all permission for omb analyst role$")
+	public void _4rd_user_goes_through_all_permission_for_omb_analyst_role() throws Throwable {
+
+	}
+
+	@Then("^_4rd all the expeted checkbox should be marked for omb analyst role$")
+	public void _4rd_all_the_expeted_checkbox_should_be_marked_for_omb_analyst_role() throws Throwable {
+
+	}
+
+	@When("^_4rd user goes through all permission for aad role$")
+	public void _4rd_user_goes_through_all_permission_for_aad_role() throws Throwable {
+
+	}
+
+	@Then("^_4rd all the expected checkbox should be marked for aad role$")
+	public void _4rd_all_the_expected_checkbox_should_be_marked_for_aad_role() throws Throwable {
+
+	}
+
+	@When("^_4rd user goes through all the permission for sampmo admin role$")
+	public void _4rd_user_goes_through_all_the_permission_for_sampmo_admin_role() throws Throwable {
+
+	}
+
+	@Then("^_4rd all the expected checkbox should be marked for sampmo admin role$")
+	public void _4rd_all_the_expected_checkbox_should_be_marked_for_sampmo_admin_role() throws Throwable {
+
+	}
+
+	@When("^_4rd user goes through all the permission for omb administrator role$")
+	public void _4rd_user_goes_through_all_the_permission_for_omb_administrator_role() throws Throwable {
+
+	}
+
+	@Then("^_4rd all the expected checkbox should be marked for omb administrator role$")
+	public void _4rd_all_the_expected_checkbox_should_be_marked_for_omb_administrator_role() throws Throwable {
+
 	}
 
 	// private methods are below this line
