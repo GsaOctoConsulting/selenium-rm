@@ -835,4 +835,60 @@ public class RolePermissionPageLocator {
 	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_DEFAULT = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isDefault-cbx-110");
 	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateChecked-cbx-111");
 	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateUnchecked-cbx-112");
+	//-----------------
+	public static final By SITEWIDESEARCH_ALL_DEFAULT = By.id("SITEWIDE-SEARCH-isAllDefaultsChecked-all-cbx");
+	public static final By SITEWIDESEARCH_ALL_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-isAllAssociateChecked-all-cbx");
+	public static final By SITEWIDESEARCH_ALL_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isDefault-cbx-00");
+	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isAssociateChecked-cbx-01");
+	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isAssociateUnchecked-cbx-02");
+	
+	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isDefault-cbx-10");
+	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isAssociateChecked-cbx-11");
+	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isAssociateUnchecked-cbx-12");
+	
+	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isDefault-cbx-20");
+	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isAssociateChecked-cbx-21");
+	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isAssociateUnchecked-cbx-22");
+	
+	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isDefault-cbx-30");
+	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isAssociateChecked-cbx-31");
+	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isAssociateUnchecked-cbx-32");
+	
+	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isDefault-cbx-40");
+	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isAssociateChecked-cbx-41");
+	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isAssociateUnchecked-cbx-42");
+	//-----------------
+	public static final By SYSTEMADMINISTRATION_ALL_DEFAULT = By.id("SYSTEM-ADMINISTRATION-isAllDefaultsChecked-all-cbx");
+	public static final By SYSTEMADMINISTRATION_ALL_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-isAllAssociateChecked-all-cbx");
+	public static final By SYSTEMADMINISTRATION_ALL_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isDefault-cbx-00");
+	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isAssociateChecked-cbx-01");
+	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isAssociateUnchecked-cbx-02");
+	
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isDefault-cbx-10");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-11");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-12");
+	
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_DEFAULT = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isDefault-cbx-20");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isAssociateChecked-cbx-21");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isAssociateUnchecked-cbx-22");
+	
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isDefault-cbx-30");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-31");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-32");
+	
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isDefault-cbx-40");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-41");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-42");
+	
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isDefault-cbx-50");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-51");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-52");
+	
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isDefault-cbx-60");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-61");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-62");
 }
