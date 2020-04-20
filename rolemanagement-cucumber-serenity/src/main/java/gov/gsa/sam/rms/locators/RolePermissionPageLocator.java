@@ -771,4 +771,16 @@ public class RolePermissionPageLocator {
 	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_DEFAULT = By.id("AGENCY-ADMINISTRATION-View-agency-change-isDefault-cbx-40");
 	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateChecked-cbx-41");
 	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateUnchecked-cbx-42");
+	//-----------------------
+	public static final By ACCOUNTMANAGEMENT_ALL_DEFAULT = By.id("ACCOUNT-MANAGEMENT-isAllDefaultsChecked-all-cbx");
+	public static final By ACCOUNTMANAGEMENT_ALL_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-isAllAssociateChecked-all-cbx");
+	public static final By ACCOUNTMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_DEFAULT = By.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isDefault-cbx-00");
+	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isAssociateChecked-cbx-01");
+	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isAssociateUnchecked-cbx-02");
+	
+	public static final By ACCOUNTMANAGEMENT_VIEW_DEFAULT = By.id("ACCOUNT-MANAGEMENT-View-isDefault-cbx-10");
+	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-View-isAssociateChecked-cbx-11");
+	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-View-isAssociateUnchecked-cbx-12");
 }
