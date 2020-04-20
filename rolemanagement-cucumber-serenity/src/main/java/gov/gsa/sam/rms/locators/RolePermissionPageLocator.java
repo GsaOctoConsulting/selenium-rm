@@ -891,4 +891,64 @@ public class RolePermissionPageLocator {
 	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isDefault-cbx-60");
 	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-61");
 	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-62");
+	//---------------------------------
+	public static final By SYSTEMACCOUNT_ALL_DEFAULT = By.id("System-Account-isAllDefaultsChecked-all-cbx");
+	public static final By SYSTEMACCOUNT_ALL_ASSOCIABLESELECTED = By.id("System-Account-isAllAssociateChecked-all-cbx");
+	public static final By SYSTEMACCOUNT_ALL_ASSOCIABLEUNSELECTED = By.id("System-Account-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By SYSTEMACCOUNT_VIEW_DEFAULT = By.id("System-Account-View-isDefault-cbx-00");
+	public static final By SYSTEMACCOUNT_VIEW_ASSOCIABLESELECTED = By.id("System-Account-View-isAssociateChecked-cbx-01");
+	public static final By SYSTEMACCOUNT_VIEW_ASSOCIABLEUNSELECTED = By.id("System-Account-View-isAssociateUnchecked-cbx-02");
+	
+	public static final By SYSTEMACCOUNT_CREATE_DEFAULT = By.id("System-Account-Create-isDefault-cbx-10");
+	public static final By SYSTEMACCOUNT_CREATE_ASSOCIABLESELECTED = By.id("System-Account-Create-isAssociateChecked-cbx-11");
+	public static final By SYSTEMACCOUNT_CREATE_ASSOCIABLEUNSELECTED = By.id("System-Account-Create-isAssociateUnchecked-cbx-12");
+	
+	public static final By SYSTEMACCOUNT_EDIT_DEFAULT = By.id("System-Account-Edit-isDefault-cbx-20");
+	public static final By SYSTEMACCOUNT_EDIT_ASSOCIABLESELECTED = By.id("System-Account-Edit-isAssociateChecked-cbx-21");
+	public static final By SYSTEMACCOUNT_EDIT_ASSOCIABLEUNSELECTED = By.id("System-Account-Edit-isAssociateUnchecked-cbx-22");
+	
+	public static final By SYSTEMACCOUNT_APPROVE_DEFAULT = By.id("System-Account-Approve-isDefault-cbx-30");
+	public static final By SYSTEMACCOUNT_APPROVE_ASSOCIABLESELECTED = By.id("System-Account-Approve-isAssociateChecked-cbx-31");
+	public static final By SYSTEMACCOUNT_APPROVE_ASSOCIABLEUNSELECTED = By.id("System-Account-Approve-isAssociateUnchecked-cbx-32");
+	
+	public static final By SYSTEMACCOUNT_REJECT_DEFAULT = By.id("System-Account-Reject-isDefault-cbx-40");
+	public static final By SYSTEMACCOUNT_REJECT_ASSOCIABLESELECTED = By.id("System-Account-Reject-isAssociateChecked-cbx-41");
+	public static final By SYSTEMACCOUNT_REJECT_ASSOCIABLEUNSELECTED = By.id("System-Account-Reject-isAssociateUnchecked-cbx-42");
+	//----------------------------
+	public static final By FSD_ALL_DEFAULT = By.id("FSD-isAllDefaultsChecked-all-cbx");
+	public static final By FSD_ALL_ASSOCIABLESELECTED = By.id("FSD-isAllAssociateChecked-all-cbx");
+	public static final By FSD_ALL_ASSOCIABLEUNSELECTED = By.id("FSD-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By FSD_CREATE_DEFAULT = By.id("FSD-Create-isDefault-cbx-00");
+	public static final By FSD_CREATE_ASSOCIABLESELECTED = By.id("FSD-Create-isAssociateChecked-cbx-01");
+	public static final By FSD_CREATE_ASSOCIABLEUNSELECTED = By.id("FSD-Create-isAssociateUnchecked-cbx-02");
+	
+	public static final By FSD_READ_DEFAULT = By.id("FSD-Read-isDefault-cbx-10");
+	public static final By FSD_READ_ASSOCIABLESELECTED = By.id("FSD-Read-isAssociateChecked-cbx-11");
+	public static final By FSD_READ_ASSOCIABLEUNSELECTED = By.id("FSD-Read-isAssociateUnchecked-cbx-12");
+	
+	public static final By FSD_UPDATE_DEFAULT = By.id("FSD-Update-isDefault-cbx-20");
+	public static final By FSD_UPDATE_ASSOCIABLESELECTED = By.id("FSD-Update-isAssociateChecked-cbx-21");
+	public static final By FSD_UPDATE_ASSOCIABLEUNSELECTED = By.id("FSD-Update-isAssociateUnchecked-cbx-22");
+	//----------------------
+	public static final By IAM_ALL_DEFAULT = By.id("IAM-isAllDefaultsChecked-all-cbx");
+	public static final By IAM_ALL_ASSOCIABLESELECTED = By.id("IAM-isAllAssociateChecked-all-cbx");
+	public static final By IAM_ALL_ASSOCIABLEUNSELECTED = By.id("IAM-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By IAM_CREATE_DEFAULT = By.id("IAM-Create-isDefault-cbx-00");
+	public static final By IAM_CREATE_ASSOCIABLESELECTED = By.id("IAM-Create-isAssociateChecked-cbx-01");
+	public static final By IAM_CREATE_ASSOCIABLEUNSELECTED = By.id("IAM-Create-isAssociateUnchecked-cbx-02");
+	
+	public static final By IAM_DELETE_DEFAULT = By.id("IAM-Delete-isDefault-cbx-10");
+	public static final By IAM_DELETE_ASSOCIABLESELECTED = By.id("IAM-Delete-isAssociateChecked-cbx-11");
+	public static final By IAM_DELETE_ASSOCIABLEUNSELECTED = By.id("IAM-Delete-isAssociateUnchecked-cbx-12");
+	
+	public static final By IAM_READ_DEFAULT = By.id("IAM-Read-isDefault-cbx-20");
+	public static final By IAM_READ_ASSOCIABLESELECTED = By.id("IAM-Read-isAssociateChecked-cbx-21");
+	public static final By IAM_READ_ASSOCIABLEUNSELECTED = By.id("IAM-Read-isAssociateUnchecked-cbx-22");
+	
+	public static final By IAM_UPDATE_DEFAULT = By.id("IAM-Update-isDefault-cbx-30");
+	public static final By IAM_UPDATE_ASSOCIABLESELECTED = By.id("IAM-Update-isAssociateChecked-cbx-31");
+	public static final By IAM_UPDATE_ASSOCIABLEUNSELECTED = By.id("IAM-Update-isAssociateUnchecked-cbx-32");
 }
