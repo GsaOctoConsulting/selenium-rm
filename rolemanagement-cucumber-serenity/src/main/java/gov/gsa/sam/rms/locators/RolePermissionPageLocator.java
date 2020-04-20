@@ -675,4 +675,64 @@ public class RolePermissionPageLocator {
 	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_DEFAULT = By.id("FALs--ARCHIVED-View-search-results_summary-isDefault-cbx-30");
 	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-View-search-results_summary-isAssociateChecked-cbx-31");
 	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-View-search-results_summary-isAssociateUnchecked-cbx-32");
+	//----------------------------
+	public static final By FALSSUBMISSIONS_ALL_DEFAULT = By.id("FALs_SUBMISSIONS-isAllDefaultsChecked-all-cbx");
+	public static final By FALSSUBMISSIONS_ALL_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-isAllAssociateChecked-all-cbx");
+	public static final By FALSSUBMISSIONS_ALL_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By FALSSUBMISSIONS_CREATEFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Create-FALs-isDefault-cbx-00");
+	public static final By FALSSUBMISSIONS_CREATEFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Create-FALs-isAssociateChecked-cbx-01");
+	public static final By FALSSUBMISSIONS_CREATEFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Create-FALs-isAssociateUnchecked-cbx-02");
+	
+	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_DEFAULT = By.id("FALs_SUBMISSIONS-View-non_public-Info-isDefault-cbx-10");
+	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-View-non_public-Info-isAssociateChecked-cbx-11");
+	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-View-non_public-Info-isAssociateUnchecked-cbx-12");
+	
+	public static final By FALSSUBMISSIONS_EDITFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Edit-FALs-isDefault-cbx-20");
+	public static final By FALSSUBMISSIONS_EDITFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Edit-FALs-isAssociateChecked-cbx-21");
+	public static final By FALSSUBMISSIONS_EDITFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Edit-FALs-isAssociateUnchecked-cbx-22");
+	
+	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isDefault-cbx-30");
+	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isAssociateChecked-cbx-31");
+	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isAssociateUnchecked-cbx-32");
+	
+	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Search-Pending-FALs-isDefault-cbx-40");
+	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Search-Pending-FALs-isAssociateChecked-cbx-41");
+	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Search-Pending-FALs-isAssociateUnchecked-cbx-42");
+	
+	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_DEFAULT = By.id("FALs_SUBMISSIONS-Review-programs-isDefault-cbx-50");
+	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Review-programs-isAssociateChecked-cbx-51");
+	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Review-programs-isAssociateUnchecked-cbx-52");
+	
+	public static final By FALSSUBMISSIONS_APPROVEFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Approve-FALs-isDefault-cbx-60");
+	public static final By FALSSUBMISSIONS_APPROVEFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Approve-FALs-isAssociateChecked-cbx-61");
+	public static final By FALSSUBMISSIONS_APPROVEFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Approve-FALs-isAssociateUnchecked-cbx-62");
+	
+	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_DEFAULT = By.id("FALs_SUBMISSIONS-Extend-review-period-isDefault-cbx-70");
+	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Extend-review-period-isAssociateChecked-cbx-71");
+	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Extend-review-period-isAssociateUnchecked-cbx-72");
+	
+	public static final By FALSSUBMISSIONS_APPROVELISTING_DEFAULT = By.id("FALs_SUBMISSIONS-Approve-listing-isDefault-cbx-80");
+	public static final By FALSSUBMISSIONS_APPROVELISTING_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Approve-listing-isAssociateChecked-cbx-81");
+	public static final By FALSSUBMISSIONS_APPROVELISTING_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Approve-listing-isAssociateUnchecked-cbx-82");
+	
+	public static final By FALSSUBMISSIONS_REJECTLISTING_DEFAULT = By.id("FALs_SUBMISSIONS-Reject-listing-isDefault-cbx-90");
+	public static final By FALSSUBMISSIONS_REJECTLISTING_ASSOCIABLESELECTED =By.id("FALs_SUBMISSIONS-Reject-listing-isAssociateChecked-cbx-91");
+	public static final By FALSSUBMISSIONS_REJECTLISTING_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Reject-listing-isAssociateUnchecked-cbx-92");
+	
+	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_DEFAULT = By.id("FALs_SUBMISSIONS-Retract-Programs-isDefault-cbx-100");
+	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Retract-Programs-isAssociateChecked-cbx-101");
+	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Retract-Programs-isAssociateUnchecked-cbx-102");
+	
+	public static final By FALSSUBMISSIONS_REJECTFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Reject-FALs-isDefault-cbx-110");
+	public static final By FALSSUBMISSIONS_REJECTFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Reject-FALs-isAssociateChecked-cbx-111");
+	public static final By FALSSUBMISSIONS_REJECTFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Reject-FALs-isAssociateUnchecked-cbx-112");
+	
+	public static final By FALSSUBMISSIONS_SUBMITLISTING_DEFAULT = By.id("FALs_SUBMISSIONS-Submit-Listing-isDefault-cbx-120");
+	public static final By FALSSUBMISSIONS_SUBMITLISTING_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Submit-Listing-isAssociateChecked-cbx-121");
+	public static final By FALSSUBMISSIONS_SUBMITLISTING_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Submit-Listing-isAssociateUnchecked-cbx-122");
+	
+	public static final By FALSSUBMISSIONS_SUBMITTOOMB_DEFAULT = By.id("FALs_SUBMISSIONS-Submit-to-OMB-isDefault-cbx-130");
+	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLESELECTED =By.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateChecked-cbx-131");
+	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateUnchecked-cbx-132");
 }
