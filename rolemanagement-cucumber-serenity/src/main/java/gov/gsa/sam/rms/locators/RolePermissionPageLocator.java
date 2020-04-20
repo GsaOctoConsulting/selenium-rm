@@ -655,4 +655,24 @@ public class RolePermissionPageLocator {
 	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isDefault-cbx-70");
 	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateChecked-cbx-71");
 	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateUnchecked-cbx-72");
+	//-------------------
+	public static final By FALSARCHIVED_ALL_DEFAULT = By.id("FALs--ARCHIVED-isAllDefaultsChecked-all-cbx");
+	public static final By FALSARCHIVED_ALL_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-isAllAssociateChecked-all-cbx");
+	public static final By FALSARCHIVED_ALL_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_DEFAULT = By.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isDefault-cbx-00");
+	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isAssociateChecked-cbx-01");
+	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isAssociateUnchecked-cbx-02");
+	
+	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_DEFAULT = By.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isDefault-cbx-10");
+	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isAssociateChecked-cbx-11");
+	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isAssociateUnchecked-cbx-12");
+	
+	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_DEFAULT = By.id("FALs--ARCHIVED-View-archive-records-isDefault-cbx-20");
+	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-View-archive-records-isAssociateChecked-cbx-21");
+	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-View-archive-records-isAssociateUnchecked-cbx-22");
+	
+	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_DEFAULT = By.id("FALs--ARCHIVED-View-search-results_summary-isDefault-cbx-30");
+	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-View-search-results_summary-isAssociateChecked-cbx-31");
+	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-View-search-results_summary-isAssociateUnchecked-cbx-32");
 }

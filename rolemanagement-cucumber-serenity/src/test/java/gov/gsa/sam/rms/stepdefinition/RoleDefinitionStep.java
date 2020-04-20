@@ -10651,6 +10651,75 @@ public class RoleDefinitionStep {
 								RolePermissionPageLocator.FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED)
 						.isSelected());
 		// ---------------NEW PERMISSION------------------
+		
+		
+		// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_ALL_DEFAULT).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_ALL_ASSOCIABLESELECTED).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_ALL_ASSOCIABLEUNSELECTED).isSelected());
+				// ---------------------------------
+				Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_VIEWARCHIVERECORDS_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(RolePermissionPageLocator.FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// ---------------------------------
+				Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_DEFAULT).isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver()
+								.findElement(
+										RolePermissionPageLocator.FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLESELECTED)
+								.isSelected());
+
+				Assert.assertEquals(false,
+						LaunchBrowserUtil.getDriver().findElement(
+								RolePermissionPageLocator.FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLEUNSELECTED)
+								.isSelected());
+				// -----------------------------------------
 	}
 
 	@When("^_4rd user goes through all permssion for assistance user role$")
