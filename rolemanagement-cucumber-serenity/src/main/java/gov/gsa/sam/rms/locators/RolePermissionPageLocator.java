@@ -783,4 +783,56 @@ public class RolePermissionPageLocator {
 	public static final By ACCOUNTMANAGEMENT_VIEW_DEFAULT = By.id("ACCOUNT-MANAGEMENT-View-isDefault-cbx-10");
 	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-View-isAssociateChecked-cbx-11");
 	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-View-isAssociateUnchecked-cbx-12");
+	//------------------------------
+	public static final By ENTITYREGISTRATION_ALL_DEFAULT = By.id("ENTITY-REGISTRATION-isAllDefaultsChecked-all-cbx");
+	public static final By ENTITYREGISTRATION_ALL_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-isAllAssociateChecked-all-cbx");
+	public static final By ENTITYREGISTRATION_ALL_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By ENTITYREGISTRATION_REGISTERENTITY_DEFAULT = By.id("ENTITY-REGISTRATION-Register-Entity-isDefault-cbx-00");
+	public static final By ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Register-Entity-isAssociateChecked-cbx-01");
+	public static final By ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Register-Entity-isAssociateUnchecked-cbx-02");
+	
+	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isDefault-cbx-10");
+	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isAssociateChecked-cbx-11");
+	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isAssociateUnchecked-cbx-12");
+	
+	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isDefault-cbx-20");
+	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isAssociateChecked-cbx-21");
+	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isAssociateUnchecked-cbx-22");
+	
+	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isDefault-cbx-30");
+	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isAssociateChecked-cbx-31");
+	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isAssociateUnchecked-cbx-32");
+	
+	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isDefault-cbx-40");
+	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isAssociateChecked-cbx-41");
+	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isAssociateUnchecked-cbx-42");
+	
+	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_DEFAULT = By.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isDefault-cbx-50");
+	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isAssociateChecked-cbx-51");
+	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isAssociateUnchecked-cbx-52");
+	
+	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_DEFAULT = By.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isDefault-cbx-60");
+	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isAssociateChecked-cbx-61");
+	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isAssociateUnchecked-cbx-62");
+	
+	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_DEFAULT = By.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isDefault-cbx-70");
+	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLESELECTED =By.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isAssociateChecked-cbx-71");
+	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isAssociateUnchecked-cbx-72");
+	
+	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isDefault-cbx-80");
+	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-81");
+	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-82");
+	
+	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isDefault-cbx-90");
+	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-91");
+	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-92");
+	
+	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isDefault-cbx-100");
+	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-101");
+	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-102");
+	
+	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_DEFAULT = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isDefault-cbx-110");
+	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateChecked-cbx-111");
+	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateUnchecked-cbx-112");
 }

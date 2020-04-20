@@ -11162,6 +11162,334 @@ public class RoleDefinitionStep {
 
 	}
 
+	@Given("^_5rd user logs in a spaad$")
+	public void _5rd_user_logs_in_a_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_5rd user navigates to role definition page and filters all roles in admin domain$")
+	public void _5rd_user_navigates_to_role_definition_page_and_filters_all_roles_in_admin_domain() throws Throwable {
+		T1WorkspacePage.clickRoleDefinitionLink();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ADMIN);
+	}
+
+	@When("^_5rd user goes through all permission for iaepmo administrator role$")
+	public void _5rd_user_goes_through_all_permission_for_iaepmo_administrator_role() throws Throwable {
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_IAM_PMO_ADMIN, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked iaepmo administrator role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_iaepmo_administrator_role() throws Throwable {
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_ALL_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_ALL_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_ALL_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_REGISTERENTITY_DEFAULT).isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_DEFAULT)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// -----------------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLEUNSELECTED)
+						.isSelected());
+
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED)
+				.isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver().findElement(
+				RolePermissionPageLocator.ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED)
+				.isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_DEFAULT)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver()
+						.findElement(
+								RolePermissionPageLocator.ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLESELECTED)
+						.isSelected());
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(
+						RolePermissionPageLocator.ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLEUNSELECTED)
+						.isSelected());
+		// -----------------NEW PERMISSION------------------------
+
+	}
+
+	@When("^_5rd user goes through all permssion for system account administrator role$")
+	public void _5rd_user_goes_through_all_permssion_for_system_account_administrator_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for system account administrator role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_system_account_administrator_role()
+			throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all permission for fsd administrator role$")
+	public void _5rd_user_goes_through_all_permission_for_fsd_administrator_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expeted checkbox should be marked for fsd administrator role$")
+	public void _5rd_all_the_expeted_checkbox_should_be_marked_for_fsd_administrator_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all permission for iam administrator role$")
+	public void _5rd_user_goes_through_all_permission_for_iam_administrator_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for iam administrator role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_iam_administrator_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for system manager role$")
+	public void _5rd_user_goes_through_all_the_permission_for_system_manager_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for system manager role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_system_manager_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for fsd agent role$")
+	public void _5rd_user_goes_through_all_the_permission_for_fsd_agent_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for fsd agent role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_fsd_agent_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for gsa security approver role$")
+	public void _5rd_user_goes_through_all_the_permission_for_gsa_security_approver_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for gsa security approver role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_gsa_security_approver_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for sampmo administrator all domains role$")
+	public void _5rd_user_goes_through_all_the_permission_for_sampmo_administrator_all_domains_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for sampmo administrator all domains role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_sampmo_administrator_all_domains_role()
+			throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for content manager role$")
+	public void _5rd_user_goes_through_all_the_permission_for_content_manager_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for content manager role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_content_manager_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for tier2 functional helpdesk role$")
+	public void _5rd_user_goes_through_all_the_permission_for_tier2_functional_helpdesk_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for tier2 functional helpdesk role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_tier2_functional_helpdesk_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for aad role$")
+	public void _5rd_user_goes_through_all_the_permission_for_aad_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for aad role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_aad_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for tier2 technical helpdesk role$")
+	public void _5rd_user_goes_through_all_the_permission_for_tier2_technical_helpdesk_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for tier2 technical helpdesk role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_tier2_technical_helpdesk_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for tier1 helpdesk role$")
+	public void _5rd_user_goes_through_all_the_permission_for_tier1_helpdesk_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for tier1 helpdesk role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_tier1_helpdesk_role() throws Throwable {
+
+	}
+
+	@When("^_5rd user goes through all the permission for gsa data approver role$")
+	public void _5rd_user_goes_through_all_the_permission_for_gsa_data_approver_role() throws Throwable {
+
+	}
+
+	@Then("^_5rd all the expected checkbox should be marked for gsa data approver role$")
+	public void _5rd_all_the_expected_checkbox_should_be_marked_for_gsa_data_approver_role() throws Throwable {
+
+	}
+
 	// private methods are below this line
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");

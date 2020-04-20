@@ -83,3 +83,45 @@ Description:  The purpose of this feature is to test role definition capability
    
    
    
+   
+   
+ @5
+  Scenario: role permissions should be consisent in both dev and test environment for all roles in admin domain
+   Given _5rd user logs in a spaad
+   And _5rd user navigates to role definition page and filters all roles in admin domain
+   When _5rd user goes through all permission for iaepmo administrator role
+   Then _5rd all the expected checkbox should be marked iaepmo administrator role
+   When _5rd user goes through all permssion for system account administrator role
+   Then _5rd all the expected checkbox should be marked for system account administrator role
+   When _5rd user goes through all permission for fsd administrator role
+   Then _5rd all the expeted checkbox should be marked for fsd administrator role
+   When _5rd user goes through all permission for iam administrator role
+   Then _5rd all the expected checkbox should be marked for iam administrator role
+   When _5rd user goes through all the permission for system manager role
+   Then _5rd all the expected checkbox should be marked for system manager role
+   When _5rd user goes through all the permission for fsd agent role
+   Then _5rd all the expected checkbox should be marked for fsd agent role
+    When _5rd user goes through all the permission for gsa security approver role
+   Then _5rd all the expected checkbox should be marked for gsa security approver role
+    When _5rd user goes through all the permission for sampmo administrator all domains role
+   Then _5rd all the expected checkbox should be marked for sampmo administrator all domains role
+    When _5rd user goes through all the permission for content manager role
+   Then _5rd all the expected checkbox should be marked for content manager role
+    When _5rd user goes through all the permission for tier2 functional helpdesk role
+   Then _5rd all the expected checkbox should be marked for tier2 functional helpdesk role
+   When _5rd user goes through all the permission for aad role
+   Then _5rd all the expected checkbox should be marked for aad role
+   When _5rd user goes through all the permission for tier2 technical helpdesk role
+   Then _5rd all the expected checkbox should be marked for tier2 technical helpdesk role
+   When _5rd user goes through all the permission for tier1 helpdesk role
+   Then _5rd all the expected checkbox should be marked for tier1 helpdesk role
+    When _5rd user goes through all the permission for gsa data approver role
+   Then _5rd all the expected checkbox should be marked for gsa data approver role
+   
+   
+   
+   
+   
+   
+   
+   
