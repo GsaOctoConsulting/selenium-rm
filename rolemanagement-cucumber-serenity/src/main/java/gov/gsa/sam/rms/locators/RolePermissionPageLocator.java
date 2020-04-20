@@ -735,4 +735,40 @@ public class RolePermissionPageLocator {
 	public static final By FALSSUBMISSIONS_SUBMITTOOMB_DEFAULT = By.id("FALs_SUBMISSIONS-Submit-to-OMB-isDefault-cbx-130");
 	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLESELECTED =By.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateChecked-cbx-131");
 	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateUnchecked-cbx-132");
+	//--------------------
+	public static final By HISTORICALINDEX_ALL_DEFAULT = By.id("HISTORICAL-INDEX-isAllDefaultsChecked-all-cbx");
+	public static final By HISTORICALINDEX_ALL_ASSOCIABLESELECTED = By.id("HISTORICAL-INDEX-isAllAssociateChecked-all-cbx");
+	public static final By HISTORICALINDEX_ALL_ASSOCIABLEUNSELECTED = By.id("HISTORICAL-INDEX-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_DEFAULT = By.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isDefault-cbx-00");
+	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_ASSOCIABLESELECTED = By.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isAssociateChecked-cbx-01");
+	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_ASSOCIABLEUNSELECTED = By.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isAssociateUnchecked-cbx-02");
+	
+	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_DEFAULT = By.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isDefault-cbx-10");
+	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_ASSOCIABLESELECTED = By.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isAssociateChecked-cbx-11");
+	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_ASSOCIABLEUNSELECTED = By.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isAssociateUnchecked-cbx-12");
+	//--------------------
+	public static final By AGENCYADMINISTRATION_ALL_DEFAULT = By.id("AGENCY-ADMINISTRATION-isAllDefaultsChecked-all-cbx");
+	public static final By AGENCYADMINISTRATION_ALL_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-isAllAssociateChecked-all-cbx");
+	public static final By AGENCYADMINISTRATION_ALL_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_DEFAULT = By.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isDefault-cbx-00");
+	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isAssociateChecked-cbx-01");
+	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isAssociateUnchecked-cbx-02");
+	
+	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_DEFAULT = By.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isDefault-cbx-10");
+	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isAssociateChecked-cbx-11");
+	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isAssociateUnchecked-cbx-12");
+	
+	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_DEFAULT = By.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isDefault-cbx-20");
+	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isAssociateChecked-cbx-21");
+	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isAssociateUnchecked-cbx-22");
+	
+	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_DEFAULT = By.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isDefault-cbx-30");
+	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isAssociateChecked-cbx-31");
+	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isAssociateUnchecked-cbx-32");
+	
+	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_DEFAULT = By.id("AGENCY-ADMINISTRATION-View-agency-change-isDefault-cbx-40");
+	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateChecked-cbx-41");
+	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateUnchecked-cbx-42");
 }
