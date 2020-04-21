@@ -339,6 +339,10 @@ public class Constants {
 	public static final String ROLE_FSD_ADMINISTRATOR = "FSD Administrator";
 	public static final String ROLE_IAM_ADMINISTRATOR = "IAM Administrator";
 	public static final String ROLE_CONTENTMANAGER = "Content Manager";
+	public static final String ROLE_TIER2FUNCTIONALHELPDEST = "Tier 2 Functional Help Desk";
+	public static final String ROLE_TIER2TECHNICALHELPDESK = "Tier 2 Technical Help Desk";
+	public static final String ROLE_TIER1HELPDESK = "Tier 1 Help Desk";
+	public static final String ROLE_GSADATAAPPROVER = "GSA Data Approver";
 	
 	
 	
