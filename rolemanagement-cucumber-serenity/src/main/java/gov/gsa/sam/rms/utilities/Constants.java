@@ -343,6 +343,8 @@ public class Constants {
 	public static final String ROLE_TIER2TECHNICALHELPDESK = "Tier 2 Technical Help Desk";
 	public static final String ROLE_TIER1HELPDESK = "Tier 1 Help Desk";
 	public static final String ROLE_GSADATAAPPROVER = "GSA Data Approver";
+	public static final String ROLE_ADMINSTRATORALLDOMAINS = "Administrator All Domains";
+	public static final String ROLE_SAMPMOADMINISTRATOR = "SAM PMO Administrator";
 	
 	
 	
