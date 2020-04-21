@@ -337,6 +337,7 @@ public class Constants {
 	public static final String ROLE_OPPADMIN = "Opportunities Administrator";
 	public static final String ROLE_IAM_PMO_ADMIN = "IAE PMO Administrator";
 	public static final String ROLE_FSD_ADMINISTRATOR = "FSD Administrator";
+	public static final String ROLE_IAM_ADMINISTRATOR = "IAM Administrator";
 	
 	
 	

@@ -240,7 +240,7 @@ public class LaunchBrowserUtil {
 	public static void navigateBack() {
 		delay(1);
 		driver.navigate().back();
-		delay(1);
+		delay(3);
 	}
 
 	/**
