@@ -976,4 +976,43 @@ public class RolePermissionPageLocator {
 	public static final By RMS_ALL_ASSOCIABLESELECTED = By.id("RMS-isAllAssociateChecked-all-cbx");
 	public static final By RMS_ALL_ASSOCIABLEUNSELECTED = By.id("RMS-isAllAssociateUnchecked-all-cbx");
 	//----------------------------
+	public static final By SERVICECONTRACTREPORT_ALL_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-isAllDefaultsChecked-all-cbx");
+	public static final By SERVICECONTRACTREPORT_ALL_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-isAllAssociateChecked-all-cbx");
+	public static final By SERVICECONTRACTREPORT_ALL_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isDefault-cbx-00");
+	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isAssociateChecked-cbx-01");
+	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isAssociateUnchecked-cbx-02");
+	
+	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isDefault-cbx-10");
+	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isAssociateChecked-cbx-11");
+	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isAssociateUnchecked-cbx-12");
+	
+	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isDefault-cbx-20");
+	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isAssociateChecked-cbx-21");
+	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isAssociateUnchecked-cbx-22");
+	
+	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isDefault-cbx-30");
+	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isAssociateChecked-cbx-31");
+	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isAssociateUnchecked-cbx-32");
+	
+	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isDefault-cbx-40");
+	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isAssociateChecked-cbx-41");
+	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isAssociateUnchecked-cbx-42");
+	
+	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isDefault-cbx-50");
+	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isAssociateChecked-cbx-51");
+	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isAssociateUnchecked-cbx-52");
+//---------------------------------
+	public static final By ALERTS_ALL_DEFAULT = By.id("ALERTS-isAllDefaultsChecked-all-cbx");
+	public static final By ALERTS_ALL_ASSOCIABLESELECTED = By.id("ALERTS-isAllAssociateChecked-all-cbx");
+	public static final By ALERTS_ALL_ASSOCIABLEUNSELECTED = By.id("ALERTS-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By ALERTS_CREATE_DEFAULT = By.id("ALERTS-Create-isDefault-cbx-00");
+	public static final By ALERTS_CREATE_ASSOCIABLESELECTED = By.id("ALERTS-Create-isAssociateChecked-cbx-01");
+	public static final By ALERTS_CREATE_ASSOCIABLEUNSELECTED = By.id("ALERTS-Create-isAssociateUnchecked-cbx-02");
+	
+	public static final By ALERTS_UPDATE_DEFAULT = By.id("ALERTS-Update-isDefault-cbx-10");
+	public static final By ALERTS_UPDATE_ASSOCIABLESELECTED = By.id("ALERTS-Update-isAssociateChecked-cbx-11");
+	public static final By ALERTS_UPDATE_ASSOCIABLEUNSELECTED = By.id("ALERTS-Update-isAssociateUnchecked-cbx-12");
 }
