@@ -479,540 +479,944 @@ public class RolePermissionPageLocator {
 			.id("DOCUMENT-PACKAGE-Request-to-View-Secure-Opportunity-Packages-isAssociateChecked-cbx-81");
 	public static final By DOCUMENTPACKAGE_REQUESTTOVIEWSECUREOPPORTUNITYPACKAGES_ASSOCIABLEUNSELECTED = By
 			.id("DOCUMENT-PACKAGE-Request-to-View-Secure-Opportunity-Packages-isAssociateUnchecked-cbx-82");
-	//---------------
-	public static final By ATTACHMENTS_ALL_DEFAULT =By.id("ATTACHMENTS-isAllDefaultsChecked-all-cbx");
+	// ---------------
+	public static final By ATTACHMENTS_ALL_DEFAULT = By.id("ATTACHMENTS-isAllDefaultsChecked-all-cbx");
 	public static final By ATTACHMENTS_ALL_ASSOCIABLESELECTED = By.id("ATTACHMENTS-isAllAssociateChecked-all-cbx");
 	public static final By ATTACHMENTS_ALL_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_DEFAULT = By.id("ATTACHMENTS-Search-Published-Attachments-isDefault-cbx-00");
-	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Search-Published-Attachments-isAssociateChecked-cbx-01");
-	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Search-Published-Attachments-isAssociateUnchecked-cbx-02");
-	
-	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_DEFAULT = By.id("ATTACHMENTS-Search-Archived-Attachments-isDefault-cbx-10");
-	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Search-Archived-Attachments-isAssociateChecked-cbx-11");
-	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Search-Archived-Attachments-isAssociateUnchecked-cbx-12");
-	
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_DEFAULT = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isDefault-cbx-20");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isAssociateChecked-cbx-21");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isAssociateUnchecked-cbx-22");
-	
-	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Create-Draft-Attachment-isDefault-cbx-30");
-	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Create-Draft-Attachment-isAssociateChecked-cbx-31");
-	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Create-Draft-Attachment-isAssociateUnchecked-cbx-32");
-	
-	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Delete-Draft-Attachment-isDefault-cbx-40");
-	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Delete-Draft-Attachment-isAssociateChecked-cbx-41");
-	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Delete-Draft-Attachment-isAssociateUnchecked-cbx-42");
-	
-	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Release-Draft-Attachment-isDefault-cbx-50");
-	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Release-Draft-Attachment-isAssociateChecked-cbx-51");
-	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Release-Draft-Attachment-isAssociateUnchecked-cbx-52");
-	
-	public static final By ATTACHMENTS_ASSIGNATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Assign-Attachment-isDefault-cbx-60");
-	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Assign-Attachment-isAssociateChecked-cbx-61");
-	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Assign-Attachment-isAssociateUnchecked-cbx-62");
-	
-	public static final By ATTACHMENTS_DELETEATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Delete-Attachment-isDefault-cbx-70");
-	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Delete-Attachment-isAssociateChecked-cbx-71");
-	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Delete-Attachment-isAssociateUnchecked-cbx-72");
-	
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_DEFAULT = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isDefault-cbx-80");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isAssociateChecked-cbx-81");
-	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isAssociateUnchecked-cbx-82");
-	
-	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_DEFAULT = By.id("ATTACHMENTS-Edit-Draft-Attachment-isDefault-cbx-90");
-	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLESELECTED = By.id("ATTACHMENTS-Edit-Draft-Attachment-isAssociateChecked-cbx-91");
-	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By.id("ATTACHMENTS-Edit-Draft-Attachment-isAssociateUnchecked-cbx-92");
-	//----------------
-	public static final By VENDORACCESSCONTROL_ALL_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-isAllDefaultsChecked-all-cbx");
-	public static final By VENDORACCESSCONTROL_ALL_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-isAllAssociateChecked-all-cbx");
-	public static final By VENDORACCESSCONTROL_ALL_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isDefault-cbx-00");
-	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isAssociateChecked-cbx-01");
-	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isAssociateUnchecked-cbx-02");
-	
-	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isDefault-cbx-10");
-	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isAssociateChecked-cbx-11");
-	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isAssociateUnchecked-cbx-12");
-	
-	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isDefault-cbx-20");
-	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isAssociateChecked-cbx-21");
-	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isAssociateUnchecked-cbx-22");
-	
-	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isDefault-cbx-30");
-	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isAssociateChecked-cbx-31");
-	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isAssociateUnchecked-cbx-32");
-	
-	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isDefault-cbx-40");
-	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isAssociateChecked-cbx-41");
-	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isAssociateUnchecked-cbx-42");
-	
-	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_DEFAULT = By.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isDefault-cbx-50");
-	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_ASSOCIABLESELECTED = By.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isAssociateChecked-cbx-51");
-	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_ASSOCIABLEUNSELECTED = By.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isAssociateUnchecked-cbx-52");
-	//-----------------------
-	public static final By INTERESTEDVENDORLIST_ALL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-isAllDefaultsChecked-all-cbx");
-	public static final By INTERESTEDVENDORLIST_ALL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-isAllAssociateChecked-all-cbx");
-	public static final By INTERESTEDVENDORLIST_ALL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_DEFAULT = By.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isDefault-cbx-00");
-	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isAssociateChecked-cbx-01");
-	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isAssociateUnchecked-cbx-02");
-	
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isDefault-cbx-10");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isAssociateChecked-cbx-11");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isAssociateUnchecked-cbx-12");
-	
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isDefault-cbx-20");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isAssociateChecked-cbx-21");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isAssociateUnchecked-cbx-22");
-	
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isDefault-cbx-30");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isAssociateChecked-cbx-31");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isAssociateUnchecked-cbx-32");
-	
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isDefault-cbx-40");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isAssociateChecked-cbx-41");
-	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isAssociateUnchecked-cbx-42");
-	
-	public static final By INTERESTEDVENDORLIST_ADDENTITY_DEFAULT = By.id("INTERESTED-VENDOR-LIST-Add-Entity--isDefault-cbx-50");
-	public static final By INTERESTEDVENDORLIST_ADDENTITY_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-Add-Entity--isAssociateChecked-cbx-51");
-	public static final By INTERESTEDVENDORLIST_ADDENTITY_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-Add-Entity--isAssociateUnchecked-cbx-52");
-	
-	public static final By INTERESTEDVENDORLIST_VIEWLIST_DEFAULT = By.id("INTERESTED-VENDOR-LIST-View-List-isDefault-cbx-60");
-	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLESELECTED = By.id("INTERESTED-VENDOR-LIST-View-List-isAssociateChecked-cbx-61");
-	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLEUNSELECTED = By.id("INTERESTED-VENDOR-LIST-View-List-isAssociateUnchecked-cbx-62");
-	//----------------------
-	public static final By USERACCOUNTMANAGEMENT_ALL_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-isAllDefaultsChecked-all-cbx");
-	public static final By USERACCOUNTMANAGEMENT_ALL_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-isAllAssociateChecked-all-cbx");
-	public static final By USERACCOUNTMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isDefault-cbx-00");
-	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isAssociateChecked-cbx-01");
-	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isAssociateUnchecked-cbx-02");
-	
-	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isDefault-cbx-10");
-	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isAssociateChecked-cbx-11");
-	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isAssociateUnchecked-cbx-12");
-	
-	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isDefault-cbx-20");
-	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isAssociateChecked-cbx-21");
-	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isAssociateUnchecked-cbx-22");
-	
-	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isDefault-cbx-30");
-	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isAssociateChecked-cbx-31");
-	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isAssociateUnchecked-cbx-32");
-	
-	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isDefault-cbx-40");
-	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isAssociateChecked-cbx-41");
-	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isAssociateUnchecked-cbx-42");
-	
-	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isDefault-cbx-50");
-	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isAssociateChecked-cbx-51");
-	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isAssociateUnchecked-cbx-52");
-	
-	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isDefault-cbx-60");
-	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isAssociateChecked-cbx-61");
-	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isAssociateUnchecked-cbx-62");
-	
-	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_DEFAULT = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isDefault-cbx-70");
-	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLESELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateChecked-cbx-71");
-	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLEUNSELECTED = By.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateUnchecked-cbx-72");
+
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_DEFAULT = By
+			.id("ATTACHMENTS-Search-Published-Attachments-isDefault-cbx-00");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Search-Published-Attachments-isAssociateChecked-cbx-01");
+	public static final By ATTACHMENTS_SEARCHPUBLISHEDATTACHMENTS_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Search-Published-Attachments-isAssociateUnchecked-cbx-02");
+
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_DEFAULT = By
+			.id("ATTACHMENTS-Search-Archived-Attachments-isDefault-cbx-10");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Search-Archived-Attachments-isAssociateChecked-cbx-11");
+	public static final By ATTACHMENTS_SEARCHARCHIVEDATTACHMENTS_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Search-Archived-Attachments-isAssociateUnchecked-cbx-12");
+
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_DEFAULT = By
+			.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isDefault-cbx-20");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isAssociateChecked-cbx-21");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTSTHROUGHAUTHORIZEDPARTIESLIST_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Request-to-view-Attachments-through-Authorized-Parties-List--isAssociateUnchecked-cbx-22");
+
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_DEFAULT = By
+			.id("ATTACHMENTS-Create-Draft-Attachment-isDefault-cbx-30");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Create-Draft-Attachment-isAssociateChecked-cbx-31");
+	public static final By ATTACHMENTS_CREATEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Create-Draft-Attachment-isAssociateUnchecked-cbx-32");
+
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_DEFAULT = By
+			.id("ATTACHMENTS-Delete-Draft-Attachment-isDefault-cbx-40");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Delete-Draft-Attachment-isAssociateChecked-cbx-41");
+	public static final By ATTACHMENTS_DELETEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Delete-Draft-Attachment-isAssociateUnchecked-cbx-42");
+
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_DEFAULT = By
+			.id("ATTACHMENTS-Release-Draft-Attachment-isDefault-cbx-50");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Release-Draft-Attachment-isAssociateChecked-cbx-51");
+	public static final By ATTACHMENTS_RELEASEDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Release-Draft-Attachment-isAssociateUnchecked-cbx-52");
+
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_DEFAULT = By
+			.id("ATTACHMENTS-Assign-Attachment-isDefault-cbx-60");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Assign-Attachment-isAssociateChecked-cbx-61");
+	public static final By ATTACHMENTS_ASSIGNATTACHMENT_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Assign-Attachment-isAssociateUnchecked-cbx-62");
+
+	public static final By ATTACHMENTS_DELETEATTACHMENT_DEFAULT = By
+			.id("ATTACHMENTS-Delete-Attachment-isDefault-cbx-70");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Delete-Attachment-isAssociateChecked-cbx-71");
+	public static final By ATTACHMENTS_DELETEATTACHMENT_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Delete-Attachment-isAssociateUnchecked-cbx-72");
+
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_DEFAULT = By
+			.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isDefault-cbx-80");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isAssociateChecked-cbx-81");
+	public static final By ATTACHMENTS_REQUESTTOVIEWATTACHMENTTHROUGHJOINTCERTIFICATIONCONTROLLED_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Request-to-view-Attachments-through-Joint-Certification-Controlled--isAssociateUnchecked-cbx-82");
+
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_DEFAULT = By
+			.id("ATTACHMENTS-Edit-Draft-Attachment-isDefault-cbx-90");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLESELECTED = By
+			.id("ATTACHMENTS-Edit-Draft-Attachment-isAssociateChecked-cbx-91");
+	public static final By ATTACHMENTS_EDITDRAFTATTACHMENT_ASSOCIABLEUNSELECTED = By
+			.id("ATTACHMENTS-Edit-Draft-Attachment-isAssociateUnchecked-cbx-92");
+	// ----------------
+	public static final By VENDORACCESSCONTROL_ALL_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-isAllDefaultsChecked-all-cbx");
+	public static final By VENDORACCESSCONTROL_ALL_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-isAllAssociateChecked-all-cbx");
+	public static final By VENDORACCESSCONTROL_ALL_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-isAllAssociateUnchecked-all-cbx");
+
+	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isDefault-cbx-00");
+	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isAssociateChecked-cbx-01");
+	public static final By VENDORACCESSCONTROL_SEARCHPENDINGREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Pending-Requests-isAssociateUnchecked-cbx-02");
+
+	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isDefault-cbx-10");
+	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isAssociateChecked-cbx-11");
+	public static final By VENDORACCESSCONTROL_SEARCHREJECTEDREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Rejected-Requests-isAssociateUnchecked-cbx-12");
+
+	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isDefault-cbx-20");
+	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isAssociateChecked-cbx-21");
+	public static final By VENDORACCESSCONTROL_SEARCHAPPROVEREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Search-Approved-Requests-isAssociateUnchecked-cbx-22");
+
+	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isDefault-cbx-30");
+	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isAssociateChecked-cbx-31");
+	public static final By VENDORACCESSCONTROL_APPROVEORREJECTEPENDINGREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Approve/Reject-Pending-Requests-isAssociateUnchecked-cbx-32");
+
+	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isDefault-cbx-40");
+	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isAssociateChecked-cbx-41");
+	public static final By VENDORACCESSCONTROL_ADDAUTHORIZEDPARTY_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Add-Authorized-Party-isAssociateUnchecked-cbx-42");
+
+	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_DEFAULT = By
+			.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isDefault-cbx-50");
+	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_ASSOCIABLESELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isAssociateChecked-cbx-51");
+	public static final By VENDORACCESSCONTROL_EDITREJECTEDREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("VENDOR-ACCESS-CONTROL-Edit-rejected-requests-isAssociateUnchecked-cbx-52");
+	// -----------------------
+	public static final By INTERESTEDVENDORLIST_ALL_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-isAllDefaultsChecked-all-cbx");
+	public static final By INTERESTEDVENDORLIST_ALL_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-isAllAssociateChecked-all-cbx");
+	public static final By INTERESTEDVENDORLIST_ALL_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-isAllAssociateUnchecked-all-cbx");
+
+	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isDefault-cbx-00");
+	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isAssociateChecked-cbx-01");
+	public static final By INTERESTEDVENDORLIST_VIEWINTERESTEDVENDORS_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-View-Interested-Vendors-isAssociateUnchecked-cbx-02");
+
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isDefault-cbx-10");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isAssociateChecked-cbx-11");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLNL_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/disable-IVL_NL-isAssociateUnchecked-cbx-12");
+
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isDefault-cbx-20");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isAssociateChecked-cbx-21");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLNL_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_NL-isAssociateUnchecked-cbx-22");
+
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isDefault-cbx-30");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isAssociateChecked-cbx-31");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEIVLOL_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-IVL_OL-isAssociateUnchecked-cbx-32");
+
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isDefault-cbx-40");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isAssociateChecked-cbx-41");
+	public static final By INTERESTEDVENDORLIST_ENABLEDISABLEVVIVLOL_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Enable/Disable-VV_IVL_OL-isAssociateUnchecked-cbx-42");
+
+	public static final By INTERESTEDVENDORLIST_ADDENTITY_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-Add-Entity--isDefault-cbx-50");
+	public static final By INTERESTEDVENDORLIST_ADDENTITY_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Add-Entity--isAssociateChecked-cbx-51");
+	public static final By INTERESTEDVENDORLIST_ADDENTITY_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-Add-Entity--isAssociateUnchecked-cbx-52");
+
+	public static final By INTERESTEDVENDORLIST_VIEWLIST_DEFAULT = By
+			.id("INTERESTED-VENDOR-LIST-View-List-isDefault-cbx-60");
+	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLESELECTED = By
+			.id("INTERESTED-VENDOR-LIST-View-List-isAssociateChecked-cbx-61");
+	public static final By INTERESTEDVENDORLIST_VIEWLIST_ASSOCIABLEUNSELECTED = By
+			.id("INTERESTED-VENDOR-LIST-View-List-isAssociateUnchecked-cbx-62");
+	// ----------------------
+	public static final By USERACCOUNTMANAGEMENT_ALL_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-isAllDefaultsChecked-all-cbx");
+	public static final By USERACCOUNTMANAGEMENT_ALL_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-isAllAssociateChecked-all-cbx");
+	public static final By USERACCOUNTMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
+
+	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isDefault-cbx-00");
+	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isAssociateChecked-cbx-01");
+	public static final By USERACCOUNTMANAGEMENT_VIEWELECTRONICACCOUNTS_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-View-electronic-accounts-isAssociateUnchecked-cbx-02");
+
+	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isDefault-cbx-10");
+	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isAssociateChecked-cbx-11");
+	public static final By USERACCOUNTMANAGEMENT_APPROVEANACCOUNT_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Approve-an-account-isAssociateUnchecked-cbx-12");
+
+	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isDefault-cbx-20");
+	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isAssociateChecked-cbx-21");
+	public static final By USERACCOUNTMANAGEMENT_DISABLEACCOUNT_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Disable-account-isAssociateUnchecked-cbx-22");
+
+	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isDefault-cbx-30");
+	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isAssociateChecked-cbx-31");
+	public static final By USERACCOUNTMANAGEMENT_DELETEANCCOUNT_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Delete-an-account-isAssociateUnchecked-cbx-32");
+
+	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isDefault-cbx-40");
+	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isAssociateChecked-cbx-41");
+	public static final By USERACCOUNTMANAGEMENT_EDITACCOUNTTAB_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Edit-Account-tab-isAssociateUnchecked-cbx-42");
+
+	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isDefault-cbx-50");
+	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isAssociateChecked-cbx-51");
+	public static final By USERACCOUNTMANAGEMENT_VIEWUSERROLES_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-View-User-Roles-isAssociateUnchecked-cbx-52");
+
+	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isDefault-cbx-60");
+	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isAssociateChecked-cbx-61");
+	public static final By USERACCOUNTMANAGEMENT_EDITUSERROLES_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Edit-User-Roles-isAssociateUnchecked-cbx-62");
+
+	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_DEFAULT = By
+			.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isDefault-cbx-70");
+	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLESELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateChecked-cbx-71");
+	public static final By USERACCOUNTMANAGEMENT_EMAILUSERS_ASSOCIABLEUNSELECTED = By
+			.id("USER-ACCOUNT-MANAGEMENT-Email-Users-isAssociateUnchecked-cbx-72");
 //---------------------
 	public static final By FALSPUBLISHED_ALL_DEFAULT = By.id("FALs_PUBLISHED-isAllDefaultsChecked-all-cbx");
 	public static final By FALSPUBLISHED_ALL_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-isAllAssociateChecked-all-cbx");
-	public static final By FALSPUBLISHED_ALL_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isDefault-cbx-00");
-	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isAssociateChecked-cbx-01");
-	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isAssociateUnchecked-cbx-02");
-	
-	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve-archive-change-req-isDefault-cbx-10");
-	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve-archive-change-req-isAssociateChecked-cbx-11");
-	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve-archive-change-req-isAssociateUnchecked-cbx-12");
-	
-	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isDefault-cbx-20");
-	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isAssociateChecked-cbx-21");
-	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isAssociateUnchecked-cbx-22");
-	
-	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isDefault-cbx-30");
-	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isAssociateChecked-cbx-31");
-	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isAssociateUnchecked-cbx-32");
-	
-	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_DEFAULT = By.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isDefault-cbx-40");
-	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isAssociateChecked-cbx-41");
-	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isAssociateUnchecked-cbx-42");
-	
-	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_DEFAULT = By.id("FALs_PUBLISHED-Number-Change-Request-Approve-isDefault-cbx-50");
-	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Approve-isAssociateChecked-cbx-51");
-	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Number-Change-Request-Approve-isAssociateUnchecked-cbx-52");
-	
-	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isDefault-cbx-60");
-	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isAssociateChecked-cbx-61");
-	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isAssociateUnchecked-cbx-62");
-	
-	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_DEFAULT = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isDefault-cbx-70");
-	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateChecked-cbx-71");
-	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateUnchecked-cbx-72");
-	//-------------------
+	public static final By FALSPUBLISHED_ALL_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-isAllAssociateUnchecked-all-cbx");
+
+	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_DEFAULT = By
+			.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isDefault-cbx-00");
+	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isAssociateChecked-cbx-01");
+	public static final By FALSPUBLISHED_INITIATEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Initiate-Archive-Change-Req-isAssociateUnchecked-cbx-02");
+
+	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_DEFAULT = By
+			.id("FALs_PUBLISHED-Approve-archive-change-req-isDefault-cbx-10");
+	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Approve-archive-change-req-isAssociateChecked-cbx-11");
+	public static final By FALSPUBLISHED_APPROVEARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Approve-archive-change-req-isAssociateUnchecked-cbx-12");
+
+	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_DEFAULT = By
+			.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isDefault-cbx-20");
+	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isAssociateChecked-cbx-21");
+	public static final By FALSPUBLISHED_INITIATETITLECHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Inititate-Title-Change-Req-isAssociateUnchecked-cbx-22");
+
+	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_DEFAULT = By
+			.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isDefault-cbx-30");
+	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isAssociateChecked-cbx-31");
+	public static final By FALSPUBLISHED_APPROVEREJECTTITLECHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Approve/Reject_Title-Change-Req-isAssociateUnchecked-cbx-32");
+
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_DEFAULT = By
+			.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isDefault-cbx-40");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isAssociateChecked-cbx-41");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTINITIATE_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Number-Change-Request-Initiate-isAssociateUnchecked-cbx-42");
+
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_DEFAULT = By
+			.id("FALs_PUBLISHED-Number-Change-Request-Approve-isDefault-cbx-50");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Number-Change-Request-Approve-isAssociateChecked-cbx-51");
+	public static final By FALSPUBLISHED_NUMBERCHANGEREQUESTAPPROVE_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Number-Change-Request-Approve-isAssociateUnchecked-cbx-52");
+
+	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_DEFAULT = By
+			.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isDefault-cbx-60");
+	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isAssociateChecked-cbx-61");
+	public static final By FALSPUBLISHED_INITIATEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Initiate-Agency-Change-Req-isAssociateUnchecked-cbx-62");
+
+	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_DEFAULT = By
+			.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isDefault-cbx-70");
+	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateChecked-cbx-71");
+	public static final By FALSPUBLISHED_APPROVEAGENCYCHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs_PUBLISHED-Approve-Agency-Change-Req-isAssociateUnchecked-cbx-72");
+	// -------------------
 	public static final By FALSARCHIVED_ALL_DEFAULT = By.id("FALs--ARCHIVED-isAllDefaultsChecked-all-cbx");
 	public static final By FALSARCHIVED_ALL_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-isAllAssociateChecked-all-cbx");
-	public static final By FALSARCHIVED_ALL_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_DEFAULT = By.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isDefault-cbx-00");
-	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isAssociateChecked-cbx-01");
-	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isAssociateUnchecked-cbx-02");
-	
-	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_DEFAULT = By.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isDefault-cbx-10");
-	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isAssociateChecked-cbx-11");
-	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isAssociateUnchecked-cbx-12");
-	
-	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_DEFAULT = By.id("FALs--ARCHIVED-View-archive-records-isDefault-cbx-20");
-	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-View-archive-records-isAssociateChecked-cbx-21");
-	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-View-archive-records-isAssociateUnchecked-cbx-22");
-	
-	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_DEFAULT = By.id("FALs--ARCHIVED-View-search-results_summary-isDefault-cbx-30");
-	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLESELECTED = By.id("FALs--ARCHIVED-View-search-results_summary-isAssociateChecked-cbx-31");
-	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLEUNSELECTED = By.id("FALs--ARCHIVED-View-search-results_summary-isAssociateUnchecked-cbx-32");
-	//----------------------------
+	public static final By FALSARCHIVED_ALL_ASSOCIABLEUNSELECTED = By
+			.id("FALs--ARCHIVED-isAllAssociateUnchecked-all-cbx");
+
+	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_DEFAULT = By
+			.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isDefault-cbx-00");
+	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isAssociateChecked-cbx-01");
+	public static final By FALSARCHIVED_INITIATEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs--ARCHIVED-Initiate-Unarchive-change-req-isAssociateUnchecked-cbx-02");
+
+	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_DEFAULT = By
+			.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isDefault-cbx-10");
+	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLESELECTED = By
+			.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isAssociateChecked-cbx-11");
+	public static final By FALSARCHIVED_APPROVEUNARCHIVECHANGEREQ_ASSOCIABLEUNSELECTED = By
+			.id("FALs--ARCHIVED-Approve-Unarchive-change-req-isAssociateUnchecked-cbx-12");
+
+	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_DEFAULT = By
+			.id("FALs--ARCHIVED-View-archive-records-isDefault-cbx-20");
+	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLESELECTED = By
+			.id("FALs--ARCHIVED-View-archive-records-isAssociateChecked-cbx-21");
+	public static final By FALSARCHIVED_VIEWARCHIVERECORDS_ASSOCIABLEUNSELECTED = By
+			.id("FALs--ARCHIVED-View-archive-records-isAssociateUnchecked-cbx-22");
+
+	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_DEFAULT = By
+			.id("FALs--ARCHIVED-View-search-results_summary-isDefault-cbx-30");
+	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLESELECTED = By
+			.id("FALs--ARCHIVED-View-search-results_summary-isAssociateChecked-cbx-31");
+	public static final By FALSARCHIVED_VIEWSEARCHRESULTSSUMMARY_ASSOCIABLEUNSELECTED = By
+			.id("FALs--ARCHIVED-View-search-results_summary-isAssociateUnchecked-cbx-32");
+	// ----------------------------
 	public static final By FALSSUBMISSIONS_ALL_DEFAULT = By.id("FALs_SUBMISSIONS-isAllDefaultsChecked-all-cbx");
-	public static final By FALSSUBMISSIONS_ALL_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-isAllAssociateChecked-all-cbx");
-	public static final By FALSSUBMISSIONS_ALL_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-isAllAssociateUnchecked-all-cbx");
-	
+	public static final By FALSSUBMISSIONS_ALL_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-isAllAssociateChecked-all-cbx");
+	public static final By FALSSUBMISSIONS_ALL_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-isAllAssociateUnchecked-all-cbx");
+
 	public static final By FALSSUBMISSIONS_CREATEFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Create-FALs-isDefault-cbx-00");
-	public static final By FALSSUBMISSIONS_CREATEFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Create-FALs-isAssociateChecked-cbx-01");
-	public static final By FALSSUBMISSIONS_CREATEFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Create-FALs-isAssociateUnchecked-cbx-02");
-	
-	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_DEFAULT = By.id("FALs_SUBMISSIONS-View-non_public-Info-isDefault-cbx-10");
-	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-View-non_public-Info-isAssociateChecked-cbx-11");
-	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-View-non_public-Info-isAssociateUnchecked-cbx-12");
-	
+	public static final By FALSSUBMISSIONS_CREATEFALS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Create-FALs-isAssociateChecked-cbx-01");
+	public static final By FALSSUBMISSIONS_CREATEFALS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Create-FALs-isAssociateUnchecked-cbx-02");
+
+	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_DEFAULT = By
+			.id("FALs_SUBMISSIONS-View-non_public-Info-isDefault-cbx-10");
+	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-View-non_public-Info-isAssociateChecked-cbx-11");
+	public static final By FALSSUBMISSIONS_VIEWNONPUBLICINFO_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-View-non_public-Info-isAssociateUnchecked-cbx-12");
+
 	public static final By FALSSUBMISSIONS_EDITFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Edit-FALs-isDefault-cbx-20");
-	public static final By FALSSUBMISSIONS_EDITFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Edit-FALs-isAssociateChecked-cbx-21");
-	public static final By FALSSUBMISSIONS_EDITFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Edit-FALs-isAssociateUnchecked-cbx-22");
-	
-	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isDefault-cbx-30");
-	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isAssociateChecked-cbx-31");
-	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isAssociateUnchecked-cbx-32");
-	
-	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Search-Pending-FALs-isDefault-cbx-40");
-	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Search-Pending-FALs-isAssociateChecked-cbx-41");
-	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Search-Pending-FALs-isAssociateUnchecked-cbx-42");
-	
-	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_DEFAULT = By.id("FALs_SUBMISSIONS-Review-programs-isDefault-cbx-50");
-	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Review-programs-isAssociateChecked-cbx-51");
-	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Review-programs-isAssociateUnchecked-cbx-52");
-	
-	public static final By FALSSUBMISSIONS_APPROVEFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Approve-FALs-isDefault-cbx-60");
-	public static final By FALSSUBMISSIONS_APPROVEFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Approve-FALs-isAssociateChecked-cbx-61");
-	public static final By FALSSUBMISSIONS_APPROVEFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Approve-FALs-isAssociateUnchecked-cbx-62");
-	
-	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_DEFAULT = By.id("FALs_SUBMISSIONS-Extend-review-period-isDefault-cbx-70");
-	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Extend-review-period-isAssociateChecked-cbx-71");
-	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Extend-review-period-isAssociateUnchecked-cbx-72");
-	
-	public static final By FALSSUBMISSIONS_APPROVELISTING_DEFAULT = By.id("FALs_SUBMISSIONS-Approve-listing-isDefault-cbx-80");
-	public static final By FALSSUBMISSIONS_APPROVELISTING_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Approve-listing-isAssociateChecked-cbx-81");
-	public static final By FALSSUBMISSIONS_APPROVELISTING_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Approve-listing-isAssociateUnchecked-cbx-82");
-	
-	public static final By FALSSUBMISSIONS_REJECTLISTING_DEFAULT = By.id("FALs_SUBMISSIONS-Reject-listing-isDefault-cbx-90");
-	public static final By FALSSUBMISSIONS_REJECTLISTING_ASSOCIABLESELECTED =By.id("FALs_SUBMISSIONS-Reject-listing-isAssociateChecked-cbx-91");
-	public static final By FALSSUBMISSIONS_REJECTLISTING_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Reject-listing-isAssociateUnchecked-cbx-92");
-	
-	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_DEFAULT = By.id("FALs_SUBMISSIONS-Retract-Programs-isDefault-cbx-100");
-	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Retract-Programs-isAssociateChecked-cbx-101");
-	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Retract-Programs-isAssociateUnchecked-cbx-102");
-	
+	public static final By FALSSUBMISSIONS_EDITFALS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Edit-FALs-isAssociateChecked-cbx-21");
+	public static final By FALSSUBMISSIONS_EDITFALS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Edit-FALs-isAssociateUnchecked-cbx-22");
+
+	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isDefault-cbx-30");
+	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isAssociateChecked-cbx-31");
+	public static final By FALSSUBMISSIONS_DELETEDRAFTFALS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Delete-Draft-FALs-isAssociateUnchecked-cbx-32");
+
+	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Search-Pending-FALs-isDefault-cbx-40");
+	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Search-Pending-FALs-isAssociateChecked-cbx-41");
+	public static final By FALSSUBMISSIONS_SEARCHPENDINGFALS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Search-Pending-FALs-isAssociateUnchecked-cbx-42");
+
+	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Review-programs-isDefault-cbx-50");
+	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Review-programs-isAssociateChecked-cbx-51");
+	public static final By FALSSUBMISSIONS_REVIEWPROGRAMS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Review-programs-isAssociateUnchecked-cbx-52");
+
+	public static final By FALSSUBMISSIONS_APPROVEFALS_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Approve-FALs-isDefault-cbx-60");
+	public static final By FALSSUBMISSIONS_APPROVEFALS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Approve-FALs-isAssociateChecked-cbx-61");
+	public static final By FALSSUBMISSIONS_APPROVEFALS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Approve-FALs-isAssociateUnchecked-cbx-62");
+
+	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Extend-review-period-isDefault-cbx-70");
+	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Extend-review-period-isAssociateChecked-cbx-71");
+	public static final By FALSSUBMISSIONS_EXTENDREVIEWPERIOD_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Extend-review-period-isAssociateUnchecked-cbx-72");
+
+	public static final By FALSSUBMISSIONS_APPROVELISTING_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Approve-listing-isDefault-cbx-80");
+	public static final By FALSSUBMISSIONS_APPROVELISTING_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Approve-listing-isAssociateChecked-cbx-81");
+	public static final By FALSSUBMISSIONS_APPROVELISTING_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Approve-listing-isAssociateUnchecked-cbx-82");
+
+	public static final By FALSSUBMISSIONS_REJECTLISTING_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Reject-listing-isDefault-cbx-90");
+	public static final By FALSSUBMISSIONS_REJECTLISTING_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Reject-listing-isAssociateChecked-cbx-91");
+	public static final By FALSSUBMISSIONS_REJECTLISTING_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Reject-listing-isAssociateUnchecked-cbx-92");
+
+	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Retract-Programs-isDefault-cbx-100");
+	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Retract-Programs-isAssociateChecked-cbx-101");
+	public static final By FALSSUBMISSIONS_RETRACTPROGRAMS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Retract-Programs-isAssociateUnchecked-cbx-102");
+
 	public static final By FALSSUBMISSIONS_REJECTFALS_DEFAULT = By.id("FALs_SUBMISSIONS-Reject-FALs-isDefault-cbx-110");
-	public static final By FALSSUBMISSIONS_REJECTFALS_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Reject-FALs-isAssociateChecked-cbx-111");
-	public static final By FALSSUBMISSIONS_REJECTFALS_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Reject-FALs-isAssociateUnchecked-cbx-112");
-	
-	public static final By FALSSUBMISSIONS_SUBMITLISTING_DEFAULT = By.id("FALs_SUBMISSIONS-Submit-Listing-isDefault-cbx-120");
-	public static final By FALSSUBMISSIONS_SUBMITLISTING_ASSOCIABLESELECTED = By.id("FALs_SUBMISSIONS-Submit-Listing-isAssociateChecked-cbx-121");
-	public static final By FALSSUBMISSIONS_SUBMITLISTING_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Submit-Listing-isAssociateUnchecked-cbx-122");
-	
-	public static final By FALSSUBMISSIONS_SUBMITTOOMB_DEFAULT = By.id("FALs_SUBMISSIONS-Submit-to-OMB-isDefault-cbx-130");
-	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLESELECTED =By.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateChecked-cbx-131");
-	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLEUNSELECTED = By.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateUnchecked-cbx-132");
-	//--------------------
+	public static final By FALSSUBMISSIONS_REJECTFALS_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Reject-FALs-isAssociateChecked-cbx-111");
+	public static final By FALSSUBMISSIONS_REJECTFALS_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Reject-FALs-isAssociateUnchecked-cbx-112");
+
+	public static final By FALSSUBMISSIONS_SUBMITLISTING_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Submit-Listing-isDefault-cbx-120");
+	public static final By FALSSUBMISSIONS_SUBMITLISTING_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Submit-Listing-isAssociateChecked-cbx-121");
+	public static final By FALSSUBMISSIONS_SUBMITLISTING_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Submit-Listing-isAssociateUnchecked-cbx-122");
+
+	public static final By FALSSUBMISSIONS_SUBMITTOOMB_DEFAULT = By
+			.id("FALs_SUBMISSIONS-Submit-to-OMB-isDefault-cbx-130");
+	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLESELECTED = By
+			.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateChecked-cbx-131");
+	public static final By FALSSUBMISSIONS_SUBMITTOOMB_ASSOCIABLEUNSELECTED = By
+			.id("FALs_SUBMISSIONS-Submit-to-OMB-isAssociateUnchecked-cbx-132");
+	// --------------------
 	public static final By HISTORICALINDEX_ALL_DEFAULT = By.id("HISTORICAL-INDEX-isAllDefaultsChecked-all-cbx");
-	public static final By HISTORICALINDEX_ALL_ASSOCIABLESELECTED = By.id("HISTORICAL-INDEX-isAllAssociateChecked-all-cbx");
-	public static final By HISTORICALINDEX_ALL_ASSOCIABLEUNSELECTED = By.id("HISTORICAL-INDEX-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_DEFAULT = By.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isDefault-cbx-00");
-	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_ASSOCIABLESELECTED = By.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isAssociateChecked-cbx-01");
-	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_ASSOCIABLEUNSELECTED = By.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isAssociateUnchecked-cbx-02");
-	
-	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_DEFAULT = By.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isDefault-cbx-10");
-	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_ASSOCIABLESELECTED = By.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isAssociateChecked-cbx-11");
-	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_ASSOCIABLEUNSELECTED = By.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isAssociateUnchecked-cbx-12");
-	//--------------------
-	public static final By AGENCYADMINISTRATION_ALL_DEFAULT = By.id("AGENCY-ADMINISTRATION-isAllDefaultsChecked-all-cbx");
-	public static final By AGENCYADMINISTRATION_ALL_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-isAllAssociateChecked-all-cbx");
-	public static final By AGENCYADMINISTRATION_ALL_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_DEFAULT = By.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isDefault-cbx-00");
-	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isAssociateChecked-cbx-01");
-	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isAssociateUnchecked-cbx-02");
-	
-	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_DEFAULT = By.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isDefault-cbx-10");
-	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isAssociateChecked-cbx-11");
-	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isAssociateUnchecked-cbx-12");
-	
-	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_DEFAULT = By.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isDefault-cbx-20");
-	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isAssociateChecked-cbx-21");
-	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isAssociateUnchecked-cbx-22");
-	
-	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_DEFAULT = By.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isDefault-cbx-30");
-	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isAssociateChecked-cbx-31");
-	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isAssociateUnchecked-cbx-32");
-	
-	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_DEFAULT = By.id("AGENCY-ADMINISTRATION-View-agency-change-isDefault-cbx-40");
-	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLESELECTED = By.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateChecked-cbx-41");
-	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLEUNSELECTED = By.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateUnchecked-cbx-42");
-	//-----------------------
+	public static final By HISTORICALINDEX_ALL_ASSOCIABLESELECTED = By
+			.id("HISTORICAL-INDEX-isAllAssociateChecked-all-cbx");
+	public static final By HISTORICALINDEX_ALL_ASSOCIABLEUNSELECTED = By
+			.id("HISTORICAL-INDEX-isAllAssociateUnchecked-all-cbx");
+
+	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_DEFAULT = By
+			.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isDefault-cbx-00");
+	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_ASSOCIABLESELECTED = By
+			.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isAssociateChecked-cbx-01");
+	public static final By HISTORICALINDEX_VIEWHISTORICALINDEXENTRIES_ASSOCIABLEUNSELECTED = By
+			.id("HISTORICAL-INDEX-View-Historical-Index-Entries-isAssociateUnchecked-cbx-02");
+
+	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_DEFAULT = By
+			.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isDefault-cbx-10");
+	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_ASSOCIABLESELECTED = By
+			.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isAssociateChecked-cbx-11");
+	public static final By HISTORICALINDEX_EDITHISTORICALINDEXENTRIES_ASSOCIABLEUNSELECTED = By
+			.id("HISTORICAL-INDEX-Edit-Historical-Index-Entries-isAssociateUnchecked-cbx-12");
+	// --------------------
+	public static final By AGENCYADMINISTRATION_ALL_DEFAULT = By
+			.id("AGENCY-ADMINISTRATION-isAllDefaultsChecked-all-cbx");
+	public static final By AGENCYADMINISTRATION_ALL_ASSOCIABLESELECTED = By
+			.id("AGENCY-ADMINISTRATION-isAllAssociateChecked-all-cbx");
+	public static final By AGENCYADMINISTRATION_ALL_ASSOCIABLEUNSELECTED = By
+			.id("AGENCY-ADMINISTRATION-isAllAssociateUnchecked-all-cbx");
+
+	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_DEFAULT = By
+			.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isDefault-cbx-00");
+	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_ASSOCIABLESELECTED = By
+			.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isAssociateChecked-cbx-01");
+	public static final By AGENCYADMINISTRATION_CREATEREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By
+			.id("AGENCY-ADMINISTRATION-Create-Region_Agency_Offs-isAssociateUnchecked-cbx-02");
+
+	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_DEFAULT = By
+			.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isDefault-cbx-10");
+	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_ASSOCIABLESELECTED = By
+			.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isAssociateChecked-cbx-11");
+	public static final By AGENCYADMINISTRATION_VIEWEREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By
+			.id("AGENCY-ADMINISTRATION-View-Region_Agency_Offs-isAssociateUnchecked-cbx-12");
+
+	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_DEFAULT = By
+			.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isDefault-cbx-20");
+	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_ASSOCIABLESELECTED = By
+			.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isAssociateChecked-cbx-21");
+	public static final By AGENCYADMINISTRATION_EDITREGIONAGENCYOFFS_ASSOCIABLEUNSELECTED = By
+			.id("AGENCY-ADMINISTRATION-Edit-Region_Agency_Offs-isAssociateUnchecked-cbx-22");
+
+	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_DEFAULT = By
+			.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isDefault-cbx-30");
+	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_ASSOCIABLESELECTED = By
+			.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isAssociateChecked-cbx-31");
+	public static final By AGENCYADMINISTRATION_MANAGECFDANUMBER_ASSOCIABLEUNSELECTED = By
+			.id("AGENCY-ADMINISTRATION-Manage-CFDA-Number-isAssociateUnchecked-cbx-32");
+
+	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_DEFAULT = By
+			.id("AGENCY-ADMINISTRATION-View-agency-change-isDefault-cbx-40");
+	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLESELECTED = By
+			.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateChecked-cbx-41");
+	public static final By AGENCYADMINISTRATION_VIEWAGENCYCHANGE_ASSOCIABLEUNSELECTED = By
+			.id("AGENCY-ADMINISTRATION-View-agency-change-isAssociateUnchecked-cbx-42");
+	// -----------------------
 	public static final By ACCOUNTMANAGEMENT_ALL_DEFAULT = By.id("ACCOUNT-MANAGEMENT-isAllDefaultsChecked-all-cbx");
-	public static final By ACCOUNTMANAGEMENT_ALL_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-isAllAssociateChecked-all-cbx");
-	public static final By ACCOUNTMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_DEFAULT = By.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isDefault-cbx-00");
-	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isAssociateChecked-cbx-01");
-	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isAssociateUnchecked-cbx-02");
-	
+	public static final By ACCOUNTMANAGEMENT_ALL_ASSOCIABLESELECTED = By
+			.id("ACCOUNT-MANAGEMENT-isAllAssociateChecked-all-cbx");
+	public static final By ACCOUNTMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By
+			.id("ACCOUNT-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
+
+	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_DEFAULT = By
+			.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isDefault-cbx-00");
+	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_ASSOCIABLESELECTED = By
+			.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isAssociateChecked-cbx-01");
+	public static final By ACCOUNTMANAGEMENT_CREATEEDITUSERPERMISSIONS_ASSOCIABLEUNSELECTED = By
+			.id("ACCOUNT-MANAGEMENT-Create/Edit-User-Permissions-isAssociateUnchecked-cbx-02");
+
 	public static final By ACCOUNTMANAGEMENT_VIEW_DEFAULT = By.id("ACCOUNT-MANAGEMENT-View-isDefault-cbx-10");
-	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLESELECTED = By.id("ACCOUNT-MANAGEMENT-View-isAssociateChecked-cbx-11");
-	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLEUNSELECTED = By.id("ACCOUNT-MANAGEMENT-View-isAssociateUnchecked-cbx-12");
-	//------------------------------
+	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLESELECTED = By
+			.id("ACCOUNT-MANAGEMENT-View-isAssociateChecked-cbx-11");
+	public static final By ACCOUNTMANAGEMENT_VIEW_ASSOCIABLEUNSELECTED = By
+			.id("ACCOUNT-MANAGEMENT-View-isAssociateUnchecked-cbx-12");
+	// ------------------------------
 	public static final By ENTITYREGISTRATION_ALL_DEFAULT = By.id("ENTITY-REGISTRATION-isAllDefaultsChecked-all-cbx");
-	public static final By ENTITYREGISTRATION_ALL_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-isAllAssociateChecked-all-cbx");
-	public static final By ENTITYREGISTRATION_ALL_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By ENTITYREGISTRATION_REGISTERENTITY_DEFAULT = By.id("ENTITY-REGISTRATION-Register-Entity-isDefault-cbx-00");
-	public static final By ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Register-Entity-isAssociateChecked-cbx-01");
-	public static final By ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Register-Entity-isAssociateUnchecked-cbx-02");
-	
-	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isDefault-cbx-10");
-	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isAssociateChecked-cbx-11");
-	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isAssociateUnchecked-cbx-12");
-	
-	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isDefault-cbx-20");
-	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isAssociateChecked-cbx-21");
-	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isAssociateUnchecked-cbx-22");
-	
-	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isDefault-cbx-30");
-	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isAssociateChecked-cbx-31");
-	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isAssociateUnchecked-cbx-32");
-	
-	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_DEFAULT = By.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isDefault-cbx-40");
-	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isAssociateChecked-cbx-41");
-	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isAssociateUnchecked-cbx-42");
-	
-	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_DEFAULT = By.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isDefault-cbx-50");
-	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isAssociateChecked-cbx-51");
-	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isAssociateUnchecked-cbx-52");
-	
-	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_DEFAULT = By.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isDefault-cbx-60");
-	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isAssociateChecked-cbx-61");
-	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isAssociateUnchecked-cbx-62");
-	
-	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_DEFAULT = By.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isDefault-cbx-70");
-	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLESELECTED =By.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isAssociateChecked-cbx-71");
-	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isAssociateUnchecked-cbx-72");
-	
-	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isDefault-cbx-80");
-	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-81");
-	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-82");
-	
-	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isDefault-cbx-90");
-	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-91");
-	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-92");
-	
-	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isDefault-cbx-100");
-	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-101");
-	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-102");
-	
-	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_DEFAULT = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isDefault-cbx-110");
-	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLESELECTED = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateChecked-cbx-111");
-	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLEUNSELECTED = By.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateUnchecked-cbx-112");
-	//-----------------
+	public static final By ENTITYREGISTRATION_ALL_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-isAllAssociateChecked-all-cbx");
+	public static final By ENTITYREGISTRATION_ALL_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-isAllAssociateUnchecked-all-cbx");
+
+	public static final By ENTITYREGISTRATION_REGISTERENTITY_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Register-Entity-isDefault-cbx-00");
+	public static final By ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Register-Entity-isAssociateChecked-cbx-01");
+	public static final By ENTITYREGISTRATION_REGISTERENTITY_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Register-Entity-isAssociateUnchecked-cbx-02");
+
+	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isDefault-cbx-10");
+	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isAssociateChecked-cbx-11");
+	public static final By ENTITYREGISTRATION_UPDATEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Update-Draft/Work-in-Progress-Registration-isAssociateUnchecked-cbx-12");
+
+	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_DEFAULT = By
+			.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isDefault-cbx-20");
+	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isAssociateChecked-cbx-21");
+	public static final By ENTITYREGISTRATION_VIEWDRAFTWORKINPROGRESSSUBMITTEDREGISTRATION_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-View-Draft/Work-in-Progress/Submitted-Registration-isAssociateUnchecked-cbx-22");
+
+	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isDefault-cbx-30");
+	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isAssociateChecked-cbx-31");
+	public static final By ENTITYREGISTRATION_DELETEDRAFTWORKINPROGRESSREGISTRATION_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Delete-Draft/Work-in-Progress-Registration-isAssociateUnchecked-cbx-32");
+
+	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isDefault-cbx-40");
+	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isAssociateChecked-cbx-41");
+	public static final By ENTITYREGISTRATION_UPDATEACTIVEEXPIREDREGISTRATION_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Update-Active/Expired-Registrations-isAssociateUnchecked-cbx-42");
+
+	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_DEFAULT = By
+			.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isDefault-cbx-50");
+	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isAssociateChecked-cbx-51");
+	public static final By ENTITYREGISTRATION_VIEWACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-View-Active/Expired-Registrations-isAssociateUnchecked-cbx-52");
+
+	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isDefault-cbx-60");
+	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isAssociateChecked-cbx-61");
+	public static final By ENTITYREGISTRATION_DEACTIVATEACTIVEEXPIREDREGISTRATIONS_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Deactivate-Active/Expired-Registrations-isAssociateUnchecked-cbx-62");
+
+	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_DEFAULT = By
+			.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isDefault-cbx-70");
+	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isAssociateChecked-cbx-71");
+	public static final By ENTITYREGISTRATION_VIEWDEACTIVATEDREGISTRATIONS_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-View-Deactivated-Registrations-isAssociateUnchecked-cbx-72");
+
+	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By
+			.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isDefault-cbx-80");
+	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-81");
+	public static final By ENTITYREGISTRATION_VIEWPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-View-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-82");
+
+	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isDefault-cbx-90");
+	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-91");
+	public static final By ENTITYREGISTRATION_APPROVEPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Approve-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-92");
+
+	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isDefault-cbx-100");
+	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isAssociateChecked-cbx-101");
+	public static final By ENTITYREGISTRATION_REJECTPENDINGHIERARCHYREGISTRATIONSREQUESTS_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Reject-Pending-Hierarchy-Registration-Requests-isAssociateUnchecked-cbx-102");
+
+	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_DEFAULT = By
+			.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isDefault-cbx-110");
+	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLESELECTED = By
+			.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateChecked-cbx-111");
+	public static final By ENTITYREGISTRATION_NOTARIZEDLETTERAPPROVAL_ASSOCIABLEUNSELECTED = By
+			.id("ENTITY-REGISTRATION-Notarized-Letter-Approval-isAssociateUnchecked-cbx-112");
+	// -----------------
 	public static final By SITEWIDESEARCH_ALL_DEFAULT = By.id("SITEWIDE-SEARCH-isAllDefaultsChecked-all-cbx");
-	public static final By SITEWIDESEARCH_ALL_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-isAllAssociateChecked-all-cbx");
-	public static final By SITEWIDESEARCH_ALL_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isDefault-cbx-00");
-	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isAssociateChecked-cbx-01");
-	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isAssociateUnchecked-cbx-02");
-	
-	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isDefault-cbx-10");
-	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isAssociateChecked-cbx-11");
-	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isAssociateUnchecked-cbx-12");
-	
-	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isDefault-cbx-20");
-	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isAssociateChecked-cbx-21");
-	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isAssociateUnchecked-cbx-22");
-	
-	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isDefault-cbx-30");
-	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isAssociateChecked-cbx-31");
-	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isAssociateUnchecked-cbx-32");
-	
-	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_DEFAULT = By.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isDefault-cbx-40");
-	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_ASSOCIABLESELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isAssociateChecked-cbx-41");
-	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_ASSOCIABLEUNSELECTED = By.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isAssociateUnchecked-cbx-42");
-	//-----------------
-	public static final By SYSTEMADMINISTRATION_ALL_DEFAULT = By.id("SYSTEM-ADMINISTRATION-isAllDefaultsChecked-all-cbx");
-	public static final By SYSTEMADMINISTRATION_ALL_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-isAllAssociateChecked-all-cbx");
-	public static final By SYSTEMADMINISTRATION_ALL_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isDefault-cbx-00");
-	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isAssociateChecked-cbx-01");
-	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isAssociateUnchecked-cbx-02");
-	
-	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isDefault-cbx-10");
-	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-11");
-	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-12");
-	
-	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_DEFAULT = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isDefault-cbx-20");
-	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isAssociateChecked-cbx-21");
-	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isAssociateUnchecked-cbx-22");
-	
-	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isDefault-cbx-30");
-	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-31");
-	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-32");
-	
-	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isDefault-cbx-40");
-	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-41");
-	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-42");
-	
-	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isDefault-cbx-50");
-	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-51");
-	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-52");
-	
-	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isDefault-cbx-60");
-	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-61");
-	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-62");
-	//---------------------------------
+	public static final By SITEWIDESEARCH_ALL_ASSOCIABLESELECTED = By
+			.id("SITEWIDE-SEARCH-isAllAssociateChecked-all-cbx");
+	public static final By SITEWIDESEARCH_ALL_ASSOCIABLEUNSELECTED = By
+			.id("SITEWIDE-SEARCH-isAllAssociateUnchecked-all-cbx");
+
+	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_DEFAULT = By
+			.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isDefault-cbx-00");
+	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_ASSOCIABLESELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isAssociateChecked-cbx-01");
+	public static final By SITEWIDESEARCH_VIEWENTITYEXECUTIVECOMPENSATIONDATA_ASSOCIABLEUNSELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-Executive-Compensation-Data-isAssociateUnchecked-cbx-02");
+
+	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_DEFAULT = By
+			.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isDefault-cbx-10");
+	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_ASSOCIABLESELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isAssociateChecked-cbx-11");
+	public static final By SITEWIDESEARCH_VIEWENTITYFOUODATA_ASSOCIABLEUNSELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-FOUO-Data-isAssociateUnchecked-cbx-12");
+
+	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_DEFAULT = By
+			.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isDefault-cbx-20");
+	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_ASSOCIABLESELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isAssociateChecked-cbx-21");
+	public static final By SITEWIDESEARCH_VIEWENTITYSENSITIVEDATA_ASSOCIABLEUNSELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-Sensitive-Data-isAssociateUnchecked-cbx-22");
+
+	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_DEFAULT = By
+			.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isDefault-cbx-30");
+	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_ASSOCIABLESELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isAssociateChecked-cbx-31");
+	public static final By SITEWIDESEARCH_VIEWENTITYSYSTEMONLYDATA_ASSOCIABLEUNSELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-System-Only-Data-isAssociateUnchecked-cbx-32");
+
+	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_DEFAULT = By
+			.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isDefault-cbx-40");
+	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_ASSOCIABLESELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isAssociateChecked-cbx-41");
+	public static final By SITEWIDESEARCH_VIEWENTITYPROCEEDINGSDATA_ASSOCIABLEUNSELECTED = By
+			.id("SITEWIDE-SEARCH-View-Entity-Proceedings-Data-isAssociateUnchecked-cbx-42");
+	// -----------------
+	public static final By SYSTEMADMINISTRATION_ALL_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-isAllDefaultsChecked-all-cbx");
+	public static final By SYSTEMADMINISTRATION_ALL_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-isAllAssociateChecked-all-cbx");
+	public static final By SYSTEMADMINISTRATION_ALL_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-isAllAssociateUnchecked-all-cbx");
+
+	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isDefault-cbx-00");
+	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isAssociateChecked-cbx-01");
+	public static final By SYSTEMADMINISTRATION_MANAGEAGENCYPOC_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Manage-Agency-POC-isAssociateUnchecked-cbx-02");
+
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isDefault-cbx-10");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-11");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-12");
+
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isDefault-cbx-20");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isAssociateChecked-cbx-21");
+	public static final By SYSTEMADMINISTRATION_VIEWDATAACCESSREQUESTSINDIVIDUAL_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-View-Data-Access-Requests---Individual-isAssociateUnchecked-cbx-22");
+
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isDefault-cbx-30");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-31");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-32");
+
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isDefault-cbx-40");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isAssociateChecked-cbx-41");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSSYSTEMACCOUNTS_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---System-Accounts-isAssociateUnchecked-cbx-42");
+
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isDefault-cbx-50");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-51");
+	public static final By SYSTEMADMINISTRATION_APPROVEDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Approve-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-52");
+
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_DEFAULT = By
+			.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isDefault-cbx-60");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLESELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateChecked-cbx-61");
+	public static final By SYSTEMADMINISTRATION_REJECTDATAACCESSREQUESTSINDIVIDUALACCOUNTS_ASSOCIABLEUNSELECTED = By
+			.id("SYSTEM-ADMINISTRATION-Reject-Data-Access-Requests---Individual-Accounts-isAssociateUnchecked-cbx-62");
+	// ---------------------------------
 	public static final By SYSTEMACCOUNT_ALL_DEFAULT = By.id("System-Account-isAllDefaultsChecked-all-cbx");
 	public static final By SYSTEMACCOUNT_ALL_ASSOCIABLESELECTED = By.id("System-Account-isAllAssociateChecked-all-cbx");
-	public static final By SYSTEMACCOUNT_ALL_ASSOCIABLEUNSELECTED = By.id("System-Account-isAllAssociateUnchecked-all-cbx");
-	
+	public static final By SYSTEMACCOUNT_ALL_ASSOCIABLEUNSELECTED = By
+			.id("System-Account-isAllAssociateUnchecked-all-cbx");
+
 	public static final By SYSTEMACCOUNT_VIEW_DEFAULT = By.id("System-Account-View-isDefault-cbx-00");
-	public static final By SYSTEMACCOUNT_VIEW_ASSOCIABLESELECTED = By.id("System-Account-View-isAssociateChecked-cbx-01");
-	public static final By SYSTEMACCOUNT_VIEW_ASSOCIABLEUNSELECTED = By.id("System-Account-View-isAssociateUnchecked-cbx-02");
-	
+	public static final By SYSTEMACCOUNT_VIEW_ASSOCIABLESELECTED = By
+			.id("System-Account-View-isAssociateChecked-cbx-01");
+	public static final By SYSTEMACCOUNT_VIEW_ASSOCIABLEUNSELECTED = By
+			.id("System-Account-View-isAssociateUnchecked-cbx-02");
+
 	public static final By SYSTEMACCOUNT_CREATE_DEFAULT = By.id("System-Account-Create-isDefault-cbx-10");
-	public static final By SYSTEMACCOUNT_CREATE_ASSOCIABLESELECTED = By.id("System-Account-Create-isAssociateChecked-cbx-11");
-	public static final By SYSTEMACCOUNT_CREATE_ASSOCIABLEUNSELECTED = By.id("System-Account-Create-isAssociateUnchecked-cbx-12");
-	
+	public static final By SYSTEMACCOUNT_CREATE_ASSOCIABLESELECTED = By
+			.id("System-Account-Create-isAssociateChecked-cbx-11");
+	public static final By SYSTEMACCOUNT_CREATE_ASSOCIABLEUNSELECTED = By
+			.id("System-Account-Create-isAssociateUnchecked-cbx-12");
+
 	public static final By SYSTEMACCOUNT_EDIT_DEFAULT = By.id("System-Account-Edit-isDefault-cbx-20");
-	public static final By SYSTEMACCOUNT_EDIT_ASSOCIABLESELECTED = By.id("System-Account-Edit-isAssociateChecked-cbx-21");
-	public static final By SYSTEMACCOUNT_EDIT_ASSOCIABLEUNSELECTED = By.id("System-Account-Edit-isAssociateUnchecked-cbx-22");
-	
+	public static final By SYSTEMACCOUNT_EDIT_ASSOCIABLESELECTED = By
+			.id("System-Account-Edit-isAssociateChecked-cbx-21");
+	public static final By SYSTEMACCOUNT_EDIT_ASSOCIABLEUNSELECTED = By
+			.id("System-Account-Edit-isAssociateUnchecked-cbx-22");
+
 	public static final By SYSTEMACCOUNT_APPROVE_DEFAULT = By.id("System-Account-Approve-isDefault-cbx-30");
-	public static final By SYSTEMACCOUNT_APPROVE_ASSOCIABLESELECTED = By.id("System-Account-Approve-isAssociateChecked-cbx-31");
-	public static final By SYSTEMACCOUNT_APPROVE_ASSOCIABLEUNSELECTED = By.id("System-Account-Approve-isAssociateUnchecked-cbx-32");
-	
+	public static final By SYSTEMACCOUNT_APPROVE_ASSOCIABLESELECTED = By
+			.id("System-Account-Approve-isAssociateChecked-cbx-31");
+	public static final By SYSTEMACCOUNT_APPROVE_ASSOCIABLEUNSELECTED = By
+			.id("System-Account-Approve-isAssociateUnchecked-cbx-32");
+
 	public static final By SYSTEMACCOUNT_REJECT_DEFAULT = By.id("System-Account-Reject-isDefault-cbx-40");
-	public static final By SYSTEMACCOUNT_REJECT_ASSOCIABLESELECTED = By.id("System-Account-Reject-isAssociateChecked-cbx-41");
-	public static final By SYSTEMACCOUNT_REJECT_ASSOCIABLEUNSELECTED = By.id("System-Account-Reject-isAssociateUnchecked-cbx-42");
-	//----------------------------
+	public static final By SYSTEMACCOUNT_REJECT_ASSOCIABLESELECTED = By
+			.id("System-Account-Reject-isAssociateChecked-cbx-41");
+	public static final By SYSTEMACCOUNT_REJECT_ASSOCIABLEUNSELECTED = By
+			.id("System-Account-Reject-isAssociateUnchecked-cbx-42");
+	// ----------------------------
 	public static final By FSD_ALL_DEFAULT = By.id("FSD-isAllDefaultsChecked-all-cbx");
 	public static final By FSD_ALL_ASSOCIABLESELECTED = By.id("FSD-isAllAssociateChecked-all-cbx");
 	public static final By FSD_ALL_ASSOCIABLEUNSELECTED = By.id("FSD-isAllAssociateUnchecked-all-cbx");
-	
+
 	public static final By FSD_CREATE_DEFAULT = By.id("FSD-Create-isDefault-cbx-00");
 	public static final By FSD_CREATE_ASSOCIABLESELECTED = By.id("FSD-Create-isAssociateChecked-cbx-01");
 	public static final By FSD_CREATE_ASSOCIABLEUNSELECTED = By.id("FSD-Create-isAssociateUnchecked-cbx-02");
-	
+
 	public static final By FSD_READ_DEFAULT = By.id("FSD-Read-isDefault-cbx-10");
 	public static final By FSD_READ_ASSOCIABLESELECTED = By.id("FSD-Read-isAssociateChecked-cbx-11");
 	public static final By FSD_READ_ASSOCIABLEUNSELECTED = By.id("FSD-Read-isAssociateUnchecked-cbx-12");
-	
+
 	public static final By FSD_UPDATE_DEFAULT = By.id("FSD-Update-isDefault-cbx-20");
 	public static final By FSD_UPDATE_ASSOCIABLESELECTED = By.id("FSD-Update-isAssociateChecked-cbx-21");
 	public static final By FSD_UPDATE_ASSOCIABLEUNSELECTED = By.id("FSD-Update-isAssociateUnchecked-cbx-22");
-	//----------------------
+	// ----------------------
 	public static final By IAM_ALL_DEFAULT = By.id("IAM-isAllDefaultsChecked-all-cbx");
 	public static final By IAM_ALL_ASSOCIABLESELECTED = By.id("IAM-isAllAssociateChecked-all-cbx");
 	public static final By IAM_ALL_ASSOCIABLEUNSELECTED = By.id("IAM-isAllAssociateUnchecked-all-cbx");
-	
+
 	public static final By IAM_CREATE_DEFAULT = By.id("IAM-Create-isDefault-cbx-00");
 	public static final By IAM_CREATE_ASSOCIABLESELECTED = By.id("IAM-Create-isAssociateChecked-cbx-01");
 	public static final By IAM_CREATE_ASSOCIABLEUNSELECTED = By.id("IAM-Create-isAssociateUnchecked-cbx-02");
-	
+
 	public static final By IAM_DELETE_DEFAULT = By.id("IAM-Delete-isDefault-cbx-10");
 	public static final By IAM_DELETE_ASSOCIABLESELECTED = By.id("IAM-Delete-isAssociateChecked-cbx-11");
 	public static final By IAM_DELETE_ASSOCIABLEUNSELECTED = By.id("IAM-Delete-isAssociateUnchecked-cbx-12");
-	
+
 	public static final By IAM_READ_DEFAULT = By.id("IAM-Read-isDefault-cbx-20");
 	public static final By IAM_READ_ASSOCIABLESELECTED = By.id("IAM-Read-isAssociateChecked-cbx-21");
 	public static final By IAM_READ_ASSOCIABLEUNSELECTED = By.id("IAM-Read-isAssociateUnchecked-cbx-22");
-	
+
 	public static final By IAM_UPDATE_DEFAULT = By.id("IAM-Update-isDefault-cbx-30");
 	public static final By IAM_UPDATE_ASSOCIABLESELECTED = By.id("IAM-Update-isAssociateChecked-cbx-31");
 	public static final By IAM_UPDATE_ASSOCIABLEUNSELECTED = By.id("IAM-Update-isAssociateUnchecked-cbx-32");
-	//-------------------------
+	// -------------------------
 	public static final By SYSTEMACCOUNTS_ALL_DEFAULT = By.id("System-Accounts-isAllDefaultsChecked-all-cbx");
-	public static final By SYSTEMACCOUNTS_ALL_ASSOCIABLESELECTED = By.id("System-Accounts-isAllAssociateChecked-all-cbx");
-	public static final By SYSTEMACCOUNTS_ALL_ASSOCIABLEUNSELECTED = By.id("System-Accounts-isAllAssociateUnchecked-all-cbx");
-	
+	public static final By SYSTEMACCOUNTS_ALL_ASSOCIABLESELECTED = By
+			.id("System-Accounts-isAllAssociateChecked-all-cbx");
+	public static final By SYSTEMACCOUNTS_ALL_ASSOCIABLEUNSELECTED = By
+			.id("System-Accounts-isAllAssociateUnchecked-all-cbx");
+
 	public static final By SYSTEMACCOUNTS_CREATE_DEFAULT = By.id("System-Accounts-Create-isDefault-cbx-00");
-	public static final By SYSTEMACCOUNTS_CREATE_ASSOCIABLESELECTED = By.id("System-Accounts-Create-isAssociateChecked-cbx-01");
-	public static final By SYSTEMACCOUNTS_CREATE_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Create-isAssociateUnchecked-cbx-02");
-	
+	public static final By SYSTEMACCOUNTS_CREATE_ASSOCIABLESELECTED = By
+			.id("System-Accounts-Create-isAssociateChecked-cbx-01");
+	public static final By SYSTEMACCOUNTS_CREATE_ASSOCIABLEUNSELECTED = By
+			.id("System-Accounts-Create-isAssociateUnchecked-cbx-02");
+
 	public static final By SYSTEMACCOUNTS_DELETE_DEFAULT = By.id("System-Accounts-Delete-isDefault-cbx-10");
-	public static final By SYSTEMACCOUNTS_DELETE_ASSOCIABLESELECTED = By.id("System-Accounts-Delete-isAssociateChecked-cbx-11");
-	public static final By SYSTEMACCOUNTS_DELETE_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Delete-isAssociateUnchecked-cbx-12");
-	
+	public static final By SYSTEMACCOUNTS_DELETE_ASSOCIABLESELECTED = By
+			.id("System-Accounts-Delete-isAssociateChecked-cbx-11");
+	public static final By SYSTEMACCOUNTS_DELETE_ASSOCIABLEUNSELECTED = By
+			.id("System-Accounts-Delete-isAssociateUnchecked-cbx-12");
+
 	public static final By SYSTEMACCOUNTS_READ_DEFAULT = By.id("System-Accounts-Read-isDefault-cbx-20");
-	public static final By SYSTEMACCOUNTS_READ_ASSOCIABLESELECTED = By.id("System-Accounts-Read-isAssociateChecked-cbx-21");
-	public static final By SYSTEMACCOUNTS_READ_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Read-isAssociateUnchecked-cbx-22");
-	
+	public static final By SYSTEMACCOUNTS_READ_ASSOCIABLESELECTED = By
+			.id("System-Accounts-Read-isAssociateChecked-cbx-21");
+	public static final By SYSTEMACCOUNTS_READ_ASSOCIABLEUNSELECTED = By
+			.id("System-Accounts-Read-isAssociateUnchecked-cbx-22");
+
 	public static final By SYSTEMACCOUNTS_UPDATE_DEFAULT = By.id("System-Accounts-Update-isDefault-cbx-30");
-	public static final By SYSTEMACCOUNTS_UPDATE_ASSOCIABLESELECTED = By.id("System-Accounts-Update-isAssociateChecked-cbx-31");
-	public static final By SYSTEMACCOUNTS_UPDATE_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Update-isAssociateUnchecked-cbx-32");
-	//-------------------------------
+	public static final By SYSTEMACCOUNTS_UPDATE_ASSOCIABLESELECTED = By
+			.id("System-Accounts-Update-isAssociateChecked-cbx-31");
+	public static final By SYSTEMACCOUNTS_UPDATE_ASSOCIABLEUNSELECTED = By
+			.id("System-Accounts-Update-isAssociateUnchecked-cbx-32");
+	// -------------------------------
 	public static final By RMS_ALL_DEFAULT = By.id("RMS-isAllDefaultsChecked-all-cbx");
 	public static final By RMS_ALL_ASSOCIABLESELECTED = By.id("RMS-isAllAssociateChecked-all-cbx");
 	public static final By RMS_ALL_ASSOCIABLEUNSELECTED = By.id("RMS-isAllAssociateUnchecked-all-cbx");
-	//----------------------------
-	public static final By SERVICECONTRACTREPORT_ALL_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-isAllDefaultsChecked-all-cbx");
-	public static final By SERVICECONTRACTREPORT_ALL_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-isAllAssociateChecked-all-cbx");
-	public static final By SERVICECONTRACTREPORT_ALL_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-isAllAssociateUnchecked-all-cbx");
-	
-	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isDefault-cbx-00");
-	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isAssociateChecked-cbx-01");
-	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isAssociateUnchecked-cbx-02");
-	
-	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isDefault-cbx-10");
-	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isAssociateChecked-cbx-11");
-	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isAssociateUnchecked-cbx-12");
-	
-	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isDefault-cbx-20");
-	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isAssociateChecked-cbx-21");
-	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isAssociateUnchecked-cbx-22");
-	
-	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isDefault-cbx-30");
-	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isAssociateChecked-cbx-31");
-	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isAssociateUnchecked-cbx-32");
-	
-	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isDefault-cbx-40");
-	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isAssociateChecked-cbx-41");
-	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isAssociateUnchecked-cbx-42");
-	
-	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_DEFAULT = By.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isDefault-cbx-50");
-	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_ASSOCIABLESELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isAssociateChecked-cbx-51");
-	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_ASSOCIABLEUNSELECTED = By.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isAssociateUnchecked-cbx-52");
+	// ----------------------------
+	public static final By SERVICECONTRACTREPORT_ALL_DEFAULT = By
+			.id("SERVICE-CONTRACT-REPORT-isAllDefaultsChecked-all-cbx");
+	public static final By SERVICECONTRACTREPORT_ALL_ASSOCIABLESELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-isAllAssociateChecked-all-cbx");
+	public static final By SERVICECONTRACTREPORT_ALL_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-isAllAssociateUnchecked-all-cbx");
+
+	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_DEFAULT = By
+			.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isDefault-cbx-00");
+	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isAssociateChecked-cbx-01");
+	public static final By SERVICECONTRACTREPORT_ADDSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Add-Service-Contract-Report-isAssociateUnchecked-cbx-02");
+
+	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_DEFAULT = By
+			.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isDefault-cbx-10");
+	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isAssociateChecked-cbx-11");
+	public static final By SERVICECONTRACTREPORT_EDITSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Edit-Service-Contract-Report-isAssociateUnchecked-cbx-12");
+
+	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_DEFAULT = By
+			.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isDefault-cbx-20");
+	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_ASSOCIABLESELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isAssociateChecked-cbx-21");
+	public static final By SERVICECONTRACTREPORT_DELETESERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Delete-Service-Contract-Report-isAssociateUnchecked-cbx-22");
+
+	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_DEFAULT = By
+			.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isDefault-cbx-30");
+	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_ASSOCIABLESELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isAssociateChecked-cbx-31");
+	public static final By SERVICECONTRACTREPORT_UPLOADSERVICECONTRACTREPORT_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-Upload-Service-Contract-Report-isAssociateUnchecked-cbx-32");
+
+	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_DEFAULT = By
+			.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isDefault-cbx-40");
+	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_ASSOCIABLESELECTED = By.id(
+			"SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isAssociateChecked-cbx-41");
+	public static final By SERVICECONTRACTREPORT_VIEWSERVICECONTRACTREPORTENTITYDISPLAYPAGES_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-View-Service-Contract-Report---Entity-Display-pages-isAssociateUnchecked-cbx-42");
+
+	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_DEFAULT = By.id(
+			"SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isDefault-cbx-50");
+	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_ASSOCIABLESELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isAssociateChecked-cbx-51");
+	public static final By SERVICECONTRACTREPORT_VIEWINTERIMFINALSERVICECONTRACTREPORTDATAACCESSPAGES_ASSOCIABLEUNSELECTED = By
+			.id("SERVICE-CONTRACT-REPORT-View-Interim-/-Final-Service-Contract-Report---Data-Access-pages-isAssociateUnchecked-cbx-52");
 //---------------------------------
 	public static final By ALERTS_ALL_DEFAULT = By.id("ALERTS-isAllDefaultsChecked-all-cbx");
 	public static final By ALERTS_ALL_ASSOCIABLESELECTED = By.id("ALERTS-isAllAssociateChecked-all-cbx");
 	public static final By ALERTS_ALL_ASSOCIABLEUNSELECTED = By.id("ALERTS-isAllAssociateUnchecked-all-cbx");
-	
+
 	public static final By ALERTS_CREATE_DEFAULT = By.id("ALERTS-Create-isDefault-cbx-00");
 	public static final By ALERTS_CREATE_ASSOCIABLESELECTED = By.id("ALERTS-Create-isAssociateChecked-cbx-01");
 	public static final By ALERTS_CREATE_ASSOCIABLEUNSELECTED = By.id("ALERTS-Create-isAssociateUnchecked-cbx-02");
-	
+
 	public static final By ALERTS_UPDATE_DEFAULT = By.id("ALERTS-Update-isDefault-cbx-10");
 	public static final By ALERTS_UPDATE_ASSOCIABLESELECTED = By.id("ALERTS-Update-isAssociateChecked-cbx-11");
 	public static final By ALERTS_UPDATE_ASSOCIABLEUNSELECTED = By.id("ALERTS-Update-isAssociateUnchecked-cbx-12");
+	// ---------------
+	public static final By BIOPREFERREDREPORT_ALL_DEFAULT = By.id("BIOPREFERRED-REPORT-isAllDefaultsChecked-all-cbx");
+	public static final By BIOPREFERREDREPORT_ALL_ASSOCIABLESELECTED = By
+			.id("BIOPREFERRED-REPORT-isAllAssociateChecked-all-cbx");
+	public static final By BIOPREFERREDREPORT_ALL_ASSOCIABLEUNSELECTED = By
+			.id("BIOPREFERRED-REPORT-isAllAssociateUnchecked-all-cbx");
+
+	public static final By BIOPREFERREDREPORT_ADDBIOPREFERREDREPORT_DEFAULT = By
+			.id("BIOPREFERRED-REPORT-Add-BioPreferred-Report-isDefault-cbx-00");
+	public static final By BIOPREFERREDREPORT_ADDBIOPREFERREDREPORT_ASSOCIABLESELECTED = By
+			.id("BIOPREFERRED-REPORT-Add-BioPreferred-Report-isAssociateChecked-cbx-01");
+	public static final By BIOPREFERREDREPORT_ADDBIOPREFERREDREPORT_ASSOCIABLEUNSELECTED = By
+			.id("BIOPREFERRED-REPORT-Add-BioPreferred-Report-isAssociateUnchecked-cbx-02");
+
+	public static final By BIOPREFERREDREPORT_EDITBIOPREFERREDREPORT_DEFAULT = By
+			.id("BIOPREFERRED-REPORT-Edit-BioPreferred-Report-isDefault-cbx-10");
+	public static final By BIOPREFERREDREPORT_EDITBIOPREFERREDREPORT_ASSOCIABLESELECTED = By
+			.id("BIOPREFERRED-REPORT-Edit-BioPreferred-Report-isAssociateChecked-cbx-11");
+	public static final By BIOPREFERREDREPORT_EDITBIOPREFERREDREPORT_ASSOCIABLEUNSELECTED = By
+			.id("BIOPREFERRED-REPORT-Edit-BioPreferred-Report-isAssociateUnchecked-cbx-12");
+
+	public static final By BIOPREFERREDREPORT_DELETEBIOPREFERREDREPORT_DEFAULT = By
+			.id("BIOPREFERRED-REPORT-Delete-BioPreferred-Report-isDefault-cbx-20");
+	public static final By BIOPREFERREDREPORT_DELETEBIOPREFERREDREPORT_ASSOCIABLESELECTED = By
+			.id("BIOPREFERRED-REPORT-Delete-BioPreferred-Report-isAssociateChecked-cbx-21");
+	public static final By BIOPREFERREDREPORT_DELETEBIOPREFERREDREPORT_ASSOCIABLEUNSELECTED = By
+			.id("BIOPREFERRED-REPORT-Delete-BioPreferred-Report-isAssociateUnchecked-cbx-22");
+
+	public static final By BIOPREFERREDREPORT_VIEWBIOPREFERREDREPORTENTITYDISPLAYPAGES_DEFAULT = By
+			.id("BIOPREFERRED-REPORT-View-BioPreferred-Report---Entity-Display-pages-isDefault-cbx-30");
+	public static final By BIOPREFERREDREPORT_VIEWBIOPREFERREDREPORTENTITYDISPLAYPAGES_ASSOCIABLESELECTED = By
+			.id("BIOPREFERRED-REPORT-View-BioPreferred-Report---Entity-Display-pages-isAssociateChecked-cbx-31");
+	public static final By BIOPREFERREDREPORT_VIEWBIOPREFERREDREPORTENTITYDISPLAYPAGESs_ASSOCIABLEUNSELECTED = By
+			.id("BIOPREFERRED-REPORT-View-BioPreferred-Report---Entity-Display-pages-isAssociateUnchecked-cbx-32");
+
+	public static final By BIOPREFERREDREPORT_VIEWFINALBIOPREFERREDREPORTDATAACCESSPAGES_DEFAULT = By
+			.id("BIOPREFERRED-REPORT-View-Final-BioPreferred-Report---Data-Access-pages-isDefault-cbx-40");
+	public static final By BIOPREFERREDREPORT_VIEWFINALBIOPREFERREDREPORTDATAACCESSPAGES_ASSOCIABLESELECTED = By
+			.id("BIOPREFERRED-REPORT-View-Final-BioPreferred-Report---Data-Access-pages-isAssociateChecked-cbx-41");
+	public static final By BIOPREFERREDREPORT_VIEWFINALBIOPREFERREDREPORTDATAACCESSPAGES_ASSOCIABLEUNSELECTED = By
+			.id("BIOPREFERRED-REPORT-View-Final-BioPreferred-Report---Data-Access-pages-isAssociateUnchecked-cbx-42");
+	//------------------------------------
+	public static final By EXCLUSIONSMAINTENANCE_ALL_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-isAllDefaultsChecked-all-cbx");
+	public static final By EXCLUSIONSMAINTENANCE_ALL_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-isAllAssociateChecked-all-cbx");
+	public static final By EXCLUSIONSMAINTENANCE_ALL_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By EXCLUSIONSMAINTENANCE_UPLOADEXCLUSIONS_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-Upload-Exclusions-isDefault-cbx-00");
+	public static final By EXCLUSIONSMAINTENANCE_UPLOADEXCLUSIONS_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-Upload-Exclusions-isAssociateChecked-cbx-01");
+	public static final By EXCLUSIONSMAINTENANCE_UPLOADEXCLUSIONS_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-Upload-Exclusions-isAssociateUnchecked-cbx-02");
+	
+	public static final By EXCLUSIONSMAINTENANCE_VIEWMYAGENCYSEXCLUSIONS_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-View-My-Agency's-Exclusions-isDefault-cbx-10");
+	public static final By EXCLUSIONSMAINTENANCE_VIEWMYAGENCYSEXCLUSIONS_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-View-My-Agency's-Exclusions-isAssociateChecked-cbx-11");
+	public static final By EXCLUSIONSMAINTENANCE_VIEWMYAGENCYSEXCLUSIONS_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-View-My-Agency's-Exclusions-isAssociateUnchecked-cbx-12");
+	
+	public static final By EXCLUSIONSMAINTENANCE_VIEWMYEXCLUSIONS_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-View-My-Exclusions-isDefault-cbx-20");
+	public static final By EXCLUSIONSMAINTENANCE_VIEWMYEXCLUSIONS_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-View-My-Exclusions-isAssociateChecked-cbx-21");
+	public static final By EXCLUSIONSMAINTENANCE_VIEWMYEXCLUSIONS_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-View-My-Exclusions-isAssociateUnchecked-cbx-22");
+	
+	public static final By EXCLUSIONSMAINTENANCE_CREATENEWEXCLUSION_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-Create-New-Exclusion-isDefault-cbx-30");
+	public static final By EXCLUSIONSMAINTENANCE_CREATENEWEXCLUSION_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-Create-New-Exclusion-isAssociateChecked-cbx-31");
+	public static final By EXCLUSIONSMAINTENANCE_CREATENEWEXCLUSION_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-Create-New-Exclusion-isAssociateUnchecked-cbx-32");
+	
+	public static final By EXCLUSIONSMAINTENANCE_UPDATEEXCLUSION_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-Update-Exclusion-isDefault-cbx-40");
+	public static final By EXCLUSIONSMAINTENANCE_UPDATEEXCLUSION_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-Update-Exclusion-isAssociateChecked-cbx-41");
+	public static final By EXCLUSIONSMAINTENANCE_UPDATEEXCLUSION_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-Update-Exclusion-isAssociateUnchecked-cbx-42");
+	
+	public static final By EXCLUSIONSMAINTENANCE_DELETEEXCLUSION_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-Delete-Exclusion-isDefault-cbx-50");
+	public static final By EXCLUSIONSMAINTENANCE_DELETEEXCLUSION_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-Delete-Exclusion-isAssociateChecked-cbx-51");
+	public static final By EXCLUSIONSMAINTENANCE_DELETEEXCLUSION_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-Delete-Exclusion-isAssociateUnchecked-cbx-52");
 }
