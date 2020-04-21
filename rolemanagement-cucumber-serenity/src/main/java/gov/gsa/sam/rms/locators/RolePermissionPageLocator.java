@@ -951,4 +951,29 @@ public class RolePermissionPageLocator {
 	public static final By IAM_UPDATE_DEFAULT = By.id("IAM-Update-isDefault-cbx-30");
 	public static final By IAM_UPDATE_ASSOCIABLESELECTED = By.id("IAM-Update-isAssociateChecked-cbx-31");
 	public static final By IAM_UPDATE_ASSOCIABLEUNSELECTED = By.id("IAM-Update-isAssociateUnchecked-cbx-32");
+	//-------------------------
+	public static final By SYSTEMACCOUNTS_ALL_DEFAULT = By.id("System-Accounts-isAllDefaultsChecked-all-cbx");
+	public static final By SYSTEMACCOUNTS_ALL_ASSOCIABLESELECTED = By.id("System-Accounts-isAllAssociateChecked-all-cbx");
+	public static final By SYSTEMACCOUNTS_ALL_ASSOCIABLEUNSELECTED = By.id("System-Accounts-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By SYSTEMACCOUNTS_CREATE_DEFAULT = By.id("System-Accounts-Create-isDefault-cbx-00");
+	public static final By SYSTEMACCOUNTS_CREATE_ASSOCIABLESELECTED = By.id("System-Accounts-Create-isAssociateChecked-cbx-01");
+	public static final By SYSTEMACCOUNTS_CREATE_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Create-isAssociateUnchecked-cbx-02");
+	
+	public static final By SYSTEMACCOUNTS_DELETE_DEFAULT = By.id("System-Accounts-Delete-isDefault-cbx-10");
+	public static final By SYSTEMACCOUNTS_DELETE_ASSOCIABLESELECTED = By.id("System-Accounts-Delete-isAssociateChecked-cbx-11");
+	public static final By SYSTEMACCOUNTS_DELETE_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Delete-isAssociateUnchecked-cbx-12");
+	
+	public static final By SYSTEMACCOUNTS_READ_DEFAULT = By.id("System-Accounts-Read-isDefault-cbx-20");
+	public static final By SYSTEMACCOUNTS_READ_ASSOCIABLESELECTED = By.id("System-Accounts-Read-isAssociateChecked-cbx-21");
+	public static final By SYSTEMACCOUNTS_READ_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Read-isAssociateUnchecked-cbx-22");
+	
+	public static final By SYSTEMACCOUNTS_UPDATE_DEFAULT = By.id("System-Accounts-Update-isDefault-cbx-30");
+	public static final By SYSTEMACCOUNTS_UPDATE_ASSOCIABLESELECTED = By.id("System-Accounts-Update-isAssociateChecked-cbx-31");
+	public static final By SYSTEMACCOUNTS_UPDATE_ASSOCIABLEUNSELECTED = By.id("System-Accounts-Update-isAssociateUnchecked-cbx-32");
+	//-------------------------------
+	public static final By RMS_ALL_DEFAULT = By.id("RMS-isAllDefaultsChecked-all-cbx");
+	public static final By RMS_ALL_ASSOCIABLESELECTED = By.id("RMS-isAllAssociateChecked-all-cbx");
+	public static final By RMS_ALL_ASSOCIABLEUNSELECTED = By.id("RMS-isAllAssociateUnchecked-all-cbx");
+	//----------------------------
 }
