@@ -13,5 +13,6 @@ public class RoleDefinitionPageLocator {
 	public static final By DOMAIN_FILTER_CONTRACTOPPORTUNITIES = By.id("Contract Opportunities");
 	public static final By DOMAIN_FILTER_ASSISTANCELISTING = By.id("Assistance Listing");
 	public static final By DOMAIN_FILTER_ADMIN = By.id("Admin");
+	public static final By DOMAIN_FILTER_ENTITYCOMPLIANCE = By.id("Entity Compliance");
 
 }

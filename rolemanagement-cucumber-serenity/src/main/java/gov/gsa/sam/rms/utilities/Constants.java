@@ -124,6 +124,7 @@ public class Constants {
 
 	public static final CharSequence EMAIL_SENT_FROM_DOMAIN = "donotreply@sam.gov";
 	public static CharSequence EMAIL_ENV;
+	
 
 	// system account admin email constants
 	public static final String EMAIL_SAA_PENDING_SUBJECT_LINE = "You have a pending System Account application to review";
@@ -345,6 +346,8 @@ public class Constants {
 	public static final String ROLE_GSADATAAPPROVER = "GSA Data Approver";
 	public static final String ROLE_ADMINSTRATORALLDOMAINS = "Administrator All Domains";
 	public static final String ROLE_SAMPMOADMINISTRATOR = "SAM PMO Administrator";
+	public static final String ROLE_TIER3HELPDESK = "Tier 3 Help Desk (Remove)";
+	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator (Remove)";
 	
 	
 	

@@ -121,7 +121,22 @@ role permissions should be consisent in both dev and test environment for all ro
 	Then _5rd all the expected checkbox should be marked for tier1 helpdesk role 
 	When _5rd user goes through all the permission for gsa data approver role 
 	Then _5rd all the expected checkbox should be marked for gsa data approver role 
-	
+
+
+
+@6 
+Scenario:
+role permissions should be consisent in both dev and test environment for all roles in entity compliance domain 
+	Given _6rd user logs in a spaad 
+	And _6rd user navigates to role definition page and filters all roles in entity compliance domain 
+	When _6rd user goes through all permission for administrator role 
+	Then _6rd all the expected checkbox should be marked administrator role 
+	When _6rd user goes through all permssion for tier3 helpdesk role 
+	Then _6rd all the expected checkbox should be marked for tier3 helpdesk role 
+	When _6rd user goes through all permission for data entry role 
+	Then _6rd all the expeted checkbox should be marked for data entry role 
+	When _6rd user goes through all permission for agency roles administrator role 
+	Then _6rd all the expeted checkbox should be marked for agency roles administrator role 
 	
 	
 	
