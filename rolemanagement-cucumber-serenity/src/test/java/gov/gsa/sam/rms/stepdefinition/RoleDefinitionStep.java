@@ -30304,7 +30304,7 @@ public class RoleDefinitionStep {
 	public void _7rd_user_navigates_to_role_definition_page_and_filters_all_roles_in_entity_registration_domain()
 			throws Throwable {
 		T1WorkspacePage.clickRoleDefinitionLink();
-		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_REGISTRATION);
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
 	}
 
 	@When("^_7rd user goes through all permission for entity management data access system only role$")
@@ -30965,7 +30965,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permssion for administrator role$")
 	public void _7rd_user_goes_through_all_permssion_for_administrator_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_ADMIN, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for administrator role$")
@@ -30975,7 +30979,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for tier3helpdesk role$")
 	public void _7rd_user_goes_through_all_permission_for_tier3helpdesk_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_TIER3HELPDESK_ENTITY_REGISTRATION, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for tier3helpdesk role$")
@@ -30986,7 +30994,11 @@ public class RoleDefinitionStep {
 	@When("^_7rd user goes through all permission for sensitive entity management data viewer role$")
 	public void _7rd_user_goes_through_all_permission_for_sensitive_entity_management_data_viewer_role()
 			throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_SENSITIVEENTITYMANAGEMENT, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for sensitive entity management data viewer role$")
@@ -30998,7 +31010,11 @@ public class RoleDefinitionStep {
 	@When("^_7rd user goes through all permission for fouo executive compensation data viewer role$")
 	public void _7rd_user_goes_through_all_permission_for_fouo_executive_compensation_data_viewer_role()
 			throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_FOUOANDEXECUTIVECOMPENSATION_DATAVIEWER, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for fouo executive compensation data viewer role$")
@@ -31010,7 +31026,11 @@ public class RoleDefinitionStep {
 	@When("^_7rd user goes through all permission for agency administrator entity management role$")
 	public void _7rd_user_goes_through_all_permission_for_agency_administrator_entity_management_role()
 			throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_AGENCY_ADMINISTRATOR_ENTITYMANAGEMENT, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for agency administrator entity management role$")
@@ -31021,7 +31041,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for data entry role$")
 	public void _7rd_user_goes_through_all_permission_for_data_entry_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_DATA_ENTRY, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for data entry role$")
@@ -31031,7 +31055,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for viewer role$")
 	public void _7rd_user_goes_through_all_permission_for_viewer_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_VIEWER, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for viewer role$")
@@ -31041,7 +31069,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for fouo entity management data viewer role$")
 	public void _7rd_user_goes_through_all_permission_for_fouo_entity_management_data_viewer_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_FOUOENTITYMANAGEMENT_DATAVIEWER, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for fouo entity management data viewer role$")
@@ -31052,7 +31084,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for agency roles administrator role$")
 	public void _7rd_user_goes_through_all_permission_for_agency_roles_administrator_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_AGENCYROLESADMINISTRATOR, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for agency roles administrator role$")
@@ -31062,7 +31098,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for fouo and fapiis role$")
 	public void _7rd_user_goes_through_all_permission_for_fouo_and_fapiis_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_FOUOANDFAPIIS, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for fouo and fapiis role$")
@@ -31072,7 +31112,11 @@ public class RoleDefinitionStep {
 
 	@When("^_7rd user goes through all permission for office registration representatitve role$")
 	public void _7rd_user_goes_through_all_permission_for_office_registration_representatitve_role() throws Throwable {
-
+		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.navigateBack();
+		RoleDefinitionPage.clickDomainFilter(RoleDefinitionPageLocator.DOMAIN_FILTER_ENTITYREGISTRATION);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_OFFICEREGISTRATION_REPRESENTATIVE, Constants.GO_INTO_EDITPERMISSIONS);
+		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_7rd all the expected checkbox should be marked for office registration representatitve role$")

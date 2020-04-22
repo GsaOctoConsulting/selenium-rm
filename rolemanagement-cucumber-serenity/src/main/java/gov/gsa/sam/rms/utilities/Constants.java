@@ -349,6 +349,14 @@ public class Constants {
 	public static final String ROLE_TIER3HELPDESK = "Tier 3 Help Desk (Remove)";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator (Remove)";
 	public static final String ROLE_ENTITYMANAGEMENTDATAACCESS_SYSTEMONLY = "Entity Management Data Access System Only";
+	public static final String ROLE_OFFICEREGISTRATION_REPRESENTATIVE = "Office Registration Representative";
+	public static final String ROLE_FOUOANDFAPIIS = "FOUO and FAPIIS";
+	public static final String ROLE_AGENCYROLESADMINISTRATOR = "Agency Roles Administrator";
+	public static final String ROLE_FOUOENTITYMANAGEMENT_DATAVIEWER = "FOUO Entity Management Data Viewer";
+	public static final String ROLE_AGENCY_ADMINISTRATOR_ENTITYMANAGEMENT = "Agency Administrator Entity Management";
+	public static final String ROLE_FOUOANDEXECUTIVECOMPENSATION_DATAVIEWER = "FOUO and Executive Compensation Data Viewer";
+	public static final String ROLE_SENSITIVEENTITYMANAGEMENT = "Sensitive Entity Management Data Viewer";
+	public static final String ROLE_TIER3HELPDESK_ENTITY_REGISTRATION = "Tier 3 Help Desk";
 	
 	
 	
