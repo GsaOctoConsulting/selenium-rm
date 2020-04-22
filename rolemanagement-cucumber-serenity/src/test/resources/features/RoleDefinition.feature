@@ -122,8 +122,6 @@ role permissions should be consisent in both dev and test environment for all ro
 	When _5rd user goes through all the permission for gsa data approver role 
 	Then _5rd all the expected checkbox should be marked for gsa data approver role 
 
-
-
 @6 
 Scenario:
 role permissions should be consisent in both dev and test environment for all roles in entity compliance domain 
@@ -137,8 +135,35 @@ role permissions should be consisent in both dev and test environment for all ro
 	Then _6rd all the expeted checkbox should be marked for data entry role 
 	When _6rd user goes through all permission for agency roles administrator role 
 	Then _6rd all the expeted checkbox should be marked for agency roles administrator role 
-	
-	
+
+@7 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in entity registration domain 
+	Given _7rd user logs in a spaad 
+	And _7rd user navigates to role definition page and filters all roles in entity registration domain 
+	When _7rd user goes through all permission for entity management data access system only role 
+	Then _7rd all the expected checkbox should be marked for entity management data access system only role
+	When _7rd user goes through all permssion for administrator role 
+	Then _7rd all the expected checkbox should be marked for administrator role 
+	When _7rd user goes through all permission for tier3helpdesk role 
+	Then _7rd all the expected checkbox should be marked for tier3helpdesk role 
+	When _7rd user goes through all permission for sensitive entity management data viewer role 
+	Then _7rd all the expected checkbox should be marked for sensitive entity management data viewer role 
+	When _7rd user goes through all permission for fouo executive compensation data viewer role 
+	Then _7rd all the expected checkbox should be marked for fouo executive compensation data viewer role
+	When _7rd user goes through all permission for agency administrator entity management role 
+	Then _7rd all the expected checkbox should be marked for agency administrator entity management role
+	When _7rd user goes through all permission for data entry role 
+	Then _7rd all the expected checkbox should be marked for data entry role
+	When _7rd user goes through all permission for viewer role 
+	Then _7rd all the expected checkbox should be marked for viewer role
+	When _7rd user goes through all permission for fouo entity management data viewer role 
+	Then _7rd all the expected checkbox should be marked for fouo entity management data viewer role
+	When _7rd user goes through all permission for agency roles administrator role 
+	Then _7rd all the expected checkbox should be marked for agency roles administrator role
+	When _7rd user goes through all permission for fouo and fapiis role 
+	Then _7rd all the expected checkbox should be marked for fouo and fapiis role
+	When _7rd user goes through all permission for office registration representatitve role 
+	Then _7rd all the expected checkbox should be marked for office registration representatitve role
 	
 	
 	

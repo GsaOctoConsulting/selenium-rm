@@ -348,6 +348,7 @@ public class Constants {
 	public static final String ROLE_SAMPMOADMINISTRATOR = "SAM PMO Administrator";
 	public static final String ROLE_TIER3HELPDESK = "Tier 3 Help Desk (Remove)";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator (Remove)";
+	public static final String ROLE_ENTITYMANAGEMENTDATAACCESS_SYSTEMONLY = "Entity Management Data Access System Only";
 	
 	
 	
