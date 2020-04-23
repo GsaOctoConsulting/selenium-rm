@@ -58,7 +58,7 @@ public class RoleDefinitionPage {
 	}
 	
 	public static void clickDomainFilter(By filterlocator) {
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(filterlocator).click();
 		LaunchBrowserUtil.delay(4);
 	}

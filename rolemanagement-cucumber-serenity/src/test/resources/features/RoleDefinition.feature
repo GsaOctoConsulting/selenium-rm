@@ -28,8 +28,7 @@ Scenario: role definition pages and links shoud work for role admin
 	Then _1 user shoudl see proper links and buttons 
 	
 @2 
-Scenario:
-role permissions should be consisent in both dev and test environment for all roles in contract data domain 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in contract data domain 
 	Given _2rd user logs in a spaad 
 	And _2rd user navigates to role definition page and filters all roles in contract data domain 
 	When _2rd user goes through all permission for aad role 
@@ -44,8 +43,7 @@ role permissions should be consisent in both dev and test environment for all ro
 	Then _2rd all the expected checkbox should be marked for contracting specialist role 
 	
 @3 
-Scenario:
-role permissions should be consisent in both dev and test environment for all roles in contract opportunities domain 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in contract opportunities domain 
 	Given _3rd user logs in a spaad 
 	And _3rd user navigates to role definition page and filters all roles in contract opportunities domain 
 	When _3rd user goes through all permission for aad role 
@@ -67,8 +65,7 @@ role permissions should be consisent in both dev and test environment for all ro
 	
 	
 @4 
-Scenario:
-role permissions should be consisent in both dev and test environment for all roles in assistance listing domain 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in assistance listing domain 
 	Given _4rd user logs in a spaad 
 	And _4rd user navigates to role definition page and filters all roles in assistance listing domain 
 	When _4rd user goes through all permission for administrator role 
@@ -84,13 +81,8 @@ role permissions should be consisent in both dev and test environment for all ro
 	When _4rd user goes through all the permission for omb administrator role 
 	Then _4rd all the expected checkbox should be marked for omb administrator role 
 	
-	
-	
-	
-	
 @5 
-Scenario:
-role permissions should be consisent in both dev and test environment for all roles in admin domain 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in admin domain 
 	Given _5rd user logs in a spaad 
 	And _5rd user navigates to role definition page and filters all roles in admin domain 
 	When _5rd user goes through all permission for iaepmo administrator role 
@@ -123,8 +115,7 @@ role permissions should be consisent in both dev and test environment for all ro
 	Then _5rd all the expected checkbox should be marked for gsa data approver role 
 
 @6 
-Scenario:
-role permissions should be consisent in both dev and test environment for all roles in entity compliance domain 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in entity compliance domain 
 	Given _6rd user logs in a spaad 
 	And _6rd user navigates to role definition page and filters all roles in entity compliance domain 
 	When _6rd user goes through all permission for administrator role 
