@@ -4,8 +4,8 @@ public class Constants {
 
 	static PropertiesFileUtility fileUtilityreader = new PropertiesFileUtility("application.properties");
 	// urls
-	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
-	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov";
+	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
+	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov";
 	// public static final String LOGINGOV_HOME_PAGE =
 	// "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
 	// login credentials
@@ -357,6 +357,10 @@ public class Constants {
 	public static final String ROLE_FOUOANDEXECUTIVECOMPENSATION_DATAVIEWER = "FOUO and Executive Compensation Data Viewer";
 	public static final String ROLE_SENSITIVEENTITYMANAGEMENT = "Sensitive Entity Management Data Viewer";
 	public static final String ROLE_TIER3HELPDESK_ENTITY_REGISTRATION = "Tier 3 Help Desk";
+	
+	
+	//brower config
+	public static final boolean INCOGNITO_ON = false;
 	
 	
 	

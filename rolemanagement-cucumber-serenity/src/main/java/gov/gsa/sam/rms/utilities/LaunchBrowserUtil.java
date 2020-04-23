@@ -61,7 +61,11 @@ public class LaunchBrowserUtil {
 	 */
 	public static WebDriver openThisBrowser() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("incognito");
+
+		if (Constants.INCOGNITO_ON == true) {
+			options.addArguments("incognito");
+		}
+
 		options.addArguments("disable-infobars");
 		options.addArguments("start-maximized");
 		options.addArguments("--no-sandbox");
@@ -269,6 +273,10 @@ public class LaunchBrowserUtil {
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		LaunchBrowserUtil.delay(10);
+
+		driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span"))
+				.click();// use this if windowsbased popup show up and turn off incognito
+
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
 		// driver.findElement(By.linkText("octotestaccount1@gsa.gov
@@ -380,6 +388,21 @@ public class LaunchBrowserUtil {
 		delay(1);
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		delay(2);
+
+		if (Constants.INCOGNITO_ON == false) {
+			driver.findElement(
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
+																														// this
+																														// if
+																														// windowsbased
+																														// popup
+																														// show
+																														// up
+																														// and
+																														// 																													// off
+																														// incognito
+		}
+
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
