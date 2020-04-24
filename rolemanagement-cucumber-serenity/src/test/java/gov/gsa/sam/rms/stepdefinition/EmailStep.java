@@ -1338,6 +1338,9 @@ public class EmailStep {
 	@Then("^_9 the requester should also receive two email messages$")
 	public void _9_the_requester_should_also_receive_two_email_messages() throws Throwable {
 		// ----------------delete the role for the user---------------------
+		
+		
+		
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,

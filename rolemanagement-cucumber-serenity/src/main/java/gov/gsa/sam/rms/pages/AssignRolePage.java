@@ -250,6 +250,7 @@ public class AssignRolePage {
 	}
 
 	public static void clickCloseButton() {
+		LaunchBrowserUtil.delay(4);
 		driver.findElement(By.xpath(".//button[starts-with(@type, 'button')]")).click();
 		LaunchBrowserUtil.delay(4);
 		MyRolesPage.setDriver(driver);

@@ -752,7 +752,7 @@ public class NonFedStep {
 
 	@And("^_13nf user should see all those users as clickable$")
 	public void _13nf_user_should_see_all_those_users_as_clickable() throws Throwable {
-		int totalNoOfPages = 3; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
+		int totalNoOfPages = 2; // UserDirectoryPage.getTotalNoOfPages(); check 3 pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist
@@ -814,7 +814,7 @@ public class NonFedStep {
 
 	@Then("^_14nf then requsters profile page should show the role assigned in role history$")
 	public void _14_then_requsters_profile_page_should_show_the_role_assigned_in_role_history() throws Throwable {
-		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_REMOVED, "", 0);
+		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_ASSIGNED, "", 0);
 		Assert.assertEquals(true, rolehistoryfound);
 
 		// ---------delete the newly granted role-----------
