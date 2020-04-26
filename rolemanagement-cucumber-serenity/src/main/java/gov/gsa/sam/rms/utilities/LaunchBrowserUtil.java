@@ -399,7 +399,8 @@ public class LaunchBrowserUtil {
 																														// show
 																														// up
 																														// and
-																														// 																													// off
+																														// //
+																														// off
 																														// incognito
 		}
 
@@ -424,6 +425,26 @@ public class LaunchBrowserUtil {
 			driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
 			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		}
+
+		if (Constants.INCOGNITO_ON == false) {
+			tab_handles = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
+			LaunchBrowserUtil.delay(2);
+			
+			driver.findElement(
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
+																														// this
+																														// if
+																														// windowsbased
+																														// popup
+																														// show
+																														// up
+																														// and
+																														// //
+																														// off
+																														// incognito
+		}
+
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]")).click();
@@ -607,6 +628,22 @@ public class LaunchBrowserUtil {
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		LaunchBrowserUtil.delay(10);
+
+		if (Constants.INCOGNITO_ON == false) {
+			driver.findElement(
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
+																														// this
+																														// if
+																														// windowsbased
+																														// popup
+																														// show
+																														// up
+																														// and
+																														// //
+																														// off
+																														// incognito
+		}
+
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();

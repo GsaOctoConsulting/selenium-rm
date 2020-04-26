@@ -211,11 +211,13 @@ public class SystemAccountRequestDetailsPage {
 	}
 
 	public static void clickRequestAPIkeyButton(String accountpassword) {
+		LaunchBrowserUtil.delay(3);
 		driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/review/div/div[6]/div/sam-fieldset-wrapper/div/fieldset/div[2]/button"))
 				.click();
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.id("password-input")).sendKeys(accountpassword);
+		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/review/sam-modal-basic/div/div/div[2]/div/button[2]"))
 				.click();

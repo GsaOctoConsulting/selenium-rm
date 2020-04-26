@@ -129,6 +129,7 @@ public class SystemAccountDirectoryPage {
 	}
 
 	public static void clickSortDescedingByTimestampButton() {
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.className("fa-sort-amount-asc")).click();
 		LaunchBrowserUtil.delay(4);
 
