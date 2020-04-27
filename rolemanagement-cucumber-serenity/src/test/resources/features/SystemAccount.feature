@@ -352,7 +352,16 @@ Scenario: system manager should be able to intiate change request for published 
 	And _25saacount the old published system account is replaced
 	 
 	
-
+@26 @IntegrationTest @S1
+Scenario: user registered at office level should be able to open a system account in office level (defect fix test)
+	Given _26sa saaccount user logs in as system manager in office level 
+	And _26sa saaccount manager navigates to system account directory page 
+	And _26sa saaccount manager enters all the system information 
+	And _26sa saaccount manager selects same office level for the system account 
+	And _26sa saaccount manager enters permissions info 
+	And _26sa saaccount manager enters security info 
+	And _26sa saaccount user enters authorization info 
+	And _26sa the newly created account should show up on the system account directory page without any errors 
 	
 	
 	

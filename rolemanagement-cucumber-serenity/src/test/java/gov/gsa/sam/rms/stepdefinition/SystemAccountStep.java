@@ -2443,7 +2443,7 @@ public class SystemAccountStep {
 				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_GSA,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountstatusUpdated);
-		
+
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -2524,7 +2524,7 @@ public class SystemAccountStep {
 		boolean accountfound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.REQUEST_CHANGES);
 		Assert.assertEquals(true, accountfound);
-		
+
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
@@ -2549,7 +2549,7 @@ public class SystemAccountStep {
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
-		
+
 		boolean accountFound1 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound1);
@@ -2566,26 +2566,26 @@ public class SystemAccountStep {
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-		
+
 		boolean accountFound1 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound1);
-		
+
 		SystemAccountRequestDetailsPage.writeComment("request is reviewed");
 		SystemAccountRequestDetailsPage.clickApproveButton();
 		SystemAccountRequestDetailsPage.clickCloseButton();
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-		
-		boolean accountFound2 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
-				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+
+		boolean accountFound2 = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
 		Assert.assertEquals(true, accountFound2);
-		
 
 		boolean accountFound3 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound3);
-		
+
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
@@ -2597,10 +2597,11 @@ public class SystemAccountStep {
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-		boolean accountFound2 = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
-				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
+		boolean accountFound2 = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound2);
-		
+
 		SystemAccountRequestDetailsPage.writeComment("request is approved");
 		SystemAccountRequestDetailsPage.clickApproveButton();
 		SystemAccountRequestDetailsPage.clickCloseButton();
@@ -2615,6 +2616,50 @@ public class SystemAccountStep {
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(true, accountFound);
+	}
+
+	@Given("^_26sa saaccount user logs in as system manager in office level$")
+	public void _26sa_saaccount_user_logs_in_as_system_manager_in_office_level() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_SUBTIER, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_SUBTIER_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_26sa saaccount manager navigates to system account directory page$")
+	public void _26sa_saaccount_manager_navigates_to_system_account_directory_page() throws Throwable {
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickNewButton();
+	}
+
+	@And("^_26sa saaccount manager enters all the system information$")
+	public void _26sa_saaccount_manager_enters_all_the_system_information() throws Throwable {
+
+	}
+
+	@And("^_26sa saaccount manager selects same office level for the system account$")
+	public void _26sa_saaccount_manager_selects_same_office_level_for_the_system_account() throws Throwable {
+
+	}
+
+	@And("^_26sa saaccount manager enters permissions info$")
+	public void _26sa_saaccount_manager_enters_permissions_info() throws Throwable {
+
+	}
+
+	@And("^_26sa saaccount manager enters security info$")
+	public void _26sa_saaccount_manager_enters_security_info() throws Throwable {
+
+	}
+
+	@And("^_26sa saaccount user enters authorization info$")
+	public void _26sa_saaccount_user_enters_authorization_info() throws Throwable {
+
+	}
+
+	@And("^_26sa the newly created account should show up on the system account directory page without any errors$")
+	public void _26sa_the_newly_created_account_should_show_up_on_the_system_account_directory_page_without_any_errors()
+			throws Throwable {
+
 	}
 
 	// private methods are below this line
