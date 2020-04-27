@@ -43,7 +43,7 @@ public class SignInUtility {
 		Thread.sleep(2000);
 		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(password);
 		Thread.sleep(2000);
-		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
 		Thread.sleep(2000);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();

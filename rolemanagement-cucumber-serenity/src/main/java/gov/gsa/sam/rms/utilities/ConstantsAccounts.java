@@ -291,4 +291,7 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_DATAENTRY_ENTITYCOMPLIANCE_IBM = "nonfedgsaemail+ibmdataentryentitycompliance@yopmail.com";
 	public static final String NONFED_DATAENTRY_ENTITYCOMPLIANCE_IBM_SECRETKEY = "BM6BD6W2YN2BYKHI";
+	
+	public static final String SYSTEM_MANAGER_GSA_OFFICE_LEVEL = "octotestaccount1+sysstemmanagerofficelevel@gsa.gov";
+	public static final String SYSTEM_MANAGER_GSA_OFFICE_LEVEL_SECRETKEY = "LMQ7URKNBOE2XNHB";
 }

@@ -2620,8 +2620,8 @@ public class SystemAccountStep {
 
 	@Given("^_26sa saaccount user logs in as system manager in office level$")
 	public void _26sa_saaccount_user_logs_in_as_system_manager_in_office_level() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_SUBTIER, Constants.USERPASS,
-				ConstantsAccounts.NO_ROLE_USER_SUBTIER_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_GSA_OFFICE_LEVEL, Constants.USERPASS,
+				ConstantsAccounts.SYSTEM_MANAGER_GSA_OFFICE_LEVEL_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -2633,33 +2633,68 @@ public class SystemAccountStep {
 
 	@And("^_26sa saaccount manager enters all the system information$")
 	public void _26sa_saaccount_manager_enters_all_the_system_information() throws Throwable {
-
+		NewSystemAccountPage.enterSystemAccountName(formattedDate);
+		NewSystemAccountPage.enterInterfacingSystemName("testv1");
+		NewSystemAccountPage.enterSystemDescription("description");
+		NewSystemAccountPage.clickNextToGoToOrgInfo();
 	}
 
 	@And("^_26sa saaccount manager selects same office level for the system account$")
 	public void _26sa_saaccount_manager_selects_same_office_level_for_the_system_account() throws Throwable {
-
+		NewSystemAccountPage.selectOrgInOrgInfo("4792KE");//gsa office
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
+		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
 	@And("^_26sa saaccount manager enters permissions info$")
 	public void _26sa_saaccount_manager_enters_permissions_info() throws Throwable {
-
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_PUBLIC);
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_PUBLIC);
+		NewSystemAccountPage.selectFIPSCategorization(NewSystemAccountPageLocator.FIPS_LOW);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		NewSystemAccountPage.clickNextToGoToSecurity();
 	}
 
 	@And("^_26sa saaccount manager enters security info$")
 	public void _26sa_saaccount_manager_enters_security_info() throws Throwable {
-
+		NewSystemAccountPage.enterIPaddress("192.168.1.1");
+		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
+		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
+		NewSystemAccountPage.enterSecurityOfficialName("a");
+		NewSystemAccountPage.enterSecurityOfficialEmail("a@b.c");
+		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
 	@And("^_26sa saaccount user enters authorization info$")
 	public void _26sa_saaccount_user_enters_authorization_info() throws Throwable {
-
+		NewSystemAccountPage.certifyCorrectInformation();
+		NewSystemAccountPage.clickReviewButton();
+		LaunchBrowserUtil.scrollUp();
+		NewSystemAccountPage.clickSubmit();
+		NewSystemAccountPage.selectAllTermsOfUse();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
 
 	@And("^_26sa the newly created account should show up on the system account directory page without any errors$")
 	public void _26sa_the_newly_created_account_should_show_up_on_the_system_account_directory_page_without_any_errors()
 			throws Throwable {
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickPendingReviewFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
+				"GSA", Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound);
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	// private methods are below this line
