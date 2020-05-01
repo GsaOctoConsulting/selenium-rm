@@ -38209,14 +38209,305 @@ public class RoleDefinitionStep {
 
 	@When("^_8rd user goes through all permission for aac user role$")
 	public void _8rd_user_goes_through_all_permission_for_aac_user_role() throws Throwable {
-		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_AACUSER,
-				Constants.GO_INTO_EDITPERMISSIONS);
+		RoleDefinitionPage.getRoleDefinitionDetails(Constants.ROLE_AACUSER, Constants.GO_INTO_EDITPERMISSIONS);
 		LaunchBrowserUtil.scrollToMiddle();
 	}
 
 	@Then("^_8rd all the expected checkbox should be marked aac user role$")
 	public void _8rd_all_the_expected_checkbox_should_be_marked_aac_user_role() throws Throwable {
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AACMANAGEMENT_ALL_DEFAULT).isSelected());
 
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AACMANAGEMENT_ALL_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AACMANAGEMENT_ALL_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(true, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AACMANAGEMENT_UPLOADFILES_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AACMANAGEMENT_UPLOADFILES_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AACMANAGEMENT_UPLOADFILES_ASSOCIABLEUNSELECTED).isSelected());
+		// ----------NEW PERMISSION-----------------------
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.AGENCY_ALL_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_ALL_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_ALL_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.AGENCY_VIEW_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_VIEW_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_VIEW_ASSOCIABLEUNSELECTED).isSelected());
+		// ------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_CREATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_CREATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_CREATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_TRANSFER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_TRANSFER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_TRANSFER_ASSOCIABLEUNSELECTED).isSelected());
+		// --------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_UPDATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_UPDATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_UPDATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_ADDUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_ADDUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_ADDUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_EDITENDDATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_EDITENDDATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_EDITENDDATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_REMOVEUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_REMOVEUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_REMOVEUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_VIEWUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_VIEWUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.AGENCY_VIEWUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ------------NEW PERMISSION---------------------
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_ALL_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_ALL_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_ALL_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_VIEW_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_VIEW_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_VIEW_ASSOCIABLEUNSELECTED).isSelected());
+		// ------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_CREATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_CREATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_CREATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_TRANSFER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_TRANSFER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_TRANSFER_ASSOCIABLEUNSELECTED).isSelected());
+		// --------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_UPDATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_UPDATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_UPDATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_ADDUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_ADDUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_ADDUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_EDITENDDATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_EDITENDDATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_EDITENDDATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_REMOVEUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_REMOVEUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_REMOVEUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_VIEWUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_VIEWUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_VIEWUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_EDITTASCODE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_EDITTASCODE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.DEPARTMENT_EDITTASCODE_ASSOCIABLEUNSELECTED).isSelected());
+		// ------------NEW PERMISSION--------------------
+
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.OFFICE_ALL_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_ALL_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_ALL_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false,
+				LaunchBrowserUtil.getDriver().findElement(RolePermissionPageLocator.OFFICE_VIEW_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_VIEW_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_VIEW_ASSOCIABLEUNSELECTED).isSelected());
+		// ------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_CREATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_CREATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_CREATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_TRANSFER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_TRANSFER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_TRANSFER_ASSOCIABLEUNSELECTED).isSelected());
+		// --------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_UPDATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_UPDATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_UPDATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_ADDUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_ADDUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_ADDUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_EDITENDDATE_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_EDITENDDATE_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_EDITENDDATE_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_REMOVEUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_REMOVEUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_REMOVEUSER_ASSOCIABLEUNSELECTED).isSelected());
+		// ---------------------------------
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_VIEWUSER_DEFAULT).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_VIEWUSER_ASSOCIABLESELECTED).isSelected());
+
+		Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+				.findElement(RolePermissionPageLocator.OFFICE_VIEWUSER_ASSOCIABLEUNSELECTED).isSelected());
+
+		// ------------NEW PERMISSION--------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.NOTIFICATION_ALL_DEFAULT).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.NOTIFICATION_ALL_ASSOCIABLESELECTED).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.NOTIFICATION_ALL_ASSOCIABLEUNSELECTED).isSelected());
+				// ---------------------------------
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.NOTIFICATION_RECEIVE_DEFAULT).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.NOTIFICATION_RECEIVE_ASSOCIABLESELECTED).isSelected());
+
+				Assert.assertEquals(false, LaunchBrowserUtil.getDriver()
+						.findElement(RolePermissionPageLocator.NOTIFICATION_RECEIVE_ASSOCIABLEUNSELECTED).isSelected());
+
+				// ------------NEW PERMISSION--------------------
 	}
 
 	@When("^_8rd user goes through all permssion for subtier administrator role$")

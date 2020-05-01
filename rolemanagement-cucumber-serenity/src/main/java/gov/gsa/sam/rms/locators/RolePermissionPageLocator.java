@@ -1419,4 +1419,134 @@ public class RolePermissionPageLocator {
 	public static final By EXCLUSIONSMAINTENANCE_DELETEEXCLUSION_DEFAULT = By.id("EXCLUSIONS-MAINTENANCE-Delete-Exclusion-isDefault-cbx-50");
 	public static final By EXCLUSIONSMAINTENANCE_DELETEEXCLUSION_ASSOCIABLESELECTED = By.id("EXCLUSIONS-MAINTENANCE-Delete-Exclusion-isAssociateChecked-cbx-51");
 	public static final By EXCLUSIONSMAINTENANCE_DELETEEXCLUSION_ASSOCIABLEUNSELECTED = By.id("EXCLUSIONS-MAINTENANCE-Delete-Exclusion-isAssociateUnchecked-cbx-52");
+	
+	public static final By AACMANAGEMENT_ALL_DEFAULT = By.id("AAC-MANAGEMENT-isAllDefaultsChecked-all-cbx");
+	public static final By AACMANAGEMENT_ALL_ASSOCIABLESELECTED = By.id("AAC-MANAGEMENT-isAllAssociateChecked-all-cbx");
+	public static final By AACMANAGEMENT_ALL_ASSOCIABLEUNSELECTED = By.id("AAC-MANAGEMENT-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By AACMANAGEMENT_UPLOADFILES_DEFAULT = By.id("AAC-MANAGEMENT-Upload-Files-isDefault-cbx-00");
+	public static final By AACMANAGEMENT_UPLOADFILES_ASSOCIABLESELECTED = By.id("AAC-MANAGEMENT-Upload-Files-isAssociateChecked-cbx-01");
+	public static final By AACMANAGEMENT_UPLOADFILES_ASSOCIABLEUNSELECTED = By.id("AAC-MANAGEMENT-Upload-Files-isAssociateUnchecked-cbx-02");
+	
+	public static final By AGENCY_ALL_DEFAULT = By.id("Agency-isAllDefaultsChecked-all-cbx");
+	public static final By AGENCY_ALL_ASSOCIABLESELECTED = By.id("Agency-isAllAssociateChecked-all-cbx");
+	public static final By AGENCY_ALL_ASSOCIABLEUNSELECTED = By.id("Agency-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By AGENCY_VIEW_DEFAULT = By.id("Agency-View-isDefault-cbx-00");
+	public static final By AGENCY_VIEW_ASSOCIABLESELECTED = By.id("Agency-View-isAssociateChecked-cbx-01");
+	public static final By AGENCY_VIEW_ASSOCIABLEUNSELECTED = By.id("Agency-View-isAssociateUnchecked-cbx-02");
+	
+	public static final By AGENCY_CREATE_DEFAULT = By.id("Agency-Create-isDefault-cbx-10");
+	public static final By AGENCY_CREATE_ASSOCIABLESELECTED = By.id("Agency-Create-isAssociateChecked-cbx-11");
+	public static final By AGENCY_CREATE_ASSOCIABLEUNSELECTED = By.id("Agency-Create-isAssociateUnchecked-cbx-12");
+	
+	public static final By AGENCY_TRANSFER_DEFAULT = By.id("Agency-Transfer-isDefault-cbx-20");
+	public static final By AGENCY_TRANSFER_ASSOCIABLESELECTED = By.id("Agency-Transfer-isAssociateChecked-cbx-21");
+	public static final By AGENCY_TRANSFER_ASSOCIABLEUNSELECTED = By.id("Agency-Transfer-isAssociateUnchecked-cbx-22");
+	
+	public static final By AGENCY_UPDATE_DEFAULT = By.id("Agency-Update-isDefault-cbx-30");
+	public static final By AGENCY_UPDATE_ASSOCIABLESELECTED = By.id("Agency-Update-isAssociateChecked-cbx-31");
+	public static final By AGENCY_UPDATE_ASSOCIABLEUNSELECTED = By.id("Agency-Update-isAssociateUnchecked-cbx-32");
+	
+	public static final By AGENCY_ADDUSER_DEFAULT = By.id("Agency-Add-User-isDefault-cbx-40");
+	public static final By AGENCY_ADDUSER_ASSOCIABLESELECTED = By.id("Agency-Add-User-isAssociateChecked-cbx-41");
+	public static final By AGENCY_ADDUSER_ASSOCIABLEUNSELECTED = By.id("Agency-Add-User-isAssociateUnchecked-cbx-42");
+	
+	public static final By AGENCY_EDITENDDATE_DEFAULT = By.id("Agency-Edit-End-Date-isDefault-cbx-50");
+	public static final By AGENCY_EDITENDDATE_ASSOCIABLESELECTED = By.id("Agency-Edit-End-Date-isAssociateChecked-cbx-51");
+	public static final By AGENCY_EDITENDDATE_ASSOCIABLEUNSELECTED = By.id("Agency-Edit-End-Date-isAssociateUnchecked-cbx-52");
+	
+	public static final By AGENCY_REMOVEUSER_DEFAULT = By.id("Agency-Remove-User--isDefault-cbx-60");
+	public static final By AGENCY_REMOVEUSER_ASSOCIABLESELECTED = By.id("Agency-Remove-User--isAssociateChecked-cbx-61");
+	public static final By AGENCY_REMOVEUSER_ASSOCIABLEUNSELECTED = By.id("Agency-Remove-User--isAssociateUnchecked-cbx-62");
+	
+	public static final By AGENCY_VIEWUSER_DEFAULT = By.id("Agency-View-User-isDefault-cbx-70");
+	public static final By AGENCY_VIEWUSER_ASSOCIABLESELECTED = By.id("Agency-View-User-isAssociateChecked-cbx-71");
+	public static final By AGENCY_VIEWUSER_ASSOCIABLEUNSELECTED = By.id("Agency-View-User-isAssociateUnchecked-cbx-72");
+	
+	public static final By DEPARTMENT_ALL_DEFAULT = By.id("Department--isAllDefaultsChecked-all-cbx");
+	public static final By DEPARTMENT_ALL_ASSOCIABLESELECTED = By.id("Department--isAllAssociateChecked-all-cbx");
+	public static final By DEPARTMENT_ALL_ASSOCIABLEUNSELECTED = By.id("Department--isAllAssociateUnchecked-all-cbx");
+	
+	public static final By DEPARTMENT_VIEW_DEFAULT = By.id("Department--View-isDefault-cbx-00");
+	public static final By DEPARTMENT_VIEW_ASSOCIABLESELECTED = By.id("Department--View-isAssociateChecked-cbx-01");
+	public static final By DEPARTMENT_VIEW_ASSOCIABLEUNSELECTED = By.id("Department--View-isAssociateUnchecked-cbx-02");
+	
+	public static final By DEPARTMENT_CREATE_DEFAULT = By.id("Department--Create-isDefault-cbx-10");
+	public static final By DEPARTMENT_CREATE_ASSOCIABLESELECTED = By.id("Department--Create-isAssociateChecked-cbx-11");
+	public static final By DEPARTMENT_CREATE_ASSOCIABLEUNSELECTED = By.id("Department--Create-isAssociateUnchecked-cbx-12");
+	
+	public static final By DEPARTMENT_TRANSFER_DEFAULT = By.id("Department--Transfer-isDefault-cbx-20");
+	public static final By DEPARTMENT_TRANSFER_ASSOCIABLESELECTED = By.id("Department--Transfer-isAssociateChecked-cbx-21");
+	public static final By DEPARTMENT_TRANSFER_ASSOCIABLEUNSELECTED = By.id("Department--Transfer-isAssociateUnchecked-cbx-22");
+	
+	public static final By DEPARTMENT_UPDATE_DEFAULT = By.id("Department--Update-isDefault-cbx-30");
+	public static final By DEPARTMENT_UPDATE_ASSOCIABLESELECTED = By.id("Department--Update-isAssociateChecked-cbx-31");
+	public static final By DEPARTMENT_UPDATE_ASSOCIABLEUNSELECTED = By.id("Department--Update-isAssociateUnchecked-cbx-32");
+	
+	public static final By DEPARTMENT_ADDUSER_DEFAULT = By.id("Department--Add-User-isDefault-cbx-40");
+	public static final By DEPARTMENT_ADDUSER_ASSOCIABLESELECTED = By.id("Department--Add-User-isAssociateChecked-cbx-41");
+	public static final By DEPARTMENT_ADDUSER_ASSOCIABLEUNSELECTED = By.id("Department--Add-User-isAssociateUnchecked-cbx-42");
+	
+	public static final By DEPARTMENT_EDITENDDATE_DEFAULT = By.id("Department--Edit-End-Date-isDefault-cbx-50");
+	public static final By DEPARTMENT_EDITENDDATE_ASSOCIABLESELECTED = By.id("Department--Edit-End-Date-isAssociateChecked-cbx-51");
+	public static final By DEPARTMENT_EDITENDDATE_ASSOCIABLEUNSELECTED = By.id("Department--Edit-End-Date-isAssociateUnchecked-cbx-52");
+	
+	public static final By DEPARTMENT_REMOVEUSER_DEFAULT = By.id("Department--Remove-User--isDefault-cbx-60");
+	public static final By DEPARTMENT_REMOVEUSER_ASSOCIABLESELECTED = By.id("Department--Remove-User--isAssociateChecked-cbx-61");
+	public static final By DEPARTMENT_REMOVEUSER_ASSOCIABLEUNSELECTED = By.id("Department--Remove-User--isAssociateUnchecked-cbx-62");
+	
+	public static final By DEPARTMENT_VIEWUSER_DEFAULT = By.id("Department--View-User-isDefault-cbx-70");
+	public static final By DEPARTMENT_VIEWUSER_ASSOCIABLESELECTED = By.id("Department--View-User-isAssociateChecked-cbx-71");
+	public static final By DEPARTMENT_VIEWUSER_ASSOCIABLEUNSELECTED = By.id("Department--View-User-isAssociateUnchecked-cbx-72");
+	
+	public static final By DEPARTMENT_EDITTASCODE_DEFAULT = By.id("Department--Edit-TAS-code-isDefault-cbx-80");
+	public static final By DEPARTMENT_EDITTASCODE_ASSOCIABLESELECTED = By.id("Department--Edit-TAS-code-isAssociateChecked-cbx-81");
+	public static final By DEPARTMENT_EDITTASCODE_ASSOCIABLEUNSELECTED = By.id("Department--Edit-TAS-code-isAssociateUnchecked-cbx-82");
+	
+	public static final By OFFICE_ALL_DEFAULT = By.id("Office-isAllDefaultsChecked-all-cbx");
+	public static final By OFFICE_ALL_ASSOCIABLESELECTED = By.id("Office-isAllAssociateChecked-all-cbx");
+	public static final By OFFICE_ALL_ASSOCIABLEUNSELECTED = By.id("Office-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By OFFICE_VIEW_DEFAULT = By.id("Office-View-isDefault-cbx-00");
+	public static final By OFFICE_VIEW_ASSOCIABLESELECTED = By.id("Office-View-isAssociateChecked-cbx-01");
+	public static final By OFFICE_VIEW_ASSOCIABLEUNSELECTED = By.id("Office-View-isAssociateUnchecked-cbx-02");
+	
+	public static final By OFFICE_CREATE_DEFAULT = By.id("Office-Create-isDefault-cbx-10");
+	public static final By OFFICE_CREATE_ASSOCIABLESELECTED = By.id("Office-Create-isAssociateChecked-cbx-11");
+	public static final By OFFICE_CREATE_ASSOCIABLEUNSELECTED = By.id("Office-Create-isAssociateUnchecked-cbx-12");
+	
+	public static final By OFFICE_TRANSFER_DEFAULT = By.id("Office-Transfer-isDefault-cbx-20");
+	public static final By OFFICE_TRANSFER_ASSOCIABLESELECTED = By.id("Office-Transfer-isAssociateChecked-cbx-21");
+	public static final By OFFICE_TRANSFER_ASSOCIABLEUNSELECTED = By.id("Office-Transfer-isAssociateUnchecked-cbx-22");
+	
+	public static final By OFFICE_UPDATE_DEFAULT = By.id("Office-Update-isDefault-cbx-30");
+	public static final By OFFICE_UPDATE_ASSOCIABLESELECTED = By.id("Office-Update-isAssociateChecked-cbx-31");
+	public static final By OFFICE_UPDATE_ASSOCIABLEUNSELECTED = By.id("Office-Update-isAssociateUnchecked-cbx-32");
+	
+	public static final By OFFICE_ADDUSER_DEFAULT = By.id("Office-Add-User-isDefault-cbx-40");
+	public static final By OFFICE_ADDUSER_ASSOCIABLESELECTED = By.id("Office-Add-User-isAssociateChecked-cbx-41");
+	public static final By OFFICE_ADDUSER_ASSOCIABLEUNSELECTED = By.id("Office-Add-User-isAssociateUnchecked-cbx-42");
+	
+	public static final By OFFICE_EDITENDDATE_DEFAULT = By.id("Office-Edit-End-Date-isDefault-cbx-50");
+	public static final By OFFICE_EDITENDDATE_ASSOCIABLESELECTED = By.id("Office-Edit-End-Date-isAssociateChecked-cbx-51");
+	public static final By OFFICE_EDITENDDATE_ASSOCIABLEUNSELECTED = By.id("Office-Edit-End-Date-isAssociateUnchecked-cbx-52");
+	
+	public static final By OFFICE_REMOVEUSER_DEFAULT = By.id("Office-Remove-User--isDefault-cbx-60");
+	public static final By OFFICE_REMOVEUSER_ASSOCIABLESELECTED = By.id("Office-Remove-User--isAssociateChecked-cbx-61");
+	public static final By OFFICE_REMOVEUSER_ASSOCIABLEUNSELECTED = By.id("Office-Remove-User--isAssociateUnchecked-cbx-62");
+	
+	public static final By OFFICE_VIEWUSER_DEFAULT = By.id("Office-View-User-isDefault-cbx-70");
+	public static final By OFFICE_VIEWUSER_ASSOCIABLESELECTED = By.id("Office-View-User-isAssociateChecked-cbx-71");
+	public static final By OFFICE_VIEWUSER_ASSOCIABLEUNSELECTED = By.id("Office-View-User-isAssociateUnchecked-cbx-72");
+	
+	public static final By NOTIFICATION_ALL_DEFAULT = By.id("Notification-isAllDefaultsChecked-all-cbx");
+	public static final By NOTIFICATION_ALL_ASSOCIABLESELECTED = By.id("Notification-isAllAssociateChecked-all-cbx");
+	public static final By NOTIFICATION_ALL_ASSOCIABLEUNSELECTED = By.id("Notification-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By NOTIFICATION_RECEIVE_DEFAULT = By.id("Notification-Receive-isDefault-cbx-00");
+	public static final By NOTIFICATION_RECEIVE_ASSOCIABLESELECTED = By.id("Notification-Receive-isAssociateChecked-cbx-01");
+	public static final By NOTIFICATION_RECEIVE_ASSOCIABLEUNSELECTED = By.id("Notification-Receive-isAssociateUnchecked-cbx-02");
+	
+	
 }
