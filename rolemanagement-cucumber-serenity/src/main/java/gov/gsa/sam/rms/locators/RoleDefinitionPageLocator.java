@@ -16,6 +16,7 @@ public class RoleDefinitionPageLocator {
 	public static final By DOMAIN_FILTER_ENTITYCOMPLIANCE = By.id("Entity Compliance");
 	public static final By DOMAIN_FILTER_ENTITYREGISTRATION = By.id("Entity Registration");
 	public static final By DOMAIN_FILTER_FEDERALHIERARCHY = By.id("Federal Hierarchy");
+	public static final By DOMAIN_FILTER_EXCLUSIONS = By.id("Exclusions");
 	
 
 }

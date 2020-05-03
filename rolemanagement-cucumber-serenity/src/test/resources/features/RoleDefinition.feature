@@ -176,5 +176,18 @@ Scenario: role permissions should be consisent in both dev and test environment 
 	Then _8rd all the expeted checkbox should be marked for department administrator role 
 	When _8rd user goes through all permission for office administrator role 
 	Then _8rd all the expeted checkbox should be marked for office administrator role 
+
+@9 
+Scenario: role permissions should be consisent in both dev and test environment for all roles in exclusions domain 
+	Given _9rd user logs in a spaad 
+	And _9rd user navigates to role definition page and filters all roles in exclusions domain 
+	When _9rd user goes through all permission for tier3 helpdesk role 
+	Then _9rd all the expected checkbox should be marked for tier3 helpdesk role 
+	When _9rd user goes through all permssion for agency administrator exclusions role 
+	Then _9rd all the expected checkbox should be marked for agency administrator exclusions role 
+	When _9rd user goes through all permission for agency exclusions representative role 
+	Then _9rd all the expeted checkbox should be marked for agency exclusions representative role 
+	When _9rd user goes through all permission for agency roles administrator role 
+	Then _9rd all the expeted checkbox should be marked for agency roles administrator role
 	
    

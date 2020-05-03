@@ -347,7 +347,7 @@ public class Constants {
 	public static final String ROLE_ADMINSTRATORALLDOMAINS = "Administrator All Domains";
 	public static final String ROLE_SAMPMOADMINISTRATOR = "SAM PMO Administrator";
 	public static final String ROLE_TIER3HELPDESK = "Tier 3 Help Desk (Remove)";
-	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator (Remove)";
+	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR_REMOVE = "Agency Roles Administrator (Remove)";
 	public static final String ROLE_ENTITYMANAGEMENTDATAACCESS_SYSTEMONLY = "Entity Management Data Access System Only";
 	public static final String ROLE_OFFICEREGISTRATION_REPRESENTATIVE = "Office Registration Representative";
 	public static final String ROLE_FOUOANDFAPIIS = "FOUO and FAPIIS";
@@ -363,6 +363,9 @@ public class Constants {
 	
 	//brower config
 	public static final boolean INCOGNITO_ON = false;
+	public static final String ROLE_AGENCY_ADMINISTRATOR_EXCLUSIONS = "Agency Administrator Exclusions";
+	public static final String ROLE_AGENCYEXCLUSIONS_REPRESENTATIVE = "Agency Exclusions Representative";
+	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator";
 	
 	
 	
