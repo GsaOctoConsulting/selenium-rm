@@ -358,9 +358,13 @@ public class Constants {
 	public static final String ROLE_SENSITIVEENTITYMANAGEMENT = "Sensitive Entity Management Data Viewer";
 	public static final String ROLE_TIER3HELPDESK_ENTITY_REGISTRATION = "Tier 3 Help Desk";
 	public static final String ROLE_AACUSER = "Aac user";
+	public static final String ROLE_DEPARTMENT_ADMINISTRATOR = "Department Administrator";
+	public static final String ROLE_OFFICE_ADMINISTRATOR = "Office Administrator";
 	
 	//brower config
 	public static final boolean INCOGNITO_ON = false;
+	
+	
 	
 	
 	

@@ -1548,5 +1548,17 @@ public class RolePermissionPageLocator {
 	public static final By NOTIFICATION_RECEIVE_ASSOCIABLESELECTED = By.id("Notification-Receive-isAssociateChecked-cbx-01");
 	public static final By NOTIFICATION_RECEIVE_ASSOCIABLEUNSELECTED = By.id("Notification-Receive-isAssociateUnchecked-cbx-02");
 	
+	public static final By AUDIT_ALL_DEFAULT = By.id("Audit-isAllDefaultsChecked-all-cbx");
+	public static final By AUDIT_ALL_ASSOCIABLESELECTED = By.id("Audit-isAllAssociateChecked-all-cbx");
+	public static final By AUDIT_ALL_ASSOCIABLEUNSELECTED = By.id("Audit-isAllAssociateUnchecked-all-cbx");
+	
+	public static final By AUDIT_VIEWALL_DEFAULT = By.id("Audit-View-All-isDefault-cbx-00");
+	public static final By AUDIT_VIEWALL_ASSOCIABLESELECTED = By.id("Audit-View-All-isAssociateChecked-cbx-01");
+	public static final By AUDIT_VIEWALL_ASSOCIABLEUNSELECTED = By.id("Audit-View-All-isAssociateUnchecked-cbx-02");
+	
+	public static final By AUDIT_VIEWSELF_DEFAULT = By.id("Audit-View-Self-isDefault-cbx-10");
+	public static final By AUDIT_VIEWSELF_ASSOCIABLESELECTED = By.id("Audit-View-Self-isAssociateChecked-cbx-11");
+	public static final By AUDIT_VIEWSELF_ASSOCIABLEUNSELECTED = By.id("Audit-View-Self-isAssociateUnchecked-cbx-12");
+	
 	
 }
