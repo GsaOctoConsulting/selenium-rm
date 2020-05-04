@@ -713,4 +713,10 @@ public class UserDirectoryPage {
 		return allTrue;
 	}
 
+	public static void clickAssignRoleButton() {
+		driver.findElement(By.xpath("//*[@id=\"main-container\"]/sam-user-directory-v2/page/div/div/div[2]/div/div[1]/div/sam-button/button")).click();
+		RoleInviteAssignRolePage.setDriver(driver);
+		LaunchBrowserUtil.delay(3);
+	}
+
 }

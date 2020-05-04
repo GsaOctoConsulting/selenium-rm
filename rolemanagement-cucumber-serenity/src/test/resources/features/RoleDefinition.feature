@@ -162,7 +162,7 @@ role permissions should be consisent in both dev and test environment for all ro
 	When _7rd user goes through all permission for office registration representatitve role 
 	Then _7rd all the expected checkbox should be marked for office registration representatitve role 
 	
-@8 @ze
+@8 
 Scenario: role permissions should be consisent in both dev and test environment for all roles in federal hierarchy domain 
 	Given _8rd user logs in a spaad 
 	And _8rd user navigates to role definition page and filters all roles in federal hierarchy domain 
@@ -177,7 +177,7 @@ Scenario: role permissions should be consisent in both dev and test environment 
 	When _8rd user goes through all permission for office administrator role 
 	Then _8rd all the expeted checkbox should be marked for office administrator role 
 
-@9 @ze
+@9
 Scenario: role permissions should be consisent in both dev and test environment for all roles in exclusions domain 
 	Given _9rd user logs in a spaad 
 	And _9rd user navigates to role definition page and filters all roles in exclusions domain 
