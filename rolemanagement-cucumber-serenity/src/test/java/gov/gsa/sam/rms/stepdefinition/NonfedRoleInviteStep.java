@@ -34,12 +34,35 @@ public class NonfedRoleInviteStep {
 
 	@When("^_1nri admin enters an id for a user with roles in the admins own domain$")
 	public void _1nri_admin_enters_an_id_for_a_user_with_roles_in_the_admins_own_domain() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_VIEWER_ENTITYREGISRATION);
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.DATA_ENTRY_ENTITYCOMPLIANCE_1);
 	}
 
 	@Then("^_1nri admin should receive proper message and be able to assign role to user$")
 	public void _1nri_admin_should_receive_proper_message_and_be_able_to_assign_role_to_user() throws Throwable {
 		RoleInviteAssignRolePage.clickExistingUserAcceptButton();
+		RoleInviteAssignRolePage.selectDomain(Constants.DOMAIN_ENTITY_REGISTRATION);
+	}
+
+	@Given("^_2nri nonfed admin logs in$")
+	public void _2nri_nonfed_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_2nri goes to the role invite page through user directory$")
+	public void _2nri_goes_to_the_role_invite_page_through_user_directory() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+	}
+
+	@When("^_2nri admin enters an id for a user with no roles in the admins own domain$")
+	public void _2nri_admin_enters_an_id_for_a_user_with_no_roles_in_the_admins_own_domain() throws Throwable {
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+	}
+
+	@Then("^_2nri admin should not receive any dialog box and proceed to invite the user$")
+	public void _2nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
 		RoleInviteAssignRolePage.selectDomain(Constants.DOMAIN_ENTITY_REGISTRATION);
 	}
 

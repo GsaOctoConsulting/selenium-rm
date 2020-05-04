@@ -20,11 +20,17 @@ Feature: nonfed roleinvite functionality
 	Description:  The purpose of this feature is to test nonfed role invite related scenarios
 
 @1
-Scenario: nonfed admin should be able to assign role to user with role in their domain without invite through role invite page 
+Scenario: nonfed admin should be able to assign role to user with a role already in their domain without invite through role invite page 
 	Given _1nri nonfed admin logs in 
 	And _1nri goes to the role invite page through user directory  
 	When _1nri admin enters an id for a user with roles in the admins own domain 
 	Then _1nri admin should receive proper message and be able to assign role to user 
+@2
+Scenario: nonfed admin should be able to invite a user with no roles in admins domain 
+	Given _2nri nonfed admin logs in 
+	And _2nri goes to the role invite page through user directory  
+	When _2nri admin enters an id for a user with no roles in the admins own domain 
+	Then _2nri admin should not receive any dialog box and proceed to invite the user 
  
 	
 	

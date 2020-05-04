@@ -150,7 +150,7 @@ public class T1WorkspacePage {
 	public static void clickUserDirectoryLink() {
 		driver.findElement(By.id("user-directory-link")).click();
 		UserDirectoryPage.setDriver(driver);
-		LaunchBrowserUtil.delay(4);
+		LaunchBrowserUtil.delay(5);
 	}
 
 	public static boolean selectUserTypeIfFound(String usertype) {
