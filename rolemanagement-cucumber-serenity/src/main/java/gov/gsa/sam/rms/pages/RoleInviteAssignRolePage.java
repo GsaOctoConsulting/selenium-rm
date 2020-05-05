@@ -30,5 +30,9 @@ public class RoleInviteAssignRolePage {
 		driver.findElement(By.id("domains-ac-textarea")).sendKeys(domain);
 		
 	}
+	public static String getUserEmailErrorMessage() {
+		return driver.findElement(By.id("user-email-error")).getText();
+		 
+	}
 	
 }

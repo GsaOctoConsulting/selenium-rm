@@ -32,5 +32,12 @@ Scenario: nonfed admin should be able to invite a user with no roles in admins d
 	When _2nri admin enters an id for a user with no roles in the admins own domain 
 	Then _2nri admin should not receive any dialog box and proceed to invite the user 
  
+ @3
+Scenario: admins should see proper error message when federal email ids are entered in the id box 
+	Given _3nri spaad logs in 
+	And _3nri spaad goes to the role invite page through user directory  
+	When _3nri spaad enters a federal id in the user email box 
+	Then _3nri spaad should see error message asking entry of nonfederal email id only
+ 
 	
 	
