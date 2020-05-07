@@ -143,6 +143,7 @@ public class RequestRolePage {
 	public static boolean validateOrgSuggestionContainsGivenWord(String search, String givenWord) {
 		boolean allOrgsContainsGivenWord = true;
 		driver.findElement(RequestRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(search);
+		LaunchBrowserUtil.delay(2);
 		List<WebElement> orgList = driver.findElements(RequestRolePageLocator.ORG_SELECTOR);
 		logger.info(("The size of the list is......" + orgList.size()));
 
