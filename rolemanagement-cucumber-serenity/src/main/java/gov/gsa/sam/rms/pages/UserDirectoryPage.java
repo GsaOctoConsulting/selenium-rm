@@ -719,4 +719,10 @@ public class UserDirectoryPage {
 		LaunchBrowserUtil.delay(3);
 	}
 
+	public static void clickRoleFilter(By roleFilterSubtieradmin) {
+		driver.findElement(roleFilterSubtieradmin).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }

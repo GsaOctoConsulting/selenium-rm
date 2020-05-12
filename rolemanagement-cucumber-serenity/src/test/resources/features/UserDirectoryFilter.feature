@@ -58,7 +58,14 @@ Scenario: no role userdirectory filter should work for spaad
 	Given _5udf given user logs in as spaad
 	And _5udf user navigates to user directory page 
 	When _5udf user searches for a noroles user account and applies user with no role filter 
-	Then _5udf user should be able to view the account for the no role user 
+	Then _5udf user should be able to view the account for the no role user
+
+@6 @IntegrationTest @G1
+Scenario: filter for subtier admin and federal hierarchy domain should work for spaad
+	Given _6udf given user logs in as spaad
+	And _6udf user navigates to user directory page 
+	When _6udf user searches for a user with subtier admin role in federal hierarchy 
+	Then _6udf user should be able to view the account for the subtier admin	 
 
 	
 	

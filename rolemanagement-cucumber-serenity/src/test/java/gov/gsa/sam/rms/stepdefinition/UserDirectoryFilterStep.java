@@ -156,7 +156,7 @@ public class UserDirectoryFilterStep {
 
 	@And("^_5udf user navigates to user directory page$")
 	public void _5udf_user_navigates_to_user_directory_page() throws Throwable {
-T1WorkspacePage.clickUserDirectoryLink();
+		T1WorkspacePage.clickUserDirectoryLink();
 	}
 
 	@When("^_5udf user searches for a noroles user account and applies user with no role filter$")
@@ -168,6 +168,29 @@ T1WorkspacePage.clickUserDirectoryLink();
 	@Then("^_5udf user should be able to view the account for the no role user$")
 	public void _5udf_user_should_be_able_to_view_the_account_for_the_no_role_user() throws Throwable {
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+	}
+
+	@Given("^_6udf given user logs in as spaad$")
+	public void _6udf_given_user_logs_in_as_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_6udf user navigates to user directory page$")
+	public void _6udf_user_navigates_to_user_directory_page() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+	}
+
+	@When("^_6udf user searches for a user with subtier admin role in federal hierarchy$")
+	public void _6udf_user_searches_for_a_user_with_subtier_admin_role_in_federal_hierarchy() throws Throwable {
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.FH_SUBTIER_ADMIN_1);
+		UserDirectoryPage.clickFHdomainFilter();
+		UserDirectoryPage.clickRoleFilter(UserDirectoryPageLocator.ROLE_FILTER_SUBTIERADMIN);
+	}
+
+	@Then("^_6udf user should be able to view the account for the subtier admin$")
+	public void _6udf_user_should_be_able_to_view_the_account_for_the_subtier_admin() throws Throwable {
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.FH_SUBTIER_ADMIN_1);
 	}
 
 	// private methods are below this line
