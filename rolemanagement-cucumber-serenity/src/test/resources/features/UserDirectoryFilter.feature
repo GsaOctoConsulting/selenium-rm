@@ -52,6 +52,14 @@ Scenario: verify clear filter and provide feed links for assistance admin
 	And _4udf user navigates to user directory page 
 	Then _4udf user checks filter should be able to clears them 
 	Then _4udf user should be able to see provide feed links 
+
+@5 @IntegrationTest @G1
+Scenario: no role userdirectory filter should work for spaad
+	Given _5udf given user logs in as spaad
+	And _5udf user navigates to user directory page 
+	When _5udf user searches for a noroles user account and applies user with no role filter 
+	Then _5udf user should be able to view the account for the no role user 
+
 	
 	
 	

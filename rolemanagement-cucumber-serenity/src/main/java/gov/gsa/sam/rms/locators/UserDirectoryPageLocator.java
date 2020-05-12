@@ -52,7 +52,7 @@ public class UserDirectoryPageLocator {
 	public static final By SYSTEM_MANAGER_FILTER = By.id("role-79");
 	public static final By OMB_ANALYST_FILTER = By.id("role-OMB Analyst");
 	public static final By USER_I_ADMINSTER_FILTER = By.id("roleAdministrationUsers-whom-I-administer");
-	public static final By USER_WITHNOROLES_FILTER = By.id("roleAdministrationUsers-who-don't-have-roles");
+	public static final By USER_WITHNOROLES_FILTER = By.id("option-Users who don't have roles");
 
 	// ----domain filters-----------------------
 	public static final By DOMAIN_ADMIN_FILTER = By.id("domain-10");

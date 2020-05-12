@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
+import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
@@ -39,7 +41,6 @@ public class UserDirectoryFilterStep {
 		boolean assistanceUserSelected = UserDirectoryPage
 				.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
 
-		
 		Assert.assertEquals(false, assistanceUserSelected);
 	}
 
@@ -67,7 +68,8 @@ public class UserDirectoryFilterStep {
 
 	@Then("^_2 user checks filter should be able to clears them$")
 	public void _2_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
-		UserDirectoryPage.clickAdminFilter();;
+		UserDirectoryPage.clickAdminFilter();
+		;
 		UserDirectoryPage.clickAssistanceUserFilter();
 		UserDirectoryPage.clickClearFilter();
 
@@ -109,7 +111,8 @@ public class UserDirectoryFilterStep {
 		UserDirectoryPage.clickAdminFilter();
 		UserDirectoryPage.clickClearFilter();
 
-		boolean assistanceUserfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
+		boolean assistanceUserfilterSelected = UserDirectoryPage
+				.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
 		boolean adminFilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ADMIN_FILTER);
 
 		Assert.assertEquals(assistanceUserfilterSelected, false);
@@ -125,29 +128,48 @@ public class UserDirectoryFilterStep {
 		afterScenario();
 	}
 
-	
-	  @Given("^_4udf given user logs in as assitance admin administrator$")
-	    public void _4udf_given_user_logs_in_as_assitance_admin_administrator() throws Throwable {
-	       
-	    }
+	@Given("^_4udf given user logs in as assitance admin administrator$")
+	public void _4udf_given_user_logs_in_as_assitance_admin_administrator() throws Throwable {
 
-	    @Then("^_4udf user checks filter should be able to clears them$")
-	    public void _4udf_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
-	        
-	    }
+	}
 
-	    @Then("^_4udf user should be able to see provide feed links$")
-	    public void _4udf_user_should_be_able_to_see_provide_feed_links() throws Throwable {
-	        
-	    }
+	@Then("^_4udf user checks filter should be able to clears them$")
+	public void _4udf_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
 
-	    @And("^_4udf user navigates to user directory page$")
-	    public void _4udf_user_navigates_to_user_directory_page() throws Throwable {
-	       
-	    }
-	
-	
-	
+	}
+
+	@Then("^_4udf user should be able to see provide feed links$")
+	public void _4udf_user_should_be_able_to_see_provide_feed_links() throws Throwable {
+
+	}
+
+	@And("^_4udf user navigates to user directory page$")
+	public void _4udf_user_navigates_to_user_directory_page() throws Throwable {
+
+	}
+
+	@Given("^_5udf given user logs in as spaad$")
+	public void _5udf_given_user_logs_in_as_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_5udf user navigates to user directory page$")
+	public void _5udf_user_navigates_to_user_directory_page() throws Throwable {
+T1WorkspacePage.clickUserDirectoryLink();
+	}
+
+	@When("^_5udf user searches for a noroles user account and applies user with no role filter$")
+	public void _5udf_user_searches_for_a_noroles_user_account_and_applies_user_with_no_role_filter() throws Throwable {
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickUserWithNoRolesFilter();
+	}
+
+	@Then("^_5udf user should be able to view the account for the no role user$")
+	public void _5udf_user_should_be_able_to_view_the_account_for_the_no_role_user() throws Throwable {
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+	}
+
 	// private methods are below this line
 
 	private void beforeScenario() {
