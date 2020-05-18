@@ -41,7 +41,7 @@ public class NonfedRoleInviteStep {
 	@Then("^_1nri admin should receive proper message and be able to assign role to user$")
 	public void _1nri_admin_should_receive_proper_message_and_be_able_to_assign_role_to_user() throws Throwable {
 		RoleInviteAssignRolePage.clickExistingUserAcceptButton();
-		
+
 	}
 
 	@Given("^_2nri nonfed admin logs in$")
@@ -70,9 +70,27 @@ public class NonfedRoleInviteStep {
 
 		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
 		Assert.assertEquals(true, domainFound);
-		
-		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
 		Assert.assertEquals(true, entityFound);
+
+		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
+	}
+
+	@When("^_2nri invited user logs in$")
+	public void _2nri_invited_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@Then("^_2nri the invited user should receive a dialog box$")
+	public void _2nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
+
 	}
 
 	@Given("^_3nri spaad logs in$")
@@ -97,6 +115,36 @@ public class NonfedRoleInviteStep {
 	public void _3nri_spaad_should_see_error_message_asking_entry_of_nonfederal_email_id_only() throws Throwable {
 		String errormessage = RoleInviteAssignRolePage.getUserEmailErrorMessage();
 		Assert.assertEquals("Please enter a non-federal email", errormessage);
+	}
+
+	@Given("^_4nri new nonfed user signs up$")
+	public void _4nri_new_nonfed_user_signs_up() throws Throwable {
+
+	}
+
+	@And("^_4nri nonfed admin logs in$")
+	public void _4nri_nonfed_admin_logs_in() throws Throwable {
+
+	}
+
+	@When("^_4nri admin enters an id for a user with no roles$")
+	public void _4nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+
+	}
+
+	@Then("^_4nri admin should not receive any dialog box and proceed to invite the user$")
+	public void _4nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
+
+	}
+
+	@When("^_4nri invited user logs in$")
+	public void _4nri_invited_user_logs_in() throws Throwable {
+
+	}
+
+	@Then("^_4nri the invited user should receive a dialog box$")
+	public void _4nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
+
 	}
 
 }

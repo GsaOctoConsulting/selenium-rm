@@ -26,11 +26,14 @@ Scenario: nonfed admin should be able to assign role to user with a role already
 	When _1nri admin enters an id for a user with roles in the admins own domain 
 	Then _1nri admin should receive proper message and be able to assign role to user 
 @2
-Scenario: nonfed admin should be able to invite a user with no roles in admins domain 
+Scenario: role invite cannot be sent to a user with same pending invite 
 	Given _2nri nonfed admin logs in 
 	And _2nri goes to the role invite page through user directory  
-	When _2nri admin enters an id for a user with no roles in the admins own domain 
-	Then _2nri admin should not receive any dialog box and proceed to invite the user 
+	When _2nri admin enters an id for a user with no roles who has a pending invite 
+	Then _2nri admin should not receive any dialog box and proceed to invite the user
+	When _2nri invited user logs in
+	Then _2nri the invited user should receive a dialog box
+	 
  
  @3
 Scenario: admins should see proper error message when federal email ids are entered in the id box 
@@ -38,6 +41,17 @@ Scenario: admins should see proper error message when federal email ids are ente
 	And _3nri spaad goes to the role invite page through user directory  
 	When _3nri spaad enters a federal id in the user email box 
 	Then _3nri spaad should see error message asking entry of nonfederal email id only
+
+@4
+Scenario: nonfed admin should be able to invite nonfed user who exists  
+	Given _4nri new nonfed user signs up 
+	And _4nri nonfed admin logs in   
+	When _4nri admin enters an id for a user with no roles 
+	Then _4nri admin should not receive any dialog box and proceed to invite the user
+	When _4nri invited user logs in
+	Then _4nri the invited user should receive a dialog box
+	
+
 	
 
 

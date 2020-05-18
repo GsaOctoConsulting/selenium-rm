@@ -36,8 +36,6 @@ public class RoleInviteAssignRolePage {
 		LaunchBrowserUtil.delay(2);
 	}
 
-	
-
 	public static boolean selectEntityDomainIfFound(String domainname) {
 		boolean domainFound = false;
 		Select domain = new Select(driver.findElement(RoleInviteAssignRolePageLocator.DOMAIN_SELECTOR));
@@ -84,5 +82,23 @@ public class RoleInviteAssignRolePage {
 			return roleFound;
 		}
 		return roleFound;
+	}
+
+	public static void enterAdditionalInformation(String comment) {
+		driver.findElement(By.id("comment")).sendKeys(comment);
+		LaunchBrowserUtil.delay(2);
+
+	}
+
+	public static void clickSendInvitationButton() {
+		driver.findElement(By.id("send-invitation-button")).click();
+		LaunchBrowserUtil.delay(2);
+
+	}
+
+	public static void clickCloseButton() {
+		driver.findElement(By.tagName("sam-button")).click();
+		LaunchBrowserUtil.delay(3);
+
 	}
 }
