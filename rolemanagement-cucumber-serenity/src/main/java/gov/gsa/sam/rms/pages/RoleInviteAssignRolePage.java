@@ -59,7 +59,7 @@ public class RoleInviteAssignRolePage {
 
 	public static boolean selectEntityNonFedIfFound(String entity, int dropdownOptionNo) {
 		boolean orgFound = false;
-		driver.findElement(By.id("grant-access-entity-picker-ac-textarea")).sendKeys(entity);
+		driver.findElement(By.id("entityPicker-Entities")).sendKeys(entity);
 		LaunchBrowserUtil.delay(3);
 		List<WebElement> orgList = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
 		logger.info(("The size of the list is......" + orgList.size()));

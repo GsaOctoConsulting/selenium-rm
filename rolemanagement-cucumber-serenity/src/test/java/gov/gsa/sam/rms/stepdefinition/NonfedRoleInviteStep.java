@@ -70,6 +70,9 @@ public class NonfedRoleInviteStep {
 
 		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
 		Assert.assertEquals(true, domainFound);
+		
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		Assert.assertEquals(true, entityFound);
 	}
 
 	@Given("^_3nri spaad logs in$")
