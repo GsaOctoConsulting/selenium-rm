@@ -41,7 +41,7 @@ public class NonfedRoleInviteStep {
 	@Then("^_1nri admin should receive proper message and be able to assign role to user$")
 	public void _1nri_admin_should_receive_proper_message_and_be_able_to_assign_role_to_user() throws Throwable {
 		RoleInviteAssignRolePage.clickExistingUserAcceptButton();
-		RoleInviteAssignRolePage.selectDomain(Constants.DOMAIN_ENTITY_REGISTRATION);
+		
 	}
 
 	@Given("^_2nri nonfed admin logs in$")
@@ -64,7 +64,12 @@ public class NonfedRoleInviteStep {
 
 	@Then("^_2nri admin should not receive any dialog box and proceed to invite the user$")
 	public void _2nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
-		RoleInviteAssignRolePage.selectDomain(Constants.DOMAIN_ENTITY_REGISTRATION);
+
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
 	}
 
 	@Given("^_3nri spaad logs in$")
@@ -87,7 +92,7 @@ public class NonfedRoleInviteStep {
 
 	@Then("^_3nri spaad should see error message asking entry of nonfederal email id only$")
 	public void _3nri_spaad_should_see_error_message_asking_entry_of_nonfederal_email_id_only() throws Throwable {
-		String errormessage = RoleInviteAssignRolePage.getUserEmailErrorMessage(); 
+		String errormessage = RoleInviteAssignRolePage.getUserEmailErrorMessage();
 		Assert.assertEquals("Please enter a non-federal email", errormessage);
 	}
 
