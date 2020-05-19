@@ -183,9 +183,9 @@ public class NonfedRoleInviteStep {
 	@When("^_5nri admin enters an id for a user who currently does not exist in the system$")
 	public void _5nri_admin_enters_an_id_for_a_user_who_currently_does_not_exist_in_the_system() throws Throwable {
 		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		
+
 		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-		
+
 		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
 		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		Assert.assertEquals(true, roleFound);
@@ -225,6 +225,34 @@ public class NonfedRoleInviteStep {
 	@Then("^_5nri the invited user should receive a dialog box for the role invite upon registration completion$")
 	public void _5nri_the_invited_user_should_receive_a_dialog_box_for_the_role_invite_upon_registration_completion()
 			throws Throwable {
+
+	}
+	@Given("^_6nri new nonfed user signs up$")
+	public void _6nri_new_nonfed_user_signs_up() throws Throwable {
+
+	}
+	@And("^_6nri nonfed admin logs in$")
+	public void _6nri_nonfed_admin_logs_in() throws Throwable {
+
+	}
+
+	@And("^_6nri nonfed admin navigates to role invite page$")
+	public void _6nri_nonfed_admin_navigates_to_role_invite_page() throws Throwable {
+
+	}
+
+	@When("^_6nri admin invites a nonfed user for viewer role in the admins domain$")
+	public void _6nri_admin_invites_a_nonfed_user_for_viewer_role_in_the_admins_domain() throws Throwable {
+
+	}
+
+	@Then("^_6nri admin should receive an email about the role invite$")
+	public void _6nri_admin_should_receive_an_email_about_the_role_invite() throws Throwable {
+
+	}
+
+	@And("^_6nri the user should also get an email about the role invite$")
+	public void _6nri_the_user_should_also_get_an_email_about_the_role_invite() throws Throwable {
 
 	}
 
