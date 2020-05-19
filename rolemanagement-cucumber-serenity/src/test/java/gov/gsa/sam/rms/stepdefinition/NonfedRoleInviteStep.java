@@ -23,6 +23,8 @@ public class NonfedRoleInviteStep {
 	private static Logger logger = LoggerFactory.getLogger(NonfedRoleInviteStep.class);
 	String nonfeduseremail = "";
 	String secretkey = "";
+	String counter = "";
+
 	@Given("^_1nri nonfed admin logs in$")
 	public void _1nri_nonfed_admin_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
@@ -83,8 +85,6 @@ public class NonfedRoleInviteStep {
 		Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
 	}
 
-	
-
 	@Given("^_3nri spaad logs in$")
 	public void _3nri_spaad_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
@@ -111,9 +111,9 @@ public class NonfedRoleInviteStep {
 
 	@Given("^_4nri new nonfed user signs up$")
 	public void _4nri_new_nonfed_user_signs_up() throws Throwable {
-		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		secretkey = SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
-				Constants.USERPASS);
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
 		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
 		CommonProfilePage.enterFirstName("shah");
 		CommonProfilePage.enterLastName("raiaan");
@@ -157,8 +157,7 @@ public class NonfedRoleInviteStep {
 
 	@When("^_4nri invited user logs in$")
 	public void _4nri_invited_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS,
-				secretkey, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -166,6 +165,67 @@ public class NonfedRoleInviteStep {
 	public void _4nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
 		FeedsRequestPage.clickReceivedOnSideNav();
+	}
+
+	@Given("^_5nri nonfed admin logs in$")
+	public void _5nri_nonfed_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_5nri nonfed admin navigates to role invite page$")
+	public void _5nri_nonfed_admin_navigates_to_role_invite_page() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+	}
+
+	@When("^_5nri admin enters an id for a user who currently does not exist in the system$")
+	public void _5nri_admin_enters_an_id_for_a_user_who_currently_does_not_exist_in_the_system() throws Throwable {
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		
+		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+	}
+
+	@Then("^_5nri admin should not receive any dialog box and proceed to invite the user$")
+	public void _5nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
+
+		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_5nri the invited user sign up for an account$")
+	public void _5nri_the_invited_user_sign_up_for_an_account() throws Throwable {
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
+	}
+
+	@Then("^_5nri the invited user should receive a dialog box for the role invite upon registration completion$")
+	public void _5nri_the_invited_user_should_receive_a_dialog_box_for_the_role_invite_upon_registration_completion()
+			throws Throwable {
+
 	}
 
 }

@@ -47,6 +47,16 @@ Scenario: nonfed admin should be able to invite nonfed user who exists
 	Then _4nri admin should not receive any dialog box and proceed to invite the user
 	When _4nri invited user logs in
 	Then _4nri the invited user should receive a dialog box
+
+@5
+Scenario: nonfed admin should be able to invite nonfed user who currently dont have an account  
+	Given _5nri nonfed admin logs in 
+	And _5nri nonfed admin navigates to role invite page 
+	When _5nri admin enters an id for a user who currently does not exist in the system 
+	Then _5nri admin should not receive any dialog box and proceed to invite the user
+	When _5nri the invited user sign up for an account
+	Then _5nri the invited user should receive a dialog box for the role invite upon registration completion
+
 	
 
 	
