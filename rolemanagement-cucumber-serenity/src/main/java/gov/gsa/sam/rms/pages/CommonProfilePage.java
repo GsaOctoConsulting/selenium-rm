@@ -62,7 +62,7 @@ public class CommonProfilePage {
 	public static void clickSubmitButton() {
 		driver.findElement(By.id("btn-submit")).click();
 		RequestRoleOptionalPage.setDriver(driver);
-		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.delay(4);
 		T1WorkspacePage.setDriver(driver);
 	}
 

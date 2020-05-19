@@ -30,10 +30,7 @@ Scenario: role invite cannot be sent to a user with same pending invite
 	Given _2nri nonfed admin logs in 
 	And _2nri goes to the role invite page through user directory  
 	When _2nri admin enters an id for a user with no roles who has a pending invite 
-	Then _2nri admin should not receive any dialog box and proceed to invite the user
-	When _2nri invited user logs in
-	Then _2nri the invited user should receive a dialog box
-	 
+	Then _2nri admin should receive error message for the users pending role invite	 
  
  @3
 Scenario: admins should see proper error message when federal email ids are entered in the id box 

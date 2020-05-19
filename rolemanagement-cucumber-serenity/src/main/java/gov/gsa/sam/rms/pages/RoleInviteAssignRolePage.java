@@ -101,4 +101,12 @@ public class RoleInviteAssignRolePage {
 		LaunchBrowserUtil.delay(3);
 
 	}
+
+	public static String getPendingUserAccessAlertMessage() {
+		LaunchBrowserUtil.delay(3);
+		String message = driver.findElement(By.tagName("sam-alert")).getText();
+		logger.info(message);
+		return message;
+		
+	}
 }

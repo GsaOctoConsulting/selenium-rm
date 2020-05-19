@@ -7,6 +7,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gov.gsa.sam.rms.pages.CommonProfilePage;
+import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
@@ -14,11 +16,13 @@ import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.SignInUtility;
+import gov.gsa.sam.rms.utilities.SignUpUtility;
 import junit.framework.Assert;
 
 public class NonfedRoleInviteStep {
 	private static Logger logger = LoggerFactory.getLogger(NonfedRoleInviteStep.class);
-
+	String nonfeduseremail = "";
+	String secretkey = "";
 	@Given("^_1nri nonfed admin logs in$")
 	public void _1nri_nonfed_admin_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
@@ -57,12 +61,12 @@ public class NonfedRoleInviteStep {
 		UserDirectoryPage.clickAssignRoleButton();
 	}
 
-	@When("^_2nri admin enters an id for a user with no roles in the admins own domain$")
+	@When("^_2nri admin enters an id for a user with no roles who has a pending invite$")
 	public void _2nri_admin_enters_an_id_for_a_user_with_no_roles_in_the_admins_own_domain() throws Throwable {
 		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
 	}
 
-	@Then("^_2nri admin should not receive any dialog box and proceed to invite the user$")
+	@Then("^_2nri admin should receive error message for the users pending role invite$")
 	public void _2nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
 
 		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
@@ -75,23 +79,11 @@ public class NonfedRoleInviteStep {
 				0);
 		Assert.assertEquals(true, entityFound);
 
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
-
-		RoleInviteAssignRolePage.clickSendInvitationButton();
-		RoleInviteAssignRolePage.clickCloseButton();
+		String alertmessage = RoleInviteAssignRolePage.getPendingUserAccessAlertMessage();
+		Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
 	}
 
-	@When("^_2nri invited user logs in$")
-	public void _2nri_invited_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_FED);
-		LaunchBrowserUtil.delay(4);
-	}
-
-	@Then("^_2nri the invited user should receive a dialog box$")
-	public void _2nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
-
-	}
+	
 
 	@Given("^_3nri spaad logs in$")
 	public void _3nri_spaad_logs_in() throws Throwable {
@@ -119,32 +111,61 @@ public class NonfedRoleInviteStep {
 
 	@Given("^_4nri new nonfed user signs up$")
 	public void _4nri_new_nonfed_user_signs_up() throws Throwable {
-
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@And("^_4nri nonfed admin logs in$")
 	public void _4nri_nonfed_admin_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@When("^_4nri admin enters an id for a user with no roles$")
 	public void _4nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
-
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
 	}
 
 	@Then("^_4nri admin should not receive any dialog box and proceed to invite the user$")
 	public void _4nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
+		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
 
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
 	}
 
 	@When("^_4nri invited user logs in$")
 	public void _4nri_invited_user_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS,
+				secretkey, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_4nri the invited user should receive a dialog box$")
 	public void _4nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
-
+		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
+		FeedsRequestPage.clickReceivedOnSideNav();
 	}
 
 }

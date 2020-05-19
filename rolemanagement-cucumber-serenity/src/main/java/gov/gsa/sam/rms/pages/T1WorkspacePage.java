@@ -233,4 +233,11 @@ public class T1WorkspacePage {
 		LaunchBrowserUtil.delay(3);	
 	}
 
+	public static void clickGoToRequestButtonOnRoleInviteModal() {
+		driver.findElement(By.id("btn-go-to-request")).click();
+		FeedsRequestPage.setDriver(driver);
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }
