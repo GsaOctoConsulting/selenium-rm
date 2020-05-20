@@ -297,7 +297,7 @@ public class UserDirectorySearchStep {
 	@Then("^_8uds no search results message should be displayed$")
 	public void _8uds_no_search_results_message_should_be_displayed() throws Throwable {
 		String noresultsMessageFoundText = UserDirectoryPage.getNoResultsmessageFound();
-		Assert.assertEquals("No User Found For the Selected Criteria", noresultsMessageFoundText);
+		Assert.assertEquals("No User(s) Found for the Selected Criteria", noresultsMessageFoundText);
 	}
 
 	@Given("^_9uds user logs in workspace as contract opp admin$")

@@ -45,7 +45,7 @@ public class NonfedUserDirectoryStep {
 	@Then("^_1nfusdr user should be able to see the access for all the users they can see$")
 	public void _1nfusdr_user_should_be_able_to_see_the_access_for_all_the_users_they_can_see() throws Throwable {
 
-		boolean allClickable = UserDirectoryPage.ifAllUsersAreClicable(4, "");
+		boolean allClickable = UserDirectoryPage.ifAllUsersAreClicable(3, "");
 		Assert.assertEquals(true, allClickable);
 //		int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
 //		// int currentlyselectedPage = 3;//UserDirectoryPage.getCurrentSelectedPage();
@@ -115,7 +115,7 @@ public class NonfedUserDirectoryStep {
 
 	@Then("^_3nfusdr user should see all the users as clickable$")
 	public void _3nfusdr_user_should_see_all_the_users_as_clickable() throws Throwable {
-		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(4, "");
+		boolean nameisclickable = UserDirectoryPage.ifAllUsersAreClicable(3, "");
 		Assert.assertEquals(true, nameisclickable);
 	}
 
