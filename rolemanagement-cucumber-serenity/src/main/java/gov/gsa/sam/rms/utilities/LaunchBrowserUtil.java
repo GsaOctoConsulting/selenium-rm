@@ -430,7 +430,7 @@ public class LaunchBrowserUtil {
 			tab_handles = new ArrayList<String>(driver.getWindowHandles());
 			driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 			LaunchBrowserUtil.delay(2);
-			
+
 			driver.findElement(
 					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
 																														// this
@@ -767,22 +767,27 @@ public class LaunchBrowserUtil {
 		delay(3);
 		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[3]/input")).click();
 		delay(4);
+
+	}
+
+	public static String captureEmailContentNonfed() {
+
 		driver.findElement(By.xpath("//*[@id=\"butmail\"]/tbody/tr/td[10]/a")).click();
 		delay(5);
+
 		// List<WebElement> emailist =driver.findElements(By.className("m2"));
 		// logger.info("The emaillist size is-- "+emailist.size());
 		driver.manage().window().maximize();
 		driver.switchTo().frame("ifmail");
 		delay(2);
 
-	}
-
-	public static String captureEmailContentNonfed() {
 		delay(3);
 		String emailcontent = driver.findElement(By.id("mailmillieu")).getText();
 		logger.info("-------------------------below is the email content--------------------------------------");
 		logger.info(emailcontent);
 		logger.info("---------------------------------------------------------------------------------------");
+		driver.switchTo().parentFrame();
+		delay(2);
 		return emailcontent;
 	}
 

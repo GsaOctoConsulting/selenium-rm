@@ -30,6 +30,7 @@ public class Constants {
 	// Org Codes
 	public static final String CODE_ORG_GSA_DEPT = "047";
 	public static final String CODE_ORG_GSA_SUBTIER = "4700";
+	public static final CharSequence CODE_ORG_OCTO_CONSULTING = "800127859";
 
 	// Roles---------------------------------
 	public static final String ROLE_ROLEADMIN_SAMPMOADMINALLDOMAINS = "SAM PMO Administrator All Domains";
@@ -113,6 +114,8 @@ public class Constants {
 	public static final String EMAIL_ACTION_UPDATED = "updated";
 	public static final String EMAIL_ACTION_APPROVED = "approved";
 	public static final CharSequence EMAIL_ACTION_REQUESTED = "requested";
+	public static final String EMAIL_ACTION_SENT = "sent";
+	public static final CharSequence EMAIL_ACTION_INVITED = "invited";
 
 	// system account email constants--
 	public static final String EMAIL_SA_SUBMISSION_SUBJECT_LINE = "You have submitted a pending System Account application for initial review";
@@ -366,6 +369,8 @@ public class Constants {
 	public static final String ROLE_AGENCY_ADMINISTRATOR_EXCLUSIONS = "Agency Administrator Exclusions";
 	public static final String ROLE_AGENCYEXCLUSIONS_REPRESENTATIVE = "Agency Exclusions Representative";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator";
+	
+	
 	
 	
 	

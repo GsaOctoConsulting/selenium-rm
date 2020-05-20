@@ -227,28 +227,122 @@ public class NonfedRoleInviteStep {
 			throws Throwable {
 
 	}
+
 	@Given("^_6nri new nonfed user signs up$")
 	public void _6nri_new_nonfed_user_signs_up() throws Throwable {
 
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.closeBrowsers();
+
 	}
+
 	@And("^_6nri nonfed admin logs in$")
 	public void _6nri_nonfed_admin_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@And("^_6nri nonfed admin navigates to role invite page$")
 	public void _6nri_nonfed_admin_navigates_to_role_invite_page() throws Throwable {
-
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
 	}
 
 	@When("^_6nri admin invites a nonfed user for viewer role in the admins domain$")
 	public void _6nri_admin_invites_a_nonfed_user_for_viewer_role_in_the_admins_domain() throws Throwable {
+		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.closeBrowsers();
 
 	}
 
 	@Then("^_6nri admin should receive an email about the role invite$")
 	public void _6nri_admin_should_receive_an_email_about_the_role_invite() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+		String emailBody2 = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		int counter = 0;
+		if (emailBody1.contains("You have been invited to accept a role")) {
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_INVITED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_VIEWER));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+
+		} else if (emailBody1.contains("You have sent a role invitation")) {
+
+			// asserting the email sent to admin
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_SENT));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_VIEWER));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			counter++;
+		}
+		// --------------------------------------------------------------------
+		if (emailBody2.contains("You have been invited to accept a role")) {
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_INVITED));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_VIEWER));
+
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
+
+			counter++;
+
+		} else if (emailBody2.contains("You have sent a role invitation")) {
+
+			// asserting the email sent to admin
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_SENT));
+			Assert.assertEquals(true, emailBody2.contains(nonfeduseremail));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_VIEWER));
+
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
+			counter++;
+		}
+
+		Assert.assertEquals(2, counter);
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@And("^_6nri the user should also get an email about the role invite$")
