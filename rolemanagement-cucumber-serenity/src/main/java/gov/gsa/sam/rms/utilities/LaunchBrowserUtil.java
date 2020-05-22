@@ -274,7 +274,7 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		LaunchBrowserUtil.delay(10);
 
-		driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span"))
+		driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span"))
 				.click();// use this if windowsbased popup show up and turn off incognito
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
