@@ -274,8 +274,18 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
 		LaunchBrowserUtil.delay(10);
 
-		driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span"))
-				.click();// use this if windowsbased popup show up and turn off incognito
+		driver.findElement(
+				By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span")).click();// use
+																														// this
+																														// if
+																														// windowsbased
+																														// popup
+																														// show
+																														// up
+																														// and
+																														// turn
+																														// off
+																														// incognito
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
 		delay(2);
@@ -391,7 +401,7 @@ public class LaunchBrowserUtil {
 
 		if (Constants.INCOGNITO_ON == false) {
 			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span")).click();// use
 																														// this
 																														// if
 																														// windowsbased
@@ -431,18 +441,13 @@ public class LaunchBrowserUtil {
 			driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 			LaunchBrowserUtil.delay(2);
 
-			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
-																														// this
-																														// if
-																														// windowsbased
-																														// popup
-																														// show
-																														// up
-																														// and
-																														// //
-																														// off
-																														// incognito
+			if (nooffetch == 1) {
+				driver.findElement(
+						By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span"))
+						.click();
+				LaunchBrowserUtil.delay(4);
+			}
+
 		}
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();

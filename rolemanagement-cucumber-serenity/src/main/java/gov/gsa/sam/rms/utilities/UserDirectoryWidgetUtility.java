@@ -61,6 +61,7 @@ public class UserDirectoryWidgetUtility {
 	}
 
 	public static void clickUserDirectoryLink() {
+		LaunchBrowserUtil.delay(1);
 		T1WorkspacePage.getDriver().findElement(By.id("user-directory-link")).click();
 		UserDirectoryPage.setDriver(T1WorkspacePage.getDriver());
 		LaunchBrowserUtil.delay(5);
