@@ -25,6 +25,14 @@ Scenario: role requester and supervisor should receive email when request is sub
 	And _1nfemail user requests assitance user role in assistance listing 
 	Then _1nfemail user should receive an email with the proper message 
 	Then _1nfemail supervisor should also receive an email message 
+
+@2
+Scenario: both the nonfed admin and the unregistered nonfed user should get emails when a role invite is made   
+	Given _2nre nonfed admin logs in 
+	And _2nre nonfed admin navigates to role invite page 
+	When _2nre admin invites a nonfed unregistered user for viewer role in the admins domain 
+	Then _2nre admin should receive an email about the role invite 
+	And _2nre the unregistered user should also get an email about the role invite
  
 	
 	
