@@ -33,6 +33,14 @@ Scenario: both the nonfed admin and the unregistered nonfed user should get emai
 	When _2nre admin invites a nonfed unregistered user for viewer role in the admins domain 
 	Then _2nre admin should receive an email about the role invite 
 	And _2nre the unregistered user should also get an email about the role invite
+	
+@3
+Scenario: both the nonfed admin and the nonfed user should get emails when an admin updates a role   
+	Given _3nre nonfed admin logs in 
+	When _3nre nonfed admin looks up a data entry user in contract opp and assigns data entry in admins own domain   
+	Then _3nre admin should receive an email about the role update 
+	And _3nre nonfed user should also receive an email about the role update 
+	
  
 	
 	

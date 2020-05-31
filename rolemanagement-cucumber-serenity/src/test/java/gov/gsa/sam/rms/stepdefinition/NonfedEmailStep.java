@@ -123,7 +123,7 @@ public class NonfedEmailStep {
 	public void _2nre_admin_invites_a_nonfed_unregistered_user_for_viewer_role_in_the_admins_domain() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
 		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-		
+
 		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
 		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		Assert.assertEquals(true, roleFound);
@@ -154,7 +154,7 @@ public class NonfedEmailStep {
 		String emailBody2 = LaunchBrowserUtil.captureEmailContentNonfed();
 
 		int counter = 0;
-		if (emailBody1.contains("You have been invited to accept a role")) {//uid for user's email
+		if (emailBody1.contains("You have been invited to accept a role")) {// uid for user's email
 
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_INVITED));
@@ -166,7 +166,7 @@ public class NonfedEmailStep {
 
 			counter++;
 
-		} else if (emailBody1.contains("You have sent a role invitation")) {//uid for admins email
+		} else if (emailBody1.contains("You have sent a role invitation")) {// uid for admins email
 
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
@@ -212,6 +212,29 @@ public class NonfedEmailStep {
 
 	@And("^_2nre the unregistered user should also get an email about the role invite$")
 	public void _2nre_the_unregistered_user_should_also_get_an_email_about_the_role_invite() throws Throwable {
+
+	}
+
+	@Given("^_3nre nonfed admin logs in$")
+	public void _3nre_nonfed_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_3nre nonfed admin looks up a data entry user in contract opp and assigns data entry in admins own domain$")
+	public void _3nre_nonfed_admin_looks_up_a_dataentry_user_incontractopp_and_assigns_data_entry_role() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+	}
+
+	@Then("^_3nre admin should receive an email about the role update$")
+	public void _3nre_admin_should_receive_an_email_about_the_role_update() throws Throwable {
+
+	}
+
+	@And("^_3nre nonfed user should also receive an email about the role update$")
+	public void _3nre_nonfed_user_should_also_receive_an_email_about_the_role_update() throws Throwable {
 
 	}
 
