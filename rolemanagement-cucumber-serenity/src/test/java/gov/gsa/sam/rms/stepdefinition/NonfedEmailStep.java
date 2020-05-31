@@ -225,7 +225,7 @@ public class NonfedEmailStep {
 	@When("^_3nre nonfed admin looks up a data entry user in contract opp and assigns data entry in admins own domain$")
 	public void _3nre_nonfed_admin_looks_up_a_dataentry_user_incontractopp_and_assigns_data_entry_role() throws Throwable {
 		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 	}
 
 	@Then("^_3nre admin should receive an email about the role update$")

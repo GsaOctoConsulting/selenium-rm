@@ -297,4 +297,7 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_ADMIN_ENTITYCOMPLIANCE = "nonfedgsaemail+adminentitycompliance2@yopmail.com";
 	public static final String NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY = "ZKBXON6VWUCRQGTK";
+	
+	public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES = "nonfedgsaemail+dataentrycontractopp@yopmail.com";
+	public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY = "4BSB5UEYAMRME45Z";
 }
