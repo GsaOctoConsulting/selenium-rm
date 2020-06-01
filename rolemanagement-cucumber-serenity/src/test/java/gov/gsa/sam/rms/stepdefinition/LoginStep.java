@@ -233,7 +233,7 @@ public class LoginStep {
 		//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
 		//SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
 			//	Constants.USERPASS);
-SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP,
+SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_3_NO_ROLES,
 	Constants.USERPASS);
 
 // SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser"

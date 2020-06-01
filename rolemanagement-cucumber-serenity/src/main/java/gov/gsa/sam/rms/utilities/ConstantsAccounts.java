@@ -303,4 +303,7 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_ADMIN_CONTRACTOPP = "nonfedgsaemail+admincontractopp1@yopmail.com";
 	public static final String NONFED_ADMIN_CONTRACTOPP_SECRETKEY = "DXTR5S4Y2AJ2QXK5";
+	
+	public static final String NONFED_USER_3_NO_ROLES = "nonfedgsaemail+3@yopmail.com";
+	public static final String NONFED_USER_3_NO_ROLES_SECRETKEY= "ER7BCFOXFLQRWKET";
 }
