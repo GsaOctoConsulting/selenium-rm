@@ -9,12 +9,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
+import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
+import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
@@ -217,25 +219,212 @@ public class NonfedEmailStep {
 
 	@Given("^_3nre nonfed admin logs in$")
 	public void _3nre_nonfed_admin_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 	}
 
-	@When("^_3nre nonfed admin looks up a data entry user in contract opp and assigns data entry in admins own domain$")
-	public void _3nre_nonfed_admin_looks_up_a_dataentry_user_incontractopp_and_assigns_data_entry_role() throws Throwable {
+	@When("^_3nre nonfed admin looks up a data entry user in contract opp and updates to viewer role$")
+	public void _3nre_nonfed_admin_looks_up_a_dataentry_user_incontractopp_and_assigns_data_entry_role()
+			throws Throwable {
 		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY_REMOVE, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(true, rolefound);
+
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("assigning new role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		boolean rolechangeoccured = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, rolechangeoccured);
+		LaunchBrowserUtil.closeBrowsers();
+
 	}
 
 	@Then("^_3nre admin should receive an email about the role update$")
 	public void _3nre_admin_should_receive_an_email_about_the_role_update() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+		String emailBody2 = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		int counter = 0;
+		if (emailBody1.contains("role was updated")) {// uid for user's email
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_UPDATED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+
+		} else if (emailBody1.contains("You have updated")) {// uid for admins email
+
+			// asserting the email sent to admin
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_UPDATED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			counter++;
+		}
+		// --------------------------------------------------------------------
+		if (emailBody2.contains("role was updated")) {
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_UPDATED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+
+		} else if (emailBody2.contains("You have updated")) {
+
+			// asserting the email sent to admin
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_UPDATED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			counter++;
+		}
+
+		Assert.assertEquals(2, counter);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	@And("^_3nre nonfed user should also receive an email about the role update$")
 	public void _3nre_nonfed_user_should_also_receive_an_email_about_the_role_update() throws Throwable {
+		// set the role back
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+		Assert.assertEquals(true, rolefound);
+
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("assigning new role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		boolean rolechangeoccured = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY_REMOVE, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, rolechangeoccured);
+
+	}
+
+	@Given("^_4nre spaad logs in$")
+	public void _4nre_nonfed_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_4nre spaad looks up a data entry user in contract opp and removes the role$")
+	public void _4nre_nonfed_admin_looks_up_a_data_entry_user_in_contract_opp_and_removes_the_role() throws Throwable {
+	T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(true, rolefound);
+	}
+
+	@Then("^_4nre spaad should receive an email about the role removal$")
+	public void _4nre_admin_should_receive_an_email_about_the_role_removal() throws Throwable {
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
+
+		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
+		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
+		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.navigateBack();
+
+		LaunchBrowserUtil.switchTabs(3);
+		// asserting the email subject line
+		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_REGULAR_SENT_FROM));
+		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_ACTION_REMOVED));
+		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_ENV));
+		// asserting email to and from address
+		Assert.assertEquals(true, emailToAndFrom1.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
+		Assert.assertEquals(true,
+				emailToAndFrom1.contains(ConstantsAccounts.ROLE_ADMIN_USER_3.replace("@gsa.gov", "")));// SPAAD received
+		// asserting the email body
+		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_REMOVED));
+		Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP.toUpperCase()));
+		Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+		Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
+		Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+		
+	}
+
+	@And("^_4nre nonfed user should also receive an email about the role removal$")
+	public void _4nre_nonfed_user_should_also_receive_an_email_about_the_role_removal() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		int counter = 0;
+		if (emailBody1.contains("removed your")) {// uid for user's email
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_REMOVED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+		}
+		// --------------------------assign the role back------------------------------------------
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+		
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryViewAccessPage.clickAssignRole();
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,0);
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		// ---------delete the newly granted role-----------
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(userHasRole, true);
+		
 	}
 
 }

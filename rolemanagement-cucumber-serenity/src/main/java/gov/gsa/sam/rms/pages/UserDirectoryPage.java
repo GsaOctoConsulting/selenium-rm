@@ -83,9 +83,10 @@ public class UserDirectoryPage {
 
 	public static void clickViewAccess(String useremail) {
 		clickActions(useremail);
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(4);
 
 		driver.findElement(By.id("menuitem0")).click();
+		LaunchBrowserUtil.delay(2);
 		MyRolesPage.setDriver(UserDirectoryPage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(UserDirectoryPage.getDriver());
 		AccountDetailsPage.setDriver(driver);

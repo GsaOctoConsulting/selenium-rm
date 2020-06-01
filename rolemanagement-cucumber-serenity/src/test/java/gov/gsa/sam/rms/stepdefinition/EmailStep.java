@@ -601,9 +601,6 @@ public class EmailStep {
 		}
 	
 	
-	
-		
-	
 	}
 
 	@Then("^_4 the assistance user should also receive proper email message$")

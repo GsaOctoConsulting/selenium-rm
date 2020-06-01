@@ -300,4 +300,7 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES = "nonfedgsaemail+dataentrycontractopp@yopmail.com";
 	public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY = "4BSB5UEYAMRME45Z";
+	
+	public static final String NONFED_ADMIN_CONTRACTOPP = "nonfedgsaemail+admincontractopp1@yopmail.com";
+	public static final String NONFED_ADMIN_CONTRACTOPP_SECRETKEY = "DXTR5S4Y2AJ2QXK5";
 }

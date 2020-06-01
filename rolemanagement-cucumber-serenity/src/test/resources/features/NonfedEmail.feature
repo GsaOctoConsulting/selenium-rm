@@ -37,9 +37,16 @@ Scenario: both the nonfed admin and the unregistered nonfed user should get emai
 @3
 Scenario: both the nonfed admin and the nonfed user should get emails when an admin updates a role   
 	Given _3nre nonfed admin logs in 
-	When _3nre nonfed admin looks up a data entry user in contract opp and assigns data entry in admins own domain   
+	When _3nre nonfed admin looks up a data entry user in contract opp and updates to viewer role   
 	Then _3nre admin should receive an email about the role update 
 	And _3nre nonfed user should also receive an email about the role update 
+
+@4
+Scenario: both the nonfed admin and the nonfed user should get emails when an admin removes a role   
+	Given _4nre spaad logs in 
+	When _4nre spaad looks up a data entry user in contract opp and removes the role   
+	Then _4nre spaad should receive an email about the role removal 
+	And _4nre nonfed user should also receive an email about the role removal
 	
  
 	
