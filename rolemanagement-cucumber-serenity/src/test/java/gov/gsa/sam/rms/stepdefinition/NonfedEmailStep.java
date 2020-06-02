@@ -10,6 +10,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
+import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
@@ -26,6 +27,7 @@ import gov.gsa.sam.rms.utilities.SignUpUtility;
 public class NonfedEmailStep {
 	private static Logger logger = LoggerFactory.getLogger(EmailStep.class);
 	private String nonfeduseremail = "";
+	String timestamp = new String();
 
 	@Given("^_1nfemail a no role user logs$")
 	public void _1_a_no_role_user_logs() throws Throwable {
@@ -344,7 +346,7 @@ public class NonfedEmailStep {
 
 	@When("^_4nre spaad looks up a data entry user in contract opp and removes the role$")
 	public void _4nre_nonfed_admin_looks_up_a_data_entry_user_in_contract_opp_and_removes_the_role() throws Throwable {
-	T1WorkspacePage.clickUserDirectoryLink();
+		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
@@ -378,7 +380,7 @@ public class NonfedEmailStep {
 		Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
 		Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
-		
+
 	}
 
 	@And("^_4nre nonfed user should also receive an email about the role removal$")
@@ -404,62 +406,58 @@ public class NonfedEmailStep {
 
 			counter++;
 		}
-		Assert.assertEquals(1,counter);
-		// --------------------------assign the role back------------------------------------------
+		Assert.assertEquals(1, counter);
+		// --------------------------assign the role
+		// back------------------------------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
-		
+
 		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 		UserDirectoryViewAccessPage.clickAssignRole();
-		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,0);
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		// --------
-		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(userHasRole, true);
-		
+
 	}
-	
-	
-	
 
-    @Given("^_5nre spaad logs in$")
-    public void _5nre_spaad_logs_in() throws Throwable {
-    	SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+	@Given("^_5nre spaad logs in$")
+	public void _5nre_spaad_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-		LaunchBrowserUtil.delay(4);  
-    }
+		LaunchBrowserUtil.delay(4);
+	}
 
-    @When("^_5nre spaad looks up a no role nonfed user and assigns data entry role$")
-    public void _5nre_spaad_looks_up_a_no_role_nonfed_user_and_assigns_data_entry_role() throws Throwable {
-    	T1WorkspacePage.clickUserDirectoryLink();
+	@When("^_5nre spaad looks up a no role nonfed user and assigns data entry role$")
+	public void _5nre_spaad_looks_up_a_no_role_nonfed_user_and_assigns_data_entry_role() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryViewAccessPage.clickAssignRole();
-		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,0);
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		// --------------------
-		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
-		Assert.assertEquals(userHasRole, true); 
-    }
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		Assert.assertEquals(userHasRole, true);
+	}
 
-    @Then("^_5nre spaad should receive an email about the role assignment$")
-    public void _5nre_spaad_should_receive_an_email_about_the_role_assignment() throws Throwable {
-    	LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
+	@Then("^_5nre spaad should receive an email about the role assignment$")
+	public void _5nre_spaad_should_receive_an_email_about_the_role_assignment() throws Throwable {
+		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 
 		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
@@ -483,12 +481,12 @@ public class NonfedEmailStep {
 		Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 		Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
-    }
+	}
 
-    @And("^_5nre nonfed user should also receive an email about the role assignment$")
-    public void _5nre_nonfed_user_should_also_receive_an_email_about_the_role_assignment() throws Throwable {
-    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-    			ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	@And("^_5nre nonfed user should also receive an email about the role assignment$")
+	public void _5nre_nonfed_user_should_also_receive_an_email_about_the_role_assignment() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
@@ -504,41 +502,38 @@ public class NonfedEmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
-			
+
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 
 			counter++;
 		}
-		Assert.assertEquals(1,counter);
-		// --------------------------remove the role------------------------------------------
+		Assert.assertEquals(1, counter);
+		// --------------------------remove the
+		// role------------------------------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
-		
+
 		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
-		
-		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
-		Assert.assertEquals(userHasRole, true);
-    }
-    
-    
-    
-    
-    @Given("^_6nre no role nonfed user logs in$")
-    public void _6nre_no_role_nonfed_user_logs_in() throws Throwable {
-    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-    			ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
-		LaunchBrowserUtil.delay(4); 
-    }
 
-    @When("^_6nre nonfed users requests data entry role$")
-    public void _6nre_nonfed_users_requests_data_entry_role() throws Throwable {
-    	T1WorkspacePage.goToAccountDetailsPage();
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
+		Assert.assertEquals(userHasRole, true);
+	}
+
+	@Given("^_6nre no role nonfed user logs in$")
+	public void _6nre_no_role_nonfed_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_6nre nonfed users requests data entry role$")
+	public void _6nre_nonfed_users_requests_data_entry_role() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
@@ -548,22 +543,22 @@ public class NonfedEmailStep {
 		RequestRolePage.writeComment("test");
 		RequestRolePage.clickSubmit();
 		LaunchBrowserUtil.delay(2);
-		
+
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
 		RoleRequestPendingPage.clickDeleteButton();
 		RoleRequestPendingPage.confirmDeleteOnPopup();
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
-    }
+	}
 
-    @Then("^_6nre the user should receive an email about the role request$")
-    public void _6nre_the_user_should_receive_an_email_about_the_role_request() throws Throwable {
-    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-    			ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
-		LaunchBrowserUtil.delay(4); 
-		
-    	LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+	@Then("^_6nre the user should receive an email about the role request$")
+	public void _6nre_the_user_should_receive_an_email_about_the_role_request() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 
 		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
 
@@ -576,13 +571,100 @@ public class NonfedEmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
-			
+
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 
 			counter++;
 		}
-		Assert.assertEquals(1,counter);
-    }
+		Assert.assertEquals(1, counter);
+	}
+
+	@Given("^_7nre no role nonfed user logs in$")
+	public void _7nre_no_role_nonfed_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_7nre nonfed users requests data entry role in entity registration$")
+	public void _7nre_nonfed_users_requests_data_entry_role_in_entity_registration() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		MyRolesPage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_7nre entity registration admin approves the request$")
+	public void _7nre_entity_registration_admin_approves_the_request() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickReceivedOnSideNav();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollUp();
+		LaunchBrowserUtil.delay(3);
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		RoleRequestPendingPage.clickAssignRole();
+	}
+
+	@Then("^_7nre the admin should receive an email about the approval$")
+	public void _7nre_the_admin_should_receive_an_email_about_the_approval() throws Throwable {
+
+	}
+
+	@And("^_7nre the user should also receive an email about the approval$")
+	public void _7nre_the_user_should_also_receive_an_email_about_the_approval() throws Throwable {
+
+	}
+
+	@Given("^_8nre no role nonfed user logs in$")
+	public void _8nre_no_role_nonfed_user_logs_in() throws Throwable {
+
+	}
+@And("^_8nre nonfed users requests data entry role in entity registration$")
+	public void _8nre_nonfed_users_requests_data_entry_role_in_entity_registration() throws Throwable {
+
+	}
+	@When("^_8nre entity registration admin rejects the request$")
+	public void _8nre_entity_registration_rejects_the_request() throws Throwable {
+
+	}
+
+	@Then("^_8nre the admin should receive an email about the role rejection$")
+	public void _8nre_the_admin_should_receive_an_email_about_the_role_rejection() throws Throwable {
+
+	}
+
+	
+
+	@And("^_8nre the user should also receive an email about the role rejection$")
+	public void _8nre_the_user_should_also_receive_an_email_about_the_role_rejection() throws Throwable {
+
+	}
 
 }

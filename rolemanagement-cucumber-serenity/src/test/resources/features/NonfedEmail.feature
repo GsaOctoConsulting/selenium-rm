@@ -63,9 +63,19 @@ Scenario: both the admin and the nonfed user should get emails when the nonfed u
 
 @7
 Scenario: both the admin and the nonfed user should get emails when the nonfed users requests is approved   
-	Given _6nre no role nonfed user logs in 
-	When _6nre nonfed users requests data entry role   
-	Then _6nre the user should receive an email about the role request
+	Given _7nre no role nonfed user logs in 
+	And _7nre nonfed users requests data entry role in entity registration   
+	When _7nre entity registration admin approves the request
+	Then _7nre the admin should receive an email about the approval
+	And _7nre the user should also receive an email about the approval
+
+@7
+Scenario: both the admin and the nonfed user should get emails when the nonfed users requests is rejected   
+	Given _8nre no role nonfed user logs in 
+	And _8nre nonfed users requests data entry role in entity registration   
+	When _8nre entity registration admin rejects the request
+	Then _8nre the admin should receive an email about the role rejection
+	And _8nre the user should also receive an email about the role rejection
 
  
 	
