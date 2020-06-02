@@ -61,6 +61,12 @@ Scenario: both the admin and the nonfed user should get emails when the nonfed u
 	When _6nre nonfed users requests data entry role   
 	Then _6nre the user should receive an email about the role request
 
+@7
+Scenario: both the admin and the nonfed user should get emails when the nonfed users requests is approved   
+	Given _6nre no role nonfed user logs in 
+	When _6nre nonfed users requests data entry role   
+	Then _6nre the user should receive an email about the role request
+
  
 	
 	
