@@ -152,7 +152,7 @@ Scenario: when user is being assigned a role that they already have proper error
 	And _17nf spaad tries to approve the pending request for the user
 	Then _17nf proper error message show up
 
-@18 @ll
+@18 @ww
 Scenario: a nonfed admin in a particular domain when requesting a role should not see any role options under that domain 
 	Given _18nf user logs in with admin role in entity registration 
 	And _18nf user navigates to role request page 
@@ -178,7 +178,7 @@ Scenario: a new nonfed users pending request should diplay with accurate info in
     When _20nf user searches using fullname
     Then _20nf user should only see accounts containing fullname
 
- @21 @temp
+ @21 @ww
      Scenario: user directory search box should give expected list of users with entity specific emails for nonfed user
     Given _21nf user logs in workspace as nonfed user with a role 
     And _21nf user navigates to user directory page 
@@ -189,7 +189,7 @@ Scenario: a new nonfed users pending request should diplay with accurate info in
     When _21nf user searches users with ids ending with gsa
     Then _21nf user should not see no results
     
- @22 @temp
+ @22 @ww
      Scenario: user directory entiy search should give expected list of orgs with name duns and cage code for nonfed admin
     Given _22nf user logs in workspace as nonfed admin 
     And _22nf user navigates to user directory page 

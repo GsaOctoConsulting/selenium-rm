@@ -350,6 +350,29 @@ public class NonfedRoleInviteStep {
 
 	}
 
-	
+	@Given("^_7nri nonfed user with pending role invite logs in$")
+	public void _7nri_nonfed_user_with_pending_role_invite_logs_in() throws Throwable {
+
+	}
+
+	@And("^_7nri requests data entry role in entity registration domain$")
+	public void _7nri_requests_data_entry_role_in_entity_registration_domain() throws Throwable {
+
+	}
+
+	@When("^_7nri nonfed entity registration admin logs in$")
+	public void _7nri_nonfed_entity_registration_admin_logs_in() throws Throwable {
+
+	}
+
+	@And("^_7nri nonfed admin tries to approve the request for the nonfed user$")
+	public void _7nri_nonfed_admin_tries_to_approve_the_request_for_the_nonfed_user() throws Throwable {
+
+	}
+
+	@Then("^_7nri proper error message should be shown$")
+	public void _7nri_proper_error_message_should_be_shown() throws Throwable {
+
+	}
 
 }
