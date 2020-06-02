@@ -25,90 +25,9 @@ import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.utilities.SignUpUtility;
 
 public class NonfedEmailStep {
-	private static Logger logger = LoggerFactory.getLogger(EmailStep.class);
+	private static Logger logger = LoggerFactory.getLogger(NonfedEmailStep.class);
 	private String nonfeduseremail = "";
 	String timestamp = new String();
-
-	@Given("^_1nfemail a no role user logs$")
-	public void _1_a_no_role_user_logs() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
-				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
-	}
-
-	@And("^_1nfemail user requests assitance user role in assistance listing$")
-	public void _1_user_requests_assitance_user_role_in_assistance_listing() throws Throwable {
-		T1WorkspacePage.goToAccountDetailsPage();
-		AccountDetailsPage.goToPageOnSideNav("My Roles");
-		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
-		MyRolesPage.clickRequestRoleButton();
-		RequestRolePage.writeSupervisorName("AJ");
-		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
-		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
-		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
-		RequestRolePage.writeComment("test");
-		RequestRolePage.clickSubmit();
-		LaunchBrowserUtil.delay(2);
-	}
-
-	@Then("^_1nfemail user should receive an email with the proper message$")
-	public void _1_user_should_receive_an_email_with_the_proper_message() throws Throwable {
-		LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
-
-		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
-		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
-		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.navigateBack();
-		LaunchBrowserUtil.switchTabs(3);
-
-		// asserting email subject
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ACTION_SUBMITTED));
-		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_ENV));
-
-		// asserting email to and from address
-		Assert.assertEquals(true, emailToAndFrom.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
-		Assert.assertEquals(true, emailToAndFrom.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", "")));
-
-		// asserting the email body
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ACTION_SUBMITTED));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
-		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
-		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
-
-		// here link asserts
-
-		// delete the request
-		MyRolesPage.click1PendingRequest();
-		MyRolesPage.clickPendingLink();
-		RoleRequestPendingPage.clickDeleteButton();
-		RoleRequestPendingPage.confirmDeleteOnPopup();
-		LaunchBrowserUtil.delay(6);
-		LaunchBrowserUtil.closeBrowsers();
-	}
-
-	@Then("^_1nfemail supervisor should also receive an email message$")
-	public void _1_supervisor_should_also_receive_an_email_message() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
-		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
-
-		String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
-		// asserting the email body
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_REQUESTOR_NAME));
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ACTION_REQUESTED));
-		Assert.assertEquals(true, emailBody.contains(Constants.ORG_GSA.toUpperCase()));
-		Assert.assertEquals(true, emailBody.contains(Constants.ROLE_ASSISTANCE_USER));
-		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
-		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
-		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
-
-		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.closeBrowsers();
-	}
 
 	@Given("^_2nre nonfed admin logs in$")
 	public void _2nre_nonfed_admin_logs_in() throws Throwable {
@@ -630,37 +549,179 @@ public class NonfedEmailStep {
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		RoleRequestPendingPage.clickAssignRole();
+		AssignRolePage.writeComment("approving role");
+		AssignRolePage.clickAssign();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Then("^_7nre the admin should receive an email about the approval$")
 	public void _7nre_the_admin_should_receive_an_email_about_the_approval() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+		String emailBody2 = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		int counter = 0;
+		if (emailBody1.contains("You have assigned")) {// uid for admins email
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+
+		} else if (emailBody1.contains("You have been assigned")) {// uid for users email
+
+			// asserting the email sent to admin
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			counter++;
+		}
+		// --------------------------------------------------------------------
+		if (emailBody2.contains("You have assigned")) {
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+
+		} else if (emailBody2.contains("You have been assigned")) {
+
+			// asserting the email sent to admin
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			counter++;
+		}
+
+		Assert.assertEquals(2, counter);
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@And("^_7nre the user should also receive an email about the approval$")
 	public void _7nre_the_user_should_also_receive_an_email_about_the_approval() throws Throwable {
+// delete the assigned role
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+
+		boolean userHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
+		Assert.assertEquals(userHasRole, true);
 
 	}
 
 	@Given("^_8nre no role nonfed user logs in$")
 	public void _8nre_no_role_nonfed_user_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	}
-@And("^_8nre nonfed users requests data entry role in entity registration$")
+
+	@And("^_8nre nonfed users requests data entry role in entity registration$")
 	public void _8nre_nonfed_users_requests_data_entry_role_in_entity_registration() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		MyRolesPage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
+
 	@When("^_8nre entity registration admin rejects the request$")
 	public void _8nre_entity_registration_rejects_the_request() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickReceivedOnSideNav();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollUp();
+		LaunchBrowserUtil.delay(3);
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.REJECTROLE);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Then("^_8nre the admin should receive an email about the role rejection$")
 	public void _8nre_the_admin_should_receive_an_email_about_the_role_rejection() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		int counter = 0;
+		if (emailBody1.contains("has been rejected")) {// uid for user's email
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_REJECTED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains("Request is rejected"));// decision comment
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+		}
+		Assert.assertEquals(1, counter);
+		LaunchBrowserUtil.closeBrowsers();
 	}
-
-	
 
 	@And("^_8nre the user should also receive an email about the role rejection$")
 	public void _8nre_the_user_should_also_receive_an_email_about_the_role_rejection() throws Throwable {

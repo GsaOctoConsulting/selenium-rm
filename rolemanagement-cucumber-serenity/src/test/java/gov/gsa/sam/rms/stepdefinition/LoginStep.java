@@ -44,13 +44,13 @@ public class LoginStep {
 
 	@Given("^_1 user already has dra account setup and enters \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void _1_user_already_has_dra_account_setup_and_enters_and(String arg1, String arg2) throws Throwable {
-//		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-//				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-//		LaunchBrowserUtil.delay(4);
-		
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
+
+//		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+//				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
+//		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
@@ -209,8 +209,8 @@ public class LoginStep {
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		 //SignUpUtility.signUpNewUser(ConstantsAccounts.SYSTEM_MANAGER_GSA_OFFICE_LEVEL,
-		//Constants.USERPASS);
+		// SignUpUtility.signUpNewUser(ConstantsAccounts.SYSTEM_MANAGER_GSA_OFFICE_LEVEL,
+		// Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
@@ -234,11 +234,11 @@ public class LoginStep {
 
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-		//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		//SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
-			//	Constants.USERPASS);
-SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_3_NO_ROLES,
-	Constants.USERPASS);
+		// String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		// SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
+		// counter + "@yopmail.com",
+		// Constants.USERPASS);
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS);
 
 // SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser"
 		// + counter + "@gmail.com",

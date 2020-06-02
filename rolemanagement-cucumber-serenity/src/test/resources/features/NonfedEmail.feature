@@ -19,13 +19,6 @@
 Feature: nonfed Email functionality 
 	Description:  The purpose of this feature is to test email validations for nonfed
 
-@1 @IntegrationTest 
-Scenario: role requester and supervisor should receive email when request is submitted 
-	Given _1nfemail a no role user logs 
-	And _1nfemail user requests assitance user role in assistance listing 
-	Then _1nfemail user should receive an email with the proper message 
-	Then _1nfemail supervisor should also receive an email message 
-
 @2
 Scenario: both the nonfed admin and the unregistered nonfed user should get emails when a role invite is made   
 	Given _2nre nonfed admin logs in 
@@ -69,7 +62,7 @@ Scenario: both the admin and the nonfed user should get emails when the nonfed u
 	Then _7nre the admin should receive an email about the approval
 	And _7nre the user should also receive an email about the approval
 
-@7
+@8
 Scenario: both the admin and the nonfed user should get emails when the nonfed users requests is rejected   
 	Given _8nre no role nonfed user logs in 
 	And _8nre nonfed users requests data entry role in entity registration   
