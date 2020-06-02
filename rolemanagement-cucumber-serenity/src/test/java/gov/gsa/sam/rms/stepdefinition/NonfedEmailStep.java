@@ -525,5 +525,64 @@ public class NonfedEmailStep {
 				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
 		Assert.assertEquals(userHasRole, true);
     }
+    
+    
+    
+    
+    @Given("^_6nre no role nonfed user logs in$")
+    public void _6nre_no_role_nonfed_user_logs_in() throws Throwable {
+    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+    			ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4); 
+    }
+
+    @When("^_6nre nonfed users requests data entry role$")
+    public void _6nre_nonfed_users_requests_data_entry_role() throws Throwable {
+    	T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+		RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(2);
+		
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		RoleRequestPendingPage.clickDeleteButton();
+		RoleRequestPendingPage.confirmDeleteOnPopup();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
+    }
+
+    @Then("^_6nre the user should receive an email about the role request$")
+    public void _6nre_the_user_should_receive_an_email_about_the_role_request() throws Throwable {
+    	SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+    			ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4); 
+		
+    	LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+
+		int counter = 0;
+		if (emailBody1.contains("You have submitted a request")) {// uid for user's email
+
+			// asserting the email sent to user
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_SUBMITTED));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+			
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+
+			counter++;
+		}
+		Assert.assertEquals(1,counter);
+    }
 
 }

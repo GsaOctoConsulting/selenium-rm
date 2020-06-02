@@ -54,7 +54,13 @@ Scenario: both the spaad and the nonfed user should get emails when spaad assign
 	When _5nre spaad looks up a no role nonfed user and assigns data entry role   
 	Then _5nre spaad should receive an email about the role assignment
 	And _5nre nonfed user should also receive an email about the role assignment
-	
+
+@6
+Scenario: both the admin and the nonfed user should get emails when the nonfed user requests a role   
+	Given _6nre no role nonfed user logs in 
+	When _6nre nonfed users requests data entry role   
+	Then _6nre the user should receive an email about the role request
+
  
 	
 	
