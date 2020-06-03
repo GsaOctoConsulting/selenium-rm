@@ -144,7 +144,7 @@ public class UserDirectorySearchStep {
 	@Then("^_5 user should only see accounts with federal user id$")
 	public void _5_user_should_only_see_accounts_with_federal_user_id() throws Throwable {
 		// int totalNoOfPages = UserDirectoryPage.getTotalNoOfPages();
-		int totalNoOfPages = 20;// currently looking 20 pages
+		int totalNoOfPages = 3;// currently looking 20 pages
 		int currentPage = 1;
 
 		do {// search page 1 regardless of whether other pages exist

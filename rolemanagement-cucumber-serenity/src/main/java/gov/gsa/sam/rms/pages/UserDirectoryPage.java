@@ -440,8 +440,9 @@ public class UserDirectoryPage {
 		List<WebElement> pagelist = getPagination();
 
 		for (int i = 0; i < pageLimit && pagelist.size() > 1; i++) {
-
-			if (Integer.parseInt(pagelist.get(i).getText().substring(5)) == pageno) {
+			String obtainedpageno = pagelist.get(i).getText();
+			logger.info("The obtained page text from ui is--  " + obtainedpageno);
+			if (Integer.parseInt(pagelist.get(i).getText()) == pageno) {
 				logger.info("Text from the pagebutton - " + pagelist.get(i).getText());
 				pagelist.get(i).click();
 				LaunchBrowserUtil.delay(3);
