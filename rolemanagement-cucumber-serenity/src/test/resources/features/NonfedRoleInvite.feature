@@ -65,13 +65,13 @@ Scenario: both the nonfed admin and the nonfed request receiver should get email
 	When _6nri admin invites a nonfed user for viewer role in the admins domain 
 	Then _6nri admin should receive an email about the role invite 
 	And _6nri the user should also get an email about the role invite
-	
 
-@7
+@7 @ww
 Scenario: when a nonfed admin tries to assign a role to a existing user with pending invite then error should be shown  
-	Given _7nri nonfed admin logs in 
-	And _7nri nonfed admin looks up a user with a pending role invite 
-	When _7nri admin tries to assign a role to the user 
+	Given _7nri nonfed user with pending role invite logs in 
+	And _7nri requests data entry role in entity registration domain
+	When _7nri nonfed entity registration admin logs in 
+	And _7nri nonfed admin tries to approve the request for the nonfed user  
 	Then _7nri proper error message should be shown
 
 	

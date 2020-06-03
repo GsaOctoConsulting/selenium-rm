@@ -7,9 +7,14 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gov.gsa.sam.rms.pages.AccountDetailsPage;
+import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
+import gov.gsa.sam.rms.pages.MyRolesPage;
+import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
+import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 import gov.gsa.sam.rms.utilities.Constants;
@@ -24,6 +29,7 @@ public class NonfedRoleInviteStep {
 	String nonfeduseremail = "";
 	String secretkey = "";
 	String counter = "";
+	String timestamp = new String();
 
 	@Given("^_1nri nonfed admin logs in$")
 	public void _1nri_nonfed_admin_logs_in() throws Throwable {
@@ -352,22 +358,63 @@ public class NonfedRoleInviteStep {
 
 	@Given("^_7nri nonfed user with pending role invite logs in$")
 	public void _7nri_nonfed_user_with_pending_role_invite_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@And("^_7nri requests data entry role in entity registration domain$")
 	public void _7nri_requests_data_entry_role_in_entity_registration_domain() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		MyRolesPage.goToFeedsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
+		LaunchBrowserUtil.scrollUp();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_7nri nonfed entity registration admin logs in$")
 	public void _7nri_nonfed_entity_registration_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 
+		
 	}
 
 	@And("^_7nri nonfed admin tries to approve the request for the nonfed user$")
 	public void _7nri_nonfed_admin_tries_to_approve_the_request_for_the_nonfed_user() throws Throwable {
-
+T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickReceivedOnSideNav();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.scrollUp();
+		LaunchBrowserUtil.delay(3);
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		RoleRequestPendingPage.clickAssignRole();
+		AssignRolePage.writeComment("approving role");
+		LaunchBrowserUtil.navigateBack();
+		RoleRequestPendingPage.enterAdditionalInformation("dsfsdf");
+		RoleRequestPendingPage.clickRejectButton();
 	}
 
 	@Then("^_7nri proper error message should be shown$")
