@@ -345,9 +345,8 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(4);
 		MyRolesPage.goToFeedsPage();
 		FeedsRequestPage.clickRoleRequestFilter();
-		requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_GSA,
-				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, timestamp,
-				Constants.STATUS_REJECTED, Constants.NOACTION);
+		requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_GSA, Constants.ROLE_ASSISTANCE_USER,
+				Constants.DOMAIN_ASSISTANCE_LISTING, timestamp, Constants.STATUS_REJECTED, Constants.NOACTION);
 		Assert.assertEquals(requestFound, true);// assert with 'role request'
 												// filter
 	}
@@ -1129,6 +1128,11 @@ public class RoleRequestStep {
 		AssignRolePage.clickCloseButton();
 		MyRolesPage.userHasRole(Constants.ORG_GSA, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+	}
+
+	@Then("^_18rr the approved request should appear as approved in the feeds$")
+	public void _18rr_the_approved_request_should_appear_as_approved_in_the_feeds() throws Throwable {
+
 	}
 
 	// private methods are below this line
