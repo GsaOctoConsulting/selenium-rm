@@ -88,8 +88,8 @@ public class UserDirectorySearchStep {
 	@And("^_3 user navigates to user directory page and searches for assistance admin$")
 	public void _3_user_navigates_to_user_directory_page_and_searches_for_assistance_admin() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2 + " ");// fails due to a bug
-	}
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2);
+		}
 
 	@Then("^_3 user should be able to view access for assistance admin$")
 	public void _3_user_should_be_able_to_view_access_for_assistance_admin() throws Throwable {
