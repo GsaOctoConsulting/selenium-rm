@@ -48,9 +48,7 @@ public class LoginStep {
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY, Constants.USER_FED);
-		LaunchBrowserUtil.delay(4);
+		
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
