@@ -66,7 +66,7 @@ Scenario: both the nonfed admin and the nonfed request receiver should get email
 	Then _6nri admin should receive an email about the role invite 
 	And _6nri the user should also get an email about the role invite
 
-@7 @ww
+@7 
 Scenario: when a nonfed admin tries to assign a role to a existing user with pending invite then error should be shown  
 	Given _7nri nonfed user with pending role invite logs in 
 	And _7nri requests data entry role in entity registration domain
