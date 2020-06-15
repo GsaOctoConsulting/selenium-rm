@@ -1,5 +1,7 @@
 package gov.gsa.sam.rms.utilities;
 
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -154,7 +156,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde");
+			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys(nonfeduseremail);//
 			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
 			String otp = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode);
 			logger.info("The captured secret code is --- " + secretCode);

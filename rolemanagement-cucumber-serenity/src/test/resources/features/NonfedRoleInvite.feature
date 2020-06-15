@@ -40,13 +40,13 @@ Scenario: admins should see proper error message when federal email ids are ente
 	Then _3nri spaad should see error message asking entry of nonfederal email id only
 
 @4
-Scenario: nonfed admin should be able to invite nonfed user who exists  
+Scenario: nonfed admin should be able to invite nonfed user who exists and the user should see dialog box when logging in  
 	Given _4nri new nonfed user signs up 
 	And _4nri nonfed admin logs in   
 	When _4nri admin enters an id for a user with no roles 
 	Then _4nri admin should not receive any dialog box and proceed to invite the user
 	When _4nri invited user logs in
-	Then _4nri the invited user should receive a dialog box
+	Then _4nri the invited user should receive a dialog box and be able to skip to workspace
 
 @5
 Scenario: nonfed admin should be able to invite nonfed user who currently dont have an account  
@@ -73,6 +73,8 @@ Scenario: when a nonfed admin tries to assign a role to a existing user with pen
 	When _7nri nonfed entity registration admin logs in 
 	And _7nri nonfed admin tries to approve the request for the nonfed user  
 	Then _7nri proper error message should be shown
+
+
 
 	
 

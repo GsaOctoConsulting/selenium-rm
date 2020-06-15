@@ -240,4 +240,10 @@ public class T1WorkspacePage {
 		
 	}
 
+	public static void clickSkipOnRoleInviteModal() {
+		driver.findElement(By.id("btn-cancel")).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }

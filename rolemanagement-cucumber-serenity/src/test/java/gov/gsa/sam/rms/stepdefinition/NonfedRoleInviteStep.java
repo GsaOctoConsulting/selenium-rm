@@ -167,10 +167,10 @@ public class NonfedRoleInviteStep {
 		LaunchBrowserUtil.delay(4);
 	}
 
-	@Then("^_4nri the invited user should receive a dialog box$")
+	@Then("^_4nri the invited user should receive a dialog box and be able to skip to workspace$")
 	public void _4nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
-		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		FeedsRequestPage.clickReceivedOnSideNav();
+		T1WorkspacePage.clickSkipOnRoleInviteModal();
+		T1WorkspacePage.goToAccountDetailsPage();
 	}
 
 	@Given("^_5nri nonfed admin logs in$")
