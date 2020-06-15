@@ -156,7 +156,8 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys(nonfeduseremail);//
+			String nonfedcountervalue = SignUpUtility.getCounterValue("login.nonfed.accountno");
+			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde"+nonfedcountervalue);//
 			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
 			String otp = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode);
 			logger.info("The captured secret code is --- " + secretCode);
@@ -313,6 +314,10 @@ public class SignUpUtility {
 		updatedcounter++;
 		applicationproperties.updateProperty(property, String.valueOf(updatedcounter));
 		return counter;
+	}
+	
+	public static String getCounterValue(String propertyname) {
+		return applicationproperties.getProperty(propertyname);
 	}
 
 }

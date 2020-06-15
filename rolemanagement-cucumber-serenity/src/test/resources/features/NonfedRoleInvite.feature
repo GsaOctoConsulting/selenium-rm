@@ -74,7 +74,14 @@ Scenario: when a nonfed admin tries to assign a role to a existing user with pen
 	And _7nri nonfed admin tries to approve the request for the nonfed user  
 	Then _7nri proper error message should be shown
 
-
+@8
+Scenario: existing user should land on feeds page when go to request button is clicked on pending invite modal when loggin in  
+	Given _8nri new nonfed user signs up 
+	And _8nri nonfed admin logs in   
+	When _8nri admin enters an id for a user with no roles 
+	Then _8nri admin should not receive any dialog box and proceed to invite the user
+	When _8nri invited user logs in
+	Then _8nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
 
 	
 

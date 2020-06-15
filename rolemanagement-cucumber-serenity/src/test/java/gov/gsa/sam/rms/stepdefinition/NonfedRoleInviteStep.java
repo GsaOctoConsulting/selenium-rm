@@ -395,12 +395,11 @@ public class NonfedRoleInviteStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
 				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 
-		
 	}
 
 	@And("^_7nri nonfed admin tries to approve the request for the nonfed user$")
 	public void _7nri_nonfed_admin_tries_to_approve_the_request_for_the_nonfed_user() throws Throwable {
-T1WorkspacePage.goToFeedsPage();
+		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		FeedsRequestPage.clickPendingFilter();
@@ -420,6 +419,65 @@ T1WorkspacePage.goToFeedsPage();
 	@Then("^_7nri proper error message should be shown$")
 	public void _7nri_proper_error_message_should_be_shown() throws Throwable {
 
+	}
+
+	@Given("^_8nri new nonfed user signs up$")
+	public void _8nri_new_nonfed_user_signs_up() throws Throwable {
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@And("^_8nri nonfed admin logs in$")
+	public void _8nri_nonfed_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_8nri admin enters an id for a user with no roles$")
+	public void _8nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+	}
+
+	@Then("^_8nri admin should not receive any dialog box and proceed to invite the user$")
+	public void _8nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
+		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
+	}
+
+	@When("^_8nri invited user logs in$")
+	public void _8nri_invited_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@Then("^_8nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked$")
+	public void _8nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
+			throws Throwable {
+		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
+		FeedsRequestPage.clickClearFilters();
 	}
 
 }
