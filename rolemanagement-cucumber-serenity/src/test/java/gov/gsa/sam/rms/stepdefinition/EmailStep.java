@@ -57,6 +57,9 @@ public class EmailStep {
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
+		
+		String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
+		String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
 		LaunchBrowserUtil.navigateBack();
 		LaunchBrowserUtil.switchTabs(3);
 
@@ -78,7 +81,10 @@ public class EmailStep {
 		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
 
-		// here link asserts
+		// asserting links
+		Assert.assertEquals("", rolehistorylink);
+		Assert.assertEquals("", learningcenterlink);
+		
 
 		// delete the request
 		MyRolesPage.click1PendingRequest();

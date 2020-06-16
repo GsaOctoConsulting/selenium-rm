@@ -224,6 +224,13 @@ public class LaunchBrowserUtil {
 		// logger.info("captured system account id is--- " + systemAccountId);
 		logger.info(": {}", message); //
 		return systemAccountId;
+		
+//		String systemAccountId = driver.findElement(By.xpath("//a[contains(@id, 'systemAccountId')]"))
+//				.getAttribute("href");
+//		String message = "captured system account id is--- " + systemAccountId;
+//		// logger.info("captured system account id is--- " + systemAccountId);
+//		logger.info(": {}", message); //
+//		return systemAccountId;
 	}
 
 	public static String getLearningCenterLink() {
@@ -401,20 +408,21 @@ public class LaunchBrowserUtil {
 
 		if (Constants.INCOGNITO_ON == false) {
 			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span")).click();// use
-																														// this
-																														// if
-																														// windowsbased
-																														// popup
-																														// show
-																														// up
-																														// and
-																														// //
-																														// off
-																														// incognito
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span"))
+					.click();// use
+			// this
+			// if
+			// windowsbased
+			// popup
+			// show
+			// up
+			// and
+			// //
+			// off
+			// incognito
 		}
 
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
 		delay(2);
@@ -905,5 +913,10 @@ public class LaunchBrowserUtil {
 	public static void takeScreenshot() throws IOException {
 		Screenshot screenshot = new AShot().takeScreenshot(driver);
 		ImageIO.write(screenshot.getImage(), "png", new File(".\\screenshot\\fullimage.jpg"));
+	}
+
+	public static String getRoleHistoryLink() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
