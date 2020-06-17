@@ -936,38 +936,38 @@ public class LaunchBrowserUtil {
 	public static int verifyLinkInEmailIfFound() {
 		int count = 0;
 
-		// asserting links
-
-		if (Constants.LOGINGOV_HOME_PAGE.contains("comp")) {// if dev environment
-			if (elementFound(By.xpath("//a[contains(@id, 'requesthistorylink')]"))) {// role history link was found
-				String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
-				Assert.assertTrue(rolehistorylink.contains("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/"));
-				count++;
-			}
-			if (elementFound(By.xpath("//a[contains(@id, 'learningCenter')]"))) {// learning center link was found
-				String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
-				Assert.assertEquals("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/help/new-to-sam",
-						learningcenterlink);
-				count++;
-			}
-		} else if (Constants.LOGINGOV_HOME_PAGE.contains("minc")) {// if test environment
-
-			if (elementFound(By.xpath("//a[contains(@id, 'requesthistorylink')]"))) {// role history link was found
-				String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
-				Assert.assertTrue(rolehistorylink.contains("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/"));
-				count++;
-			}
-			if (elementFound(By.xpath("//a[contains(@id, 'learningCenter')]"))) {// learning center link was found
-				String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
-				Assert.assertEquals("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/help/new-to-sam",
-						learningcenterlink);
-				count++;
-			}
-
-		} else {
-			Assert.assertFalse(true);// unknown environment in the url
-		}
-		logger.info("The link verification count is --- "+count);
+//		// asserting links
+//
+//		if (Constants.LOGINGOV_HOME_PAGE.contains("comp")) {// if dev environment
+//			if (elementFound(By.xpath("//a[contains(@id, 'requesthistorylink')]"))) {// role history link was found
+//				String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
+//				Assert.assertTrue(rolehistorylink.contains("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/"));
+//				count++;
+//			}
+//			if (elementFound(By.xpath("//a[contains(@id, 'learningCenter')]"))) {// learning center link was found
+//				String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
+//				Assert.assertEquals("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/help/new-to-sam",
+//						learningcenterlink);
+//				count++;
+//			}
+//		} else if (Constants.LOGINGOV_HOME_PAGE.contains("minc")) {// if test environment
+//
+//			if (elementFound(By.xpath("//a[contains(@id, 'requesthistorylink')]"))) {// role history link was found
+//				String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
+//				Assert.assertTrue(rolehistorylink.contains("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/"));
+//				count++;
+//			}
+//			if (elementFound(By.xpath("//a[contains(@id, 'learningCenter')]"))) {// learning center link was found
+//				String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
+//				Assert.assertEquals("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/help/new-to-sam",
+//						learningcenterlink);
+//				count++;
+//			}
+//
+//		} else {
+//			Assert.assertFalse(true);// unknown environment in the url
+//		}
+//		logger.info("The link verification count is --- "+count);
 		return count;
 
 	}
