@@ -57,9 +57,8 @@ public class EmailStep {
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
-		
-		String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
-		String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
+
 		LaunchBrowserUtil.navigateBack();
 		LaunchBrowserUtil.switchTabs(3);
 
@@ -81,9 +80,6 @@ public class EmailStep {
 		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
 
-		// asserting links
-		Assert.assertEquals("", rolehistorylink);
-		Assert.assertEquals("", learningcenterlink);
 		
 
 		// delete the request
@@ -161,16 +157,21 @@ public class EmailStep {
 		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 
 		String emailSubject2 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody2 = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
+		
 		String emailSubject3 = LaunchBrowserUtil.captureTitleFromLastEmail(2);
 		String emailBody3 = LaunchBrowserUtil.captureEmailMessage(2);
 		String emailToAndFrom3 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
+		
 		LaunchBrowserUtil.switchTabs(3);
 
 		int counter = 0;
@@ -192,7 +193,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV)); // admin
 			// received
-
+			
 			counter++;
 		} else if (emailToAndFrom1.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
 				&& (emailSubject1.contains("SAM.gov"))) {// requester receiving approval email
@@ -431,12 +432,13 @@ public class EmailStep {
 		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 
 		String emailSubject2 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody2 = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
-
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 		LaunchBrowserUtil.switchTabs(3);
 		// asserting the email subject line
@@ -522,13 +524,14 @@ public class EmailStep {
 		String emailTitle1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 		String emailTitle2 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody2 = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.switchTabs(3);
 
-		
 		int counter = 0;
 		if (emailToAndFrom1.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", ""))) {// admin
 			// asserting the email subject line
@@ -544,14 +547,13 @@ public class EmailStep {
 			// asserting the email body
 			Assert.assertEquals(emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME), true);
 			Assert.assertEquals(emailBody1.contains(Constants.EMAIL_ACTION_UPDATED), true);
-			Assert.assertEquals(
-					emailBody1.toLowerCase().contains(Constants.ORG_GSA.toLowerCase()), true);
+			Assert.assertEquals(emailBody1.toLowerCase().contains(Constants.ORG_GSA.toLowerCase()), true);
 			Assert.assertEquals(emailBody1.contains(Constants.ROLE_ASSISTANCE_USER), true);
 			Assert.assertEquals(emailBody1.contains(Constants.DOMAIN_ASSISTANCE_LISTING), true);
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_DEPT));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 			counter++;
-		}else if(emailToAndFrom1.contains(ConstantsAccounts.ASSISTANCE_USER_2.replace("@gsa.gov", ""))) {
+		} else if (emailToAndFrom1.contains(ConstantsAccounts.ASSISTANCE_USER_2.replace("@gsa.gov", ""))) {
 			// asserting the email subject line
 			Assert.assertEquals(emailTitle1.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 			Assert.assertEquals(emailTitle1.contains(Constants.EMAIL_ACTION_UPDATED), true);
@@ -565,9 +567,9 @@ public class EmailStep {
 			Assert.assertEquals(emailBody1.contains(Constants.EMAIL_ACTION_UPDATED), true);
 			Assert.assertEquals(emailBody1.contains(Constants.ROLE_ASSISTANCE_USER), true);
 			Assert.assertEquals(emailBody1.contains(Constants.EMAIL_PERMISSIONS), true);
-			counter++;	
+			counter++;
 		}
-	//-------------------------------------------------------------------------
+		// -------------------------------------------------------------------------
 		if (emailToAndFrom2.contains(ConstantsAccounts.ASSISTANCE_ADMIN_USER_2.replace("@gsa.gov", ""))) {// admin
 			// asserting the email subject line
 			Assert.assertEquals(emailTitle2.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
@@ -582,14 +584,13 @@ public class EmailStep {
 			// asserting the email body
 			Assert.assertEquals(emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME), true);
 			Assert.assertEquals(emailBody2.contains(Constants.EMAIL_ACTION_UPDATED), true);
-			Assert.assertEquals(
-					emailBody2.toLowerCase().contains(Constants.ORG_GSA.toLowerCase()), true);
+			Assert.assertEquals(emailBody2.toLowerCase().contains(Constants.ORG_GSA.toLowerCase()), true);
 			Assert.assertEquals(emailBody2.contains(Constants.ROLE_ASSISTANCE_USER), true);
 			Assert.assertEquals(emailBody2.contains(Constants.DOMAIN_ASSISTANCE_LISTING), true);
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_DEPT));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 			counter++;
-		}else if(emailToAndFrom2.contains(ConstantsAccounts.ASSISTANCE_USER_2.replace("@gsa.gov", ""))) {
+		} else if (emailToAndFrom2.contains(ConstantsAccounts.ASSISTANCE_USER_2.replace("@gsa.gov", ""))) {
 			// asserting the email subject line
 			Assert.assertEquals(emailTitle2.contains(Constants.EMAIL_REGULAR_SENT_FROM), true);
 			Assert.assertEquals(emailTitle2.contains(Constants.EMAIL_ACTION_UPDATED), true);
@@ -603,17 +604,14 @@ public class EmailStep {
 			Assert.assertEquals(emailBody2.contains(Constants.EMAIL_ACTION_UPDATED), true);
 			Assert.assertEquals(emailBody2.contains(Constants.ROLE_ASSISTANCE_USER), true);
 			Assert.assertEquals(emailBody2.contains(Constants.EMAIL_PERMISSIONS), true);
-			counter++;	
+			counter++;
 		}
-	
-	
+
 	}
 
 	@Then("^_4 the assistance user should also receive proper email message$")
 	public void _4_the_assistance_user_should_also_receive_proper_email_message() throws Throwable {
 
-		
-		
 		// -------------------------change the role back------------------------
 		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
@@ -669,6 +667,7 @@ public class EmailStep {
 		String emailSubject = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 
 		// asserting the email subject line
 		Assert.assertEquals(true, emailSubject.contains(Constants.EMAIL_REGULAR_SENT_FROM));
@@ -958,19 +957,23 @@ public class EmailStep {
 		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 
 		String emailSubject2 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody2 = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 		String emailSubject3 = LaunchBrowserUtil.captureTitleFromLastEmail(2);
 		String emailBody3 = LaunchBrowserUtil.captureEmailMessage(2);
 		String emailToAndFrom3 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 		String emailSubject4 = LaunchBrowserUtil.captureTitleFromLastEmail(3);
 		String emailBody4 = LaunchBrowserUtil.captureEmailMessage(3);
 		String emailToAndFrom4 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 
 		LaunchBrowserUtil.switchTabs(3);
 
@@ -1341,9 +1344,7 @@ public class EmailStep {
 	@Then("^_9 the requester should also receive two email messages$")
 	public void _9_the_requester_should_also_receive_two_email_messages() throws Throwable {
 		// ----------------delete the role for the user---------------------
-		
-		
-		
+
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
@@ -1384,17 +1385,19 @@ public class EmailStep {
 		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
 		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
 		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
 
 		String emailSubject2 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
 		String emailBody2 = LaunchBrowserUtil.captureEmailMessage(1);
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
+		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 
 		LaunchBrowserUtil.navigateBack();
 		LaunchBrowserUtil.switchTabs(3);
-	
-		int counter=0;
-		if(emailSubject1.contains("You removed role")) {//uid for admin receiving email
+
+		int counter = 0;
+		if (emailSubject1.contains("You removed role")) {// uid for admin receiving email
 			// asserting email to and from address
 			Assert.assertEquals(true, emailToAndFrom1.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
 			Assert.assertEquals(true,
@@ -1408,10 +1411,10 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_DATA));
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_DEPT));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
-			
+
 			counter++;
-		}else if(emailSubject1.contains("removed your role")) {//uid for user receiving email
-			
+		} else if (emailSubject1.contains("removed your role")) {// uid for user receiving email
+
 			// asserting email to and from address
 			Assert.assertEquals(true, emailToAndFrom1.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
 			Assert.assertEquals(true, emailToAndFrom1
@@ -1426,16 +1429,13 @@ public class EmailStep {
 																								// currently
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_DEPT));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
-			
-			
-			
-			
+
 			counter++;
 		}
-		
-		//-----------------------------------------------
-		
-		if(emailSubject2.contains("You removed role")) {//uid for admin receiving email
+
+		// -----------------------------------------------
+
+		if (emailSubject2.contains("You removed role")) {// uid for admin receiving email
 			// asserting email to and from address
 			Assert.assertEquals(true, emailToAndFrom2.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
 			Assert.assertEquals(true,
@@ -1449,9 +1449,9 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_CONTRACT_DATA));
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_DEPT));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
-			
+
 			counter++;
-		}else if(emailSubject2.contains("removed your role")) {//uid for user receiving email
+		} else if (emailSubject2.contains("removed your role")) {// uid for user receiving email
 			// asserting email to and from address
 			Assert.assertEquals(true, emailToAndFrom2.contains(Constants.EMAIL_REGULAR_SENT_FROM_DOMAIN));
 			Assert.assertEquals(true, emailToAndFrom2
@@ -1466,18 +1466,18 @@ public class EmailStep {
 																								// currently
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_DEPT));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
-			
+
 			counter++;
 		}
 		Assert.assertEquals(2, counter);
-		
+
 	}
 
 	@And("^_10 the user should also receive proper email message$")
 	public void _10_the_user_should_also_receive_proper_email_message() throws Throwable {
 		// assign the role back
 		UserDirectoryViewAccessPage.clickAssignRole();
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
 		LaunchBrowserUtil.scrollToMiddle();
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);

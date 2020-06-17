@@ -10,9 +10,10 @@ import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 
 import org.jboss.aerogear.security.otp.Totp;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -224,7 +225,7 @@ public class LaunchBrowserUtil {
 		// logger.info("captured system account id is--- " + systemAccountId);
 		logger.info(": {}", message); //
 		return systemAccountId;
-		
+
 //		String systemAccountId = driver.findElement(By.xpath("//a[contains(@id, 'systemAccountId')]"))
 //				.getAttribute("href");
 //		String message = "captured system account id is--- " + systemAccountId;
@@ -916,7 +917,58 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getRoleHistoryLink() {
-		// TODO Auto-generated method stub
-		return null;
+		String rolehistorylink = driver.findElement(By.xpath("//a[contains(@id, 'requesthistorylink')]"))
+				.getAttribute("href");
+		logger.info("captured role history link is--- " + rolehistorylink);
+		return rolehistorylink;
+	}
+
+	public static boolean elementFound(By locator) {
+		try {
+			driver.findElement(locator);
+			return true;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+
+	}
+
+	public static int verifyLinkInEmailIfFound() {
+		int count = 0;
+
+		// asserting links
+
+		if (Constants.LOGINGOV_HOME_PAGE.contains("comp")) {// if dev environment
+			if (elementFound(By.xpath("//a[contains(@id, 'requesthistorylink')]"))) {// role history link was found
+				String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
+				Assert.assertTrue(rolehistorylink.contains("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/"));
+				count++;
+			}
+			if (elementFound(By.xpath("//a[contains(@id, 'learningCenter')]"))) {// learning center link was found
+				String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
+				Assert.assertEquals("https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov/help/new-to-sam",
+						learningcenterlink);
+				count++;
+			}
+		} else if (Constants.LOGINGOV_HOME_PAGE.contains("minc")) {// if test environment
+
+			if (elementFound(By.xpath("//a[contains(@id, 'requesthistorylink')]"))) {// role history link was found
+				String rolehistorylink = LaunchBrowserUtil.getRoleHistoryLink();
+				Assert.assertTrue(rolehistorylink.contains("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/"));
+				count++;
+			}
+			if (elementFound(By.xpath("//a[contains(@id, 'learningCenter')]"))) {// learning center link was found
+				String learningcenterlink = LaunchBrowserUtil.getLearningCenterLink();
+				Assert.assertEquals("https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov/help/new-to-sam",
+						learningcenterlink);
+				count++;
+			}
+
+		} else {
+			Assert.assertFalse(true);// unknown environment in the url
+		}
+		logger.info("The link verification count is --- "+count);
+		return count;
+
 	}
 }
