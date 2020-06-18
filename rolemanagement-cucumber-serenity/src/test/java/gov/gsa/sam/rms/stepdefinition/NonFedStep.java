@@ -96,7 +96,7 @@ public class NonFedStep {
 	@Then("^_2nf user should have no roles and should see that message$")
 	public void _2nf_user_should_have_no_roles() throws Throwable {
 		String noroletext = MyRolesPage.getTextForNoRoleUser();
-		Assert.assertEquals("No roles are assigned to user.", noroletext);
+		Assert.assertEquals("You Currently Have No Roles Assigned", noroletext);
 	}
 
 	@When("^_2nf user clicks role request button to go to role request page$")
