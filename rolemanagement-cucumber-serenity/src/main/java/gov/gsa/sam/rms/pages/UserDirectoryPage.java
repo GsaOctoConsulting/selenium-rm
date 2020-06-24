@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
@@ -716,7 +717,9 @@ public class UserDirectoryPage {
 	}
 
 	public static void clickAssignRoleButton() {
-		driver.findElement(By.xpath("//*[@id=\"main-container\"]/sam-user-directory-v2/page/div/div/div[2]/div/div[1]/div/a")).click();
+		driver.findElement(
+				By.xpath("//*[@id=\"main-container\"]/sam-user-directory-v2/page/div/div/div[2]/div/div[1]/div/a"))
+				.click();
 		RoleInviteAssignRolePage.setDriver(driver);
 		LaunchBrowserUtil.delay(3);
 	}
@@ -724,7 +727,19 @@ public class UserDirectoryPage {
 	public static void clickRoleFilter(By roleFilterSubtieradmin) {
 		driver.findElement(roleFilterSubtieradmin).click();
 		LaunchBrowserUtil.delay(2);
-		
+
+	}
+
+	public static void goToMyWorkspacePage() {
+		clickMenuDropdown();
+		driver.findElement(AccountDetailsPageLocator.WORKSPACE).click();
+		T1WorkspacePage.setDriver(AccountDetailsPage.getDriver());
+		LaunchBrowserUtil.delay(2);
+	}
+
+	public static void clickMenuDropdown() {
+		driver.findElement(AccountDetailsPageLocator.MENU_DROPDOWN).click();
+		LaunchBrowserUtil.delay(2);
 	}
 
 }

@@ -209,10 +209,10 @@ public class LoginStep {
 
 	@When("^_7 user creates a new account in login dot gov$")
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-		String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		// SignUpUtility.signUpNewUser(ConstantsAccounts.SYSTEM_MANAGER_GSA_OFFICE_LEVEL,
-		// Constants.USERPASS);
+		//String counter = SignUpUtility.updatecounter("login.fed.accountno");
+		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
+		SignUpUtility.signUpNewUser(ConstantsAccounts.BETA_NO_ROLE_GSA_1,
+		Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
