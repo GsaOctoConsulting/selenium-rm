@@ -43,10 +43,17 @@ public class BetaSmokeTestStep {
 	@And("^_1bst user should be able to browse to user directory page$")
 	public void _1_user_should_be_able_to_browse_to_user_directory_page() throws Throwable {
 		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.goToMyWorkspacePage();
+		
 		
 		
 	}
+	@And("^_1bst user should be able to search user in the search bar$")
+	public void _1_user_should_be_able_to_search_user_using_search_bar() throws Throwable {
+		
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.BETA_NO_ROLE_GSA_1);
+		LaunchBrowserUtil.delay(2);
+		UserDirectoryPage.goToMyWorkspacePage();	
+	}	
 	@And("^_1bst user should be able to browse to feeds page$")
     public void _1bst_user_should_be_able_to_browse_to_feeds_page() throws Throwable {
 		T1WorkspacePage.goToFeedsPage();

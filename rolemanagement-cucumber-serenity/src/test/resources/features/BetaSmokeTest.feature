@@ -26,7 +26,8 @@ Scenario: user should be able to login into beta sam and browse to various pages
 	Then _1bst user should be able to navigate to acount details page
 	And _1bst user should be able to navigate to role migration page
 	And _1bst user should be able to navigate to request role page 
-	And _1bst user should be able to browse to user directory page 
+	And _1bst user should be able to browse to user directory page
+	And _1bst user should be able to search user in the search bar 
 	And _1bst user should be able to browse to feeds page 
 	And _1bst user should be able to sign out
 	
