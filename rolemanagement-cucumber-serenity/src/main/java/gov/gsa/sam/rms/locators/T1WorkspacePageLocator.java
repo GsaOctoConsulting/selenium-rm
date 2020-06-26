@@ -60,6 +60,7 @@ public class T1WorkspacePageLocator {
 	public static final By ENTITY_COMPLIANCE_BIOPREFERREDSUBMITTED_LINK = By.id("bioPreferred-submitted-link");
 	public static final By ENTITY_COMPLIANCE_SERVICECONTRACTREQUIRED_LINK = By.id("serviceContract-required-link");
 	public static final By ENTITY_COMPLIANCE_SERVICECONTRACTSUBMITTED_LINK = By.id("serviceContract-submitted-link");
+	public static final By ADD_NEW_ROLE_LINK = By.id("role-request-link");
 	
 	
 

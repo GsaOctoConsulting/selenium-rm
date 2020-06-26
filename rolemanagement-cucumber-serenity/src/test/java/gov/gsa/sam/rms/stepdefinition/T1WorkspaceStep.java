@@ -186,6 +186,12 @@ public class T1WorkspaceStep {
 		Assert.assertEquals(true, collectivebargainingwidgetfound);
 	}
 
+	@And("^_4t1 fsdagent should not see add a new role link$")
+    public void _4t1_fsdagent_should_not_see_add_a_new_role_link() throws Throwable {
+		boolean addNewRoleLink = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.ADD_NEW_ROLE_LINK);
+		Assert.assertEquals(false, addNewRoleLink); 
+    }
 	@Given("^_5t1 user logs in as system account admin$")
 	public void _5t1_user_logs_in_as_system_account_admin() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_2, Constants.USERPASS,

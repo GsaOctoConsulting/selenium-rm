@@ -45,7 +45,8 @@ Scenario: fsd admin should see proper links and widgets in the t1 workspace
 Scenario: fsd agent should see proper links and widgets in the t1 workspace 
 	Given _4t1 user logs in as fsd agent 
 	Then _4t1 fsdagent should be able to view user directory widget and relevant links 
-	And _4t1 fsdagent should be able to view collective bargaining widget 
+	And _4t1 fsdagent should be able to view collective bargaining widget
+	And _4t1 fsdagent should not see add a new role link 
 	
 @5 
 Scenario: system account admin should see proper links and widgets in the t1 workspace 
