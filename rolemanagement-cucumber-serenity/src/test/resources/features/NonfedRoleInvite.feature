@@ -75,14 +75,15 @@ Scenario: when a nonfed admin tries to assign a role to a existing user with pen
 	Then _7nri proper error message should be shown
 
 @8 @t1
-Scenario: existing user should land on feeds page when go to request button is clicked on pending invite modal when loggin in  
+Scenario: existing user with a role invitation should be able to accept a role invite and obtaine the role   
 	Given _8nri new nonfed user signs up 
 	And _8nri nonfed admin logs in   
 	When _8nri admin enters an id for a user with no roles 
 	Then _8nri admin should not receive any dialog box and proceed to invite the user
 	When _8nri invited user logs in
 	Then _8nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
-
+	When _8nri the user selects the pending request in feeds and accepts the role invite
+	Then _8nri the user should see the role in profile with the correctly role history reflected
 	
 
 	

@@ -479,5 +479,15 @@ public class NonfedRoleInviteStep {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
 		FeedsRequestPage.clickClearFilters();
 	}
+	
+	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
+    public void _8nri_the_user_selects_the_pending_request_in_feeds_and_accepts_the_role_invite() throws Throwable {
+        
+    }
+
+    @Then("^_8nri the user should see the role in profile with the correctly role history reflected$")
+    public void _8nri_the_user_should_see_the_role_in_profile_with_the_correctly_role_history_reflected() throws Throwable {
+        
+    }
 
 }
