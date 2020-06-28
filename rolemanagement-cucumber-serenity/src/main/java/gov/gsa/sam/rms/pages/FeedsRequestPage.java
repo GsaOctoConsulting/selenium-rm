@@ -232,4 +232,10 @@ public class FeedsRequestPage {
 		}
 	}
 
+	public static void clickRoleInviteFilter() {
+		driver.findElement(By.id("Role Invitations")).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }

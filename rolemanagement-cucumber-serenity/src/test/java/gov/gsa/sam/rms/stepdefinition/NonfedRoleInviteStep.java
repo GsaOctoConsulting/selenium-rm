@@ -421,21 +421,21 @@ public class NonfedRoleInviteStep {
 
 	}
 
-	@Given("^_8nri new nonfed user signs up$")
-	public void _8nri_new_nonfed_user_signs_up() throws Throwable {
-		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		secretkey = SignUpUtility.signUpNewUserNonFed(
-				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-		CommonProfilePage.enterFirstName("shah");
-		CommonProfilePage.enterLastName("raiaan");
-		CommonProfilePage.enterWorkphone("5555555555");
-		LaunchBrowserUtil.scrollAllTheWayDown();
-		CommonProfilePage.clickSubmitButton();
-		LaunchBrowserUtil.closeBrowsers();
-	}
+//	@Given("^_8nri new nonfed user signs up$")
+//	public void _8nri_new_nonfed_user_signs_up() throws Throwable {
+////		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+////		secretkey = SignUpUtility.signUpNewUserNonFed(
+////				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+////		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+////		CommonProfilePage.enterFirstName("shah");
+////		CommonProfilePage.enterLastName("raiaan");
+////		CommonProfilePage.enterWorkphone("5555555555");
+////		LaunchBrowserUtil.scrollAllTheWayDown();
+////		CommonProfilePage.clickSubmitButton();
+////		LaunchBrowserUtil.closeBrowsers();
+//	}
 
-	@And("^_8nri nonfed admin logs in$")
+	@Given("^_8nri nonfed admin logs in$")
 	public void _8nri_nonfed_admin_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
 				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
@@ -450,7 +450,7 @@ public class NonfedRoleInviteStep {
 
 	@Then("^_8nri admin should not receive any dialog box and proceed to invite the user$")
 	public void _8nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		Assert.assertEquals(true, roleFound);
 
@@ -469,7 +469,11 @@ public class NonfedRoleInviteStep {
 
 	@When("^_8nri invited user logs in$")
 	public void _8nri_invited_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_NONFED);
+//		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_NONFED);
+//		LaunchBrowserUtil.delay(4);
+		
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -477,7 +481,7 @@ public class NonfedRoleInviteStep {
 	public void _8nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		FeedsRequestPage.clickClearFilters();
+		FeedsRequestPage.clickRoleInviteFilter();
 	}
 	
 	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
@@ -489,5 +493,11 @@ public class NonfedRoleInviteStep {
     public void _8nri_the_user_should_see_the_role_in_profile_with_the_correctly_role_history_reflected() throws Throwable {
         
     }
-
+    
+    
+    
+    @And("^_8nri nonfed admin should now be able to look up the user through user directory$")
+    public void _8nri_nonfed_admin_should_now_be_able_to_look_up_the_user_through_user_directory() throws Throwable {
+        
+    }
 }
