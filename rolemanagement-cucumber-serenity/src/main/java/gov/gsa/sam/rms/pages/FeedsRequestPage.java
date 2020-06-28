@@ -159,6 +159,7 @@ public class FeedsRequestPage {
 				feedList.get(i).click();
 				LaunchBrowserUtil.delay(3);
 				RoleRequestPendingPage.setDriver(driver);
+				PendingRoleInvitationPage.setDriver(driver);
 				break;
 			}
 		}

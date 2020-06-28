@@ -12,6 +12,7 @@ import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
+import gov.gsa.sam.rms.pages.PendingRoleInvitationPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
@@ -438,7 +439,7 @@ public class NonfedRoleInviteStep {
 	@Given("^_8nri nonfed admin logs in$")
 	public void _8nri_nonfed_admin_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
-				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -446,11 +447,12 @@ public class NonfedRoleInviteStep {
 	public void _8nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
 		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.clickAssignRoleButton();
+	RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 	}
 
 	@Then("^_8nri admin should not receive any dialog box and proceed to invite the user$")
 	public void _8nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		
 		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		Assert.assertEquals(true, roleFound);
 
@@ -486,7 +488,14 @@ public class NonfedRoleInviteStep {
 	
 	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
     public void _8nri_the_user_selects_the_pending_request_in_feeds_and_accepts_the_role_invite() throws Throwable {
-        
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		PendingRoleInvitationPage.writeAdditionalInformation("accepting this role");
+		PendingRoleInvitationPage.clickAcceptButton();
+		String heading = PendingRoleInvitationPage.getHeading();
+		Assert.assertEquals("You Have Accepted a Role Invitation", heading);
     }
 
     @Then("^_8nri the user should see the role in profile with the correctly role history reflected$")
