@@ -484,6 +484,7 @@ public class NonfedRoleInviteStep {
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
 		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 	
 	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
@@ -496,6 +497,14 @@ public class NonfedRoleInviteStep {
 		PendingRoleInvitationPage.clickAcceptButton();
 		String heading = PendingRoleInvitationPage.getHeading();
 		Assert.assertEquals("You Have Accepted a Role Invitation", heading);
+		String acceptedtime = PendingRoleInvitationPage.getAcceptedTime();
+		PendingRoleInvitationPage.clickCloseButton();
+		FeedsRequestPage.clickRoleInviteFilter();
+		
+		boolean requestFound2 = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, acceptedtime, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound2);
     }
 
     @Then("^_8nri the user should see the role in profile with the correctly role history reflected$")

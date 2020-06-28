@@ -43,8 +43,19 @@ public class PendingRoleInvitationPage {
 
 	public static void clickCloseButton() {
 		driver.findElement(By.id("close-button")).click();
+		FeedsRequestPage.setDriver(driver);
 		LaunchBrowserUtil.delay(2);
 
+	}
+
+	public static String getAcceptedTime() {
+		String acceptedtime = driver
+				.findElement(By.xpath("//*[@id=\"main-container\"]/nonfed-role-invite/div/div[2]/div/div[3]/div[3]"))
+				.getText();
+		String formattedacceptedtime = acceptedtime.substring(acceptedtime.length() - 7);
+		String spaceremovedformattedtime = formattedacceptedtime.replaceAll("\\s", "");
+		logger.info("The accepted time for this request was - " + spaceremovedformattedtime);
+		return spaceremovedformattedtime;
 	}
 
 }
