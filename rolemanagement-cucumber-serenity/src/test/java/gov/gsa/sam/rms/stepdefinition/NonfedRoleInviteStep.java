@@ -539,4 +539,83 @@ public class NonfedRoleInviteStep {
 		Assert.assertEquals(true, roleFound);
 
 	}
+
+	@Given("^_9nri nonfed admin logs in$")
+	public void _9nri_nonfed_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_9nri admin enters an id for a user with no roles$")
+	public void _9nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+	}
+
+	@Then("^_9nri admin should not receive any dialog box and proceed to invite the user$")
+	public void _9nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
+	}
+
+	@When("^_9nri invited user logs in$")
+	public void _9nri_invited_user_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@Then("^_9nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked$")
+	public void _9nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
+			throws Throwable {
+		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
+	}
+
+	@When("^_9nri the user selects the pending request in feeds and declines the role invite$")
+	public void _9nri_the_user_selects_the_pending_request_in_feeds_and_declines_the_role_invite() throws Throwable {
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION,
+				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		PendingRoleInvitationPage.writeAdditionalInformation("declining this role invite");
+		PendingRoleInvitationPage.clickDeclineButton();
+		String heading = PendingRoleInvitationPage.getHeading();
+		Assert.assertEquals("You have Declined a Role Invitation", heading);
+		String acceptedtime = PendingRoleInvitationPage.getDeclinedTime();
+		PendingRoleInvitationPage.clickCloseButton();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickDeclinedFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
+
+		boolean requestFound2 = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, acceptedtime, Constants.STATUS_DECLINED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound2);
+		PendingRoleInvitationPage.clickCloseButton();
+		FeedsRequestPage.goToWorkspacePage();
+		T1WorkspacePage.goToAccountDetailsPage();
+	}
+
+	@Then("^_9nri the user should see no roles assigned in profile with the status of the feed changed to declined$")
+	public void _9nri_the_user_should_see_no_roles_assigned_in_profile_with_the_status_of_the_feed_changed_to_declined()
+			throws Throwable {
+
+	}
 }

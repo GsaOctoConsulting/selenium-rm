@@ -30,6 +30,7 @@ public class FeedsRequestPageLocator {
 	public static final By PAGINATION = By.className("page-button");
 	public static final By MESSAGE_FEED_DESCRIPTION = By.className("msg-feed-description");
 	public static final By ACCEPTED_FILTER = By.id("Accepted");
+	public static final By DECLINED_FILTER = By.id("Declined");
 	public static final By SORT_SELECTOR = By.id("sort-select");
 	
 }

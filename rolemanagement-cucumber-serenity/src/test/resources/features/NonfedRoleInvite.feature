@@ -75,7 +75,7 @@ Scenario: when a nonfed admin tries to assign a role to a existing user with pen
 	Then _7nri proper error message should be shown
 
 @8 @t1
-Scenario: existing user with a role invitation should be able to accept a role invite and obtaine the role    
+Scenario: existing user with a role invitation should be able to accept a role invite and obtain the role for entity registration domain    
 	Given _8nri nonfed admin logs in   
 	When _8nri admin enters an id for a user with no roles 
 	Then _8nri admin should not receive any dialog box and proceed to invite the user
@@ -85,7 +85,15 @@ Scenario: existing user with a role invitation should be able to accept a role i
 	Then _8nri the user should see the role in profile with the correctly role history reflected
 	And _8nri nonfed admin should now be able to look up the user through user directory
 	
-
+@9 @t1
+Scenario: existing user with a role invitation should be able to decline a role invite for entity registration domain    
+	Given _9nri nonfed admin logs in   
+	When _9nri admin enters an id for a user with no roles 
+	Then _9nri admin should not receive any dialog box and proceed to invite the user
+	When _9nri invited user logs in
+	Then _9nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
+	When _9nri the user selects the pending request in feeds and declines the role invite
+	Then _9nri the user should see no roles assigned in profile with the status of the feed changed to declined
 	
 
 

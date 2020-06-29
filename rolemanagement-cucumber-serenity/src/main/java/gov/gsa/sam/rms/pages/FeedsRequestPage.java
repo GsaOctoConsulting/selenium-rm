@@ -257,4 +257,10 @@ public class FeedsRequestPage {
 
 	}
 
+	public static void clickDeclinedFilter() {
+		driver.findElement(FeedsRequestPageLocator.DECLINED_FILTER).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }

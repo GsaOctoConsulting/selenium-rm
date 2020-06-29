@@ -4,8 +4,8 @@ public class Constants {
 
 	static PropertiesFileUtility fileUtilityreader = new PropertiesFileUtility("application.properties");
 	// urls
-	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
-	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementcomp.apps.prod-iae.bsp.gsa.gov";
+	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
+	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov";
 	// public static final String LOGINGOV_HOME_PAGE =
 	// "https://100samfrontendaltcomp.apps.prod-iae.bsp.gsa.gov";
 	// login credentials
@@ -77,6 +77,7 @@ public class Constants {
 	public static final String STATUS_PUBLISHED = "Published";
 	public static final String STATUS_DEACTIVATED = "Deactivated";
 	public static final String STATUS_ACCEPTED = "Accepted";
+	public static final String STATUS_DECLINED = "Declined";
 
 	// Role descriptions
 	public static final String ROLEDESCRIPTION_ASSISTANCEUSER = "As an Assistance User, you may create and update assistance listings and regional office information. You may also submit listings to OMB for approval and request agency, title, or CFDA number changes.";
@@ -371,6 +372,7 @@ public class Constants {
 	public static final String ROLE_AGENCYEXCLUSIONS_REPRESENTATIVE = "Agency Exclusions Representative";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator";
 	public static final String ROLE_DATA_ENTRY_REMOVE = "Data Entry (REMOVE)";
+	
 	
 	
 	

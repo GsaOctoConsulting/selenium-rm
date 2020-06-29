@@ -49,12 +49,25 @@ public class PendingRoleInvitationPage {
 	}
 
 	public static String getAcceptedTime() {
-		String acceptedtime = driver
-				.findElement(By.xpath("//*[@id=\"main-container\"]/nonfed-role-invite/div/div[2]/div/div[3]/div[3]"))
-				.getText();
+		String acceptedtime = driver.findElement(By.id("accepted-time")).getText();
 		String formattedacceptedtime = acceptedtime.substring(acceptedtime.length() - 7);
 		String spaceremovedformattedtime = formattedacceptedtime.replaceAll("\\s", "");
 		logger.info("The accepted time for this request was - " + spaceremovedformattedtime);
+		return spaceremovedformattedtime;
+	}
+
+	public static void clickDeclineButton() {
+		driver.findElement(By.id("decline-button")).click();
+		FeedsRequestPage.setDriver(driver);
+		LaunchBrowserUtil.delay(2);
+
+	}
+
+	public static String getDeclinedTime() {
+		String declinedtime = driver.findElement(By.id("declined-time")).getText();
+		String formatteddeclinedtime = declinedtime.substring(declinedtime.length() - 7);
+		String spaceremovedformattedtime = formatteddeclinedtime.replaceAll("\\s", "");
+		logger.info("The declined time for this request was - " + spaceremovedformattedtime);
 		return spaceremovedformattedtime;
 	}
 
