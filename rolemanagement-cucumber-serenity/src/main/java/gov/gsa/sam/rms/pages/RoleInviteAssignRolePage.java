@@ -84,7 +84,7 @@ public class RoleInviteAssignRolePage {
 		return roleFound;
 	}
 
-	public static void enterAdditionalInformation(String comment) {
+	public static void enterBusinessJustification(String comment) {
 		driver.findElement(By.id("comment")).sendKeys(comment);
 		LaunchBrowserUtil.delay(2);
 
@@ -107,6 +107,24 @@ public class RoleInviteAssignRolePage {
 		String message = driver.findElement(By.tagName("sam-alert")).getText();
 		logger.info(message);
 		return message;
+
+	}
+
+	public static String getTextForBusinessJustification() {
+
+		String justificationtext = driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/nonfed-role-assign/div/div[2]/form/div[5]/sam-text-area/sam-label-wrapper/div/label"))
+				.getText();
+		LaunchBrowserUtil.delay(2);
+		return justificationtext;
+	}
+
+	public static String getCommentError() {
+		String commenterror = driver.findElement(By.id(
+				"comment-error"))
+				.getText();
+		LaunchBrowserUtil.delay(2);
+		return commenterror;
 		
 	}
 }

@@ -57,7 +57,7 @@ public class NonfedEmailStep {
 		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
 				0);
 		Assert.assertEquals(true, entityFound);
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
 
 		RoleInviteAssignRolePage.clickSendInvitationButton();
 		RoleInviteAssignRolePage.clickCloseButton();

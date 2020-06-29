@@ -85,7 +85,7 @@ Scenario: existing user with a role invitation should be able to accept a role i
 	Then _8nri the user should see the role in profile with the correctly role history reflected
 	And _8nri nonfed admin should now be able to look up the user through user directory
 	
-@9 @t1
+@9 
 Scenario: existing user with a role invitation should be able to decline a role invite for entity registration domain    
 	Given _9nri nonfed admin logs in   
 	When _9nri admin enters an id for a user with no roles 
@@ -94,6 +94,13 @@ Scenario: existing user with a role invitation should be able to decline a role 
 	Then _9nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
 	When _9nri the user selects the pending request in feeds and declines the role invite
 	Then _9nri the user should see no roles assigned in profile with the status of the feed changed to declined
+
+@10
+Scenario: Additional information should be called business justification for nonfed admins in role invite page 
+	Given _10nf user logs in nonfed admin 
+	And _10nf user navigates to role invite page 
+	Then _10nf additional information box should now be called business justrification 
+	And _10nf the business justification field should also be mandatory 
 	
 
 

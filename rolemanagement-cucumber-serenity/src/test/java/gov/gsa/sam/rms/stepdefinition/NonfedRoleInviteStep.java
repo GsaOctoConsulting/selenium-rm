@@ -157,7 +157,7 @@ public class NonfedRoleInviteStep {
 				0);
 		Assert.assertEquals(true, entityFound);
 
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
 
 		RoleInviteAssignRolePage.clickSendInvitationButton();
 		RoleInviteAssignRolePage.clickCloseButton();
@@ -210,7 +210,7 @@ public class NonfedRoleInviteStep {
 	@Then("^_5nri admin should not receive any dialog box and proceed to invite the user$")
 	public void _5nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
 
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
 
 		RoleInviteAssignRolePage.clickSendInvitationButton();
 		RoleInviteAssignRolePage.clickCloseButton();
@@ -277,7 +277,7 @@ public class NonfedRoleInviteStep {
 		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
 				0);
 		Assert.assertEquals(true, entityFound);
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
 
 		RoleInviteAssignRolePage.clickSendInvitationButton();
 		RoleInviteAssignRolePage.clickCloseButton();
@@ -464,7 +464,7 @@ public class NonfedRoleInviteStep {
 				0);
 		Assert.assertEquals(true, entityFound);
 
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
 
 		RoleInviteAssignRolePage.clickSendInvitationButton();
 		RoleInviteAssignRolePage.clickCloseButton();
@@ -566,7 +566,7 @@ public class NonfedRoleInviteStep {
 				0);
 		Assert.assertEquals(true, entityFound);
 
-		RoleInviteAssignRolePage.enterAdditionalInformation("sending invite");
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
 
 		RoleInviteAssignRolePage.clickSendInvitationButton();
 		RoleInviteAssignRolePage.clickCloseButton();
@@ -617,5 +617,44 @@ public class NonfedRoleInviteStep {
 	public void _9nri_the_user_should_see_no_roles_assigned_in_profile_with_the_status_of_the_feed_changed_to_declined()
 			throws Throwable {
 
+	}
+
+	@Given("^_10nf user logs in nonfed admin$")
+	public void _10nf_user_logs_in_nonfed_admin() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_10nf user navigates to role invite page$")
+	public void _10nf_user_navigates_to_role_invite_page() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+	}
+
+	@Then("^_10nf additional information box should now be called business justrification$")
+	public void _10nf_additional_information_box_should_now_be_called_business_justrification() throws Throwable {
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+		String bussinessjustificationtext = RoleInviteAssignRolePage.getTextForBusinessJustification();
+		Assert.assertEquals("Business Justification", bussinessjustificationtext);
+
+	}
+
+	@And("^_10nf the business justification field should also be mandatory$")
+	public void _10nf_the_business_justification_field_should_also_be_mandatory() throws Throwable {
+		RoleInviteAssignRolePage.enterBusinessJustification("  ");
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		String commenterror = RoleInviteAssignRolePage.getCommentError();
+		Assert.assertEquals("Business Justification field is required.", commenterror);
 	}
 }
