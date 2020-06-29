@@ -500,6 +500,8 @@ public class NonfedRoleInviteStep {
 		String acceptedtime = PendingRoleInvitationPage.getAcceptedTime();
 		PendingRoleInvitationPage.clickCloseButton();
 		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickAcceptedFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
 		
 		boolean requestFound2 = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, acceptedtime, Constants.STATUS_PENDING,

@@ -3,10 +3,13 @@ package gov.gsa.sam.rms.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
@@ -236,7 +239,22 @@ public class FeedsRequestPage {
 	public static void clickRoleInviteFilter() {
 		driver.findElement(By.id("Role Invitations")).click();
 		LaunchBrowserUtil.delay(3);
-		
+
+	}
+
+	public static void clickAcceptedFilter() {
+		driver.findElement(FeedsRequestPageLocator.ACCEPTED_FILTER).click();
+		LaunchBrowserUtil.delay(2);
+
+	}
+
+	public static void selectSortyBy(String sorttype) {
+
+		Select sortoption = new Select(driver.findElement(FeedsRequestPageLocator.SORT_SELECTOR));
+
+		sortoption.selectByVisibleText(sorttype);
+		LaunchBrowserUtil.delay(3);
+
 	}
 
 }
