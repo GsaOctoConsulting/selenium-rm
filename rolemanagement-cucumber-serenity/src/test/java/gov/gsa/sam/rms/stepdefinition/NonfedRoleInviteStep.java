@@ -657,4 +657,59 @@ public class NonfedRoleInviteStep {
 		String commenterror = RoleInviteAssignRolePage.getCommentError();
 		Assert.assertEquals("Business Justification field is required.", commenterror);
 	}
+
+	@Given("^_11nri nonfed admin in contract opp logs in$")
+	public void _11nri_nonfed_admin_in_contract_opp_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_11nri admin enters an id for a user with no roles and sends out an invite$")
+	public void _11nri_admin_enters_an_id_for_a_user_with_no_roles_and_sends_out_an_invite() throws Throwable {
+
+	}
+
+	@Then("^_11nri admin should be able to see the pending status of the invite in their feeds$")
+	public void _11nri_admin_should_be_able_to_see_the_pending_status_of_the_invite_in_their_feeds() throws Throwable {
+
+	}
+
+	@When("^_11nri invited user logs in$")
+	public void _11nri_invited_user_logs_in() throws Throwable {
+
+	}
+
+	@Then("^_11nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked$")
+	public void _11nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
+			throws Throwable {
+
+	}
+
+	@When("^_11nri the user selects the pending request in feeds and accepts the role invite$")
+	public void _11nri_the_user_selects_the_pending_request_in_feeds_and_accepts_the_role_invite() throws Throwable {
+
+	}
+
+	@Then("^_11nri the user should see the status in feeds and the role in profile with the correctly role history reflected$")
+	public void _11nri_the_user_should_see_the_status_in_feeds_and_the_role_in_profile_with_the_correctly_role_history_reflected()
+			throws Throwable {
+
+	}
+
+	@When("^_11nri nonfed admin logs back in$")
+	public void _11nri_nonfed_admin_logs_back_in() throws Throwable {
+
+	}
+
+	@Then("^_11nri the admin should also see the status update in their feeds$")
+	public void _11nri_the_admin_should_also_see_the_status_update_in_their_feeds() throws Throwable {
+
+	}
+
+	@And("^_11nri the admin should now be able to search the user in userdirectory$")
+	public void _11nri_the_admin_should_now_be_able_to_search_the_user_in_userdirectory() throws Throwable {
+
+	}
+
 }

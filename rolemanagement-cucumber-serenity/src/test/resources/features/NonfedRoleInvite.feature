@@ -101,6 +101,20 @@ Scenario: Additional information should be called business justification for non
 	And _10nf user navigates to role invite page 
 	Then _10nf additional information box should now be called business justrification 
 	And _10nf the business justification field should also be mandatory 
+
+@11
+Scenario: existing user with a role invitation should be able to accept a role invite for contract opportunities domain    
+	Given _11nri nonfed admin in contract opp logs in   
+	When _11nri admin enters an id for a user with no roles and sends out an invite 
+	Then _11nri admin should be able to see the pending status of the invite in their feeds
+	When _11nri invited user logs in
+	Then _11nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
+	When _11nri the user selects the pending request in feeds and accepts the role invite
+	Then _11nri the user should see the status in feeds and the role in profile with the correctly role history reflected
+	When _11nri nonfed admin logs back in
+	Then _11nri the admin should also see the status update in their feeds
+	And _11nri the admin should now be able to search the user in userdirectory
+
 	
 
 
