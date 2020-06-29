@@ -76,6 +76,7 @@ public class Constants {
 	public static final String STATUS_PENDING_REVIEW = "Pending Review";
 	public static final String STATUS_PUBLISHED = "Published";
 	public static final String STATUS_DEACTIVATED = "Deactivated";
+	public static final String STATUS_ACCEPTED = "Accepted";
 
 	// Role descriptions
 	public static final String ROLEDESCRIPTION_ASSISTANCEUSER = "As an Assistance User, you may create and update assistance listings and regional office information. You may also submit listings to OMB for approval and request agency, title, or CFDA number changes.";
@@ -370,6 +371,7 @@ public class Constants {
 	public static final String ROLE_AGENCYEXCLUSIONS_REPRESENTATIVE = "Agency Exclusions Representative";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator";
 	public static final String ROLE_DATA_ENTRY_REMOVE = "Data Entry (REMOVE)";
+	
 	
 	
 	

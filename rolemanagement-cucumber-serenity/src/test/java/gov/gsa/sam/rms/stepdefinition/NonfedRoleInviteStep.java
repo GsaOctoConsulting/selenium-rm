@@ -504,14 +504,19 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.selectSortyBy("Response Date");
 		
 		boolean requestFound2 = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, acceptedtime, Constants.STATUS_PENDING,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, acceptedtime, Constants.STATUS_ACCEPTED,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound2);
+		PendingRoleInvitationPage.clickCloseButton();
+		FeedsRequestPage.goToWorkspacePage();
+		T1WorkspacePage.goToAccountDetailsPage();
     }
 
     @Then("^_8nri the user should see the role in profile with the correctly role history reflected$")
     public void _8nri_the_user_should_see_the_role_in_profile_with_the_correctly_role_history_reflected() throws Throwable {
-        
+        AccountDetailsPage.goToPageOnSideNav("My Roles");
+        MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+        MyRolesPage.roleHistoryFound(timestamp, Constants.ASSIGNED, "shah raiaan assigned the Viewer for the OCTO CONSULTING GROUP, INC..", 0);
     }
     
     

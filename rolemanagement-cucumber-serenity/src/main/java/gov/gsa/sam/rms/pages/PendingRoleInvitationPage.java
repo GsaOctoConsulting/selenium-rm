@@ -33,7 +33,7 @@ public class PendingRoleInvitationPage {
 
 	public static void clickAcceptButton() {
 		driver.findElement(By.id("accept-button")).click();
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	public static String getHeading() {
