@@ -63,7 +63,9 @@ public class SignUpUtility {
 					.click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde");
+
+			String nonfedcountervalue = SignUpUtility.getCounterValue("login.fed.accountno");
+			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde" + nonfedcountervalue);//
 			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
 			LaunchBrowserUtil.delay(2);
 			String otp = LaunchBrowserUtil.getOtp(useremail, secretCode);
@@ -145,10 +147,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
-			
-			
-			
-			
+
 			LaunchBrowserUtil.driver
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
@@ -157,20 +156,18 @@ public class SignUpUtility {
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 			String nonfedcountervalue = SignUpUtility.getCounterValue("login.nonfed.accountno");
-			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde"+nonfedcountervalue);//
+			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde" + nonfedcountervalue);//
 			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
 			String otp = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode);
 			logger.info("The captured secret code is --- " + secretCode);
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp);
 			LaunchBrowserUtil.delay(4);
 			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
-			.click();
+					.click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			
-			
-			
+
 //			LaunchBrowserUtil.driver
 //					.findElement(
 //							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
@@ -190,14 +187,10 @@ public class SignUpUtility {
 //
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 //			LaunchBrowserUtil.delay(2);
-			
-			
-			
-			
+
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			
-			
+
 //			LaunchBrowserUtil.driver
 //					.findElement(
 //							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
@@ -315,7 +308,7 @@ public class SignUpUtility {
 		applicationproperties.updateProperty(property, String.valueOf(updatedcounter));
 		return counter;
 	}
-	
+
 	public static String getCounterValue(String propertyname) {
 		return applicationproperties.getProperty(propertyname);
 	}

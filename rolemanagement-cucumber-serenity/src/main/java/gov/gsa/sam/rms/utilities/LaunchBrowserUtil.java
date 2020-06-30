@@ -296,7 +296,7 @@ public class LaunchBrowserUtil {
 																														// incognito
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
-		delay(2);
+		delay(4);
 		// driver.findElement(By.linkText("octotestaccount1@gsa.gov
 		// (delegated)")).click();
 		/*
@@ -314,7 +314,7 @@ public class LaunchBrowserUtil {
 		logger.info("The size of email list is - " + lastMail.size());
 		lastMail.get(0).click();
 		delay(6);
-		driver.findElement(By.linkText("Confirm email address")).click();
+		driver.findElement(By.linkText("create a new account.")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -359,7 +359,7 @@ public class LaunchBrowserUtil {
 		driver.manage().window().maximize();
 		driver.switchTo().frame("ifmail");
 		driver.findElement(By.xpath(
-				"//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td/center/a"))
+				"//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td"))
 				.click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
