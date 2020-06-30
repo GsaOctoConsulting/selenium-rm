@@ -74,7 +74,7 @@ public class NonfedRoleInviteStep {
 
 	@When("^_2nri admin enters an id for a user with no roles who has a pending invite$")
 	public void _2nri_admin_enters_an_id_for_a_user_with_no_roles_in_the_admins_own_domain() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_2_NO_ROLES);
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
 	}
 
 	@Then("^_2nri admin should receive error message for the users pending role invite$")
@@ -361,8 +361,8 @@ public class NonfedRoleInviteStep {
 
 	@Given("^_7nri nonfed user with pending role invite logs in$")
 	public void _7nri_nonfed_user_with_pending_role_invite_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_2_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_2_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -696,6 +696,7 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.clickSentOnSideBar();
 		FeedsRequestPage.clickRoleInviteFilter();
 		FeedsRequestPage.clickPendingFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
 				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,

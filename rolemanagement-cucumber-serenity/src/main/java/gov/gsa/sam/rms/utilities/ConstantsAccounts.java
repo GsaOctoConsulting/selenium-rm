@@ -62,8 +62,8 @@ public class ConstantsAccounts {
 	public static final String NONFED_USER_1_SECRETKEY = "PISODXJ5ZDDAJ3GV";
 
 	// ---------------------------------------------------------------------
-	public static final String NONFED_USER_2_NO_ROLES = "nonfedgsaemail+2@yopmail.com";
-	public static final String NONFED_USER_2_NO_ROLES_SECRETKEY = "ELSJZZZW22MPZ5LL";
+	public static final String NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE = "nonfedgsaemail+4@yopmail.com";
+	public static final String NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY = "XSIHGPEVBP34MNKQ";
 	
 	// ---------------------------------------------------------------------
 		public static final String NONFED_VIEWER_ENTITYREGISRATION = "nonfedgsaemail+viewerentityregistration11@yopmail.com";

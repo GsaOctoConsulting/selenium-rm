@@ -48,7 +48,7 @@ Scenario: nonfed admin should be able to invite nonfed user who exists and the u
 	When _4nri invited user logs in
 	Then _4nri the invited user should receive a dialog box and be able to skip to workspace
 
-@5 @t1
+@5 
 Scenario: nonfed admin should be able to invite nonfed user who currently dont have an account 
 	Given _5nri nonfed admin logs in 
 	And _5nri nonfed admin navigates to role invite page 
@@ -74,7 +74,7 @@ Scenario: when a nonfed admin tries to assign a role to a existing user with pen
 	And _7nri nonfed admin tries to approve the request for the nonfed user  
 	Then _7nri proper error message should be shown
 
-@8 @t1
+@8 
 Scenario: existing user with a role invitation should be able to accept a role invite and obtain the role for entity registration domain    
 	Given _8nri nonfed admin logs in   
 	When _8nri admin enters an id for a user with no roles 
