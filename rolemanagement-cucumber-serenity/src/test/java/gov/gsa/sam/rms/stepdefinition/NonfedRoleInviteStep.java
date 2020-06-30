@@ -32,6 +32,7 @@ public class NonfedRoleInviteStep {
 	String secretkey = "";
 	String counter = "";
 	String timestamp = new String();
+	String acceptedtime = new String();
 
 	@Given("^_1nri nonfed admin logs in$")
 	public void _1nri_nonfed_admin_logs_in() throws Throwable {
@@ -727,7 +728,7 @@ public class NonfedRoleInviteStep {
 		PendingRoleInvitationPage.clickAcceptButton();
 		String heading = PendingRoleInvitationPage.getHeading();
 		Assert.assertEquals("You Have Accepted a Role Invitation", heading);
-		String acceptedtime = PendingRoleInvitationPage.getAcceptedTime();
+		acceptedtime = PendingRoleInvitationPage.getAcceptedTime();
 		PendingRoleInvitationPage.clickCloseButton();
 		FeedsRequestPage.clickRoleInviteFilter();
 		FeedsRequestPage.clickAcceptedFilter();
@@ -763,11 +764,29 @@ public class NonfedRoleInviteStep {
 	@Then("^_11nri the admin should also see the status update in their feeds$")
 	public void _11nri_the_admin_should_also_see_the_status_update_in_their_feeds() throws Throwable {
 		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickSentOnSideBar();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickAcceptedFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				acceptedtime, Constants.STATUS_ACCEPTED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		PendingRoleInvitationPage.clickCloseButton();
+		FeedsRequestPage.goToWorkspacePage();
 	}
 
 	@And("^_11nri the admin should now be able to search the user in userdirectory$")
 	public void _11nri_the_admin_should_now_be_able_to_search_the_user_in_userdirectory() throws Throwable {
+		
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 
+		// delete the role
+		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(true, roleFound);
 	}
 
 }
