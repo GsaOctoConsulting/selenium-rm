@@ -667,44 +667,102 @@ public class NonfedRoleInviteStep {
 
 	@When("^_11nri admin enters an id for a user with no roles and sends out an invite$")
 	public void _11nri_admin_enters_an_id_for_a_user_with_no_roles_and_sends_out_an_invite() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		Assert.assertEquals(true, roleFound);
+
+		boolean domainFound = RoleInviteAssignRolePage
+				.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
 	}
 
 	@Then("^_11nri admin should be able to see the pending status of the invite in their feeds$")
 	public void _11nri_admin_should_be_able_to_see_the_pending_status_of_the_invite_in_their_feeds() throws Throwable {
-
+		UserDirectoryPage.goToWorkspacePage();
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickSentOnSideBar();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
 	}
 
 	@When("^_11nri invited user logs in$")
 	public void _11nri_invited_user_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_11nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked$")
 	public void _11nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
-
+		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_11nri the user selects the pending request in feeds and accepts the role invite$")
 	public void _11nri_the_user_selects_the_pending_request_in_feeds_and_accepts_the_role_invite() throws Throwable {
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		PendingRoleInvitationPage.writeAdditionalInformation("accepting this role");
+		PendingRoleInvitationPage.clickAcceptButton();
+		String heading = PendingRoleInvitationPage.getHeading();
+		Assert.assertEquals("You Have Accepted a Role Invitation", heading);
+		String acceptedtime = PendingRoleInvitationPage.getAcceptedTime();
+		PendingRoleInvitationPage.clickCloseButton();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickAcceptedFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
 
+		boolean requestFound2 = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, acceptedtime, Constants.STATUS_ACCEPTED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound2);
+		PendingRoleInvitationPage.clickCloseButton();
+		
 	}
 
 	@Then("^_11nri the user should see the status in feeds and the role in profile with the correctly role history reflected$")
 	public void _11nri_the_user_should_see_the_status_in_feeds_and_the_role_in_profile_with_the_correctly_role_history_reflected()
 			throws Throwable {
-
+		FeedsRequestPage.goToWorkspacePage();
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		MyRolesPage.roleHistoryFound(timestamp, Constants.ASSIGNED,
+				"shah raiaan assigned the Data Entry for the OCTO CONSULTING GROUP, INC..", 0);
 	}
 
 	@When("^_11nri nonfed admin logs back in$")
 	public void _11nri_nonfed_admin_logs_back_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_11nri the admin should also see the status update in their feeds$")
 	public void _11nri_the_admin_should_also_see_the_status_update_in_their_feeds() throws Throwable {
-
+		T1WorkspacePage.goToFeedsPage();
 	}
 
 	@And("^_11nri the admin should now be able to search the user in userdirectory$")

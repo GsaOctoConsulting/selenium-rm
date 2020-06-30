@@ -83,6 +83,7 @@ public class UserDirectoryPageLocator {
 	public static final By DUNS_PICKER = By.id("entityPicker-Unique Entity ID");
 	public static final By CAGECODE_PICKER = By.id("entityPicker-CAGE Code");
 	public static final By ROLE_FILTER_SUBTIERADMIN = By.id("role-Sub-Tier Administrator");
+	public static final By WORKSPACEPAGE_BREADCRUMB_LINK = By.linkText("Workspace");
 
 	private UserDirectoryPageLocator() {
 
