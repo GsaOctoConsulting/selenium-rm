@@ -118,21 +118,21 @@ public class NonfedRoleInviteStep {
 		Assert.assertEquals("Please enter a non-federal email", errormessage);
 	}
 
-	@Given("^_4nri new nonfed user signs up$")
-	public void _4nri_new_nonfed_user_signs_up() throws Throwable {
-		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		secretkey = SignUpUtility.signUpNewUserNonFed(
-				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-		CommonProfilePage.enterFirstName("shah");
-		CommonProfilePage.enterLastName("raiaan");
-		CommonProfilePage.enterWorkphone("5555555555");
-		LaunchBrowserUtil.scrollAllTheWayDown();
-		CommonProfilePage.clickSubmitButton();
-		LaunchBrowserUtil.closeBrowsers();
-	}
+//	@Given("^_4nri new nonfed user signs up$")
+//	public void _4nri_new_nonfed_user_signs_up() throws Throwable {
+//		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+//		secretkey = SignUpUtility.signUpNewUserNonFed(
+//				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+//		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+//		CommonProfilePage.enterFirstName("shah");
+//		CommonProfilePage.enterLastName("raiaan");
+//		CommonProfilePage.enterWorkphone("5555555555");
+//		LaunchBrowserUtil.scrollAllTheWayDown();
+//		CommonProfilePage.clickSubmitButton();
+//		LaunchBrowserUtil.closeBrowsers();
+//	}
 
-	@And("^_4nri nonfed admin logs in$")
+	@Given("^_4nri nonfed admin logs in$")
 	public void _4nri_nonfed_admin_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
 				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
@@ -147,7 +147,7 @@ public class NonfedRoleInviteStep {
 
 	@Then("^_4nri admin should not receive any dialog box and proceed to invite the user$")
 	public void _4nri_admin_should_not_receive_any_dialog_box_and_proceed_to_invite_the_user() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		Assert.assertEquals(true, roleFound);
 
@@ -166,7 +166,7 @@ public class NonfedRoleInviteStep {
 
 	@When("^_4nri invited user logs in$")
 	public void _4nri_invited_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS, ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -174,6 +174,24 @@ public class NonfedRoleInviteStep {
 	public void _4nri_the_invited_user_should_receive_a_dialog_box() throws Throwable {
 		T1WorkspacePage.clickSkipOnRoleInviteModal();
 		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToMyWorkspacePage();
+		
+		
+		// decline request to allow repeatability of the test
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION,
+				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		PendingRoleInvitationPage.writeAdditionalInformation("declining this role invite");
+		PendingRoleInvitationPage.clickDeclineButton();
+		String heading = PendingRoleInvitationPage.getHeading();
+		Assert.assertEquals("You have Declined a Role Invitation", heading);
+		
+		
 	}
 
 	@Given("^_5nri nonfed admin logs in$")
