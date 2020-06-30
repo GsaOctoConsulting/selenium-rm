@@ -386,12 +386,13 @@ public class NonfedRoleInviteStep {
 
 	@And("^_7nri requests data entry role in entity registration domain$")
 	public void _7nri_requests_data_entry_role_in_entity_registration_domain() throws Throwable {
+		//T1WorkspacePage.clickSkipOnRoleInviteModal();
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 
-		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
 		Assert.assertEquals(true, roleFound1);
 
 		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
@@ -404,7 +405,7 @@ public class NonfedRoleInviteStep {
 		LaunchBrowserUtil.scrollUp();
 		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
@@ -427,7 +428,7 @@ public class NonfedRoleInviteStep {
 		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(3);
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		RoleRequestPendingPage.clickAssignRole();

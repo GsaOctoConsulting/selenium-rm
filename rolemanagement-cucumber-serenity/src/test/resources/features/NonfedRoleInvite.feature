@@ -75,7 +75,7 @@ Scenario: when a nonfed admin tries to assign a role to a existing user with pen
 	Then _7nri proper error message should be shown
 
 @8 
-Scenario: existing user with a role invitation should be able to accept a role invite and obtain the role for entity registration domain    
+Scenario: existing user with a role invitation should be able to accept the invite and obtain the role for entity registration domain    
 	Given _8nri nonfed admin logs in   
 	When _8nri admin enters an id for a user with no roles 
 	Then _8nri admin should not receive any dialog box and proceed to invite the user
@@ -86,7 +86,7 @@ Scenario: existing user with a role invitation should be able to accept a role i
 	And _8nri nonfed admin should now be able to look up the user through user directory
 	
 @9 
-Scenario: existing user with a role invitation should be able to decline a role invite for entity registration domain    
+Scenario: existing user with a role invitation should be able to decline the role invite for entity registration domain    
 	Given _9nri nonfed admin logs in   
 	When _9nri admin enters an id for a user with no roles 
 	Then _9nri admin should not receive any dialog box and proceed to invite the user
@@ -103,7 +103,7 @@ Scenario: Additional information should be called business justification for non
 	And _10nf the business justification field should also be mandatory 
 
 @11
-Scenario: existing user with a role invitation should be able to accept a role invite for contract opportunities domain    
+Scenario: existing user with a role invitation should be able to accept the role invite for contract opportunities domain    
 	Given _11nri nonfed admin in contract opp logs in   
 	When _11nri admin enters an id for a user with no roles and sends out an invite 
 	Then _11nri admin should be able to see the pending status of the invite in their feeds
