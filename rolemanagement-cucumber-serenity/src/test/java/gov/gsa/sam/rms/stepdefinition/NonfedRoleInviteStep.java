@@ -53,7 +53,7 @@ public class NonfedRoleInviteStep {
 		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.DATA_ENTRY_ENTITYCOMPLIANCE_1);
 	}
 
-	@Then("^_1nri admin should receive proper message and be able to assign role to user$")
+	@Then("^_1nri admin should receive proper message and be able to assign role to user without seeing send invite button$")
 	public void _1nri_admin_should_receive_proper_message_and_be_able_to_assign_role_to_user() throws Throwable {
 		RoleInviteAssignRolePage.clickExistingUserAcceptButton();
 
@@ -166,7 +166,8 @@ public class NonfedRoleInviteStep {
 
 	@When("^_4nri invited user logs in$")
 	public void _4nri_invited_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS, ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -175,8 +176,7 @@ public class NonfedRoleInviteStep {
 		T1WorkspacePage.clickSkipOnRoleInviteModal();
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToMyWorkspacePage();
-		
-		
+
 		// decline request to allow repeatability of the test
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickRoleInviteFilter();
@@ -190,8 +190,7 @@ public class NonfedRoleInviteStep {
 		PendingRoleInvitationPage.clickDeclineButton();
 		String heading = PendingRoleInvitationPage.getHeading();
 		Assert.assertEquals("You have Declined a Role Invitation", heading);
-		
-		
+
 	}
 
 	@Given("^_5nri nonfed admin logs in$")
@@ -384,9 +383,9 @@ public class NonfedRoleInviteStep {
 		LaunchBrowserUtil.delay(4);
 	}
 
-	@And("^_7nri requests data entry role in entity registration domain$")
+	@And("^_7nri requests same role as the pending invite$")
 	public void _7nri_requests_data_entry_role_in_entity_registration_domain() throws Throwable {
-		//T1WorkspacePage.clickSkipOnRoleInviteModal();
+		// T1WorkspacePage.clickSkipOnRoleInviteModal();
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.clickRequestRoleButton();
@@ -409,7 +408,7 @@ public class NonfedRoleInviteStep {
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.closeBrowsers();
+
 	}
 
 	@When("^_7nri nonfed entity registration admin logs in$")
@@ -419,43 +418,32 @@ public class NonfedRoleInviteStep {
 
 	}
 
-	@And("^_7nri nonfed admin tries to approve the request for the nonfed user$")
+	@And("^_7nri nonfed admin tries to approve the request made by the nonfed user$")
 	public void _7nri_nonfed_admin_tries_to_approve_the_request_for_the_nonfed_user() throws Throwable {
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickReceivedOnSideNav();
-		LaunchBrowserUtil.scrollAllTheWayDown();
+		FeedsRequestPage.clickRoleRequestFilter();
 		FeedsRequestPage.clickPendingFilter();
-		LaunchBrowserUtil.scrollUp();
 		LaunchBrowserUtil.delay(3);
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		RoleRequestPendingPage.clickAssignRole();
-		AssignRolePage.writeComment("approving role");
-		LaunchBrowserUtil.navigateBack();
-		RoleRequestPendingPage.enterAdditionalInformation("dsfsdf");
-		RoleRequestPendingPage.clickRejectButton();
+
 	}
 
+	@SuppressWarnings("deprecation")
 	@Then("^_7nri proper error message should be shown$")
 	public void _7nri_proper_error_message_should_be_shown() throws Throwable {
-
+		String alerttext = RoleRequestPendingPage.getAlertText();
+		Assert.assertTrue(
+				alerttext.contains("User has pending user access for current Organization and Domain"));
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RoleRequestPendingPage.clickCancel();
+		RoleRequestPendingPage.enterAdditionalInformation("rejecting this role");
+		RoleRequestPendingPage.clickRejectButton();
 	}
-
-//	@Given("^_8nri new nonfed user signs up$")
-//	public void _8nri_new_nonfed_user_signs_up() throws Throwable {
-////		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-////		secretkey = SignUpUtility.signUpNewUserNonFed(
-////				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-////		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-////		CommonProfilePage.enterFirstName("shah");
-////		CommonProfilePage.enterLastName("raiaan");
-////		CommonProfilePage.enterWorkphone("5555555555");
-////		LaunchBrowserUtil.scrollAllTheWayDown();
-////		CommonProfilePage.clickSubmitButton();
-////		LaunchBrowserUtil.closeBrowsers();
-//	}
 
 	@Given("^_8nri nonfed admin logs in$")
 	public void _8nri_nonfed_admin_logs_in() throws Throwable {
@@ -755,11 +743,11 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.selectSortyBy("Response Date");
 
 		boolean requestFound2 = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, acceptedtime, Constants.STATUS_ACCEPTED,
-				Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, acceptedtime,
+				Constants.STATUS_ACCEPTED, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound2);
 		PendingRoleInvitationPage.clickCloseButton();
-		
+
 	}
 
 	@Then("^_11nri the user should see the status in feeds and the role in profile with the correctly role history reflected$")
@@ -789,16 +777,15 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.clickAcceptedFilter();
 		FeedsRequestPage.selectSortyBy("Response Date");
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
-				acceptedtime, Constants.STATUS_ACCEPTED,
-				Constants.GO_TO_REQUEST_DETAILS);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, acceptedtime,
+				Constants.STATUS_ACCEPTED, Constants.GO_TO_REQUEST_DETAILS);
 		PendingRoleInvitationPage.clickCloseButton();
 		FeedsRequestPage.goToWorkspacePage();
 	}
 
 	@And("^_11nri the admin should now be able to search the user in userdirectory$")
 	public void _11nri_the_admin_should_now_be_able_to_search_the_user_in_userdirectory() throws Throwable {
-		
+
 		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);

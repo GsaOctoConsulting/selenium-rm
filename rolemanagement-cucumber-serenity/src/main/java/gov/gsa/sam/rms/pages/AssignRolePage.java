@@ -328,4 +328,11 @@ public class AssignRolePage {
 
 	}
 
+	public static String getAlertText() {
+	String alerttext=	driver.findElement(By.tagName("sam-alert")).getText();
+	logger.info("The text from the alert message is-- "+ alerttext);
+	return alerttext;
+		
+	}
+
 }

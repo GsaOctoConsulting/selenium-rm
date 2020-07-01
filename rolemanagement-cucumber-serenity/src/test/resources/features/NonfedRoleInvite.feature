@@ -20,13 +20,13 @@ Feature: nonfed roleinvite functionality
 	Description:  The purpose of this feature is to test nonfed role invite related scenarios
 
 @1
-Scenario: nonfed admin should be able to assign role to user with a role already in their domain without invite through role invite page 
+Scenario: nonfed admin should be able to assign role to user with a role already in their domain without having to send invite 
 	Given _1nri nonfed admin logs in 
 	And _1nri goes to the role invite page through user directory  
 	When _1nri admin enters an id for a user with roles in the admins own domain 
-	Then _1nri admin should receive proper message and be able to assign role to user 
+	Then _1nri admin should receive proper message and be able to assign role to user without seeing send invite button 
 @2
-Scenario: role invite cannot be sent to a user with same pending invite 
+Scenario: role invite cannot be sent to a user who already has the same pending invite 
 	Given _2nri nonfed admin logs in 
 	And _2nri goes to the role invite page through user directory  
 	When _2nri admin enters an id for a user with no roles who has a pending invite 
@@ -49,7 +49,7 @@ Scenario: nonfed admin should be able to invite nonfed user who exists in the sy
 	Then _4nri the invited user should receive a dialog box and be able to skip to workspace
 
 @5 
-Scenario: nonfed admin should be able to invite nonfed user who currently dont have an account 
+Scenario: nonfed admin should be able to invite nonfed user who currently dont have an account registered
 	Given _5nri nonfed admin logs in 
 	And _5nri nonfed admin navigates to role invite page 
 	When _5nri admin enters an id for a user who currently does not exist in the system 
@@ -67,11 +67,11 @@ Scenario: both the nonfed admin and the nonfed request receiver should get email
 	And _6nri the user should also get an email about the role invite
 
 @7 
-Scenario: when a nonfed admin tries to assign a role to a existing user with pending invite then error should be shown  
+Scenario: after a role invitation is sent by admin if the user makes the same role request then the admin can no longer approve that until responds to the invite  
 	Given _7nri nonfed user with pending role invite logs in 
-	And _7nri requests data entry role in entity registration domain
+	And _7nri requests same role as the pending invite 
 	When _7nri nonfed entity registration admin logs in 
-	And _7nri nonfed admin tries to approve the request for the nonfed user  
+	And _7nri nonfed admin tries to approve the request made by the nonfed user  
 	Then _7nri proper error message should be shown
 
 @8 

@@ -38,7 +38,7 @@ public class RoleRequestPendingPage {
 	public static void clickAssignRole() {
 		driver.findElement(RoleRequestPendingPageLocator.ASSIGNROLE_BUTTON).click();
 		AssignRolePage.setDriver(RoleRequestPendingPage.getDriver());
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	/**
@@ -87,6 +87,19 @@ public class RoleRequestPendingPage {
 	public static void enterAdditionalInformation(String string) {
 		driver.findElement(By.id("Additional Information")).sendKeys(string);
 		LaunchBrowserUtil.delay(2);
+	}
+
+	public static String getAlertText() {
+	String alerttext=	driver.findElement(By.tagName("sam-alert")).getText();
+	logger.info("The text from the alert message is-- "+ alerttext);
+	return alerttext;
+		
+	}
+
+	public static void clickCancel() {
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.id("cancel-button")).click();
+		LaunchBrowserUtil.delay(1);
 	}
 	
 
