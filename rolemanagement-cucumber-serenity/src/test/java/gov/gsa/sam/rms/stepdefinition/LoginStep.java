@@ -47,13 +47,13 @@ public class LoginStep {
 //		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 //				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 //		LaunchBrowserUtil.delay(4);
-//		
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
-		LaunchBrowserUtil.delay(4);
-//		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
-//				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		
+//		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
+//				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
 //		LaunchBrowserUtil.delay(4);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 
 		
 	}

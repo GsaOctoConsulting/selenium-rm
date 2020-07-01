@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@NonfedRoleInvite","@7"})
+				"@NonfedRoleInvite","@8"})
 public class CucumberTestSuite {
 	
-// select
+// selecttrue
 }
