@@ -93,6 +93,7 @@ public class FeedsRequestPage {
 	}
 
 	public static void clickReceivedOnSideNav() {
+		LaunchBrowserUtil.delay(1);
 		driver.findElement(FeedsRequestPageLocator.RECEIVED_ONSIDENAV).click();
 		LaunchBrowserUtil.delay(4);
 	}

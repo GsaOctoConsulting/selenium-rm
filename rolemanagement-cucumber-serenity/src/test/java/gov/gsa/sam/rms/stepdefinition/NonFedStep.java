@@ -242,6 +242,8 @@ public class NonFedStep {
 	@And("^_3nf user should see the feeds notifications for the requested updated to approved$")
 	public void _3nf_user_should_see_the_feeds_notifications_for_the_requested_updated_to_approved() throws Throwable {
 		MyRolesPage.goToFeedsPage();
+		FeedsRequestPage.clickRoleRequestFilter();
+		FeedsRequestPage.clickApprovedFilter();
 		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, timestamp, Constants.STATUS_APPROVED,
 				Constants.GO_TO_REQUEST_DETAILS);
