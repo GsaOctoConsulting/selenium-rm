@@ -45,8 +45,8 @@ public class NonFedStep {
 	@Given("^_1nf nonfed user without a role logs in$")
 	public void _1_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_1nf nonfed user should be able to view entity management Widget$")
@@ -83,8 +83,8 @@ public class NonFedStep {
 	@Given("^_2nf nonfed user without a role logs in$")
 	public void _2nf_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_2nf nonfed user navigates to profile page$")
@@ -129,8 +129,8 @@ public class NonFedStep {
 
 	@Given("^_3nf nonfed user without a role logs in$")
 	public void _3nf_nonfed_user_without_a_role_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@When("^_3nf nonfed user requests data entry role in entity compliance$")
@@ -222,8 +222,8 @@ public class NonFedStep {
 	@When("^_3nf nonfed user logs back in$")
 	public void _3nf_nonfed_user_logs_back_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_3nf user should see the role assigned$")
@@ -256,8 +256,8 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		LaunchBrowserUtil.delay(2);
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
@@ -271,8 +271,8 @@ public class NonFedStep {
 	@Given("^_4nf nonfed user without a role logs in$")
 	public void _4nf_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_4nf nonfed user requests data entry role in entity registration$")
@@ -333,8 +333,8 @@ public class NonFedStep {
 	@Given("^_5nf nonfed user without a role logs in$")
 	public void _5nf_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_5nf nonfed user requests data entry role in contract opportunities$")
@@ -402,8 +402,8 @@ public class NonFedStep {
 
 	@When("^_5nf nonfed user logs back in$")
 	public void _5nf_nonfed_user_logs_back_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_5nf user should see the feeds updated with rejected status for the request$")
@@ -424,8 +424,8 @@ public class NonFedStep {
 	@Given("^_6nf nonfed user without a role logs in$")
 	public void _6nf_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_6nf user requests data entry role in entity compliance$")
@@ -458,8 +458,8 @@ public class NonFedStep {
 	public void _6nf_spaad_assigns_the_same_role_to_the_user_without_approving_the_pending_request() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
-		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
 		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
@@ -485,8 +485,8 @@ public class NonFedStep {
 
 	@When("^_6nf the nonfed requestor logs into their account$")
 	public void _6nf_the_nonfed_requestor_logs_into_their_account() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_6nf the requester should also see the request updated as complete in feeds$")
@@ -520,8 +520,8 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		LaunchBrowserUtil.delay(2);
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
@@ -617,8 +617,8 @@ public class NonFedStep {
 
 	@Given("^_9nf nonfed user without a role logs in$")
 	public void _9nf_nonfed_user_without_a_role_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_9nf user should not see user directory widget$")

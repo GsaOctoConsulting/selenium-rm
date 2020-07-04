@@ -314,7 +314,7 @@ public class LaunchBrowserUtil {
 		logger.info("The size of email list is - " + lastMail.size());
 		lastMail.get(0).click();
 		delay(6);
-		driver.findElement(By.linkText("create a new account.")).click();
+		driver.findElement(By.linkText("Confirm email address")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
