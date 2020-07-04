@@ -442,7 +442,7 @@ public class LaunchBrowserUtil {
 		delay(3);
 		if (nooffetch == 1) {
 			driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
-			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/span/span")).click();
 		}
 
 		if (Constants.INCOGNITO_ON == false) {
@@ -459,9 +459,9 @@ public class LaunchBrowserUtil {
 
 		}
 
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		delay(2);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		delay(15);

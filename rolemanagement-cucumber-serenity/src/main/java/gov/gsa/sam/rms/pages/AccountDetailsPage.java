@@ -80,7 +80,7 @@ public class AccountDetailsPage {
 	}
 
 	public static void clickEyeIconToGenerateAPIKey() {
-		driver.findElement(By.className("fa-eye")).click();
+		driver.findElement(By.id("eye-icon")).click();
 		LaunchBrowserUtil.delay(1);
 
 	}

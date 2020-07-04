@@ -492,8 +492,8 @@ public class NonfedRoleInviteStep {
 	public void _8nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		FeedsRequestPage.clickRoleInviteFilter();
-		FeedsRequestPage.clickPendingFilter();
+	//	FeedsRequestPage.clickRoleInviteFilter();
+		//FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
@@ -591,8 +591,8 @@ public class NonfedRoleInviteStep {
 	public void _9nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		FeedsRequestPage.clickRoleInviteFilter();
-		FeedsRequestPage.clickPendingFilter();
+	//	FeedsRequestPage.clickRoleInviteFilter();
+		//FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_9nri the user selects the pending request in feeds and declines the role invite$")
