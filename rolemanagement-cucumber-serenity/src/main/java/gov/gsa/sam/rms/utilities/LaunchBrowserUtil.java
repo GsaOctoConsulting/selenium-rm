@@ -404,7 +404,7 @@ public class LaunchBrowserUtil {
 		// if (nooffetch == 1) {
 		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(username);
 		delay(1);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/span/span")).click();
 		delay(2);
 
 		if (Constants.INCOGNITO_ON == false) {
