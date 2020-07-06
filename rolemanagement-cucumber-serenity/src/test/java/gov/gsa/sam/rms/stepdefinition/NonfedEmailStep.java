@@ -152,7 +152,7 @@ public class NonfedEmailStep {
 		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 		boolean rolefound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY_REMOVE, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(true, rolefound);
 
 		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
