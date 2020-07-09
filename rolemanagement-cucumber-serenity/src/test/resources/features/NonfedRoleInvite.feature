@@ -115,6 +115,16 @@ Scenario: existing user with a role invitation should be able to accept the role
 	Then _11nri the admin should also see the status update in their feeds
 	And _11nri the admin should now be able to search the user in userdirectory
 
+@12	
+Scenario: admins in multiple domains should be able to send role invites to multiple users    
+	Given _12nri nonfed admin logs in   
+	When _12nri admin enters an id for a user with no roles 
+	Then _12nri admin should not receive any dialog box and proceed to invite the user
+	When _12nri invited user logs in
+	Then _12nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
+	When _12nri the user selects the pending request in feeds and declines the role invite
+	Then _12nri the user should see no roles assigned in profile with the status of the feed changed to declined
+
 	
 
 
