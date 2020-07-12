@@ -306,4 +306,8 @@ public class ConstantsAccounts {
 	
 	public static final String NONFED_USER_3_NO_ROLES = "nonfedgsaemail+3@yopmail.com";
 	public static final String NONFED_USER_3_NO_ROLES_SECRETKEY= "ER7BCFOXFLQRWKET";
+	
+	public static final String NONFED_MULTIPLEENTITIES_ADMIN_ENTITYREGISTRATION = "nonfedgsaemail+adminentityregistrationcompliance@yopmail.com";
+	public static final String NONFED_MULTIPLEENTITIES_ADMIN_ENTITYREGISTRATION_SECRETKEY = "WGF253PJZ5EMEHKW";
+	
 }
