@@ -437,8 +437,7 @@ public class NonfedRoleInviteStep {
 	@Then("^_7nri proper error message should be shown$")
 	public void _7nri_proper_error_message_should_be_shown() throws Throwable {
 		String alerttext = RoleRequestPendingPage.getAlertText();
-		Assert.assertTrue(
-				alerttext.contains("User has pending user access for current Organization and Domain"));
+		Assert.assertTrue(alerttext.contains("User has pending user access for current Organization and Domain"));
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		RoleRequestPendingPage.clickCancel();
 		RoleRequestPendingPage.enterAdditionalInformation("rejecting this role");
@@ -492,8 +491,8 @@ public class NonfedRoleInviteStep {
 	public void _8nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-	//	FeedsRequestPage.clickRoleInviteFilter();
-		//FeedsRequestPage.clickPendingFilter();
+		// FeedsRequestPage.clickRoleInviteFilter();
+		// FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
@@ -591,8 +590,8 @@ public class NonfedRoleInviteStep {
 	public void _9nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-	//	FeedsRequestPage.clickRoleInviteFilter();
-		//FeedsRequestPage.clickPendingFilter();
+		// FeedsRequestPage.clickRoleInviteFilter();
+		// FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_9nri the user selects the pending request in feeds and declines the role invite$")
@@ -794,6 +793,59 @@ public class NonfedRoleInviteStep {
 		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(true, roleFound);
+	}
+
+	@Given("^_12nri nonfed admin in two entities logs in$")
+	public void _12nri_nonfed_admin_in_two_entities_logs_in() throws Throwable {
+
+	}
+
+	@When("^_12nri admin enters an id for a user with no roles$")
+	public void _12nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+
+	}
+
+	@Then("^_12nri admin proceeds to invite the user for viwer role in entity registration in both octo and ibm$")
+	public void _12nri_admin_proceeds_to_invite_the_user_for_viwer_role_in_entity_registration_in_both_octo_and_ibm()
+			throws Throwable {
+
+	}
+
+	@When("^_12nri invited user logs in$")
+	public void _12nri_invited_user_logs_in() throws Throwable {
+
+	}
+
+	@Then("^_12nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked$")
+	public void _12nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
+			throws Throwable {
+
+	}
+
+	@When("^_12nri the user selects the pending request in feeds and accepts the role invite$")
+	public void _12nri_the_user_selects_the_pending_request_in_feeds_and_accepts_the_role_invite() throws Throwable {
+
+	}
+
+	@Then("^_12nri the user should see no roles assigned in profile with the status of the feed changed to accepted$")
+	public void _12nri_the_user_should_see_no_roles_assigned_in_profile_with_the_status_of_the_feed_changed_to_accepted()
+			throws Throwable {
+
+	}
+
+	@When("^_12nri nonfed admin logs back in$")
+	public void _12nri_nonfed_admin_logs_back_in() throws Throwable {
+
+	}
+
+	@Then("^_12nri the admin should also see the status update in their feeds$")
+	public void _12nri_the_admin_should_also_see_the_status_update_in_their_feeds() throws Throwable {
+
+	}
+
+	@And("^_12nri the admin should now be able to search the user in userdirectory$")
+	public void _12nri_the_admin_should_now_be_able_to_search_the_user_in_userdirectory() throws Throwable {
+
 	}
 
 }
