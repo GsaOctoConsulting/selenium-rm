@@ -458,13 +458,16 @@ public class UserDirectoryPage {
 
 	}
 
-	public static void searchUserInUserPicker(String user) {
+	public static int searchUserInUserPicker(String user) {
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).clear();
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).sendKeys(user);
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(2);
+		List<WebElement> userlist = driver.findElements(By.xpath("//li[starts-with(@id, 'userPicker-resultItem')]"));
+		logger.info("The size of the user search list is --- "+userlist.size());
 		driver.findElement(UserDirectoryPageLocator.FIRST_RESULT).click();
 		LaunchBrowserUtil.delay(1);
+		return userlist.size();
 	}
 
 	public static void clickViewAccessOnly(String useremail) {

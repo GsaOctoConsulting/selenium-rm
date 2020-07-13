@@ -342,7 +342,7 @@ public class LaunchBrowserUtil {
 		/*
 		 * driver.findElement(By.id( "mailmillieu")) .click();
 		 */
-		// driver.findElement(by) startsWith
+		// driver.findElement(by) starts
 		/*
 		 * driver.findElement(By.xpath(
 		 * "By.xpath(\"//a[contains(@href, 'https://idp.int.identitysandbox.gov/sign_up/email/confirm?')]\"));"
