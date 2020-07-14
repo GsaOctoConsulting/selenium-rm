@@ -972,8 +972,8 @@ public class NonfedRoleInviteStep {
 	
 	@Given("^_13nri nonfed entity compliance admin in two entities logs in$")
 	public void _13nri_nonfed_admin_in_two_entities_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYREGISTRATION,
-				Constants.USERPASS, ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYREGISTRATION_SECRETKEY,
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE,
+				Constants.USERPASS, ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE_SECRETKEY,
 				Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
@@ -984,10 +984,10 @@ public class NonfedRoleInviteStep {
 		UserDirectoryPage.clickAssignRoleButton();
 		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 
-		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_DATA_ENTRY);
 		Assert.assertEquals(true, roleFound);
 
-		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_COMPLIANCE);
 		Assert.assertEquals(true, domainFound);
 
 		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
@@ -1013,8 +1013,8 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.clickRoleInviteFilter();
 		FeedsRequestPage.clickPendingFilter();
 		FeedsRequestPage.selectSortyBy("Response Date");
-		boolean requestFound = FeedsRequestPage.requestFound("You", "", Constants.ROLE_VIEWER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_PENDING,
+		boolean requestFound = FeedsRequestPage.requestFound("You", "", Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 	}
 
@@ -1035,8 +1035,8 @@ public class NonfedRoleInviteStep {
 
 	@When("^_13nri the user selects the pending request in feeds and accepts the role invite$")
 	public void _13nri_the_user_selects_the_pending_request_in_feeds_and_accepts_the_role_invite() throws Throwable {
-		boolean requestFound = FeedsRequestPage.requestFound("You", "", Constants.ROLE_VIEWER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_PENDING,
+		boolean requestFound = FeedsRequestPage.requestFound("You", "", Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
 		PendingRoleInvitationPage.writeAdditionalInformation("accepting this role");
@@ -1049,8 +1049,8 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.clickAcceptedFilter();
 		FeedsRequestPage.selectSortyBy("Response Date");
 
-		boolean requestFound2 = FeedsRequestPage.requestFound("You", "", Constants.ROLE_VIEWER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_ACCEPTED,
+		boolean requestFound2 = FeedsRequestPage.requestFound("You", "", Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_ACCEPTED,
 				Constants.GO_TO_REQUEST_DETAILS);
 		PendingRoleInvitationPage.clickCloseButton();
 	}
@@ -1061,11 +1061,11 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.goToWorkspacePage();
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
-		MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.NOACTION);
 
-		MyRolesPage.userHasRole(Constants.ORG_IBMSOUTHEAST_EMPLOYEES_CREDITUNION, Constants.ROLE_VIEWER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		MyRolesPage.userHasRole(Constants.ORG_IBMSOUTHEAST_EMPLOYEES_CREDITUNION, Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.NOACTION);
 
 		MyRolesPage.roleHistoryFound(timestamp, Constants.ASSIGNED,
 				"shah raiaan assigned the Viewer for the IBM SOUTHEAST EMPLOYEES' CREDIT UNION.", 0);
@@ -1076,8 +1076,8 @@ public class NonfedRoleInviteStep {
 
 	@When("^_13nri nonfed admin logs back in$")
 	public void _13nri_nonfed_admin_logs_back_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYREGISTRATION,
-				Constants.USERPASS, ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYREGISTRATION_SECRETKEY,
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE,
+				Constants.USERPASS, ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE_SECRETKEY,
 				Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
@@ -1088,8 +1088,8 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.clickRoleInviteFilter();
 		FeedsRequestPage.clickAcceptedFilter();
 		FeedsRequestPage.selectSortyBy("Response Date");
-		boolean requestFound1 = FeedsRequestPage.requestFound("You", "", Constants.ROLE_VIEWER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_ACCEPTED,
+		boolean requestFound1 = FeedsRequestPage.requestFound("You", "", Constants.ROLE_DATA_ENTRY,
+				Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.ORG_MULTIPLE_ENTITIES, Constants.STATUS_ACCEPTED,
 				Constants.GO_TO_REQUEST_DETAILS);
 	}
 
@@ -1107,11 +1107,11 @@ public class NonfedRoleInviteStep {
 
 		// delete the role
 		boolean roleFound1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.DELETE);
 		Assert.assertEquals(true, roleFound1);
 
 		boolean roleFound2 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_IBMSOUTHEAST_EMPLOYEES_CREDITUNION,
-				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.DELETE);
 		Assert.assertEquals(true, roleFound2);
 	}
 }

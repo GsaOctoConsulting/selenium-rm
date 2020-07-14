@@ -115,7 +115,7 @@ Scenario: existing user with a role invitation should be able to accept the role
 	Then _11nri the admin should also see the status update in their feeds
 	And _11nri the admin should now be able to search the user in userdirectory
 
-@12	
+@12	@LL
 Scenario: entity registration admin in two entitities should be able to send role invites for both entities in the same request    
 	Given _12nri nonfed admin in two entities logs in   
 	When _12nri admin enters an id for a user with no roles 
@@ -128,7 +128,7 @@ Scenario: entity registration admin in two entitities should be able to send rol
 	Then _12nri the admin should also see the status update in their feeds
 	And _12nri the admin should now be able to search the user in userdirectory
 
-@13	
+@13	@LL
 Scenario: entity compliance admin in two entitities should be able to send role invites for both entities in the same request    
 	Given _13nri nonfed entity compliance admin in two entities logs in   
 	When _13nri admin enters an id for a user with no roles 
