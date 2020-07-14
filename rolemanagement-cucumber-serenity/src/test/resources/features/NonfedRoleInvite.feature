@@ -115,7 +115,7 @@ Scenario: existing user with a role invitation should be able to accept the role
 	Then _11nri the admin should also see the status update in their feeds
 	And _11nri the admin should now be able to search the user in userdirectory
 
-@12	@LL
+@12	
 Scenario: entity registration admin in two entitities should be able to send role invites for both entities in the same request    
 	Given _12nri nonfed admin in two entities logs in   
 	When _12nri admin enters an id for a user with no roles 
@@ -128,7 +128,7 @@ Scenario: entity registration admin in two entitities should be able to send rol
 	Then _12nri the admin should also see the status update in their feeds
 	And _12nri the admin should now be able to search the user in userdirectory
 
-@13	@LL
+@13
 Scenario: entity compliance admin in two entitities should be able to send role invites for both entities in the same request    
 	Given _13nri nonfed entity compliance admin in two entities logs in   
 	When _13nri admin enters an id for a user with no roles 
@@ -141,8 +141,14 @@ Scenario: entity compliance admin in two entitities should be able to send role 
 	Then _13nri the admin should also see the status update in their feeds
 	And _13nri the admin should now be able to search the user in userdirectory
 
-	
-
+@14
+Scenario:  pending role invitation will change status to canceled when user deactivates their account   
+	Given _14nri nonfed admin in entity registration logs in   
+	When _14nri admin enters an id for a user with no roles 
+	Then _14nri admin proceeds to invite the user for viewer role in entity registration and see pending status in feeds 
+	When _14nri invited user logs in
+	And _14nri user deactivates their account
+	Then _14nri admin should see the pending role invite status changes to canceled
 
  
 	

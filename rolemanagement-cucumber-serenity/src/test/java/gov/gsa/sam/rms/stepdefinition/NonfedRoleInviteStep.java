@@ -940,36 +940,6 @@ public class NonfedRoleInviteStep {
 		Assert.assertEquals(true, roleFound2);
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Given("^_13nri nonfed entity compliance admin in two entities logs in$")
 	public void _13nri_nonfed_admin_in_two_entities_logs_in() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE,
@@ -1114,4 +1084,36 @@ public class NonfedRoleInviteStep {
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE, Constants.DELETE);
 		Assert.assertEquals(true, roleFound2);
 	}
+
+	@Given("^_14nri nonfed admin in entity registration logs in$")
+	public void _14nri_nonfed_admin_in_entity_registration_logs_in() throws Throwable {
+
+	}
+
+	@When("^_14nri admin enters an id for a user with no roles$")
+	public void _14nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+
+	}
+
+	@Then("^_14nri admin proceeds to invite the user for viewer role in entity registration and see pending status in feeds$")
+	public void _14nri_admin_proceeds_to_invite_the_user_for_viewer_role_in_entity_registration_and_see_pending_status_in_feeds()
+			throws Throwable {
+
+	}
+
+	@When("^_14nri invited user logs in$")
+	public void _14nri_invited_user_logs_in() throws Throwable {
+
+	}
+
+	@And("^_14nri user deactivates their account$")
+	public void _14nri_user_deactivates_their_account() throws Throwable {
+
+	}
+
+	@Then("^_14nri admin should see the pending role invite status changes to canceled$")
+	public void _14nri_admin_should_see_the_pending_role_invite_status_changes_to_canceled() throws Throwable {
+
+	}
+
 }
