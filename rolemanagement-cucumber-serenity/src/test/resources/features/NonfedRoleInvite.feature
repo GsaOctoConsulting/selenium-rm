@@ -128,6 +128,19 @@ Scenario: entity registration admin in two entitities should be able to send rol
 	Then _12nri the admin should also see the status update in their feeds
 	And _12nri the admin should now be able to search the user in userdirectory
 
+@13	
+Scenario: entity compliance admin in two entitities should be able to send role invites for both entities in the same request    
+	Given _13nri nonfed entity compliance admin in two entities logs in   
+	When _13nri admin enters an id for a user with no roles 
+	Then _13nri admin proceeds to invite the user for viewer role in entity compliance in both octo and ibm
+	When _13nri invited user logs in
+	Then _13nri the invited user should receive a dialog box and land on feeds page when go to request button is clicked
+	When _13nri the user selects the pending request in feeds and accepts the role invite
+	Then _13nri the user should see no roles assigned in profile with the status of the feed changed to accepted
+	When _13nri nonfed admin logs back in
+	Then _13nri the admin should also see the status update in their feeds
+	And _13nri the admin should now be able to search the user in userdirectory
+
 	
 
 
