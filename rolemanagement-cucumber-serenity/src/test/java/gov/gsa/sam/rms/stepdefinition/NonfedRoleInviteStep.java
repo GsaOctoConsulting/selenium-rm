@@ -1087,33 +1087,89 @@ public class NonfedRoleInviteStep {
 
 	@Given("^_14nri nonfed admin in entity registration logs in$")
 	public void _14nri_nonfed_admin_in_entity_registration_logs_in() throws Throwable {
-
+		// signup a new user
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.closeBrowsers();
+		//--------------------------------
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@When("^_14nri admin enters an id for a user with no roles$")
 	public void _14nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.clickAssignRoleButton();
+		RoleInviteAssignRolePage.enterEmailAddress(nonfeduseremail);
+		boolean roleFound = RoleInviteAssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound);
 
+		boolean domainFound = RoleInviteAssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainFound);
+
+		boolean entityFound = RoleInviteAssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,
+				0);
+		Assert.assertEquals(true, entityFound);
+
+		RoleInviteAssignRolePage.enterBusinessJustification("sending invite");
+
+		RoleInviteAssignRolePage.clickSendInvitationButton();
+		RoleInviteAssignRolePage.clickCloseButton();
 	}
 
 	@Then("^_14nri admin proceeds to invite the user for viewer role in entity registration and see pending status in feeds$")
 	public void _14nri_admin_proceeds_to_invite_the_user_for_viewer_role_in_entity_registration_and_see_pending_status_in_feeds()
 			throws Throwable {
-
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION,
+				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
 	}
 
 	@When("^_14nri invited user logs in$")
 	public void _14nri_invited_user_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS,
+				secretkey, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+		T1WorkspacePage.clickSkipOnRoleInviteModal();
+		
 	}
 
 	@And("^_14nri user deactivates their account$")
 	public void _14nri_user_deactivates_their_account() throws Throwable {
-
+T1WorkspacePage.goToAccountDetailsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		AccountDetailsPage.clickDeactivateAccount();
 	}
 
 	@Then("^_14nri admin should see the pending role invite status changes to canceled$")
 	public void _14nri_admin_should_see_the_pending_role_invite_status_changes_to_canceled() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+		
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
+		FeedsRequestPage.selectSortyBy("Response Date");
+		boolean requestFound = FeedsRequestPage.requestFound("You", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION,
+				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_CANCELED,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
 	}
 
 }
