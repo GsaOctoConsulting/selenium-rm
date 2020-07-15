@@ -1097,14 +1097,14 @@ public class NonfedRoleInviteStep {
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		
+
 		CommonProfilePage.clickSubmitButton();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		RequestRoleOptionalPage.clickSkipAndFinish();
 		T1WorkspacePage.goToAccountDetailsPage();
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.closeBrowsers();
-		//--------------------------------
+		// --------------------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
 				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
@@ -1143,7 +1143,7 @@ public class NonfedRoleInviteStep {
 				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
-		
+
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.closeBrowsers();
@@ -1151,11 +1151,10 @@ public class NonfedRoleInviteStep {
 
 	@When("^_14nri invited user logs in$")
 	public void _14nri_invited_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS,
-				secretkey, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 		T1WorkspacePage.clickSkipOnRoleInviteModal();
-		
+
 	}
 
 	@And("^_14nri user deactivates their account$")
@@ -1173,7 +1172,7 @@ public class NonfedRoleInviteStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
 				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
-		
+
 		T1WorkspacePage.goToFeedsPage();
 		FeedsRequestPage.clickRoleInviteFilter();
 		FeedsRequestPage.clickPendingFilter();
@@ -1183,6 +1182,37 @@ public class NonfedRoleInviteStep {
 				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_CANCELED,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
+	}
+
+	@Given("^_15nri nonfed admin in entity registration logs in$")
+	public void _15nri_nonfed_admin_in_entity_registration_logs_in() throws Throwable {
+
+	}
+
+	@When("^_15nri admin enters an id for a user with no roles$")
+	public void _15nri_admin_enters_an_id_for_a_user_with_no_roles() throws Throwable {
+
+	}
+
+	@Then("^_15nri admin proceeds to invite the user for viewer role in entity registration and see pending status in feeds$")
+	public void _15nri_admin_proceeds_to_invite_the_user_for_viewer_role_in_entity_registration_and_see_pending_status_in_feeds()
+			throws Throwable {
+
+	}
+
+	@When("^_15nri invited user logs in and accepts the role invite$")
+	public void _15nri_invited_user_logs_in_and_accepts_the_role_invite() throws Throwable {
+
+	}
+
+	@And("^_15nri user deactivates their account$")
+	public void _15nri_user_deactivates_their_account() throws Throwable {
+
+	}
+
+	@Then("^_15nri admin should see the accepted role invite status changes to canceled$")
+	public void _15nri_admin_should_see_the_accepted_role_invite_status_changes_to_canceled() throws Throwable {
+
 	}
 
 }

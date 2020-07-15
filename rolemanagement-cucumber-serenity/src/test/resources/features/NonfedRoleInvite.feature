@@ -150,6 +150,15 @@ Scenario:  pending role invitation will change status to canceled when user deac
 	And _14nri user deactivates their account
 	Then _14nri admin should see the pending role invite status changes to canceled
 
+@15
+Scenario:  pending role invitation will change status to canceled when user deactivates their account   
+	Given _15nri nonfed admin in entity registration logs in   
+	When _15nri admin enters an id for a user with no roles 
+	Then _15nri admin proceeds to invite the user for viewer role in entity registration and see pending status in feeds 
+	When _15nri invited user logs in and accepts the role invite
+	And _15nri user deactivates their account
+	Then _15nri admin should see the accepted role invite status changes to canceled
+
  
 	
 	
