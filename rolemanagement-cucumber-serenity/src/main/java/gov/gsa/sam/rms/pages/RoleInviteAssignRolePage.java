@@ -92,7 +92,7 @@ public class RoleInviteAssignRolePage {
 
 	public static void clickSendInvitationButton() {
 		driver.findElement(By.id("send-invitation-button")).click();
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(3);
 
 	}
 

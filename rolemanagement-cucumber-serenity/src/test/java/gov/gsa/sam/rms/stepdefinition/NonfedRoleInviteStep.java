@@ -13,6 +13,7 @@ import gov.gsa.sam.rms.pages.CommonProfilePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
 import gov.gsa.sam.rms.pages.PendingRoleInvitationPage;
+import gov.gsa.sam.rms.pages.RequestRoleOptionalPage;
 import gov.gsa.sam.rms.pages.RequestRolePage;
 import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
 import gov.gsa.sam.rms.pages.RoleRequestPendingPage;
@@ -1096,7 +1097,12 @@ public class NonfedRoleInviteStep {
 		CommonProfilePage.enterLastName("raiaan");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
+		
 		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RequestRoleOptionalPage.clickSkipAndFinish();
+		T1WorkspacePage.goToAccountDetailsPage();
+		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.closeBrowsers();
 		//--------------------------------
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
@@ -1137,6 +1143,10 @@ public class NonfedRoleInviteStep {
 				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
+		
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.clearCookies();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_14nri invited user logs in$")
@@ -1150,9 +1160,12 @@ public class NonfedRoleInviteStep {
 
 	@And("^_14nri user deactivates their account$")
 	public void _14nri_user_deactivates_their_account() throws Throwable {
-T1WorkspacePage.goToAccountDetailsPage();
+		T1WorkspacePage.goToAccountDetailsPage();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		AccountDetailsPage.clickDeactivateAccount();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.clearCookies();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Then("^_14nri admin should see the pending role invite status changes to canceled$")
