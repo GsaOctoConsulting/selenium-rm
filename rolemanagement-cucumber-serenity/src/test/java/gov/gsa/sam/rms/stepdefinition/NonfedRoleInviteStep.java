@@ -1187,25 +1187,25 @@ public class NonfedRoleInviteStep {
 	@Given("^_15nri nonfed admin in entity compliance logs in$")
 	public void _15nri_nonfed_admin_in_entity_registration_logs_in() throws Throwable {
 		// signup a new user
-				counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-				secretkey = SignUpUtility.signUpNewUserNonFed(
-						"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-				nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-				CommonProfilePage.enterFirstName("shah");
-				CommonProfilePage.enterLastName("raiaan");
-				CommonProfilePage.enterWorkphone("5555555555");
-				LaunchBrowserUtil.scrollAllTheWayDown();
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
 
-				CommonProfilePage.clickSubmitButton();
-				LaunchBrowserUtil.scrollAllTheWayDown();
-				RequestRoleOptionalPage.clickSkipAndFinish();
-				T1WorkspacePage.goToAccountDetailsPage();
-				LaunchBrowserUtil.clearCookies();
-				LaunchBrowserUtil.closeBrowsers();
-				// --------------------------------
-				SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE, Constants.USERPASS,
-						ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY, Constants.USER_NONFED);
-				LaunchBrowserUtil.delay(4);
+		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RequestRoleOptionalPage.clickSkipAndFinish();
+		T1WorkspacePage.goToAccountDetailsPage();
+		LaunchBrowserUtil.clearCookies();
+		LaunchBrowserUtil.closeBrowsers();
+		// --------------------------------
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@When("^_15nri admin enters an id for a user with no roles$")
@@ -1252,10 +1252,7 @@ public class NonfedRoleInviteStep {
 		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		
-		
-		
-		
+
 		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_ENTITY_COMPLIANCE,
 				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_PENDING,
@@ -1278,7 +1275,7 @@ public class NonfedRoleInviteStep {
 		PendingRoleInvitationPage.clickCloseButton();
 		FeedsRequestPage.goToWorkspacePage();
 		T1WorkspacePage.goToAccountDetailsPage();
-		
+
 	}
 
 	@And("^_15nri user deactivates their account$")
@@ -1305,6 +1302,92 @@ public class NonfedRoleInviteStep {
 				Constants.CODE_ORG_OCTO_CONSULTING.toString(), Constants.STATUS_CANCELED,
 				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, requestFound);
+	}
+
+	@Given("^_16nri nonfed user signs up$")
+	public void _16nri_nonfed_user_signs_up() throws Throwable {
+		// signup a new user
+		counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		secretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		nonfeduseremail = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+
+		CommonProfilePage.clickSubmitButton();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		RequestRoleOptionalPage.clickSkipAndFinish();
+
+	}
+
+	@And("^_16nri user requests viewer role in entity registration$")
+	public void _16nri_user_requests_viewer_role_in_entity_registration() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP, 0);
+
+		boolean roleFound1 = RequestRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		Assert.assertEquals(true, roleFound1);
+
+		boolean domainfound1 = RequestRolePage.selectEntityDomainIfFound(Constants.DOMAIN_ENTITY_REGISTRATION);
+		Assert.assertEquals(true, domainfound1);
+		RequestRolePage.writeComment("requesting role");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_16nri entity registration admin logs in$")
+	public void _16nri_entity_registration_admin_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+
+	}
+
+	@Then("^_16nri admin should see the pending role request status in feeds$")
+	public void _16nri_admin_should_see_the_pending_role_request_status_in_feeds() throws Throwable {
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickRoleRequestFilter();
+		FeedsRequestPage.clickPendingFilter();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@When("^_16nri user deactivates their account$")
+	public void _16nri_user_deactivates_their_account() throws Throwable {
+		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+		T1WorkspacePage.goToAccountDetailsPage();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		AccountDetailsPage.clickDeactivateAccount();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.clearCookies();
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@Then("^_16nri admin should see the pending role invite status changes to canceled in feeds$")
+	public void _16nri_admin_should_see_the_pending_role_invite_status_changes_to_canceled_in_feeds() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+		T1WorkspacePage.goToFeedsPage();
+		FeedsRequestPage.clickRoleRequestFilter();
+		FeedsRequestPage.clickPendingFilter();
+		timestamp = FeedsRequestPage.getLastRequestRequestTimestamp();
+		boolean requestFound = FeedsRequestPage.requestFound("shah raiaan", Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, timestamp, Constants.STATUS_PENDING,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, requestFound);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 }
