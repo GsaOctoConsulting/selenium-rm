@@ -42,6 +42,11 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
+			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+			LaunchBrowserUtil.delay(3);
+			
+			
+			
 			LaunchBrowserUtil.driver.findElement(By.linkText("Create an account")).click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(useremail);
@@ -131,6 +136,9 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
+			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+			LaunchBrowserUtil.delay(3);
+			
 			LaunchBrowserUtil.driver.findElement(By.linkText("Create an account")).click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(nonfeduseremail);

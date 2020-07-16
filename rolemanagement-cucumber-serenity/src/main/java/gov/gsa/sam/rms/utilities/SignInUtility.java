@@ -39,6 +39,9 @@ public class SignInUtility {
 		Thread.sleep(2000);
 		LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 		Thread.sleep(2000);
+		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+		Thread.sleep(2000);
+
 		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
 		Thread.sleep(2000);
 		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(password);
