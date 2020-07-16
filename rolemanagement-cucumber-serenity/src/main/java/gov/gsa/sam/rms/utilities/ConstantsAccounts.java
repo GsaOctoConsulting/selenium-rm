@@ -313,4 +313,7 @@ public class ConstantsAccounts {
 	public static final String NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE = "nonfedgsaemail+adminentitycomplianceibmocto@yopmail.com";
 	public static final String NONFED_MULTIPLEENTITIES_ADMIN_ENTITYCOMPLIANCE_SECRETKEY = "IABL5MUNU3S662Q7";
 	
+	public static final String NONFED_ADMIN_ENTITYREGISTRATION_2 = "nonfedgsaemail+adminentityregistration2@yopmail.com";
+	public static final String NONFED_ADMIN_ENTITYREGISTRATION_2_SECRETKEY = "KYBAR2GE7RZHK2JO";
+	
 }

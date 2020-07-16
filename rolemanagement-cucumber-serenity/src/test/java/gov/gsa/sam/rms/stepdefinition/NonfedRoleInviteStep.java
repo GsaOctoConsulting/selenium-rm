@@ -1105,8 +1105,8 @@ public class NonfedRoleInviteStep {
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.closeBrowsers();
 		// --------------------------------
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
-				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_2, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_2_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 	}
 
@@ -1169,8 +1169,8 @@ public class NonfedRoleInviteStep {
 
 	@Then("^_14nri admin should see the pending role invite status changes to canceled$")
 	public void _14nri_admin_should_see_the_pending_role_invite_status_changes_to_canceled() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
-				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_2, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_2_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.delay(4);
 
 		T1WorkspacePage.goToFeedsPage();
