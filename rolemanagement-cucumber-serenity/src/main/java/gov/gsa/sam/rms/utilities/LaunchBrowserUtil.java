@@ -404,12 +404,12 @@ public class LaunchBrowserUtil {
 		// if (nooffetch == 1) {
 		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(username);
 		delay(1);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/span/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[2]")).click();
 		delay(2);
 
 		if (Constants.INCOGNITO_ON == false) {
 			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span"))
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
 					.click();// use
 			// this
 			// if
