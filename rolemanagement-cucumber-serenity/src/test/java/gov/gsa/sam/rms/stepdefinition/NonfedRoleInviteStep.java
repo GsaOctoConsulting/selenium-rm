@@ -1390,4 +1390,36 @@ public class NonfedRoleInviteStep {
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
+	@Given("^_17nri fed user signs up$")
+	public void _17nri_fed_user_signs_up() throws Throwable {
+
+	}
+
+	@And("^_17nri user requests assistance user role in assistance listing$")
+	public void _17nri_user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
+
+	}
+
+	@When("^_17nri assistance admin logs in$")
+	public void _17nri_assistance_admin_logs_in() throws Throwable {
+
+	}
+
+	@And("^_17nri assistance admin should see the pending role request status in feeds and accept the invite$")
+	public void _17nri_assistance_admin_should_see_the_pending_role_request_status_in_feeds_and_accept_the_invite()
+			throws Throwable {
+
+	}
+
+	@When("^_17nri user deactivates their account$")
+	public void _17nri_user_deactivates_their_account() throws Throwable {
+
+	}
+
+	@Then("^_17nri admin should see the accepted role request status changes to canceled in feeds$")
+	public void _17nri_admin_should_see_the_accepted_role_request_status_changes_to_canceled_in_feeds()
+			throws Throwable {
+
+	}
+
 }
