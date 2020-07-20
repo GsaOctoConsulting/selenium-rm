@@ -721,8 +721,6 @@ public class NonfedRoleInviteStep {
 	public void _11nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		FeedsRequestPage.clickRoleInviteFilter();
-		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_11nri the user selects the pending request in feeds and accepts the role invite$")
