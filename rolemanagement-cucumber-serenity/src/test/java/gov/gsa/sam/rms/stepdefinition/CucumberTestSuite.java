@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = { "pretty" }, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
 				"@SystemAccount","@14"})
-public class RunCucumberTestSuite {
+public class CucumberTestSuite {
 // selecttrue
 }
