@@ -640,12 +640,12 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(Constants.GMAIL_USERNAME);
 		delay(2);
-		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/span/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[2]")).click();
 		LaunchBrowserUtil.delay(10);
 
 		if (Constants.INCOGNITO_ON == false) {
 			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span")).click();// use
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")).click();// use
 																														// this
 																														// if
 																														// windowsbased
@@ -658,7 +658,7 @@ public class LaunchBrowserUtil {
 																														// incognito
 		}
 
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
 		delay(4);

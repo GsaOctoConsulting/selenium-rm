@@ -63,8 +63,8 @@ public class SystemAccountStep {
 	@And("^_1 user enters all the organization info$")
 	public void _1_user_enters_all_the_organization_info() throws Throwable {
 		NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
-		NewSystemAccountPage.selectSystemAdminInOrgInfo("shah.raiaan+saadmin@gsa.gov");
-		NewSystemAccountPage.selectSystemManagerInOrgInfo("shah.raiaan+saadmin@gsa.gov");
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.SYSTEM_MANAGER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -93,6 +93,7 @@ public class SystemAccountStep {
 		NewSystemAccountPage.clickReviewButton();
 		LaunchBrowserUtil.scrollUp();
 		NewSystemAccountPage.clickSubmit();
+		
 		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
 		// NewSystemAccountPage.goToWorkspace();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
@@ -920,6 +921,7 @@ public class SystemAccountStep {
 		SystemAccountRequestDetailsPage.clickApproveButton();
 		SystemAccountRequestDetailsPage.clickCloseButton();
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 
 		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
 				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
