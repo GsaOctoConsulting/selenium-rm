@@ -21,8 +21,7 @@ Feature: System Account Email functionality
 	Description:  The purpose of this feature is to test email validations for system account flows
 
 @1 
-Scenario: 
-	system manager as account creator and system admin should get an email for the account creation 
+Scenario: system manager as account creator and system admin should get an email for the account creation 
 	Given _1saemail_ user logs in as system account manager 
 	And _1saemail_ user navigates to system account directory page 
 	And _1saemail_ user enters all the system information 
@@ -36,8 +35,7 @@ Scenario:
 	And _1saemail_ the newly created account should show up on the system account directory page 
 	
 @2 #1 on confluence doc
-Scenario: 
-	system admin as system account creator and security official should get email for the account creation 
+Scenario: system admin as system account creator and security official should get email for the account creation 
 	Given _2saemail_ user logs in as system account admin 
 	And _2saemail_ user navigates to system account directory page 
 	And _2saemail_ user enters all the system information 
@@ -50,8 +48,7 @@ Scenario:
 	And _2saemail_ the newly created account should show up on the system account directory page 
 	
 @3 
-Scenario: 
-	nonfed system account creator should get an email for the account submission 
+Scenario: nonfed system account creator should get an email for the account submission 
 	Given _3saemail_ user logs in as nonfed user 
 	And _3saemail_ user navigates to system account directory page 
 	And _3saemail_ user enters all the system information 
