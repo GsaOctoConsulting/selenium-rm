@@ -37,7 +37,7 @@ public class SignUpUtility {
 			// to be implemented in future if IAL2 is enforced
 		} else if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL1")) {
 			LaunchBrowserUtil.openThisBrowser();
-			LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
+			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
@@ -131,7 +131,7 @@ public class SignUpUtility {
 		} else if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL1")) {
 			LaunchBrowserUtil.openThisBrowser();
 			LaunchBrowserUtil.clearCookies();
-			LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
+			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
@@ -233,7 +233,7 @@ public class SignUpUtility {
 			// to be implemented in future if IAL2 is enforced
 		} else if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL1")) {
 			LaunchBrowserUtil.openThisBrowser();
-			LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
+			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();

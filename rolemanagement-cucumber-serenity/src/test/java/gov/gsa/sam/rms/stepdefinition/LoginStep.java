@@ -214,7 +214,7 @@ public class LoginStep {
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		//String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		//SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		 SignUpUtility.signUpNewUser(ConstantsAccounts.NO_ROLE_USER_5_EMAIL_VARIANCE,
+		 SignUpUtility.signUpNewUser(ConstantsAccounts.NO_ROLE_USER_7_EMAIL_VARIANCE,
 		Constants.USERPASS);
 	}
 

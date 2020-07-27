@@ -632,7 +632,7 @@ public class NonFedStep {
 	@And("^_9nf user should also not be able to hit the user directory url$")
 	public void _9nf_user_should_also_not_be_able_to_hit_the_user_directory_url() throws Throwable {
 		ForBiddenPage.setDriver(T1WorkspacePage.getDriver());
-		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE + "/role-management/user-directory");
+		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE + "/role-management/user-directory");
 		LaunchBrowserUtil.delay(2);
 		String message = ForBiddenPage.getPrimaryContentMessage();
 		Assert.assertEquals("You do not have sufficient privileges to view the requested page.", message);
@@ -653,7 +653,7 @@ public class NonFedStep {
 	@And("^_10nf nonfed user should also be able to hit the user directory url to access the page$")
 	public void _10nf_nonfed_user_should_also_be_able_to_hit_the_user_directory_url_to_access_the_page()
 			throws Throwable {
-		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE + "/role-management/user-directory");
+		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE + "/role-management/user-directory");
 		LaunchBrowserUtil.delay(2);
 		UserDirectoryPage.setDriver(LaunchBrowserUtil.getDriver());
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);

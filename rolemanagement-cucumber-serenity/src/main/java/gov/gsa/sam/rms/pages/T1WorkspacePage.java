@@ -79,7 +79,7 @@ public class T1WorkspacePage {
 		 * SHOWMORE_LINK)); thelink.click();
 		 * FeedsRequestPage.setDriver(WorkspacePage.getDriver());
 		 */
-		String feedurl = Constants.LOGINGOV_HOME_PAGE + "/workspace/myfeed/requests";
+		String feedurl = Constants.SAM_HOME_PAGE + "/workspace/myfeed/requests";
 		driver.navigate().to(feedurl);
 		FeedsRequestPage.setDriver(driver);
 		LaunchBrowserUtil.delay(4);
@@ -244,6 +244,17 @@ public class T1WorkspacePage {
 		driver.findElement(By.id("btn-cancel")).click();
 		LaunchBrowserUtil.delay(2);
 		
+	}
+
+	public static String getSplashPageHeading() {
+		String headingtext = LaunchBrowserUtil.driver.findElement(By.tagName("h1")).getText();
+		LaunchBrowserUtil.delay(2);
+		return headingtext;
+	}
+
+	public static void clickProceedOnSplashPage() {
+		driver.findElement(By.id("proceed-button")).click();
+		LaunchBrowserUtil.delay(2);
 	}
 
 }

@@ -1159,7 +1159,7 @@ public class SystemAccountEmailStep {
 
 	@Then("^_5saemail_ the system admin and the gsasecurityapprover should get pending email notification$")
 	public void _5saemail_the_system_admin_should_get_an_email_notification() throws Throwable {
-		if (Constants.LOGINGOV_HOME_PAGE.equals(Constants.LOGINGOV_HOME_PAGE)) {
+		if (Constants.SAM_HOME_PAGE.equals(Constants.SAM_HOME_PAGE)) {
 			LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		} else {
 			LaunchBrowserUtil.switchTabs(1);
@@ -1300,7 +1300,7 @@ public class SystemAccountEmailStep {
 
 	@Then("^_5saemail gsa security approver gets an approval email notification$")
 	public void _5saemail_gsa_security_approver_gets_an_approval_email_notification() throws Throwable {
-		if (Constants.LOGINGOV_HOME_PAGE.equals(Constants.LOGINGOV_HOME_PAGE)) {
+		if (Constants.SAM_HOME_PAGE.equals(Constants.SAM_HOME_PAGE)) {
 			LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		} else {
 			LaunchBrowserUtil.switchTabs(1);
@@ -2016,7 +2016,7 @@ public class SystemAccountEmailStep {
 	@Then("^_8saemail_ the system admin and the gsasecurityapprover should get pending email notification$")
 	public void _8saemail_the_system_admin_and_the_gsasecurityapprover_should_get_pending_email_notification()
 			throws Throwable {
-		if (Constants.LOGINGOV_HOME_PAGE.equals(Constants.LOGINGOV_HOME_PAGE)) {
+		if (Constants.SAM_HOME_PAGE.equals(Constants.SAM_HOME_PAGE)) {
 			LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		} else {
 			LaunchBrowserUtil.switchTabs(1);
@@ -2161,7 +2161,7 @@ public class SystemAccountEmailStep {
 	@Then("^_8saemail_ both the admin and gsasecurityapprover should get account rejection email$")
 	public void _saemail_both_the_admin_and_gsasecurityapprover_should_get_account_rejection_email() throws Throwable {
 
-		if (Constants.LOGINGOV_HOME_PAGE.equals(Constants.LOGINGOV_HOME_PAGE)) {
+		if (Constants.SAM_HOME_PAGE.equals(Constants.SAM_HOME_PAGE)) {
 			LaunchBrowserUtil.goToFedMailInbox(Constants.GMAIL_USERNAME, Constants.USERPASS);
 		} else {
 			LaunchBrowserUtil.switchTabs(1);

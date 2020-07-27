@@ -1,5 +1,7 @@
 package gov.gsa.sam.rms.utilities;
 
+import java.util.ArrayList;
+
 import org.jboss.aerogear.security.otp.Totp;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
@@ -15,7 +17,7 @@ import gov.gsa.sam.rms.pages.T1WorkspacePage;
 public class SignInUtility {
 
 	private static Logger logger = LoggerFactory.getLogger(SignInUtility.class);
-
+	public static ArrayList<String> tab_handles = LaunchBrowserUtil.tab_handles;
 	/**
 	 * This methods allows the caller to land on Workspace page <br>
 	 * <br>
@@ -33,7 +35,7 @@ public class SignInUtility {
 			throws InterruptedException {
 		LaunchBrowserUtil.openThisBrowser();
 		LaunchBrowserUtil.clearCookies();
-		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
+		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 		// ---------------------------
 		LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 		Thread.sleep(2000);
@@ -59,6 +61,57 @@ public class SignInUtility {
 		logger.info("------------Sign into workspace completed------------------------------");
 		// LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/t1-workspace");
 		// LaunchBrowserUtil.delay(3);
+	}
+
+	public static String signIntoLogindotgov(String username, String userpassword,String secretkey,String action) throws InterruptedException {
+		String message ="";
+		
+		LaunchBrowserUtil.openThisBrowser();
+		LaunchBrowserUtil.clearCookies();
+		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
+		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
+		Thread.sleep(2000);
+		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
+		Thread.sleep(2000);
+		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
+		Thread.sleep(2000);
+		Totp totp = new Totp(secretkey);
+		String otp = totp.now();
+		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
+		Thread.sleep(2000);
+		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+		Thread.sleep(3000);
+		
+		if(action.equals(Constants.NOACTION)) {
+			//do nothing
+		}else if(action.equals(Constants.DELETE)) {
+			// write code to delet account here
+		}else if(action.equals(Constants.ADD_EMAIL)) {
+			LaunchBrowserUtil.driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[3]/div[2]/div[1]/div[2]/div/a")).click();
+			String counter = SignUpUtility.updatecounter("login.fed.accountno");
+			String newneverregisteredemail = "octotestaccount1+"+counter+"@gsa.gov";
+			logger.info("The new added email is-- "+ newneverregisteredemail);
+			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
+			Thread.sleep(2000);
+			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			Thread.sleep(2000);
+//			LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
+//			Thread.sleep(2000);
+//			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+//			Thread.sleep(2000);
+//			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
+//			Thread.sleep(2000);
+//			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+//			Thread.sleep(2000);
+			
+			LaunchBrowserUtil.captureSignUpLinkFromGmail();
+			return newneverregisteredemail;
+		
+		}else {
+			logger.debug("No action parameters assigned when calling this method. Please double check if that was intended");
+		
+		}
+		return message;
 	}
 
 }

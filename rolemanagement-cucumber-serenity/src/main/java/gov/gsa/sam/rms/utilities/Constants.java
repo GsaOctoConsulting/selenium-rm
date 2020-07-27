@@ -4,7 +4,9 @@ public class Constants {
 
 	static PropertiesFileUtility fileUtilityreader = new PropertiesFileUtility("application.properties");
 	// urls
-	public static final String LOGINGOV_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
+	public static final String SAM_HOME_PAGE = "https://100samfrontendaltminc.apps.prod-iae.bsp.gsa.gov";
+	public static final String LOGINGOV_HOME_PAGE = "https://idp.int.identitysandbox.gov/";
+	
 	
 	public static final String ROLE_MIGRATION_RESET_URL = "https://39rolemanagementminc.apps.prod-iae.bsp.gsa.gov";
 	// public static final String LOGINGOV_HOME_PAGE =
@@ -102,6 +104,7 @@ public class Constants {
 	public static final String UPDATED = "Updated";
 	public static final String VIEW_PERMISSION = "VIEW PERMISSION";
 	public static final String REQUEST_CHANGES = "Request Changes";
+	public static final String ADD_EMAIL = "Add Email";
 
 	// email message constants-----------------------
 	public static final String EMAIL_ROLEREQUEST_MESSAGE = "You have submitted a pending request for Contracting Officer";
@@ -212,9 +215,9 @@ public class Constants {
 	}
 
 	static {
-		if (Constants.LOGINGOV_HOME_PAGE.contains("comp")) {
+		if (Constants.SAM_HOME_PAGE.contains("comp")) {
 			EMAIL_ENV = "DEV ENV";
-		} else if (Constants.LOGINGOV_HOME_PAGE.contains("minc")) {
+		} else if (Constants.SAM_HOME_PAGE.contains("minc")) {
 			EMAIL_ENV = "TEST ENV";
 		}
 
@@ -375,6 +378,8 @@ public class Constants {
 	public static final String ROLE_AGENCYEXCLUSIONS_REPRESENTATIVE = "Agency Exclusions Representative";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator";
 	public static final String ROLE_DATA_ENTRY_REMOVE = "Data Entry (REMOVE)";
+
+
 	
 	
 	

@@ -341,7 +341,7 @@ public class DraBusinessRulesStep {
 
 	@When("^_7 dra tries to hit the role request page directly through url$")
 	public void _7_dra_tries_to_hit_the_role_request_page_directly_through_url() throws Throwable {
-		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/profile/request-role");
+		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE+"/profile/request-role");
 		ForBiddenPage.setDriver(MyRolesPage.getDriver());
 		LaunchBrowserUtil.delay(2);
 	}
@@ -383,7 +383,7 @@ public class DraBusinessRulesStep {
 
 	@When("^_8 dra tries to hit the role migration page directly through url$")
 	public void _8_dra_tries_to_hit_the_role_migration_page_directly_through_url() throws Throwable {
-		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE+"/profile/migrations");
+		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE+"/profile/migrations");
 		ForBiddenPage.setDriver(MyRolesPage.getDriver());
 		LaunchBrowserUtil.delay(2);
 	}
