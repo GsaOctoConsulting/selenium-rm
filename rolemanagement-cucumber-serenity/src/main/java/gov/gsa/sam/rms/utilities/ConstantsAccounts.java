@@ -316,4 +316,7 @@ public class ConstantsAccounts {
 	public static final String NONFED_ADMIN_ENTITYREGISTRATION_2 = "nonfedgsaemail+adminentityregistration2@yopmail.com";
 	public static final String NONFED_ADMIN_ENTITYREGISTRATION_2_SECRETKEY = "KYBAR2GE7RZHK2JO";
 	
+	public static final String NO_ROLE_USER_5_EMAIL_VARIANCE = "octotestaccount1+noroless5@gsa.gov";
+	public static final String NO_ROLE_USER_5_EMAIL_VARIANCE_SECRETKEY = "";
+	
 }

@@ -6,12 +6,18 @@ import org.slf4j.LoggerFactory;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.ConstantsAccounts;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
+import gov.gsa.sam.rms.utilities.SignInUtility;
 
 public class EmailVarianceStep {
 	private static Logger logger = LoggerFactory.getLogger(EmailVarianceStep.class);
 	@Given("^_1ev a no role user logs into login dot gov$")
-	public void _1_ev_a_no_role_user_logs_into_login_dot_gov(int arg1) throws Exception {
-	   
+	public void _1_ev_a_no_role_user_logs_into_login_dot_gov() throws Exception {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_5_EMAIL_VARIANCE, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_5_EMAIL_VARIANCE_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	   
 	}
 
