@@ -53,6 +53,25 @@ String splashpageheading= T1WorkspacePage.getSplashPageHeading();
 	   
 	}
 	
-	
+	@Given("^_2ev a no role nonfed user logs into login dot gov$")
+	public void __ev_a_no_role_nonfed_user_logs_into_login_dot_gov() throws Exception {
+		 SignInUtility.signIntoLogindotgov(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				 ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY,Constants.NOACTION); 
+	}
+
+	@Given("^_2ev user register a second  nonfed email in the account which was not associated previously$")
+	public void __ev_user_register_a_second_nonfed_email_in_the_account_which_was_not_associated_previously() throws Exception {
+	   
+	}
+
+	@When("^_2ev user goes to sam portal$")
+	public void __ev_user_goes_to_sam_portal() throws Exception {
+	  
+	}
+
+	@Then("^_2ev user should be not able to login using new id and see proper message$")
+	public void __ev_user_should_be_not_able_to_login_using_new_id_and_see_proper_message() throws Exception {
+	   
+	}
 	
 }

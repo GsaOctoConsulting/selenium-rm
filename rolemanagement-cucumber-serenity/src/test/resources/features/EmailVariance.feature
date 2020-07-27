@@ -28,5 +28,10 @@ Scenario: user with federal email domain should be able to add additional fed em
 	Then _1ev user should be able to login using new id
 	And _1ev user should receives additional modals before landing into workspace 
 	
-	
+@2 
+Scenario: user with nonfederal email domain should not be able to add additional nonfed email for the account  
+	Given _2ev a no role nonfed user logs into login dot gov 
+	And _2ev user register a second  nonfed email in the account which was not associated previously
+	When _2ev user goes to sam portal 
+	Then _1ev user should be not able to login using new id and see proper message 
 	
