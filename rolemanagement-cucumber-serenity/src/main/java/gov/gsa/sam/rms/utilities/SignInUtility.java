@@ -1,9 +1,11 @@
 package gov.gsa.sam.rms.utilities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.jboss.aerogear.security.otp.Totp;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
@@ -18,6 +20,7 @@ public class SignInUtility {
 
 	private static Logger logger = LoggerFactory.getLogger(SignInUtility.class);
 	public static ArrayList<String> tab_handles = LaunchBrowserUtil.tab_handles;
+
 	/**
 	 * This methods allows the caller to land on Workspace page <br>
 	 * <br>
@@ -63,9 +66,10 @@ public class SignInUtility {
 		// LaunchBrowserUtil.delay(3);
 	}
 
-	public static String signIntoLogindotgov(String username, String userpassword,String secretkey,String action) throws InterruptedException {
-		String message ="";
-		
+	public static String signIntoLogindotgov(String username, String userpassword, String secretkey, String action)
+			throws InterruptedException {
+		String message = "";
+
 		LaunchBrowserUtil.openThisBrowser();
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
@@ -81,16 +85,25 @@ public class SignInUtility {
 		Thread.sleep(2000);
 		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 		Thread.sleep(3000);
-		
-		if(action.equals(Constants.NOACTION)) {
-			//do nothing
-		}else if(action.equals(Constants.DELETE)) {
+
+		if (action.equals(Constants.NOACTION)) {
+			// do nothing
+		} else if (action.equals(Constants.DELETE)) {
 			// write code to delet account here
-		}else if(action.equals(Constants.ADD_EMAIL)) {
-			LaunchBrowserUtil.driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[3]/div[2]/div[1]/div[2]/div/a")).click();
+			List<WebElement> elements = LaunchBrowserUtil.driver.findElements(By.xpath(
+					"//a[starts-with(@href, 'https://idp.int.identitysandbox.gov/manage/email/confirm_delete/')]"));
+			logger.info("The size of the accounts email found-- " + elements.size());
+			elements.get(1).click();
+			LaunchBrowserUtil.delay(1);
+			LaunchBrowserUtil.driver.findElement(By.className("btn-danger")).click();
+			LaunchBrowserUtil.delay(1);
+			
+		} else if (action.equals(Constants.ADD_EMAIL)) {
+			LaunchBrowserUtil.driver
+					.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[3]/div[2]/div[1]/div[2]/div/a")).click();
 			String counter = SignUpUtility.updatecounter("login.fed.accountno");
-			String newneverregisteredemail = "octotestaccount1+"+counter+"@gsa.gov";
-			logger.info("The new added email is-- "+ newneverregisteredemail);
+			String newneverregisteredemail = "octotestaccount1+" + counter + "@gsa.gov";
+			logger.info("The new added email is-- " + newneverregisteredemail);
 			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
 			Thread.sleep(2000);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
@@ -103,13 +116,14 @@ public class SignInUtility {
 //			Thread.sleep(2000);
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 //			Thread.sleep(2000);
-			
+
 			LaunchBrowserUtil.captureSignUpLinkFromGmail();
 			return newneverregisteredemail;
-		
-		}else {
-			logger.debug("No action parameters assigned when calling this method. Please double check if that was intended");
-		
+
+		} else {
+			logger.debug(
+					"No action parameters assigned when calling this method. Please double check if that was intended");
+
 		}
 		return message;
 	}
