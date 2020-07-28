@@ -33,5 +33,5 @@ Scenario: user with nonfederal email domain should not be able to add additional
 	Given _2ev a no role nonfed user logs into login dot gov 
 	And _2ev user register a second  nonfed email in the account which was not associated previously
 	When _2ev user goes to sam portal 
-	Then _1ev user should be not able to login using new id and see proper message 
+	Then _2ev user should be not able to login using new id and see proper message 
 	

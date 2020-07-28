@@ -257,4 +257,10 @@ public class T1WorkspacePage {
 		LaunchBrowserUtil.delay(2);
 	}
 
+	public static void clickCloseOnSplashPage() {
+		driver.findElement(By.id("close-button")).click();
+		LaunchBrowserUtil.delay(2);
+		
+	}
+
 }
