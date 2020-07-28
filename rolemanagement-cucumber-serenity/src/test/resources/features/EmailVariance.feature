@@ -31,7 +31,23 @@ Scenario: user with federal email domain should be able to add additional fed em
 @2 
 Scenario: user with nonfederal email domain should not be able to add additional nonfed email for the account  
 	Given _2ev a no role nonfed user logs into login dot gov 
-	And _2ev user register a second  nonfed email in the account which was not associated previously
+	And _2ev user register a second nonfed email in the account which was not associated previously
 	When _2ev user goes to sam portal 
 	Then _2ev user should be not able to login using new id and see proper message 
+
+@3 
+Scenario: user with federal email domain should not be able to add additional nonfed email for the account  
+	Given _3ev a no role fed user logs into login dot gov 
+	And _3ev user register a nonfed email in the account which was not associated previously
+	When _3ev user goes to sam portal 
+	Then _3ev user should be not able to login using new id and see proper message 
+
+@4 
+Scenario: user with nonfederal email domain should not be able to add additional fed email for the account  
+	Given _4ev a no role nonfed user logs into login dot gov 
+	And _4ev user register a fed email in the account which was not associated previously
+	When _4ev user goes to sam portal 
+	Then _4ev user should be not able to login using new id and see proper message 	
+	
+	
 	
