@@ -358,6 +358,7 @@ public class LaunchBrowserUtil {
 		 */
 		driver.manage().window().maximize();
 		driver.switchTo().frame("ifmail");
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.xpath(
 				"//*[@id=\"mailmillieu\"]/div[2]/table/tbody/tr/td/center/table[2]/tbody/tr/td/table[3]/tbody/tr/th/table/tbody/tr/th/table[2]/tbody/tr/td[1]/table/tbody/tr/td"))
 				.click();

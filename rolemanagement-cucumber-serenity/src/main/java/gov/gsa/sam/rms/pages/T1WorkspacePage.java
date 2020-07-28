@@ -45,7 +45,7 @@ public class T1WorkspacePage {
 	}
 
 	public static void goToAccountDetailsPage() {
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(3);
 		driver.findElement(T1WorkspacePageLocator.GO_TO_MYPROFILE_LINK).click();
 		AccountDetailsPage.setDriver(T1WorkspacePage.getDriver());
 		UserDirectoryViewAccessPage.setDriver(driver);
@@ -254,7 +254,7 @@ public class T1WorkspacePage {
 
 	public static void clickProceedOnSplashPage() {
 		driver.findElement(By.id("proceed-button")).click();
-		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.delay(3);
 	}
 
 	public static void clickCloseOnSplashPage() {

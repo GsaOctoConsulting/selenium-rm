@@ -81,6 +81,7 @@ public class EmailVarianceStep {
 		String splashpageheading = T1WorkspacePage.getSplashPageHeading();
 		Assert.assertEquals("New Email ID Detected", splashpageheading);
 		T1WorkspacePage.clickCloseOnSplashPage();
+		LaunchBrowserUtil.closeBrowsers();
 		// -----------------------delete the added email to set it
 		// back-------------------------------
 		SignInUtility.signIntoLogindotgov(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
@@ -111,6 +112,7 @@ public class EmailVarianceStep {
 		String splashpageheading = T1WorkspacePage.getSplashPageHeading();
 		Assert.assertEquals("New Email ID Detected", splashpageheading);
 		T1WorkspacePage.clickCloseOnSplashPage();
+		LaunchBrowserUtil.closeBrowsers();
 		// -----------------------delete the added email to set it
 		// back-------------------------------
 		SignInUtility.signIntoLogindotgov(ConstantsAccounts.NO_ROLE_USER_7_EMAIL_VARIANCE, Constants.USERPASS,
@@ -140,6 +142,7 @@ public class EmailVarianceStep {
 		String splashpageheading = T1WorkspacePage.getSplashPageHeading();
 		Assert.assertEquals("New Email ID Detected", splashpageheading);
 		T1WorkspacePage.clickCloseOnSplashPage();
+		LaunchBrowserUtil.closeBrowsers();
 		// -----------------------delete the added email to set it
 		// back-------------------------------
 		SignInUtility.signIntoLogindotgov(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
