@@ -1,12 +1,14 @@
 package gov.gsa.sam.rms.stepdefinition;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -51,7 +53,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test comments");
@@ -131,7 +133,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test comments");
@@ -263,7 +265,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -312,7 +314,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test comments");
@@ -367,7 +369,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "this is the first comment";
@@ -414,7 +416,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
 		comments = "test";
@@ -537,7 +539,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "test";
@@ -614,7 +616,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "test";
@@ -744,7 +746,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -802,7 +804,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -851,7 +853,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -902,7 +904,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -969,7 +971,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -1038,7 +1040,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -1098,7 +1100,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -1133,6 +1135,49 @@ public class RoleRequestStep {
 	@Then("^_18rr the approved request should appear as approved in the feeds$")
 	public void _18rr_the_approved_request_should_appear_as_approved_in_the_feeds() throws Throwable {
 
+	}
+
+	
+	
+	
+	
+	
+	@Given("^_19rr user logs in workspace with no role$")
+	public void _19rr_user_logs_in_workspace_with_no_role() throws Exception {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NO_ROLE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.NO_ROLE_USER_2_SECRETKEY, Constants.USER_FED);
+	}
+
+
+	@And("^_19rr user select \"([^\"]*)\" at subtier level$")
+	public void _19rr_user_select_at_subtier_level(String orgname) throws Exception {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+		RequestRolePage.writeSupervisorName("AJ");
+		RequestRolePage.writeSupervisorEmail("a@b.c");
+		RequestRolePage.selectOrgIfFound(orgname,0);
+	}
+
+	@When("^^_19rr user tries to requests the following (.+) and (.+)$$")
+	public void _19rr_user_tries_to_requests_role_in_domain(String role, String domain) throws Exception {
+		//List<Map<String, String>> list = table.asMaps(String.class, String.class);
+		//String role = list.get(0).get("Role");
+		//logger.info("The role name is --- "+role);
+		//String domain = list.get(0).get("Domain");
+		//logger.info("The domain name is --- "+domain);
+		RequestRolePage.selectRoleIfFound(role);
+		RequestRolePage.selectDomainIfFound(domain);
+		RequestRolePage.writeComment("test");
+		RequestRolePage.clickSubmit();
+		LaunchBrowserUtil.delay(5);
+		
+	}
+
+	@Then("^_19rr user should receive proper error message$")
+	public void _19rr_user_should_receive_proper_error_message() throws Exception {
+	  
 	}
 
 	// private methods are below this line

@@ -104,7 +104,7 @@ public class MiscelleneousUsersBusinessRulesStep {
 	    public void _3mis_user_requests_assistance_user_role_for_hhs_in_assistance_listing() throws Throwable {
 	    	RequestRolePage.writeSupervisorName("AJ"); 
 			RequestRolePage.writeSupervisorEmail("email@gmail.com");
-			RequestRolePage.selectOrgIfFound(Constants.ORG_HHS);
+			RequestRolePage.selectOrgIfFound(Constants.ORG_HHS,0);
 			RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 			RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 			RequestRolePage.writeComment("test comments");

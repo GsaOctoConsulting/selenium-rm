@@ -8,7 +8,7 @@ public class RequestRolePageLocator {
 	public static final By SUPERVISOR_EMAIL_TEXTBOX = By.id("supervisor-email");
 	public static final By ROLE_SELECTOR = By.id("role-select");
 	public static final By ORGPICKER_TEXTAREA = By.id("federalHierarchy");
-	public static final By ORG_SELECTOR = By.id("federalHierarchy-listbox");
+	public static final By ORG_SELECTOR = By.xpath(".//li[starts-with(@id, 'federalHierarchy-resultItem')]");
 	public static final By CONTAINER = By
 			.xpath("//*[@id=\"main-container\"]/ng-component/form-only/div/div/div/div[3]");
 	public static final By DOMAINDROPDOWN_ICON = By.className("fa-chevron-down");

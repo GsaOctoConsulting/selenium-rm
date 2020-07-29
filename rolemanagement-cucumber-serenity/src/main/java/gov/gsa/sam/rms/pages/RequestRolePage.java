@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.slf4j.LoggerFactory;
 
@@ -114,20 +115,29 @@ public class RequestRolePage {
 	 * @param orgName the name of the org
 	 * @return true if the org is found, false otherwise
 	 */
-	public static boolean selectOrgIfFound(String orgName) {
+	public static boolean selectOrgIfFound(String orgName, int optionno) {
 		boolean orgFound = false;
 		driver.findElement(RequestRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(orgName);
 		LaunchBrowserUtil.delay(3);
 		List<WebElement> orgList = driver.findElements(RequestRolePageLocator.ORG_SELECTOR);
-		logger.info(("The size of the list is......" + orgList.size()));
-		WebElement firstOrg = orgList.get(0);
-		logger.info("*****************the text from first org is*****" + firstOrg.getText());
-		if (firstOrg.getText().toLowerCase().contains(orgName.toLowerCase())) {
-			driver.findElement(By.xpath("//*[@id=\"federalHierarchy-listbox\"]/li[1]/div[1]/div")).click();
-			// firstOrg.click();
-			LaunchBrowserUtil.delay(3);
-			orgFound = true;
+		int listsize = orgList.size();
+		logger.info(("The size of the list is......" + listsize));
+		if (listsize == 0) {
+			return false;
+		} else {
+			WebElement intendetelement = orgList.get(optionno);
+			String textfromintentedoption = intendetelement.getText();
+			logger.info(
+					"*****************the text from the intented list option is*****      " + textfromintentedoption);
+			if (textfromintentedoption.toLowerCase().contains(orgName.toLowerCase())) {
+				intendetelement.click();
+				LaunchBrowserUtil.delay(3);
+				orgFound = true;
+			}else {
+				return false;
+			}
 		}
+
 		return orgFound;
 	}
 
@@ -175,9 +185,10 @@ public class RequestRolePage {
 		driver.findElement(RequestRolePageLocator.ENTITYPICKER_TEXTAREA).sendKeys(entity);
 		LaunchBrowserUtil.delay(3);
 		List<WebElement> orgList = driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
-		//List<WebElement> orgList = driver.findElements(By.className("selected-item"));
+		// List<WebElement> orgList =
+		// driver.findElements(By.className("selected-item"));
 		logger.info(("The size of the list is......" + orgList.size()));
-		if(orgList.size()==0) {
+		if (orgList.size() == 0) {
 			return orgFound;
 		}
 		WebElement firstOrg = orgList.get(dropdownOptionNo);
@@ -220,5 +231,5 @@ public class RequestRolePage {
 		}
 		return domainFound;
 	}
-	
+
 }

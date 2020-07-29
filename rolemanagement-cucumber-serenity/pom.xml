@@ -123,16 +123,6 @@
 			<version>2.1.20</version>
 			<scope>test</scope>
 		</dependency>
-
-
-
-
-
-
-
-
-
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
@@ -214,7 +204,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20</version>
 				<configuration>
-					<skip>true</skip>
+					<skip>false</skip>
 				</configuration>
 			</plugin>
 			<plugin>
