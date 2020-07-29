@@ -80,16 +80,14 @@ Scenario: role request comment update
 	Then  _7 role admin should see both the original and the updated comments 
 	
 @8 @SmokeTest @IntegrationTest 
-Scenario:
-empty org role domain and comment box should should show error messages 
+Scenario: empty org role domain and comment box should should show error messages 
 	Given _8 assistance user logs into workspace 
 	And _8 the user navigates to request roles page 
 	When _8 the user clicks submit button without entering information 
 	Then _8 the user should see all the error messages showing up 
 	
 @9 @IntegrationTest @G1 
-Scenario:
-both RA and assistance user should see feeds updated during rejection of a request 
+Scenario: both RA and assistance user should see feeds updated during rejection of a request 
 	Given _9 assistance user logs into workspace 
 	And _9 the user navigates to my roles page to request contracting officer role 
 	And _9 role admin looks up the request in feeds through pending role request link 
@@ -97,8 +95,7 @@ both RA and assistance user should see feeds updated during rejection of a reque
 	Then _9 role admin should see the request status change in the feeds 
 	
 @10 @IntegrationTest @G1 
-Scenario:
-both RA and assistance user should see feeds updated during approval of a request 
+Scenario: both RA and assistance user should see feeds updated during approval of a request 
 	Given _10 assistance user logs into workspace 
 	And _10 the user navigates to my roles page to request contracting officer role 
 	And _10 role admin looks up the request in feeds through pending role request link 
@@ -106,8 +103,7 @@ both RA and assistance user should see feeds updated during approval of a reques
 	Then _10 role admin should see the request status change in the feeds 
 	
 @11 @IntegrationTest @G1 
-Scenario:
-all role request in feeds should show requester name as firstname and lastname without comma 
+Scenario: all role request in feeds should show requester name as firstname and lastname without comma 
 	Given _11 spaad logs into workspace 
 	And _11 the user navigates to feeds page 
 	When _11 spaad goes through the feeds requests 
@@ -135,8 +131,7 @@ Scenario: role request for contracting officer approval by contract opp admin
 	Then _14rr contract opp admin should be able to approve the request 
 	
 @15 @G2 
-Scenario:
-role request edit for assisting listing domain should only show al role and domain 
+Scenario: role request edit for assisting listing domain should only show al role and domain 
 	Given _15rr user logs in workspace with no role 
 	And _15rr user requests assistance user role in assistance listing 
 	When _15rr assistance admin logs in 
@@ -144,8 +139,7 @@ role request edit for assisting listing domain should only show al role and doma
 	Then _15rr assistance admin should not see role and domain options other than assistance listing 
 	
 @16 @G2 
-Scenario:
-role request edit for contract opp domain should only show co role and domain 
+Scenario: role request edit for contract opp domain should only show co role and domain 
 	Given _16rr user logs in workspace with no role 
 	And _16rr user requests contracting officer in contract opportunities 
 	When _16rr contract opp admin logs in 

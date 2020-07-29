@@ -232,4 +232,10 @@ public class RequestRolePage {
 		return domainFound;
 	}
 
+	public static String getErrorMessage() {
+return driver.findElement(By.id("alert-error-top")).getText();
+
+		
+	}
+
 }
