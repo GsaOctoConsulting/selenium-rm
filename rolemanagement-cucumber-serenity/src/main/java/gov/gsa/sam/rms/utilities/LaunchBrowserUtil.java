@@ -544,6 +544,7 @@ public class LaunchBrowserUtil {
 			throws InterruptedException {
 		T1WorkspacePage.clickSignInButton();
 		T1WorkspacePage.clickAcceptOnBanner();
+		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		delay(1);
 		driver.findElement(By.id("password_reset_email_form_email")).sendKeys(userid);

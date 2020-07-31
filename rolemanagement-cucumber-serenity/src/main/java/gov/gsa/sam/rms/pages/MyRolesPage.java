@@ -34,7 +34,7 @@ public class MyRolesPage {
 	}
 
 	public static void clickRequestRoleButton() {
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(MyRolesPageLocator.REQUESTROLE_BUTTON).click();
 		LaunchBrowserUtil.delay(2);
 		RequestRolePage.setDriver(MyRolesPage.getDriver());

@@ -22,7 +22,7 @@ Feature: UserDirectory Widget
 capability for using the userdirectory widget in the common workspace page
 
 #4 on smoke test doc
-@1 @SmokeTest @AssistanceAdmin @IntegrationTest
+@1 @SmokeTest @IntegrationTest
 Scenario: assistance admin should be able to view widget and pending role request 
    Given _1 user logs in workspace with assistance admin role
 	Then _1 user should see widget and pending role request should be clickable
