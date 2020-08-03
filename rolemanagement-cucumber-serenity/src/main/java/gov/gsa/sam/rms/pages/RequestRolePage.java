@@ -48,6 +48,7 @@ public class RequestRolePage {
 	}
 
 	public static void clickSubmit() {
+		LaunchBrowserUtil.delay(3);
 		driver.findElement(RequestRolePageLocator.SUBMIT_BUTTON).click();
 		MyRolesPage.setDriver(RequestRolePage.getDriver());
 		LaunchBrowserUtil.delay(4);

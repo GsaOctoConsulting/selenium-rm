@@ -853,7 +853,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -1164,7 +1164,7 @@ public class RoleRequestStep {
 		RequestRolePage.selectRoleIfFound(role);
 		RequestRolePage.selectDomainIfFound(domain);
 		RequestRolePage.writeComment("test");
-		RequestRolePage.clickSubmit();
+		//RequestRolePage.clickSubmit();
 		LaunchBrowserUtil.delay(5);
 
 	}
@@ -1174,6 +1174,8 @@ public class RoleRequestStep {
 		String message = RequestRolePage.getErrorMessage();
 		Assert.assertTrue(message.contains("The Role and Domain combination selected is restricted to Office level"));
 	}
+
+	
 
 	// private methods are below this line
 

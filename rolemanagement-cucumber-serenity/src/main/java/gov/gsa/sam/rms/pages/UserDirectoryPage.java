@@ -315,7 +315,7 @@ public class UserDirectoryPage {
 		logger.info("Click ON ::::::" + present);
 		builder1.build().perform();
 
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 
 		/*
 		 * * elem.sendKeys(Keys.TAB); elem.sendKeys(Keys.ENTER);
@@ -340,7 +340,7 @@ public class UserDirectoryPage {
 		Actions builder1 = builder.moveToElement(elem).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).click();
 		builder1.build().perform();
 
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static List<WebElement> getPagination() {

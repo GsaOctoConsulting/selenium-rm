@@ -127,12 +127,12 @@ public class LaunchBrowserUtil {
 
 	}
 
-	public static void scrollToMiddle() throws InterruptedException {
+	public static void scrollToMiddle() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("scroll(0,400)", "");
 	}
 
-	public static void scrollUp() throws InterruptedException {
+	public static void scrollUp() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("scroll(0,-800)", "");
 	}
@@ -143,8 +143,9 @@ public class LaunchBrowserUtil {
 	 * @throws InterruptedException
 	 */
 	public static void clearCookies() throws InterruptedException {
+
 		driver.manage().deleteAllCookies();
-		Thread.sleep(5000);
+		LaunchBrowserUtil.delay(5);
 	}
 
 	public static void goToOctoTestEmailInbox() {
@@ -267,7 +268,7 @@ public class LaunchBrowserUtil {
 		return totp.now();
 	}
 
-	public static ArrayList<String> captureSignUpLinkFromGmail() throws InterruptedException {
+	public static ArrayList<String> captureSignUpLinkFromGmail() {
 		delay(15);
 		// LaunchBrowserUtil.clearCookies();
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
@@ -283,17 +284,18 @@ public class LaunchBrowserUtil {
 		LaunchBrowserUtil.delay(10);
 
 		driver.findElement(
-				By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")).click();// use
-																														// this
-																														// if
-																														// windowsbased
-																														// popup
-																														// show
-																														// up
-																														// and
-																														// turn
-																														// off
-																														// incognito
+				By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
+				.click();// use
+		// this
+		// if
+		// windowsbased
+		// popup
+		// show
+		// up
+		// and
+		// turn
+		// off
+		// incognito
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		delay(4);
@@ -433,8 +435,7 @@ public class LaunchBrowserUtil {
 		delay(2);
 	}
 
-	public static String getOtpFromEmailForApiKey(String email, String userpass, int nooffetch)
-			throws InterruptedException {
+	public static String getOtpFromEmailForApiKey(String email, String userpass, int nooffetch) {
 		delay(8);
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
 		LaunchBrowserUtil.delay(3);
@@ -540,8 +541,7 @@ public class LaunchBrowserUtil {
 		return phoneotp;
 	}
 
-	public static void recoverThroughForgotPasswordForFed(String userid, String secretkey, String newpassword)
-			throws InterruptedException {
+	public static void recoverThroughForgotPasswordForFed(String userid, String secretkey, String newpassword) {
 		T1WorkspacePage.clickSignInButton();
 		T1WorkspacePage.clickAcceptOnBanner();
 		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
@@ -635,7 +635,7 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"new_reset_password_form\"]/input[4]")).click();
 	}
 
-	public static String getOtpForSystemAccountFromEmail(String email) throws InterruptedException {
+	public static String getOtpForSystemAccountFromEmail(String email) {
 		delay(15);
 		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
@@ -647,17 +647,18 @@ public class LaunchBrowserUtil {
 
 		if (Constants.INCOGNITO_ON == false) {
 			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")).click();// use
-																														// this
-																														// if
-																														// windowsbased
-																														// popup
-																														// show
-																														// up
-																														// and
-																														// //
-																														// off
-																														// incognito
+					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
+					.click();// use
+			// this
+			// if
+			// windowsbased
+			// popup
+			// show
+			// up
+			// and
+			// //
+			// off
+			// incognito
 		}
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
@@ -908,7 +909,7 @@ public class LaunchBrowserUtil {
 		delay(2);
 	}
 
-	public static void scrollToEnd() throws InterruptedException {
+	public static void scrollToEnd() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("scroll(0,1600)", "");
 	}

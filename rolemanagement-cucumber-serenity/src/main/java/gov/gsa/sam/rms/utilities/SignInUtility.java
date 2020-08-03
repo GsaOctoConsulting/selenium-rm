@@ -41,24 +41,24 @@ public class SignInUtility {
 		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 		// ---------------------------
 		LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 
 		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(password);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();
 		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-		Thread.sleep(3000);
+		LaunchBrowserUtil.delay(3);
 		// ---------------------------
 		T1WorkspacePage.setDriver(LaunchBrowserUtil.getDriver());
 		logger.info("------------Sign into workspace completed------------------------------");
@@ -74,17 +74,17 @@ public class SignInUtility {
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
 		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();
 		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-		Thread.sleep(3000);
+		LaunchBrowserUtil.delay(3);
 
 		if (action.equals(Constants.NOACTION)) {
 			// do nothing
@@ -105,17 +105,17 @@ public class SignInUtility {
 			String newneverregisteredemail = "octotestaccount1+" + counter + "@gsa.gov";
 			logger.info("The new added email is-- " + newneverregisteredemail);
 			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
-			Thread.sleep(2000);
+			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-			Thread.sleep(2000);
+			LaunchBrowserUtil.delay(2);
 //			LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 //			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 
 			LaunchBrowserUtil.captureSignUpLinkFromGmail();
 			return newneverregisteredemail;
@@ -136,17 +136,17 @@ public class SignInUtility {
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
 		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();
 		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
-		Thread.sleep(2000);
+		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-		Thread.sleep(3000);
+		LaunchBrowserUtil.delay(3);
 		if (action.equals(Constants.NOACTION)) {
 			// do nothing
 		} else if (action.equals(Constants.DELETE)) {
@@ -166,17 +166,17 @@ public class SignInUtility {
 			String newneverregisteredemail = "nonfedgsaemail+" + counter + "@yopmail.com";
 			logger.info("The new added email is-- " + newneverregisteredemail);
 			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
-			Thread.sleep(2000);
+			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-			Thread.sleep(2000);
+			LaunchBrowserUtil.delay(2);
 //			LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 //			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
-//			Thread.sleep(2000);
+//			LaunchBrowserUtil.delay(2000);
 
 			LaunchBrowserUtil.captureSignUpLinkFromNonFedEmail(Constants.EMAIL_NONFED);
 			return newneverregisteredemail;

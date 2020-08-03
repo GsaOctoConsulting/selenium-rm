@@ -123,8 +123,8 @@ Scenario: role request for assistance user approval by assistance admin
 	When _13rr assistance admin logs in 
 	Then _13rr assistance admin should be able to approve the request 
 	
-@14 @G2 
-Scenario: role request for contracting officer approval by contract opp admin 
+@14 @G2 @ss
+Scenario: role request for contracting officer in office level approval by contract opp admin 
 	Given _14rr user logs in workspace with no role 
 	And _14rr user requests contracting officer role in contract opportunities 
 	When _14rr contract opp admin logs in 
@@ -162,8 +162,8 @@ Scenario: approved role request should show correct status in feeds
 	And _18rr admin approves the request 
 	Then _18rr the approved request should appear as approved in the feeds 
 	
-@19 @G2 
-Scenario Outline: role request edit for contract opp domain should only show co role and domain 
+@19 @G2
+Scenario Outline: role request for contract opportunities domain is not allowed at subtier level 
 	Given _19rr user logs in workspace with no role 
 	And _19rr user select "GENERAL SERVICES ADMINISTRATION" at subtier level 
 	When _19rr user tries to requests the following <Role> and <Domain> 
@@ -172,8 +172,9 @@ Scenario Outline: role request edit for contract opp domain should only show co 
 		| Role                 | Domain                |
 		| Contracting Officer | Contract Opportunities |
 		| Contracting Specialist | Contract Opportunities |
-	
-	
+
+
+
 	
 	
 	
