@@ -93,7 +93,14 @@ public class SystemAccountStep {
 		NewSystemAccountPage.clickReviewButton();
 		LaunchBrowserUtil.scrollUp();
 		NewSystemAccountPage.clickSubmit();
-		
+
+		NewSystemAccountPage.selectAllTermsOfUse();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+
 		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
 		// NewSystemAccountPage.goToWorkspace();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
@@ -101,7 +108,7 @@ public class SystemAccountStep {
 
 	@Then("^_1 the newly created account should show up on the system account directory page$")
 	public void _1_the_newly_created_account_should_show_up_on_the_system_account_directory_page() throws Throwable {
-		LaunchBrowserUtil.scrollAllTheWayDown();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(true, accountFound);
@@ -799,11 +806,9 @@ public class SystemAccountStep {
 
 	@When("^13_user logs in as nonfed user$")
 	public void _13_user_logs_in_as_nonfed_user() throws Throwable {
-		/*
-		 * SignInUtility.signIntoCommonWorkspacePageNonFed(Constants.GMAIL_NONFED,
-		 * Constants.USERPASS); SignInUtility.signIntoWorkspace(Constants.GMAIL_NONFED,
-		 * Constants.USERPASS, secretkey, usertype);
-		 */
+
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY, Constants.USER_NONFED);
 
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
@@ -814,7 +819,6 @@ public class SystemAccountStep {
 			throws Throwable {
 		SystemAccountDirectoryPage.clickDraftFilter();
 		SystemAccountDirectoryPage.clickPendingApprovalFilter();
-		SystemAccountDirectoryPage.clickPendingReviewFilter();
 		SystemAccountDirectoryPage.clickDeactivatedFilter();
 		SystemAccountDirectoryPage.clickPublishedFilter();
 		LaunchBrowserUtil.scrollToMiddle();
@@ -1192,24 +1196,122 @@ public class SystemAccountStep {
 		Assert.assertEquals(true, accountstatusUpdated);
 	}
 
-	@Given("^_16 test system account history$")
-	public void _16_test_system_account_history() throws Throwable {
+	@Given("^_16 user logs in as system account admin$")
+	public void _16_user_logs_in_as_system_account_admin() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEM_MANAGER_1, Constants.USERPASS,
-				ConstantsAccounts.SYSTEM_MANAGER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+	}
+
+	@And("^_16 user navigates to system account directory page$")
+	public void _16_user_navigates_to_system_account_directory_page() throws Throwable {
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+		SystemAccountDirectoryPage.clickNewButton();
+	}
+
+	@And("^_16 user enters all the system information$")
+	public void _16_user_enters_all_the_system_information() throws Throwable {
+		NewSystemAccountPage.enterSystemAccountName(formattedDate);
+		NewSystemAccountPage.enterInterfacingSystemName("testv1");
+		NewSystemAccountPage.enterSystemDescription("description");
+		NewSystemAccountPage.clickNextToGoToOrgInfo();
+	}
+
+	@And("^_16 user enters all the organization info$")
+	public void _16_user_enters_all_the_organization_info() throws Throwable {
+		NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.SYSTEM_MANAGER_1);
+		NewSystemAccountPage.clickNextToGoToPermissions();
+	}
+
+	@And("^_16 user enters permissions info$")
+	public void _16_user_enters_permissions_info() throws Throwable {
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_READ_PUBLIC);
+		NewSystemAccountPage.clickPermission(NewSystemAccountPageLocator.CO_WRITE_PUBLIC);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		NewSystemAccountPage.selectFIPSCategorization(NewSystemAccountPageLocator.FIPS_LOW);
+		NewSystemAccountPage.clickNextToGoToSecurity();
+	}
+
+	@And("^_16 user enters security info$")
+	public void _16_user_enters_security_info() throws Throwable {
+		NewSystemAccountPage.enterIPaddress("192.168.1.1");
+		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
+		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
+		NewSystemAccountPage.enterSecurityOfficialName("a");
+		NewSystemAccountPage.enterSecurityOfficialEmail("a@b.c");
+		NewSystemAccountPage.clickNextToGoToAuthorization();
+	}
+
+	@And("^_16 user enters authorization info$")
+	public void _16_user_enters_authorization_info() throws Throwable {
+		NewSystemAccountPage.certifyCorrectInformation();
+		NewSystemAccountPage.clickReviewButton();
+		LaunchBrowserUtil.scrollUp();
+		NewSystemAccountPage.clickSubmit();
+
+		NewSystemAccountPage.selectAllTermsOfUse();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+
+		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		// NewSystemAccountPage.goToWorkspace();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
+	}
+
+	@Then("^_16 the newly created account should show up on the system account directory page$")
+	public void _16_the_newly_created_account_should_show_up_on_the_system_account_directory_page() throws Throwable {
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound);
+	}
+
+	@When("^_16 gsa security approver logs in$")
+	public void _16_gsa_security_approver_logs_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
+				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
-		SystemAccountDirectoryPage.searchByKeyword("1548958073");
-		SystemAccountDirectoryPage.clickPublishedFilter();
+		LaunchBrowserUtil.delay(3);
 
-		SystemAccountDirectoryPage.accountFound("1548958073", Constants.STATUS_PUBLISHED, Constants.ORG_GSA,
+	}
+
+	@And("^_16 gsa security approver navigates to system accounts directory page$")
+	public void _16_gsa_security_approver_navigates_to_system_accounts_directory_page() throws Throwable {
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL, Constants.ORG_GSA,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
-		LaunchBrowserUtil.scrollByVisibleElement(By.className("history-item-0"));
-		boolean historystampFound = SystemAccountRequestDetailsPage.accountHistoryFound(
-				Constants.SAHISTORY_STATUS_EMAILAPPROVED,
-				"Approval Status Email Sent to shah.raiaan+gsasecurityapprover@gsa.gov", 1);
 
-		Assert.assertEquals(true, historystampFound);
+	}
+
+	@Then("^_16 gsa security approver should be able to approve the request by system account admin$")
+	public void _16_gsa_security_approver_should_be_able_to_approve_the_request_by_system_account_admin()
+			throws Throwable {
+
+		SystemAccountRequestDetailsPage.writeComment("request is approved");
+		SystemAccountRequestDetailsPage.clickApproveButton();
+		SystemAccountRequestDetailsPage.clickDeactivateButton();
+		SystemAccountRequestDetailsPage.clickYesDeactivateMyAccount();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		LaunchBrowserUtil.delay(5);
+	}
+
+	@Then("^_16 gsa security approver should be able to deactivate the published system account$")
+	public void _16_gsa_security_approver_should_be_able_to_deactivate_the_published_system_account() throws Throwable {
+		boolean accountstatusUpdated = SystemAccountDirectoryPage.accountFound(formattedDate,
+				Constants.STATUS_DEACTIVATED, Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.DELETE);
+		Assert.assertEquals(true, accountstatusUpdated);
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@Given("^_17saaccount user logs in as system account manager$")
@@ -2643,7 +2745,7 @@ public class SystemAccountStep {
 
 	@And("^_26sa saaccount manager selects same office level for the system account$")
 	public void _26sa_saaccount_manager_selects_same_office_level_for_the_system_account() throws Throwable {
-		NewSystemAccountPage.selectOrgInOrgInfo("4792KE");//gsa office
+		NewSystemAccountPage.selectOrgInOrgInfo("4792KE");// gsa office
 		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();

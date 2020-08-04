@@ -21,7 +21,7 @@ Feature: Login functionality
 	Description:  The purpose of this feature is to test functionalities
 related to system accounts
 
-@1 @SystemAccountAdmin 
+@1 
 Scenario: system account admin should be able to create an account 
 	Given _1 user logs in as system account admin 
 	And _1 user navigates to system account directory page 
@@ -123,23 +123,8 @@ Scenario: system account should be able to see all accounts
 	Then _11 user should accounts opened by system managers and themselves 
 	
 	
-@12 @GsaSecurityApprover 
-Scenario: gsa security approver should be able to publish accounts by system account admin 
-	Given _12 user logs in as system account admin 
-	And _12 user navigates to system account directory page 
-	And _12 user enters all the system information 
-	And _12 user enters all the organization info 
-	And _12 user enters permissions info 
-	And _12 user enters security info 
-	And _12 user enters authorization info 
-	
-	When _12 gsa security approver logs into workspace 
-	And _12 gsa security approver goes to system account page 
-	Then _12 gsa security approver should be able to publish the account 
-	
-	
 	# filter verifications---------------------------------------
-@13 
+@13 @IntegrationTest
 Scenario: system account admin, system manager, gsa security approver and nonfed users should only see correct number and type of filters 
 	Given _13 user logs in as gsa security approver 
 	Then _13 gsa security approver should see correct number and type of filters on system account page 
@@ -172,7 +157,7 @@ Scenario: system account admin should be able to deactivate their published syst
 	And _14 admin generates api key 
 	Then _14 they should be able to deactivate their system account 
 	
-@15 
+@15 @IntegrationTest
 Scenario: system account manager should be able to deactivate their published system accounts
 	Given _15 user logs in as system account manager 
 	And _15 system manager navigates to system account directory page 
@@ -196,8 +181,8 @@ Scenario: system account manager should be able to deactivate their published sy
 	Then _15 they should be able to deactivate their system account 
 	
 	
-@16 
-Scenario: gsasecurity approver should be able to deactivate fed published system accounts
+@16 @IntegrationTest
+Scenario: gsasecurity approver should be able to deactivate fed approved system accounts
 	Given _16 user logs in as system account admin 
 	And _16 user navigates to system account directory page 
 	And _16 user enters all the system information 
@@ -209,10 +194,7 @@ Scenario: gsasecurity approver should be able to deactivate fed published system
 	When _16 gsa security approver logs in 
 	And _16 gsa security approver navigates to system accounts directory page 
 	Then _16 gsa security approver should be able to approve the request by system account admin 
-	Then _16 gsa security approver should be able to deactivate the published system account 
-	And _16 admin goes to system account directory page 
-	And _16 admin generates api key 
-	Then _16 they should be able to deactivate their system account 
+	Then _16 gsa security approver should be able to deactivate the published system account
 	
 	
 @17 @IntegrationTest @S1 
@@ -330,7 +312,7 @@ Scenario: nonfed system account approval flow with permission approval
 	When _24 iae admin logs in 
 	Then _24 iam admin should be able to approve the permission
 
-@25 
+@25 @IntegrationTest
 Scenario: system manager should be able to intiate change request for published account and get approval
 	Given _25saaccount user logs in as system manager 
 	And _25saaccount user navigates to system account directory page 

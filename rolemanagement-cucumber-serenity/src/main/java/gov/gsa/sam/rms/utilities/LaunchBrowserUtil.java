@@ -662,7 +662,7 @@ public class LaunchBrowserUtil {
 		}
 
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
-		delay(2);
+		delay(3);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());

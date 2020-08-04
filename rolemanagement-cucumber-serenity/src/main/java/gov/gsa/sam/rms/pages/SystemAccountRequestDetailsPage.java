@@ -121,14 +121,14 @@ public class SystemAccountRequestDetailsPage {
 
 	public static void clickDeactivateButton() {
 		driver.findElement(By.id("button-deactivate")).click();
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickYesDeactivateMyAccount() {
 		driver.findElement(By.xpath(
-				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/sam-modal[1]/div/div/div[2]/div/sam-button[2]/button"))
+				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/sam-modal[2]/div[2]/div/div[2]/div/sam-button[2]/button"))
 				.click();
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(2);
 	}
 
 	public static void clickYesContinueWithDeactivation() {
