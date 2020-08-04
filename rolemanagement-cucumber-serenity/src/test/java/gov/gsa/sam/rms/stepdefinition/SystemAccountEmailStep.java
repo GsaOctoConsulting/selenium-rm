@@ -575,7 +575,6 @@ public class SystemAccountEmailStep {
 	@And("^_4saemail_ user enters all the system information$")
 	public void _4saemail_user_enters_all_the_system_information() throws Throwable {
 		NewSystemAccountPage.enterSystemAccountName(formattedDate);
-		NewSystemAccountPage.clickCheckAvailabilityButton();
 		NewSystemAccountPage.enterInterfacingSystemName("testv1");
 		NewSystemAccountPage.enterSystemDescription("description");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
