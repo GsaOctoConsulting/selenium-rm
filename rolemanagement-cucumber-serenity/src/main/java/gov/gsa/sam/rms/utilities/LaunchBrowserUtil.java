@@ -784,7 +784,7 @@ public class LaunchBrowserUtil {
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		driver.findElement(By.id("login")).sendKeys(nonfedemail);
 		delay(3);
-		driver.findElement(By.xpath("//*[@id=\"f\"]/table/tbody/tr[1]/td[3]/input")).click();
+		driver.findElement(By.xpath("//input[starts-with(@value, 'Check Inbox')]")).click();
 		delay(4);
 
 	}

@@ -184,7 +184,6 @@ Scenario: nonfed system account rejection by gsasecurity approver
 	And _10saemail gsa security approver rejects the request 
 	Then _10saemail gsa security approver gets a rejection email notification 
 	And _10saemail the nonfed user gets a rejection email notification 
-	Then _10saemail the account goes back to draft and can now be deleted 
 	
 	
 	

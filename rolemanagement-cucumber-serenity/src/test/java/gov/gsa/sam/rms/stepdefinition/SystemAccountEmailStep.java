@@ -30,8 +30,8 @@ public class SystemAccountEmailStep {
 	private static StringBuilder nonfeduser = new StringBuilder("raiaan.shah");
 
 	// String formattedDate= new SimpleDateFormat("hh:mm:ss a").format(new Date());
-	 long epoch = System.currentTimeMillis() / 1000;
-	 String formattedDate = Long.toString(epoch);
+	long epoch = System.currentTimeMillis() / 1000;
+	String formattedDate = Long.toString(epoch);
 
 	@Given("^_1saemail_ user logs in as system account manager$")
 	public void _1saemail_user_logs_in_as_system_account_manager() throws Throwable {
@@ -100,7 +100,6 @@ public class SystemAccountEmailStep {
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 	}
-	
 
 	@Then("^_1saemail_ the system manager should get an email notification$")
 	public void _1saemail_the_system_manager_should_get_an_email_notification() throws Throwable {
@@ -194,7 +193,6 @@ public class SystemAccountEmailStep {
 		Assert.assertEquals(2, counter);
 
 	}
-
 
 	@Then("^_1saemail_ the system admin shold also get an email notification$")
 	public void _1saemail_the_system_admin_should_get_an_email_notification() throws Throwable {
@@ -386,7 +384,6 @@ public class SystemAccountEmailStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		 
 
 	}
 
@@ -2288,7 +2285,7 @@ public class SystemAccountEmailStep {
 
 	@And("^_9saemail_ user enters all the organization info$")
 	public void _9saemail_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_NONFED);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo("raiaan.shah@gmail.com");
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
@@ -2337,9 +2334,8 @@ public class SystemAccountEmailStep {
 
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
-				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
@@ -2359,9 +2355,9 @@ public class SystemAccountEmailStep {
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		// ----------------------------------------------------
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
-				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound);
 
 		SystemAccountRequestDetailsPage.writeComment("request is approved");
@@ -2384,8 +2380,6 @@ public class SystemAccountEmailStep {
 		// ----------------------------------------------------
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 		String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
-
-		
 
 		// asserting email body
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_EMAIL_BODY));
@@ -2416,7 +2410,7 @@ public class SystemAccountEmailStep {
 
 	@And("^_10saemail_ user enters all the organization info$")
 	public void _10saemail_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo("raiaan.shah+4@gmail.com");
+		NewSystemAccountPage.selectSystemAdminInOrgInfo("raiaan.shah@gmail.com");
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
@@ -2435,7 +2429,7 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
 		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
 		NewSystemAccountPage.enterSecurityOfficialName("a");
-		NewSystemAccountPage.enterSecurityOfficialEmail(gsasecurityapprover.toString() + "@gsa.gov");
+		NewSystemAccountPage.enterSecurityOfficialEmail(gsasecurityapprover.toString());
 		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
@@ -2448,39 +2442,32 @@ public class SystemAccountEmailStep {
 
 		NewSystemAccountPage.selectAllTermsOfUse();
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		/*
-		 * String otp =
-		 * LaunchBrowserUtil.getOtpForSystemAccountFromEmailNonFed(Constants.
-		 * EMAIL_NONFED, Constants.USERPASS_NONFED);
-		 * NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
-		 * NewSystemAccountPage.clickContinueOnTermsOfUse();
-		 * NewSystemAccountPage.clickSubmitOnTermsOfUser();
-		 * 
-		 * NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs(); //
-		 * NewSystemAccountPage.goToWorkspace();
-		 * T1WorkspacePage.goToSystemAccountDirectoryPage();
-		 */
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmailNonFed(Constants.EMAIL_NONFED,
+				Constants.USERPASS_NONFED);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+
+		// NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		NewSystemAccountPage.goToWorkspace();
+		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
 
 	@Then("^_10saemail_ the newly created account should show up on the system account directory page$")
 	public void _10saemail_the_newly_created_account_should_show_up_on_the_system_account_directory_page()
 			throws Throwable {
-		LaunchBrowserUtil.delay(14);
-		/*
-		 * LaunchBrowserUtil.delay(2);
-		 * SystemAccountDirectoryPage.clickPendingApprovalFilter();
-		 * SystemAccountDirectoryPage.clickSortDescedingByTimestampButton(); boolean
-		 * accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
-		 * Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
-		 * Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
-		 * Assert.assertEquals(true, accountFound);
-		 */
+		LaunchBrowserUtil.delay(2);
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickPendingApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(true, accountFound);
+
 	}
 
 	@When("^_10saemail_ gsa security approver logs in$")
 	public void _10saemail_gsa_security_approver_logs_in() throws Throwable {
-		// SignInUtility.signIntoCommonWorkspacePage(gsasecurityapprover.toString() +
-		// "@gsa.gov", Constants.USERPASS);
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.GSASECURITY_APPROVER_1, Constants.USERPASS,
 				ConstantsAccounts.GSASECURITY_APPROVER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
@@ -2490,24 +2477,21 @@ public class SystemAccountEmailStep {
 	@And("^_10saemail gsa security approver rejects the request$")
 	public void _10saemail_gsa_security_approver_approves_the_request() throws Throwable {
 		LaunchBrowserUtil.delay(14);
-		/*
-		 * SystemAccountDirectoryPage.clickPendingApprovalFilter();
-		 * SystemAccountDirectoryPage.clickSortDescedingByTimestampButton(); //
-		 * ---------------------------------------------------- boolean accountFound =
-		 * SystemAccountDirectoryPage.accountFound(formattedDate,
-		 * Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
-		 * Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
-		 * Assert.assertEquals(true, accountFound);
-		 * 
-		 * SystemAccountRequestDetailsPage.writeComment("request is approved");
-		 * SystemAccountRequestDetailsPage.clickRejectButton();
-		 * SystemAccountRequestDetailsPage.clickCloseButton();
-		 */
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
+		SystemAccountDirectoryPage.clickPendingApprovalFilter();
+		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton(); //
+		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
+				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.GO_TO_REQUEST_DETAILS);
+		Assert.assertEquals(true, accountFound);
+		SystemAccountRequestDetailsPage.writeComment("request is rejected");
+		SystemAccountRequestDetailsPage.clickRejectButton();
+		SystemAccountRequestDetailsPage.clickCloseButton();
 	}
 
 	@Then("^_10saemail gsa security approver gets a rejection email notification$")
 	public void _10saemail_gsa_security_approver_gets_an_approval_email_notification() throws Throwable {
-		LaunchBrowserUtil.delay(14);
+		LaunchBrowserUtil.delay(5);
 		/*
 		 * LaunchBrowserUtil.goToOctoTestEmailInbox(); String emailSubject1 =
 		 * LaunchBrowserUtil.captureTitleFromLastEmail(0); String emailBody1 =
@@ -2538,53 +2522,18 @@ public class SystemAccountEmailStep {
 
 	@And("^_10saemail the nonfed user gets a rejection email notification$")
 	public void _10saemail_the_nonfed_user_gets_a_final_approval_notification() throws Throwable {
-		beforeScenario();
-		// SignInUtility.signIntoCommonWorkspacePageNonFed(nonfeduser.toString() +
-		// "@gmail.com", Constants.USERPASS);
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		LaunchBrowserUtil.delay(36);
-		/*
-		 * T1WorkspacePage.goToSystemAccountDirectoryPage();
-		 * SystemAccountDirectoryPage.clickDraftFilter();
-		 * SystemAccountDirectoryPage.clickSortDescedingByTimestampButton(); //
-		 * ----------------------------------------------------
-		 * LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED); String
-		 * emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(1); String
-		 * emailBody1 = LaunchBrowserUtil.captureEmailMessage(1); String
-		 * applicationLink1 = LaunchBrowserUtil.getApplicationLink(); String
-		 * learningCenterLink1 = LaunchBrowserUtil.getLearningCenterLink(); String
-		 * emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
-		 * LaunchBrowserUtil.switchTabs(2);
-		 * 
-		 * // asserting the email subject line Assert.assertEquals(true,
-		 * emailSubject1.contains(Constants.EMAIL_SENT_FROM)); Assert.assertEquals(true,
-		 * emailSubject1.contains(Constants.
-		 * EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_SUBJECT_LINE));
-		 * 
-		 * // asserting email body Assert.assertEquals(true,
-		 * emailBody1.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_EMAIL_BODY
-		 * ));
-		 * Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN
-		 * ), true);
-		 * 
-		 * // asserting links //
-		 * Assert.assertEquals(applicationLink1.contains(Constants.
-		 * EMAIL_SA_APPLICATION_LINK), // true); //
-		 * Assert.assertEquals(learningCenterLink1.contains(Constants.
-		 * EMAIL_SA_LEARNING_CENTER_LINK), // true);
-		 */
+		LaunchBrowserUtil.delay(3);
+		
+		 LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED); 
+			String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
+
+			// asserting email body
+			Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_REJECTION_EMAIL_BODY));
 	}
 
-	@Then("^_10saemail the account goes back to draft and can now be deleted$")
-	public void _10saemail_the_published_account_can_now_be_deleted() throws Throwable {
-		// boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
-		// Constants.STATUS_DRAFT,
-		// Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
-		// Constants.DELETE);
-		// Assert.assertEquals(true, accountFound);
-	}
 
 	// private methods are below this line
 	private void beforeScenario() {
