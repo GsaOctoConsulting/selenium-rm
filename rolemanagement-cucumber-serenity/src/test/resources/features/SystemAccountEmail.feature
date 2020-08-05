@@ -168,9 +168,7 @@ Scenario: nonfed system account approval by gsasecurity approver
 	Then _9saemail_ the newly created account should show up on the system account directory page 
 	When _9saemail_ gsa security approver logs in 
 	And _9saemail gsa security approver approves the request 
-	Then _9saemail gsa security approver gets an approval email notification 
 	And _9saemail the nonfed user gets a final approval notification 
-	Then _9saemail the published account can now be deleted 
 	
 @10 @IntegrationTest @S1 #9 on confluence doc
 Scenario: nonfed system account rejection by gsasecurity approver 

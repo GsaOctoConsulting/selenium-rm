@@ -58,8 +58,8 @@ public class SystemAccountEmailStep {
 	@And("^_1saemail_ user enters all the organization info$")
 	public void _1saemail_user_enters_all_the_organization_info() throws Throwable {
 		NewSystemAccountPage.selectOrgInOrgInfo(Constants.ORG_GSA);
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo("shah.raiaan+samanager@gsa.gov");
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(systemAdmin.toString());
+		// NewSystemAccountPage.selectSystemManagerInOrgInfo(systemManager.toString());
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -77,8 +77,8 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.enterIPaddress("192.168.1.1");
 		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
 		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
-		NewSystemAccountPage.enterSecurityOfficialName("securityofficial");
-		NewSystemAccountPage.enterSecurityOfficialEmail(securityOfficial.toString());
+		NewSystemAccountPage.enterSecurityOfficialName("a");
+		NewSystemAccountPage.enterSecurityOfficialEmail("a@b.c");
 		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
@@ -88,17 +88,22 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.clickReviewButton();
 		LaunchBrowserUtil.scrollUp();
 		NewSystemAccountPage.clickSubmit();
+		NewSystemAccountPage.selectAllTermsOfUse();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
 		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
 		// NewSystemAccountPage.goToWorkspace();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
-		LaunchBrowserUtil.delay(2);
-		SystemAccountDirectoryPage.clickPendingReviewFilter();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 	}
+	
 
 	@Then("^_1saemail_ the system manager should get an email notification$")
 	public void _1saemail_the_system_manager_should_get_an_email_notification() throws Throwable {
-
 		LaunchBrowserUtil.switchTabs(1);
 		LaunchBrowserUtil.navigateBack();
 		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
@@ -106,7 +111,7 @@ public class SystemAccountEmailStep {
 		String applicationLink1 = LaunchBrowserUtil.getApplicationLink();
 		String learningCenterLink1 = LaunchBrowserUtil.getLearningCenterLink();
 		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.switchTabs(3);
 
 		LaunchBrowserUtil.switchTabs(1);
 		LaunchBrowserUtil.navigateBack();
@@ -115,170 +120,81 @@ public class SystemAccountEmailStep {
 		String applicationLink2 = LaunchBrowserUtil.getApplicationLink();
 		String learningCenterLink2 = LaunchBrowserUtil.getLearningCenterLink();
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
-
-		/*
-		 * LaunchBrowserUtil.switchTabs(1); LaunchBrowserUtil.navigateBack(); String
-		 * emailSubject3 = LaunchBrowserUtil.captureTitleFromLastEmail(2); String
-		 * emailBody3 = LaunchBrowserUtil.captureEmailMessage(2); String
-		 * applicationLink3 = LaunchBrowserUtil.getApplicationLink(); String
-		 * learningCenterLink3 = LaunchBrowserUtil.getLearningCenterLink(); String
-		 * emailToAndFrom3 = LaunchBrowserUtil.captureToAndFromInEmail();
-		 * LaunchBrowserUtil.switchTabs(2);
-		 */
+		LaunchBrowserUtil.switchTabs(3);
 
 		int counter = 0;
-		if (emailToAndFrom1.contains(systemManager.toString())) {// system manager received the email
-
+		if (emailToAndFrom1.contains(systemManager.toString().replace("@gsa.gov", ""))) {// system manager received the
+																							// email
 			Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SENT_FROM));
+			Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_ENV));
 			Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SA_SUBMISSION_SUBJECT_LINE));
 
 			// asserting email body
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_SA_SUBMISSION_EMAIL_BODY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 			Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
-
+			String user = systemManager.toString().replace("@gsa.gov", "");
+			Assert.assertEquals(true, emailToAndFrom1.contains(user));
 			// asserting links
 			Assert.assertEquals(applicationLink1.contains(Constants.EMAIL_SA_APPLICATION_LINK), true);
 			Assert.assertEquals(learningCenterLink1.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
 			counter++;
-		} else if (emailToAndFrom1.contains(systemAdmin.toString())) {
+		} else if (emailToAndFrom1.contains(systemAdmin.toString().replace("@gsa.gov", ""))) {
 			// asserting the email subject line
 			Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SENT_FROM));
+			Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_ENV));
 			Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SAA_PENDING_SUBJECT_LINE));
 
 			// asserting email body
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_SAA_SUBMISSION_EMAIL_BODY));
+			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 			Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
-			Assert.assertEquals(emailToAndFrom1.contains(systemAdmin.toString()), true);
-
+			String user = systemAdmin.toString().replace("@gsa.gov", "");
+			Assert.assertEquals(true, emailToAndFrom1.contains(user));
 			// asserting links
 			Assert.assertEquals(applicationLink1.contains(Constants.EMAIL_SA_APPLICATION_LINK), true);
 			Assert.assertEquals(learningCenterLink1.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
 			counter++;
-		} /*
-			 * else if (emailToAndFrom1.contains(securityOfficial.toString())) { //
-			 * asserting the email subject line Assert.assertEquals(true,
-			 * emailSubject1.contains(Constants.EMAIL_SENT_FROM)); Assert.assertEquals(true,
-			 * emailSubject1.contains(Constants.EMAIL_SO_PENDING_SUBJECT_LINE));
-			 * 
-			 * // asserting email body Assert.assertEquals(true,
-			 * emailBody1.contains(Constants.EMAIL_SO_SUBMISSION_EMAIL_BODY));
-			 * Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN
-			 * ), true);
-			 * Assert.assertEquals(emailToAndFrom1.contains(systemAdmin.toString()), true);
-			 * 
-			 * // asserting links Assert.assertEquals(applicationLink1.contains(Constants.
-			 * EMAIL_SO_APPLICATION_LINK), true);
-			 * Assert.assertEquals(learningCenterLink1.contains(Constants.
-			 * EMAIL_SA_LEARNING_CENTER_LINK), true); counter++; }
-			 */
+		}
 //--------------------------------------------
-		if (emailToAndFrom2.contains(systemAdmin.toString())) {// system admin received the email
+		if (emailToAndFrom2.contains(systemAdmin.toString().replace("@gsa.gov", ""))) {// system admin received the
+																						// email
 			// asserting the email subject line
 			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_SENT_FROM));
+			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_ENV));
 			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_SAA_PENDING_SUBJECT_LINE));
 
 			// asserting email body
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_SAA_SUBMISSION_EMAIL_BODY));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 			Assert.assertEquals(emailToAndFrom2.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
-			Assert.assertEquals(emailToAndFrom2.contains(systemAdmin.toString()), true);
-
-			// asserting links
-			// Assert.assertEquals(applicationLink2.contains(Constants.EMAIL_SA_APPLICATION_LINK),
-			// true);
-			// Assert.assertEquals(learningCenterLink2.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK),
-			// true);
-			counter++;
-		} else if (emailToAndFrom2.contains(systemManager.toString())) {
-			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_SENT_FROM));
-			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_SA_SUBMISSION_SUBJECT_LINE));
-
-			// asserting email body
-			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_SA_SUBMISSION_EMAIL_BODY));
-			Assert.assertEquals(emailToAndFrom2.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
+			String user = systemAdmin.toString().replace("@gsa.gov", "");
+			Assert.assertEquals(true, emailToAndFrom2.contains(user));
 
 			// asserting links
 			Assert.assertEquals(applicationLink2.contains(Constants.EMAIL_SA_APPLICATION_LINK), true);
 			Assert.assertEquals(learningCenterLink2.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
 			counter++;
-		} /*
-			 * else if (emailToAndFrom2.contains(securityOfficial.toString())) { //
-			 * asserting the email subject line Assert.assertEquals(true,
-			 * emailSubject2.contains(Constants.EMAIL_SENT_FROM)); Assert.assertEquals(true,
-			 * emailSubject2.contains(Constants.EMAIL_SO_PENDING_SUBJECT_LINE));
-			 * 
-			 * // asserting email body Assert.assertEquals(true,
-			 * emailBody2.contains(Constants.EMAIL_SO_SUBMISSION_EMAIL_BODY));
-			 * Assert.assertEquals(emailToAndFrom2.contains(Constants.EMAIL_SENT_FROM_DOMAIN
-			 * ), true);
-			 * Assert.assertEquals(emailToAndFrom2.contains(systemAdmin.toString()), true);
-			 * 
-			 * // asserting links Assert.assertEquals(applicationLink2.contains(Constants.
-			 * EMAIL_SO_APPLICATION_LINK), true);
-			 * Assert.assertEquals(learningCenterLink2.contains(Constants.
-			 * EMAIL_SA_LEARNING_CENTER_LINK), true); counter++; }
-			 */
+		} else if (emailToAndFrom2.contains(systemManager.toString().replace("@gsa.gov", ""))) {
+			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_SENT_FROM));
+			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_ENV));
+			Assert.assertEquals(true, emailSubject2.contains(Constants.EMAIL_SA_SUBMISSION_SUBJECT_LINE));
 
-		// --------------------------------------------
-		/*
-		 * if (emailToAndFrom3.contains(systemAdmin.toString())) {// system admin
-		 * received the email // asserting the email subject line
-		 * Assert.assertEquals(true, emailSubject3.contains(Constants.EMAIL_SENT_FROM));
-		 * Assert.assertEquals(true,
-		 * emailSubject3.contains(Constants.EMAIL_SAA_PENDING_SUBJECT_LINE));
-		 * 
-		 * // asserting email body Assert.assertEquals(true,
-		 * emailBody3.contains(Constants.EMAIL_SAA_SUBMISSION_EMAIL_BODY));
-		 * Assert.assertEquals(emailToAndFrom3.contains(Constants.EMAIL_SENT_FROM_DOMAIN
-		 * ), true);
-		 * Assert.assertEquals(emailToAndFrom3.contains(systemAdmin.toString()), true);
-		 * 
-		 * // asserting links Assert.assertEquals(applicationLink3.contains(Constants.
-		 * EMAIL_SA_APPLICATION_LINK), true);
-		 * Assert.assertEquals(learningCenterLink3.contains(Constants.
-		 * EMAIL_SA_LEARNING_CENTER_LINK), true); counter++; } else if
-		 * (emailToAndFrom3.contains(systemManager.toString())) {
-		 * Assert.assertEquals(true, emailSubject3.contains(Constants.EMAIL_SENT_FROM));
-		 * Assert.assertEquals(true,
-		 * emailSubject3.contains(Constants.EMAIL_SA_SUBMISSION_SUBJECT_LINE));
-		 * 
-		 * // asserting email body Assert.assertEquals(true,
-		 * emailBody3.contains(Constants.EMAIL_SA_SUBMISSION_EMAIL_BODY));
-		 * Assert.assertEquals(emailToAndFrom3.contains(Constants.EMAIL_SENT_FROM_DOMAIN
-		 * ), true);
-		 * 
-		 * // asserting links Assert.assertEquals(applicationLink3.contains(Constants.
-		 * EMAIL_SA_APPLICATION_LINK), true);
-		 * Assert.assertEquals(learningCenterLink3.contains(Constants.
-		 * EMAIL_SA_LEARNING_CENTER_LINK), true); counter++; } else if
-		 * (emailToAndFrom3.contains(securityOfficial.toString())) { // asserting the
-		 * email subject line Assert.assertEquals(true,
-		 * emailSubject3.contains(Constants.EMAIL_SENT_FROM)); Assert.assertEquals(true,
-		 * emailSubject3.contains(Constants.EMAIL_SO_PENDING_SUBJECT_LINE));
-		 * 
-		 * // asserting email body Assert.assertEquals(true,
-		 * emailBody3.contains(Constants.EMAIL_SO_SUBMISSION_EMAIL_BODY));
-		 * Assert.assertEquals(emailToAndFrom3.contains(Constants.EMAIL_SENT_FROM_DOMAIN
-		 * ), true);
-		 * Assert.assertEquals(emailToAndFrom3.contains(systemAdmin.toString()), true);
-		 * 
-		 * // asserting links Assert.assertEquals(applicationLink3.contains(Constants.
-		 * EMAIL_SO_APPLICATION_LINK), true);
-		 * Assert.assertEquals(learningCenterLink3.contains(Constants.
-		 * EMAIL_SA_LEARNING_CENTER_LINK), true); counter++; }
-		 */
+			// asserting email body
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_SA_SUBMISSION_EMAIL_BODY));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
+			Assert.assertEquals(emailToAndFrom2.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
+			String user = systemManager.toString().replace("@gsa.gov", "");
+			Assert.assertEquals(true, emailToAndFrom2.contains(user));
+			// asserting links
+			Assert.assertEquals(applicationLink2.contains(Constants.EMAIL_SA_APPLICATION_LINK), true);
+			Assert.assertEquals(learningCenterLink2.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
+			counter++;
+		}
 		Assert.assertEquals(2, counter);
 
 	}
 
-	/*
-	 * @And("^_1saemail_ the security official should get an email notification$")
-	 * public void
-	 * _1saemail_the_security_official_should_get_an_email_notification() throws
-	 * Throwable {
-	 * 
-	 * }
-	 */
 
 	@Then("^_1saemail_ the system admin shold also get an email notification$")
 	public void _1saemail_the_system_admin_should_get_an_email_notification() throws Throwable {
@@ -288,7 +204,7 @@ public class SystemAccountEmailStep {
 	@And("^_1saemail_ the newly created account should show up on the system account directory page$")
 	public void _1saemail_the_newly_created_account_should_show_up_on_the_system_account_directory_page()
 			throws Throwable {
-
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_REVIEW,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(true, accountFound);
@@ -338,9 +254,9 @@ public class SystemAccountEmailStep {
 	public void _2saemail_user_enters_security_info() throws Throwable {
 		NewSystemAccountPage.enterIPaddress("192.168.1.1");
 		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
-		NewSystemAccountPage.enterPhysicalLocation("Reston VA");
-		NewSystemAccountPage.enterSecurityOfficialName("testname");
-		NewSystemAccountPage.enterSecurityOfficialEmail(ConstantsAccounts.GSASECURITY_APPROVER_1);
+		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
+		NewSystemAccountPage.enterSecurityOfficialName("a");
+		NewSystemAccountPage.enterSecurityOfficialEmail("a@b.c");
 		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
@@ -350,11 +266,17 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.clickReviewButton();
 		LaunchBrowserUtil.scrollUp();
 		NewSystemAccountPage.clickSubmit();
+
+		NewSystemAccountPage.selectAllTermsOfUse();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmail(Constants.GMAIL_USERNAME);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+
 		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
 		// NewSystemAccountPage.goToWorkspace();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
-		SystemAccountDirectoryPage.clickPendingApprovalFilter();
-		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 	}
 
 	@Then("^_2saemail_ the system admin should get an email notification$")
@@ -451,7 +373,7 @@ public class SystemAccountEmailStep {
 	public void _2saemail_the_newly_created_account_should_show_up_on_the_system_account_directory_page()
 			throws Throwable {
 		LaunchBrowserUtil.delay(2);
-		SystemAccountDirectoryPage.clickPendingReviewFilter();
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
 				Constants.ORG_GSA, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
@@ -461,10 +383,10 @@ public class SystemAccountEmailStep {
 	@Given("^_3saemail_ user logs in as nonfed user$")
 	public void _3saemail_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		/*
-		 * SignInUtility.signIntoCommonWorkspacePageNonFed(nonfeduser.toString() +
-		 * "@gmail.com", Constants.USERPASS); LaunchBrowserUtil.scrollAllTheWayDown();
-		 */
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		 
 
 	}
 
@@ -484,7 +406,7 @@ public class SystemAccountEmailStep {
 
 	@And("^_3saemail_ user enters all the organization info$")
 	public void _3saemail_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo("");
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_NONFED);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
@@ -503,7 +425,7 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.selectTypeConnection(NewSystemAccountPageLocator.REST_APIS);
 		NewSystemAccountPage.enterPhysicalLocation("Ashburn VA");
 		NewSystemAccountPage.enterSecurityOfficialName("a");
-		NewSystemAccountPage.enterSecurityOfficialEmail("a@b.com");
+		NewSystemAccountPage.enterSecurityOfficialEmail(gsasecurityapprover.toString());
 		NewSystemAccountPage.clickNextToGoToAuthorization();
 	}
 
@@ -513,8 +435,17 @@ public class SystemAccountEmailStep {
 		NewSystemAccountPage.clickReviewButton();
 		LaunchBrowserUtil.scrollUp();
 		NewSystemAccountPage.clickSubmit();
-		NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
-		// NewSystemAccountPage.goToWorkspace();
+
+		NewSystemAccountPage.selectAllTermsOfUse();
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		String otp = LaunchBrowserUtil.getOtpForSystemAccountFromEmailNonFed(Constants.EMAIL_NONFED,
+				Constants.USERPASS_NONFED);
+		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
+		NewSystemAccountPage.clickContinueOnTermsOfUse();
+		NewSystemAccountPage.clickSubmitOnTermsOfUser();
+
+		// NewSystemAccountPage.goToWorkspaceWithoutBreadcrumbs();
+		NewSystemAccountPage.goToWorkspace();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 	}
 
@@ -523,6 +454,7 @@ public class SystemAccountEmailStep {
 			throws Throwable {
 
 		LaunchBrowserUtil.delay(2);
+		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickPendingApprovalFilter();
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
@@ -532,30 +464,16 @@ public class SystemAccountEmailStep {
 
 	@Then("^_3saemail_ the nonfed user should get an email notification$")
 	public void _3saemail_the_nonfed_user_should_get_an_email_notification() throws Throwable {
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.navigateBack();
-		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
-		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
-		String applicationLink1 = LaunchBrowserUtil.getApplicationLink();
-		String learningCenterLink1 = LaunchBrowserUtil.getLearningCenterLink();
-		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 
-		// asserting the email subject line
-		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SENT_FROM));
-		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_CREATION_SUBJECT_LINE));
+		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
+		String emailBody1 = LaunchBrowserUtil.captureEmailContentNonfed();
+		LaunchBrowserUtil.switchTabs(2);
 
 		// asserting email body
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_CREATION_EMAIL_BODY));
-		Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
-
-		// asserting links
-		Assert.assertEquals(applicationLink1.contains(Constants.EMAIL_SA_APPLICATION_LINK), true);
-		Assert.assertEquals(learningCenterLink1.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
-
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PENDING_APPROVAL,
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
-		Assert.assertEquals(true, accountFound);
 	}
 
 	@Given("^_4saemail_ user logs in as system account manager$")
@@ -2420,7 +2338,7 @@ public class SystemAccountEmailStep {
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
-				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, accountFound);
 		LaunchBrowserUtil.delay(5);
@@ -2442,7 +2360,7 @@ public class SystemAccountEmailStep {
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		// ----------------------------------------------------
 		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate,
-				Constants.STATUS_PENDING_PERMISSIONS_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.STATUS_PENDING_APPROVAL, Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.GO_TO_REQUEST_DETAILS);
 		Assert.assertEquals(true, accountFound);
 
@@ -2451,34 +2369,6 @@ public class SystemAccountEmailStep {
 		SystemAccountRequestDetailsPage.clickCloseButton();
 		SystemAccountDirectoryPage.clickPublishedFilter();
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
-	}
-
-	@Then("^_9saemail gsa security approver gets an approval email notification$")
-	public void _9saemail_gsa_security_approver_gets_an_approval_email_notification() throws Throwable {
-		LaunchBrowserUtil.delay(18);
-		LaunchBrowserUtil.goToOctoTestEmailInbox();
-		LaunchBrowserUtil.switchTabs(1);
-		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(0);
-		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(0);
-		String applicationLink1 = LaunchBrowserUtil.getApplicationLink();
-		String learningCenterLink1 = LaunchBrowserUtil.getLearningCenterLink();
-		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(3);
-
-		// asserting the email subject line
-		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SENT_FROM));
-		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_GSAPPROVER_APPROVAL_SUBJECT_LINE));
-
-		// asserting email body
-		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_GSAPPROVER_APPROVAL_EMAIL_BODY));
-		Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
-		Assert.assertEquals(emailToAndFrom1.contains(gsasecurityapprover.toString().replace("@gsa.gov", "")), true);
-
-		// asserting links
-		Assert.assertEquals(applicationLink1.contains(Constants.EMAIL_SA_APPLICATION_LINK), true);
-		Assert.assertEquals(learningCenterLink1.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
-		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@And("^_9saemail the nonfed user gets a final approval notification$")
@@ -2493,34 +2383,13 @@ public class SystemAccountEmailStep {
 		SystemAccountDirectoryPage.clickSortDescedingByTimestampButton();
 		// ----------------------------------------------------
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
-		String emailSubject1 = LaunchBrowserUtil.captureTitleFromLastEmail(1);
-		String emailBody1 = LaunchBrowserUtil.captureEmailMessage(1);
-		String applicationLink1 = LaunchBrowserUtil.getApplicationLink();
-		String learningCenterLink1 = LaunchBrowserUtil.getLearningCenterLink();
-		String emailToAndFrom1 = LaunchBrowserUtil.captureToAndFromInEmail();
-		LaunchBrowserUtil.switchTabs(2);
+		String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
 
-		// asserting the email subject line
-		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_SENT_FROM));
-		Assert.assertEquals(true, emailSubject1.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_SUBJECT_LINE));
+		
 
 		// asserting email body
-		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_EMAIL_BODY));
-		Assert.assertEquals(emailToAndFrom1.contains(Constants.EMAIL_SENT_FROM_DOMAIN), true);
+		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_NONFED_SYSTEMACCOUNT_APPROVAL_EMAIL_BODY));
 
-		// asserting links
-		// Assert.assertEquals(applicationLink1.contains(Constants.EMAIL_SA_APPLICATION_LINK),
-		// true);
-		Assert.assertEquals(learningCenterLink1.contains(Constants.EMAIL_SA_LEARNING_CENTER_LINK), true);
-
-	}
-
-	@Then("^_9saemail the published account can now be deleted$")
-	public void _9saemail_the_published_account_can_now_be_deleted() throws Throwable {
-
-		boolean accountFound = SystemAccountDirectoryPage.accountFound(formattedDate, Constants.STATUS_PUBLISHED,
-				Constants.ORG_OCTO_CONSULTING_GROUP, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
-		Assert.assertEquals(true, accountFound);
 	}
 
 	@Given("^_10saemail_ user logs in as nonfed user$")
