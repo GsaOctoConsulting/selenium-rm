@@ -657,6 +657,21 @@ public class NonFedStep {
 		LaunchBrowserUtil.delay(2);
 		UserDirectoryPage.setDriver(LaunchBrowserUtil.getDriver());
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.goToWorkspacePage();
+		
+		
+	}
+	
+	@When("^_10nf nonfed user is in the workspace page$")
+	public void _10_nf_nonfed_user_is_in_the_workspace_page() throws Exception {
+	  boolean systemaccountwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.SYSTEMACCOUNT_WIDGET);
+		Assert.assertEquals(true, systemaccountwidgetfound);
+	}
+
+
+	@Then("^_10nf they should be able to see the system account widget$")
+	public void _10_nf_they_should_be_able_to_see_the_system_account_widget() throws Exception {
+	   
 	}
 
 	@Given("^_11nf nonfed user logs in with data entry role in entity registration$")

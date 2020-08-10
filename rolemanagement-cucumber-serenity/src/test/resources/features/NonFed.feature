@@ -100,10 +100,12 @@ Scenario: a nonfed user without a role should not be able to view the userdirect
 	And _9nf user should also not be able to hit the user directory url 
 	
 @10 
-Scenario: a nonfed user with a role should be able to view the userdirectory 
+Scenario: a nonfed user with a role should be able to view the userdirectory and system account widget
 	Given _10nf nonfed user with a role logs in 
 	Then _10nf nonfed user should see user directory widget 
-	And _10nf nonfed user should also be able to hit the user directory url to access the page 
+	And _10nf nonfed user should also be able to hit the user directory url to access the page
+	When _10nf nonfed user is in the workspace page
+	Then _10nf they should be able to see the system account widget 
 	
 @11 
 Scenario: a nonfed user with data entry in entity registration should be able to view users as clickable 
