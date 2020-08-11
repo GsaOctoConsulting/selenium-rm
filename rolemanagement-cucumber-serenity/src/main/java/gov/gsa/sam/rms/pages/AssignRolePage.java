@@ -334,5 +334,27 @@ public class AssignRolePage {
 	return alerttext;
 		
 	}
+	public static boolean validateEntitySuggestionContainsGivenWord(String orgname, String word) {
+		boolean allOrgsContainsGivenWord = true;
+		
+		WebElement entitypicker = LaunchBrowserUtil.driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA);
+		entitypicker.clear();
+		entitypicker.sendKeys(orgname);
+		LaunchBrowserUtil.delay(2);
+		List<WebElement> orgList = driver.findElements(AssignRolePageLocator.ENTITY_SELECTOR);
+		logger.info(("The size of the list is......" + orgList.size()));
+
+		WebElement firstOrg = orgList.get(0);
+		logger.info("*****************the text from first org is*****" + firstOrg.getText());
+
+		for (WebElement org : orgList) {
+			logger.info(org.getText());
+			if (org.getText().contains(word) == false) {
+				allOrgsContainsGivenWord = false;
+			}
+		}
+		return allOrgsContainsGivenWord;
+		
+	}
 
 }

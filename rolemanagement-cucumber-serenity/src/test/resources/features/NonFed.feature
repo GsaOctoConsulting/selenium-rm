@@ -208,6 +208,13 @@ Scenario: a nonfed user when requesting a role should not see duns plus four in 
 	And _23nf user navigates to role request page 
 	When _23nf user searches for entities in the entity picker 
 	Then _23nf duns plus four should not show up and only duns should show
+
+@24 
+Scenario: a nonfed admin when assigning a role should not see duns plus four in entity picker  
+	Given _24nf user logs in as nonfed admin
+	And _24nf user navigates to userdirectory page and searches for a nonfed user 
+	When _24nf user searches for entity in the assign role page 
+	Then _24nf duns plus four should not show up and only duns should show
 	
 
 	 

@@ -1221,14 +1221,41 @@ public class NonFedStep {
 		boolean entityfound = RequestRolePage
 				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS+4");
 		Assert.assertEquals(false, entityfound);
-		
-		
+
 	}
 
 	@Then("^_23nf duns plus four should not show up and only duns should show$")
 	public void _23nf_duns_plus_four_should_not_show_up_and_only_duns_should_show() throws Throwable {
 
 		boolean entityfound = RequestRolePage
+				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS");
+		Assert.assertEquals(true, entityfound);
+	}
+
+	@Given("^_24nf user logs in as nonfed admin$")
+	public void _24nf_user_logs_in_as_nonfed_admin() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_24nf user navigates to userdirectory page and searches for a nonfed user$")
+	public void _24nf_user_navigates_to_userdirectory_page_and_searches_for_a_nonfed_user() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+	}
+
+	@When("^_24nf user searches for entity in the assign role page$")
+	public void _24nf_user_searches_for_entity_in_the_assign_role_page() throws Throwable {
+		boolean entityfound = AssignRolePage
+				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS+4");
+		Assert.assertEquals(false, entityfound);
+	}
+
+	@Then("^_24nf duns plus four should not show up and only duns should show$")
+	public void _24nf_duns_plus_four_should_not_show_up_and_only_duns_should_show() throws Throwable {
+		boolean entityfound = AssignRolePage
 				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS");
 		Assert.assertEquals(true, entityfound);
 	}

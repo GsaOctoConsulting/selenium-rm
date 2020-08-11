@@ -242,7 +242,7 @@ return driver.findElement(By.id("alert-error-top")).getText();
 	public static boolean validateEntitySuggestionContainsGivenWord(String orgname, String word) {
 		boolean allOrgsContainsGivenWord = true;
 		
-		WebElement entitypicker = driver.findElement(RequestRolePageLocator.ENTITYPICKER_TEXTAREA);
+		WebElement entitypicker = LaunchBrowserUtil.driver.findElement(RequestRolePageLocator.ENTITYPICKER_TEXTAREA);
 		entitypicker.clear();
 		entitypicker.sendKeys(orgname);
 		LaunchBrowserUtil.delay(2);
