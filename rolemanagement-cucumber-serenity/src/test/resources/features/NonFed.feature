@@ -201,7 +201,13 @@ Scenario: user directory entiy search should give expected list of orgs with nam
 	Then _22nf user should only see entities containing the duns no in the results 
 	When _22nf user searches enity with cage code in cage search box 
 	Then _22nf user should only see entities containing the cage no in the results 
-	
+
+@23 
+Scenario: a nonfed user when requesting a role should not see duns plus four in entity picker during role request 
+	Given _23nf user logs in as nonfed user 
+	And _23nf user navigates to role request page 
+	When _23nf user searches for entities in the entity picker 
+	Then _23nf duns plus four should not show up and only duns should show
 	
 
 	 

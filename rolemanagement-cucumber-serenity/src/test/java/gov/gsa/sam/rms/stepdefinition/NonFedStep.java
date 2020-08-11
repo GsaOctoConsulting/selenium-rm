@@ -658,20 +658,18 @@ public class NonFedStep {
 		UserDirectoryPage.setDriver(LaunchBrowserUtil.getDriver());
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
 		UserDirectoryPage.goToWorkspacePage();
-		
-		
+
 	}
-	
+
 	@When("^_10nf nonfed user is in the workspace page$")
 	public void _10_nf_nonfed_user_is_in_the_workspace_page() throws Exception {
-	  boolean systemaccountwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.SYSTEMACCOUNT_WIDGET);
+		boolean systemaccountwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.SYSTEMACCOUNT_WIDGET);
 		Assert.assertEquals(true, systemaccountwidgetfound);
 	}
 
-
 	@Then("^_10nf they should be able to see the system account widget$")
 	public void _10_nf_they_should_be_able_to_see_the_system_account_widget() throws Exception {
-	   
+
 	}
 
 	@Given("^_11nf nonfed user logs in with data entry role in entity registration$")
@@ -1202,6 +1200,37 @@ public class NonFedStep {
 	@Then("^_22nf user should only see entities containing the cage no in the results$")
 	public void _22nf_user_should_only_see_entities_containing_the_cage_no_in_the_results() throws Throwable {
 
+	}
+
+	@Given("^_23nf user logs in as nonfed user$")
+	public void _23nf_user_logs_in_as_nonfed_user() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+	}
+
+	@And("^_23nf user navigates to role request page$")
+	public void _23nf_user_navigates_to_role_request_page() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.clickRequestRoleButton();
+	}
+
+	@When("^_23nf user searches for entities in the entity picker$")
+	public void _23nf_user_searches_for_entities_in_the_entity_picker() throws Throwable {
+		boolean entityfound = RequestRolePage
+				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS+4");
+		Assert.assertEquals(false, entityfound);
+		
+		
+	}
+
+	@Then("^_23nf duns plus four should not show up and only duns should show$")
+	public void _23nf_duns_plus_four_should_not_show_up_and_only_duns_should_show() throws Throwable {
+
+		boolean entityfound = RequestRolePage
+				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS");
+		Assert.assertEquals(true, entityfound);
 	}
 
 	private void beforeScenario() {
