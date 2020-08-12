@@ -1260,6 +1260,35 @@ public class NonFedStep {
 		Assert.assertEquals(true, entityfound);
 	}
 
+	@Given("^_25nf user logs in as spaad$")
+	public void _25nf_user_logs_in_as_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_25nf user navigates to userdirectory page and searches for a nonfed user$")
+	public void _25nf_user_navigates_to_userdirectory_page_and_searches_for_a_nonfed_user() throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+	}
+
+	@When("^_25nf user searches for entity in the assign role page$")
+	public void _25nf_user_searches_for_entity_in_the_assign_role_page() throws Throwable {
+		boolean entityfound = AssignRolePage
+				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS+4");
+		Assert.assertEquals(false, entityfound);
+		
+	}
+
+	@Then("^_25nf duns plus four should not show up and only duns should show$")
+	public void _25nf_duns_plus_four_should_not_show_up_and_only_duns_should_show() throws Throwable {
+		boolean entityfound = AssignRolePage
+				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS");
+		Assert.assertEquals(true, entityfound);
+	}
+
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}

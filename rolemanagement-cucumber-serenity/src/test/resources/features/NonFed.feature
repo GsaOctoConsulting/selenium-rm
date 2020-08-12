@@ -99,7 +99,7 @@ Scenario: a nonfed user without a role should not be able to view the userdirect
 	Then _9nf user should not see user directory widget 
 	And _9nf user should also not be able to hit the user directory url 
 	
-@10 
+@10 @x
 Scenario: a nonfed user with a role should be able to view the userdirectory and system account widget
 	Given _10nf nonfed user with a role logs in 
 	Then _10nf nonfed user should see user directory widget 
@@ -202,20 +202,26 @@ Scenario: user directory entiy search should give expected list of orgs with nam
 	When _22nf user searches enity with cage code in cage search box 
 	Then _22nf user should only see entities containing the cage no in the results 
 
-@23 
+@23 @x
 Scenario: a nonfed user when requesting a role should not see duns plus four in entity picker during role request 
 	Given _23nf user logs in as nonfed user 
 	And _23nf user navigates to role request page 
 	When _23nf user searches for entities in the entity picker 
 	Then _23nf duns plus four should not show up and only duns should show
 
-@24 
+@24 @x
 Scenario: a nonfed admin when assigning a role should not see duns plus four in entity picker  
 	Given _24nf user logs in as nonfed admin
 	And _24nf user navigates to userdirectory page and searches for a nonfed user 
 	When _24nf user searches for entity in the assign role page 
 	Then _24nf duns plus four should not show up and only duns should show
-	
+
+@25 @x
+Scenario: spaad when assigning a role should not see duns plus four in entity picker  
+	Given _25nf user logs in as spaad
+	And _25nf user navigates to userdirectory page and searches for a nonfed user 
+	When _25nf user searches for entity in the assign role page 
+	Then _25nf duns plus four should not show up and only duns should show	
 
 	 
 	
