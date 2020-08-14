@@ -14,6 +14,7 @@ import gov.gsa.sam.rms.locators.RoleInviteAssignRolePageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 public class RoleInviteAssignRolePage {
+	private static final By ROLE_SELECTOR = By.id("role-selector-wrapper");
 	private static WebDriver driver;
 	private static org.slf4j.Logger logger = LoggerFactory.getLogger(RoleInviteAssignRolePage.class);
 
@@ -73,7 +74,7 @@ public class RoleInviteAssignRolePage {
 
 	public static boolean selectEntityRoleIfFound(String roleName) {
 		boolean roleFound = false;
-		Select role = new Select(driver.findElement(AssignRolePageLocator.ROLE_SELECTOR));
+		Select role = new Select(driver.findElement(RoleInviteAssignRolePage.ROLE_SELECTOR));
 		try {
 			role.selectByVisibleText(roleName);
 			roleFound = true;

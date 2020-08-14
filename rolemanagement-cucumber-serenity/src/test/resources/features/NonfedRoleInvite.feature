@@ -141,7 +141,7 @@ Scenario: entity compliance admin in two entitities should be able to send role 
 	Then _13nri the admin should also see the status update in their feeds
 	And _13nri the admin should now be able to search the user in userdirectory
 
-@14 @temp
+@14 
 Scenario:  pending role invitation will change status to canceled when user deactivates their account   
 	Given _14nri nonfed admin in entity registration logs in   
 	When _14nri admin enters an id for a user with no roles 
@@ -150,7 +150,7 @@ Scenario:  pending role invitation will change status to canceled when user deac
 	And _14nri user deactivates their account
 	Then _14nri admin should see the pending role invite status changes to canceled
 
-@15 @temp
+@15 
 Scenario:  pending role invitation will change status to canceled when user deactivates their account   
 	Given _15nri nonfed admin in entity compliance logs in   
 	When _15nri admin enters an id for a user with no roles 
@@ -159,7 +159,7 @@ Scenario:  pending role invitation will change status to canceled when user deac
 	And _15nri user deactivates their account
 	Then _15nri admin should see the accepted role invite status changes to canceled
 
-@16 @temp
+@16 
 Scenario:  pending role request should change status to canceled in feeds when user deactivates their account   
 	Given _16nri nonfed user signs up   
 	And _16nri user requests viewer role in entity registration 
@@ -168,7 +168,7 @@ Scenario:  pending role request should change status to canceled in feeds when u
 	When _16nri user deactivates their account
 	Then _16nri admin should see the pending role invite status changes to canceled in feeds
 	
-@17 @temp
+@17 
 Scenario:  accepted role request should change status to canceled in feeds when user deactivates their account
 	Given _17nri fed user signs up
 	And _17nri user requests assistance user role in assistance listing

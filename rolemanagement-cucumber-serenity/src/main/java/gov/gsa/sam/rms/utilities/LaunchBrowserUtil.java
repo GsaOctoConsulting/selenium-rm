@@ -545,7 +545,7 @@ public class LaunchBrowserUtil {
 
 	public static void recoverThroughForgotPasswordForFed(String userid, String secretkey, String newpassword) {
 		T1WorkspacePage.clickSignInButton();
-		T1WorkspacePage.clickAcceptOnBanner();
+		//T1WorkspacePage.clickAcceptOnBanner();
 		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		delay(1);
@@ -563,9 +563,9 @@ public class LaunchBrowserUtil {
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		delay(3);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div/div[2]/div[2]/div/a/span")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		delay(2);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div[2]/div[2]")).click();
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));

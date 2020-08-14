@@ -202,21 +202,21 @@ Scenario: user directory entiy search should give expected list of orgs with nam
 	When _22nf user searches enity with cage code in cage search box 
 	Then _22nf user should only see entities containing the cage no in the results 
 
-@23 @x
+@23 
 Scenario: a nonfed user when requesting a role should not see duns plus four in entity picker during role request 
 	Given _23nf user logs in as nonfed user 
 	And _23nf user navigates to role request page 
 	When _23nf user searches for entities in the entity picker 
 	Then _23nf duns plus four should not show up and only duns should show
 
-@24 @x
+@24 
 Scenario: a nonfed admin when assigning a role should not see duns plus four in entity picker  
 	Given _24nf user logs in as nonfed admin
 	And _24nf user navigates to userdirectory page and searches for a nonfed user 
 	When _24nf user searches for entity in the assign role page 
 	Then _24nf duns plus four should not show up and only duns should show
 
-@25 @x
+@25
 Scenario: spaad when assigning a role should not see duns plus four in entity picker  
 	Given _25nf user logs in as spaad
 	And _25nf user navigates to userdirectory page and searches for a nonfed user 

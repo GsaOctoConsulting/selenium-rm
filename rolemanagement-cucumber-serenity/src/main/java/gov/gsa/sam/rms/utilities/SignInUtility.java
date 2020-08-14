@@ -42,7 +42,7 @@ public class SignInUtility {
 		// ---------------------------
 		LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
+		//LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 		LaunchBrowserUtil.delay(2);

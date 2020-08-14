@@ -40,7 +40,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
+//			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
 			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 			LaunchBrowserUtil.delay(3);
@@ -134,7 +134,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
+//			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
 			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 			LaunchBrowserUtil.delay(3);

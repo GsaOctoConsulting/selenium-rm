@@ -251,7 +251,7 @@ public class NonfedEmailStep {
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		boolean rolechangeoccured = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DATA_ENTRY_REMOVE, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+				Constants.ROLE_DATA_ENTRY, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
 		Assert.assertEquals(true, rolechangeoccured);
 
 	}
@@ -598,28 +598,28 @@ public class NonfedEmailStep {
 		if (emailBody2.contains("You have assigned")) {
 
 			// asserting the email sent to user
-			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
-			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_ASSIGNED));
 
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
-			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
-			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
-			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 
 			counter++;
 
 		} else if (emailBody2.contains("You have been assigned")) {
 
 			// asserting the email sent to admin
-			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
-			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
-			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_ASSIGNED));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_DATA_ENTRY));
+			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 
-			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
-			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
+			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 			counter++;
 		}
 
