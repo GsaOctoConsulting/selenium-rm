@@ -1,10 +1,6 @@
 package gov.gsa.sam.rms.stepdefinition;
 
 import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
-
-import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +9,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import gov.gsa.sam.rms.utilities.Constants;
-import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.VideoRecordingUtility;
 
 public class CucumberHooks {

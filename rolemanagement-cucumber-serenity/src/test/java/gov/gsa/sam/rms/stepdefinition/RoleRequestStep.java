@@ -746,7 +746,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -971,7 +971,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -1040,7 +1040,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
@@ -1100,7 +1100,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
