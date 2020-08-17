@@ -369,7 +369,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "this is the first comment";
@@ -539,7 +539,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "test";
@@ -616,7 +616,7 @@ public class RoleRequestStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("shah.raiaan@gsa.gov");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		comments = "test";
