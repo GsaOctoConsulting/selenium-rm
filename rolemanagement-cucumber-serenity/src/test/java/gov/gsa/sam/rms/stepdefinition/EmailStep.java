@@ -926,7 +926,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");

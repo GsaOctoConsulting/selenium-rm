@@ -446,7 +446,7 @@ public class LaunchBrowserUtil {
 		delay(3);
 		if (nooffetch == 1) {
 			driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(email);
-			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/span/span")).click();
+			driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[2]")).click();
 		}
 
 		if (Constants.INCOGNITO_ON == false) {
@@ -456,7 +456,7 @@ public class LaunchBrowserUtil {
 
 			if (nooffetch == 1) {
 				driver.findElement(
-						By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/span/span"))
+						By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
 						.click();
 				LaunchBrowserUtil.delay(4);
 			}

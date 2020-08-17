@@ -110,7 +110,7 @@ public class AccountDetailsStep {
 		CommonProfilePage.enterLastName("lastname");
 		CommonProfilePage.enterWorkphone("5555555555");
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		//CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		CommonProfilePage.clickSubmitButton();
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		RequestRoleOptionalPage.clickSkipAndFinish();
