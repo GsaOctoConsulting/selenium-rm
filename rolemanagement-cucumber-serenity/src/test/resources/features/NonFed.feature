@@ -221,7 +221,10 @@ Scenario: spaad when assigning a role should not see duns plus four in entity pi
 	Given _25nf user logs in as spaad
 	And _25nf user navigates to userdirectory page and searches for a nonfed user 
 	When _25nf user searches for entity in the assign role page 
-	Then _25nf duns plus four should not show up and only duns should show	
+	Then _25nf duns plus four should not show up and only duns should show
+
+
+
 
 	 
 	
