@@ -102,7 +102,18 @@ Scenario: the available links and widgets in the t1workspace should be functiona
 	Given _12 user logs in as various users 
 	And _12 user lands on the new t1workspace 
 	Then _12 user should be able to view the widget as per their roles 
-	
+
+@tag2
+  Scenario Outline: Title of your scenario outline
+    Given _2df1 I want to write a step with <name>
+    When _2df1 I check for the <value> in step
+    Then _2df1 I verify the <status> in step
+    
+    Examples: 
+      | name  | value | status  |
+      | name1 |     5 | success |
+      | name2 |     7 | Fail    |
+      | name3 |     8 | success |	
 	
 	
 	
