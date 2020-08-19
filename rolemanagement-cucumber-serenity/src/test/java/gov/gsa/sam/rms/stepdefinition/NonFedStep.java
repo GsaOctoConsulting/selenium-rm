@@ -791,8 +791,8 @@ public class NonFedStep {
 
 	@Given("^_14nf a nonfed user with no role logs in$")
 	public void _14nf_a_nonfed_user_with_no_role_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_14nf user requests viewer role in contract opportunities$")
@@ -816,8 +816,8 @@ public class NonFedStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_NONFED);
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
 
@@ -831,12 +831,25 @@ public class NonFedStep {
 	public void _14_then_requsters_profile_page_should_show_the_role_assigned_in_role_history() throws Throwable {
 		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_ASSIGNED, "", 0);
 		Assert.assertEquals(true, rolehistoryfound);
+		
+		LaunchBrowserUtil.openNewTab();
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
 
+		
+	}
+	
+	@And("^_14nf the request assignment should send ip address information as well$")
+    public void _14nf_the_request_assignment_should_send_ip_address_information_as_well() throws Throwable {
+       LaunchBrowserUtil.delay(3);
+       LaunchBrowserUtil.switchTabs(2);
+       LaunchBrowserUtil.delay(2);
+		
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
-	}
+    }
 
 	@Given("^_15nf spaad logs in$")
 	public void _15nf_spaad_logs_in() throws Throwable {

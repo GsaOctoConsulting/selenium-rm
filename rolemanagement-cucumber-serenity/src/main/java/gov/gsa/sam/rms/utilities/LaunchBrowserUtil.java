@@ -976,4 +976,9 @@ public class LaunchBrowserUtil {
 		return count;
 
 	}
+
+	public static void openNewTab() {
+		((JavascriptExecutor) driver).executeScript("window.open('')");
+		
+	}
 }
