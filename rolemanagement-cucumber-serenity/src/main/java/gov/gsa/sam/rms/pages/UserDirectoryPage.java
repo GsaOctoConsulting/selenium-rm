@@ -2,8 +2,6 @@ package gov.gsa.sam.rms.pages;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;

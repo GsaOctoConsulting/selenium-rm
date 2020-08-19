@@ -5,10 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import atu.testrecorder.exceptions.ATUTestRecorderException;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.VideoRecordingUtility;
 
 public class CucumberHooks {
@@ -33,7 +34,7 @@ public class CucumberHooks {
 		if(Constants.VIDEO_RECORD_ON) {
 		recorder.stop();
 		}
-		//LaunchBrowserUtil.closeBrowsers();
+		LaunchBrowserUtil.closeBrowsers();
 	}
 	
 }

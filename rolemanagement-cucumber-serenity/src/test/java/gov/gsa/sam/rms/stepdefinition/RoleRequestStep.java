@@ -9,10 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.RequestRolePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;

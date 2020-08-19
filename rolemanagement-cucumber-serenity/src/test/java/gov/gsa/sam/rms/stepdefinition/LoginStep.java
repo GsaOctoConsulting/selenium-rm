@@ -1,9 +1,9 @@
 package gov.gsa.sam.rms.stepdefinition;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
@@ -516,6 +516,7 @@ String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
 
 	@Given("^_2df1 I want to write a step with (.+)$")
 	public void _2_i_want_to_write_a_step_with_name1(String name) {
+		LaunchBrowserUtil.openThisBrowser();
 		logger.info("writing a step with the name - " + name);
 	}
 

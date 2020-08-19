@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.CharMatcher;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import gov.gsa.sam.rms.locators.NewSystemAccountPageLocator;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.NewSystemAccountPage;

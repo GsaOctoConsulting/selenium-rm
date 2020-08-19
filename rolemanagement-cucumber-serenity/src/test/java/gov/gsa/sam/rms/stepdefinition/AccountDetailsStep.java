@@ -4,10 +4,6 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import gov.gsa.sam.rms.locators.AccountDetailsPageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.CommonProfilePage;
@@ -18,6 +14,10 @@ import gov.gsa.sam.rms.utilities.Constants;
 import gov.gsa.sam.rms.utilities.ConstantsAccounts;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.utilities.SignUpUtility;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class AccountDetailsStep {
 	private static Logger logger = LoggerFactory.getLogger(AccountDetailsStep.class);
