@@ -831,25 +831,27 @@ public class NonFedStep {
 	public void _14_then_requsters_profile_page_should_show_the_role_assigned_in_role_history() throws Throwable {
 		boolean rolehistoryfound = MyRolesPage.roleHistoryFound("", Constants.ROLEHISTORY_STATUS_ROLE_ASSIGNED, "", 0);
 		Assert.assertEquals(true, rolehistoryfound);
-		
+
 		LaunchBrowserUtil.openNewTab();
 		LaunchBrowserUtil.switchTabs(1);
 		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+		String response = LaunchBrowserUtil.getValidateIPAddressParameter(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 
-		
+		Assert.assertTrue(response.contains("\"adminIp\":"));
+
 	}
-	
+
 	@And("^_14nf the request assignment should send ip address information as well$")
-    public void _14nf_the_request_assignment_should_send_ip_address_information_as_well() throws Throwable {
-       LaunchBrowserUtil.delay(3);
-       LaunchBrowserUtil.switchTabs(2);
-       LaunchBrowserUtil.delay(2);
-		
+	public void _14nf_the_request_assignment_should_send_ip_address_information_as_well() throws Throwable {
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.delay(2);
+
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
 				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
 		Assert.assertEquals(userAlreadyHasRole, true);
-    }
+	}
 
 	@Given("^_15nf spaad logs in$")
 	public void _15nf_spaad_logs_in() throws Throwable {
@@ -1292,7 +1294,7 @@ public class NonFedStep {
 		boolean entityfound = AssignRolePage
 				.validateEntitySuggestionContainsGivenWord(Constants.ORG_OCTO_CONSULTING_GROUP, "DUNS+4");
 		Assert.assertEquals(false, entityfound);
-		
+
 	}
 
 	@Then("^_25nf duns plus four should not show up and only duns should show$")

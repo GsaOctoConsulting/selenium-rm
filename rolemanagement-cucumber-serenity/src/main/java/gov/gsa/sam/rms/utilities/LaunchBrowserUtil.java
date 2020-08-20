@@ -981,4 +981,21 @@ public class LaunchBrowserUtil {
 		((JavascriptExecutor) driver).executeScript("window.open('')");
 		
 	}
+
+	public static String getValidateIPAddressParameter(String useremail) {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.id("operations-UserAccess-getUserAccessByUserName")).click();
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.xpath("//button[starts-with(@class, 'btn try-out__btn')]")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'userName - userName value')]")).sendKeys(useremail);
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'fetchNames')]")).sendKeys("true");
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.xpath("//button[starts-with(@class, 'btn execute opblock-control__btn')]")).click();
+		LaunchBrowserUtil.delay(1);
+		String responsetext=driver.findElement(By.className("highlight-code")).getText();
+		logger.info("The response text found is----  "+responsetext);
+		return responsetext;
+	}
 }
