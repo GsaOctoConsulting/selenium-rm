@@ -1,7 +1,6 @@
 package gov.gsa.sam.rms.locators;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 public class AccountDetailsPageLocator {
 	public static final String TITLE = "beta.SAM.gov | Account Details";

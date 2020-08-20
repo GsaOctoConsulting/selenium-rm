@@ -1,8 +1,8 @@
 package gov.gsa.sam.rms.stepdefinition;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class BetaSmokeTestStep {
 	@Given("^_1 user logs in with no role user$")
