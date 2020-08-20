@@ -101,8 +101,8 @@ public class LaunchBrowserUtil {
 	 * @throws Exception
 	 */
 	public static void scrollAllTheWayDown() throws Exception {
-		// ((JavascriptExecutor) driver).executeScript("scroll(0,800)", "");
-		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		// ((JavascriptExecutor) driver.get()).executeScript("scroll(0,800)", "");
+		((JavascriptExecutor) driver.get()).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		delay(4);
 	}
 
@@ -127,12 +127,12 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void scrollToMiddle() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
 		js.executeScript("scroll(0,400)", "");
 	}
 
 	public static void scrollUp() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
 		js.executeScript("scroll(0,-800)", "");
 	}
 
@@ -148,7 +148,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void goToOctoTestEmailInbox() {
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		delay(2);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -214,7 +214,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void scrollByVisibleElement(By by) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
 		WebElement Element = driver.get().findElement(by);
 		// This will scroll the page till the element is found
 		js.executeScript("arguments[0].scrollIntoView();", Element);
@@ -272,7 +272,7 @@ public class LaunchBrowserUtil {
 	public static ArrayList<String> captureSignUpLinkFromGmail() {
 		delay(15);
 		// LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		driver.get().navigate().refresh();
 		delay(5);
 		// ((JavascriptExecutor)
@@ -327,7 +327,7 @@ public class LaunchBrowserUtil {
 	public static ArrayList<String> captureSignUpLinkFromNonFedEmail(String email) throws InterruptedException {
 		delay(8);
 		LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('http://yopmail.com')");
 		delay(2);
 		driver.get().navigate().refresh();
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
@@ -375,7 +375,7 @@ public class LaunchBrowserUtil {
 			throws InterruptedException {
 		delay(8);
 		LaunchBrowserUtil.clearCookies();
-		((JavascriptExecutor) driver).executeScript("window.open('http://gmail.com')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('http://gmail.com')");
 		delay(2);
 		driver.get().navigate().refresh();
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
@@ -400,7 +400,7 @@ public class LaunchBrowserUtil {
 
 	public static void goToFedMailInbox(String username, String password) {
 		delay(3);
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		delay(2);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -438,7 +438,7 @@ public class LaunchBrowserUtil {
 
 	public static String getOtpFromEmailForApiKey(String email, String userpass, int nooffetch) {
 		delay(8);
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -488,7 +488,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getOtpFromEmailForApiKeyNonFed(String email, String userpass, int nooffetch) {
-		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('http://yopmail.com')");
 		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -518,7 +518,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getPhoneOtpFromEmailDuringSignUp(String gmailUsername) {
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		LaunchBrowserUtil.delay(19);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -557,7 +557,7 @@ public class LaunchBrowserUtil {
 		// ----------get reset password link-------------------
 		// LaunchBrowserUtil.clearCookies();
 		delay(12);
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -603,7 +603,7 @@ public class LaunchBrowserUtil {
 		delay(12);
 		// ((JavascriptExecutor)
 		// driver).executeScript("window.open('https://mail.google.com/')");
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/mail/#inbox')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/mail/#inbox')");
 		delay(2);
 		driver.get().navigate().refresh();
 		delay(4);
@@ -638,7 +638,7 @@ public class LaunchBrowserUtil {
 
 	public static String getOtpForSystemAccountFromEmail(String email) {
 		delay(15);
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
 		driver.get().findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(Constants.GMAIL_USERNAME);
@@ -695,7 +695,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getOtpForSystemAccountFromEmailNonFed(String email, String userpass) {
-		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('http://yopmail.com')");
 		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -737,7 +737,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getPhoneOtpFromEmailDuringSignUpNonFed(String gmailNonfed) {
-		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('http://yopmail.com')");
 		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -759,7 +759,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static String getPhoneOtpFromEmailDuringSignUpNonFedTemporary(String gmailNonfed) {
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		delay(4);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -777,7 +777,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void goToNonFedFedMailInbox(String nonfedemail) {
-		((JavascriptExecutor) driver).executeScript("window.open('http://yopmail.com')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('http://yopmail.com')");
 		LaunchBrowserUtil.delay(3);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -839,7 +839,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void goToGSAEmailInboxModified(String fedUser) {
-		((JavascriptExecutor) driver).executeScript("window.open('https://mail.google.com/')");
+		((JavascriptExecutor) driver.get()).executeScript("window.open('https://mail.google.com/')");
 		delay(2);
 		tab_handles = new ArrayList<String>(driver.get().getWindowHandles());
 		driver.get().switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -911,7 +911,7 @@ public class LaunchBrowserUtil {
 	}
 
 	public static void scrollToEnd() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver.get();
 		js.executeScript("scroll(0,1600)", "");
 	}
 

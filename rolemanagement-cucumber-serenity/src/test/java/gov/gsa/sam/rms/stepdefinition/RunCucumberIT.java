@@ -9,7 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(monochrome=true, plugin = { "pretty"}, glue = {
 		"gov.gsa.sam.rms.stepdefinition" }, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@tag2"})
+				"@SmokeTest"})
 public class RunCucumberIT {
-  // starts-with ChromeDriver
+  // starts-with Chrome tags = {
+//"@tag2"}
 }
