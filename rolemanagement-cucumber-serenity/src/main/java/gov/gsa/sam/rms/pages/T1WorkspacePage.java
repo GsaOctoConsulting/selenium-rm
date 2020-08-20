@@ -247,7 +247,7 @@ public class T1WorkspacePage {
 	}
 
 	public static String getSplashPageHeading() {
-		String headingtext = LaunchBrowserUtil.driver.findElement(By.tagName("h1")).getText();
+		String headingtext = LaunchBrowserUtil.driver.get().findElement(By.tagName("h1")).getText();
 		LaunchBrowserUtil.delay(2);
 		return headingtext;
 	}

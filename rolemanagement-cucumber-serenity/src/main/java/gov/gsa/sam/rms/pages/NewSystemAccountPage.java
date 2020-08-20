@@ -457,8 +457,8 @@ public class NewSystemAccountPage {
 	public static void addMessageAndHitEnter(String addMessage) throws Exception {
 		LaunchBrowserUtil.scrollToMiddle();
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("comment-component-input")).sendKeys(addMessage);
-		LaunchBrowserUtil.driver.findElement(By.id("comment-component-input")).sendKeys(Keys.ENTER);
+		LaunchBrowserUtil.driver.get().findElement(By.id("comment-component-input")).sendKeys(addMessage);
+		LaunchBrowserUtil.driver.get().findElement(By.id("comment-component-input")).sendKeys(Keys.ENTER);
 	}
 
 /**
@@ -466,7 +466,7 @@ public class NewSystemAccountPage {
 	 */
 	public static String validateComment(int commentNo) throws Exception {
 		LaunchBrowserUtil.delay(2);
-		List<WebElement> comment = LaunchBrowserUtil.driver.findElements(By.xpath("//*[@class='sam-comment']//p"));
+		List<WebElement> comment = LaunchBrowserUtil.driver.get().findElements(By.xpath("//*[@class='sam-comment']//p"));
 		String addComment = comment.get(commentNo).getText();
 		logger.info("Comment size is :" + comment.size());
 		logger.info("The added comment is :" + addComment);
@@ -474,59 +474,59 @@ public class NewSystemAccountPage {
 	}
 
 public static void selectALLPermissions() throws Exception {
-	LaunchBrowserUtil.driver.findElement(By.id("term0")).click();
+	LaunchBrowserUtil.driver.get().findElement(By.id("term0")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term1")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term1")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term2")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term2")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term3")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term3")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term4")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term4")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term5")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term5")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term6")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term6")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term7")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term7")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term8")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term8")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term9")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term9")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term10")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term10")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term11")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term11")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term12")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term12")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term13")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term13")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term14")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term14")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term15")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term15")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term16")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term16")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term17")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term17")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term18")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term18")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term19")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term19")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term20")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term20")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term21")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term21")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term22")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term22")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term23")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term23")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term24")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term24")).click();
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.id("term25")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("term25")).click();
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.driver.findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.cssSelector("sam-button[buttontext='Send Password']")).click();
 	}
 
 
@@ -536,7 +536,7 @@ public static void selectALLPermissions() throws Exception {
 	 */
 	public static void clickOnShowPreviousCommentLink() throws Exception {
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.xpath("//*[contains(text(),'Show previous comments')]")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.xpath("//*[contains(text(),'Show previous comments')]")).click();
 	}
 	/**
 	 * This method gets error message

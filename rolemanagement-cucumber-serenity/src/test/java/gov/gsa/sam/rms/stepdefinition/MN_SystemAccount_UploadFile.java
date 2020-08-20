@@ -82,7 +82,7 @@ public class MN_SystemAccount_UploadFile {
 
 	@Then("^_1 files should be uploaded successfully$")
 	public void __files_should_be_uploaded_successfully() throws Exception {
-		WebElement value = LaunchBrowserUtil.driver.findElement(By.id("fileName0"));
+		WebElement value = LaunchBrowserUtil.driver.get().findElement(By.id("fileName0"));
 		String expectedFileName = "sampletestfile.txt";
 		String actualFileName = value.getText();
 		Assert.assertEquals(expectedFileName, actualFileName);
@@ -93,7 +93,7 @@ public class MN_SystemAccount_UploadFile {
 	@Then("^_1 edited date should be displayed in the correct format$")
 	public void __edited_date_should_be_displayed_in_the_correct_format() throws Exception {
 		LaunchBrowserUtil.delay(2);
-		WebElement updatedFileDate = LaunchBrowserUtil.driver.findElement(NewSystemAccountPageLocator.UPDATED_DATE);
+		WebElement updatedFileDate = LaunchBrowserUtil.driver.get().findElement(NewSystemAccountPageLocator.UPDATED_DATE);
 		String actualDateValue = updatedFileDate.getText();
 		logger.info("Date found on the page is-- " + actualDateValue);
 		DateFormat df = new SimpleDateFormat("MMM dd,yyyy");
@@ -154,7 +154,7 @@ public class MN_SystemAccount_UploadFile {
 
 	@Then("^_2 error message should be displayed for invalid file type$")
 	public void _2_error_message_should_be_displayed_for_invalid_file_type() throws Throwable {
-		WebElement invalidFile = LaunchBrowserUtil.driver
+		WebElement invalidFile = LaunchBrowserUtil.driver.get()
 				.findElement(By.xpath("//div[@class='file-error ng-star-inserted']"));
 		String actualFileValue = invalidFile.getText();
 		String expectedErrorMsg = "Error: File type not supported";
@@ -214,9 +214,9 @@ public class MN_SystemAccount_UploadFile {
 	@Then("^_3 multiple files should be uploaded successfully$")
 	public void _3_multiple_files_should_be_uploaded_successfully() throws Throwable {
 		LaunchBrowserUtil.scrollToEnd();
-		WebElement filenametext1 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext1 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[1]/td[1]/a"));
-		WebElement filenametext2 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext2 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[2]/td[1]/a"));
 		String actualfilename1 = filenametext1.getText();
 		String actualfilename2 = filenametext2.getText();
@@ -278,7 +278,7 @@ public class MN_SystemAccount_UploadFile {
 
 	@Then("^_4 files should be uploaded successfully$")
 	public void _4_files_should_be_uploaded_successfully() throws Throwable {
-		WebElement value = LaunchBrowserUtil.driver.findElement(By.id("fileName0"));
+		WebElement value = LaunchBrowserUtil.driver.get().findElement(By.id("fileName0"));
 		String expectedFileName = "sampletestdocfile.docx";
 		String actualFileName = value.getText();
 		Assert.assertEquals(expectedFileName, actualFileName);
@@ -288,7 +288,7 @@ public class MN_SystemAccount_UploadFile {
 	@Then("^_4 edited date should be displayed in the correct format$")
 	public void _4_edited_date_should_be_displayed_in_the_correct_format() throws Throwable {
 		LaunchBrowserUtil.delay(2);
-		WebElement updatedFileDate = LaunchBrowserUtil.driver.findElement(NewSystemAccountPageLocator.UPDATED_DATE);
+		WebElement updatedFileDate = LaunchBrowserUtil.driver.get().findElement(NewSystemAccountPageLocator.UPDATED_DATE);
 		String actualDateValue = updatedFileDate.getText();
 		logger.info("Date found on the page is-- " + actualDateValue);
 		DateFormat df = new SimpleDateFormat("MMM dd, yyyy");
@@ -350,7 +350,7 @@ public class MN_SystemAccount_UploadFile {
 	@Then("^_5 sys account admin should not be able to upload file and error message is displayed$")
 	public void _5_sys_account_admin_should_not_be_able_to_upload_file_and_error_message_is_displayed()
 			throws Throwable {
-		WebElement invalidFile = LaunchBrowserUtil.driver
+		WebElement invalidFile = LaunchBrowserUtil.driver.get()
 				.findElement(By.xpath("//div[@class='file-error ng-star-inserted']"));
 		String actualFileValue = invalidFile.getText();
 		String expectedErrorMsg = "Error: File type not supported";
@@ -408,9 +408,9 @@ public class MN_SystemAccount_UploadFile {
 	@Then("^_6 sys account admin should be able to upoad multiple files successfully$")
 	public void _6_sys_account_admin_should_be_able_to_upoad_multiple_files_successfully() throws Throwable {
 		LaunchBrowserUtil.scrollToEnd();
-		WebElement filenametext1 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext1 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[1]/td[1]/a"));
-		WebElement filenametext2 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext2 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[2]/td[1]/a"));
 		String actualfilename1 = filenametext1.getText();
 		String actualfilename2 = filenametext2.getText();
@@ -470,7 +470,7 @@ public class MN_SystemAccount_UploadFile {
 
 	@Then("^_7 nonfed files should be uploaded successfully$")
 	public void _7_nonfed_files_should_be_uploaded_successfully() throws Throwable {
-		WebElement value = LaunchBrowserUtil.driver.findElement(By.id("fileName0"));
+		WebElement value = LaunchBrowserUtil.driver.get().findElement(By.id("fileName0"));
 		String expectedFileName = "sampletestdocfile.docx";
 		String actualFileName = value.getText();
 		Assert.assertEquals(expectedFileName, actualFileName);
@@ -480,7 +480,7 @@ public class MN_SystemAccount_UploadFile {
 	@Then("^_7 nonfed edited date should be displayed in the correct format$")
 	public void _7_nonfed_edited_date_should_be_displayed_in_the_correct_format() throws Throwable {
 		LaunchBrowserUtil.delay(2);
-		WebElement updatedFileDate = LaunchBrowserUtil.driver.findElement(NewSystemAccountPageLocator.UPDATED_DATE);
+		WebElement updatedFileDate = LaunchBrowserUtil.driver.get().findElement(NewSystemAccountPageLocator.UPDATED_DATE);
 		String actualDateValue = updatedFileDate.getText();
 		logger.info("Date found on the page is-- " + actualDateValue);
 		DateFormat df = new SimpleDateFormat("MMM dd, yyyy");

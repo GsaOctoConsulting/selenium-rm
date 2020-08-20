@@ -84,7 +84,7 @@ public class MN_DeleteUpload {
 		NewSystemAccountPage.clickContinueOnTermsOfUse();
 		NewSystemAccountPage.clickSubmitOnTermsOfUser();
 		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.driver.quit();
+		LaunchBrowserUtil.driver.get().quit();
 	}
 
 	@Given("^_1du user login as Security Approver$")
@@ -120,13 +120,13 @@ public class MN_DeleteUpload {
 	public void __Security_Approver_should_not_be_able_to_delete_upload_files() throws Exception {
 		assertTrue(isElementNotPresent());
 		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.driver.quit();
+		LaunchBrowserUtil.driver.get().quit();
 	}
 
 	// Method to validate non-existence of the element
 	public boolean isElementNotPresent() {
 		try {
-			LaunchBrowserUtil.driver.findElement(NewSystemAccountPageLocator.DELETE_UPLOAD);
+			LaunchBrowserUtil.driver.get().findElement(NewSystemAccountPageLocator.DELETE_UPLOAD);
 			return false;
 		} catch (Exception e) {
 			return true;
@@ -190,7 +190,7 @@ public class MN_DeleteUpload {
 		NewSystemAccountPage.clickContinueOnTermsOfUse();
 		NewSystemAccountPage.clickSubmitOnTermsOfUser();
 		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.driver.quit();
+		LaunchBrowserUtil.driver.get().quit();
 	}
 
 	@And("^_2du user login as IAE pmo admin$")
@@ -224,7 +224,7 @@ public class MN_DeleteUpload {
 	public void _2du_pmo_admin_should_not_be_able_to_delete_upload_files() throws Throwable {
 		assertTrue(isElementNotPresent());
 		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.driver.quit();
+		LaunchBrowserUtil.driver.get().quit();
 	}
 
 	// -------------------------------------------------------
@@ -232,7 +232,7 @@ public class MN_DeleteUpload {
 	// Method to validate non-existence of the element
 	public boolean elementNotPresent() {
 		try {
-			LaunchBrowserUtil.driver.findElement(NewSystemAccountPageLocator.DELETE_UPLOAD);
+			LaunchBrowserUtil.driver.get().findElement(NewSystemAccountPageLocator.DELETE_UPLOAD);
 			return false;
 		} catch (Exception e) {
 			return true;

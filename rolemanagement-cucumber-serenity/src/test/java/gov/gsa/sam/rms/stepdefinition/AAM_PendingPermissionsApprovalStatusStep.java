@@ -244,7 +244,7 @@ public class AAM_PendingPermissionsApprovalStatusStep {
 	@Then("^_O GSA_SA confirm Pending Permissions Approval status doesn't appear under Status section$")
 	public void _o_GSA_SA_confirm_Pending_Permissions_Approval_status_doesn_t_appear_under_Status_section()
 			throws Exception {
-		List<WebElement> PPAStatus = LaunchBrowserUtil.driver.findElements(
+		List<WebElement> PPAStatus = LaunchBrowserUtil.driver.get().findElements(
 				By.xpath("//*[@name='filter-types']//following-sibling::sam-checkbox[2]//fieldset//ul//li"));
 		String status = "Pending Permissions Approval";
 		for (int i = 0; i < PPAStatus.size(); i++) {

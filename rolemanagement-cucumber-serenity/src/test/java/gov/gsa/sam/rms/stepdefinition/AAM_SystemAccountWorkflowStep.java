@@ -100,7 +100,7 @@ public class AAM_SystemAccountWorkflowStep {
 		NewSystemAccountPage.enterOtpOnTermsOfUser(otp);
 		NewSystemAccountPage.clickContinueOnTermsOfUse();
 		NewSystemAccountPage.clickSubmitOnTermsOfUser();
-		LaunchBrowserUtil.driver.quit();
+		LaunchBrowserUtil.driver.get().quit();
 	}
 
 	@When("^_A System Account Administrator logs in$")

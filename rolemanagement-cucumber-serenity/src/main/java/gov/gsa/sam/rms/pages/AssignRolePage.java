@@ -337,7 +337,7 @@ public class AssignRolePage {
 	public static boolean validateEntitySuggestionContainsGivenWord(String orgname, String word) {
 		boolean allOrgsContainsGivenWord = true;
 		
-		WebElement entitypicker = LaunchBrowserUtil.driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA);
+		WebElement entitypicker = LaunchBrowserUtil.driver.get().findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA);
 		entitypicker.clear();
 		entitypicker.sendKeys(orgname);
 		LaunchBrowserUtil.delay(2);

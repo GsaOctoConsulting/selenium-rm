@@ -82,9 +82,9 @@ public class MN_SystemAccount_UploadFileReorder {
 	@Then("^_1 attachements should be reordered$")
 	public void __attachements_should_be_reordered() throws Exception {
 		LaunchBrowserUtil.scrollToEnd();
-		WebElement filenametext1 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext1 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[1]/td[1]/a"));
-		WebElement filenametext2 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext2 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[2]/td[1]/a"));
 		String actualfilename1 = filenametext1.getText();
 		String actualfilename2 = filenametext2.getText();
@@ -157,9 +157,9 @@ public class MN_SystemAccount_UploadFileReorder {
 	@Then("^_2 attachements should be reordered for system account files$")
 	public void __attachements_should_be_reordered_for_system_account_files() throws Exception {
 		LaunchBrowserUtil.scrollToEnd();
-		WebElement filenametext1 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext1 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[1]/td[1]/a"));
-		WebElement filenametext2 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext2 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[2]/td[1]/a"));
 		String actualfilename1 = filenametext1.getText();
 		String actualfilename2 = filenametext2.getText();
@@ -226,9 +226,9 @@ public class MN_SystemAccount_UploadFileReorder {
 	@Then("^_3 attachements should be reordered for nonfed user$")
 	public void _3_attachements_should_be_reordered_for_nonfed_user() throws Throwable {
 		LaunchBrowserUtil.scrollToEnd();
-		WebElement filenametext1 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext1 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[1]/td[1]/a"));
-		WebElement filenametext2 = LaunchBrowserUtil.driver.findElement(By.xpath(
+		WebElement filenametext2 = LaunchBrowserUtil.driver.get().findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div/div[1]/ng-component/page/div/div/div[3]/div[2]/div[2]/form/sam-tabs/sam-tab[2]/div/review/div/div[5]/sam-fieldset-wrapper/div/fieldset/sam-label-wrapper[1]/div/sam-ato-download/div/div/table/tbody/tr[2]/td[1]/a"));
 		String actualfilename1 = filenametext1.getText();
 		String actualfilename2 = filenametext2.getText();

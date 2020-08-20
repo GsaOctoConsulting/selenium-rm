@@ -40,24 +40,24 @@ public class SignInUtility {
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 		// ---------------------------
-		LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("signin-button")).click();
 		LaunchBrowserUtil.delay(2);
 		//LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.id("login-proceed")).click();
 		LaunchBrowserUtil.delay(2);
 
-		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
+		LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(username);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(password);
+		LaunchBrowserUtil.driver.get().findElement(By.id("user_password")).sendKeys(password);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.className("usa-button--primary")).click();
 		LaunchBrowserUtil.delay(2);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();
-		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
+		LaunchBrowserUtil.driver.get().findElement(By.id("code")).sendKeys(otp);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 		LaunchBrowserUtil.delay(3);
 		// ---------------------------
 		T1WorkspacePage.setDriver(LaunchBrowserUtil.getDriver());
@@ -73,40 +73,40 @@ public class SignInUtility {
 		LaunchBrowserUtil.openThisBrowser();
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
-		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
+		LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(username);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
+		LaunchBrowserUtil.driver.get().findElement(By.id("user_password")).sendKeys(userpassword);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.className("usa-button--primary")).click();
 		LaunchBrowserUtil.delay(2);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();
-		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
+		LaunchBrowserUtil.driver.get().findElement(By.id("code")).sendKeys(otp);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 		LaunchBrowserUtil.delay(3);
 
 		if (action.equals(Constants.NOACTION)) {
 			// do nothing
 		} else if (action.equals(Constants.DELETE)) {
 			// write code to delet account here
-			List<WebElement> elements = LaunchBrowserUtil.driver.findElements(By.xpath(
+			List<WebElement> elements = LaunchBrowserUtil.driver.get().findElements(By.xpath(
 					"//a[starts-with(@href, 'https://idp.int.identitysandbox.gov/manage/email/confirm_delete/')]"));
 			logger.info("The size of the accounts email found-- " + elements.size());
 			elements.get(1).click();//assuming the second one is the recently added one that is to be deleted
 			LaunchBrowserUtil.delay(1);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-danger")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-danger")).click();
 			LaunchBrowserUtil.delay(1);
 
 		} else if (action.equals(Constants.ADD_EMAIL)) {
-			LaunchBrowserUtil.driver
+			LaunchBrowserUtil.driver.get()
 					.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[3]/div[2]/div[1]/div[2]/div/a")).click();
 			String counter = SignUpUtility.updatecounter("login.fed.accountno");
 			String newneverregisteredemail = "octotestaccount1+" + counter + "@gsa.gov";
 			logger.info("The new added email is-- " + newneverregisteredemail);
-			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
+			LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 //			LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
 //			LaunchBrowserUtil.delay(2000);
@@ -135,39 +135,39 @@ public class SignInUtility {
 		LaunchBrowserUtil.openThisBrowser();
 		LaunchBrowserUtil.clearCookies();
 		LaunchBrowserUtil.enterUrl(Constants.LOGINGOV_HOME_PAGE);
-		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
+		LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(username);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
+		LaunchBrowserUtil.driver.get().findElement(By.id("user_password")).sendKeys(userpassword);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.className("usa-button--primary")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.className("usa-button--primary")).click();
 		LaunchBrowserUtil.delay(2);
 		Totp totp = new Totp(secretkey);
 		String otp = totp.now();
-		LaunchBrowserUtil.driver.findElement(By.id("code")).sendKeys(otp);
+		LaunchBrowserUtil.driver.get().findElement(By.id("code")).sendKeys(otp);
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+		LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 		LaunchBrowserUtil.delay(3);
 		if (action.equals(Constants.NOACTION)) {
 			// do nothing
 		} else if (action.equals(Constants.DELETE)) {
 			// write code to delet account here
-			List<WebElement> elements = LaunchBrowserUtil.driver.findElements(By.xpath(
+			List<WebElement> elements = LaunchBrowserUtil.driver.get().findElements(By.xpath(
 					"//a[starts-with(@href, 'https://idp.int.identitysandbox.gov/manage/email/confirm_delete/')]"));
 			logger.info("The size of the accounts email found-- " + elements.size());
 			elements.get(1).click();
 			LaunchBrowserUtil.delay(1);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-danger")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-danger")).click();
 			LaunchBrowserUtil.delay(1);
 
 		} else if (action.equals(Constants.ADD_EMAIL)) {
-			LaunchBrowserUtil.driver
+			LaunchBrowserUtil.driver.get()
 					.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[3]/div[2]/div[1]/div[2]/div/a")).click();
 			String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
 			String newneverregisteredemail = "nonfedgsaemail+" + counter + "@yopmail.com";
 			logger.info("The new added email is-- " + newneverregisteredemail);
-			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
+			LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(newneverregisteredemail);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 //			LaunchBrowserUtil.driver.findElement(By.id("user_password")).sendKeys(userpassword);
 //			LaunchBrowserUtil.delay(2000);

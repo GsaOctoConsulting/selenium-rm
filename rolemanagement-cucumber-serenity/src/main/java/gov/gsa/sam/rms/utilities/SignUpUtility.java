@@ -38,50 +38,50 @@ public class SignUpUtility {
 		} else if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL1")) {
 			LaunchBrowserUtil.openThisBrowser();
 			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
-			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
 //			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
-			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.id("login-proceed")).click();
 			LaunchBrowserUtil.delay(3);
 			
 			
 			
-			LaunchBrowserUtil.driver.findElement(By.linkText("Create an account")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.linkText("Create an account")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(useremail);
+			LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(useremail);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			// -----capture link----------------------
 			LaunchBrowserUtil.captureSignUpLinkFromGmail();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("password_form_password")).sendKeys(password);
+			LaunchBrowserUtil.driver.get().findElement(By.id("password_form_password")).sendKeys(password);
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver
+			LaunchBrowserUtil.driver.get()
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 
 			String nonfedcountervalue = SignUpUtility.getCounterValue("login.fed.accountno");
 			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde" + nonfedcountervalue);//
-			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
+			secretCode = LaunchBrowserUtil.driver.get().findElement(By.id("qr-code")).getText();
 			LaunchBrowserUtil.delay(2);
 			String otp = LaunchBrowserUtil.getOtp(useremail, secretCode);
 			LaunchBrowserUtil.delay(2);
 			logger.info("The captured secret code is --- " + secretCode);
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp);
 			LaunchBrowserUtil.delay(4);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+			LaunchBrowserUtil.driver.get().findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
 //			LaunchBrowserUtil.driver
 //					.findElement(
@@ -132,48 +132,48 @@ public class SignUpUtility {
 			LaunchBrowserUtil.openThisBrowser();
 			LaunchBrowserUtil.clearCookies();
 			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
-			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
-//			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
+//			LaunchBrowserUtil.driver.get().findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
-			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.id("login-proceed")).click();
 			LaunchBrowserUtil.delay(3);
 			
-			LaunchBrowserUtil.driver.findElement(By.linkText("Create an account")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.linkText("Create an account")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(nonfeduseremail);
+			LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(nonfeduseremail);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+			LaunchBrowserUtil.driver.get().findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 					.click();
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			// -----capture link----------------------
 			LaunchBrowserUtil.captureSignUpLinkFromNonFedEmail(Constants.EMAIL_NONFED);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("password_form_password")).sendKeys(password);
+			LaunchBrowserUtil.driver.get().findElement(By.id("password_form_password")).sendKeys(password);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
 
-			LaunchBrowserUtil.driver
+			LaunchBrowserUtil.driver.get()
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 			String nonfedcountervalue = SignUpUtility.getCounterValue("login.nonfed.accountno");
 			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde" + nonfedcountervalue);//
-			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
+			secretCode = LaunchBrowserUtil.driver.get().findElement(By.id("qr-code")).getText();
 			String otp = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode);
 			logger.info("The captured secret code is --- " + secretCode);
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp);
 			LaunchBrowserUtil.delay(4);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+			LaunchBrowserUtil.driver.get().findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 
 //			LaunchBrowserUtil.driver
@@ -196,7 +196,7 @@ public class SignUpUtility {
 //			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
 //			LaunchBrowserUtil.delay(2);
 
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 
 //			LaunchBrowserUtil.driver
@@ -234,53 +234,53 @@ public class SignUpUtility {
 		} else if (Constants.SIGNUP_SECURITYLEVEL.equals("IAL1")) {
 			LaunchBrowserUtil.openThisBrowser();
 			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
-			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
-			LaunchBrowserUtil.driver.findElement(By.linkText("Create an account")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.linkText("Create an account")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(nonfeduseremail);
+			LaunchBrowserUtil.driver.get().findElement(By.id("user_email")).sendKeys(nonfeduseremail);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+			LaunchBrowserUtil.driver.get().findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 					.click();
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			// -----capture link----------------------
 			LaunchBrowserUtil.captureSignUpLinkFromNonFedEmailTemporary("raiaan.zyx@gmail.com");
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("password_form_password")).sendKeys(password);
+			LaunchBrowserUtil.driver.get().findElement(By.id("password_form_password")).sendKeys(password);
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
-			LaunchBrowserUtil.driver
+			LaunchBrowserUtil.driver.get()
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[2]/div/span[1]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.getDriver().findElement(By.id("name")).sendKeys("xxde");
-			secretCode = LaunchBrowserUtil.driver.findElement(By.id("qr-code")).getText();
+			secretCode = LaunchBrowserUtil.driver.get().findElement(By.id("qr-code")).getText();
 			String otp = LaunchBrowserUtil.getOtp(nonfeduseremail, secretCode);
 			logger.info("The captured secret code is --- " + secretCode);
 			LaunchBrowserUtil.getDriver().findElement(By.id("code")).sendKeys(otp);
 			LaunchBrowserUtil.delay(4);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
+			LaunchBrowserUtil.driver.get().findElement(By.xpath("//input[starts-with(@data-disable-with, 'Submit')]"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.className("btn-primary")).click();
+			LaunchBrowserUtil.driver.get().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(5);
-			LaunchBrowserUtil.driver
+			LaunchBrowserUtil.driver.get()
 					.findElement(
 							By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[1]/fieldset/label[1]/div/span[1]"))
 					.click();
 			LaunchBrowserUtil.delay(1);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[2]/input"))
+			LaunchBrowserUtil.driver.get().findElement(By.xpath("//*[@id=\"new_two_factor_options_form\"]/div[2]/input"))
 					.click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.id("new_phone_form_phone")).sendKeys(ConstantsAccounts.PHONE);
+			LaunchBrowserUtil.driver.get().findElement(By.id("new_phone_form_phone")).sendKeys(ConstantsAccounts.PHONE);
 			LaunchBrowserUtil.delay(2);
 			LaunchBrowserUtil.getDriver().findElement(By.className("btn-primary")).click();
 			LaunchBrowserUtil.delay(8);
