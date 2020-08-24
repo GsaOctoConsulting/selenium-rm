@@ -32,7 +32,7 @@ Description:  The purpose of this feature is to test user search capability
    Then _2 user navigates to user directory org picker and see only his own org
   
  # the below test is first part of #4 on integration test doc 
-   @3 @IntegrationTest @AssistanceUser @G1 @temp
+   @3 @IntegrationTest @AssistanceUser @G1 
     Scenario: verify user directory search for assistance user
     Given _3 user logs in workspace with assistance userrole
     And _3 user navigates to user directory page and searches for assistance admin
@@ -60,7 +60,7 @@ Description:  The purpose of this feature is to test user search capability
     When _6uds user unselects feduser filter and selects nonfed filter
     Then _6uds user should only see accounts with nonfederal user id 
     
-    @7 @G1 @temp
+    @7 @G1
      Scenario: user directory search box should give expected list of users for assistance user
     Given _7uds user logs in workspace as assistanceuser 
     And _7uds user navigates to user directory page 
@@ -80,7 +80,7 @@ Description:  The purpose of this feature is to test user search capability
     When _8uds selects the filter for org where users have roles
     Then _8uds no search results message should be displayed
     
-    @9 @G1 @temp
+    @9 @G1
      Scenario: user directory search box should give expected list of users for contract opp admin
     Given _9uds user logs in workspace as contract opp admin 
     And _9uds user navigates to user directory page 
