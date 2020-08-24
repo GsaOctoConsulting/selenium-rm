@@ -224,6 +224,14 @@ Scenario: spaad when assigning a role should not see duns plus four in entity pi
 	When _25nf user searches for entity in the assign role page 
 	Then _25nf duns plus four should not show up and only duns should show
 
+@26 @temp
+Scenario: when spaad admin assigns a role to a nonfed user ip address should be sent with the request  
+	Given _26nf user logs in as spaad
+	And _26nf user navigates to userdirectory page and searches for a nonfed user with no role 
+	When _26nf spaad assigns a role to the user  
+	Then _26nf the role assignment should send ip address information as well
+
+
 
 
 

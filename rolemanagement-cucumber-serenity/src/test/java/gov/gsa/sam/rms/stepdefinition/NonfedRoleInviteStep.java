@@ -541,12 +541,31 @@ public class NonfedRoleInviteStep {
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 
+		
+
+		
+		
+		
+		
+	}
+	
+	@And("^_8nri the role assignment should send ip address information as well$")
+    public void _8nri_the_role_assignment_should_send_ip_address_information_as_well() throws Throwable {
+		LaunchBrowserUtil.openNewTab();
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+		String response = LaunchBrowserUtil.getValidateIPAddressParameter(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+
+		Assert.assertTrue(response.contains("\"adminIp\":"));
+		
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.delay(2);
 		// delete the role
 		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
 		Assert.assertEquals(true, roleFound);
-
-	}
+    }
 
 	@Given("^_9nri nonfed admin logs in$")
 	public void _9nri_nonfed_admin_logs_in() throws Throwable {

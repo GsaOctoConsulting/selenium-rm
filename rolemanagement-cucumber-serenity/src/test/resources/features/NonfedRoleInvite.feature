@@ -74,7 +74,7 @@ Scenario: after a role invitation is sent by admin if the user makes the same ro
 	And _7nri nonfed admin tries to approve the request made by the nonfed user  
 	Then _7nri proper error message should be shown
 
-@8 
+@8 @temp
 Scenario: existing user with a role invitation should be able to accept the invite and obtain the role for entity registration domain    
 	Given _8nri nonfed admin logs in   
 	When _8nri admin enters an id for a user with no roles 
@@ -84,6 +84,8 @@ Scenario: existing user with a role invitation should be able to accept the invi
 	When _8nri the user selects the pending request in feeds and accepts the role invite
 	Then _8nri the user should see the role in profile with the correctly role history reflected
 	And _8nri nonfed admin should now be able to look up the user through user directory
+	And _8nri the role assignment should send ip address information as well
+	
 	
 @9 
 Scenario: existing user with a role invitation should be able to decline the role invite for entity registration domain    

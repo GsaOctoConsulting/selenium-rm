@@ -1304,6 +1304,50 @@ public class NonFedStep {
 		Assert.assertEquals(true, entityfound);
 	}
 
+	@Given("^_26nf user logs in as spaad$")
+	public void _26nf_user_logs_in_as_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@And("^_26nf user navigates to userdirectory page and searches for a nonfed user with no role$")
+	public void _26nf_user_navigates_to_userdirectory_page_and_searches_for_a_nonfed_user_with_no_role()
+			throws Throwable {
+		T1WorkspacePage.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInEntityPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+	}
+
+	@When("^_26nf spaad assigns a role to the user$")
+	public void _26nf_spaad_assigns_a_role_to_the_user() throws Throwable {
+		AssignRolePage.selectEntityNonFedIfFound(Constants.ORG_OCTO_CONSULTING_GROUP,0);
+		AssignRolePage.selectEntityRoleIfFound(Constants.ROLE_VIEWER);
+		AssignRolePage.selectEntityDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+	}
+
+	@Then("^_26nf the role assignment should send ip address information as well$")
+	public void _26nf_the_role_assignment_should_send_ip_address_information_as_well() throws Throwable {
+		LaunchBrowserUtil.openNewTab();
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+		String response = LaunchBrowserUtil.getValidateIPAddressParameter(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+
+		Assert.assertTrue(response.contains("\"adminIp\":"));
+		
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.delay(2);
+		
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
 	}
