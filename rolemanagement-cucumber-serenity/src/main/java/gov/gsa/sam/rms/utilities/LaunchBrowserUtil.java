@@ -1019,12 +1019,11 @@ public class LaunchBrowserUtil {
 		
 		
 		
-		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'fetchNames')]")).sendKeys("true");
+		WebElement textbox =driver.findElement(By.xpath("//textarea[starts-with(@class, 'body-param__text')]"));
+		textbox.clear();
+		textbox.sendKeys(postbody);
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.xpath("//button[starts-with(@class, 'btn execute opblock-control__btn')]")).click();
 		LaunchBrowserUtil.delay(1);
-		String responsetext=driver.findElement(By.className("highlight-code")).getText();
-		logger.info("The response text found is----  "+responsetext);
-		
 	}
 }

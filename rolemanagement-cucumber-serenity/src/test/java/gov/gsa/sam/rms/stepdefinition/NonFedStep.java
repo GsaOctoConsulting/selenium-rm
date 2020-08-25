@@ -1387,9 +1387,11 @@ public class NonFedStep {
 
 	@Then("^_27nf user should be assigned draft registration user role$")
 	public void _27nf_user_should_be_assigned_draft_registration_user_role() throws Throwable {
-	// ---------delete the newly granted role-----------
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DRAFTREGISTRATION_USER,
+				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 

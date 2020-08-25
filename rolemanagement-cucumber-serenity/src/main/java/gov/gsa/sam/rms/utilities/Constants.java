@@ -370,13 +370,17 @@ public class Constants {
 	public static final String ROLE_AACUSER = "Aac user";
 	public static final String ROLE_DEPARTMENT_ADMINISTRATOR = "Department Administrator";
 	public static final String ROLE_OFFICE_ADMINISTRATOR = "Office Administrator";
-	
-	//brower config
-	public static final boolean INCOGNITO_ON = false;
 	public static final String ROLE_AGENCY_ADMINISTRATOR_EXCLUSIONS = "Agency Administrator Exclusions";
 	public static final String ROLE_AGENCYEXCLUSIONS_REPRESENTATIVE = "Agency Exclusions Representative";
 	public static final String ROLE_AGENCY_ROLES_ADMINISTRATOR = "Agency Roles Administrator";
 	public static final String ROLE_DATA_ENTRY_REMOVE = "Data Entry (REMOVE)";
+	public static final String ROLE_DRAFTREGISTRATION_USER = "Draft Registration User";
+	
+	//brower config
+	public static final boolean INCOGNITO_ON = false;
+
+	
+	
 
 
 	
