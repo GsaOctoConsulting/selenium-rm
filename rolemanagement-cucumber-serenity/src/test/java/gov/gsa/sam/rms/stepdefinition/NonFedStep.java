@@ -47,7 +47,7 @@ public class NonFedStep {
 		beforeScenario();
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
-		
+
 	}
 
 	@Then("^_1nf nonfed user should be able to view entity management Widget$")
@@ -1351,34 +1351,46 @@ public class NonFedStep {
 
 	@Given("^_27nf nonfed user signs up$")
 	public void _27nf_nonfed_user_signs_up() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
-		LaunchBrowserUtil.delay(4);
-		
-		
-		
-		//		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-//		newsignedupnonfedusersecretkey = SignUpUtility.signUpNewUserNonFed(
-//				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
-//		newsignedupnonfeduser = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
-//		CommonProfilePage.enterFirstName("shah");
-//		CommonProfilePage.enterLastName("raiaan");
-//		CommonProfilePage.enterWorkphone("5555555555");
-//		LaunchBrowserUtil.scrollAllTheWayDown();
-//		CommonProfilePage.clickSubmitButton();
-//		RequestRoleOptionalPage.clickSkipAndFinish();
+//		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
+//				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+//		LaunchBrowserUtil.delay(4);
+//		
+
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		newsignedupnonfedusersecretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		newsignedupnonfeduser = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		RequestRoleOptionalPage.clickSkipAndFinish();
 	}
 
 	@And("^_27nf user call auto assign api with session token$")
 	public void _27nf_user_call_auto_assign_api_with_session_token() throws Throwable {
 		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
-	logger.info("The captured sessionkey is - "+sessionkey);
+		logger.info("The captured sessionkey is - " + sessionkey);
 
+		LaunchBrowserUtil.openNewTab();
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
+				newsignedupnonfeduser);
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.delay(2);
+
+	
 	}
 
 	@Then("^_27nf user should be assigned draft registration user role$")
 	public void _27nf_user_should_be_assigned_draft_registration_user_role() throws Throwable {
-
+	// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_VIEWER,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+		Assert.assertEquals(userAlreadyHasRole, true);
 	}
 
 	private void beforeScenario() {

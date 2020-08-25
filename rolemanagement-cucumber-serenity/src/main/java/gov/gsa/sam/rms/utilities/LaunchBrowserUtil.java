@@ -998,4 +998,33 @@ public class LaunchBrowserUtil {
 		logger.info("The response text found is----  "+responsetext);
 		return responsetext;
 	}
+
+	public static void makeAssignAPICall(String xauthtoken, String entityid, String cagecode,
+			String entityleganname, String userid) {
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.id("operations-UserAccess-autoAssignNonFedEntityRegistration")).click();
+		LaunchBrowserUtil.delay(2);
+		driver.findElement(By.xpath("//button[starts-with(@class, 'btn try-out__btn')]")).click();
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'X-Auth-Token')]")).sendKeys(xauthtoken);
+		LaunchBrowserUtil.delay(1);
+		
+		String postbody = "{\r\n" + 
+				"  \"entityID\": "+"\""+entityid+"\",\r\n"+ 
+				"  \"cageCode\": "+"\""+cagecode+"\",\r\n"+ 
+				"  \"legalBusinessName\": "+"\""+entityleganname+"\",\r\n"+ 
+				"  \"draftRegistrationUserEmail\": "+"\""+userid+"\",\r\n"+ 
+				"  \"isPendingHierarchy\": true\r\n" + 
+				"}";
+		
+		
+		
+		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'fetchNames')]")).sendKeys("true");
+		LaunchBrowserUtil.delay(1);
+		driver.findElement(By.xpath("//button[starts-with(@class, 'btn execute opblock-control__btn')]")).click();
+		LaunchBrowserUtil.delay(1);
+		String responsetext=driver.findElement(By.className("highlight-code")).getText();
+		logger.info("The response text found is----  "+responsetext);
+		
+	}
 }
