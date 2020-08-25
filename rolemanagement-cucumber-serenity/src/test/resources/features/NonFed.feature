@@ -231,6 +231,12 @@ Scenario: when spaad admin assigns a role to a nonfed user ip address should be 
 	When _26nf spaad assigns a role to the user  
 	Then _26nf the role assignment should send ip address information as well
 
+@27 @temp2
+Scenario: logged in user can use autoassign api to get draft registration user role  
+	Given _27nf nonfed user signs up
+	And _27nf user call auto assign api with session token 
+	Then _27nf user should be assigned draft registration user role 
+
 
 
 
