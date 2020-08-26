@@ -319,4 +319,7 @@ public class ConstantsAccounts {
 	public static final String NO_ROLE_USER_7_EMAIL_VARIANCE = "octotestaccount1+noroless7@gsa.gov";
 	public static final String NO_ROLE_USER_7_EMAIL_VARIANCE_SECRETKEY = "UI75JTCMMXDB6BSX";
 	
+	public static final String NONFED_DATAENTRY_ENTITYREGISTRATION_2 = "nonfedgsaemail+dataentryentityregistration2@yopmail.com";
+	public static final String NONFED_DATAENTRY_ENTITYREGISTRATION_SECRETKEY = "G5J4WILQFV2CF5YH";
+	
 }

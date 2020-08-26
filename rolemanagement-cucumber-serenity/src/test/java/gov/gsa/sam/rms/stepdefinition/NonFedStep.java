@@ -1425,6 +1425,40 @@ public class NonFedStep {
 				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, false);
 	}
+	
+	
+	
+	 @Given("^_29nf user logs in as data entry in entity registration$")
+	    public void _29nf_user_logs_in_as_data_entry_in_entity_registration() throws Throwable {
+		 SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2, Constants.USERPASS,
+					ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+			LaunchBrowserUtil.delay(4);  
+	    }
+
+	    @When("^_29nf user call auto assign api with session token$")
+	    public void _29nf_user_call_auto_assign_api_with_session_token() throws Throwable {
+	    	String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+			logger.info("The captured sessionkey is - " + sessionkey);
+
+			LaunchBrowserUtil.openNewTab();
+			LaunchBrowserUtil.switchTabs(1);
+			LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+			LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
+					ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2);
+			LaunchBrowserUtil.delay(2);
+			LaunchBrowserUtil.switchTabs(2);
+			LaunchBrowserUtil.delay(2);
+	    }
+
+	    @Then("^_29nf user should not get conflict error$")
+	    public void _29nf_user_should_get_conflict_error() throws Throwable {
+	    	T1WorkspacePage.goToAccountDetailsPage();
+			AccountDetailsPage.goToPageOnSideNav("My Roles");
+			// ---------assert the newly granted role-----------
+			boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+					Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+			Assert.assertEquals(userAlreadyHasRole, true);
+	    }
 
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
