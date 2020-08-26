@@ -237,6 +237,12 @@ Scenario: logged in user can use autoassign api to get draft registration user r
 	And _27nf user call auto assign api with session token 
 	Then _27nf user should be assigned draft registration user role 
 
+@28 @temp2
+Scenario: logged in admin user cannot use autoassign api to get draft registration user role  
+	Given _28nf user logs in as admin in entity registration
+	When _28nf user call auto assign api with session token 
+	Then _28nf user should get conflict error 
+
 
 
 

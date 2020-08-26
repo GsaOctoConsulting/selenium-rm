@@ -1382,7 +1382,6 @@ public class NonFedStep {
 		LaunchBrowserUtil.switchTabs(2);
 		LaunchBrowserUtil.delay(2);
 
-	
 	}
 
 	@Then("^_27nf user should be assigned draft registration user role$")
@@ -1390,9 +1389,41 @@ public class NonFedStep {
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		// ---------delete the newly granted role-----------
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_DRAFTREGISTRATION_USER,
-				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_28nf user logs in as admin in entity registration$")
+	public void _28nf_user_logs_in_as_admin_in_entity_registration() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@When("^_28nf user call auto assign api with session token$")
+	public void _28nf_user_call_auto_assign_api_with_session_token() throws Throwable {
+		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		logger.info("The captured sessionkey is - " + sessionkey);
+
+		LaunchBrowserUtil.openNewTab();
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION);
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.delay(2);
+	}
+
+	@Then("^_28nf user should get conflict error$")
+	public void _28nf_user_should_get_conflict_error() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		// ---------delete the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		Assert.assertEquals(userAlreadyHasRole, false);
 	}
 
 	private void beforeScenario() {
