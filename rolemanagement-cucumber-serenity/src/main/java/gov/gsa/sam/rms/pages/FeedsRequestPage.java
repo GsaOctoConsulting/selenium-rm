@@ -17,6 +17,7 @@ import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.CustomWaitsUtility;
 
 /**
  * this page is where all the requests visible to the user is listed
@@ -37,12 +38,12 @@ public class FeedsRequestPage {
 	}
 
 	public static List<WebElement> getFeedsList() {
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		List<WebElement> feedslist = wait.until(
-				ExpectedConditions.visibilityOfAllElements(driver.findElements(FeedsRequestPageLocator.FEED_ITEM)));
-
-//		List<WebElement> feedslist = driver.findElements(FeedsRequestPageLocator.FEED_ITEM);
-//		logger.info("The size fo the user list is--" + feedslist.size());
+		List<WebElement> feedslist=	CustomWaitsUtility.visibilityOfAllElements(FeedsRequestPageLocator.FEED_ITEM, 15);
+		logger.info("The size fo the user list is--" + feedslist.size());
+//		
+//		WebDriverWait wait = new WebDriverWait(driver, 15);
+//		List<WebElement> feedslist = wait.until(
+//				ExpectedConditions.visibilityOfAllElements(driver.findElements(FeedsRequestPageLocator.FEED_ITEM)));		
 		return feedslist;
 
 	}

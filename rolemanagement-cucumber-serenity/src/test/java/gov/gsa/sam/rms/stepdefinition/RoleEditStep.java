@@ -187,8 +187,8 @@ public class RoleEditStep {
 	public void _4re_user_looks_up_a_nonfed_user_with_data_entry_role_in_contract_opportunities() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,

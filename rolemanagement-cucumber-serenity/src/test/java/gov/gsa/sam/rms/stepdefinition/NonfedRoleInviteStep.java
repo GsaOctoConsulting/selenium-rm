@@ -386,7 +386,7 @@ public class NonfedRoleInviteStep {
 
 	@And("^_7nri requests same role as the pending invite$")
 	public void _7nri_requests_data_entry_role_in_entity_registration_domain() throws Throwable {
-		T1WorkspacePage.clickSkipOnRoleInviteModal();
+		//T1WorkspacePage.clickSkipOnRoleInviteModal();
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.clickRequestRoleButton();

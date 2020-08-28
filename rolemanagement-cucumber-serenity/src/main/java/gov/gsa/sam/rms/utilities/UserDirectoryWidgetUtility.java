@@ -16,9 +16,9 @@ import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
 
 /**
- * use this class to interact with user directory widget
- * and all its element on the workspace page. For interactions
- * with other elements outside of widget use methods defined in WorkspacePage.java
+ * use this class to interact with user directory widget and all its element on
+ * the workspace page. For interactions with other elements outside of widget
+ * use methods defined in WorkspacePage.java
  *
  */
 public class UserDirectoryWidgetUtility {
@@ -61,8 +61,8 @@ public class UserDirectoryWidgetUtility {
 	}
 
 	public static void clickUserDirectoryLink() {
-		LaunchBrowserUtil.delay(1);
-		T1WorkspacePage.getDriver().findElement(By.id("user-directory-link")).click();
+		WebElement userdirectorylink = CustomWaitsUtility.visibilityOf(By.id("user-directory-link"), 4);
+		userdirectorylink.click();
 		UserDirectoryPage.setDriver(T1WorkspacePage.getDriver());
 		LaunchBrowserUtil.delay(5);
 	}
@@ -91,7 +91,8 @@ public class UserDirectoryWidgetUtility {
 	 */
 	public static boolean linkFound(String linkname) {
 		boolean optionFound = false;
-		String widgetText = T1WorkspacePage.getDriver().findElement(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET).getText();
+		String widgetText = T1WorkspacePage.getDriver().findElement(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET)
+				.getText();
 
 		logger.info("" + widgetText);
 
