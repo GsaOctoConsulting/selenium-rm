@@ -753,8 +753,8 @@ public class NonFedStep {
 
 	@Given("^_13nf nonfed user logs in with data entry role in contract opportunities$")
 	public void _13nf_nonfed_user_logs_in_with_data_entry_role_in_contract_opportunities() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.HELPDESK_TIER1_1, Constants.USERPASS,
-				ConstantsAccounts.HELPDESK_TIER1_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_13nf user navigates to user directory page and clicks data entry and contract opportunities filter$")

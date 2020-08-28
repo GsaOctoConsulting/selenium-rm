@@ -1,12 +1,15 @@
 package gov.gsa.sam.rms.pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
@@ -34,8 +37,12 @@ public class FeedsRequestPage {
 	}
 
 	public static List<WebElement> getFeedsList() {
-		List<WebElement> feedslist = driver.findElements(FeedsRequestPageLocator.FEED_ITEM);
-		logger.info("The size fo the user list is--" + feedslist.size());
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		List<WebElement> feedslist = wait.until(
+				ExpectedConditions.visibilityOfAllElements(driver.findElements(FeedsRequestPageLocator.FEED_ITEM)));
+
+//		List<WebElement> feedslist = driver.findElements(FeedsRequestPageLocator.FEED_ITEM);
+//		logger.info("The size fo the user list is--" + feedslist.size());
 		return feedslist;
 
 	}
@@ -261,7 +268,7 @@ public class FeedsRequestPage {
 	public static void clickDeclinedFilter() {
 		driver.findElement(FeedsRequestPageLocator.DECLINED_FILTER).click();
 		LaunchBrowserUtil.delay(2);
-		
+
 	}
 
 }
