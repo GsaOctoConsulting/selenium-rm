@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.utilities.Constants;
@@ -167,6 +168,7 @@ public class T1WorkspacePage {
 		LaunchBrowserUtil.delay(1);
 		return usertypeFound;
 	}
+
 	public static boolean selectEntityTypeIfFound(String usertype) {
 		boolean usertypeFound = false;
 		Select role = new Select(driver.findElement(T1WorkspacePageLocator.ENTITY_USERTYPE_FILTER));
@@ -181,6 +183,7 @@ public class T1WorkspacePage {
 		LaunchBrowserUtil.delay(1);
 		return usertypeFound;
 	}
+
 	public static boolean selectRoleForRoleRequest(String rolename) {
 		boolean roleFound = false;
 		Select role = new Select(driver.findElement(T1WorkspacePageLocator.ROLE_SELECTOR));
@@ -230,20 +233,23 @@ public class T1WorkspacePage {
 	public static void clickRequestRoleButton() {
 		driver.findElement(T1WorkspacePageLocator.REQUEST_ROLE_BUTTON).click();
 		RequestRolePage.setDriver(driver);
-		LaunchBrowserUtil.delay(3);	
+		LaunchBrowserUtil.delay(3);
 	}
 
 	public static void clickGoToRequestButtonOnRoleInviteModal() {
 		driver.findElement(By.id("btn-go-to-request")).click();
 		FeedsRequestPage.setDriver(driver);
 		LaunchBrowserUtil.delay(2);
-		
+
 	}
 
 	public static void clickSkipOnRoleInviteModal() {
-		driver.findElement(By.id("btn-cancel")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement skipbutton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("btn-cancel"))));
+		skipbutton.click();
+
 		LaunchBrowserUtil.delay(2);
-		
+
 	}
 
 	public static String getSplashPageHeading() {
@@ -260,7 +266,7 @@ public class T1WorkspacePage {
 	public static void clickCloseOnSplashPage() {
 		driver.findElement(By.id("close-button")).click();
 		LaunchBrowserUtil.delay(2);
-		
+
 	}
 
 }
