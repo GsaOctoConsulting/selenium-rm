@@ -144,8 +144,8 @@ public class FsdBusinessRulesStep {
 	@And("^_3 fsd admin looks up a nonfed user with data entry role$")
 	public void _3_fsd_admin_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
 		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 	}
 
 	@And("^_3 fsd admin should be able to view permission for this user$")
@@ -204,8 +204,8 @@ public class FsdBusinessRulesStep {
 	@And("^_5 fsd agent looks up a nonfed user with data entry role$")
 	public void _5_fsd_agent_looks_up_a_nonfed_user_with_data_entry_role() throws Throwable {
 		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 	}
 
 	@And("^_5 fsd agent should be able to view permission for this user$")

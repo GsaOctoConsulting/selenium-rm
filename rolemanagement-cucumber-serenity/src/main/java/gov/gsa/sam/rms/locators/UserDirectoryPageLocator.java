@@ -17,7 +17,7 @@ public class UserDirectoryPageLocator {
 	public static final By DOWNLOAD_CANCEL = By.className("usa-modal-content-cancel-btn");
 	public static final By PDF_DOWNLOAD = By.className("fa-file-pdf-o");
 	public static final By CSV_DOWNLOAD = By.className("fa-table");
-	public static final By NONFED_FILTER = By.id("userTypeNon-Federal-Users");
+	public static final By NONFED_FILTER = By.id("option-Non-Federal Users");
 	public static final By FED_FILTER = By.id("option-Federal Users");
 	public static final By CONTRACTING_OFFICER_FILTER = By.id("role-7");
 	public static final By DOWNLOAD_DIALOGUE_BOX = By.className("usa-alert-info");
