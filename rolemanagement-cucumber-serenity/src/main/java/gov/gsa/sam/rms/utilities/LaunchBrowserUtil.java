@@ -18,6 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -156,7 +157,9 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(Constants.GMAIL_USERNAME);
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[2]")).click();
 		LaunchBrowserUtil.delay(2);
-		driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")).click();
+		driver.findElement(
+				By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
+				.click();
 		delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		delay(4);
@@ -410,12 +413,10 @@ public class LaunchBrowserUtil {
 		driver.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys(username);
 		delay(1);
 		driver.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/div[2]")).click();
-		delay(2);
-
+		LaunchBrowserUtil.delay(2);
 		if (Constants.INCOGNITO_ON == false) {
-			driver.findElement(
-					By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
-					.click();// use
+			driver.findElement(By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")).click();
+
 			// this
 			// if
 			// windowsbased
@@ -427,10 +428,13 @@ public class LaunchBrowserUtil {
 			// off
 			// incognito
 		}
-
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
-		delay(3);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
+		LaunchBrowserUtil.delay(2);
+		//CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]"), 4)
+		//		.click();
+		driver.findElement(By.xpath("//*[@id=\":1v\"]/span")).click();
 		delay(2);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
@@ -455,8 +459,8 @@ public class LaunchBrowserUtil {
 			LaunchBrowserUtil.delay(2);
 
 			if (nooffetch == 1) {
-				driver.findElement(
-						By.xpath("//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
+				driver.findElement(By.xpath(
+						"//*[@id=\"view_container\"]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"))
 						.click();
 				LaunchBrowserUtil.delay(4);
 			}
@@ -545,7 +549,7 @@ public class LaunchBrowserUtil {
 
 	public static void recoverThroughForgotPasswordForFed(String userid, String secretkey, String newpassword) {
 		T1WorkspacePage.clickSignInButton();
-		//T1WorkspacePage.clickAcceptOnBanner();
+		// T1WorkspacePage.clickAcceptOnBanner();
 		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		delay(1);
@@ -979,7 +983,7 @@ public class LaunchBrowserUtil {
 
 	public static void openNewTab() {
 		((JavascriptExecutor) driver).executeScript("window.open('')");
-		
+
 	}
 
 	public static String getValidateIPAddressParameter(String useremail) {
@@ -988,19 +992,20 @@ public class LaunchBrowserUtil {
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.xpath("//button[starts-with(@class, 'btn try-out__btn')]")).click();
 		LaunchBrowserUtil.delay(1);
-		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'userName - userName value')]")).sendKeys(useremail);
+		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'userName - userName value')]"))
+				.sendKeys(useremail);
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'fetchNames')]")).sendKeys("true");
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.xpath("//button[starts-with(@class, 'btn execute opblock-control__btn')]")).click();
 		LaunchBrowserUtil.delay(1);
-		String responsetext=driver.findElement(By.className("highlight-code")).getText();
-		logger.info("The response text found is----  "+responsetext);
+		String responsetext = driver.findElement(By.className("highlight-code")).getText();
+		logger.info("The response text found is----  " + responsetext);
 		return responsetext;
 	}
 
-	public static void makeAssignAPICall(String xauthtoken, String entityid, String cagecode,
-			String entityleganname, String userid) {
+	public static void makeAssignAPICall(String xauthtoken, String entityid, String cagecode, String entityleganname,
+			String userid) {
 		LaunchBrowserUtil.delay(2);
 		driver.findElement(By.id("operations-UserAccess-autoAssignNonFedEntityRegistration")).click();
 		LaunchBrowserUtil.delay(2);
@@ -1008,18 +1013,13 @@ public class LaunchBrowserUtil {
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.xpath("//input[starts-with(@placeholder, 'X-Auth-Token')]")).sendKeys(xauthtoken);
 		LaunchBrowserUtil.delay(1);
-		
-		String postbody = "{\r\n" + 
-				"  \"entityID\": "+"\""+entityid+"\",\r\n"+ 
-				"  \"cageCode\": "+"\""+cagecode+"\",\r\n"+ 
-				"  \"legalBusinessName\": "+"\""+entityleganname+"\",\r\n"+ 
-				"  \"draftRegistrationUserEmail\": "+"\""+userid+"\",\r\n"+ 
-				"  \"isPendingHierarchy\": true\r\n" + 
-				"}";
-		
-		
-		
-		WebElement textbox =driver.findElement(By.xpath("//textarea[starts-with(@class, 'body-param__text')]"));
+
+		String postbody = "{\r\n" + "  \"entityID\": " + "\"" + entityid + "\",\r\n" + "  \"cageCode\": " + "\""
+				+ cagecode + "\",\r\n" + "  \"legalBusinessName\": " + "\"" + entityleganname + "\",\r\n"
+				+ "  \"draftRegistrationUserEmail\": " + "\"" + userid + "\",\r\n"
+				+ "  \"isPendingHierarchy\": true\r\n" + "}";
+
+		WebElement textbox = driver.findElement(By.xpath("//textarea[starts-with(@class, 'body-param__text')]"));
 		textbox.clear();
 		textbox.sendKeys(postbody);
 		LaunchBrowserUtil.delay(1);

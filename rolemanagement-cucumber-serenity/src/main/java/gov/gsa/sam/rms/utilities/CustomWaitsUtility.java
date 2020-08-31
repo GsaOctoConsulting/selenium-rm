@@ -17,6 +17,11 @@ public class CustomWaitsUtility {
 		WebDriverWait wait = new WebDriverWait(LaunchBrowserUtil.getDriver(), timeout);
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+	
+	public static WebElement elementToBeClickable(By locator, int timeout) {
+		WebDriverWait wait = new WebDriverWait(LaunchBrowserUtil.getDriver(), timeout);
+		return wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 	public static List<WebElement> visibilityOfAllElements(By locator, int timeout) {
 		WebDriverWait wait = new WebDriverWait(LaunchBrowserUtil.getDriver(), timeout);
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
