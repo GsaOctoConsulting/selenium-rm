@@ -1018,7 +1018,8 @@ public class LaunchBrowserUtil {
 				+ cagecode + "\",\r\n" + "  \"legalBusinessName\": " + "\"" + entityleganname + "\",\r\n"
 				+ "  \"draftRegistrationUserEmail\": " + "\"" + userid + "\",\r\n"
 				+ "  \"isPendingHierarchy\": true\r\n" + "}";
-
+		logger.info("The prepared postbody is - "+ postbody);
+		
 		WebElement textbox = driver.findElement(By.xpath("//textarea[starts-with(@class, 'body-param__text')]"));
 		textbox.clear();
 		textbox.sendKeys(postbody);

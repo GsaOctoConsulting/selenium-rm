@@ -1372,19 +1372,21 @@ public class NonFedStep {
 	public void _27nf_user_call_auto_assign_api_with_session_token() throws Throwable {
 		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
 		logger.info("The captured sessionkey is - " + sessionkey);
+		String authorizatinheader = "aUhHpyv4Ilvewa55FQizkJ+L65KoLL41XoIC65DvELg";
+		logger.info("The authorization header used is  - " + authorizatinheader);
 
-		LaunchBrowserUtil.openNewTab();
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
-		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
-				newsignedupnonfeduser);
-		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.switchTabs(2);
-		LaunchBrowserUtil.delay(2);
+//		LaunchBrowserUtil.openNewTab();
+//		LaunchBrowserUtil.switchTabs(1);
+//		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+//		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
+//				newsignedupnonfeduser);
+//		LaunchBrowserUtil.delay(2);
+//		LaunchBrowserUtil.switchTabs(2);
+//		LaunchBrowserUtil.delay(2);
 
 	}
 
-	@Then("^_27nf user should be assigned draft registration user role$")
+	@Then("^_27nf nonfed user should be assigned draft registration user role$")
 	public void _27nf_user_should_be_assigned_draft_registration_user_role() throws Throwable {
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
