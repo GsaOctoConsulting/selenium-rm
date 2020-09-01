@@ -1368,7 +1368,7 @@ public class NonFedStep {
 		RequestRoleOptionalPage.clickSkipAndFinish();
 	}
 
-	@And("^_27nf user call auto assign api with session token$")
+	@And("^_27nf LSAM call auto assign api with session token and header authorization and apikey for the user$")
 	public void _27nf_user_call_auto_assign_api_with_session_token() throws Throwable {
 		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
 		logger.info("The captured sessionkey is - " + sessionkey);
