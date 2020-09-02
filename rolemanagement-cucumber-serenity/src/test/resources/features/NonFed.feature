@@ -249,6 +249,12 @@ Scenario: logged in use with a role other than draf user can be assigned draft r
 	When _29nf user call auto assign api with session token 
 	Then _29nf user should not get conflict error 
 
+@30 @temp2
+Scenario: nonfed user with no roles can be assigned administer role with autoassign api  
+	Given _30nf nonfed user signs up
+	And _30nf LSAM call auto assign api with session token and header authorization and apikey for the user
+	Then _30nf nonfed user should get administer role
+
 
 
 	 

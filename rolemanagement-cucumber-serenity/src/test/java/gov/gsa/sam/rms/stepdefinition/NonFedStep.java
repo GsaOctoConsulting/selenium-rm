@@ -2,6 +2,7 @@ package gov.gsa.sam.rms.stepdefinition;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -34,6 +35,9 @@ import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.utilities.SignUpUtility;
 import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class NonFedStep {
 
@@ -1427,40 +1431,92 @@ public class NonFedStep {
 				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, false);
 	}
-	
-	
-	
-	 @Given("^_29nf user logs in as data entry in entity registration$")
-	    public void _29nf_user_logs_in_as_data_entry_in_entity_registration() throws Throwable {
-		 SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2, Constants.USERPASS,
-					ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
-			LaunchBrowserUtil.delay(4);  
-	    }
 
-	    @When("^_29nf user call auto assign api with session token$")
-	    public void _29nf_user_call_auto_assign_api_with_session_token() throws Throwable {
-	    	String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
-			logger.info("The captured sessionkey is - " + sessionkey);
+	@Given("^_29nf user logs in as data entry in entity registration$")
+	public void _29nf_user_logs_in_as_data_entry_in_entity_registration() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2, Constants.USERPASS,
+				ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
 
-			LaunchBrowserUtil.openNewTab();
-			LaunchBrowserUtil.switchTabs(1);
-			LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
-			LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
-					ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2);
-			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.switchTabs(2);
-			LaunchBrowserUtil.delay(2);
-	    }
+	@When("^_29nf user call auto assign api with session token$")
+	public void _29nf_user_call_auto_assign_api_with_session_token() throws Throwable {
+		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		logger.info("The captured sessionkey is - " + sessionkey);
 
-	    @Then("^_29nf user should not get conflict error$")
-	    public void _29nf_user_should_get_conflict_error() throws Throwable {
-	    	T1WorkspacePage.goToAccountDetailsPage();
-			AccountDetailsPage.goToPageOnSideNav("My Roles");
-			// ---------assert the newly granted role-----------
-			boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-					Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
-			Assert.assertEquals(userAlreadyHasRole, true);
-	    }
+		LaunchBrowserUtil.openNewTab();
+		LaunchBrowserUtil.switchTabs(1);
+		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
+		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
+				ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2);
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.switchTabs(2);
+		LaunchBrowserUtil.delay(2);
+	}
+
+	@Then("^_29nf user should not get conflict error$")
+	public void _29nf_user_should_get_conflict_error() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		// ---------assert the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		Assert.assertEquals(userAlreadyHasRole, true);
+	}
+
+	@Given("^_30nf nonfed user signs up$")
+	public void _30nf_nonfed_user_signs_up() throws Throwable {
+		
+		
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		newsignedupnonfedusersecretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		newsignedupnonfeduser = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		RequestRoleOptionalPage.clickSkipAndFinish();
+	}
+
+	@And("^_30nf LSAM call auto assign api with session token and header authorization and apikey for the user$")
+	public void _30nf_lsam_call_auto_assign_api_with_session_token_and_header_authorization_and_apikey_for_the_user()
+			throws Throwable {
+		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		logger.info("The captured sessionkey is - " + sessionkey);
+		
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859"); 
+		jsonbody.put("legalBusinessName", "OCTO CONSULTING GROUP, INC");
+		jsonbody.put("isPendingHierarchy", false);
+		
+		logger.info(jsonbody.toString());
+		
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY,Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY,sessionkey);
+		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+		
+		Response response = specification.post();
+		
+		Assert.assertEquals(201, response.getStatusCode());
+	}
+
+	@Then("^_30nf nonfed user should get administer role$")
+	public void _30nf_nonfed_user_should_be_administer_role() throws Throwable {
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		// ---------assert the newly granted role-----------
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
+				Constants.ROLE_ADMIN, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		Assert.assertEquals(userAlreadyHasRole, true);
+		
+
+	}
 
 	private void beforeScenario() {
 		logger.info("*************************START OF SCENARIO****************************************************");
