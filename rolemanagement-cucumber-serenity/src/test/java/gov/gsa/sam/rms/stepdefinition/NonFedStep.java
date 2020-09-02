@@ -45,6 +45,7 @@ public class NonFedStep {
 	String timestamp = new String();
 	String newsignedupnonfeduser = "";
 	String newsignedupnonfedusersecretkey = "";
+	String sessionkey = "";
 
 	@Given("^_1nf nonfed user without a role logs in$")
 	public void _1_nonfed_user_without_a_role_logs_in() throws Throwable {
@@ -1374,12 +1375,26 @@ public class NonFedStep {
 
 	@And("^_27nf LSAM call auto assign api with session token and header authorization and apikey for the user$")
 	public void _27nf_user_call_auto_assign_api_with_session_token() throws Throwable {
-		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
 		logger.info("The captured sessionkey is - " + sessionkey);
-		String authorizatinheader = "aUhHpyv4Ilvewa55FQizkJ+L65KoLL41XoIC65DvELg";
-		logger.info("The authorization header used is  - " + authorizatinheader);
 
-//		LaunchBrowserUtil.openNewTab();
+		 Response response =
+		RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"+newsignedupnonfeduser+"/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+//
+//		RequestSpecification specification = RestAssured.given();
+//		specification.header("Content-Type", "application/json");
+//		specification.baseUri(Constants.API_URL_NONFED_ACCESS);
+//		specification.basePath("/{userName}");
+//		specification.pathParam("userName", "nonfedgsaemail+newregisterednonfeduser657@yopmail.com");
+//		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE_FORACCESS);
+//		specification.queryParam("fetchNames", true);
+//		Response response = specification.get(Constants.API_URL_NONFED_ACCESS + "/{userName}");
+		
+		
+		Assert.assertEquals(204, response.getStatusCode());
+		Assert.assertFalse(response.getBody().asString().contains("Draft Registration User"));
+
+		// LaunchBrowserUtil.openNewTab();
 //		LaunchBrowserUtil.switchTabs(1);
 //		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
 //		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
@@ -1392,12 +1407,31 @@ public class NonFedStep {
 
 	@Then("^_27nf nonfed user should be assigned draft registration user role$")
 	public void _27nf_user_should_be_assigned_draft_registration_user_role() throws Throwable {
-		T1WorkspacePage.goToAccountDetailsPage();
-		AccountDetailsPage.goToPageOnSideNav("My Roles");
-		// ---------delete the newly granted role-----------
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
-		Assert.assertEquals(userAlreadyHasRole, true);
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("isPendingHierarchy", true);
+
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(201, response.getStatusCode());
+		
+		// make to get call to verify the presence of the role in jsonbody
+		 Response response2 =
+					RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"+newsignedupnonfeduser+"/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		logger.info(response2.getBody().asString());
+		 Assert.assertEquals(201, response.getStatusCode());
+			Assert.assertTrue(response2.getBody().asString().contains("Draft Registration User"));
+		
+		
 	}
 
 	@Given("^_28nf user logs in as admin in entity registration$")
@@ -1466,8 +1500,7 @@ public class NonFedStep {
 
 	@Given("^_30nf nonfed user signs up$")
 	public void _30nf_nonfed_user_signs_up() throws Throwable {
-		
-		
+
 		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
 		newsignedupnonfedusersecretkey = SignUpUtility.signUpNewUserNonFed(
 				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
@@ -1485,24 +1518,23 @@ public class NonFedStep {
 			throws Throwable {
 		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
 		logger.info("The captured sessionkey is - " + sessionkey);
-		
+
 		JSONObject jsonbody = new JSONObject();
-		jsonbody.put("entityID", "800127859"); 
+		jsonbody.put("entityID", "800127859");
 		jsonbody.put("legalBusinessName", "OCTO CONSULTING GROUP, INC");
 		jsonbody.put("isPendingHierarchy", false);
-		
+
 		logger.info(jsonbody.toString());
-		
+
 		RequestSpecification specification = RestAssured.given();
 		specification.header("Content-Type", "application/json");
-		specification.header(Constants.AUTHORIZATION_KEY,Constants.AUTHORIZATION_HEADER_VALUE);
-		specification.header(Constants.SESSION_KEY,sessionkey);
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
 		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
 		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
 		specification.body(jsonbody.toString());
-		
+
 		Response response = specification.post();
-		
 		Assert.assertEquals(201, response.getStatusCode());
 	}
 
@@ -1511,10 +1543,9 @@ public class NonFedStep {
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		// ---------assert the newly granted role-----------
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_ADMIN, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
+		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_ADMIN,
+				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, true);
-		
 
 	}
 

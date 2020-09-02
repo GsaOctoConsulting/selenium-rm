@@ -219,7 +219,9 @@ public class Constants {
 			EMAIL_ENV = "DEV ENV";
 			AUTHORIZATION_HEADER_VALUE = "VEj+qEk37nL/KkL/jdshzrfAVqH18TjNFISq4IbvfQk=";
 			API_URL_NONFED_ASSIGN="https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/nonfed/assign";
+			API_URL_NONFED_ACCESS="https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access";
 			APIKEY_VALUE= "Y1kX97iS2iZMJRQ9CKrhqa3wG14A4MxeBP4NSgWs";
+			APIKEY_VALUE_FORACCESS="WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg";
 		} else if (Constants.SAM_HOME_PAGE.contains("minc")) {
 			EMAIL_ENV = "TEST ENV";
 			AUTHORIZATION_HEADER_VALUE = "aUhHpyv4Ilvewa55FQizkJ+L65KoLL41XoIC65DvELg=";
@@ -391,7 +393,9 @@ public class Constants {
 	public static final String SESSION_KEY = "X-Auth-Token";
 	public static final String AUTHORIZATION_KEY = "Authorization";
 	public static final String APIKEY_KEY = "api_key";
+	public static String APIKEY_VALUE_FORACCESS;
 	public static String APIKEY_VALUE;
+	public static String API_URL_NONFED_ACCESS;
 
 	
 	
