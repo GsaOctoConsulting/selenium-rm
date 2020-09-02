@@ -1378,8 +1378,8 @@ public class NonFedStep {
 		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
 		logger.info("The captured sessionkey is - " + sessionkey);
 
-		 Response response =
-		RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"+newsignedupnonfeduser+"/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		Response response = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+				+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
 //
 //		RequestSpecification specification = RestAssured.given();
 //		specification.header("Content-Type", "application/json");
@@ -1389,8 +1389,7 @@ public class NonFedStep {
 //		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE_FORACCESS);
 //		specification.queryParam("fetchNames", true);
 //		Response response = specification.get(Constants.API_URL_NONFED_ACCESS + "/{userName}");
-		
-		
+
 		Assert.assertEquals(204, response.getStatusCode());
 		Assert.assertFalse(response.getBody().asString().contains("Draft Registration User"));
 
@@ -1423,15 +1422,39 @@ public class NonFedStep {
 
 		Response response = specification.post();
 		Assert.assertEquals(201, response.getStatusCode());
-		
+
 		// make to get call to verify the presence of the role in jsonbody
-		 Response response2 =
-					RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"+newsignedupnonfeduser+"/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+				+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
 		logger.info(response2.getBody().asString());
-		 Assert.assertEquals(201, response.getStatusCode());
-			Assert.assertTrue(response2.getBody().asString().contains("Draft Registration User"));
-		
-		
+		Assert.assertEquals(201, response.getStatusCode());
+		Assert.assertTrue(response2.getBody().asString().contains("Draft Registration User"));
+
+	}
+
+	@When("^_27nf api is called again for the nonfed user$")
+	public void _27nf_api_is_called_again_for_the_nonfed_user() throws Throwable {
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("isPendingHierarchy", true);
+
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(409, response.getStatusCode());
+	}
+
+	@Then("^_27nf conflict erro will be received$")
+	public void _27nf_conflict_erro_will_be_received() throws Throwable {
+
 	}
 
 	@Given("^_28nf user logs in as admin in entity registration$")

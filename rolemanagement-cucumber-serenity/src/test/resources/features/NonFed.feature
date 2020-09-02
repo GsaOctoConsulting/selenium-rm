@@ -235,7 +235,9 @@ Scenario: when spaad admin assigns a role to a nonfed user ip address should be 
 Scenario: nonfed user with no roles can be assigned draft registration role with autoassign api  
 	Given _27nf nonfed user signs up
 	And _27nf LSAM call auto assign api with session token and header authorization and apikey for the user
-	Then _27nf nonfed user should be assigned draft registration user role 
+	Then _27nf nonfed user should be assigned draft registration user role
+	When _27nf api is called again for the nonfed user
+	Then _27nf conflict erro will be received 
 
 @28 @temp2
 Scenario: logged in admin user cannot use autoassign api to get draft registration user role  
