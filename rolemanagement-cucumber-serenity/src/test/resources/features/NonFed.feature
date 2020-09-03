@@ -240,13 +240,14 @@ Scenario: nonfed user with no roles can be assigned draft registration role with
 	Then _27nf conflict erro will be received 
 
 @28 @temp2
-Scenario: logged in admin user cannot use autoassign api to get draft registration user role  
-	Given _28nf user logs in as admin in entity registration
-	When _28nf user call auto assign api with session token 
-	Then _28nf user should get conflict error 
+Scenario: logged in admin user can use pending approve api to change nonfed user role from draft registration to admin  
+	Given _28nf nonfed user signs up
+	And _28nf the nonfed user is given draft registration user role 
+	When _28nf admin calls the api to change the users role to admin from draft registration role
+	Then _28nf the nonfed user should end up with administrator role 
 
 @29 @temp2
-Scenario: logged in use with a role other than draf user can be assigned draft registration user role with api  
+Scenario: logged in use with a role other than draft user can be assigned draft registration user role with api  
 	Given _29nf user logs in as data entry in entity registration
 	When _29nf user call auto assign api with session token 
 	Then _29nf user should not get conflict error 
