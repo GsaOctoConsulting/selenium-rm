@@ -224,7 +224,7 @@ Scenario: spaad when assigning a role should not see duns plus four in entity pi
 	When _25nf user searches for entity in the assign role page 
 	Then _25nf duns plus four should not show up and only duns should show
 
-@26 @temp
+@26 
 Scenario: when spaad admin assigns a role to a nonfed user ip address should be sent with the request  
 	Given _26nf user logs in as spaad
 	And _26nf user navigates to userdirectory page and searches for a nonfed user with no role 
@@ -240,7 +240,7 @@ Scenario: nonfed user with no roles can be assigned draft registration role with
 	Then _27nf conflict erro will be received 
 
 @28 @temp2
-Scenario: logged in admin user can use pending approve api to change nonfed user role from draft registration to admin  
+Scenario: logged in admin user can use pending hierarchy approve api to change nonfed user role from draft registration to admin  
 	Given _28nf nonfed user signs up
 	And _28nf the nonfed user is given draft registration user role 
 	When _28nf admin calls the api to change the users role to admin from draft registration role
@@ -257,6 +257,22 @@ Scenario: nonfed user with no roles can be assigned administer role with autoass
 	Given _30nf nonfed user signs up
 	And _30nf LSAM call auto assign api with session token and header authorization and apikey for the user
 	Then _30nf nonfed user should get administer role
+	When _30nf the auto assign api is called again on this user
+	Then _30nf conflict error should be thrown
+
+@31 @temp2
+Scenario: when logged in admin user use pending hierarchy approve api on a user with no role they should get bad request response  
+	Given _31nf nonfed user with no role logs in 
+	When _31nf admin calls the api on the no role user 
+	Then _31nf bad request error should be thrown
+
+@32 @temp2
+Scenario: when logged in admin user use pending hierarchy approve api on a user with no role they should get bad request response  
+	Given _32nf nonfed user signs up 
+	And _32nf nonfed user is given administrator role with autoassign api 
+	When _32nf there is an issue during the approval flow
+	Then _32nf revert api can be used to change the role back to draft registration role
+
 
 
 
