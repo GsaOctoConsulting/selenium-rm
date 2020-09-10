@@ -1736,15 +1736,10 @@ public class NonFedStep {
 
 	@When("^_32nf there is an issue during the approval flow$")
 	public void _32nf_there_is_an_issue_during_the_approval_flow() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
-				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
-		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_32nf revert api can be used to change the role back to draft registration role$")
 	public void _32nf_revert_api_can_be_used_to_change_the_role_back_to_draft_registration_role() throws Throwable {
-		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
-		logger.info("The captured sessionkey is - " + sessionkey);
 
 		JSONObject jsonbody = new JSONObject();
 		jsonbody.put("entityID", "800127859");
@@ -1774,7 +1769,121 @@ public class NonFedStep {
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_ADMIN,
 				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
 		Assert.assertEquals(userAlreadyHasRole, true);
+	}
 
+	@Given("^_33nf nonfed user signs up$")
+	public void _33nf_nonfed_user_signs_up() throws Throwable {
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		newsignedupnonfedusersecretkey = SignUpUtility.signUpNewUserNonFed(
+				"nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com", Constants.USERPASS);
+		newsignedupnonfeduser = "nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com";
+		CommonProfilePage.enterFirstName("shah");
+		CommonProfilePage.enterLastName("raiaan");
+		CommonProfilePage.enterWorkphone("5555555555");
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		CommonProfilePage.clickSubmitButton();
+		RequestRoleOptionalPage.clickSkipAndFinish();
+	}
+
+	@When("^_33nf admin call reject api on the user with no role$")
+	public void _33nf_admin_call_reject_api_on_the_user_with_no_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+	}
+
+	@Then("^_33nf the api will return no content as the response$")
+	public void _33nf_the_api_will_return_no_content_as_the_response() throws Throwable {
+		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		logger.info("The captured sessionkey is - " + sessionkey);
+
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("draftRegistrationUserEmail", newsignedupnonfeduser);
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_PENDINGHIERARCHY_REJECT);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(204, response.getStatusCode());
+	}
+
+	@When("^_33nf the new user is assigned draft registration user role$")
+	public void _33nf_the_new_user_is_assigned_draft_registration_user_role() throws Throwable {
+		SignInUtility.signIntoWorkspace(newsignedupnonfeduser, Constants.USERPASS, newsignedupnonfedusersecretkey,
+				Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+		T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		logger.info("The captured sessionkey is - " + sessionkey);
+		
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("isPendingHierarchy", true);
+
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(201, response.getStatusCode());
+
+		// make to get call to verify the presence of the role in jsonbody
+		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+				+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		logger.info(response2.getBody().asString());
+		Assert.assertEquals(201, response2.getStatusCode());
+		Assert.assertTrue(response2.getBody().asString().contains("Draft Registration User"));
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();
+	}
+
+	@And("^_33nf admin calls the reject api on this user$")
+	public void _33nf_admin_calls_the_reject_api_on_this_user() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+		LaunchBrowserUtil.delay(4);
+		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+		logger.info("The captured sessionkey is - " + sessionkey);
+		
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("draftRegistrationUserEmail", newsignedupnonfeduser);
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_PENDINGHIERARCHY_REJECT);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(201, response.getStatusCode());
+	}
+
+	@Then("^_33nf the draft registration role will be removed$")
+	public void _33nf_the_draft_registration_role_will_be_removed() throws Throwable {
+		// make to get call to verify the presence of the role in jsonbody
+				Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+						+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+				logger.info(response2.getBody().asString());
+				Assert.assertEquals(204, response2.getStatusCode());
+				Assert.assertFalse(response2.getBody().asString().contains("Draft Registration User"));
 	}
 
 	private void beforeScenario() {

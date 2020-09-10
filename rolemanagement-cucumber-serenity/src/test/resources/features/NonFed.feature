@@ -273,7 +273,14 @@ Scenario: when logged in admin user use pending hierarchy approve api on a user 
 	When _32nf there is an issue during the approval flow
 	Then _32nf revert api can be used to change the role back to draft registration role
 
-
+@33 @temp2
+Scenario: admin can use reject api to remove draft registration user role if phrr is rejected  
+	Given _33nf nonfed user signs up
+	When _33nf admin call reject api on the user with no role
+	Then _33nf the api will return no content as the response
+	When _33nf the new user is assigned draft registration user role
+	And _33nf admin calls the reject api on this user
+	Then _33nf the draft registration role will be removed
 
 
 	 
