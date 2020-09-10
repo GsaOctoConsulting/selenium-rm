@@ -247,7 +247,7 @@ Scenario: logged in admin user can use pending hierarchy approve api to change n
 	Then _28nf the nonfed user should end up with administrator role 
 
 @29 @temp2
-Scenario: logged in use with a role other than draft user can be assigned draft registration user role with api  
+Scenario: logged in use with a role other than draft user can also be assigned draft registration user role with api  
 	Given _29nf user logs in as data entry in entity registration
 	When _29nf user call auto assign api with session token 
 	Then _29nf user should not get conflict error 

@@ -1558,25 +1558,62 @@ public class NonFedStep {
 	public void _29nf_user_call_auto_assign_api_with_session_token() throws Throwable {
 		String sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
 		logger.info("The captured sessionkey is - " + sessionkey);
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("isPendingHierarchy", true);
 
-		LaunchBrowserUtil.openNewTab();
-		LaunchBrowserUtil.switchTabs(1);
-		LaunchBrowserUtil.getDriver().get(Constants.SWAGGER_URL);
-		LaunchBrowserUtil.makeAssignAPICall(sessionkey, "800127859", "4RSCO", Constants.ORG_OCTO_CONSULTING_GROUP,
-				ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2);
-		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.switchTabs(2);
-		LaunchBrowserUtil.delay(2);
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(201, response.getStatusCode());
+
+		// make to get call to verify the presence of the role in jsonbody
+		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+				+ ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2 + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		logger.info(response2.getBody().asString());
+		Assert.assertEquals(200, response2.getStatusCode());
+		Assert.assertTrue(response2.getBody().asString().contains("Draft Registration User"));
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.closeBrowsers();	
 	}
 
 	@Then("^_29nf user should not get conflict error$")
 	public void _29nf_user_should_get_conflict_error() throws Throwable {
-		T1WorkspacePage.goToAccountDetailsPage();
-		AccountDetailsPage.goToPageOnSideNav("My Roles");
-		// ---------assert the newly granted role-----------
-		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
-				Constants.ROLE_DRAFTREGISTRATION_USER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
-		Assert.assertEquals(userAlreadyHasRole, true);
+		// removing the draft registration role ---------------
+		JSONObject jsonbody = new JSONObject();
+		jsonbody.put("entityID", "800127859");
+		jsonbody.put("draftRegistrationUserEmail", ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2);
+		logger.info(jsonbody.toString());
+
+		RequestSpecification specification = RestAssured.given();
+		specification.header("Content-Type", "application/json");
+		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
+		//specification.header(Constants.SESSION_KEY, sessionkey);
+		specification.baseUri(Constants.API_URL_PENDINGHIERARCHY_REJECT);
+		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
+		specification.body(jsonbody.toString());
+
+		Response response = specification.post();
+		Assert.assertEquals(200, response.getStatusCode());
+		
+		// make to get call to verify the removal of the role in jsonbody
+		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+				+ ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2 + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		logger.info(response2.getBody().asString());
+		Assert.assertEquals(200, response2.getStatusCode());
+		Assert.assertFalse(response2.getBody().asString().contains("Draft Registration User"));
+		
+		
+		
+		
 	}
 
 	@Given("^_30nf nonfed user signs up$")
