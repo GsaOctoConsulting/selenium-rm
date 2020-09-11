@@ -906,8 +906,8 @@ public class NonFedStep {
 	@And("^_16nf spaad looks up a nonfed user with data entry in contract opportunities$")
 	public void _16nf_spaad_looks_up_a_nonfed_user_with_data_entry_in_contract_opportunities() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 	}
 
 	@When("^_16nf spaad updates users role to viewer in contract opportunities$")
@@ -1609,11 +1609,7 @@ public class NonFedStep {
 				+ ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2 + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
 		logger.info(response2.getBody().asString());
 		Assert.assertEquals(200, response2.getStatusCode());
-		Assert.assertFalse(response2.getBody().asString().contains("Draft Registration User"));
-		
-		
-		
-		
+		Assert.assertFalse(response2.getBody().asString().contains("Draft Registration User"));	
 	}
 
 	@Given("^_30nf nonfed user signs up$")
@@ -1777,7 +1773,6 @@ public class NonFedStep {
 
 	@Then("^_32nf revert api can be used to change the role back to draft registration role$")
 	public void _32nf_revert_api_can_be_used_to_change_the_role_back_to_draft_registration_role() throws Throwable {
-
 		JSONObject jsonbody = new JSONObject();
 		jsonbody.put("entityID", "800127859");
 		jsonbody.put("draftRegistrationUserEmail", newsignedupnonfeduser);
@@ -1789,7 +1784,7 @@ public class NonFedStep {
 		specification.header("Content-Type", "application/json");
 		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
 		specification.header(Constants.SESSION_KEY, sessionkey);
-		specification.baseUri(Constants.API_URL_NONFED_ASSIGN);
+		specification.baseUri(Constants.API_URL_PENDINGHIERARCHY_APPROVE);
 		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
 		specification.body(jsonbody.toString());
 
@@ -1805,7 +1800,7 @@ public class NonFedStep {
 		// ---------he newly granted role-----------
 		boolean userAlreadyHasRole = MyRolesPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP, Constants.ROLE_ADMIN,
 				Constants.DOMAIN_ENTITY_REGISTRATION, Constants.NOACTION);
-		Assert.assertEquals(userAlreadyHasRole, true);
+		Assert.assertEquals(userAlreadyHasRole, false);
 	}
 
 	@Given("^_33nf nonfed user signs up$")
@@ -1882,7 +1877,7 @@ public class NonFedStep {
 		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
 				+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
 		logger.info(response2.getBody().asString());
-		Assert.assertEquals(201, response2.getStatusCode());
+		Assert.assertEquals(200, response2.getStatusCode());
 		Assert.assertTrue(response2.getBody().asString().contains("Draft Registration User"));
 		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
@@ -1890,11 +1885,11 @@ public class NonFedStep {
 
 	@And("^_33nf admin calls the reject api on this user$")
 	public void _33nf_admin_calls_the_reject_api_on_this_user() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
-				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
-		LaunchBrowserUtil.delay(4);
-		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
-		logger.info("The captured sessionkey is - " + sessionkey);
+//		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+//				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
+//		LaunchBrowserUtil.delay(4);
+//		sessionkey = LaunchBrowserUtil.getDriver().manage().getCookieNamed("SESSION").getValue();
+//		logger.info("The captured sessionkey is - " + sessionkey);
 		
 		JSONObject jsonbody = new JSONObject();
 		jsonbody.put("entityID", "800127859");
@@ -1904,23 +1899,23 @@ public class NonFedStep {
 		RequestSpecification specification = RestAssured.given();
 		specification.header("Content-Type", "application/json");
 		specification.header(Constants.AUTHORIZATION_KEY, Constants.AUTHORIZATION_HEADER_VALUE);
-		specification.header(Constants.SESSION_KEY, sessionkey);
+		//specification.header(Constants.SESSION_KEY, sessionkey);
 		specification.baseUri(Constants.API_URL_PENDINGHIERARCHY_REJECT);
 		specification.queryParam(Constants.APIKEY_KEY, Constants.APIKEY_VALUE);
 		specification.body(jsonbody.toString());
 
 		Response response = specification.post();
-		Assert.assertEquals(201, response.getStatusCode());
+		Assert.assertEquals(200, response.getStatusCode());
 	}
 
 	@Then("^_33nf the draft registration role will be removed$")
 	public void _33nf_the_draft_registration_role_will_be_removed() throws Throwable {
-		// make to get call to verify the presence of the role in jsonbody
-				Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
-						+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
-				logger.info(response2.getBody().asString());
-				Assert.assertEquals(204, response2.getStatusCode());
-				Assert.assertFalse(response2.getBody().asString().contains("Draft Registration User"));
+	// make to get call to verify the removal of the role in jsonbody
+		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
+				+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
+		logger.info(response2.getBody().asString());
+		Assert.assertEquals(204, response2.getStatusCode());
+		Assert.assertFalse(response2.getBody().asString().contains("Draft Registration User"));
 	}
 
 	private void beforeScenario() {

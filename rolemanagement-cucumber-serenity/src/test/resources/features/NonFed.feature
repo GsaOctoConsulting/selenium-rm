@@ -267,7 +267,7 @@ Scenario: when logged in admin user use pending hierarchy approve api on a user 
 	Then _31nf bad request error should be thrown
 
 @32 @temp2
-Scenario: when logged in admin user use pending hierarchy approve api on a user with no role they should get bad request response  
+Scenario: when exception occurs during approval process pending hierarchh api can be used to revert admin role to draft registration  
 	Given _32nf nonfed user signs up 
 	And _32nf nonfed user is given administrator role with autoassign api 
 	When _32nf there is an issue during the approval flow

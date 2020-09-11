@@ -276,6 +276,7 @@ public class AssignRolePage {
 		WebElement firstOrg = orgList.get(dropdownOptionNo);
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());
 		if (firstOrg.getText().toLowerCase().contains(entity.toLowerCase())) {
+			LaunchBrowserUtil.delay(1);
 			orgList.get(dropdownOptionNo).click();
 			LaunchBrowserUtil.delay(3);
 			orgFound = true;
