@@ -994,7 +994,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV)); // admin
 			// received
 
@@ -1015,7 +1015,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_APPROVED_ORGANIZATIONS));
@@ -1042,7 +1042,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom1.contains(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1.replace("@gsa.gov", ""))
@@ -1061,7 +1061,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_SUPERVISOR));
@@ -1087,7 +1087,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom2.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
@@ -1106,7 +1106,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_APPROVED_ORGANIZATIONS));
@@ -1132,7 +1132,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom2.contains(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1.replace("@gsa.gov", ""))
@@ -1151,7 +1151,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_SUPERVISOR));
@@ -1177,7 +1177,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody3.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody3.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody3.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom3.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
@@ -1196,7 +1196,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody3.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody3.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody3.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_APPROVED_ORGANIZATIONS));
@@ -1222,7 +1222,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody3.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody3.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody3.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom3.contains(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1.replace("@gsa.gov", ""))
@@ -1241,7 +1241,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody3.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody3.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody3.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody3.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody3.contains(Constants.EMAIL_SUPERVISOR));
@@ -1267,7 +1267,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody4.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody4.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody4.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody4.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom4.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
@@ -1286,7 +1286,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody4.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody4.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody4.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody4.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody4.contains(Constants.EMAIL_APPROVED_ORGANIZATIONS));
@@ -1312,7 +1312,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody4.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody4.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody4.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody4.contains(Constants.EMAIL_ENV));
 			counter++;
 		} else if (emailToAndFrom4.contains(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1.replace("@gsa.gov", ""))
@@ -1331,7 +1331,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody4.contains(Constants.ORG_GSA.toUpperCase()));
 			Assert.assertEquals(true, emailBody4.contains(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER));
 			Assert.assertEquals(true, emailBody4.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
-			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_SUBTIER));
+			Assert.assertEquals(true, emailBody4.contains(Constants.CODE_ORG_GSA_OFFICE));
 			Assert.assertEquals(true, emailBody4.contains(Constants.EMAIL_ENV));
 
 			Assert.assertEquals(true, emailBody4.contains(Constants.EMAIL_SUPERVISOR));

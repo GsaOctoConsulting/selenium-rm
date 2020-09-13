@@ -34,6 +34,7 @@ public class Constants {
 	// Org Codes
 	public static final String CODE_ORG_GSA_DEPT = "047";
 	public static final String CODE_ORG_GSA_SUBTIER = "4700";
+	public static final CharSequence CODE_ORG_GSA_OFFICE = "470504";
 	public static final CharSequence CODE_ORG_OCTO_CONSULTING = "800127859";
 
 	// Roles---------------------------------
@@ -395,6 +396,7 @@ public class Constants {
 	public static final String SESSION_KEY = "X-Auth-Token";
 	public static final String AUTHORIZATION_KEY = "Authorization";
 	public static final String APIKEY_KEY = "api_key";
+	
 	public static String API_URL_PENDINGHIERARCHY_REJECT;
 	public static String API_URL_PENDINGHIERARCHY_APPROVE;
 	public static String APIKEY_VALUE_FORACCESS;
