@@ -3,8 +3,10 @@ Project Title - System Accounts RM Automation
 Getting Started - 
 The examples below should help running tests and what prerequisites 
 are needed to be setup before. Also refers to the javadoc on 
-specific classes and methords. The main browser configuration 
+specific classes and methods. The main browser configuration 
 is in the LaunchBrowserUtil.java file. 
+Also refer to the resource folder for the features which contain
+the scenarios available.
 
 
 Prerequisites
