@@ -10,9 +10,11 @@ is in the LaunchBrowserUtil.java file.
 Prerequisites
 - script for email inbox needs to be tailored for the user's inbox.
 - setup accounts, save secretkeys and ids in ConstantsAccounts.java file
+(currently the accounts included in the file are used by octo, new accounts 
+should be created and replaced in the file)
 
-Give examples: - 
-1) to Run scenarios, use cucummber Tags in the format (eg. "@FeatureName, @scenariono")
+Examples: - 
+1) to Run scenarios, use cucummber Tags in the format (eg. "@FeatureName, @scenario#")
 in the CucumberTestSuite class
 2) to generate reports, use maven command, -Dverify=CucumberTestSuite clean verify
 
