@@ -53,8 +53,8 @@ public class LoginStep {
 //		LaunchBrowserUtil.delay(4);
 		
 		
-//		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE, Constants.USERPASS,
-//				ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY, Constants.USER_NONFED);
+//		SignInUtility.signIntoWorkspace(ConstantsAccounts.HHS_ASSISTANCEUSER_1, Constants.USERPASS,
+//				ConstantsAccounts.HHS_ASSISTANCEUSER_1_SECRETKEY, Constants.USER_NONFED);
 //		LaunchBrowserUtil.delay(4);
 
 		
@@ -241,11 +241,11 @@ public class LoginStep {
 
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		 SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
-		 counter + "@yopmail.com",
-		 Constants.USERPASS);
-	//SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2, Constants.USERPASS);
+//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+//		 SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
+//		 counter + "@yopmail.com",
+//		 Constants.USERPASS);
+SignUpUtility.signUpNewUser(ConstantsAccounts.HHS_ASSISTANCEUSER_1, Constants.USERPASS);
 
 // SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser"
 		// + counter + "@gmail.com",

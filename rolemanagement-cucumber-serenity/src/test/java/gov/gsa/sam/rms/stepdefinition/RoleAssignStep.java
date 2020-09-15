@@ -269,22 +269,55 @@ public class RoleAssignStep {
 	@When("^_7ra admin tries to assign same role to this user$")
 	public void _7ra_admin_tries_to_assign_same_role_to_this_user() throws Throwable {
 		// check whether user already has the role
-				boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-						Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
-				Assert.assertEquals(true, userAlreadyHasRole1);
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
+				Constants.NOACTION);
+		Assert.assertEquals(true, userAlreadyHasRole1);
 
-				UserDirectoryViewAccessPage.clickAssignRole();
-				AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
-				AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-				AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
-				String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
-				Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
+		UserDirectoryViewAccessPage.clickAssignRole();
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+
 	}
 
 	@Then("^_7ra appropriate error message should be displayed$")
 	public void _7ra_appropriate_error_message_should_be_displayed() throws Throwable {
 		String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
 		Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
+	}
+
+	@Given("^_8ra user logs in as spaad$")
+	public void _8ra_user_logs_in_as_spaad() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_8ra user navigates to userdirectory and looks up a user in hhs with no role$")
+	public void _8ra_user_navigates_to_userdirectory_and_looks_up_a_user_in_hhs_with_no_role() throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.HHS_ASSISTANCEUSER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.HHS_ASSISTANCEUSER_1);
+	}
+
+	@When("^_8ra spaad tries to assign gsa security approve role to this user with gsa$")
+	public void _8ra_spaad_tries_to_assign_gsa_security_approve_role_to_this_user_with_gsa() throws Throwable {
+		// check whether user already has the role
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_HHS,
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
+		Assert.assertEquals(true, userAlreadyHasRole1);
+		UserDirectoryViewAccessPage.clickAssignRole();
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_GSA_SECURITYAPPROVER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
+
+	}
+
+	@Then("^_8ra appropriate error message should be displayed$")
+	public void _8ra_appropriate_error_message_should_be_displayed() throws Throwable {
+		String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
+		Assert.assertTrue(alertmessage.contains("This role can only be assigned to user(s) belonging to GSA organization."));
 	}
 
 	// private methods are below this line

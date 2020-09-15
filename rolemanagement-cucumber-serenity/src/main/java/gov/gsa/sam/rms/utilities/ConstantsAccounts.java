@@ -80,7 +80,7 @@ public class ConstantsAccounts {
 
 	// ---------------------------------------------------------------------
 	public static final String HHS_ASSISTANCEUSER_1 = "octotestaccount1+hhs@gsa.gov";
-	public static final String HHS_ASSISTANCEUSER_1_SECRETKEY = "CTMMBDQWK77DMIOH";
+	public static final String HHS_ASSISTANCEUSER_1_SECRETKEY = "IS6T5HWJU7WHC27F";
 
 	// public static String HHS_ASSISTANCEUSER_1 = "shah.raiaan+hhs@gsa.gov";
 	public static final String CLAIM_NOROLEUSER_1 = "octotestaccount1+claim1@gsa.gov";

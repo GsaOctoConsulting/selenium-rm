@@ -61,6 +61,14 @@ Scenario: proper error message should be  thrown during role assignment if the u
 	And _7ra user navigates to userdirectory and looks up a user with contracting officer role in contract opp 
 	When _7ra admin tries to assign same role to this user 
 	Then _7ra appropriate error message should be displayed 
+
+@8 @IntegrationTest @G1 @temp
+Scenario: proper error message should be  thrown during role assignment of gsa security approver role by spaad to user from other department 
+	Given _8ra user logs in as spaad 
+	And _8ra user navigates to userdirectory and looks up a user in hhs with no role 
+	When _8ra spaad tries to assign gsa security approve role to this user with gsa 
+	Then _8ra appropriate error message should be displayed 
+
 	
 	
  
