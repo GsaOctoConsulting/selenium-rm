@@ -13,6 +13,7 @@ import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.FeedsRequestPage;
 import gov.gsa.sam.rms.pages.MyRolesPage;
+import gov.gsa.sam.rms.pages.RoleInviteAssignRolePage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 import gov.gsa.sam.rms.pages.UserDirectoryViewAccessPage;
 import gov.gsa.sam.rms.pages.UserDirectoryPage;
@@ -51,9 +52,10 @@ public class RoleAssignStep {
 		LaunchBrowserUtil.delay(5);
 
 		// --------------------------
-		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
-				Constants.ASSIGNED, Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA,
-				Constants.GO_INTO_ROLE_ASSIGNED);// also checking if role history is clickable
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan", Constants.ASSIGNED,
+				Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA, Constants.GO_INTO_ROLE_ASSIGNED);// also checking if
+																									// role history is
+																									// clickable
 		Assert.assertEquals(true, roleHistoryFound);
 
 		LaunchBrowserUtil.closeBrowsers();
@@ -74,12 +76,11 @@ public class RoleAssignStep {
 		Assert.assertEquals(userAlreadyHasRole, true);
 
 		// --------------------------
-		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
-				Constants.ASSIGNED, Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA,
-				Constants.NOACTION);
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan", Constants.ASSIGNED,
+				Constants.ROLE_ASSISTANCE_USER, Constants.ORG_GSA, Constants.NOACTION);
 		Assert.assertEquals(true, roleHistoryFound);
-		
-		//		String latesthistorydescription = MyRolesPage.getLatestRoleHistory();
+
+		// String latesthistorydescription = MyRolesPage.getLatestRoleHistory();
 //		String descriptionwordarray[] = latesthistorydescription.split(" ");
 //		String requestername = descriptionwordarray[0] + descriptionwordarray[1];
 //		logger.info("The name of the requester is -- " + requestername);
@@ -96,8 +97,6 @@ public class RoleAssignStep {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
-		
-		
 
 		// ---------delete the newly granted role-----------
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
@@ -250,6 +249,42 @@ public class RoleAssignStep {
 	public void _6ra_appropriate_error_message_should_be_displayed() throws Throwable {
 		boolean alertFound = AssignRolePage.elementFound(AssignRolePageLocator.ERROR_ALERT);
 		Assert.assertEquals(true, alertFound);
+	}
+
+	@Given("^_7ra user logs in as contract opportunities admin$")
+	public void _7ra_user_logs_in_as_contract_opportunities_admin() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_7ra user navigates to userdirectory and looks up a user with contracting officer role in contract opp$")
+	public void _7ra_user_navigates_to_userdirectory_and_looks_up_a_user_with_contracting_officer_role_in_contract_opp()
+			throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGOFFICER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.CONTRACT_OPPORTUNITIES_CONTRACTINGOFFICER_1);
+	}
+
+	@When("^_7ra admin tries to assign same role to this user$")
+	public void _7ra_admin_tries_to_assign_same_role_to_this_user() throws Throwable {
+		// check whether user already has the role
+				boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+						Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+				Assert.assertEquals(true, userAlreadyHasRole1);
+
+				UserDirectoryViewAccessPage.clickAssignRole();
+				AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+				AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+				AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+				String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
+				Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
+	}
+
+	@Then("^_7ra appropriate error message should be displayed$")
+	public void _7ra_appropriate_error_message_should_be_displayed() throws Throwable {
+		String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
+		Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
 	}
 
 	// private methods are below this line

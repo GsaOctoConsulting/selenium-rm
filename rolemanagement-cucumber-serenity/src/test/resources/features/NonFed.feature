@@ -125,7 +125,7 @@ Scenario: a nonfed user with data entry in contract opportunities should be able
 	And _13nf user navigates to user directory page and clicks data entry and contract opportunities filter 
 	And _13nf user should see all those users as clickable 
 	
-@14 @temp
+@14 
 Scenario: when requested role is accepted a nonfed user should see role assigned status in profile history 
 	Given _14nf a nonfed user with no role logs in 
 	And _14nf user requests viewer role in contract opportunities 
@@ -231,7 +231,7 @@ Scenario: when spaad admin assigns a role to a nonfed user ip address should be 
 	When _26nf spaad assigns a role to the user  
 	Then _26nf the role assignment should send ip address information as well
 
-@27 @temp2
+@27 @api
 Scenario: nonfed user with no roles can be assigned draft registration role with autoassign api  
 	Given _27nf nonfed user signs up
 	And _27nf LSAM call auto assign api with session token and header authorization and apikey for the user
@@ -239,20 +239,20 @@ Scenario: nonfed user with no roles can be assigned draft registration role with
 	When _27nf api is called again for the nonfed user
 	Then _27nf conflict erro will be received 
 
-@28 @temp2
+@28 @api2
 Scenario: logged in admin user can use pending hierarchy approve api to change nonfed user role from draft registration to admin  
 	Given _28nf nonfed user signs up
 	And _28nf the nonfed user is given draft registration user role 
 	When _28nf admin calls the api to change the users role to admin from draft registration role
 	Then _28nf the nonfed user should end up with administrator role 
 
-@29 @temp2
+@29 @api2
 Scenario: logged in use with a role other than draft user can also be assigned draft registration user role with api  
 	Given _29nf user logs in as data entry in entity registration
 	When _29nf user call auto assign api with session token 
 	Then _29nf user should not get conflict error 
 
-@30 @temp2
+@30 @api2
 Scenario: nonfed user with no roles can be assigned administer role with autoassign api  
 	Given _30nf nonfed user signs up
 	And _30nf LSAM call auto assign api with session token and header authorization and apikey for the user
@@ -260,20 +260,20 @@ Scenario: nonfed user with no roles can be assigned administer role with autoass
 	When _30nf the auto assign api is called again on this user
 	Then _30nf conflict error should be thrown
 
-@31 @temp2
+@31 @api2
 Scenario: when logged in admin user use pending hierarchy approve api on a user with no role they should get bad request response  
 	Given _31nf nonfed user with no role logs in 
 	When _31nf admin calls the api on the no role user 
 	Then _31nf bad request error should be thrown
 
-@32 @temp2
+@32 @api2
 Scenario: when exception occurs during approval process pending hierarchh api can be used to revert admin role to draft registration  
 	Given _32nf nonfed user signs up 
 	And _32nf nonfed user is given administrator role with autoassign api 
 	When _32nf there is an issue during the approval flow
 	Then _32nf revert api can be used to change the role back to draft registration role
 
-@33 @temp2
+@33 @api2
 Scenario: admin can use reject api to remove draft registration user role if phrr is rejected  
 	Given _33nf nonfed user signs up
 	When _33nf admin call reject api on the user with no role
