@@ -162,7 +162,7 @@ Scenario: approved role request should show correct status in feeds
 	And _18rr admin approves the request 
 	Then _18rr the approved request should appear as approved in the feeds 
 	
-@19 @G2
+@19 @G2 @temp
 Scenario Outline: role request for contract opportunities domain is not allowed at subtier level 
 	Given _19rr user logs in workspace with no role 
 	And _19rr user select "GENERAL SERVICES ADMINISTRATION" at subtier level 
