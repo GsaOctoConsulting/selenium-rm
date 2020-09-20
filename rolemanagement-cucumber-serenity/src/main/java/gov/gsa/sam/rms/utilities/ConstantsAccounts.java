@@ -322,4 +322,6 @@ public class ConstantsAccounts {
 	public static final String NONFED_DATAENTRY_ENTITYREGISTRATION_2 = "nonfedgsaemail+dataentryentityregistration2@yopmail.com";
 	public static final String NONFED_DATAENTRY_ENTITYREGISTRATION_SECRETKEY = "G5J4WILQFV2CF5YH";
 	
+	public static final String FH_SUPER_ADMIN = "octotestaccount1+fhsuperadmin@gsa.gov";
+	public static final String FH_SUPER_ADMIN_SECRETKEY = "XFEDWYN5DLKJZCQV";
 }

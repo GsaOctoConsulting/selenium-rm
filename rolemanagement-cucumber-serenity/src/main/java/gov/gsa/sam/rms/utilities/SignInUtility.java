@@ -42,10 +42,12 @@ public class SignInUtility {
 		// ---------------------------
 		LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 		LaunchBrowserUtil.delay(2);
-		//LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
+		LaunchBrowserUtil.driver
+				.findElement(By.xpath("//*[@id=\"sds-dialog-0\"]/sam-us-security-modal-v2/div/div[3]/button[2]"))
+				.click();
 		LaunchBrowserUtil.delay(2);
-		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
-		LaunchBrowserUtil.delay(2);
+		// LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+		// LaunchBrowserUtil.delay(2);
 
 		LaunchBrowserUtil.driver.findElement(By.id("user_email")).sendKeys(username);
 		LaunchBrowserUtil.delay(2);
@@ -93,7 +95,7 @@ public class SignInUtility {
 			List<WebElement> elements = LaunchBrowserUtil.driver.findElements(By.xpath(
 					"//a[starts-with(@href, 'https://idp.int.identitysandbox.gov/manage/email/confirm_delete/')]"));
 			logger.info("The size of the accounts email found-- " + elements.size());
-			elements.get(1).click();//assuming the second one is the recently added one that is to be deleted
+			elements.get(1).click();// assuming the second one is the recently added one that is to be deleted
 			LaunchBrowserUtil.delay(1);
 			LaunchBrowserUtil.driver.findElement(By.className("btn-danger")).click();
 			LaunchBrowserUtil.delay(1);
