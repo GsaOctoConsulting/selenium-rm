@@ -17,6 +17,7 @@ import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
 import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.utilities.Constants;
+import gov.gsa.sam.rms.utilities.CustomWaitsUtility;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
@@ -267,6 +268,10 @@ public class T1WorkspacePage {
 		driver.findElement(By.id("close-button")).click();
 		LaunchBrowserUtil.delay(2);
 
+	}
+
+	public static void gotoFHPage() {
+		CustomWaitsUtility.elementToBeClickable(By.id("fh-search-link"), 4).click();
 	}
 
 }

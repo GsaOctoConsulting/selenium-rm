@@ -22,9 +22,9 @@ Feature: Office Move related role validation functionality
 	office move takes place
 
 @1 
-Scenario: dra logs into common Worspace page 
-	Given _1 user already has dra account setup and enters "email" and "password" 
-	Then _1 dra should see UserDirectory Widget 
+Scenario: office move test
+	Given _1omv fh super admin logs in  
+	And _1omv super admin creates the first subiter under gsa 
 	
 
 	
