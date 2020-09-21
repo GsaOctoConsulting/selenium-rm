@@ -26,7 +26,7 @@ public class FHUtility {
 				.click();
 	}
 
-	public static void createSubTier(String name, String agencycode, String cgac, String tas2code) {
+	public static String createSubTier(String name, String agencycode, String cgac, String tas2code) {
 		driver.findElement(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button")).click();
 		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.id("orgName-input")).sendKeys(name);
@@ -48,7 +48,7 @@ public class FHUtility {
 				.sendKeys(dateFormat.format(currentDateMinusOne));
 
 		// ------------------creating endate---
-		c.add(Calendar.DATE, +1);
+		c.add(Calendar.DATE, +2);
 		// convert calendar to date
 		Date currentDatePlusOne = c.getTime();
 		logger.info("The end date entered is- " + dateFormat.format(currentDatePlusOne));
@@ -61,7 +61,7 @@ public class FHUtility {
 		CustomWaitsUtility.elementToBeClickable(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/create-org-form/div/div[2]/div/div[2]/sam-button/button"),
 				3).click();
-		;
+		return name;
 	}
 
 }
