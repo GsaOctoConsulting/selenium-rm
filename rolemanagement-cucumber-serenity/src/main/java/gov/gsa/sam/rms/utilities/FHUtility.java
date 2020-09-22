@@ -64,4 +64,50 @@ public class FHUtility {
 		return name;
 	}
 
+	public static void gotoWorkspacePage() {
+		CustomWaitsUtility.elementToBeClickable(By.linkText("Workspace"), 3).click();
+	}
+
+	public static String createOffice(String officename, String aaccode) {
+		CustomWaitsUtility
+				.elementToBeClickable(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button"), 2)
+				.click();
+		driver.findElement(By.id("ofcAAC-input")).sendKeys(aaccode);
+		driver.findElement(By.id("ofcName-input")).sendKeys(officename);
+		// entering date, start date is always one day behind current date
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
+		Date date = new Date();
+		String startdate = dateFormat.format(date);
+		// DeptAgencyEndDate.sendKeys(EndDate);
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		// manipulate date
+		c.add(Calendar.DATE, -1);
+		// convert calendar to date
+		Date currentDateMinusOne = c.getTime();
+		logger.info("The start date entered is- " + dateFormat.format(currentDateMinusOne));
+
+		driver.findElement(By.id("ofc-start-date month required. Enter Month Here"))
+				.sendKeys(dateFormat.format(currentDateMinusOne));
+
+		// ------------------creating endate---
+		c.add(Calendar.DATE, +2);
+		// convert calendar to date
+		Date currentDatePlusOne = c.getTime();
+		logger.info("The end date entered is- " + dateFormat.format(currentDatePlusOne));
+		driver.findElement(By.id("ofc-end-date month Enter Month Here"))
+				.sendKeys(dateFormat.format(currentDatePlusOne));
+
+		driver.findElement(By.id("street1-Mailing-Address")).sendKeys("123 MAIN ST");
+		driver.findElement(By.id("Mailing-Addresscountry")).sendKeys("USA");
+		CustomWaitsUtility.visibilityOf(By.id("resultItem_0"), 3).click();
+		driver.findElement(By.id("Mailing-Addresszip")).sendKeys("20191");
+		driver.findElement(By.id("Mailing-Addresscity")).sendKeys("reston");
+		CustomWaitsUtility.visibilityOf(By.id("result_0"), 3).click();
+		driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[3]/sam-button/button"))
+				.click();
+		return officename;
+	}
+
 }

@@ -19,6 +19,7 @@ public class OfficeMoveValidationStep {
 	private String createdSubtier1 = "";
 	private String createdSubtier2 = "";
 	private String createdOfficeUnderSubtier1 = "";
+	String counter = "";
 
 	@Given("^_1omv fh super admin logs in$")
 	public void _1omv_fh_super_admin_logs_in() throws Throwable {
@@ -29,22 +30,28 @@ public class OfficeMoveValidationStep {
 
 	@And("^_1omv super admin creates the first subiter under gsa$")
 	public void _1omv_super_admin_creates_the_first_subiter_under_gsa() throws Throwable {
-		String counter = SignUpUtility.updatecounter("login.fed.accountno");
+		counter=SignUpUtility.updatecounter("login.fed.accountno");
 		T1WorkspacePage.gotoFHPage();
 		FHUtility.goToOrgDetails(Constants.ORG_GSA);
-		String uniqueagencycode = "1" + counter.substring(1, counter.length());
-		createdSubtier1 = FHUtility.createSubTier("RMOffice" + uniqueagencycode, uniqueagencycode, "111", "111");
+		String uniqueagencycode = "3" + counter.substring(1, counter.length());
+		createdSubtier1 = FHUtility.createSubTier("RMSUBTIER" + uniqueagencycode, uniqueagencycode, "111", "111");
+	}
+	@And("^_1omv super admin creates an office under the first subtier$")
+	public void _1omv_super_admin_creates_an_office_under_the_second_subtier() throws Throwable {
+		createdOfficeUnderSubtier1=FHUtility.createOffice("RMOFFICE"+counter,"47"+counter);
 	}
 
 	@And("^_1omv super admin creates the second subtier under gsa$")
 	public void _1omv_super_admin_creates_the_second_subtier_under_gsa() throws Throwable {
-
+		FHUtility.gotoWorkspacePage();
+		counter = SignUpUtility.updatecounter("login.fed.accountno");
+		T1WorkspacePage.gotoFHPage();
+		FHUtility.goToOrgDetails(Constants.ORG_GSA);
+		String uniqueagencycode = "1" + counter.substring(1, counter.length());
+		createdSubtier1 = FHUtility.createSubTier("RMSUBTIER" + uniqueagencycode, uniqueagencycode, "111", "111");
 	}
 
-	@And("^_1omv super admin creates an office under the second subtier$")
-	public void _1omv_super_admin_creates_an_office_under_the_second_subtier() throws Throwable {
-
-	}
+	
 
 	@Then("^_1omv spaad logs in$")
 	public void _1omv_spaad_logs_in() throws Throwable {
