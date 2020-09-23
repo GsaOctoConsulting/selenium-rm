@@ -86,7 +86,7 @@ public class OfficeMoveValidationStep {
 	public void _1omv_spaad_assigns_contracting_specialist_role_to_the_user_under_contract_data_domain()
 			throws Throwable {
 //		MyRolesPage.clickAssignRoleButton();
-//		AssignRolePage.selectOrgIfFound("RMSUBTIER1022", 0);
+	//	AssignRolePage.selectOrgIfFound("RMSUBTIER1022", 0);
 //		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
 //		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
 //		AssignRolePage.writeComment("test");
@@ -99,6 +99,9 @@ public class OfficeMoveValidationStep {
 	public void _1omv_super_admin_moves_the_office_into_subtier_1() throws Throwable {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
 		ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.gotoFHPage();
+		FHUtility.goToOrgDetails(Constants.ORG_GSA);
+		FHUtility.moveOfficeIntoSubtier(createdSubtier1);
 	}
 
 	@Then("^_1omv user should be left with one role$")

@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
 public class FHUtility {
@@ -108,6 +109,19 @@ public class FHUtility {
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[3]/sam-button/button"))
 				.click();
 		return officename;
+	}
+
+	public static void moveOfficeIntoSubtier(String parent) {
+		CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"main-container\"]/ng-component/div/aside/div/ul/li[2]"), 3)
+				.click();
+		// code to click the office tab on the side bar
+		driver.findElement(By.id("actionsButton")).click();
+		driver.findElement(By.id("menuitem1")).click();
+		AssignRolePage.setDriver(driver);
+		AssignRolePage.selectOrgIfFound(parent, 0);
+		driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/fh-move-office/div/div/section/fh-move-office-form/div[8]/button[2]"))
+				.click();
 	}
 
 }
