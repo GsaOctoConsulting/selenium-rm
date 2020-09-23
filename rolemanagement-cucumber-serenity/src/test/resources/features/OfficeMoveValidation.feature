@@ -28,7 +28,7 @@ Scenario: office move test
 	And _1omv super admin creates an office under the first subtier 
 	And _1omv super admin creates the second subtier under gsa
 	Then _1omv spaad logs in 
-	And _1omv assigns contracting officer role in contract data and contracting opportunites domain to a user at office level under subtiert two
+	And _1omv assigns contracting officer role in contract data and contracting opportunites domain to a user at office level under subtier one
 	And _1omv spaad assigns contracting specialist role to the user under contract data domain
 	When _1omv super admin moves the office into subtier 1
 	Then _1omv user should be left with one role 
