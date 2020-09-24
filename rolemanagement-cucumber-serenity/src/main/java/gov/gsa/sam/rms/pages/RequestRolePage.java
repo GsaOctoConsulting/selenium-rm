@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.RequestRolePageLocator;
+import gov.gsa.sam.rms.utilities.CustomWaitsUtility;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 /**
@@ -48,8 +49,8 @@ public class RequestRolePage {
 	}
 
 	public static void clickSubmit() {
-		LaunchBrowserUtil.delay(3);
-		driver.findElement(RequestRolePageLocator.SUBMIT_BUTTON).click();
+		//LaunchBrowserUtil.delay(3);driver.findElement(RequestRolePageLocator.SUBMIT_BUTTON).click();
+		CustomWaitsUtility.elementToBeClickable(RequestRolePageLocator.SUBMIT_BUTTON, 3).click();
 		MyRolesPage.setDriver(RequestRolePage.getDriver());
 		LaunchBrowserUtil.delay(4);
 	}

@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.locators.FeedsRequestPageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
+import gov.gsa.sam.rms.utilities.CustomWaitsUtility;
 import gov.gsa.sam.rms.utilities.LaunchBrowserUtil;
 
 public class UserDirectoryPage {
@@ -465,7 +466,7 @@ public class UserDirectoryPage {
 		LaunchBrowserUtil.delay(2);
 		List<WebElement> userlist = driver.findElements(By.xpath("//li[starts-with(@id, 'userPicker-resultItem')]"));
 		logger.info("The size of the user search list is --- "+userlist.size());
-		driver.findElement(UserDirectoryPageLocator.FIRST_RESULT).click();
+		CustomWaitsUtility.visibilityOf(UserDirectoryPageLocator.FIRST_RESULT, 4).click();
 		LaunchBrowserUtil.delay(1);
 		return userlist.size();
 	}

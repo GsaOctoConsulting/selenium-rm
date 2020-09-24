@@ -284,7 +284,7 @@ public class RoleAssignStep {
 	@Then("^_7ra appropriate error message should be displayed$")
 	public void _7ra_appropriate_error_message_should_be_displayed() throws Throwable {
 		String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
-		Assert.assertTrue(alertmessage.contains("User has pending user access for current Organization and Domain"));
+		Assert.assertTrue(alertmessage.contains("User(s) already has another role for the same org hierarchy."));
 	}
 
 	@Given("^_8ra user logs in as spaad$")

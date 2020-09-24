@@ -79,7 +79,7 @@ Scenario: role request comment update
 	When _7 role admin logs in 
 	Then  _7 role admin should see both the original and the updated comments 
 	
-@8 @SmokeTest @IntegrationTest 
+@8 @nolongervalid 
 Scenario: empty org role domain and comment box should should show error messages 
 	Given _8 assistance user logs into workspace 
 	And _8 the user navigates to request roles page 
