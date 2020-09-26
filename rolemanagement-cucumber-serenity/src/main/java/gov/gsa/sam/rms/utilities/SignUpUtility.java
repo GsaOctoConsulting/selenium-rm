@@ -136,7 +136,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.delay(2);
 //			LaunchBrowserUtil.driver.findElement(By.id("login-accept")).click();
 			LaunchBrowserUtil.delay(6);
-			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"sds-dialog-0\"]/sam-us-security-modal-v2/div/div[3]/button[2]")).click();
 			LaunchBrowserUtil.delay(3);
 			
 			LaunchBrowserUtil.driver.findElement(By.linkText("Create an account")).click();

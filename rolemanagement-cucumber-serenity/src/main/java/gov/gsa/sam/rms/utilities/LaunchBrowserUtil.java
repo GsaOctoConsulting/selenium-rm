@@ -550,7 +550,7 @@ public class LaunchBrowserUtil {
 	public static void recoverThroughForgotPasswordForFed(String userid, String secretkey, String newpassword) {
 		T1WorkspacePage.clickSignInButton();
 		// T1WorkspacePage.clickAcceptOnBanner();
-		LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"sds-dialog-0\"]/sam-us-security-modal-v2/div/div[3]/button[2]")).click();
 		driver.findElement(By.linkText("Forgot your password?")).click();
 		delay(1);
 		driver.findElement(By.id("password_reset_email_form_email")).sendKeys(userid);
