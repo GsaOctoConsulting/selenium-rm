@@ -17,6 +17,6 @@ public class AccountDetailsPageLocator {
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/section/ng-component/sam-modal[2]/div/div/div[2]/div/sam-button[2]/button");
 	public static final By API_KEY_TEXT = By.xpath("//*[@id=\"api-key-grid\"]/div/span[1]");
 	public static final By API_KEY_ERROR_MESSAGE = By.xpath(
-			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/section/ng-component/sam-modal-basic/div/div/div[2]/div/div[1]/span");
+			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/section/ng-component/sam-modal-basic/div/div[2]/div/div[1]/span");
 	public static final By ENTITY_INFO = By.id("organization-information");
 }

@@ -80,7 +80,7 @@ public class AccountDetailsPage {
 	}
 
 	public static void clickEyeIconToGenerateAPIKey() {
-		driver.findElement(By.id("eye-icon")).click();
+		driver.findElement(By.id("eye-icon-api-key-0")).click();
 		LaunchBrowserUtil.delay(1);
 
 	}
@@ -95,7 +95,7 @@ public class AccountDetailsPage {
 	public static void clickSubmitButton() {
 		LaunchBrowserUtil.delay(3);
 		driver.findElement(By.xpath(
-				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/section/ng-component/sam-modal-basic/div/div/div[2]/div/button[2]"))
+				"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[2]/section/ng-component/sam-modal-basic/div/div[2]/div/button[2]"))
 				.click();
 
 	}
