@@ -25,7 +25,7 @@ Scenario: nonfed admin should be able to assign role to user with a role already
 	And _1nri goes to the role invite page through user directory  
 	When _1nri admin enters an id for a user with roles in the admins own domain 
 	Then _1nri admin should receive proper message and be able to assign role to user without seeing send invite button 
-@2 @temp
+@2 
 Scenario: role invite cannot be sent to a user who already has the same pending invite 
 	Given _2nri nonfed admin logs in 
 	And _2nri goes to the role invite page through user directory  
@@ -73,7 +73,7 @@ Scenario: after a role invitation is sent by admin if the user makes the same ro
 	And _7nri nonfed admin tries to approve the request made by the nonfed user  
 	Then _7nri proper error message should be shown
 
-@8 
+@8 @temp   
 Scenario: existing user with a role invitation should be able to accept the invite and obtain the role for entity registration domain    
 	Given _8nri nonfed admin logs in   
 	When _8nri admin enters an id for a user with no roles 

@@ -55,14 +55,14 @@ Scenario: system account administrator cannot be assigned administrator all doma
 	When _6ra spaad tries to assign adminstrator all domains role to this user 
 	Then _6ra appropriate error message should be displayed 
 
-@7 @IntegrationTest @G1 @temp
+@7 @IntegrationTest @G1 
 Scenario: proper error message should be  thrown during role assignment if the user already has the role 
 	Given _7ra user logs in as contract opportunities admin 
 	And _7ra user navigates to userdirectory and looks up a user with contracting officer role in contract opp 
 	When _7ra admin tries to assign same role to this user 
 	Then _7ra appropriate error message should be displayed 
 
-@8 @IntegrationTest @G1 @temp
+@8 @IntegrationTest @G1 
 Scenario: proper error message should be  thrown during role assignment of gsa security approver role by spaad to user from other department 
 	Given _8ra user logs in as spaad 
 	And _8ra user navigates to userdirectory and looks up a user in hhs with no role 

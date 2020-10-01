@@ -460,7 +460,7 @@ public class UserDirectoryPage {
 	}
 
 	public static int searchUserInUserPicker(String user) {
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(2);
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).clear();
 		driver.findElement(UserDirectoryPageLocator.USER_PICKER_BAR).sendKeys(user);
 		LaunchBrowserUtil.delay(2);

@@ -565,6 +565,10 @@ public class NonfedRoleInviteStep {
 		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
 		Assert.assertEquals(true, roleFound);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION);
+		
+		
     }
 
 	@Given("^_9nri nonfed admin logs in$")
