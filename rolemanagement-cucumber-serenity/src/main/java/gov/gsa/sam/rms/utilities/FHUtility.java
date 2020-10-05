@@ -19,9 +19,9 @@ public class FHUtility {
 
 	public static void goToOrgDetails(String org) {
 		driver.findElement(By.xpath("//input[starts-with(@aria-label, 'search federal hierarchy')]")).sendKeys(org);
-		LaunchBrowserUtil.delay(1);
+		LaunchBrowserUtil.delay(3);
 		driver.findElement(By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[2]/div/i")).click();
-
+		LaunchBrowserUtil.delay(3);
 		driver.findElement(
 				By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[4]/div/div[2]/div/div[2]/div[1]/a"))
 				.click();
@@ -66,6 +66,7 @@ public class FHUtility {
 	}
 
 	public static void gotoWorkspacePage() {
+		LaunchBrowserUtil.delay(5);
 		CustomWaitsUtility.elementToBeClickable(By.linkText("Workspace"), 7).click();
 	}
 
@@ -105,12 +106,14 @@ public class FHUtility {
 		driver.findElement(By.id("Mailing-Addresszip")).sendKeys("20191");
 		driver.findElement(By.id("Mailing-Addresscity")).sendKeys("reston");
 		CustomWaitsUtility.visibilityOf(By.id("result_0"), 3).click();
+
 		driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[3]/sam-button/button"))
 				.click();
 		CustomWaitsUtility.visibilityOf(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[2]/sam-button/button"),
-				6).click();
+				15).click();
+		LaunchBrowserUtil.delay(5);
 		return officename;
 	}
 
