@@ -66,12 +66,12 @@ public class FHUtility {
 	}
 
 	public static void gotoWorkspacePage() {
-		CustomWaitsUtility.elementToBeClickable(By.linkText("Workspace"), 3).click();
+		CustomWaitsUtility.elementToBeClickable(By.linkText("Workspace"), 7).click();
 	}
 
 	public static String createOffice(String officename, String aaccode) {
 		CustomWaitsUtility
-				.elementToBeClickable(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button"), 2)
+				.elementToBeClickable(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button"), 8)
 				.click();
 		driver.findElement(By.id("ofcAAC-input")).sendKeys(aaccode);
 		driver.findElement(By.id("ofcName-input")).sendKeys(officename);
@@ -108,6 +108,9 @@ public class FHUtility {
 		driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[3]/sam-button/button"))
 				.click();
+		CustomWaitsUtility.visibilityOf(By.xpath(
+				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[2]/sam-button/button"),
+				6).click();
 		return officename;
 	}
 

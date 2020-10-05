@@ -271,6 +271,7 @@ public class T1WorkspacePage {
 	}
 
 	public static void gotoFHPage() {
+		LaunchBrowserUtil.delay(3);
 		CustomWaitsUtility.elementToBeClickable(By.id("fh-search-link"), 4).click();
 	}
 
