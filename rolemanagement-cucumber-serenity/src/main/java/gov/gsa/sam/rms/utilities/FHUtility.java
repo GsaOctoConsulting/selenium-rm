@@ -18,6 +18,7 @@ public class FHUtility {
 	static WebDriver driver = LaunchBrowserUtil.getDriver();
 
 	public static void goToOrgDetails(String org) {
+		LaunchBrowserUtil.delay(1);
 		driver.findElement(By.xpath("//input[starts-with(@aria-label, 'search federal hierarchy')]")).sendKeys(org);
 		LaunchBrowserUtil.delay(3);
 		driver.findElement(By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[2]/div/i")).click();
