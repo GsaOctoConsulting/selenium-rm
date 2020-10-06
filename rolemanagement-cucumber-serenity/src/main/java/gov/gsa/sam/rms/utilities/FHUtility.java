@@ -122,6 +122,8 @@ public class FHUtility {
 		CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"main-container\"]/ng-component/div/aside/div/ul/li[2]"), 3)
 				.click();
 		// code to click the office tab on the side bar
+		LaunchBrowserUtil.driver.findElement(By.className("federal-hierarchy-org-item-title")).click();
+		
 		LaunchBrowserUtil.driver.findElement(By.id("actionsButton")).click();
 		LaunchBrowserUtil.driver.findElement(By.id("menuitem1")).click();
 		AssignRolePage.setDriver(LaunchBrowserUtil.driver);
