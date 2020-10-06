@@ -21,9 +21,9 @@ import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 
 public class OfficeMoveValidationStep {
 	private static Logger logger = LoggerFactory.getLogger(OfficeMoveValidationStep.class);
-	private String createdSubtier1 = "RMSUBTIER3091";
-	private String createdSubtier2 = "RMSUBTIER3093";
-	private String createdOfficeUnderSubtier1 = "RMOFFICE1091";
+	private String createdSubtier1 = "RMSUBTIER3096";
+	private String createdSubtier2 = "RMSUBTIER1097";
+	private String createdOfficeUnderSubtier1 = "RMOFFICE1096";
 	String counter = "";
 
 	@Given("^_1omv fh super admin logs in$")
@@ -53,6 +53,7 @@ public class OfficeMoveValidationStep {
 //		FHUtility.goToOrgDetails(Constants.ORG_GSA);
 //		String uniqueagencycode = "1" + counter.substring(1, counter.length());
 //		createdSubtier2 = FHUtility.createSubTier("RMSUBTIER" + uniqueagencycode, uniqueagencycode, "111", "111");
+//		LaunchBrowserUtil.delay(5);
 //		LaunchBrowserUtil.closeBrowsers();
 	}
 

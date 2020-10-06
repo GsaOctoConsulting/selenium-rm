@@ -19,20 +19,23 @@ import gov.gsa.sam.rms.pages.T1WorkspacePage;
 public class FHUtility {
 	private static Logger logger = LoggerFactory.getLogger(FHUtility.class);
 
-
 	public static void goToOrgDetails(String org) {
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@aria-label, 'search federal hierarchy')]")).sendKeys(org);
+		LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@aria-label, 'search federal hierarchy')]"))
+				.sendKeys(org);
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[2]/div/i")).click();
+		LaunchBrowserUtil.driver
+				.findElement(By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[2]/div/i")).click();
 		LaunchBrowserUtil.delay(3);
-		LaunchBrowserUtil.driver.findElement(
-				By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[4]/div/div[2]/div/div[2]/div[1]/a"))
+		LaunchBrowserUtil.driver
+				.findElement(By.xpath(
+						"//*[@id=\"main-container\"]/ng-component/div[1]/div/div[4]/div/div[2]/div/div[2]/div[1]/a"))
 				.click();
 	}
 
 	public static String createSubTier(String name, String agencycode, String cgac, String tas2code) {
-		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button")).click();
+		LaunchBrowserUtil.driver
+				.findElement(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button")).click();
 		LaunchBrowserUtil.delay(1);
 		LaunchBrowserUtil.driver.findElement(By.id("orgName-input")).sendKeys(name);
 
@@ -122,25 +125,38 @@ public class FHUtility {
 	}
 
 	public static void moveOfficeIntoSubtier(String parent) {
+		LaunchBrowserUtil.delay(2);
 		CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"main-container\"]/ng-component/div/aside/div/ul/li[2]"), 3)
 				.click();
 		// code to click the office tab on the side bar
+		LaunchBrowserUtil.delay(1);
 		LaunchBrowserUtil.driver.findElement(By.className("federal-hierarchy-org-item-title")).click();
-		
+		LaunchBrowserUtil.delay(1);
 		LaunchBrowserUtil.driver.findElement(By.id("actionsButton")).click();
+		LaunchBrowserUtil.delay(1);
 		LaunchBrowserUtil.driver.findElement(By.id("menuitem1")).click();
+		LaunchBrowserUtil.delay(2);
 		AssignRolePage.setDriver(LaunchBrowserUtil.driver);
 		selectOrgIfFound(parent, 0);
 		LaunchBrowserUtil.driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/fh-move-office/div/div/section/fh-move-office-form/div[8]/button[2]"))
 				.click();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/fh-move-office/div/div/section/fh-move-office-review/div[5]/button[2]"))
+				.click();
+		LaunchBrowserUtil.delay(3);
+		LaunchBrowserUtil.driver.findElement(By.xpath(
+				"//*[@id=\"main-container\"]/fh-move-office/div/div/section/fh-move-office-review/sam-modal/div[2]/div/div[2]/div/sam-button[2]/button"))
+				.click();
 	}
-	
-	public static boolean selectOrgIfFound(String parent,int menuoptionno) {
+
+	public static boolean selectOrgIfFound(String parent, int menuoptionno) {
 		boolean orgFound = false;
 		LaunchBrowserUtil.driver.findElement(AssignRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(parent);
 		LaunchBrowserUtil.delay(4);
-		List<WebElement> orgList = LaunchBrowserUtil.driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
+		List<WebElement> orgList = LaunchBrowserUtil.driver
+				.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
 
 		logger.info(("The size of the list is......" + orgList.size()));
 		LaunchBrowserUtil.delay(2);
