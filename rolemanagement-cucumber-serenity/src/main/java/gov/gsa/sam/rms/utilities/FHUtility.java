@@ -4,12 +4,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import gov.gsa.sam.rms.locators.AssignRolePageLocator;
 import gov.gsa.sam.rms.pages.AssignRolePage;
 import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
@@ -127,10 +130,28 @@ public class FHUtility {
 		LaunchBrowserUtil.driver.findElement(By.id("actionsButton")).click();
 		LaunchBrowserUtil.driver.findElement(By.id("menuitem1")).click();
 		AssignRolePage.setDriver(LaunchBrowserUtil.driver);
-		AssignRolePage.selectOrgIfFound(parent, 0);
+		selectOrgIfFound(parent, 0);
 		LaunchBrowserUtil.driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/fh-move-office/div/div/section/fh-move-office-form/div[8]/button[2]"))
 				.click();
+	}
+	
+	public static boolean selectOrgIfFound(String parent,int menuoptionno) {
+		boolean orgFound = false;
+		LaunchBrowserUtil.driver.findElement(AssignRolePageLocator.ORGPICKER_TEXTAREA).sendKeys(parent);
+		LaunchBrowserUtil.delay(4);
+		List<WebElement> orgList = LaunchBrowserUtil.driver.findElements(By.xpath("//li[starts-with(@role, 'option')]"));
+
+		logger.info(("The size of the list is......" + orgList.size()));
+		LaunchBrowserUtil.delay(2);
+		WebElement firstOrg = orgList.get(menuoptionno);
+		logger.info("*****************the text from first org is*****" + firstOrg.getText());
+		if (firstOrg.getText().toLowerCase().contains(parent.toLowerCase())) {
+			orgList.get(menuoptionno).click();
+			LaunchBrowserUtil.delay(3);
+			orgFound = true;
+		}
+		return orgFound;
 	}
 
 }
