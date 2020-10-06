@@ -15,23 +15,23 @@ import gov.gsa.sam.rms.pages.T1WorkspacePage;
 
 public class FHUtility {
 	private static Logger logger = LoggerFactory.getLogger(FHUtility.class);
-	static WebDriver driver = LaunchBrowserUtil.getDriver();
+
 
 	public static void goToOrgDetails(String org) {
 		LaunchBrowserUtil.delay(1);
-		driver.findElement(By.xpath("//input[starts-with(@aria-label, 'search federal hierarchy')]")).sendKeys(org);
+		LaunchBrowserUtil.driver.findElement(By.xpath("//input[starts-with(@aria-label, 'search federal hierarchy')]")).sendKeys(org);
 		LaunchBrowserUtil.delay(3);
-		driver.findElement(By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[2]/div/i")).click();
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[2]/div/i")).click();
 		LaunchBrowserUtil.delay(3);
-		driver.findElement(
+		LaunchBrowserUtil.driver.findElement(
 				By.xpath("//*[@id=\"main-container\"]/ng-component/div[1]/div/div[4]/div/div[2]/div/div[2]/div[1]/a"))
 				.click();
 	}
 
 	public static String createSubTier(String name, String agencycode, String cgac, String tas2code) {
-		driver.findElement(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button")).click();
+		LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button")).click();
 		LaunchBrowserUtil.delay(1);
-		driver.findElement(By.id("orgName-input")).sendKeys(name);
+		LaunchBrowserUtil.driver.findElement(By.id("orgName-input")).sendKeys(name);
 
 		// entering date, start date is always one day behind current date
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
@@ -46,7 +46,7 @@ public class FHUtility {
 		Date currentDateMinusOne = c.getTime();
 		logger.info("The start date entered is- " + dateFormat.format(currentDateMinusOne));
 
-		driver.findElement(By.id("org-start-date month required. Enter Month Here"))
+		LaunchBrowserUtil.driver.findElement(By.id("org-start-date month required. Enter Month Here"))
 				.sendKeys(dateFormat.format(currentDateMinusOne));
 
 		// ------------------creating endate---
@@ -54,12 +54,12 @@ public class FHUtility {
 		// convert calendar to date
 		Date currentDatePlusOne = c.getTime();
 		logger.info("The end date entered is- " + dateFormat.format(currentDatePlusOne));
-		driver.findElement(By.id("org-end-date month Enter Month Here"))
+		LaunchBrowserUtil.driver.findElement(By.id("org-end-date month Enter Month Here"))
 				.sendKeys(dateFormat.format(currentDatePlusOne));
 
 		// enter agency code
-		driver.findElement(By.id("fpds-input")).sendKeys(agencycode);
-		driver.findElement(By.id("confirmButton")).click();
+		LaunchBrowserUtil.driver.findElement(By.id("fpds-input")).sendKeys(agencycode);
+		LaunchBrowserUtil.driver.findElement(By.id("confirmButton")).click();
 		CustomWaitsUtility.elementToBeClickable(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/create-org-form/div/div[2]/div/div[2]/sam-button/button"),
 				3).click();
@@ -75,8 +75,8 @@ public class FHUtility {
 		CustomWaitsUtility
 				.elementToBeClickable(By.xpath("//*[@id=\"primary-content\"]/ng-component/div/div[1]/div[1]/button"), 8)
 				.click();
-		driver.findElement(By.id("ofcAAC-input")).sendKeys(aaccode);
-		driver.findElement(By.id("ofcName-input")).sendKeys(officename);
+		LaunchBrowserUtil.driver.findElement(By.id("ofcAAC-input")).sendKeys(aaccode);
+		LaunchBrowserUtil.driver.findElement(By.id("ofcName-input")).sendKeys(officename);
 		// entering date, start date is always one day behind current date
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
 		Date date = new Date();
@@ -90,7 +90,7 @@ public class FHUtility {
 		Date currentDateMinusOne = c.getTime();
 		logger.info("The start date entered is- " + dateFormat.format(currentDateMinusOne));
 
-		driver.findElement(By.id("ofc-start-date month required. Enter Month Here"))
+		LaunchBrowserUtil.driver.findElement(By.id("ofc-start-date month required. Enter Month Here"))
 				.sendKeys(dateFormat.format(currentDateMinusOne));
 
 		// ------------------creating endate---
@@ -98,17 +98,17 @@ public class FHUtility {
 		// convert calendar to date
 		Date currentDatePlusOne = c.getTime();
 		logger.info("The end date entered is- " + dateFormat.format(currentDatePlusOne));
-		driver.findElement(By.id("ofc-end-date month Enter Month Here"))
+		LaunchBrowserUtil.driver.findElement(By.id("ofc-end-date month Enter Month Here"))
 				.sendKeys(dateFormat.format(currentDatePlusOne));
 
-		driver.findElement(By.id("street1-Mailing-Address")).sendKeys("123 MAIN ST");
-		driver.findElement(By.id("Mailing-Addresscountry")).sendKeys("USA");
+		LaunchBrowserUtil.driver.findElement(By.id("street1-Mailing-Address")).sendKeys("123 MAIN ST");
+		LaunchBrowserUtil.driver.findElement(By.id("Mailing-Addresscountry")).sendKeys("USA");
 		CustomWaitsUtility.visibilityOf(By.id("resultItem_0"), 3).click();
-		driver.findElement(By.id("Mailing-Addresszip")).sendKeys("20191");
-		driver.findElement(By.id("Mailing-Addresscity")).sendKeys("reston");
+		LaunchBrowserUtil.driver.findElement(By.id("Mailing-Addresszip")).sendKeys("20191");
+		LaunchBrowserUtil.driver.findElement(By.id("Mailing-Addresscity")).sendKeys("reston");
 		CustomWaitsUtility.visibilityOf(By.id("result_0"), 3).click();
 
-		driver.findElement(By.xpath(
+		LaunchBrowserUtil.driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/ng-component/div/div/div[2]/page/div/div/div[2]/div/div[1]/div[2]/div/div[3]/sam-button/button"))
 				.click();
 		CustomWaitsUtility.visibilityOf(By.xpath(
@@ -122,11 +122,11 @@ public class FHUtility {
 		CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"main-container\"]/ng-component/div/aside/div/ul/li[2]"), 3)
 				.click();
 		// code to click the office tab on the side bar
-		driver.findElement(By.id("actionsButton")).click();
-		driver.findElement(By.id("menuitem1")).click();
-		AssignRolePage.setDriver(driver);
+		LaunchBrowserUtil.driver.findElement(By.id("actionsButton")).click();
+		LaunchBrowserUtil.driver.findElement(By.id("menuitem1")).click();
+		AssignRolePage.setDriver(LaunchBrowserUtil.driver);
 		AssignRolePage.selectOrgIfFound(parent, 0);
-		driver.findElement(By.xpath(
+		LaunchBrowserUtil.driver.findElement(By.xpath(
 				"//*[@id=\"main-container\"]/fh-move-office/div/div/section/fh-move-office-form/div[8]/button[2]"))
 				.click();
 	}
