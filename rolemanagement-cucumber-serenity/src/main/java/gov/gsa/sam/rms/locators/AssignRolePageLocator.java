@@ -6,7 +6,7 @@ public class AssignRolePageLocator {// contains locators for AssignRolePageOnly
 	public static final String title = "beta.SAM.gov | Assign Role";
 
 	// the following locators are available without user action
-	public static final By ROLE_SELECTOR = By.id("role-selector");
+	public static final By ROLE_SELECTOR = By.id("role-select");
 
 	public static final By DOMAINDROPDOWN_ICON = By.id(
 			"domain-ac-textarea");

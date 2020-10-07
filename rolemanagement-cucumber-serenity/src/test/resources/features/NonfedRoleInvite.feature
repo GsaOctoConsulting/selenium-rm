@@ -56,7 +56,7 @@ Scenario: nonfed admin should be able to invite nonfed user who currently dont h
 	When _5nri the invited user sign up for an account
 	Then _5nri the invited user should receive a dialog box for the role invite upon registration completion
 
-@6
+@6 @temp
 Scenario: both the nonfed admin and the nonfed request receiver should get emails when a role invite is made  
 	Given _6nri new nonfed user signs up 
 	And _6nri nonfed admin logs in 
