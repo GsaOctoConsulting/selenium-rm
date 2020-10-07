@@ -22,7 +22,7 @@ Feature: Office Move related role validation functionality
 	office move takes place
 
 @1 
-Scenario: when an office is moved from one subtier to another conflicted will be removed from the office 
+Scenario: when an office is moved from one subtier to another conflicted role will be removed from the office 
 	Given _1omv fh super admin logs in  
 	And _1omv super admin creates the first subiter under gsa
 	And _1omv super admin creates an office under the first subtier 
@@ -31,7 +31,23 @@ Scenario: when an office is moved from one subtier to another conflicted will be
 	And _1omv assigns contracting officer role in contract data at office level under subtier one
 	And _1omv spaad assigns contracting specialist role to the user under contract data domain under subtier2
 	When _1omv super admin moves the office into subtier2
-	Then _1omv user should be left with one role 
+	Then _1omv user should be left with one role
+
+@2	
+Scenario: conflicted role in assistance listing domain should also be removed during office move  
+	Given _2omv spaad logs in 
+	And _2omv assigns omb analyst role in assistance listing at office level under subtier one
+	And _2omv spaad assigns assistance user in assistance listing to the user subtier2
+	When _2omv super admin moves the office into subtier2
+	Then _2omv user should be left with assistance user role only 
+
+@3	
+Scenario: role that do not conflict should hold true even after office move  
+	Given _3omv spaad logs in 
+	And _3omv assigns assistance user role in assistance listing at office level under subtier one
+	And _3omv spaad assigns contracting specialist role in contract data to the user in subtier2
+	When _3omv super admin moves the office into subtier2
+	Then _3omv user should be left with both the roles
 
 	
 	
