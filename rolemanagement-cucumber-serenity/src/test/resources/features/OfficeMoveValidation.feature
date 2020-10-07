@@ -22,7 +22,7 @@ Feature: Office Move related role validation functionality
 	office move takes place
 
 @1 
-Scenario: office move test
+Scenario: when an office is moved from one subtier to another conflicted will be removed from the office 
 	Given _1omv fh super admin logs in  
 	And _1omv super admin creates the first subiter under gsa
 	And _1omv super admin creates an office under the first subtier 

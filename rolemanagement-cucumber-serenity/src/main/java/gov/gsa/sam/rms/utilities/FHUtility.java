@@ -126,11 +126,11 @@ public class FHUtility {
 
 	public static void moveOfficeIntoSubtier(String parent) {
 		LaunchBrowserUtil.delay(2);
-		CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"main-container\"]/ng-component/div/aside/div/ul/li[2]"), 3)
-				.click();
+		//CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"main-container\"]/ng-component/div/aside/div/ul/li[2]"), 3)
+				//.click();
 		// code to click the office tab on the side bar
 		LaunchBrowserUtil.delay(1);
-		LaunchBrowserUtil.driver.findElement(By.className("federal-hierarchy-org-item-title")).click();
+		//LaunchBrowserUtil.driver.findElement(By.className("federal-hierarchy-org-item-title")).click();
 		LaunchBrowserUtil.delay(1);
 		LaunchBrowserUtil.driver.findElement(By.id("actionsButton")).click();
 		LaunchBrowserUtil.delay(1);

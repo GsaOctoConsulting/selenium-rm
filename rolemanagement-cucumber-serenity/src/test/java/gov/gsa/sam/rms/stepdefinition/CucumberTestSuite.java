@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
 		"gov.gsa.sam.rms.stepdefinition"}, features = "src/test/resources/features/", dryRun = false, tags = {
 				"@OfficeMoveValidation","@1"})
 public class CucumberTestSuite {
-  // @temp 
+  // @temp
 }

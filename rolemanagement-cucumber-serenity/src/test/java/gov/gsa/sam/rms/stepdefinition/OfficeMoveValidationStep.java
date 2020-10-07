@@ -62,49 +62,50 @@ public class OfficeMoveValidationStep {
 
 	@Then("^_1omv spaad logs in$")
 	public void _1omv_spaad_logs_in() throws Throwable {
-//		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-//				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-//		LaunchBrowserUtil.delay(4);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@And("^_1omv assigns contracting officer role in contract data at office level under subtier one$")
 	public void _1omv_assigns_contracting_officer_role_in_contract_data_and_contracting_opportunites_domain_to_a_user_at_office_level_under_subtiert_two()
 			throws Throwable {
-//		LaunchBrowserUtil.scrollAllTheWayDown();
-//		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-//		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
-//		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
-//		AssignRolePage.selectOrgIfFound(createdOfficeUnderSubtier1, 0);
-//		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-//		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
-//		//AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
-//		AssignRolePage.writeComment("test");
-//		AssignRolePage.clickDone();
-//		AssignRolePage.clickCloseButton();
-//		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
+		AssignRolePage.selectOrgIfFound(createdOfficeUnderSubtier1, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		//AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(5);
 	}
 
 	@And("^_1omv spaad assigns contracting specialist role to the user under contract data domain under subtier2$")
 	public void _1omv_spaad_assigns_contracting_specialist_role_to_the_user_under_contract_data_domain()
 			throws Throwable {
-//		MyRolesPage.clickAssignRoleButton();
-//		AssignRolePage.selectOrgIfFound(createdSubtier2, 0);
-//		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
-//		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
-//		AssignRolePage.writeComment("test");
-//		AssignRolePage.clickDone();
-//		AssignRolePage.clickCloseButton();
-//		LaunchBrowserUtil.delay(5);
-//		LaunchBrowserUtil.closeBrowsers();
+		MyRolesPage.clickAssignRoleButton();
+		AssignRolePage.selectOrgIfFound(createdSubtier2, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_1omv super admin moves the office into subtier2$")
 	public void _1omv_super_admin_moves_the_office_into_subtier_1() throws Throwable {
-//		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
-//		ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
-//		T1WorkspacePage.gotoFHPage();
-//		FHUtility.goToOrgDetails(createdSubtier1);
-//		FHUtility.moveOfficeIntoSubtier(createdSubtier2);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
+		ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.gotoFHPage();
+	//	FHUtility.goToOrgDetails(createdSubtier1);
+		FHUtility.goToOrgDetails(createdOfficeUnderSubtier1);
+		FHUtility.moveOfficeIntoSubtier(createdSubtier2);
 	}
 
 	@Then("^_1omv user should be left with one role$")
@@ -139,7 +140,7 @@ public class OfficeMoveValidationStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
 		ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
 		T1WorkspacePage.gotoFHPage();
-		FHUtility.goToOrgDetails(createdSubtier2);
+		FHUtility.goToOrgDetails(createdOfficeUnderSubtier1);
 		FHUtility.moveOfficeIntoSubtier(createdSubtier1);
 		
 		
