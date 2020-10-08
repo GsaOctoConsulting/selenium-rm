@@ -226,28 +226,79 @@ public class OfficeMoveValidationStep {
 
 	@Given("^_3omv spaad logs in$")
 	public void _3omv_spaad_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@And("^_3omv assigns assistance user role in assistance listing at office level under subtier one$")
 	public void _3omv_assigns_assistance_user_role_in_assistance_listing_at_office_level_under_subtier_one()
 			throws Throwable {
-
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
+		AssignRolePage.selectOrgIfFound(createdOfficeUnderSubtier1, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		// AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(5);
 	}
 
 	@And("^_3omv spaad assigns contracting specialist role in contract data to the user in subtier2$")
 	public void _3omv_spaad_assigns_contracting_specialist_role_in_contract_data_to_the_user_in_subtier2()
 			throws Throwable {
-
+		MyRolesPage.clickAssignRoleButton();
+		AssignRolePage.selectOrgIfFound(createdSubtier2, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		AssignRolePage.writeComment("test");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(5);
+		LaunchBrowserUtil.closeBrowsers();
 	}
 
 	@When("^_3omv super admin moves the office into subtier2$")
 	public void _3omv_super_admin_moves_the_office_into_subtier2() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
+				ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.gotoFHPage();
+		// FHUtility.goToOrgDetails(createdSubtier1);
+		FHUtility.goToOrgDetails(createdOfficeUnderSubtier1);
+		FHUtility.moveOfficeIntoSubtier(createdSubtier2);
 	}
 
 	@Then("^_3omv user should be left with both the roles$")
 	public void _3omv_user_should_be_left_with_both_the_roles() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
+		LaunchBrowserUtil.delay(4);
+
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NO_ROLE_USER_2);
+		// delete the roles
+		boolean rolefound1 = UserDirectoryViewAccessPage.userHasRole(createdOfficeUnderSubtier1,
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		Assert.assertEquals(true, rolefound1);
+
+		boolean rolefound2 = UserDirectoryViewAccessPage.userHasRole(createdSubtier2,
+				Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR, Constants.DOMAIN_CONTRACT_DATA, Constants.DELETE);
+		Assert.assertEquals(true, rolefound2);
+		// move the office back
+
+		LaunchBrowserUtil.delay(3);
+
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
+				ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
+		T1WorkspacePage.gotoFHPage();
+		FHUtility.goToOrgDetails(createdOfficeUnderSubtier1);
+		FHUtility.moveOfficeIntoSubtier(createdSubtier1);
 
 	}
 
