@@ -56,7 +56,7 @@ public class FHUtility {
 				.sendKeys(dateFormat.format(currentDateMinusOne));
 
 		// ------------------creating endate---
-		c.add(Calendar.DATE, +2);
+		c.add(Calendar.DATE, +360);
 		// convert calendar to date
 		Date currentDatePlusOne = c.getTime();
 		logger.info("The end date entered is- " + dateFormat.format(currentDatePlusOne));
@@ -100,7 +100,7 @@ public class FHUtility {
 				.sendKeys(dateFormat.format(currentDateMinusOne));
 
 		// ------------------creating endate---
-		c.add(Calendar.DATE, +2);
+		c.add(Calendar.DATE, +350);
 		// convert calendar to date
 		Date currentDatePlusOne = c.getTime();
 		logger.info("The end date entered is- " + dateFormat.format(currentDatePlusOne));

@@ -23,9 +23,9 @@ import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 
 public class OfficeMoveValidationStep {
 	private static Logger logger = LoggerFactory.getLogger(OfficeMoveValidationStep.class);
-	private String createdSubtier1 = "RMSUBTIER4106";
-	private String createdSubtier2 = "RMSUBTIER1107";
-	private String createdOfficeUnderSubtier1 = "RMOFFICE1106";
+	private String createdSubtier1 = "RMSUBTIER4108";
+	private String createdSubtier2 = "RMSUBTIER1109";
+	private String createdOfficeUnderSubtier1 = "RMOFFICE1108";
 	String counter = "";
 
 	@Given("^_1omv fh super admin logs in$")
@@ -45,7 +45,7 @@ public class OfficeMoveValidationStep {
 
 	@And("^_1omv super admin creates an office under the first subtier$")
 	public void _1omv_super_admin_creates_an_office_under_the_second_subtier() throws Throwable {
-		// createdOfficeUnderSubtier1=FHUtility.createOffice("RMOFFICE"+counter,"47"+counter);
+		//createdOfficeUnderSubtier1=FHUtility.createOffice("RMOFFICE"+counter,"47"+counter);
 	}
 
 	@And("^_1omv super admin creates the second subtier under gsa$")
