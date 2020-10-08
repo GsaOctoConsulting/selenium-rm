@@ -15,3 +15,8 @@
 [0716/175032.309:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\SHAHMR~1\AppData\Local\Temp\1\scoped_dir28212_1554001748\Crashpad\reports\3a49949e-309b-4fbe-a38d-d1ee1adeaba8.dmp: The process cannot access the file because it is being used by another process. (0x20)
 [0716/175150.515:ERROR:process_info.cc(359)] UncheckedAllocate
 [0910/193744.281:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\SHAHMR~1\AppData\Local\Temp\1\scoped_dir29488_969146191\Crashpad\reports\2d44157e-5fec-4138-b08f-7d1df97b8498.dmp: The process cannot access the file because it is being used by another process. (0x20)
+[1008/165341.035:ERROR:process_info.cc(359)] UncheckedAllocate
+[1008/165341.069:ERROR:process_info.cc(359)] UncheckedAllocate
+[1008/170350.153:ERROR:process_info.cc(359)] UncheckedAllocate
+[1008/170737.486:ERROR:process_info.cc(359)] UncheckedAllocate
+[1008/171033.881:ERROR:process_info.cc(359)] UncheckedAllocate

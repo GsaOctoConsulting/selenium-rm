@@ -68,8 +68,8 @@ public class NonFedStep {
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
 
-		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		Assert.assertEquals(true, getentityIdbuttonfound);
+		//boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
+		//Assert.assertEquals(true, getentityIdbuttonfound);
 		afterScenario();
 	}
 
