@@ -317,7 +317,44 @@ public class RoleAssignStep {
 	@Then("^_8ra appropriate error message should be displayed$")
 	public void _8ra_appropriate_error_message_should_be_displayed() throws Throwable {
 		String alertmessage = AssignRolePage.getPendingUserAccessAlertMessage();
-		Assert.assertTrue(alertmessage.contains("This role can only be assigned to user(s) belonging to GSA organization."));
+		Assert.assertTrue(
+				alertmessage.contains("This role can only be assigned to user(s) belonging to GSA organization."));
+	}
+
+	@Given("^_9ra user logs in as admin in contract data$")
+	public void _9ra_user_logs_in_as_admin_in_contract_data() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.CONTRACT_DATA_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.CONTRACT_DATA_ADMIN_1_SECRETKEY, Constants.USER_FED);
+	}
+
+	@And("^_9ra user navigates to userdirectory and looks up a user with sampmo admin role in contract opportunities$")
+	public void _9ra_user_navigates_to_userdirectory_and_looks_up_a_user_with_sampmo_admin_role_in_contract_opportunities()
+			throws Throwable {
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.CONTRACT_OPPORTUNITIES_SPA_1);
+	}
+
+	@Then("^_9ra admin should see admin role button and proceed to assign a role to the user$")
+	public void _9ra_admin_should_see_admin_role_button_and_proceed_to_assign_a_role_to_the_user() throws Throwable {
+
+				UserDirectoryViewAccessPage.clickAssignRole();
+				AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+				AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+				AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+				AssignRolePage.writeComment("assigning this role");
+				AssignRolePage.clickDone();
+				AssignRolePage.clickCloseButton();
+	}
+
+	@Then("^_9ra role assign should be successful$")
+	public void _9ra_role_assign_should_be_successful() throws Throwable {
+		// check whether user already has the role
+				boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+						Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA,
+						Constants.DELETE);
+				Assert.assertEquals(true,userAlreadyHasRole1);
 	}
 
 	// private methods are below this line

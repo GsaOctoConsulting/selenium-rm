@@ -67,7 +67,17 @@ Scenario: proper error message should be  thrown during role assignment of gsa s
 	Given _8ra user logs in as spaad 
 	And _8ra user navigates to userdirectory and looks up a user in hhs with no role 
 	When _8ra spaad tries to assign gsa security approve role to this user with gsa 
-	Then _8ra appropriate error message should be displayed 
+	Then _8ra appropriate error message should be displayed
+	
+@9 @IntegrationTest @G1 @test
+Scenario: federal admin should be able to assign role to sampmo admin in contract opportunities 
+	Given _9ra user logs in as admin in contract data 
+	And _9ra user navigates to userdirectory and looks up a user with sampmo admin role in contract opportunities 
+	Then _9ra admin should see admin role button and proceed to assign a role to the user  
+	Then _9ra role assign should be successful
+	
+ 
+
 
 	
 	
