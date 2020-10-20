@@ -339,22 +339,46 @@ public class RoleAssignStep {
 	@Then("^_9ra admin should see admin role button and proceed to assign a role to the user$")
 	public void _9ra_admin_should_see_admin_role_button_and_proceed_to_assign_a_role_to_the_user() throws Throwable {
 
-				UserDirectoryViewAccessPage.clickAssignRole();
-				AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
-				AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-				AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
-				AssignRolePage.writeComment("assigning this role");
-				AssignRolePage.clickDone();
-				AssignRolePage.clickCloseButton();
+		UserDirectoryViewAccessPage.clickAssignRole();
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
+		AssignRolePage.writeComment("assigning this role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 	}
 
 	@Then("^_9ra role assign should be successful$")
 	public void _9ra_role_assign_should_be_successful() throws Throwable {
 		// check whether user already has the role
-				boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-						Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA,
-						Constants.DELETE);
-				Assert.assertEquals(true,userAlreadyHasRole1);
+		boolean userAlreadyHasRole1 = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_DATA, Constants.DELETE);
+		Assert.assertEquals(true, userAlreadyHasRole1);
+	}
+
+	@Given("^_10ra user with spaad role logs in$")
+	public void _10ra_user_with_spaad_role_logs_in() throws Throwable {
+
+	}
+
+	@And("^_10ra user navigates to userdirectory and looks up a user with no roles$")
+	public void _10ra_user_navigates_to_userdirectory_and_looks_up_a_user_with_no_roles() throws Throwable {
+
+	}
+
+	@When("^_10ra admin selects two orgs in the same hierarchy$")
+	public void _10ra_admin_selects_two_orgs_in_the_same_hierarchy() throws Throwable {
+
+	}
+
+	@And("^_10ra admin tries to assign assistance user role$")
+	public void _10ra_admin_tries_to_assign_assistance_user_role() throws Throwable {
+
+	}
+
+	@Then("^_10ra admin will see error message$")
+	public void _10ra_admin_will_see_error_message() throws Throwable {
+
 	}
 
 	// private methods are below this line

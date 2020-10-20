@@ -75,6 +75,14 @@ Scenario: federal admin should be able to assign role to sampmo admin in contrac
 	And _9ra user navigates to userdirectory and looks up a user with sampmo admin role in contract opportunities 
 	Then _9ra admin should see admin role button and proceed to assign a role to the user  
 	Then _9ra role assign should be successful
+
+@10 @IntegrationTest @G1 @test2
+Scenario:  a role cannot be assigned twice in the same org hierarchy 
+	Given _10ra user with spaad role logs in
+	And _10ra user navigates to userdirectory and looks up a user with no roles 
+	When _10ra admin selects two orgs in the same hierarchy  
+	And _10ra admin tries to assign assistance user role
+	Then _10ra admin will see error message
 	
  
 
