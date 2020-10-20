@@ -71,7 +71,7 @@ Scenario: role request should be editable
 	
 	#8 & #9 on the integration-test doc
 @7 @IntegrationTest @AssistanceUser @G1 
-Scenario: role request comment update 
+Scenario: role request comment update should be visible to admin and requestor
 	Given _7 assistance user logs into workspace 
 	And _7 the user navigates to my roles page to request contracting officer role 
 	Then _7 the user should be able to sign out 
