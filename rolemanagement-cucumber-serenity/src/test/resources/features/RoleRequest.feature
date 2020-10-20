@@ -74,10 +74,11 @@ Scenario: role request should be editable
 Scenario: role request comment update 
 	Given _7 assistance user logs into workspace 
 	And _7 the user navigates to my roles page to request contracting officer role 
-	And _7 the user then updates the comments 
 	Then _7 the user should be able to sign out 
 	When _7 role admin logs in 
-	Then  _7 role admin should see both the original and the updated comments 
+	Then  _7 role admin should be able to put comments on the request
+	When _7 assistance user logs back in
+	Then _7 user should see the comments put in by the admin 
 	
 @8 @nolongervalid 
 Scenario: empty org role domain and comment box should should show error messages 

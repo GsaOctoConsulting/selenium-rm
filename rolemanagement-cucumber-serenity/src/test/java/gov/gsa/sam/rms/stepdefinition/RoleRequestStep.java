@@ -409,42 +409,22 @@ public class RoleRequestStep {
 
 	@And("^_7 the user navigates to my roles page to request contracting officer role$")
 	public void _7_the_user_navigates_to_my_roles_page_to_request_contracting_officer_role() throws Throwable {
-		Assert.assertTrue(false);// intentionally failing until bug is fixed
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("email@gmail.com");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);//selects gsa office
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
-		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
-		comments = "test";
-		RequestRolePage.writeComment(comments);
+		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		RequestRolePage.writeComment("additional details");
 		RequestRolePage.clickSubmit();
-	}
-
-	@And("^_7 the user then updates the comments$")
-	public void _7_the_user_then_updates_the_comments() throws Throwable {
-		MyRolesPage.click1PendingRequest();
-		MyRolesPage.clickPendingLink();
-
-		boolean commentsFound = RoleRequestPendingPage.commentsExist(comments);
-
-		Assert.assertEquals(true, commentsFound);
-		updatedComments = "Comments updated";
-
-		RoleRequestPendingPage.updateComment(updatedComments);
-		LaunchBrowserUtil.delay(2);
-
-		boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist(updatedComments);
-		Assert.assertEquals(true, updatedCommentsFound);
-
+		LaunchBrowserUtil.delay(4);
 	}
 
 	@Then("^_7 the user should be able to sign out$")
 	public void _7_the_user_should_be_able_to_sign_out() throws Throwable {
-		RoleRequestPendingPage.signOut();
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
@@ -455,7 +435,7 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
-	@Then("^_7 role admin should see both the original and the updated comments$")
+	@Then("^_7 role admin should be able to put comments on the request$")
 	public void _7_role_admin_should_see_both_the_original_and_the_updated_comments() throws Throwable {
 
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
@@ -465,20 +445,37 @@ public class RoleRequestStep {
 		LaunchBrowserUtil.delay(2);
 		MyRolesPage.click1PendingRequest();
 		MyRolesPage.clickPendingLink();
-
+		comments = "test";
+		RoleRequestPendingPage.updateComment(comments);
 		LaunchBrowserUtil.delay(2);
-
-		/*
-		 * boolean originalCommentsFound = RoleRequestPendingPage.commentsExist("",
-		 * comments); Assert.assertEquals(true, originalCommentsFound);
-		 * 
-		 * boolean updatedCommentsFound = RoleRequestPendingPage.commentsExist("",
-		 * updatedComments); Assert.assertEquals(true, updatedCommentsFound);
-		 */
-		LaunchBrowserUtil.delay(1);
-		RoleRequestPendingPage.enterAdditionalInformation("rejecting this");
-		RoleRequestPendingPage.clickRejectButton();
+		boolean dynamicallyUpdated = RoleRequestPendingPage.commentsExist(comments);
+		Assert.assertEquals(true, dynamicallyUpdated);	
+		
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.closeBrowsers();
 	}
+	
+	
+	@When("^_7 assistance user logs back in$")
+    public void _7_assistance_user_logs_back_in() throws Throwable {
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ASSISTANCE_USER_2, Constants.USERPASS,
+				ConstantsAccounts.ASSISTANCE_USER_2_SECRETKEY, Constants.USER_FED); 
+    }
+
+    @Then("^_7 user should see the comments put in by the admin$")
+    public void _7_user_should_see_the_comments_put_in_by_the_admin() throws Throwable {
+    	T1WorkspacePage.goToAccountDetailsPage();
+		AccountDetailsPage.goToPageOnSideNav("My Roles");
+		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
+		MyRolesPage.click1PendingRequest();
+		MyRolesPage.clickPendingLink();
+		boolean dynamicallyUpdated = RoleRequestPendingPage.commentsExist(comments);
+		Assert.assertEquals(true, dynamicallyUpdated);
+		
+		RoleRequestPendingPage.enterAdditionalInformation("delete");
+		RoleRequestPendingPage.clickDeleteButton();
+		RoleRequestPendingPage.confirmDeleteOnPopup();
+    }
 
 	@Given("^_8 assistance user logs into workspace$")
 	public void _8_assistance_user_logs_into_workspace() throws Throwable {
@@ -493,7 +490,7 @@ public class RoleRequestStep {
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.setDriver(AccountDetailsPage.getDriver());
 		MyRolesPage.clickRequestRoleButton();
-
+		
 	}
 
 	@When("^_8 the user clicks submit button without entering information$")
