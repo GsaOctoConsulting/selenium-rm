@@ -358,27 +358,38 @@ public class RoleAssignStep {
 
 	@Given("^_10ra user with spaad role logs in$")
 	public void _10ra_user_with_spaad_role_logs_in() throws Throwable {
-
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
+				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_10ra user navigates to userdirectory and looks up a user with no roles$")
 	public void _10ra_user_navigates_to_userdirectory_and_looks_up_a_user_with_no_roles() throws Throwable {
-
+		LaunchBrowserUtil.scrollAllTheWayDown();
+		UserDirectoryWidgetUtility.clickUserDirectoryLink();
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
 	}
 
 	@When("^_10ra admin selects two orgs in the same hierarchy$")
 	public void _10ra_admin_selects_two_orgs_in_the_same_hierarchy() throws Throwable {
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 
 	}
 
 	@And("^_10ra admin tries to assign assistance user role$")
 	public void _10ra_admin_tries_to_assign_assistance_user_role() throws Throwable {
-
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 	}
 
 	@Then("^_10ra admin will see error message$")
 	public void _10ra_admin_will_see_error_message() throws Throwable {
+		LaunchBrowserUtil.delay(3);
+		String alertfound = AssignRolePage.getAlertText();
 
+		Assert.assertTrue(alertfound
+				.contains("User cannot be assigned a role to more than one organization within the same hierarchy"));
 	}
 
 	// private methods are below this line
