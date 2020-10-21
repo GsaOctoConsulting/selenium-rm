@@ -377,10 +377,10 @@ public class RoleAssignStep {
 
 	}
 
-	@And("^_10ra admin tries to assign assistance user role$")
-	public void _10ra_admin_tries_to_assign_assistance_user_role() throws Throwable {
-		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
-		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+	@And("^_10ra admin tries to assign (.+) role in (.+)$")
+	public void _10ra_admin_tries_to_assign_assistance_user_role(String role, String domain) throws Throwable {
+		AssignRolePage.selectRoleIfFound(role);
+		AssignRolePage.selectDomainIfFound(domain);
 	}
 
 	@Then("^_10ra admin will see error message$")
