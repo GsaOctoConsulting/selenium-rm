@@ -48,8 +48,8 @@ public class LoginStep {
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 		
-//		SignInUtility.signIntoWorkspace(ConstantsAccounts.DEPT_ROLEADMIN_2, Constants.USERPASS,
-//				ConstantsAccounts.DEPT_ROLEADMIN_2_SECRETKEY, Constants.USER_NONFED);
+//		SignInUtility.signIntoWorkspace(ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1, Constants.USERPASS,
+//				ConstantsAccounts.ENTITY_ADMINISTRATOR_ENTITYREGISTRATION_1_SECRETKEY, Constants.USER_NONFED);
 //		LaunchBrowserUtil.delay(4);
 		
 //		

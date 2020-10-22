@@ -199,7 +199,8 @@ public class AssignRolePage {
 		WebElement element = driver.findElement(AssignRolePageLocator.DONE_BUTTON);
 		Actions actions = new Actions(driver);
 		actions.moveToElement(element).click().build().perform();
-		//driver.findElement(AssignRolePageLocator.DONE_BUTTON).click(); // element click intercepted issues
+		// driver.findElement(AssignRolePageLocator.DONE_BUTTON).click(); // element
+		// click intercepted issues
 		MyRolesPage.setDriver(AssignRolePage.getDriver());
 		LaunchBrowserUtil.delay(4);
 
@@ -298,8 +299,8 @@ public class AssignRolePage {
 	}
 
 	public static void cancelSelectedOrg() {
-		driver.findElement(By.xpath(
-				"//*[@id=\"org-picker\"]/div[1]/div/div/sam-agency-selector/sam-label-wrapper/div/div[2]/div[1]/sam-sds-autocomplete/sam-sds-selected-result/ul/li[1]/div/span"))
+		driver.findElement(By.className(
+				"fa-close"))
 				.click();
 		LaunchBrowserUtil.delay(2);
 
@@ -330,14 +331,15 @@ public class AssignRolePage {
 	}
 
 	public static String getAlertText() {
-	String alerttext=	driver.findElement(By.tagName("sam-alert")).getText();
-	logger.info("The text from the alert message is-- "+ alerttext);
-	return alerttext;
-		
+		String alerttext = driver.findElement(By.tagName("sam-alert")).getText();
+		logger.info("The text from the alert message is-- " + alerttext);
+		return alerttext;
+
 	}
+
 	public static boolean validateEntitySuggestionContainsGivenWord(String orgname, String word) {
 		boolean allOrgsContainsGivenWord = true;
-		
+
 		WebElement entitypicker = LaunchBrowserUtil.driver.findElement(AssignRolePageLocator.ENTITYPICKER_TEXTAREA);
 		entitypicker.clear();
 		entitypicker.sendKeys(orgname);
@@ -355,7 +357,7 @@ public class AssignRolePage {
 			}
 		}
 		return allOrgsContainsGivenWord;
-		
+
 	}
 
 	public static String getPendingUserAccessAlertMessage() {
