@@ -45,19 +45,27 @@ public class RoleEditStep {
 	@Then("^_1 user should be able to edit their roles$")
 	public void _1_user_should_be_able_to_edit_their_roles() throws Throwable {
 		// edit the role
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_ADMIN);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		LaunchBrowserUtil.scrollToMiddle();
-		AssignRolePage.writeComment("adding organization");
+		AssignRolePage.writeComment("modifying role");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		// ------------------edit the role back to previous state---------------
 
 		// change the role back
-		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY, Constants.ROLE_ASSISTANCE_USER,
-				Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
+		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_ADMIN, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 		LaunchBrowserUtil.delay(4);
+		
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.writeComment("modifying role");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		
 		// confirming the change has gone through
 		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.NOACTION);
@@ -153,26 +161,31 @@ public class RoleEditStep {
 	@Then("^_3re user should be able to edit their roles$")
 	public void _3re_user_should_be_able_to_edit_their_roles() throws Throwable {
 		// edit the role
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		LaunchBrowserUtil.scrollToMiddle();
-		AssignRolePage.writeComment("adding organization");
+		AssignRolePage.writeComment("changing roles");
 		AssignRolePage.clickDone();
 		AssignRolePage.clickCloseButton();
 		// ------------------edit the role back to previous state---------------
 
 		// change the role back
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(
-				Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
-				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.DELETE);
+				Constants.ORG_GSA, Constants.ROLE_CONTRACTING_SPECIALIST_EDITOR,
+				Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 		LaunchBrowserUtil.delay(4);
 		// confirming the change has gone through
-		boolean roleRestored = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES,
-				Constants.NOACTION);
-		Assert.assertEquals(true, roleRestored);
-		afterScenario();
-		LaunchBrowserUtil.delay(5);
+		AssignRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
+		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.writeComment("changing roles");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		boolean roleback = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
+				Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER, Constants.DOMAIN_CONTRACT_OPPORTUNITIES, Constants.NOACTION);
+		Assert.assertEquals(roleback, true);
+		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 	}
 
