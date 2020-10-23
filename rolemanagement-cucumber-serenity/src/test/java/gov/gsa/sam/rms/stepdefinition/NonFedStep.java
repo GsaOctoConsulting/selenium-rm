@@ -1493,7 +1493,7 @@ public class NonFedStep {
 		Assert.assertEquals(201, response.getStatusCode());
 
 		// make to get call to verify the presence of the role in jsonbody
-		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/minc/rms/v1/access/"
+		Response response2 = RestAssured.given().get("https://api-nonprod.prod-iae.bsp.gsa.gov/comp/rms/v1/access/"
 				+ newsignedupnonfeduser + "/?api_key=WwTWPR0Kj7NyQEvZIplEDfCsw8ngRkQhqQ0jDOTg&fetchNames=true");
 		logger.info(response2.getBody().asString());
 		Assert.assertEquals(201, response.getStatusCode());

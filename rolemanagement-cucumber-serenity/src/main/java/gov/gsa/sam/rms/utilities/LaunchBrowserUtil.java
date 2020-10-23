@@ -434,7 +434,7 @@ public class LaunchBrowserUtil {
 		LaunchBrowserUtil.delay(2);
 		//CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]"), 4)
 		//		.click();
-		driver.findElement(By.xpath("//*[@id=\":1v\"]/span")).click();
+		//driver.findElement(By.xpath("//*[@id=\":1v\"]/span")).click();
 		delay(2);
 		tab_handles = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tab_handles.get(tab_handles.size() - 1));
