@@ -43,7 +43,7 @@ Scenario: top down role assignment should sent emails to both the assigner and a
 	Then _3 assistance admin should receive proper email message 
 	And _3 the user should also receive proper email message 
 	
-@4 @IntegrationTest 
+@4 
 Scenario: editing a role should send updated status emails to both the editor and role holder 
 	Given _4 user logs in workspace as assistance admin 
 	And _4 admin looks up assistance user account in user directory 

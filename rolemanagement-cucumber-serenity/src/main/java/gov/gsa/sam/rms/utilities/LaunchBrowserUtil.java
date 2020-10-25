@@ -430,7 +430,7 @@ public class LaunchBrowserUtil {
 		}
 		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[3]/div[1]/div[2]/div[2]/div/a/img")).click();
 		LaunchBrowserUtil.delay(2);
-		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div[2]/div[2]")).click();
 		LaunchBrowserUtil.delay(2);
 		//CustomWaitsUtility.visibilityOf(By.xpath("//*[@id=\"gb\"]/div[2]/div[4]/div[3]/div[2]/a[4]/div/div[2]"), 4)
 		//		.click();

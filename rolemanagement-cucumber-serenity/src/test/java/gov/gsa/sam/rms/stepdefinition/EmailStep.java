@@ -42,7 +42,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -79,8 +79,6 @@ public class EmailStep {
 		Assert.assertEquals(true, emailBody.contains(Constants.DOMAIN_ASSISTANCE_LISTING));
 		Assert.assertEquals(true, emailBody.contains(Constants.CODE_ORG_GSA_SUBTIER));
 		Assert.assertEquals(true, emailBody.contains(Constants.EMAIL_ENV));
-
-		
 
 		// delete the request
 		MyRolesPage.click1PendingRequest();
@@ -126,7 +124,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail("a@b.c");
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -165,13 +163,13 @@ public class EmailStep {
 		String emailToAndFrom2 = LaunchBrowserUtil.captureToAndFromInEmail();
 		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
-		
+
 		String emailSubject3 = LaunchBrowserUtil.captureTitleFromLastEmail(2);
 		String emailBody3 = LaunchBrowserUtil.captureEmailMessage(2);
 		String emailToAndFrom3 = LaunchBrowserUtil.captureToAndFromInEmail();
 		LaunchBrowserUtil.verifyLinkInEmailIfFound();
 		LaunchBrowserUtil.navigateBack();
-		
+
 		LaunchBrowserUtil.switchTabs(3);
 
 		int counter = 0;
@@ -193,7 +191,7 @@ public class EmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_GSA_SUBTIER));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV)); // admin
 			// received
-			
+
 			counter++;
 		} else if (emailToAndFrom1.contains(ConstantsAccounts.NO_ROLE_USER_2.replace("@gsa.gov", ""))
 				&& (emailSubject1.contains("SAM.gov"))) {// requester receiving approval email
@@ -510,6 +508,7 @@ public class EmailStep {
 				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
 		Assert.assertEquals(userAlreadyHasRole, true);
 		// --------------------------------------------------
+		AssignRolePage.cancelSelectedOrg();
 		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY);
 		LaunchBrowserUtil.scrollToMiddle();
 		AssignRolePage.writeComment("adding organization");
@@ -614,8 +613,16 @@ public class EmailStep {
 
 		// -------------------------change the role back------------------------
 		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY,
-				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.DELETE);
-		LaunchBrowserUtil.delay(5);
+				Constants.ROLE_ASSISTANCE_USER, Constants.DOMAIN_ASSISTANCE_LISTING, Constants.EDIT);
+		LaunchBrowserUtil.delay(3);
+		// --------------------------------------------------
+		AssignRolePage.cancelSelectedOrg();
+		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA_OFFICE_OF_ACQUISITION_POLICY);
+		LaunchBrowserUtil.scrollToMiddle();
+		AssignRolePage.writeComment("adding organization");
+		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
+		LaunchBrowserUtil.delay(3);
 		LaunchBrowserUtil.closeBrowsers();
 
 	}
@@ -636,7 +643,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -725,7 +732,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -813,7 +820,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_ASSISTANCE_USER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
@@ -875,7 +882,7 @@ public class EmailStep {
 		T1WorkspacePage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(Constants.EMAIL_NONFED);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,0);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 0);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		RequestRolePage.writeComment("test");
 		RequestRolePage.clickSubmit();
@@ -926,7 +933,7 @@ public class EmailStep {
 		MyRolesPage.clickRequestRoleButton();
 		RequestRolePage.writeSupervisorName("AJ");
 		RequestRolePage.writeSupervisorEmail(ConstantsAccounts.CONTRACT_OPPORTUNITIES_ADMIN_1);
-		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA,1);
+		RequestRolePage.selectOrgIfFound(Constants.ORG_GSA, 1);
 		RequestRolePage.selectRoleIfFound(Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER);
 		RequestRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_OPPORTUNITIES);
 		RequestRolePage.writeComment("test");
