@@ -23,3 +23,32 @@ Note - the project supported automation through various requirements
 over a period of time and so some of the scenarios are deprecated but
 they can be easily edited to be uptodate. The ones tagged @IntegrationTest
 are uptodate.
+
+
+More Details - ----------------------------
+ - Some legacy/inactive scenarios are present in the feature file for reference.
+   The features and tagged scnearios that are uptodate and active are listed below.
+   @SmokeTest
+   @Login,@IntegrationTest
+   @G1, @IntegrationTest
+   @G2, @IntegrationTest
+   @AccountDetails
+   @Email,@IntegrationTest
+   @Nonfed
+   @NonfedRoleInvite
+   @T1Workspace
+   @NonfedEmail
+   
+ - Please note the following features exist for reference
+ 	SystemAccount, SystemAccountEmail, MN_DeleteUpload
+ 	MN_SystemAccount_UploadFile, MN_SystemAccount_UploadFileReorder
+ 	AAM* (all features starting with AAM)
+ 	(responsibility have been transferred to Gold Team)
+ 	
+    
+ - Configuration File - LaunchBrowserUtil * also contains helper methods in specific flows
+ - Every loggging in functionality will be done through SignInUtility class
+ - SignUp 
+ - utility.properties file will hold the counter values used for signup for new users
+
+

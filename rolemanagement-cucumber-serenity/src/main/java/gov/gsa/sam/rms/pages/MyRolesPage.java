@@ -203,7 +203,7 @@ public class MyRolesPage {
 		WebElement rolehistory = driver.findElement(By.tagName("sam-history"));
 		List<WebElement> historylist = rolehistory.findElements(By.xpath("//li[starts-with(@class, 'history-item')]"));
 		logger.info("The size of the role history list is - " + historylist.size());
-
+		
 		String fullhistorytext = historylist.get(rolehistoryno).getText();
 		logger.info("The full text of this particular history is - " + fullhistorytext);
 		boolean timestampfound = false;

@@ -85,7 +85,6 @@ public class LaunchBrowserUtil {
 		System.setProperty("webdriver.chrome.driver", chromedriverpath);
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
 		return driver;
 	}
 

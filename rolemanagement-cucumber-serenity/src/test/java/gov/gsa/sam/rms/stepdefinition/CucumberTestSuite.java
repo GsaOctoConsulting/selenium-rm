@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(monochrome=true, plugin = { "pretty"}, glue = {
 		"gov.gsa.sam.rms.stepdefinition"}, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@Email","@IntegrationTest"})
+				"@NonfedEmail","@6"})
 public class CucumberTestSuite {
-  // draft registration
+  // 
 }
