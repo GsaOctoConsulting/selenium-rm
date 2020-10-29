@@ -21,7 +21,7 @@ Feature: Bulk update functionality
 Description:  The purpose of this feature is to test users
 capability for doing bulk updates
 
-  @1 @RegressionTest @DRA
+  @1 @IntegrationTest @DRA
   Scenario: bulk update should function correctly
    Given _1 user logs in as dra
    And _1 user navigates to bulk update page

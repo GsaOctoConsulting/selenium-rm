@@ -13,6 +13,7 @@ import cucumber.api.java.en.Then;
 import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
+import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
@@ -51,7 +52,7 @@ public class AssistanceAdminBusinessRulesStep {
 	@And("^_1aa user should see pending request link$")
 	public void _1aa_user_should_see_pending_request_link() throws Throwable {
 		// pending request link check
-		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
+		boolean pendingRequestLinkFound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
 		Assert.assertEquals(pendingRequestLinkFound, true);
 	}
 
@@ -131,7 +132,9 @@ public class AssistanceAdminBusinessRulesStep {
 	@Then("^_4aa user searches for hhs in org picker$")
 	public void _4aa_user_searches_for_hhs_in_org_picker() throws Throwable {
 		UserDirectoryPage.typeInOrgPicker("human");
+		LaunchBrowserUtil.delay(2);
 		String firstSuggestedOrg = UserDirectoryPage.getFirstOrgFound();
+		
 		String expectedOrg = "Health and Human Services, Department of";// should
 																		// not
 																		// get

@@ -68,7 +68,7 @@ public class UserDirectoryPageLocator {
 			"//*[@id=\"main-container\"]/ng-component/page/div/div/div[2]/div[1]/sidebar/div[1]/sam-agency-picker-v2/sam-label-wrapper/div/div[2]/a[2]");
 	public static final By DEPARTMENT_SEARCHBOX = By.id("Department");
 	public static final By DEPARTMENT_SUGGESTIONLIST = By.id("sam-autocomplete-results-kv");
-	public static final By FIRST_ORG_RESULT = By.xpath("//*[@id=\"sam-autocomplete-results-kv\"]/li[1]/span");
+	public static final By FIRST_ORG_RESULT = By.xpath(".//li[starts-with(@id,'federalHierarchy-resultItem-0')]");
 	public static final By USER_INFO = By.className("user-info");
 	public static final By PAGINATION = By.className("page-button");
 	public static final By TOTAL_NO_OFRECORDS = By.className("page-button");

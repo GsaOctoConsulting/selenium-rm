@@ -22,7 +22,7 @@ Description:  The purpose of this feature is to test business rules for
 various roles
 
 @1
-Scenario: user Directory Should Appear Without Admin Functions
+Scenario: workspace Should Appear Without Admin Functions for hhs user with no roles
 Given _1mis user logs in as hhs user
 Then _1mis user should see not see role definitions link
 And _1mis user should not see bulk update link

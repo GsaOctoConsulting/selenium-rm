@@ -77,12 +77,13 @@ public class MiscelleneousUsersBusinessRulesStep {
 	    public void _2mis_user_should_not_see_assign_role_dropdown() throws Throwable {
 	    	boolean assignRoleOptionFound = UserDirectoryPage.userActionOptionsFound("Assign Role");// 3
 			Assert.assertEquals(assignRoleOptionFound, false);	
+		LaunchBrowserUtil.delay(2);
+			UserDirectoryPage.searchUserInUserPicker((ConstantsAccounts.HHS_ASSISTANCEUSER_1));
 	    }
 
 	    @And("^_2mis user should be able to see view access dropdown$")
 	    public void _2mis_user_should_be_able_to_see_view_access_dropdown() throws Throwable {
-	    	boolean viewAccessOptionFound = UserDirectoryPage.userActionOptionsFound("View Access");
-			Assert.assertEquals(viewAccessOptionFound, true); 
+	    	UserDirectoryPage.clickViewAccessOnly(ConstantsAccounts.HHS_ASSISTANCEUSER_1);
 	    }
 	    
 	    

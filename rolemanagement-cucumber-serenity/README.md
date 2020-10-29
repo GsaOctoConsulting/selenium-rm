@@ -26,8 +26,11 @@ are uptodate.
 
 
 More Details - ----------------------------
- - Some legacy/inactive scenarios are present in the feature file for reference.
-   The features and tagged scnearios that are uptodate and active are listed below.
+ - Some legacy/inactive scenarios are present in the feature files for reference.
+ 	Feel free to remove them if that is necessary. 
+   
+   
+-    The groups of tagged scnearios that are uptodate and active are listed below.
    @SmokeTest
    @Login,@IntegrationTest
    @G1, @IntegrationTest
@@ -38,6 +41,12 @@ More Details - ----------------------------
    @NonfedRoleInvite
    @T1Workspace
    @NonfedEmail
+   
+   * the SAM.gov accounts that are manually setup act as the test-data for
+   the above mentioned test groups. Therefore before running each test group
+   the accounts in use should be checked for their role and any pending requests
+   / pending invites should be removed before executing the tests. This can be 
+   done by loggin in as SPAAD and using user directory to check for the accounts. 
    
  - Please note the following features exist for reference
  	SystemAccount, SystemAccountEmail, MN_DeleteUpload
