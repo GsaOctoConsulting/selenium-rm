@@ -34,8 +34,8 @@ public class RaBusinessRulesStep {
     	LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
-		UserDirectoryPage.searchUserInUserPicker(raUser);
-		UserDirectoryPage.clickViewAccessOnly((raUser));
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.ROLE_ADMIN_USER_4);
+		UserDirectoryPage.clickViewAccessOnly((ConstantsAccounts.ROLE_ADMIN_USER_4));
 		
 		
     }

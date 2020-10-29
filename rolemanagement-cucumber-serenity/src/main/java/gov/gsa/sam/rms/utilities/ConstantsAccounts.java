@@ -20,6 +20,9 @@ public class ConstantsAccounts {
 	// --------------------------------------------------------------------
 	public static final String ROLE_ADMIN_USER_3 = "octotestaccount1+ra1@gsa.gov";
 	public static final String ROLE_ADMIN_USER_3_SECRETKEY = "B4SDMPJGOYXB2QTA";
+	//-----------------------------------------------------------------------
+	public static final String ROLE_ADMIN_USER_4 = "octotestaccount1+ra9@gsa.gov";
+	public static final String ROLE_ADMIN_USER_4_SECRETKEY = "YFDYX5IUK4FST3LZ";
 	/*
 	 * public static final String ROLE_ADMIN_USER_3 =
 	 * "octotestaccount1+ra5@gsa.gov"; public static final String
@@ -324,4 +327,6 @@ public class ConstantsAccounts {
 	
 	public static final String FH_SUPER_ADMIN = "octotestaccount1+fhsuperadmin@gsa.gov";
 	public static final String FH_SUPER_ADMIN_SECRETKEY = "XFEDWYN5DLKJZCQV";
+	
+	
 }

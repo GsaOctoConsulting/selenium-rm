@@ -40,7 +40,7 @@ public class SignUpUtility {
 			LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE);
 			LaunchBrowserUtil.driver.findElement(By.id("signin-button")).click();
 			LaunchBrowserUtil.delay(2);
-			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"sds-dialog-0\"]/sam-us-security-modal-v2/div/div[3]/button[2]")).click();
+			LaunchBrowserUtil.driver.findElement(By.xpath("//*[@id=\"mat-dialog-0\"]/sam-us-security-modal-v2/div/div[3]/button[2]")).click();
 			LaunchBrowserUtil.delay(6);
 //			LaunchBrowserUtil.driver.findElement(By.id("login-proceed")).click();
 			LaunchBrowserUtil.delay(3);
