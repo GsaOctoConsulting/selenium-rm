@@ -268,9 +268,9 @@ Scenario: approved status renamed as active should appear in system account widg
 	And  _35t1 the pending status should be visible to gsa security approver
 	When _35t1 user clicks the pending bubble then they go to system account page with pendingapproval selected  
 
-@36 
-Scenario: approved status renamed as active should appear in system account widget with links for nonfed 
-	Given _36t1 user logs in as nonfed 
+@36 @test
+Scenario: nonfed user with no roles and no entity association should still see system account widget 
+	Given _36t1 user logs in as nonfed user with no entity association
 	Then  _36t1 user should see the approved status renamed as active 
 	And  _36t1 the draft status should be visible to nonfed user 
 	And  _36t1 the pending status should be visible to nonfed user
@@ -334,11 +334,12 @@ Scenario: entity admin in entity registration should see proper links and widget
 	And _45t1 user should be able to view entity management widget and relevant links
 	And _45t1 user should be able to view entity compliance widget 
 
-@46
-Scenario: data entry in entity registration should see proper links and widgets in t1 workspace
+@46 @test
+Scenario: nonfed nonadmins such as data entry in entity registration should see system account widget but not user directory
 	Given _46t1 user logs in with data entry role in entity registration 
-	Then _46t1 user should be able to view user directory widget and relevant links
+	Then _46t1 user should not be able to view user directory widget and relevant links
 	And _46t1 user should be able to view entity management widget and relevant links
+	And _46t1 being a nonfed user with roles this user should also see system account widget
 
 @47
 Scenario: entity rigistration viewer in entity registration should see proper links and widgets in t1 workspace

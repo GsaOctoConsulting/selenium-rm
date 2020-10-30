@@ -241,14 +241,16 @@ public class LoginStep {
 
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-		 SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
-		 counter + "@yopmail.com",
-		 Constants.USERPASS);
+//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+	//	 SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
+		// counter + "@yopmail.com",
+		 //Constants.USERPASS);
+		
+		
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_NO_ROLES_T1WORKSPACE,
+				 Constants.USERPASS);
 
-// SignUpUtility.signUpNewUserNonFedTemporary("raiaan.zyx+newregisterednonfeduser"
-		// + counter + "@gmail.com",
-		// Constants.USERPASS);
+ 
 	}
 
 	@Then("^_8 user should be able to complete the profile$")

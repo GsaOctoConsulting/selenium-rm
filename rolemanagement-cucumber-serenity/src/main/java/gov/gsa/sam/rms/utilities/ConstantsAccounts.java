@@ -328,5 +328,7 @@ public class ConstantsAccounts {
 	public static final String FH_SUPER_ADMIN = "octotestaccount1+fhsuperadmin@gsa.gov";
 	public static final String FH_SUPER_ADMIN_SECRETKEY = "XFEDWYN5DLKJZCQV";
 	
+	public static final String NONFED_NO_ROLES_T1WORKSPACE = "nonfedgsaemail+norolest1W2@yopmail.com";
+	public static final String NONFED_NO_ROLES_T1WORKSPACE_SECRETKEY = "A2O7SY7SDY5PYF6V";
 	
 }

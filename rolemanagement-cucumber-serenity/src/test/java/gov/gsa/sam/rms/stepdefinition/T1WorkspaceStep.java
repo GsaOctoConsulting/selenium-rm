@@ -1335,10 +1335,10 @@ public class T1WorkspaceStep {
 
 	}
 
-	@Given("^_36t1 user logs in as nonfed$")
+	@Given("^_36t1 user logs in as nonfed user with no entity association$")
 	public void _36t1_user_logs_in_as_nonfed() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NO_ROLES_T1WORKSPACE, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NO_ROLES_T1WORKSPACE_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_36t1 user should see the approved status renamed as active$")
@@ -1700,14 +1700,14 @@ public class T1WorkspaceStep {
 				ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
-	@Then("^_46t1 user should be able to view user directory widget and relevant links$")
+	@Then("^_46t1 user should not be able to view user directory widget and relevant links$")
 	public void _46t1_user_should_be_able_to_view_user_directory_widget_and_relevant_links() throws Throwable {
 		LaunchBrowserUtil.scrollToMiddle();
 		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
-		Assert.assertEquals(true, userdirectorywidgetfound);
+		Assert.assertEquals(false, userdirectorywidgetfound);
 
 		boolean userdirectorylinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_LINK);
-		Assert.assertEquals(true, userdirectorylinkfound);
+		Assert.assertEquals(false, userdirectorylinkfound);
 	}
 
 	@And("^_46t1 user should be able to view entity management widget and relevant links$")
@@ -1722,10 +1722,14 @@ public class T1WorkspaceStep {
 
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
-
-		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		Assert.assertEquals(true, getentityIdbuttonfound);
 	}
+	
+	
+	@And("^_46t1 being a nonfed user with roles this user should also see system account widget$")
+    public void _46t1_being_a_nonfed_user_with_roles_this_user_should_also_see_system_account_widget() throws Throwable {
+		boolean systemaccountwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.SYSTEMACCOUNT_WIDGET);
+		Assert.assertEquals(true, systemaccountwidgetfound);
+    }
 
 	@Given("^_47t1 user logs in with entity registration viewer role$")
 	public void _47t1_user_logs_in_with_entity_registration_viewer_role() throws Throwable {
