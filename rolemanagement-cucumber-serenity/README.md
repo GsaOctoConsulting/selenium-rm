@@ -27,7 +27,6 @@ are uptodate.
 
 More Details - ----------------------------
  - Some legacy/inactive scenarios are present in the feature files for reference.
- 	Feel free to remove them if that is necessary. 
    
    
 -    The groups of tagged scnearios that are uptodate and active are listed below.
