@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(monochrome=true, plugin = { "pretty"}, glue = {
 		"gov.gsa.sam.rms.stepdefinition"}, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@DraBusinessRules","@6"})
+				"@OMBAdminBusinessRules","@7"})
 public class CucumberTestSuite {
   // @test
 }

@@ -53,7 +53,6 @@ Scenario: user filters should function correctly
 Given _5omb user logs in as omb admin 
 And _5omb user navigates to user directory page
 Then _5omb user should be able to clear filters
-And _5omb user should be able to see provide feedback link
 
 
 @6 

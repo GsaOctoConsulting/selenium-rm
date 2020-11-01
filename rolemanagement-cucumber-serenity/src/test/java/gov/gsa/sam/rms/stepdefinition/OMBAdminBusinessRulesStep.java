@@ -13,6 +13,7 @@ import cucumber.api.java.en.Then;
 import gov.gsa.sam.rms.utilities.UserDirectoryWidgetUtility;
 import gov.gsa.sam.rms.utilities.SignInUtility;
 import gov.gsa.sam.rms.locators.MyWorkspacePageLocator;
+import gov.gsa.sam.rms.locators.T1WorkspacePageLocator;
 import gov.gsa.sam.rms.locators.UserDirectoryPageLocator;
 import gov.gsa.sam.rms.pages.AccountDetailsPage;
 import gov.gsa.sam.rms.pages.AssignRolePage;
@@ -58,7 +59,8 @@ public class OMBAdminBusinessRulesStep {
 	@And("^user should see pending request link$")
 	public void user_should_see_pending_request_link() throws Throwable {
 		// pending request link check
-		boolean pendingRequestLinkFound = UserDirectoryWidgetUtility.linkFound("Pending Role Requests");
+		boolean pendingRequestLinkFound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.PENDING_ROLE_REQUEST_LINK);
 		Assert.assertEquals(pendingRequestLinkFound, true);
 	}
 
@@ -154,29 +156,19 @@ public class OMBAdminBusinessRulesStep {
 
 	@Then("^_5omb user should be able to clear filters$")
 	public void _5omb_user_should_be_able_to_clear_filters() throws Throwable {
-		UserDirectoryPage.clickAlertsAdminFilter();
-		
-
+		UserDirectoryPage.clickAssistanceUserFilter();
 		UserDirectoryPage.clickClearFilter();
 
-		boolean alAdminfilterSelected = UserDirectoryPage.isFilterSelected(UserDirectoryPageLocator.ALERTSADMIN_FILTER);
-		
+		boolean assistanceUserfilterSelected = UserDirectoryPage
+				.isFilterSelected(UserDirectoryPageLocator.ASSISTANCEUSER_FILTER);
+		Assert.assertEquals(assistanceUserfilterSelected, false);
 
-		Assert.assertEquals(alAdminfilterSelected, false);
-		
-	}
-
-	@And("^_5omb user should be able to see provide feedback link$")
-	public void _5omb_user_should_be_able_to_see_provide_feedback_link() throws Throwable {
-		// check for provide feedback link
-		boolean providefeedbackLinkFound = UserDirectoryPage
-				.elementFound(UserDirectoryPageLocator.PROVIDEFEEDBACK_LINK);
-		Assert.assertEquals(providefeedbackLinkFound, true);
 	}
 
 	@Given("^_6omb user logs in as omb admin$")
 	public void _6omb_user_logs_in_as_omb_admin() throws Throwable {
-		//SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ombAdminEop@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.OMB_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.OMB_ADMIN_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_6omb user navigates to bulk update page$")
@@ -198,16 +190,16 @@ public class OMBAdminBusinessRulesStep {
 
 	@Given("^_7omb user logs in as omb admin$")
 	public void _7omb_user_logs_in_as_omb_admin() throws Throwable {
-		//SignInUtility.signIntoCommonWorkspacePage("shah.raiaan+ombAdminEop@gsa.gov", Constants.USERPASS);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.OMB_ADMIN_1, Constants.USERPASS,
+				ConstantsAccounts.OMB_ADMIN_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@And("^_7omb user tries to assign a role to a user through user directory$")
 	public void _7omb_user_tries_to_assign_a_role_to_a_user_through_user_directory() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		String noRoleUser = "shah.raiaan+noRolesEop@gsa.gov";
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(noRoleUser);
-		UserDirectoryPage.clickAssignRole(noRoleUser);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NO_ROLE_USER_2);
+		UserDirectoryPage.clickAssignRole(ConstantsAccounts.NO_ROLE_USER_2);
 		Assert.assertEquals(AssignRolePage.getCurrentTextInOrgPicker().trim(), "");
 	}
 
