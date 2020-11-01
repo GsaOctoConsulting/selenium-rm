@@ -29,8 +29,8 @@ public class DraBusinessRulesStep {
 	private static Logger logger = LoggerFactory.getLogger(DraBusinessRulesStep.class);
 	String noRoleuser = "shah.raiaan+noroless2@gsa.gov";
 	String draUser = "shah.raiaan+deptroleadmin@gsa.gov";
-	String coUser = "shah.raiaan+contractingofficer@gsa.gov";
-	String raUser = "shah.raiaan+ra@gsa.gov";
+	String coUser = ConstantsAccounts.CONTRACT_DATA_CONTRACTINGOFFICER_1;
+	String raUser = ConstantsAccounts.ROLE_ADMIN_USER_3;
 
 	@Given("^_1 role admin logs into workspace$")
 	public void _1_role_admin_logs_into_workspace() throws Throwable {
@@ -55,7 +55,7 @@ public class DraBusinessRulesStep {
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("test");
-		AssignRolePage.clickDone();
+		//AssignRolePage.clickDone();
 	}
 
 	@Then("^_1 correct error message should appear$")
@@ -68,14 +68,14 @@ public class DraBusinessRulesStep {
 	public void _1_role_admin_tries_to_assign_dra_to_user_at_other_department() throws Throwable {
 		LaunchBrowserUtil.delay(2);
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		AssignRolePage.clickCancelButtonWhenAlertIsOn();
+		AssignRolePage.clickCancel();
 		UserDirectoryPage.searchUserInUserPicker(noRoleuser);
 		UserDirectoryPage.clickAssignRole(noRoleuser);
 		AssignRolePage.selectOrgIfFound(Constants.ORG_HHS, 0);
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("test");
-		AssignRolePage.clickDone();
+		
 
 	}
 
@@ -109,6 +109,7 @@ public class DraBusinessRulesStep {
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
 		AssignRolePage.writeComment("test");
 		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 	}
 
 	@Then("^_2 the newly given role should show up under roles tab$")
@@ -118,11 +119,12 @@ public class DraBusinessRulesStep {
 				Constants.NOACTION);
 		Assert.assertEquals(true, roleFound);
 		// --------------------------
-		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("SHAH M RAIAAN",
+		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound("shah raiaan",
 				Constants.ASSIGNED, Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.ORG_GSA,
 				Constants.GO_INTO_ROLE_ASSIGNED);
 		Assert.assertEquals(true, roleHistoryFound);
-		
+		LaunchBrowserUtil.delay(2);
+		LaunchBrowserUtil.navigateBack();
 		// --------delete the role-------------------
 		UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
 				Constants.ROLE_DEPARTMENT_ROLE_ADMIN_ADMINISTRATORALLDOMAINS, Constants.DOMAIN_ADMIN, Constants.DELETE);
@@ -214,6 +216,7 @@ public class DraBusinessRulesStep {
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_CONTRACT_DATA);
 		AssignRolePage.writeComment("changing roles");
 		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 
 		// check to ensure the changed role has gone through
 		userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
@@ -222,9 +225,10 @@ public class DraBusinessRulesStep {
 
 		// --------------------------
 		boolean roleHistoryFound = UserDirectoryViewAccessPage.latestRoleHistoryFound(
-				"SHAH departmentroleadmin RAIAAN", Constants.UPDATED, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
+				"shah raiaan", Constants.UPDATED, Constants.ROLE_CONTRACTING_OFFICER_PUBLISHER,
 				Constants.ORG_GSA, Constants.GO_INTO_ROLE_UPDATED);
 		Assert.assertEquals(true, roleHistoryFound);
+		LaunchBrowserUtil.navigateBack();
 		
 	}
 
@@ -243,6 +247,7 @@ public class DraBusinessRulesStep {
 		AssignRolePage.writeComment("reverting back");
 		LaunchBrowserUtil.delay(4);
 		AssignRolePage.clickDone();
+		AssignRolePage.clickCloseButton();
 	}
 
 	@Given("^_5 dra logs into workspace$")
@@ -304,7 +309,6 @@ public class DraBusinessRulesStep {
 		AssignRolePage.selectRoleIfFound(Constants.ROLE_OMB_ADMIN);
 		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ASSISTANCE_LISTING);
 		AssignRolePage.writeComment("test");
-		AssignRolePage.clickDone();
 	}
 
 	@Then("^_6 correct error message should appear$")

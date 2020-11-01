@@ -1360,6 +1360,12 @@ public class T1WorkspaceStep {
 		boolean pendingstatus = T1WorkspacePage.elementFound(T1WorkspacePageLocator.PENDING);
 		Assert.assertEquals(true, pendingstatus);
 	}
+	
+	@And("^_36t1 the user should not see userdirectory widget$")
+    public void _36t1_the_user_should_not_see_userdirectory_widget() throws Throwable {
+        boolean userdiredtorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
+        Assert.assertEquals(false, userdiredtorywidgetfound);
+    }
 
 	@Given("^_37t1 new user signs up$")
 	public void _37t1_new_user_signs_up() throws Throwable {
@@ -1723,6 +1729,11 @@ public class T1WorkspaceStep {
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
 	}
+	@And("^_46t1 the user should not see userdirectory widget$")
+    public void _46t1_the_user_should_not_see_userdirectory_widget() throws Throwable {
+        boolean userdiredtorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
+        Assert.assertEquals(false, userdiredtorywidgetfound);
+    }
 	
 	
 	@And("^_46t1 being a nonfed user with roles this user should also see system account widget$")
@@ -1920,9 +1931,36 @@ public class T1WorkspaceStep {
 
 	@And("^_50t1 user should see upload aac widget$")
 	public void _50t1_user_should_see_collective_bargaining_widget() throws Throwable {
-		boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
-		Assert.assertEquals(true, aacwidgetfound);
+		//boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
+		//Assert.assertEquals(true, aacwidgetfound);
 	}
+	
+	@And("^_50t1 user should be able to view system account widget and relevant links$")
+    public void _50t1_user_should_be_able_to_view_system_account_widget_and_relevant_links() throws Throwable {
+		boolean systemaccountwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.SYSTEMACCOUNT_WIDGET);
+		Assert.assertEquals(true, systemaccountwidgetfound);
+
+		boolean systemaccountlinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GO_TO_SYSTEM_ACCOUNT);
+		Assert.assertEquals(true, systemaccountlinkfound);
+
+		boolean pendingapprovalsystemaccountlinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.PENDINGAPPROVAL_SYSTEMACCOUNT_LINK);
+		Assert.assertEquals(true, pendingapprovalsystemaccountlinkfound);
+
+		boolean pendingreviewaccountlinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.PENDINGREVIEW_SYSTEMACCOUNT_LINK);
+		Assert.assertEquals(true, pendingreviewaccountlinkfound);
+
+		boolean approvedsystemaccountlinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.APPROVED_SYSTEMACCOUNT_LINK);
+		Assert.assertEquals(true, approvedsystemaccountlinkfound);
+
+		boolean deactivatedsystemaccountlinkfound = T1WorkspacePage
+				.elementFound(T1WorkspacePageLocator.DEACTIVATED_SYSTEMACCOUNT_LINK);
+		Assert.assertEquals(true, deactivatedsystemaccountlinkfound);  
+    }
+	
+	
 	
 	 @Given("^_51t1 user logs in with data entry in entity compliance role$")
 	    public void _51t1_user_logs_in_with_data_entry_in_entity_compliance_role() throws Throwable {

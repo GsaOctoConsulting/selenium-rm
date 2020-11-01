@@ -269,11 +269,12 @@ Scenario: approved status renamed as active should appear in system account widg
 	When _35t1 user clicks the pending bubble then they go to system account page with pendingapproval selected  
 
 @36 @test
-Scenario: nonfed user with no roles and no entity association should still see system account widget 
+Scenario: nonfed user with no roles and no entity association should still see system account widget but not userdirectory widget
 	Given _36t1 user logs in as nonfed user with no entity association
 	Then  _36t1 user should see the approved status renamed as active 
 	And  _36t1 the draft status should be visible to nonfed user 
 	And  _36t1 the pending status should be visible to nonfed user
+	And _36t1 the user should not see userdirectory widget
 
 @37 
 Scenario: when a status count is zero then the bubble will not take the user to system account
@@ -335,11 +336,12 @@ Scenario: entity admin in entity registration should see proper links and widget
 	And _45t1 user should be able to view entity compliance widget 
 
 @46 @test
-Scenario: nonfed nonadmins such as data entry in entity registration should see system account widget but not user directory
+Scenario: nonfed users with nonadmin roles such as data entry in entity registration should see system account widget but not user directory
 	Given _46t1 user logs in with data entry role in entity registration 
 	Then _46t1 user should not be able to view user directory widget and relevant links
 	And _46t1 user should be able to view entity management widget and relevant links
 	And _46t1 being a nonfed user with roles this user should also see system account widget
+	And _46t1 the user should not see userdirectory widget
 
 @47
 Scenario: entity rigistration viewer in entity registration should see proper links and widgets in t1 workspace
@@ -361,12 +363,13 @@ Scenario: office registration representative in entity registration should see p
 	And _49t1 user should be able to view entity management widget and relevant links
 	And _49t1 user should see collective bargaining widget
 
-@50
-Scenario: entity admin in entity compliance should see proper links and widgets in t1 workspace
+@50 @test
+Scenario: nonfed admin in entity compliance should see proper links including user directory and system account widget
 	Given _50t1 user logs in with entity admin in entity compliance role 
 	Then _50t1 user should be able to view user directory widget and relevant links
 	And _50t1 user should be able to view entity compliance widget and relevant links
 	And _50t1 user should see upload aac widget
+	And _50t1 user should be able to view system account widget and relevant links
 
 @51
 Scenario: data entry in entity compliance should see proper links and widgets in t1 workspace

@@ -40,8 +40,7 @@ Feature: dra business rules
 business rules related to dra
 
 @1 
-Scenario:
-dra role cannot be assigned in subtier or any department other than users default department 
+Scenario: dra role cannot be assigned in subtier or any department other than users default department 
 	Given _1 role admin logs into workspace 
 	And _1 role admin looks up a no role user through user directory 
 	And _1 role admin tries to assign dra to this user in subtier 
