@@ -47,6 +47,17 @@ More Details - ----------------------------
    / pending invites should be removed before executing the tests. This can be 
    done by loggin in as SPAAD and using user directory to check for the accounts. 
    
+   Some examples of accounts that requires role checks are --
+   octotestaccount1+noroless6@gsa.gov
+   octotestaccount1+assistanceuserv2@gsa.gov
+   octotestaccount1+aadsystemmanager@gsa.gov (aad and system account admin *ignore the email id)
+   octotestaccount1+csco@gsa.gov
+   octotestaccount1+norolesubtier@gsa.gov
+   
+   
+   
+   
+   
  - Please note the following features exist for reference
  	SystemAccount, SystemAccountEmail, MN_DeleteUpload
  	MN_SystemAccount_UploadFile, MN_SystemAccount_UploadFileReorder

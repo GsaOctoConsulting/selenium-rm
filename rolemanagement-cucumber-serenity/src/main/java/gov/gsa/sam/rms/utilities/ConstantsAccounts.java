@@ -61,8 +61,8 @@ public class ConstantsAccounts {
 	public static final String DEPT_ROLEADMIN_2_SECRETKEY = "UBL3KM7AJVXNVNP6";
 
 	// ---------------------------------------------------------------------
-	public static final String NONFED_USER_1 = "nonfedgsaemail+3@yopmail.com";//data entry contract opp
-	public static final String NONFED_USER_1_SECRETKEY = "ER7BCFOXFLQRWKET";//ER7BCFOXFLQRWKET
+	public static final String NONFED_USER_1 = "nonfedgsaemail+5@yopmail.com";//data entry contract opp
+	public static final String NONFED_USER_1_SECRETKEY = "4GDU6YWBPT2GDTIR";//ER7BCFOXFLQRWKET
 
 	// ---------------------------------------------------------------------
 	public static final String NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE = "nonfedgsaemail+4@yopmail.com";
@@ -283,7 +283,7 @@ public class ConstantsAccounts {
 	public static final String MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD = "octotestaccount1+csco@gsa.gov";
 	public static final String MULTIPLE_ROLES_CONTRACTING_SPECIALIST_IN_CO_CD_SECRETKEY = "ZJHQ7DIGS53IWIGD";
 	
-	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_ACCOUNTADMIN = "octotestaccount1+aadsystemmanager@gsa.gov";
+	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER = "octotestaccount1+aadsystemmanager@gsa.gov";
 	public static final String MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER_SECRETKEY = "5QTBAKH7TK6VB7DS";
 	
 	public static final String NONFED_ADMIN_ENTITYREGISTRATION = "nonfedgsaemail+adminentityregistration1@yopmail.com";

@@ -239,20 +239,20 @@ Scenario: nonfed user with no roles can be assigned draft registration role with
 	When _27nf api is called again for the nonfed user
 	Then _27nf conflict erro will be received 
 
-@28 @api2
+@28 @api
 Scenario: logged in admin user can use pending hierarchy approve api to change nonfed user role from draft registration to admin  
 	Given _28nf nonfed user signs up
 	And _28nf the nonfed user is given draft registration user role 
 	When _28nf admin calls the api to change the users role to admin from draft registration role
 	Then _28nf the nonfed user should end up with administrator role 
 
-@29 @api2
+@29 @api
 Scenario: logged in use with a role other than draft user can also be assigned draft registration user role with api  
 	Given _29nf user logs in as data entry in entity registration
 	When _29nf user call auto assign api with session token 
 	Then _29nf user should not get conflict error 
 
-@30 @api2
+@30 @api
 Scenario: nonfed user with no roles can be assigned administer role with autoassign api  
 	Given _30nf nonfed user signs up
 	And _30nf LSAM call auto assign api with session token and header authorization and apikey for the user
@@ -260,20 +260,20 @@ Scenario: nonfed user with no roles can be assigned administer role with autoass
 	When _30nf the auto assign api is called again on this user
 	Then _30nf conflict error should be thrown
 
-@31 @api2
+@31 @api
 Scenario: when logged in admin user use pending hierarchy approve api on a user with no role they should get bad request response  
 	Given _31nf nonfed user with no role logs in 
 	When _31nf admin calls the api on the no role user 
 	Then _31nf bad request error should be thrown
 
-@32 @api2
+@32 @api
 Scenario: when exception occurs during approval process pending hierarchh api can be used to revert admin role to draft registration  
 	Given _32nf nonfed user signs up 
 	And _32nf nonfed user is given administrator role with autoassign api 
 	When _32nf there is an issue during the approval flow
 	Then _32nf revert api can be used to change the role back to draft registration role
 
-@33 @api2
+@33 @api
 Scenario: admin can use reject api to remove draft registration user role if phrr is rejected  
 	Given _33nf nonfed user signs up
 	When _33nf admin call reject api on the user with no role

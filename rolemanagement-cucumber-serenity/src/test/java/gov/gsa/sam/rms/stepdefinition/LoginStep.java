@@ -247,7 +247,7 @@ public class LoginStep {
 		 //Constants.USERPASS);
 		
 		
-		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_NO_ROLES_T1WORKSPACE,
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_1,
 				 Constants.USERPASS);
 
  

@@ -338,8 +338,8 @@ public class RoleEditStep {
 	public void _7re_spaad_looks_up_a_user_with_aad_role_and_system_manager_role_in_admin_domain() throws Throwable {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_ACCOUNTADMIN);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_ACCOUNTADMIN);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.MULTIPLE_ROLES_AAD_AND_SYSTEM_MANAGER);
 	}
 
 	@When("^_7re spaad tries to edit the role to keep only system admin role$")
