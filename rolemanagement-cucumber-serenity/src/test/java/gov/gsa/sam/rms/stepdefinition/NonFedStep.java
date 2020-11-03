@@ -834,8 +834,8 @@ public class NonFedStep {
 	@And("^_15nf spaad looks up a nonfed user with a role$")
 	public void _15nf_spaad_looks_up_a_nonfed_user_with_a_role() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_NOROLE_USER_1);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES);
 	}
 
 	@When("^_15nf spaad removes the users role$")
