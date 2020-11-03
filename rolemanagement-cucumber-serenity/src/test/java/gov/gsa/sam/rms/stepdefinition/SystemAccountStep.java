@@ -32,7 +32,7 @@ public class SystemAccountStep {
 	private static StringBuilder systemAdmin = new StringBuilder(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
 	private static StringBuilder gsasecurityapprover = new StringBuilder(ConstantsAccounts.GSASECURITY_APPROVER_1);
 	private static StringBuilder securityOfficial = new StringBuilder(ConstantsAccounts.GSASECURITY_APPROVER_1);
-	private static StringBuilder nonfeduser = new StringBuilder(ConstantsAccounts.NONFED_USER_1);
+	private static StringBuilder nonfeduser = new StringBuilder(ConstantsAccounts.NONFED_NOROLE_USER_1);
 
 	// String formattedDate= new SimpleDateFormat("hh:mm:ss a").format(new Date());
 	long epoch = System.currentTimeMillis() / 1000;
@@ -1666,8 +1666,8 @@ public class SystemAccountStep {
 	@Given("^_19saaccount user logs in as nonfed user$")
 	public void _19saaccount_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -1687,7 +1687,7 @@ public class SystemAccountStep {
 
 	@And("^_19saaccount user enters all the organization info$")
 	public void _19saaccount_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
@@ -1800,8 +1800,8 @@ public class SystemAccountStep {
 
 	@When("^_19saaccount user logs backin in as nonfed user$")
 	public void _19saaccount_user_logs_backin_in_as_nonfed_user() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
@@ -1830,8 +1830,8 @@ public class SystemAccountStep {
 	@Given("^_20saaccount user logs in as nonfed user$")
 	public void _20saaccount_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -1851,7 +1851,7 @@ public class SystemAccountStep {
 
 	@And("^_20saaccount user enters all the organization info$")
 	public void _20saaccount_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
@@ -2125,8 +2125,8 @@ public class SystemAccountStep {
 
 	@Given("^_22saaccount user logs in as nonfed user$")
 	public void _22saaccount_user_logs_in_as_nonfed_user() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -2146,7 +2146,7 @@ public class SystemAccountStep {
 
 	@And("^_22saaccount user enters all the organization info$")
 	public void _22saaccount_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
@@ -2237,8 +2237,8 @@ public class SystemAccountStep {
 	@Then("^_22saaccount nonfed user should be able to set a password for the published account$")
 	public void _22saaccount_system_admin_should_be_able_to_set_a_password_for_the_published_account()
 			throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.clickPublishedFilter();
@@ -2328,8 +2328,8 @@ public class SystemAccountStep {
 	@Given("^_24saaccount user logs in as nonfed user$")
 	public void _24saaccount_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -2349,7 +2349,7 @@ public class SystemAccountStep {
 
 	@And("^_24saaccount user enters all the organization info$")
 	public void _24saaccount_user_enters_all_the_organization_info() throws Throwable {
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.selectSystemManagerInOrgInfo("");
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}

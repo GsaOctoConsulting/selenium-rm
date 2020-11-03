@@ -175,8 +175,8 @@ public class MN_SystemAccount_UploadFileReorder {
 	@Given("^_3 nonfed user enters all the organization info$")
 	public void _3_nonfed_user_enters_all_the_organization_info() throws Throwable {
 		
-				SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-						ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+				SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+						ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 				T1WorkspacePage.goToSystemAccountDirectoryPage();
 				SystemAccountDirectoryPage.clickNewButton();// Click on New button
 				NewSystemAccountPage.enterSystemAccountName(NewSystemAccountPage.uniqueSAN());// Enter Unique system account
@@ -185,7 +185,7 @@ public class MN_SystemAccount_UploadFileReorder {
 				NewSystemAccountPage.enterSystemDescription("Test");
 				NewSystemAccountPage.clickNextToGoToOrgInfo();
 				// Enter Organization info and click Next to go to Permissions
-				NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+				NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 				NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 

@@ -285,8 +285,8 @@ public class RoleMigrationStep {
 
 	@Given("^_5rm_ nonfed user signs in$")
 	public void _5rm_nonfed_user_signs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
 	}
 

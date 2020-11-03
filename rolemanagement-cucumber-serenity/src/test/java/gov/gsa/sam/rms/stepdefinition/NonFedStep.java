@@ -50,8 +50,8 @@ public class NonFedStep {
 	@Given("^_1nf nonfed user without a role logs in$")
 	public void _1_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 
 	}
 
@@ -68,8 +68,7 @@ public class NonFedStep {
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
 
-		//boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		//Assert.assertEquals(true, getentityIdbuttonfound);
+		
 		afterScenario();
 	}
 
@@ -89,8 +88,8 @@ public class NonFedStep {
 	@Given("^_2nf nonfed user without a role logs in$")
 	public void _2nf_nonfed_user_without_a_role_logs_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_2nf nonfed user navigates to profile page$")
@@ -135,8 +134,8 @@ public class NonFedStep {
 
 	@Given("^_3nf nonfed user without a role logs in$")
 	public void _3nf_nonfed_user_without_a_role_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@When("^_3nf nonfed user requests data entry role in entity compliance$")
@@ -228,8 +227,8 @@ public class NonFedStep {
 	@When("^_3nf nonfed user logs back in$")
 	public void _3nf_nonfed_user_logs_back_in() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_3nf user should see the role assigned$")
@@ -264,8 +263,8 @@ public class NonFedStep {
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		LaunchBrowserUtil.delay(2);
 		// check whether user already has the role
 		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
@@ -644,44 +643,11 @@ public class NonFedStep {
 		Assert.assertEquals("You do not have sufficient privileges to view the requested page.", message);
 	}
 
-	@Given("^_10nf nonfed user with a role logs in$")
-	public void _10nf_nonfed_user_with_a_role_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
-	}
-
-	@Then("^_10nf nonfed user should see user directory widget$")
-	public void _10nf_nonfed_user_should_see_user_directory_widget() throws Throwable {
-		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
-		Assert.assertEquals(true, userdirectorywidgetfound);
-	}
-
-	@And("^_10nf nonfed user should also be able to hit the user directory url to access the page$")
-	public void _10nf_nonfed_user_should_also_be_able_to_hit_the_user_directory_url_to_access_the_page()
-			throws Throwable {
-		LaunchBrowserUtil.enterUrl(Constants.SAM_HOME_PAGE + "/role-management/user-directory");
-		LaunchBrowserUtil.delay(2);
-		UserDirectoryPage.setDriver(LaunchBrowserUtil.getDriver());
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.goToWorkspacePage();
-
-	}
-
-	@When("^_10nf nonfed user is in the workspace page$")
-	public void _10_nf_nonfed_user_is_in_the_workspace_page() throws Exception {
-		boolean systemaccountwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.SYSTEMACCOUNT_WIDGET);
-		Assert.assertEquals(true, systemaccountwidgetfound);
-	}
-
-	@Then("^_10nf they should be able to see the system account widget$")
-	public void _10_nf_they_should_be_able_to_see_the_system_account_widget() throws Exception {
-
-	}
-
-	@Given("^_11nf nonfed user logs in with data entry role in entity registration$")
+	
+	@Given("^_11nf nonfed admin logs in with admin role in entity registration")
 	public void _11nf_nonfed_user_logs_in_with_data_entry_role_in_entity_registration() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1, Constants.USERPASS,
-				ConstantsAccounts.DATA_ENTRY_ENTITYREGISTRATION_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_11nf user navigates to user directory page and clicks data entry and entity registration filter$")
@@ -717,10 +683,10 @@ public class NonFedStep {
 		} while (currentPage < totalNoOfPages);
 	}
 
-	@Given("^_12nf nonfed user logs in with data entry role in entity entity compliance$")
+	@Given("^_12nf nonfed user logs in with admin role in entity entity compliance$")
 	public void _12nf_nonfed_user_logs_in_with_data_entry_role_in_entity_entity_compliance() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.DATA_ENTRY_ENTITYCOMPLIANCE_1, Constants.USERPASS,
-				ConstantsAccounts.DATA_ENTRY_ENTITYCOMPLIANCE_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_12nf user navigates to user directory page and clicks data entry and entity compliance filter$")
@@ -756,10 +722,10 @@ public class NonFedStep {
 		} while (currentPage < totalNoOfPages);
 	}
 
-	@Given("^_13nf nonfed user logs in with data entry role in contract opportunities$")
+	@Given("^_13nf nonfed user logs in with admin role in contract opportunities$")
 	public void _13nf_nonfed_user_logs_in_with_data_entry_role_in_contract_opportunities() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES, Constants.USERPASS,
-				ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP, Constants.USERPASS,
+				ConstantsAccounts.NONFED_ADMIN_CONTRACTOPP_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_13nf user navigates to user directory page and clicks data entry and contract opportunities filter$")
@@ -868,8 +834,8 @@ public class NonFedStep {
 	@And("^_15nf spaad looks up a nonfed user with a role$")
 	public void _15nf_spaad_looks_up_a_nonfed_user_with_a_role() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_NOROLE_USER_1);
 	}
 
 	@When("^_15nf spaad removes the users role$")

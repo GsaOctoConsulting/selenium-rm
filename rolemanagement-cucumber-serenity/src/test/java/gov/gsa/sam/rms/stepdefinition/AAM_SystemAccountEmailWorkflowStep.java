@@ -36,7 +36,7 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	private static StringBuilder systemAdmin = new StringBuilder(ConstantsAccounts.SYSTEMACCOUNT_ADMIN_1);
 	private static StringBuilder iaePmoAdmin = new StringBuilder(ConstantsAccounts.IAE_PMO_ADMINISTRATOR);
 	private static StringBuilder gsasecurityapprover = new StringBuilder(ConstantsAccounts.GSASECURITY_APPROVER_1);
-	private static StringBuilder nonfeduser = new StringBuilder(ConstantsAccounts.NONFED_USER_1);
+	private static StringBuilder nonfeduser = new StringBuilder(ConstantsAccounts.NONFED_NOROLE_USER_1);
 
 	// _A In workflow IAE PMO Admin receives email when SAM submits system account
 	// including Non-public permissions info - Positive scenario
@@ -2433,8 +2433,8 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	public void _e_non_fed_user_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@Given("^_E_NFU navigates to system account directory page$")
@@ -2454,8 +2454,8 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	@Given("^_E_NFU enters all the organization info$")
 	public void _e_nfu_enters_all_the_organization_info() throws Exception {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_USER_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -3005,8 +3005,8 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	public void _f_non_fed_user_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@Given("^_F_NFU navigates to system account directory page$")
@@ -3026,8 +3026,8 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	@Given("^_F_NFU enters all the organization info$")
 	public void _f_nfu_enters_all_the_organization_info() throws Exception {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_USER_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -4372,8 +4372,8 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	public void _j__Non_Fed_user_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 	}
 
 	@Given("^_J_NFU navigates to system account directory page$")
@@ -4393,8 +4393,8 @@ public class AAM_SystemAccountEmailWorkflowStep {
 	@Given("^_J_NFU enters all the organization info$")
 	public void _j_nfu_enters_all_the_organization_info() throws Exception {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_USER_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 

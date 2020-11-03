@@ -60,13 +60,13 @@ public class RaBusinessRulesStep {
     	LaunchBrowserUtil.scrollAllTheWayDown();
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
 
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		
     }
 
     @Then("^_2 role admin should be able to view access$")
     public void _2_role_admin_should_be_able_to_view_access() throws Throwable {
-    	UserDirectoryPage.clickViewAccess((ConstantsAccounts.NONFED_USER_1));  
+    	UserDirectoryPage.clickViewAccess((ConstantsAccounts.NONFED_NOROLE_USER_1));  
     }
 	
 	

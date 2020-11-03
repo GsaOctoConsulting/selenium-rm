@@ -247,7 +247,7 @@ public class LoginStep {
 		 //Constants.USERPASS);
 		
 		
-		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_1,
+		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_NOROLE_USER_1,
 				 Constants.USERPASS);
 
  

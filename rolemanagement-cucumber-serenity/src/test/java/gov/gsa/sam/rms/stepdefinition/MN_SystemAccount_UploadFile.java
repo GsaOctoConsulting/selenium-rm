@@ -428,8 +428,8 @@ public class MN_SystemAccount_UploadFile {
 	@Given("^_7 nonfed user enters all the organization info$")
 	public void _7_nonfed_user_enters_all_the_organization_info() throws Throwable {
 		// Login and Go to System Account directory page
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.clickNewButton();// Click on New button
 		// Enter System Information and click next to go to Organization info
@@ -438,7 +438,7 @@ public class MN_SystemAccount_UploadFile {
 		NewSystemAccountPage.enterSystemDescription("Test");
 		NewSystemAccountPage.clickNextToGoToOrgInfo();
 		// Enter Organization info and click Next to go to Permissions
-		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.selectSystemAdminInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 

@@ -97,31 +97,23 @@ Scenario: a new nonfed user should be able to register for an account and reques
 Scenario: a nonfed user without a role should not be able to view the userdirectory 
 	Given _9nf nonfed user without a role logs in 
 	Then _9nf user should not see user directory widget 
-	And _9nf user should also not be able to hit the user directory url 
-	
-@10 @x
-Scenario: a nonfed user with a role should be able to view the userdirectory and system account widget
-	Given _10nf nonfed user with a role logs in 
-	Then _10nf nonfed user should see user directory widget 
-	And _10nf nonfed user should also be able to hit the user directory url to access the page
-	When _10nf nonfed user is in the workspace page
-	Then _10nf they should be able to see the system account widget 
+	And _9nf user should also not be able to hit the user directory url  
 	
 @11 
-Scenario: a nonfed user with data entry in entity registration should be able to view users as clickable 
-	Given _11nf nonfed user logs in with data entry role in entity registration 
+Scenario: a nonfed admin entity registration should be able to view users as clickable 
+	Given _11nf nonfed admin logs in with admin role in entity registration 
 	And _11nf user navigates to user directory page and clicks data entry and entity registration filter 
 	And _11nf user should see all those users as clickable 
 	
 @12
-Scenario: a nonfed user with data entry in entity compliance should be able to view users as clickable 
-	Given _12nf nonfed user logs in with data entry role in entity entity compliance 
+Scenario: a nonfed admin with entity compliance should be able to view users as clickable 
+	Given _12nf nonfed user logs in with admin role in entity entity compliance 
 	And _12nf user navigates to user directory page and clicks data entry and entity compliance filter 
 	And _12nf user should see all those users as clickable 
 	
 @13
-Scenario: a nonfed user with data entry in contract opportunities should be able to view users as clickable 
-	Given _13nf nonfed user logs in with data entry role in contract opportunities 
+Scenario: a nonfed  admin in contract opportunities should be able to view users as clickable 
+	Given _13nf nonfed user logs in with admin role in contract opportunities 
 	And _13nf user navigates to user directory page and clicks data entry and contract opportunities filter 
 	And _13nf user should see all those users as clickable 
 	

@@ -381,8 +381,8 @@ public class SystemAccountEmailStep {
 	@Given("^_3saemail_ user logs in as nonfed user$")
 	public void _3saemail_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 
 	}
@@ -2264,8 +2264,8 @@ public class SystemAccountEmailStep {
 	@Given("^_9saemail_ user logs in as nonfed user$")
 	public void _9saemail_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -2371,8 +2371,8 @@ public class SystemAccountEmailStep {
 	public void _9saemail_the_nonfed_user_gets_a_final_approval_notification() throws Throwable {
 
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		T1WorkspacePage.goToSystemAccountDirectoryPage();
 		SystemAccountDirectoryPage.searchByKeyword(formattedDate);
@@ -2389,8 +2389,8 @@ public class SystemAccountEmailStep {
 	@Given("^_10saemail_ user logs in as nonfed user$")
 	public void _10saemail_user_logs_in_as_nonfed_user() throws Throwable {
 		beforeScenario();
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 	}
 
@@ -2522,8 +2522,8 @@ public class SystemAccountEmailStep {
 
 	@And("^_10saemail the nonfed user gets a rejection email notification$")
 	public void _10saemail_the_nonfed_user_gets_a_final_approval_notification() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.scrollAllTheWayDown();
 		LaunchBrowserUtil.delay(3);
 		

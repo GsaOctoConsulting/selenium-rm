@@ -608,8 +608,8 @@ public class AAM_SystemAccountWorkflowStep {
 	public void _e_Non_Fed_User_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Given("^_E NFU navigates to system account directory page$")
@@ -629,8 +629,8 @@ public class AAM_SystemAccountWorkflowStep {
 	@Given("^_E NFU enters all the organization info$")
 	public void _e_NFU_enters_all_the_organization_info() throws Exception {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_USER_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -720,8 +720,8 @@ public class AAM_SystemAccountWorkflowStep {
 
 	@When("^_E Non-Fed User logs in again$")
 	public void _e_Non_Fed_User_logs_in_again() throws Exception {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_E NFU validate system account is in published status$")
@@ -740,8 +740,8 @@ public class AAM_SystemAccountWorkflowStep {
 	public void _f_Non_Fed_User_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Given("^_F NFU navigates to system account directory page$")
@@ -761,8 +761,8 @@ public class AAM_SystemAccountWorkflowStep {
 	@Given("^_F NFU enters all the organization info$")
 	public void _f_NFU_enters_all_the_organization_info() throws Exception {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_USER_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -849,8 +849,8 @@ public class AAM_SystemAccountWorkflowStep {
 
 	@When("^_F Non-Fed User logs in again$")
 	public void _f_Non_Fed_User_logs_in_again() throws Exception {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_F NFU validate system account is in draft status$")
@@ -1283,8 +1283,8 @@ public class AAM_SystemAccountWorkflowStep {
 	public void _s_Non_Fed_user_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Given("^_S NFU navigates to system account directory page$")
@@ -1304,8 +1304,8 @@ public class AAM_SystemAccountWorkflowStep {
 	@Given("^_S NFU enters all the organization info$")
 	public void _s_NFU_enters_all_the_organization_info() throws Exception {
 		LaunchBrowserUtil.scrollAllTheWayDown();
-		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_USER_1);
-		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_USER_1);
+		NewSystemAccountPage.enterSAAMInOrgInfoModified(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		NewSystemAccountPage.selectSystemManagerInOrgInfo(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		NewSystemAccountPage.clickNextToGoToPermissions();
 	}
 
@@ -1392,8 +1392,8 @@ public class AAM_SystemAccountWorkflowStep {
 
 	@When("^_S Non-Fed User logs in again$")
 	public void _s_Non_Fed_User_logs_in_again() throws Exception {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_S NFU validate system account is in draft status$")

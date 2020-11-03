@@ -773,8 +773,8 @@ public class T1WorkspaceStep {
 
 	@Given("^_22t1 user logs in as contract opportunities nonfed data entry user$")
 	public void _22t1_user_logs_in_as_contract_opportunities_nonfed_user() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@Then("^_22t1 contract opportunities nonfed user should be able to view user directory widget and relevant links$")

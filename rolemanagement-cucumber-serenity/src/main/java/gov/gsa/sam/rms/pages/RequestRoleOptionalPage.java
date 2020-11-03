@@ -139,7 +139,7 @@ public class RequestRoleOptionalPage {
 		boolean orgFound = false;
 		driver.findElement(By.id("entityPicker")).sendKeys(entity);
 		LaunchBrowserUtil.delay(3);
-		List<WebElement> orgList = driver.findElements(By.className("selected-item"));
+		List<WebElement> orgList = driver.findElements(By.xpath("//li[starts-with(@id, 'entityPicker-resultItem-')]"));
 		logger.info(("The size of the list is......" + orgList.size()));
 		WebElement firstOrg = orgList.get(dropdownOptionNo);
 		logger.info("*****************the text from first org is*****" + firstOrg.getText());

@@ -24,8 +24,8 @@ public class NonfedUserDirectoryStep {
 
 	@Given("^_1nfusdr a nonfed user with data entry with contract opp logs in$")
 	public void _1nfusdr_a_nonfed_user_with_data_entry_with_contract_opp() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_1nfusdr user goes to user directory page$")
@@ -70,8 +70,8 @@ public class NonfedUserDirectoryStep {
 
 	@Given("^_2nfusdr a nonfed user with data entry with contract opp logs in$")
 	public void _2nfusdr_a_nonfed_user_with_data_entry_with_contract_opp_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_2nfusdr user goes to user directory page$")

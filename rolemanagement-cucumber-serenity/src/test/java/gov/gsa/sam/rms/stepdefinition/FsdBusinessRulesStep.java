@@ -220,8 +220,8 @@ public class FsdBusinessRulesStep {
 
 	@Given("^_6 nonfed user from octo consulting logs in$")
 	public void _6_spaad_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@And("^_6 nonfed user navigates to role request page$")
@@ -252,8 +252,8 @@ public class FsdBusinessRulesStep {
 
 	@Given("^_7 nonfed user logs in$")
 	public void _7_nonfed_user_logs_in() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@When("^_7 nonfed user goes to the profile page$")
@@ -278,8 +278,8 @@ public class FsdBusinessRulesStep {
 	@When("^_7 spaad looks up the nonfed user$")
 	public void _7_looks_up_the_user_through_user_directory() throws Throwable {
 		UserDirectoryWidgetUtility.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_1);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_1);
+		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_NOROLE_USER_1);
+		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_NOROLE_USER_1);
 		AccountDetailsPage.goToPageOnSideNav("Account Details");
 	}
 

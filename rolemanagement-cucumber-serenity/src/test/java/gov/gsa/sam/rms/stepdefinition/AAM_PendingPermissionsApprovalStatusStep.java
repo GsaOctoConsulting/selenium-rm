@@ -180,8 +180,8 @@ public class AAM_PendingPermissionsApprovalStatusStep {
 	public void _m_Non_Fed_user_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@When("^_M NFU navigates to system account directory page$")
@@ -203,8 +203,8 @@ public class AAM_PendingPermissionsApprovalStatusStep {
 	public void _n_Non_Fed_user_logs_in() throws Exception {
 		beforeScenario();
 		logger.info("User logging as a non-fed user...");
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS_NONFED,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS_NONFED,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
 	@When("^_N NFU navigates to system account directory page$")

@@ -91,8 +91,8 @@ public class EmailStep {
 
 	@Then("^_1 supervisor should also receive an email message$")
 	public void _1_supervisor_should_also_receive_an_email_message() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 
 		String emailBody = LaunchBrowserUtil.captureEmailContentNonfed();
@@ -699,8 +699,8 @@ public class EmailStep {
 
 	@Then("^_5 supervisor should also receive email message$")
 	public void _5_supervisor_should_receive_email_message() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
 
@@ -761,8 +761,8 @@ public class EmailStep {
 
 	@Then("^_6email supervisor should receive email message regarding the approval$")
 	public void _6email_supervisor_should_receive_email_message_regarding_the_approval() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 
 		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
@@ -847,8 +847,8 @@ public class EmailStep {
 
 	@Then("^_7email supervisor should receive email message regarding the rejection$")
 	public void _7email_supervisor_should_receive_email_message_regarding_the_rejection() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 
 		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
@@ -897,8 +897,8 @@ public class EmailStep {
 
 	@Then("^_8 supervisor should also receive an email message$")
 	public void _8_supervisor_should_receive_an_email_message() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_USER_1_SECRETKEY, Constants.USER_FED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
+				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_FED);
 
 		LaunchBrowserUtil.goToNonFedFedMailInbox(Constants.EMAIL_NONFED);
 		String emailContent = LaunchBrowserUtil.captureEmailContentNonfed();
