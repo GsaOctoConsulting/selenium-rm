@@ -25,6 +25,7 @@ public class Constants {
 	public static final String ORG_GSA_FAS_OFFICE_OF_ACQUISITIONOPERA = "OFFICE OF ACQUISITION OPERA".toUpperCase();
 	public static final String ORG_EOIR = "Executive Office for Immigration Review".toUpperCase();
 	public static final String ORG_OCTO_CONSULTING_GROUP = "OCTO CONSULTING GROUP, INC".toUpperCase();
+	public static final String ORG_OCTO_CONSULTING_GROUP_LOWERCASE = "Octo Consulting Group, Inc";
 	public static final String ORG_CODA_OCTOPUS = "Coda Octopus Products".toUpperCase();
 	public static final String ORG_JACKSON_BOOKBINDING = "Jackson Bookbinding Co".toUpperCase();
 	public static final String ORG_UTAH_COMMUNICATIONS_AUTHORITY = "UTAH COMMUNICATIONS AUTHORITY".toUpperCase();

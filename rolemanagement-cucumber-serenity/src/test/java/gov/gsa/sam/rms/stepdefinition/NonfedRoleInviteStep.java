@@ -51,7 +51,7 @@ public class NonfedRoleInviteStep {
 
 	@When("^_1nri admin enters an id for a user with roles in the admins own domain$")
 	public void _1nri_admin_enters_an_id_for_a_user_with_roles_in_the_admins_own_domain() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.DATA_ENTRY_ENTITYCOMPLIANCE_1);
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_DATAENTRY_ENTITYREGISTRATION_2);
 	}
 
 	@Then("^_1nri admin should receive proper message and be able to assign role to user without seeing send invite button$")
@@ -75,7 +75,7 @@ public class NonfedRoleInviteStep {
 
 	@When("^_2nri admin enters an id for a user with no roles who has a pending invite$")
 	public void _2nri_admin_enters_an_id_for_a_user_with_no_roles_in_the_admins_own_domain() throws Throwable {
-		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE);
+		RoleInviteAssignRolePage.enterEmailAddress(ConstantsAccounts.NONFED_USER_5_NO_ROLES_PENDINGROLEINVITE_NEVERLOGGEDIN);
 	}
 
 	@Then("^_2nri admin should receive error message for the users pending role invite$")
@@ -320,7 +320,7 @@ public class NonfedRoleInviteStep {
 
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_INVITED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -333,7 +333,7 @@ public class NonfedRoleInviteStep {
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_SENT));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -345,7 +345,7 @@ public class NonfedRoleInviteStep {
 
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_INVITED));
-			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -359,7 +359,7 @@ public class NonfedRoleInviteStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_SENT));
 			Assert.assertEquals(true, emailBody2.contains(nonfeduseremail));
-			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -386,7 +386,6 @@ public class NonfedRoleInviteStep {
 
 	@And("^_7nri requests same role as the pending invite$")
 	public void _7nri_requests_data_entry_role_in_entity_registration_domain() throws Throwable {
-		//T1WorkspacePage.clickSkipOnRoleInviteModal();
 		T1WorkspacePage.goToAccountDetailsPage();
 		AccountDetailsPage.goToPageOnSideNav("My Roles");
 		MyRolesPage.clickRequestRoleButton();
@@ -1409,38 +1408,6 @@ public class NonfedRoleInviteStep {
 		Assert.assertEquals(true, requestFound);
 		LaunchBrowserUtil.delay(5);
 		LaunchBrowserUtil.closeBrowsers();
-	}
-
-	@Given("^_17nri fed user signs up$")
-	public void _17nri_fed_user_signs_up() throws Throwable {
-
-	}
-
-	@And("^_17nri user requests assistance user role in assistance listing$")
-	public void _17nri_user_requests_assistance_user_role_in_assistance_listing() throws Throwable {
-
-	}
-
-	@When("^_17nri assistance admin logs in$")
-	public void _17nri_assistance_admin_logs_in() throws Throwable {
-
-	}
-
-	@And("^_17nri assistance admin should see the pending role request status in feeds and accept the invite$")
-	public void _17nri_assistance_admin_should_see_the_pending_role_request_status_in_feeds_and_accept_the_invite()
-			throws Throwable {
-
-	}
-
-	@When("^_17nri user deactivates their account$")
-	public void _17nri_user_deactivates_their_account() throws Throwable {
-
-	}
-
-	@Then("^_17nri admin should see the accepted role request status changes to canceled in feeds$")
-	public void _17nri_admin_should_see_the_accepted_role_request_status_changes_to_canceled_in_feeds()
-			throws Throwable {
-
 	}
 
 }

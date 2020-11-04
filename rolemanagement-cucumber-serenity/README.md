@@ -32,14 +32,15 @@ More Details - ----------------------------
 -    The groups of tagged scnearios that are uptodate and active are listed below.
    @SmokeTest
    @Login,@IntegrationTest
+   @Nonfed,~@api
+   @NonfedRoleInvite
+   @NonfedEmail
    @G1, @IntegrationTest
    @G2, @IntegrationTest
    @AccountDetails
    @Email,@IntegrationTest
-   @Nonfed
-   @NonfedRoleInvite
    @T1Workspace
-   @NonfedEmail
+   
    
    * the SAM.gov accounts that are manually setup act as the test-data for
    the above mentioned test groups. Therefore before running each test group
@@ -54,8 +55,14 @@ More Details - ----------------------------
    octotestaccount1+csco@gsa.gov
    octotestaccount1+norolesubtier@gsa.gov
    
-   
-   
+   -----for the nonfeds----------
+   nonfedgsaemail+5@yopmail.com
+   nonfedgsaemail@yopmail.com
+   nonfedgsaemail+adminentityregistration1@yopmail.com
+   nonfedgsaemail+adminentitycompliance2@yopmail.com
+   nonfedgsaemail+admincontractopp1@yopmail.com
+   nonfedgsaemail+dataentrycontractopp@yopmail.com
+   nonfedgsaemail+viewerentityregistration11@yopmail.com
    
    
  - Please note the following features exist for reference

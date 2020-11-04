@@ -69,6 +69,12 @@ public class ConstantsAccounts {
 	public static final String NONFED_USER_4_NO_ROLES_PENDINGROLEINVITE_SECRETKEY = "XSIHGPEVBP34MNKQ";
 	
 	// ---------------------------------------------------------------------
+		public static final String NONFED_USER_5_NO_ROLES_PENDINGROLEINVITE_NEVERLOGGEDIN = "nonfedgsaemail+pending5@yopmail.com";
+		public static final String NONFED_USER_5_NO_ROLES_PENDINGROLEINVITE_NEVERLOGGEDIN_SECRETKEY = "NT62TNQKXZZEZFRQ";
+	
+	
+	
+	// ---------------------------------------------------------------------
 		public static final String NONFED_VIEWER_ENTITYREGISRATION = "nonfedgsaemail+viewerentityregistration11@yopmail.com";
 		public static final String NONFED_VIEWER_ENTITYREGISRATION_SECRETKEY = "2MAQAKTUQ4OPY6T5";
 
@@ -302,7 +308,10 @@ public class ConstantsAccounts {
 	public static final String NONFED_ADMIN_ENTITYCOMPLIANCE_SECRETKEY = "ZKBXON6VWUCRQGTK";
 	
 	public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES = "nonfedgsaemail+dataentrycontractopp@yopmail.com";
-	public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY = "4BSB5UEYAMRME45Z";
+public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY = "4BSB5UEYAMRME45Z";
+	
+	//public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES = "nonfedgsaemail+dataentrycontractopp2@yopmail.com";
+	//public static final String NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY = "W7GN3MNAWOA5DBP6";
 	
 	public static final String NONFED_ADMIN_CONTRACTOPP = "nonfedgsaemail+admincontractopp1@yopmail.com";
 	public static final String NONFED_ADMIN_CONTRACTOPP_SECRETKEY = "DXTR5S4Y2AJ2QXK5";

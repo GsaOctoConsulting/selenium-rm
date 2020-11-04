@@ -66,7 +66,7 @@ Scenario: both the nonfed admin and the nonfed request receiver should get email
 	And _6nri the user should also get an email about the role invite
 
 @7 
-Scenario: after a role invitation is sent by admin if the user makes the same role request then the admin can no longer approve that until responds to the invite  
+Scenario: after a role invitation is sent by admin if the user makes the same role request then the admin can no longer approve that until user responds to the invite  
 	Given _7nri nonfed user with pending role invite logs in 
 	And _7nri requests same role as the pending invite 
 	When _7nri nonfed entity registration admin logs in 
@@ -168,15 +168,6 @@ Scenario:  pending role request should change status to canceled in feeds when u
 	Then _16nri admin should see the pending role request status in feeds
 	When _16nri user deactivates their account
 	Then _16nri admin should see the pending role invite status changes to canceled in feeds
-	
-@17 
-Scenario:  accepted role request should change status to canceled in feeds when user deactivates their account
-	Given _17nri fed user signs up
-	And _17nri user requests assistance user role in assistance listing
-	When _17nri assistance admin logs in
-	And _17nri assistance admin should see the pending role request status in feeds and accept the invite
-	When _17nri user deactivates their account
-	Then _17nri admin should see the accepted role request status changes to canceled in feeds
 
 
  
