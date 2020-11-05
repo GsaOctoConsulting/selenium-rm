@@ -81,14 +81,7 @@ public class UserDirectoryFilterStep {
 		Assert.assertEquals(assistanceUserFilterSelected, false);
 	}
 
-	@Then("^_2 user should be able to see provide feed links$")
-	public void _2_user_should_be_able_to_see_provide_feed_links() throws Throwable {
-		// check for provide feedback link
-		boolean providefeedbackLinkFound = UserDirectoryPage
-				.elementFound(UserDirectoryPageLocator.PROVIDEFEEDBACK_LINK);
-		Assert.assertEquals(providefeedbackLinkFound, true);
-		afterScenario();
-	}
+	
 
 	@Given("^_3 given user logs in as role administrator$")
 	public void _3_given_user_logs_in_as_roleadministrator() throws Throwable {
@@ -119,34 +112,9 @@ public class UserDirectoryFilterStep {
 		Assert.assertEquals(adminFilterSelected, false);
 	}
 
-	@Then("^_3 user should be able to see provide feed links$")
-	public void _3_user_should_be_able_to_see_provide_feed_links() throws Throwable {
-		// check for provide feedback link
-		boolean providefeedbackLinkFound = UserDirectoryPage
-				.elementFound(UserDirectoryPageLocator.PROVIDEFEEDBACK_LINK);
-		Assert.assertEquals(providefeedbackLinkFound, true);
-		afterScenario();
-	}
 
-	@Given("^_4udf given user logs in as assitance admin administrator$")
-	public void _4udf_given_user_logs_in_as_assitance_admin_administrator() throws Throwable {
 
-	}
-
-	@Then("^_4udf user checks filter should be able to clears them$")
-	public void _4udf_user_checks_filter_should_be_able_to_clears_them() throws Throwable {
-
-	}
-
-	@Then("^_4udf user should be able to see provide feed links$")
-	public void _4udf_user_should_be_able_to_see_provide_feed_links() throws Throwable {
-
-	}
-
-	@And("^_4udf user navigates to user directory page$")
-	public void _4udf_user_navigates_to_user_directory_page() throws Throwable {
-
-	}
+	
 
 	@Given("^_5udf given user logs in as spaad$")
 	public void _5udf_given_user_logs_in_as_spaad() throws Throwable {

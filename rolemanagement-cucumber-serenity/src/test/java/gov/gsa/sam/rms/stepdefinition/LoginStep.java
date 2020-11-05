@@ -47,17 +47,16 @@ public class LoginStep {
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
 				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
-		
+
 //		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
 //				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_NONFED);
 //		LaunchBrowserUtil.delay(4);v
-		
+
 //		
 //		SignInUtility.signIntoWorkspace(ConstantsAccounts.FH_SUPER_ADMIN, Constants.USERPASS,
 //				ConstantsAccounts.FH_SUPER_ADMIN_SECRETKEY, Constants.USER_FED);
 //		LaunchBrowserUtil.delay(4);
 
-		
 	}
 
 	@Then("^_1 dra should see UserDirectory Widget$")
@@ -216,8 +215,8 @@ public class LoginStep {
 	public void _7_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
 		String counter = SignUpUtility.updatecounter("login.fed.accountno");
 		SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser" + counter + "@gsa.gov", Constants.USERPASS);
-		//SignUpUtility.signUpNewUser(ConstantsAccounts.ROLE_ADMIN_USER_4,
-	//Constants.USERPASS);
+		// SignUpUtility.signUpNewUser(ConstantsAccounts.ROLE_ADMIN_USER_4,
+		// Constants.USERPASS);
 	}
 
 	@Then("^_7 user should be able to complete the profile$")
@@ -241,16 +240,13 @@ public class LoginStep {
 
 	@When("^_8 nonfed user creates a new account in login dot gov$")
 	public void _8_nonfed_user_creates_a_new_account_in_login_dot_gov() throws Throwable {
-//String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
-	//	 SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" +
-		// counter + "@yopmail.com",
-		 //Constants.USERPASS);
-		
-		
-		SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_5_NO_ROLES_PENDINGROLEINVITE_NEVERLOGGEDIN,
-				 Constants.USERPASS);
+		String counter = SignUpUtility.updatecounter("login.nonfed.accountno");
+		SignUpUtility.signUpNewUserNonFed("nonfedgsaemail+newregisterednonfeduser" + counter + "@yopmail.com",
+				Constants.USERPASS);
 
- 
+		// SignUpUtility.signUpNewUserNonFed(ConstantsAccounts.NONFED_USER_5_NO_ROLES_PENDINGROLEINVITE_NEVERLOGGEDIN,
+		// Constants.USERPASS);
+
 	}
 
 	@Then("^_8 user should be able to complete the profile$")

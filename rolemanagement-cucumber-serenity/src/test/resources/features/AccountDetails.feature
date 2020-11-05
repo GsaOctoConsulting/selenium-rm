@@ -42,14 +42,6 @@ Scenario: newly signedup fed user should see request api button instead of show 
 	And _3 user navigates to profile page 
 	Then _3 should be able to see request api key button 
 	
-@4 @IntegrationTest
-Scenario: otp for apikey generation should be valid for twenty minutes only 
-	Given _4 a no role user logs in 
-	And _4 user navigates to profile page 
-	And _4 user generates api key 
-	And _4 user continues session beyound fifteen minutes 
-	Then _4 user should able to use api key on the twentieth minute 
-	
 @5 @IntegrationTest 
 Scenario: correct otp should work to validate api key generation in profile page for nonfed 
 	Given _5 a nonfed user logs in 

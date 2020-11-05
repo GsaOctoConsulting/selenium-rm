@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(monochrome=true, plugin = { "pretty"}, glue = {
-		"gov.gsa.sam.rms.stepdefinition"}, features = "src/test/resources/features/", dryRun = false, tags = {
-				"@NonfedRoleInvite","@15"})
+		"gov.gsa.sam.rms.stepdefinition"}, features = "src/test/resources/features/", dryRun = true, tags = {
+				"@G1"})
 public class CucumberTestSuite {
-  // starts-with
+  // provide feedback
 }

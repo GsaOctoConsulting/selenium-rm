@@ -56,13 +56,22 @@ More Details - ----------------------------
    octotestaccount1+norolesubtier@gsa.gov
    
    -----for the nonfeds----------
-   nonfedgsaemail+5@yopmail.com
-   nonfedgsaemail@yopmail.com
-   nonfedgsaemail+adminentityregistration1@yopmail.com
-   nonfedgsaemail+adminentitycompliance2@yopmail.com
-   nonfedgsaemail+admincontractopp1@yopmail.com
-   nonfedgsaemail+dataentrycontractopp@yopmail.com
-   nonfedgsaemail+viewerentityregistration11@yopmail.com
+nonfedgsaemail+5@yopmail.com (no roles)
+nonfedgsaemail@yopmail (noroles)
+nonfedgsaemail+adminentityregistration1@yopmail.com
+nonfedgsaemail+dataentryentityregistration2@yopmail.com
+nonfedgsaemail+adminentitycompliance2@yopmail.com
+nonfedgsaemail+admincontractopp1@yopmail.com
+nonfedgsaemail+dataentrycontractopp@yopmail.com
+nonfedgsaemail+viewerentityregistration11@yopmail.com
+nonfedgsaemail+dataentryentitycompliance@yopmail.com
+nonfedgsaemail+4@yopmail.com (pending invite needed for Viewer in ER domain)
+nonfedgsaemail+adminentityregistrationcompliance@yopmail.com (admin in ER in Octo
+and admin in ER in Ibm southeast credit union)
+
+nonfedgsaemail+adminentitycomplianceibmocto@yopmail.com
+nonfedgsaemail+adminentityregistration2@yopmail.com
+
    
    
  - Please note the following features exist for reference
