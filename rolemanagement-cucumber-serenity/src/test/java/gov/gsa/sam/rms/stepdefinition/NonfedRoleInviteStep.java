@@ -479,9 +479,6 @@ public class NonfedRoleInviteStep {
 
 	@When("^_8nri invited user logs in$")
 	public void _8nri_invited_user_logs_in() throws Throwable {
-//		SignInUtility.signIntoWorkspace(nonfeduseremail, Constants.USERPASS, secretkey, Constants.USER_NONFED);
-//		LaunchBrowserUtil.delay(4);
-
 		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_USER_3_NO_ROLES, Constants.USERPASS,
 				ConstantsAccounts.NONFED_USER_3_NO_ROLES_SECRETKEY, Constants.USER_FED);
 		LaunchBrowserUtil.delay(4);
@@ -491,8 +488,9 @@ public class NonfedRoleInviteStep {
 	public void _8nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		// FeedsRequestPage.clickRoleInviteFilter();
-		// FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.getDriver().navigate().refresh();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_8nri the user selects the pending request in feeds and accepts the role invite$")
@@ -539,12 +537,6 @@ public class NonfedRoleInviteStep {
 		T1WorkspacePage.clickUserDirectoryLink();
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
-
-		
-
-		
-		
-		
 		
 	}
 	
@@ -564,8 +556,6 @@ public class NonfedRoleInviteStep {
 		boolean roleFound = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_OCTO_CONSULTING_GROUP,
 				Constants.ROLE_VIEWER, Constants.DOMAIN_ENTITY_REGISTRATION, Constants.DELETE);
 		Assert.assertEquals(true, roleFound);
-		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION);
-		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_ADMIN_ENTITYREGISTRATION);
 		
 		
     }
@@ -613,8 +603,9 @@ public class NonfedRoleInviteStep {
 	public void _9nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		// FeedsRequestPage.clickRoleInviteFilter();
-		// FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.getDriver().navigate().refresh();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_9nri the user selects the pending request in feeds and declines the role invite$")
@@ -743,6 +734,9 @@ public class NonfedRoleInviteStep {
 	public void _11nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
+		LaunchBrowserUtil.getDriver().navigate().refresh();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_11nri the user selects the pending request in feeds and accepts the role invite$")
@@ -875,8 +869,9 @@ public class NonfedRoleInviteStep {
 	public void _12nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		// FeedsRequestPage.clickRoleInviteFilter();
-		// FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.getDriver().navigate().refresh();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_12nri the user selects the pending request in feeds and accepts the role invite$")
@@ -1020,8 +1015,9 @@ public class NonfedRoleInviteStep {
 	public void _13nri_the_invited_user_should_receive_a_dialog_box_and_land_on_feeds_page_when_go_to_request_button_is_clicked()
 			throws Throwable {
 		T1WorkspacePage.clickGoToRequestButtonOnRoleInviteModal();
-		// FeedsRequestPage.clickRoleInviteFilter();
-		// FeedsRequestPage.clickPendingFilter();
+		LaunchBrowserUtil.getDriver().navigate().refresh();
+		FeedsRequestPage.clickRoleInviteFilter();
+		FeedsRequestPage.clickPendingFilter();
 	}
 
 	@When("^_13nri the user selects the pending request in feeds and accepts the role invite$")
@@ -1090,9 +1086,6 @@ public class NonfedRoleInviteStep {
 		FeedsRequestPage.goToWorkspacePage();
 
 		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.getUserList();
-//		int noofusers = UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
-//		Assert.assertEquals(1, noofusers);
 		UserDirectoryPage.searchUserInUserPicker(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 		UserDirectoryPage.clickViewAccess(ConstantsAccounts.NONFED_USER_3_NO_ROLES);
 

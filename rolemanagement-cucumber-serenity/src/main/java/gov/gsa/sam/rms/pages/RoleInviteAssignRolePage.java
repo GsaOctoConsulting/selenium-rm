@@ -114,7 +114,7 @@ public class RoleInviteAssignRolePage {
 	public static String getTextForBusinessJustification() {
 
 		String justificationtext = driver.findElement(By.xpath(
-				"//*[@id=\"main-container\"]/nonfed-role-assign/div/div[2]/form/div[5]/sam-text-area/sam-label-wrapper/div/label"))
+				"//*[@id=\"main-container\"]/nonfed-role-assign/div/div[2]/div[2]/div[5]/sam-text-area/sam-label-wrapper/div/label"))
 				.getText();
 		LaunchBrowserUtil.delay(2);
 		return justificationtext;
