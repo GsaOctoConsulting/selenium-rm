@@ -44,15 +44,6 @@ public class UserDirectoryFilterStep {
 		Assert.assertEquals(false, assistanceUserSelected);
 	}
 
-	@Then("^_1 user should be able to see provide feed links$")
-	public void _1_user_should_be_able_to_see_provide_feed_links() throws Throwable {
-		// check for provide feedback link
-		boolean providefeedbackLinkFound = UserDirectoryPage
-				.elementFound(UserDirectoryPageLocator.PROVIDEFEEDBACK_LINK);
-		Assert.assertEquals(providefeedbackLinkFound, true);
-		afterScenario();
-	}
-
 	@Given("^_2 given user logs in as assistance user$")
 	public void _2_given_user_logs_in_as_assistanceuser() throws Throwable {
 		beforeScenario();

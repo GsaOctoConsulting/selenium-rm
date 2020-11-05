@@ -27,7 +27,6 @@ Scenario: verify clear filter and provide feed links for dra
 	Given _1 given user logs in as dra 
 	And _1 user navigates to user directory page 
 	Then _1 user checks filter should be able to clears them 
-	Then _1 user should be able to see provide feed links 
 	
 	# the below test is second part of #4 on integration test doc
 @2 @IntegrationTest @AssistanceUser @G1
