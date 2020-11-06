@@ -81,7 +81,7 @@ public class NonfedEmailStep {
 
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_INVITED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -94,7 +94,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_SENT));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -106,7 +106,7 @@ public class NonfedEmailStep {
 
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_INVITED));
-			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -120,7 +120,7 @@ public class NonfedEmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_SENT));
 			Assert.assertEquals(true, emailBody2.contains(nonfeduseremail));
-			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_VIEWER));
 
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -194,7 +194,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_UPDATED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
 
@@ -218,7 +218,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_UPDATED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
 
@@ -294,7 +294,7 @@ public class NonfedEmailStep {
 		// asserting the email body
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_REMOVED));
-		Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP.toUpperCase()));
+		Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 		Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 		Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_CONTRACT_OPPORTUNITIES));
 		Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -318,7 +318,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_REMOVED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ENV));
@@ -395,7 +395,7 @@ public class NonfedEmailStep {
 		// asserting the email body
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 		Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
-		Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP.toUpperCase()));
+		Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 		Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 		Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 		Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -418,7 +418,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 
@@ -487,7 +487,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to user
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_SUBMITTED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 
@@ -573,7 +573,7 @@ public class NonfedEmailStep {
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
 
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 			Assert.assertEquals(true, emailBody1.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -586,7 +586,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody1.contains(Constants.EMAIL_ACTION_ASSIGNED));
-			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody1.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody1.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody1.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 
@@ -601,7 +601,7 @@ public class NonfedEmailStep {
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_ASSIGNED));
 
-			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 			Assert.assertEquals(true, emailBody2.contains(Constants.CODE_ORG_OCTO_CONSULTING));
@@ -614,7 +614,7 @@ public class NonfedEmailStep {
 			// asserting the email sent to admin
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_REQUESTOR_NAME));
 			Assert.assertEquals(true, emailBody2.contains(Constants.EMAIL_ACTION_ASSIGNED));
-			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP));
+			Assert.assertEquals(true, emailBody2.contains(Constants.ORG_OCTO_CONSULTING_GROUP_LOWERCASE));
 			Assert.assertEquals(true, emailBody2.contains(Constants.ROLE_DATA_ENTRY));
 			Assert.assertEquals(true, emailBody2.contains(Constants.DOMAIN_ENTITY_REGISTRATION));
 
