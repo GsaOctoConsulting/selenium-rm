@@ -165,13 +165,13 @@ Scenario: contract opportunities contracting specialist should see proper links 
 @22 
 Scenario: contract opportunities nonfed should see proper links and widgets in the t1 workspace 
 	Given _22t1 user logs in as contract opportunities nonfed data entry user 
-	Then _22t1 contract opportunities nonfed user should be able to view user directory widget and relevant links 
+	Then _22t1 contract opportunities nonfed user should not be able to view user directory widget and relevant links 
 	And _22t1 contract opportunities nonfed user should also be able to view system account widget 
 	
 @23 
 Scenario: contract opportunities viewer should see proper links and widgets in the t1 workspace 
 	Given _23t1 user logs in as contract opportunities viewer 
-	Then _23t1 contract opportunities viewer should be able to view user directory widget and relevant links 
+	Then _23t1 contract opportunities viewer should not be able to view user directory widget and relevant links 
 	And _23t1 contract opportunities viewer user should also be able to view system account widget 
 	
 @24 
@@ -179,7 +179,6 @@ Scenario: federal hierarchy spa should see proper links and widgets in the t1 wo
 	Given _24t1 user logs in as fh sampmo administrator 
 	Then _24t1 fh spa should be able to view user directory widget and relevant links 
 	And _24t1 fh spa should be able to view federal hierarchy widget 
-	And _24t1 fh spa should be able to view upload aac widget 
 	And _24t1 fh spa should be able to view collective bargaining widget
 	
 @25 
@@ -214,7 +213,6 @@ Scenario: multiple roles with cospa fhspa and system manager should see proper l
 	Then _29t1 user should be able to view user directory widget and relevant links 
 	And _29t1 user should be able to view system account widget 
 	And _29t1 user should be able to view federal hierarchy widget 
-	And _29t1 user should be able to view aac widget 
 	
 @30 
 Scenario: multiple roles with cospa fhspa and content manager should see proper links and widgets in the t1 workspace 
@@ -222,7 +220,6 @@ Scenario: multiple roles with cospa fhspa and content manager should see proper 
 	Then _30t1 user should be able to view user directory widget and relevant links 
 	And _30t1 user should be able to view content management account widget 
 	And _30t1 user should be able to view federal hierarchy widget 
-	And _30t1 user should be able to view aac widget 
 	And _30t1 user should be able to view collective bargaining widget 
 	
 @31 
@@ -230,7 +227,6 @@ Scenario: multiple roles with cospa fhspa and gsa security approver should see p
 	Given _31t1 user logs in with cospa fhspa and gsa security approver 
 	Then _31t1 user should be able to view user directory widget and relevant links 
 	And _31t1 user should be able to view federal hierarchy widget 
-	And _31t1 user should be able to view aac widget 
 	And _31t1 user should be able to view collective bargaining widget 
 	And _31t1 user should be able to see system account widget 
 	
@@ -268,39 +264,13 @@ Scenario: approved status renamed as active should appear in system account widg
 	And  _35t1 the pending status should be visible to gsa security approver
 	When _35t1 user clicks the pending bubble then they go to system account page with pendingapproval selected  
 
-@36 @test
+@36
 Scenario: nonfed user with no roles and no entity association should still see system account widget but not userdirectory widget
 	Given _36t1 user logs in as nonfed user with no entity association
 	Then  _36t1 user should see the approved status renamed as active 
 	And  _36t1 the draft status should be visible to nonfed user 
 	And  _36t1 the pending status should be visible to nonfed user
 	And _36t1 the user should not see userdirectory widget
-
-@37 
-Scenario: when a status count is zero then the bubble will not take the user to system account
-	Given _37t1 new user signs up 
-	And  _37t1 the user is given system manager role by spaad 
-	When _37t1 the user logs in and clicks on the system account bubble with zero count 
-	Then _37t1 the user should not be taken to the system account page
-	
-@38
-Scenario: tier 1 help desk user should see proper links and widgets in the t1 workspace
-	Given _38t1 user logs in with tier1 help desk role 
-	Then  _38t1 user should be able to view user directory widget and relevant links 
-	And _38t1 the user should be able to to view entity registration widget 
-
-
-@39
-Scenario: functional help desk tier 2 should see proper links and widgets in t1 workspace
-	Given _39t1 user logs in with functional help desk tier two role 
-	Then  _39t1 user should be able to view user directory widget and relevant links 
-	And _39t1 the user should be able to to view entity registration widget 
-	
-@40
-Scenario: technical help desk tier 2 should see proper links and widgets in t1 workspace
-	Given _40t1 user logs in with technical help desk tier two role 
-	Then  _40t1 user should be able to view user directory widget and relevant links 
-	And _40t1 the user should be able to to view entity registration widget 
 
 @41
 Scenario: entity administrator entity compliance should see proper links and widgets in t1 workspace
@@ -335,7 +305,7 @@ Scenario: entity admin in entity registration should see proper links and widget
 	And _45t1 user should be able to view entity management widget and relevant links
 	And _45t1 user should be able to view entity compliance widget 
 
-@46 @test
+@46 
 Scenario: nonfed users with nonadmin roles such as data entry in entity registration should see system account widget but not user directory
 	Given _46t1 user logs in with data entry role in entity registration 
 	Then _46t1 user should not be able to view user directory widget and relevant links
@@ -374,9 +344,8 @@ Scenario: nonfed admin in entity compliance should see proper links including us
 @51
 Scenario: data entry in entity compliance should see proper links and widgets in t1 workspace
 	Given _51t1 user logs in with data entry in entity compliance role 
-	Then _51t1 user should be able to view user directory widget and relevant links
+	Then _51t1 user should not be able to view user directory widget and relevant links
 	And _51t1 user should be able to view entity compliance widget and relevant links
-	And _51t1 user should see upload aac widget
 
 	
 	 

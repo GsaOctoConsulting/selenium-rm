@@ -773,19 +773,16 @@ public class T1WorkspaceStep {
 
 	@Given("^_22t1 user logs in as contract opportunities nonfed data entry user$")
 	public void _22t1_user_logs_in_as_contract_opportunities_nonfed_user() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_NOROLE_USER_1, Constants.USERPASS,
-				ConstantsAccounts.NONFED_NOROLE_USER_1_SECRETKEY, Constants.USER_NONFED);
+		SignInUtility.signIntoWorkspace(ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES, Constants.USERPASS,
+				ConstantsAccounts.NONFED_DATAENTRY_CONTRACTOPPORTUNITIES_SECRETKEY, Constants.USER_NONFED);
 	}
 
-	@Then("^_22t1 contract opportunities nonfed user should be able to view user directory widget and relevant links$")
+	@Then("^_22t1 contract opportunities nonfed user should not be able to view user directory widget and relevant links$")
 	public void _22t1_contract_opportunities_nonfed_user_should_be_able_to_view_user_directory_widget_and_relevant_links()
 			throws Throwable {
 		LaunchBrowserUtil.scrollToMiddle();
 		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
-		Assert.assertEquals(true, userdirectorywidgetfound);
-
-		boolean userdirectorylinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_LINK);
-		Assert.assertEquals(true, userdirectorylinkfound);
+		Assert.assertEquals(false, userdirectorywidgetfound);
 	}
 
 	@And("^_22t1 contract opportunities nonfed user should also be able to view system account widget$")
@@ -820,15 +817,12 @@ public class T1WorkspaceStep {
 				ConstantsAccounts.CONTRACT_OPPORTUNITIES_VIEWER_1_SECRETKEY, Constants.USER_NONFED);
 	}
 
-	@Then("^_23t1 contract opportunities viewer should be able to view user directory widget and relevant links$")
+	@Then("^_23t1 contract opportunities viewer should not be able to view user directory widget and relevant links$")
 	public void _23t1_contract_opportunities_viewer_should_be_able_to_view_user_directory_widget_and_relevant_links()
 			throws Throwable {
 		LaunchBrowserUtil.scrollToMiddle();
 		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
-		Assert.assertEquals(true, userdirectorywidgetfound);
-
-		boolean userdirectorylinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_LINK);
-		Assert.assertEquals(true, userdirectorylinkfound);
+		Assert.assertEquals(false, userdirectorywidgetfound);
 	}
 
 	@And("^_23t1 contract opportunities viewer user should also be able to view system account widget$")
@@ -881,12 +875,6 @@ public class T1WorkspaceStep {
 	public void _24t1_fh_spa_should_be_able_to_view_federal_hierarchy_widget() throws Throwable {
 		boolean fhwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.FH_WIDGET);
 		Assert.assertEquals(true, fhwidgetfound);
-	}
-
-	@And("^_24t1 fh spa should be able to view upload aac widget$")
-	public void _24t1_fh_spa_should_be_able_to_view_upload_aac_widget() throws Throwable {
-		boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
-		Assert.assertEquals(true, aacwidgetfound);
 	}
 
 	@And("^_24t1 fh spa should be able to view collective bargaining widget$")
@@ -1055,11 +1043,7 @@ public class T1WorkspaceStep {
 		Assert.assertEquals(true, fhwidgetfound);
 	}
 
-	@And("^_29t1 user should be able to view aac widget$")
-	public void _29t1_user_should_be_able_to_view_aac_widget() throws Throwable {
-		boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
-		Assert.assertEquals(true, aacwidgetfound);
-	}
+	
 
 	@Given("^_30t1 user logs in with cospa fhspa and content manager role$")
 	public void _30t1_user_logs_in_with_cospa_fhspa_and_content_manager_role() throws Throwable {
@@ -1093,11 +1077,6 @@ public class T1WorkspaceStep {
 		Assert.assertEquals(true, fhwidgetfound);
 	}
 
-	@And("^_30t1 user should be able to view aac widget$")
-	public void _30t1_user_should_be_able_to_view_aac_widget() throws Throwable {
-		boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
-		Assert.assertEquals(true, aacwidgetfound);
-	}
 
 	@And("^_30t1 user should be able to view collective bargaining widget$")
 	public void _30t1_user_should_be_able_to_view_collective_bargaining_widget() throws Throwable {
@@ -1129,12 +1108,6 @@ public class T1WorkspaceStep {
 	public void _31t1_user_should_be_able_to_view_federal_hierarchy_widget() throws Throwable {
 		boolean fhwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.FH_WIDGET);
 		Assert.assertEquals(true, fhwidgetfound);
-	}
-
-	@And("^_31t1 user should be able to view aac widget$")
-	public void _31t1_user_should_be_able_to_view_aac_widget() throws Throwable {
-		boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
-		Assert.assertEquals(true, aacwidgetfound);
 	}
 
 	@And("^_31t1 user should be able to view collective bargaining widget$")
@@ -1367,55 +1340,7 @@ public class T1WorkspaceStep {
         Assert.assertEquals(false, userdiredtorywidgetfound);
     }
 
-	@Given("^_37t1 new user signs up$")
-	public void _37t1_new_user_signs_up() throws Throwable {
-		String counter = SignUpUtility.updatecounter("login.fed.accountno");
-		secretkey = SignUpUtility.signUpNewUser("octotestaccount1+newregistereduser'" + counter + "@gsa.gov",
-				Constants.USERPASS);
-		newid = "octotestaccount1+newregistereduser'" + counter + "@gsa.gov";
-
-		CommonProfilePage.enterFirstName("s'hah'");
-		CommonProfilePage.enterLastName("raiaan");
-		CommonProfilePage.enterWorkphone("5555555555");
-		LaunchBrowserUtil.scrollAllTheWayDown();
-		// CommonProfilePage.selectOrgIfFound(Constants.ORG_GSA, 0);
-		CommonProfilePage.clickSubmitButton();
-	}
-
-	@And("^_37t1 the user is given system manager role by spaad$")
-	public void _37t1_the_user_is_given_system_manager_role_by_spaad() throws Throwable {
-		SignInUtility.signIntoWorkspace(ConstantsAccounts.ROLE_ADMIN_USER_3, Constants.USERPASS,
-				ConstantsAccounts.ROLE_ADMIN_USER_3_SECRETKEY, Constants.USER_FED);
-		T1WorkspacePage.clickUserDirectoryLink();
-		UserDirectoryPage.searchUserInUserPicker(newid);
-		UserDirectoryPage.clickAssignRole(newid);
-		AssignRolePage.selectOrgIfFound(Constants.ORG_GSA);
-		AssignRolePage.selectRoleIfFound(Constants.ROLE_SYSTEM_MANAGER);
-		AssignRolePage.selectDomainIfFound(Constants.DOMAIN_ADMIN);
-		AssignRolePage.writeComment("test");
-		AssignRolePage.clickDone();
-		AssignRolePage.clickCloseButton();
-
-		boolean userAlreadyHasRole = UserDirectoryViewAccessPage.userHasRole(Constants.ORG_GSA,
-				Constants.ROLE_SYSTEM_MANAGER, Constants.DOMAIN_ADMIN, Constants.NOACTION);
-		Assert.assertEquals(true, userAlreadyHasRole);
-
-		LaunchBrowserUtil.delay(5);
-		LaunchBrowserUtil.closeBrowsers();
-	}
-
-	@When("^_37t1 the user logs in and clicks on the system account bubble with zero count$")
-	public void _37t1_the_user_logs_in_and_clicks_on_the_system_account_bubble_with_zero_count() throws Throwable {
-		SignInUtility.signIntoWorkspace(newid, Constants.USERPASS, secretkey, Constants.USER_FED);
-		T1WorkspacePage.clickPendingBubble();
-
-	}
-
-	@Then("^_37t1 the user should not be taken to the system account page$")
-	public void _37t1_the_user_should_not_be_taken_to_the_system_account_page() throws Throwable {
-		boolean newaccountButton = T1WorkspacePage.elementFound(SystemAccountDirectoryPageLocator.NEW_BUTTON);
-		Assert.assertEquals(false, newaccountButton);
-	}
+	
 
 	@Given("^_38t1 user logs in with tier1 help desk role$")
 	public void _38t1_user_logs_in_with_tier1_help_desk_role() throws Throwable {
@@ -1689,10 +1614,6 @@ public class T1WorkspaceStep {
 
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
-
-		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		Assert.assertEquals(true, getentityIdbuttonfound);
-
 	}
 
 	@And("^_45t1 user should be able to view entity compliance widget$")
@@ -1752,10 +1673,7 @@ public class T1WorkspaceStep {
 	public void _47t1_user_should_be_able_to_view_user_directory_widget_and_relevant_links() throws Throwable {
 		LaunchBrowserUtil.scrollToMiddle();
 		boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
-		Assert.assertEquals(true, userdirectorywidgetfound);
-
-		boolean userdirectorylinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_LINK);
-		Assert.assertEquals(true, userdirectorylinkfound);
+		Assert.assertEquals(false, userdirectorywidgetfound);
 	}
 
 	@And("^_47t1 user should be able to view entity management widget and relevant links$")
@@ -1770,9 +1688,6 @@ public class T1WorkspaceStep {
 
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
-
-		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		Assert.assertEquals(true, getentityIdbuttonfound);
 	}
 
 	@Given("^_48t1 user logs in with agency admin entity management role$")
@@ -1800,12 +1715,6 @@ public class T1WorkspaceStep {
 		boolean entitymanagementlandinglinkfound = T1WorkspacePage
 				.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_LANDING_LINK);
 		Assert.assertEquals(true, entitymanagementlandinglinkfound);
-
-		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
-		Assert.assertEquals(true, registerentitybuttonfound);
-
-		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		Assert.assertEquals(true, getentityIdbuttonfound);
 	}
 
 	@And("^_48t1 user should see collective bargaining widget$")
@@ -1844,8 +1753,6 @@ public class T1WorkspaceStep {
 		boolean registerentitybuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.REGISTER_ENTITY_BUTTON);
 		Assert.assertEquals(true, registerentitybuttonfound);
 
-		boolean getentityIdbuttonfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.GET_ENTITYID_BUTTON);
-		Assert.assertEquals(true, getentityIdbuttonfound);
 		// -----------
 		boolean entitymanagementactivebubble = T1WorkspacePage
 				.elementFound(T1WorkspacePageLocator.ENTITY_MANAGEMENT_ACTIVELINK);
@@ -1968,14 +1875,11 @@ public class T1WorkspaceStep {
 					ConstantsAccounts.DATA_ENTRY_ENTITYCOMPLIANCE_1_SECRETKEY, Constants.USER_FED);
 	    }
 
-	    @Then("^_51t1 user should be able to view user directory widget and relevant links$")
+	    @Then("^_51t1 user should not be able to view user directory widget and relevant links$")
 	    public void _51t1_user_should_be_able_to_view_user_directory_widget_and_relevant_links() throws Throwable {
 	    	LaunchBrowserUtil.scrollToMiddle();
 			boolean userdirectorywidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_WIDGET);
-			Assert.assertEquals(true, userdirectorywidgetfound);
-
-			boolean userdirectorylinkfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.USER_DIRECTORY_LINK);
-			Assert.assertEquals(true, userdirectorylinkfound);
+			Assert.assertEquals(false, userdirectorywidgetfound);
 	    }
 
 	    @And("^_51t1 user should be able to view entity compliance widget and relevant links$")
@@ -2000,12 +1904,6 @@ public class T1WorkspaceStep {
 			boolean servicecontractsubmittedlinkfound = T1WorkspacePage
 					.elementFound(T1WorkspacePageLocator.ENTITY_COMPLIANCE_SERVICECONTRACTSUBMITTED_LINK);
 			Assert.assertEquals(true, servicecontractsubmittedlinkfound);  
-	    }
-
-	    @And("^_51t1 user should see upload aac widget$")
-	    public void _51t1_user_should_see_upload_aac_widget() throws Throwable {
-	    	boolean aacwidgetfound = T1WorkspacePage.elementFound(T1WorkspacePageLocator.UPLOAD_AAC_WIDGET);
-			Assert.assertEquals(true, aacwidgetfound);
 	    }
 
 	private void beforeScenario() {
